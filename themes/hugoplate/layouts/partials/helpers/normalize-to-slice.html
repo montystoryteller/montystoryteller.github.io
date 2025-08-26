@@ -1,0 +1,8 @@
+{{ $input := . }}
+{{ $result := slice }}
+{{ if reflect.IsSlice $input }}
+{{ $result = $input }}
+{{ else if $input }}
+{{ $result = slice $input }}
+{{ end }}
+{{ return $result }}

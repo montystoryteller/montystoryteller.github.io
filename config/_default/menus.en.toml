@@ -1,0 +1,73 @@
+############# English navigation ##############
+
+# main menu
+[[main]]
+name = "Home"
+url = "/"
+weight = 1
+
+
+[[main]]
+weight = 2
+name = "Shows"
+
+[[main]]
+weight = 1
+parent = "Shows"
+name = "Upcoming"
+url = "/upcoming"
+
+[[main]]
+weight = 2
+parent = "Shows"
+name = "Booking"
+url = "/booking"
+
+[[main]]
+weight = 3
+parent = "Shows"
+name = "Previous"
+url = "/previous_shows"
+
+[[main]]
+weight = 4
+parent = "Shows"
+name = "Posters / flyers"
+url = "/flyers"
+
+
+[[main]]
+name = "Storynotes"
+url = "/storynotes"
+weight = 4
+
+[[main]]
+weight = 5
+name = "Collaboration"
+url = "/collaboration"
+
+[[main]]
+name = "Blog"
+url = "/blog"
+weight = 6
+
+[[main]]
+name = "About"
+url = "/about"
+weight = 7
+
+# footer menu
+[[footer]]
+name = "About"
+url = "/about"
+weight = 1
+
+[[footer]]
+name = "Categories"
+url = "/categories"
+weight = 2
+
+[[footer]]
+name = "Privacy Policy"
+url = "/privacy-policy"
+weight = 3
