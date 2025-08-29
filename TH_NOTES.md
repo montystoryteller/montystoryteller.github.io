@@ -1,5 +1,9 @@
 
 
+
+npm run dev
+
+
 Forms: https://un-static.com/how-to/add-hugo-contact-form  50 submissions per month?
 
 
