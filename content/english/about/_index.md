@@ -3,6 +3,7 @@ title: 'Tony "Monty" Hirst'
 meta_title: "About"
 description: "this is meta description"
 image: "/images/monty_drawing_jeremy_gully.jpg"
+image_caption: "*Charcoal sketch by Jeremy Gully, 2025*"
 draft: false
 ---
 
