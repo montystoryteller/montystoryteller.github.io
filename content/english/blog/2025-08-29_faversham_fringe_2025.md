@@ -3,7 +3,7 @@ title: "Unforeseen Consequences at Faversham Fringe 2025..."
 meta_title: "Announcement post for Tony 'Monty' Hirst traditional storytelling show 'Unforeseen Consequences' at Faversham Fringe on Sunday October 12th, 2025. "
 date: 2025-08-29T12:00:00
 image: "/images/monty_unforeseen-faversham.png"
-categories: [event]
+categories: [events]
 collaborator: [ ]
 tags: []
 draft: false

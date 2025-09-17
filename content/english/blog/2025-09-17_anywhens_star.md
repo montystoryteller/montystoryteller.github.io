@@ -11,6 +11,8 @@ draft: false
 ---
 Next Thursday, Septemeber 25th, 2025, from 7pm, I'll be back in [The Star](https://ryde.cafe/) along with Glenn''n'Sue, aka *The AnyWhens*, for a couple of hours turn taking songs'n'stories with a maritime time.
 
-Entry is free, the beer is good, so is the coffee, and the pizzas always hit the spot, so why not make a night of it, now the nights are starting to draw in, in one the snuggest pubs in Ryde...
+__Entry is free__, the beer is good, and so is the coffee, and the pizzas always hit the spot.
 
-[Flyer](images/flyers_gallery/2025_09_25_monty_anywhens_star.jpg)
+So why not pop the date in your diary to make a night of it, now the nights are drawing in, in one of the snuggest pubs in Ryde...
+
+![Flyer](images/flyers_gallery/2025_09_25_monty_anywhens_star.jpg)
