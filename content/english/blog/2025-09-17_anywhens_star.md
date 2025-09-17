@@ -2,7 +2,7 @@
 title: "Maritime Tales at the Star along with the AnyWhens"
 meta_title: "Storytelling and folk song announcement Monty and the AnyWhens, Star Coffee and ALe House, Ryde"
 description: "Announcing a free evening of storytelling and folk song / blues with a maritime theme at the Star Ale and Coffe House, Ryde, Isle of Wight, on Thursday September 25thm 2025, from 7pm till 9pm."
-date: 2025-09-17T20:00:00Z
+date: 2025-09-17T20:00:00
 image: "/images/glenn_sue_star.jpg"
 categories: ["events"]
 collaborator: [ "The AnyWhens"]
