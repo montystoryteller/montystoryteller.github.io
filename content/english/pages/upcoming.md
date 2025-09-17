@@ -33,6 +33,7 @@ features:
     image: "/images/monty_anywhens_vf.jpg"
     content: ""
     bulletpoints:
+      - "Songs and stories of the Luddites"
       - "St. Lawrence Village Hall, St. Lawrence, IW"
       - "Tickets: £8 (online or from  £8, available online (see link below) or from St Lawrence Post Office and Stores)."
  
