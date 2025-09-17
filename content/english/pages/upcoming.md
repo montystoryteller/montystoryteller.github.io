@@ -20,6 +20,7 @@ features:
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
     content: ""
     bulletpoints:
+      - "A young girl and her brother are given a secret that brings a community together, before a King’s purchase from a traveling tinker ruins his banqueting table. A family heirloom and a kindly deed bring other stories to mind, all in a world with too much time..."
       - "1 hour fringe show"
       - "Tickets: £6 + booking fee"
       - "Venue: __The Alex: Charter Room__ *Faversham Fringe*"
