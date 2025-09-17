@@ -3,8 +3,14 @@ name: Deploy Hugo site to Pages
 
 on:
   # Runs on pushes targeting the default branch
+  schedule:
+    # 2 AM UTC (3 AM BST) during summer
+    - cron: '0 2 * * *'
   push:
     branches: ["main"]
+
+  # Allow manual triggering
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
