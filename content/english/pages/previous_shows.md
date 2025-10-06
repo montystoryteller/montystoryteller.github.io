@@ -14,7 +14,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
-| Wednesday, 13th August, 2025 | Solo / (George & Mel) | The Met / (Pirate Festival), Ventnor | (miscellaneous tales) |
+| Thursday, 25th September 2025 |:--------:| :-----------: | ----: |
+| Wednesday, 13th August, 2025 | The AnyWhens / Solo | The Star, Ryde | (maritime songs and stories) |
 | Saturday, 26th July, 2025 | (The AnyWhens) / Solo | The Star Cider & Sausage Festival, Ryde | (miscellaneous tales) |
 | Friday, 25th July, 2025 | Monty + The AnyWhens | Bijou Tent, Ventnor Fringe | Protest Days, Rebellion Nights |
 | Saturday, 31st May, 2025 | Solo | New Park Centre Studio, Chichester Fringe | Unforeseen Consequences |

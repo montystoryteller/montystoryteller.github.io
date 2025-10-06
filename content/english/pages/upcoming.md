@@ -8,27 +8,17 @@ description: "This is meta description"
 # Features
 features:
 
-  - title: "Turn taking stories'n'songs with The AnyWhens] — The Star, Ryde —  Thurs 25th September 2025, 7pm"
-    image: "/images/anywhens_star.png"
-    content: ""
-    bulletpoints:
-      - "Traditional tales, and folk'n'blues songs, all with a maritime theme"
-      - "The Star Ale and Coffee House, Ryde, IW"
-      - "Thursday 25th September 2025, from 7pm. FREE ENTRY."
-      - "Turn taking traditional tales and folk songs with Genn'n'Sue, aka *The Anywhens*"
-
-  - title: "Unforeseen Consequences — Faversham Fringe — Sunday 12/10/25, 1pm[solo show]"
+  - title: "Dark Tales for Dark Nights — Carvel Lane Coffee House, Cowes — Thursday 23/10/25, 7pm [solo show]"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
     content: ""
     bulletpoints:
-      - "A young girl and her brother are given a secret that brings a community together, before a King’s purchase from a traveling tinker ruins his banqueting table. A family heirloom and a kindly deed bring other stories to mind, all in a world with too much time..."
-      - "1 hour fringe show"
-      - "Tickets: £6 + booking fee"
-      - "Venue: __The Alex: Charter Room__ *Faversham Fringe*"
+      - "Sinister stories for when the nights start to draw in..."
+      - "...with cake."
+      - "Tickets: £5 (reservation in advance essential)"
     button:
       enable: true
-      label: "Buy Tickets for Faversham Fringe show — 12/10/25"
-      link: "https://www.ticketsource.co.uk/whats-on/faversham/the-alexander-centre-charter-room/unforeseen-consequences/2025-10-12/13:00/"
+      label: "Reserve Tickets via @carvellanecoffee [Instagram]"
+      link: "https://www.instagram.com/carvellanecoffee/"
 
   - title: "Protest Days, Rebellion Nights [+ The AnyWhens] — St. Lawrence, IW — Saturday 22/11/25, 7.30pm"
     image: "/images/monty_anywhens_vf.jpg"
