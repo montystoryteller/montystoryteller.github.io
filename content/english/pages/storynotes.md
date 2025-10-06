@@ -12,7 +12,7 @@ features:
     image: "/images/storynotes/storynotes_island_initial2.jpg"
     content: ""
     bulletpoints:
-      - "Inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
+      - "Originally inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
       - "Original version + my own retelling + historical and contextual notes"
       - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*"
 
