@@ -26,8 +26,8 @@ features:
       - "Open to collaboration with other tellers"
     button:
       enable: true
-      label: "Buy Tickets for Faversham Fringe show — 12/10/25"
-      link: "https://www.ticketsource.co.uk/whats-on/faversham/the-alexander-centre-charter-room/unforeseen-consequences/2025-10-12/13:00/t-yarekrv"
+      label: "Reserve Tickets for Dark Tales — 23/10/25"
+      link: " Dark Tales — 23/10/25"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"

@@ -1,5 +1,5 @@
 ---
-title: "Unforeseen Consequences at Faversham Fringe 2025..."
+title: "CANCELLED — Unforeseen Consequences at Faversham Fringe 2025..."
 meta_title: "Announcement post for Tony 'Monty' Hirst traditional storytelling show 'Unforeseen Consequences' at Faversham Fringe on Sunday October 12th, 2025. "
 date: 2025-08-29T12:00:00
 image: "/images/monty_unforeseen-faversham.png"
@@ -15,8 +15,6 @@ My third and final fringe festival outing of the year for my original "Unforesee
 Features four traditional tales amd one original historical, all in a 1 hour show.
 
 - Faversham Fringe — ALexander Center, Charter Room — Sunday 12/10/25, 1pm
-- Tickets £6 + booking fee [available here](https://favershamfringe.co.uk/unforeseen-consequences)
-
-
+- CANCELLED
 
 *Appropriate all ages, aimed at adults.*
