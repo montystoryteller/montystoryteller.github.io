@@ -3,7 +3,7 @@ title: "Newport Minster Harvest Folk Night October 2025"
 meta_title: "Community folk night at Newport Minster, Isle of Wight, as part of harvest Festival celebrations."
 description: "Community folk night at Newport Minster, Isle of Wight, as part of harvest Festival celebrations."
 date: 2025-10-03T19:12:00
-image: "/images/flyers_gallery/2025_10_04_folknight_newportminster_harvest"
+image: "/images/flyers_gallery/2025_10_04_folknight_newportminster_harvest.png"
 categories: ["folk_nights"]
 collaborator: [ ]
 tags: ["Newport Minster", "folk night"]
