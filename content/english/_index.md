@@ -38,7 +38,7 @@ features:
     bulletpoints:
       - "__Current show:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales"
-      - "__NEXT FREE PUB SHOW (folk stories'n'songs): Star Ale & Coffee House, Ryde, Saturday, November 1st, 2025"
+      - "__NEXT FREE PUB SHOW (folk stories'n'songs): Star Ale & Coffee House, Ryde, Saturday, November 1st, 2025__"
     buttons:
       - enable: true
         label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
