@@ -11,6 +11,9 @@ banner:
     - enable: true
       label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
       link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
+    - enable: true
+      label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
+      link: "https://octoberbooks.lemonbooking.com/events/116/details"
 
 # Features
 features:
@@ -35,11 +38,14 @@ features:
     bulletpoints:
       - "__Current show:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales"
-      - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC"
-    button:
-      enable: true
-      label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
-      link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
+      - "__NEXT FREE PUB SHOW (folk stories'n'songs): Star Ale & Coffee House, Ryde, Saturday, November 1st, 2025"
+    buttons:
+      - enable: true
+        label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
+        link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
+      - enable: true
+        label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
+        link: "https://octoberbooks.lemonbooking.com/events/116/details"
 
   - title: "Tea Tales"
     image: "/images/teatales_logo_red_on_transparent.png"

@@ -34,6 +34,21 @@ features:
       link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
 
 
+  - title: "Protest Days, Rebellion Nights [+ The AnyWhens] — October Books, Southampton — Thursday 04/12/25, 7.00pm"
+    image: "/images/monty_anywhens_vf.jpg"
+    content: ""
+    bulletpoints:
+      - "Songs and stories of the Luddites"
+      - "October Books, Southampton"
+      - "Tickets: £10"
+ 
+    button:
+      enable: true
+      label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
+      link: "https://octoberbooks.lemonbooking.com/events/116/details"
+
+
+
 # save as draft
 draft: false
 ---
