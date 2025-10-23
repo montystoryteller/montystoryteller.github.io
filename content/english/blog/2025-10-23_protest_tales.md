@@ -20,4 +20,4 @@ draft: false
 
 On __Saturday, November 22nd, 2025__, we'll be doing a reprise of our sold out show at Ventnor Fringe earlier this year, *"Protest Days, Rebellion Nights: stories and songs of the Luddites"* at St Lawrence Village Hall (doors at 7pm, show starts at 8pm). *[Tickets, priced £8, available here.](https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights)*
 
-Then a couple of weeks, later, on __Thursday, December 4th, 2025__, we'll be making our first trip over to the mainland, to give a performance of the same show at [October Books, Southampton](https://octoberbooks.org/) (doors 7pm). *[Tickets, priced £10, available here.](https://octoberbooks.lemonbooking.com/events/116/details)*
+Then a couple of weeks, later, on __Thursday, December 4th, 2025__, we'll be making our first trip over to the mainland, to give a performance of the same show, at [October Books, Southampton](https://octoberbooks.org/) (doors 7pm). *[Tickets, priced £10, available here.](https://octoberbooks.lemonbooking.com/events/116/details)*
