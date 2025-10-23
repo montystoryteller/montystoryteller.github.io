@@ -3,7 +3,7 @@ title: "Protest Days, Rebellion Nights, Winter 2025"
 meta_title: "Storytelling and folk music shows at Sr Lawrence Village Hall, Isle of Wight, and October Books Southampton; Monty storyteller; The AnyWhens; folk music; songs and stories of the Luddites; Luddites; Luddism, Blanketeers; protest tales; "
 description: "Announcing two evenings of stories and songs about the Luddites, at St Lawrence, Isle of Wight, and October Books, Southampton, as performed by Month and The AnyWhens (Glenn Koppany and Sue Cain)"
 date: 2025-10-23T12:07:53
-image: "/images/flyers_gallery2025_12_04_manywhens_stlawrence_octoberbooks.png"
+image: "/images/flyers_gallery/2025_12_04_manywhens_stlawrence_octoberbooks.png"
 categories: ["events"]
 collaborator: [  "The AnyWhens"]
 tags: ["October Books, Southampton", "St Lawrence Village Hall"]
