@@ -6,9 +6,6 @@ banner:
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
     - enable: true
-      label: "Reserve Tickets for Dark Tales — 23/10/25"
-      link: "https://www.instagram.com/carvellanecoffee/"
-    - enable: true
       label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
       link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
     - enable: true
