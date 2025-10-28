@@ -3,22 +3,10 @@ title: "Upcoming"
 # meta title
 meta_title: ""
 # meta description
-description: "This is meta description"
+description: "Upcoming shows and live performances for Tony Montty Hirst, Isle of Wight based storyteller, and Monty and the AnyWhens (collaboration with folk duo Glenn Koppany and Sue Cain)"
 
 # Features
 features:
-
-  - title: "Dark Tales for Dark Nights — Carvel Lane Coffee House, Cowes — Thursday 23/10/25, 7pm [solo show]"
-    image: "/images/TH_GrahamBrown_face-1200x800.jpg"
-    content: ""
-    bulletpoints:
-      - "Sinister stories for when the nights start to draw in..."
-      - "...with cake."
-      - "Tickets: £5 (reservation in advance essential)"
-    button:
-      enable: true
-      label: "Reserve Tickets via @carvellanecoffee [Instagram]"
-      link: "https://www.instagram.com/carvellanecoffee/"
 
   - title: "Protest Days, Rebellion Nights [+ The AnyWhens] — St. Lawrence, IW — Saturday 22/11/25, 7.30pm"
     image: "/images/monty_anywhens_vf.jpg"

@@ -14,6 +14,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Thursday, 23rd October 2025 | Dark Tales | Carvel Lane Coffee House, Cowes | Dark stories freeform set |
+|Saturday, 18th October 2025 | Supporting Glenn Koppany | Craft 101, East Cowes | (bar tales) |
 |Saturday, 4th October 2025 | Invitation Folk Night | Newport Minster, Newport | (harvest/seasonal stories) |
 |Thursday, 25th September 2025 | The AnyWhens / Solo | The Star, Ryde | (maritime & follow-on tales) |
 | Wednesday, 13th August, 2025 | The AnyWhens / Solo | The Met / (Pirate Festival), Ventnor | (miscellaneous tales) |
