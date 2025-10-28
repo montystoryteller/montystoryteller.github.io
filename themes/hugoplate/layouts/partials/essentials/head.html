@@ -65,7 +65,9 @@
 <!-- Mermaid 
 {{ partial "mermaid/assets/js" . }}
 -->
-
+<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} - Blog"
+  href="{{ .Site.BaseURL }}/blog/index.xml">
+  
 {{ if eq .Section "blog" }}
 <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} - Blog"
   href="{{ .Site.BaseURL }}/blog/index.xml">

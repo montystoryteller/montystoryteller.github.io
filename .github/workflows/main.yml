@@ -82,3 +82,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4.0.5
+      - name: Ping WebSub Hub
+        run: |
+          curl -X POST https://pubsubhubbub.appspot.com/ \
+            -d "hub.mode=publish" \
+            -d "hub.url=https://montystoryteller.org/blog/index.xml"
