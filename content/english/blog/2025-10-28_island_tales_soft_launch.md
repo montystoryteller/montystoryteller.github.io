@@ -17,7 +17,7 @@ This is still print on demand, but it's a bit cheaper, and also hooks into Amazo
 
 The first two installments in this *Island Tales* series build on tales penned by Abraham Elder.
 
-- *A Legend* of Godshill* reproduces Elder's version of the tale as well as my take on it, Percy Stone's lay, excertps from 19th century tourist guides, and a biographical note on Abraham Elder;
+- *A Legend of Godshill* reproduces Elder's version of the tale as well as my take on it, Percy Stone's lay, excerpts from 19th century tourist guides, and a biographical note on Abraham Elder;
 
 - *A Legend of Puckaster Cove* includes Elder's original version of the tale, something approximating my first retelling of it a couple or more years ago, and some historical notes that once again pull on 19th century travel guides to the Island.
 
