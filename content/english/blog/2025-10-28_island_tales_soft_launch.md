@@ -26,4 +26,4 @@ The first two installments in this *Island Tales* series build on tales penned b
 Whenever I do a show in future, I'll try to bring a copy or two of the booklets along, at a discounted price. But they're also up on Amazon:
 
 - *A Legend of Godshill* — [Amazon: *paperback and ebook*](https://www.amazon.co.uk/Legend-Puckaster-Cove-Island-Tales/dp/B0FPN7VCVK/)
-- *A Legend of Puckaster Cove* [Amazon: *paperback and ebook*](https://www.amazon.co.uk/Legend-Godshill-Island-Tales/dp/B0FPRFD1QS/)
+- *A Legend of Puckaster Cove* — [Amazon: *paperback and ebook*](https://www.amazon.co.uk/Legend-Godshill-Island-Tales/dp/B0FPRFD1QS/)
