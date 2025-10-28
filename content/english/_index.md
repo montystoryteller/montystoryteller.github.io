@@ -25,7 +25,7 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
     button:
-      enable: true
+      enable: false
       label: "Reserve Tickets for Dark Tales — 23/10/25"
       link: " Dark Tales — 23/10/25"
 
