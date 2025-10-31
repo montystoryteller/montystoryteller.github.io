@@ -1,5 +1,5 @@
 ---
-title: "Protest Days, Rebellion Nights, Winter 2025"
+title: "Protest Days, Rebellion Nights, October Books, Dec. 4th, 2025"
 meta_title: "Storytelling and folk music show at October Books Southampton; Monty storyteller; The AnyWhens; folk music; songs and stories of the Luddites; Luddites; Luddism, Blanketeers; protest tales; "
 description: "Announcing an evening of stories and songs about the Luddites, at October Books, Southampton, as performed by Monty and The AnyWhens (Glenn Koppany and Sue Cain)"
 date: 2025-10-31T16:47:42
