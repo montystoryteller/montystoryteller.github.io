@@ -9,7 +9,7 @@ collaborator: [ "The AnyWhens"]
 tags: ["The Star, Ryde"]
 draft: false
 ---
-Next Thursday, September 25th, 2025, from 7pm, I'll be back in [The Star](https://ryde.cafe/) along with Glenn''n'Sue, aka *The AnyWhens*, for a couple of hours turn taking songs'n'stories with a maritime time.
+Next Thursday, September 25th, 2025, from 7pm, I'll be back in [The Star](https://ryde.cafe/) along with Glenn'n'Sue, aka *The AnyWhens*, for a couple of hours turn taking songs'n'stories with a maritime time.
 
 __Entry is free__, the beer is good, and so is the coffee, and the pizzas always hit the spot.
 
