@@ -6,7 +6,7 @@ date: 2025-10-31T16:47:42
 image: "/images/flyers_gallery/2025_12_04_manywhens_protestdays_octoberbooks.png"
 categories: ["events"]
 collaborator: [  "The AnyWhens"]
-tags: ["October Books, Southampton"]
+tags: ["October Books, Southampton", "Monty + THe AnyWhens"]
 draft: false
 ---
 

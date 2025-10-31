@@ -6,7 +6,7 @@ date: 2025-09-17T20:00:00
 image: "/images/glenn_sue_star.jpg"
 categories: ["events"]
 collaborator: [ "The AnyWhens"]
-tags: ["The Star, Ryde"]
+tags: ["The Star, Ryde", "Monty + THe AnyWhens"]
 draft: false
 ---
 Next Thursday, September 25th, 2025, from 7pm, I'll be back in [The Star](https://ryde.cafe/) along with Glenn'n'Sue, aka *The AnyWhens*, for a couple of hours turn taking songs'n'stories with a maritime time.
