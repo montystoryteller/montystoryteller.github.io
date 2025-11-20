@@ -68,7 +68,11 @@ features:
       - "Retellings of traditional tales alongside original versions"
       - "Collated contemporary newspaper reports for historical tales"
     buttons:
-      - enable: false
-        label: ""
-        link: ""
+      - enable: true
+        label: "Island Tales series booklets on Amazon.co.uk"
+        link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
+      - enable: true
+        label: "Protest Tales series booklets on Amazon.co.uk"
+        link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
+
 ---
