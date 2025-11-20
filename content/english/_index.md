@@ -24,7 +24,7 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "NEXT SHOW: "Winter Tales", Carvel Lane Coffee House, Cowes, Weds December 10th, 2025, 7pm"
+      - "NEXT SHOW: \"Winter Tales\", Carvel Lane Coffee House, Cowes, Weds December 10th, 2025, 7pm"
     button:
       enable: true
       label: "Reserve Tickets for Winter Tales — 10/12/25"
