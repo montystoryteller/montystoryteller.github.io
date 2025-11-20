@@ -35,7 +35,18 @@ features:
       label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
       link: "https://octoberbooks.lemonbooking.com/events/116/details"
 
-
+  - title: "Winter Tales — Carvel Lane Coffee House, Cowes — Thursday 23/10/25, 7pm [solo show]"
+    image: "/images/TH_GrahamBrown_face-1200x800.jpg"
+    content: ""
+    bulletpoints:
+      - "A set of seasonal Winter Tales"
+      - "Featuring: Sir Gawain and the Green Knight; The Winter Cherries; The Cursed Dancers of Colbeck; The Juniper Tree"
+      - "Tickets: £5 (reservation in advance essential)"
+      - "Reserve tickets in the Carvel Lane Coffee House, or via their Facebook or Instagram page"
+    button:
+      enable: true
+      label: "Reserve Tickets via @carvellanecoffee [Instagram]"
+      link: "https://www.instagram.com/carvellanecoffee/"
 
 # save as draft
 draft: false

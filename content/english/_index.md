@@ -24,10 +24,11 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
+      - "NEXT SHOW: "Winter Tales", Carvel Lane Coffee House, Cowes, Weds December 10th, 2025, 7pm"
     button:
-      enable: false
-      label: "Reserve Tickets for Dark Tales — 23/10/25"
-      link: " Dark Tales — 23/10/25"
+      enable: true
+      label: "Reserve Tickets for Winter Tales — 10/12/25"
+      link: " Winter Tales — 20/13/25"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
