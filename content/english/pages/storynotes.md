@@ -15,6 +15,10 @@ features:
       - "Originally inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
       - "Original version + my own retelling + historical and contextual notes"
       - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*"
+    button:
+      enable: true
+      label: "Island Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
 
   - title: "*Protest Tales* series"
     image: "/images/storynotes/storynotes_protest_initial3.jpg"
@@ -24,6 +28,10 @@ features:
       - "Collections of original newspaper reports"
       - "'Remembered' tales from within living memory"
       - "__Series includes:__ *The Tale of Benjamin Topham*, *The March of the Blanketeers*, *Folly at Folly Hall*"
+    button:
+      enable: true
+      label: "Protest Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
 
   - title: "Online series"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
