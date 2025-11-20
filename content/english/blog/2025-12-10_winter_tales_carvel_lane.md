@@ -2,8 +2,8 @@
 title: "Winter Tales at Carvel Lane Coffee House"
 meta_title: "Storytelling show at Carvel Lane Coffee House, Cowes; Monty storyteller; winter tales; seasonal tales; Christmas tales; Christmas storytelling; Isle of Wight."
 description: "Announcing an evening of storytelling, featuring seasonal Witner tales with a mediaeval twist, at the Carvel Lane Coffee House, Cowes, Isle of Wight, on Wednesday December 10th 2025, from 7pm till 9.30pm. With cake."
-date: 2025-10-06T20:00:00
-image: "/images/flyers_gallery/2025_12_10_solo_carvel-winter-cherries"
+date: 2025-11-20T13:14:00
+image: "/images/flyers_gallery/2025_12_10_solo_carvel-winter-cherries.png"
 categories: ["events"]
 collaborator: [ ]
 tags: ["Carvel Lane Coffee House, Cowes"]
