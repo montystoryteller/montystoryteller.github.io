@@ -11,10 +11,10 @@ banner:
     - enable: true
       label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
       link: "https://octoberbooks.lemonbooking.com/events/116/details"
-    - enable: true
+    - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
-    - enable: true
+    - enable: false
       label: "Buy 'Protest Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
 
