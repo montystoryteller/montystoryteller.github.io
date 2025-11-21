@@ -6,7 +6,7 @@ date: 2025-10-23T12:07:53
 image: "/images/flyers_gallery/2025_12_04_manywhens_stlawrence_octoberbooks.png"
 categories: ["events"]
 collaborator: [  "The AnyWhens"]
-tags: ["October Books, Southampton", "St Lawrence Village Hall", "Monty + THe AnyWhens"]
+tags: ["October Books, Southampton", "St Lawrence Village Hall", "Monty + The AnyWhens"]
 draft: false
 ---
 

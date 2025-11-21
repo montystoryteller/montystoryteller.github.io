@@ -6,7 +6,7 @@ date: 2025-10-30T14:12:22
 image: "/images/monty_anywhens_star_blank.png"
 categories: ["events"]
 collaborator: [  "The AnyWhens"]
-tags: ["The Star, Ryde", "Monty + THe AnyWhens"]
+tags: ["The Star, Ryde", "Monty + The AnyWhens"]
 draft: false
 ---
 
