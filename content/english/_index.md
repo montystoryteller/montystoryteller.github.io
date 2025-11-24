@@ -6,8 +6,8 @@ banner:
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
     - enable: true
-      label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
-      link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
+      label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
+      link: "https://www.facebook.com/profile.php?id=61583286699008"
     - enable: true
       label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
       link: "https://octoberbooks.lemonbooking.com/events/116/details"
@@ -34,7 +34,7 @@ features:
     button:
       enable: true
       label: "Reserve Tickets for Winter Tales — 10/12/25"
-      link: " Winter Tales — 20/13/25"
+      link: "https://www.instagram.com/carvellanecoffee/"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
@@ -42,9 +42,9 @@ features:
     bulletpoints:
       - "__Current show:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales"
-      - "__NEXT FREE PUB SHOW (folk stories'n'songs): Star Ale & Coffee House, Ryde, Saturday, November 1st, 2025__"
+      - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
     buttons:
-      - enable: true
+      - enable: false
         label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
         link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
       - enable: true

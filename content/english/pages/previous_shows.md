@@ -14,6 +14,7 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Saturday, November 22nd, 2025 | Monty + The AnyWhens | Village Hall, St Lawrence | Protest Days, Rebellion Nights |
 | Saturday, November 1st, 2025 | The AnyWhens / Solo | The Star, Ryde | (Samhain tales) |
 | Thursday, 23rd October 2025 | Dark Tales | Carvel Lane Coffee House, Cowes | Dark stories freeform set |
 |Saturday, 18th October 2025 | Supporting Glenn Koppany | Craft 101, East Cowes | (bar tales) |
