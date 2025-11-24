@@ -10,7 +10,7 @@ draft: false
 
 # Previous Shows
 
-*The following listing details booked and/or ticketed events I have been involved with. Folk nights, open mic events, story circles &c. are too numerous to list... Informal `Tea Tales` pop-up sessions in festival tea tents are also ommitted.*
+*The following listing details booked and/or ticketed events I have been involved with. Folk nights, open mic events, story circles &c. are too numerous to list... Informal `Tea Tales` pop-up sessions in festival tea tents are also omitted.*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
@@ -54,14 +54,14 @@ draft: false
 | Wednesday, 10th May, 20230 | Solo | Athanor, Ventnor | And the Girl Played On |
 | Wednesday, 26th April, 2023 | 'Tis Tales | Freshwater Library, Freshwater | (traditional tales) |
 | Wednesday, 15th March, 2023 | 'Tis Tales | Bar 74, Ryde | Spring Stories |
-| Thrusday, 2nd February, 2023 | Solo | Babushka Books, Shanklin | Verging on Nonsense |
+| Thursday, 2nd February, 2023 | Solo | Babushka Books, Shanklin | Verging on Nonsense |
 | Wednesday, 1st February, 2023 | Solo | Athanor, Ventnor | Travelling the Road |
 | Thursday, 15th December, 2022 | 'Tis Tales | Boojum & Snark, Sandown | Winter Tales |
-| Friday, 28th October, 2022 | 'Tis Tales | Fort Victoria | Sinster Tales |
+| Friday, 28th October, 2022 | 'Tis Tales | Fort Victoria | Sinister Tales |
 | Saturday, 8th October, 2022 | 'Tis Tales | Medina Books, Cowes | Island Tales |
 | Tuesday-Thursday, 26th July, 2022 | Solo | Book bus, Ventnor Fringe | Discovering Ukrainian Folk Tales |
-| Saturday, 23rd July, 2022 | 'Tis Tales | Ventor Arts Club, Ventnor Fringe | Island Tales |
+| Saturday, 23rd July, 2022 | 'Tis Tales | Ventnor Arts Club, Ventnor Fringe | Island Tales |
 | Sunday, 10th July, 2022 | Solo | Rhythm Tree Festival, IW | Lost Tales |
 | Thursday, 23rd June, 2022 | Three Island Storytellers | Boojum & Snark, Sandown | Even More Traditional Tales|
 | Tuesday, 24th May, 2022 | Three Island Storytellers | Ventnor Exchange, Ventnor | More Traditional Tales|
-| Wednesday, 16th March, 2022 | Three Island Storytellers | Boojum & Snark, Sandown | An Evening of TraditionalTtales|
+| Wednesday, 16th March, 2022 | Three Island Storytellers | Boojum & Snark, Sandown | An Evening of Traditional Tales|
