@@ -42,7 +42,7 @@ features:
       - "A set of seasonal Winter Tales"
       - "Featuring: Sir Gawain and the Green Knight; The Winter Cherries; The Cursed Dancers of Colbeck; The Juniper Tree"
       - "Tickets: £5 (reservation in advance essential)"
-      - "Reserve tickets in the Carvel Lane Coffee House, or via their Facebook or Instagram page"
+      - "Reserve tickets in the Carvel Lane Coffee House, email carvellanecoffee gmail DOT com, or via their Facebook or Instagram page"
     button:
       enable: true
       label: "Reserve Tickets via @carvellanecoffee [Instagram]"
