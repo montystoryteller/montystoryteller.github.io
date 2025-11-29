@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .events-list {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .event {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        .event-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .event-date {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .no-events {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Storytelling Events Calendar</h1>
+
+    <div class="controls">
+        <div class="button-group">
+            <button onclick="showThisWeek()">This Week</button>
+            <button onclick="showNextWeek()">Next Week</button>
+        </div>
+        <div class="date-inputs">
+            <label>From:</label>
+            <input type="date" id="startDate">
+            <label>To:</label>
+            <input type="date" id="endDate">
+            <button onclick="showDateRange()">Show Events</button>
+        </div>
+    </div>
+
+    <div class="events-list" id="eventsList"></div>
+
+    <script>
+        const events = [
+            { name: "Sheffield Story Forge", schedule: "3rd tuesday" },
+            { name: "Matlock storytelling circle", schedule: "last wednesday" },
+            { name: "Leicester Story Tree", schedule: "1st tuesday" },
+            { name: "Exeter Story Club", schedule: "2nd wednesday" },
+            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday" },
+            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday" },
+            { name: "Beeston Tales", schedule: "3rd wednesday" },
+            { name: "Matlock Storytelling Cafe", schedule: "1st friday" },
+            { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday" },
+            { name: "Huddersfield story circle - Rat and Ratchett pub", schedule: "2nd monday" },
+            { name: "Haworth storytelling circle", schedule: "1st thursday" },
+            { name: "Chester Triple Spiral", schedule: "1st tuesday" },
+            { name: "Cambridge Storytelling", schedule: "2nd sunday" },
+            { name: "Cambridge Storytelling (alt)", schedule: "2nd friday" },
+            { name: "Mendip Storytellers", schedule: "2nd wednesday" },
+            { name: "Surrey 3 Heads in a well storytellers", schedule: "4th friday" },
+            { name: "Bletchley Tales tattled and told", schedule: "3rd saturday" },
+            { name: "South Devon storytellers (Totnes)", schedule: "3rd wednesday" },
+            { name: "North Devon (Torrington)", schedule: "1st thursday" },
+            { name: "Liskeard Storytelling Cafe", schedule: "4th thursday" },
+            { name: "Lichfield", schedule: "1st tuesday" },
+            { name: "Wirral Quirky Tales", schedule: "2nd tuesday" },
+            { name: "Winchester Wykeham Tales", schedule: "2nd wednesday" },
+            { name: "Newhaven storytellers", schedule: "2nd tuesday" },
+            { name: "Southampton Story Club", schedule: "1st thursday" },
+            { name: "Sarum Story club", schedule: "3rd tuesday" },
+            { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday" },
+            { name: "Dartmoor Storytellers", schedule: "2nd wednesday" },
+            { name: "Newcastle - A bit of a crack", schedule: "1st friday" },
+            { name: "Cardiff Story circle", schedule: "1st sunday" },
+            { name: "Frome storytelling circle - 3 swans", schedule: "last monday" },
+            { name: "Brighton Tell Tales - Nicky Day", schedule: "1st wednesday" },
+            { name: "Leek storytellers - Julie Moss", schedule: "2nd wednesday" },
+            { name: "Sale - Brook pub Brooklands - Phil", schedule: "4th monday" },
+            { name: "Much Wenlock, Salop - words at the edge - Mike Rust", schedule: "2nd monday" },
+            { name: "Manchester - Sting in the Tale", schedule: "3rd wednesday" }
+        ];
+
+        const specificEvents = [
+            { name: "Winter Tales", date: "2025-12-10", location: "Carvel Lane Coffee House" },
+            { name: "Northampton Storytellers", date: "2024-12-03", location: "" }
+        ];
+
+        // Events with incomplete information (no specific schedule):
+        // - Storytellers of Nottingham (monthly wednesday/thursday - varies)
+        // - Dundee blethertaygither (2nd last Thursday)
+        // - Shoreham Ropetackle storytellers (no schedule provided)
+        // - Aberdeen Grampian Association of storytellers (no schedule provided)
+        // - New Forest Storytellers Ringwood (no schedule provided)
+        // - Bishops Castle BLAST (no schedule provided)
+
+        function getWeekStart(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+            return new Date(d.setDate(diff));
+        }
+
+        function getWeekEnd(weekStart) {
+            const end = new Date(weekStart);
+            end.setDate(end.getDate() + 6);
+            return end;
+        }
+
+        function parseSchedule(schedule, startDate, endDate) {
+            const results = [];
+            const [occurrence, dayName] = schedule.toLowerCase().split(/\s+/);
+            const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+            const targetDay = dayMap[dayName];
+
+            const current = new Date(startDate);
+            const end = new Date(endDate);
+
+            while (current <= end) {
+                const year = current.getFullYear();
+                const month = current.getMonth();
+
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+
+                let eventDate = null;
+
+                if (occurrence === 'last') {
+                    for (let d = lastDay.getDate(); d >= 1; d--) {
+                        const testDate = new Date(year, month, d);
+                        if (testDate.getDay() === targetDay) {
+                            eventDate = testDate;
+                            break;
+                        }
+                    }
+                } else {
+                    const occurrenceNum = occurrence === '1st' ? 1 : occurrence === '2nd' ? 2 : occurrence === '3rd' ? 3 : 4;
+                    let count = 0;
+                    for (let d = 1; d <= lastDay.getDate(); d++) {
+                        const testDate = new Date(year, month, d);
+                        if (testDate.getDay() === targetDay) {
+                            count++;
+                            if (count === occurrenceNum) {
+                                eventDate = testDate;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (eventDate && eventDate >= startDate && eventDate <= endDate) {
+                    results.push(eventDate);
+                }
+
+                current.setMonth(current.getMonth() + 1);
+            }
+
+            return results;
+        }
+
+        function displayEvents(startDate, endDate) {
+            const eventsList = document.getElementById('eventsList');
+            const allEvents = [];
+
+            events.forEach(event => {
+                const dates = parseSchedule(event.schedule, startDate, endDate);
+                dates.forEach(date => {
+                    allEvents.push({
+                        name: event.name,
+                        date: date,
+                        schedule: event.schedule,
+                        location: null
+                    });
+                });
+            });
+
+            specificEvents.forEach(event => {
+                const eventDate = new Date(event.date);
+                if (eventDate >= startDate && eventDate <= endDate) {
+                    allEvents.push({
+                        name: event.name,
+                        date: eventDate,
+                        schedule: null,
+                        location: event.location
+                    });
+                }
+            });
+
+            allEvents.sort((a, b) => a.date - b.date);
+
+            if (allEvents.length === 0) {
+                eventsList.innerHTML = '<div class="no-events">No events in this period</div>';
+                return;
+            }
+
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            eventsList.innerHTML = allEvents.map(event => {
+                const dayName = daysOfWeek[event.date.getDay()];
+                const day = event.date.getDate();
+                const month = months[event.date.getMonth()];
+                const year = event.date.getFullYear();
+
+                const scheduleText = event.schedule ? ` (${event.schedule})` : '';
+                const locationText = event.location ? `<div class="event-date">${event.location}</div>` : '';
+
+                return `
+                    <div class="event">
+                        <div class="event-name">${event.name}</div>
+                        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}</div>
+                        ${locationText}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showThisWeek() {
+            const today = new Date();
+            const weekStart = getWeekStart(today);
+            const weekEnd = getWeekEnd(weekStart);
+            displayEvents(weekStart, weekEnd);
+        }
+
+        function showNextWeek() {
+            const today = new Date();
+            const thisWeekStart = getWeekStart(today);
+            const nextWeekStart = new Date(thisWeekStart);
+            nextWeekStart.setDate(nextWeekStart.getDate() + 7);
+            const nextWeekEnd = getWeekEnd(nextWeekStart);
+            displayEvents(nextWeekStart, nextWeekEnd);
+        }
+
+        function showDateRange() {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (!startInput) {
+                alert('Please select at least a start date');
+                return;
+            }
+
+            let startDate = new Date(startInput);
+            let endDate;
+
+            if (!endInput) {
+                // If only start date provided, show that week
+                const weekStart = getWeekStart(startDate);
+                const weekEnd = getWeekEnd(weekStart);
+                displayEvents(weekStart, weekEnd);
+            } else {
+                endDate = new Date(endInput);
+
+                if (startDate > endDate) {
+                    alert('Start date must be before end date');
+                    return;
+                }
+
+                displayEvents(startDate, endDate);
+            }
+        }
+
+        showThisWeek();
+    </script>
+</body>
+
+</html>
