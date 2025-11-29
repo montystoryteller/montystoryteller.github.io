@@ -41,10 +41,16 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            transition: all 0.3s;
         }
 
         button:hover {
             background-color: #45a049;
+        }
+
+        button.active {
+            background-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
         }
 
         .date-inputs {
@@ -57,6 +63,18 @@
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        input[type="date"].active {
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
         }
 
         .events-list {
@@ -74,15 +92,60 @@
             border-radius: 4px;
         }
 
+        .event.special {
+            background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
         .event-name {
             font-weight: bold;
             color: #333;
             font-size: 16px;
         }
 
+        .event.special .event-name {
+            color: #ffffff;
+        }
+
         .event-date {
             color: #666;
             margin-top: 5px;
+        }
+
+        .event.special .event-date {
+            color: #e8f5e9;
+        }
+
+        .event-location {
+            color: #888;
+            font-style: italic;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        .event.special .event-location {
+            color: #c8e6c9;
+        }
+
+        .event-name a {
+            color: #333;
+            text-decoration: none;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .event.special .event-name a {
+            color: #ffffff !important;
+            border-bottom: 2px solid #ffeb3b !important;
+        }
+
+        .event-name a:hover {
+            border-bottom-color: #45a049;
+        }
+
+        .event.special .event-name a:hover {
+            border-bottom-color: #fff59d !important;
         }
 
         .no-events {
@@ -98,15 +161,15 @@
 
     <div class="controls">
         <div class="button-group">
-            <button onclick="showThisWeek()">This Week</button>
-            <button onclick="showNextWeek()">Next Week</button>
+            <button id="thisWeekBtn" onclick="showThisWeek()">This Week</button>
+            <button id="nextWeekBtn" onclick="showNextWeek()">Next Week</button>
         </div>
         <div class="date-inputs">
             <label>From:</label>
-            <input type="date" id="startDate">
+            <input type="date" id="startDate" onchange="handleDateChange()">
             <label>To:</label>
-            <input type="date" id="endDate">
-            <button onclick="showDateRange()">Show Events</button>
+            <input type="date" id="endDate" onchange="handleDateChange()">
+            <button id="showBtn" onclick="showDateRange()">Show Events</button>
         </div>
     </div>
 
@@ -114,47 +177,48 @@
 
     <script>
         const events = [
-            { name: "Sheffield Story Forge", schedule: "3rd tuesday" },
-            { name: "Matlock storytelling circle", schedule: "last wednesday" },
-            { name: "Leicester Story Tree", schedule: "1st tuesday" },
-            { name: "Exeter Story Club", schedule: "2nd wednesday" },
-            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday" },
-            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday" },
-            { name: "Beeston Tales", schedule: "3rd wednesday" },
-            { name: "Matlock Storytelling Cafe", schedule: "1st friday" },
-            { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday" },
-            { name: "Huddersfield story circle - Rat and Ratchett pub", schedule: "2nd monday" },
-            { name: "Haworth storytelling circle", schedule: "1st thursday" },
-            { name: "Chester Triple Spiral", schedule: "1st tuesday" },
-            { name: "Cambridge Storytelling", schedule: "2nd sunday" },
-            { name: "Cambridge Storytelling (alt)", schedule: "2nd friday" },
-            { name: "Mendip Storytellers", schedule: "2nd wednesday" },
-            { name: "Surrey 3 Heads in a well storytellers", schedule: "4th friday" },
-            { name: "Bletchley Tales tattled and told", schedule: "3rd saturday" },
-            { name: "South Devon storytellers (Totnes)", schedule: "3rd wednesday" },
-            { name: "North Devon (Torrington)", schedule: "1st thursday" },
-            { name: "Liskeard Storytelling Cafe", schedule: "4th thursday" },
-            { name: "Lichfield", schedule: "1st tuesday" },
-            { name: "Wirral Quirky Tales", schedule: "2nd tuesday" },
-            { name: "Winchester Wykeham Tales", schedule: "2nd wednesday" },
-            { name: "Newhaven storytellers", schedule: "2nd tuesday" },
-            { name: "Southampton Story Club", schedule: "1st thursday" },
-            { name: "Sarum Story club", schedule: "3rd tuesday" },
-            { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday" },
-            { name: "Dartmoor Storytellers", schedule: "2nd wednesday" },
-            { name: "Newcastle - A bit of a crack", schedule: "1st friday" },
-            { name: "Cardiff Story circle", schedule: "1st sunday" },
-            { name: "Frome storytelling circle - 3 swans", schedule: "last monday" },
-            { name: "Brighton Tell Tales - Nicky Day", schedule: "1st wednesday" },
-            { name: "Leek storytellers - Julie Moss", schedule: "2nd wednesday" },
-            { name: "Sale - Brook pub Brooklands - Phil", schedule: "4th monday" },
-            { name: "Much Wenlock, Salop - words at the edge - Mike Rust", schedule: "2nd monday" },
-            { name: "Manchester - Sting in the Tale", schedule: "3rd wednesday" }
+            { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "", link: "" },
+            { name: "Matlock storytelling circle", schedule: "last wednesday", location: "", link: "" },
+            { name: "Leicester Story Tree", schedule: "1st tuesday", location: "", link: "" },
+            { name: "Exeter Story Club", schedule: "2nd wednesday", location: "", link: "" },
+            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "", link: "" },
+            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", location: "", link: "" },
+            { name: "Beeston Tales", schedule: "3rd wednesday", location: "", link: "" },
+            { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "", link: "" },
+            { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday", location: "", link: "" },
+            { name: "Huddersfield story circle", schedule: "2nd monday", location: "Rat and Ratchett pub, Huddersfield", link: "" },
+            { name: "Haworth storytelling circle", schedule: "1st thursday", location: "", link: "" },
+            { name: "Chester Triple Spiral", schedule: "1st tuesday", location: "", link: "" },
+            { name: "Cambridge Storytelling", schedule: "2nd sunday", location: "", link: "" },
+            { name: "Cambridge Storytelling (alt)", schedule: "2nd friday", location: "", link: "" },
+            { name: "Mendip Storytellers", schedule: "2nd wednesday", location: "", link: "" },
+            { name: "Surrey 3 Heads in a well storytellers", schedule: "4th friday", location: "", link: "" },
+            { name: "Bletchley Tales tattled and told", schedule: "3rd saturday", location: "", link: "" },
+            { name: "South Devon storytellers (Totnes)", schedule: "3rd wednesday", location: "", link: "" },
+            { name: "North Devon (Torrington)", schedule: "1st thursday", location: "", link: "" },
+            { name: "Liskeard Storytelling Cafe", schedule: "4th thursday", location: "", link: "" },
+            { name: "Lichfield", schedule: "1st tuesday", location: "", link: "" },
+            { name: "Wirral Quirky Tales", schedule: "2nd tuesday", location: "", link: "" },
+            { name: "Winchester Wykeham Tales", schedule: "2nd wednesday", location: "", link: "" },
+            { name: "Newhaven storytellers", schedule: "2nd tuesday", location: "", link: "" },
+            { name: "Southampton Story Club", schedule: "1st thursday", location: "", link: "" },
+            { name: "Sarum Story club", schedule: "3rd tuesday", location: "", link: "" },
+            { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday", location: "", link: "" },
+            { name: "Dartmoor Storytellers", schedule: "2nd wednesday", location: "Chagford Inn, Chagford", link: "" },
+            { name: "Newcastle - A bit of a crack", schedule: "1st friday", location: "", link: "" },
+            { name: "Cardiff Story circle", schedule: "1st sunday", location: "", link: "" },
+            { name: "Frome storytelling circle", schedule: "last monday", location: "3 swans", link: "" },
+            { name: "Brighton Tell Tales", schedule: "1st wednesday", location: "Nicky Day", link: "" },
+            { name: "Leek storytellers", schedule: "2nd wednesday", location: "Julie Moss", link: "" },
+            { name: "Sale", schedule: "4th monday", location: "Brook pub Brooklands - Phil", link: "" },
+            { name: "Much Wenlock, Salop - words at the edge", schedule: "2nd monday", location: "Mike Rust", link: "" },
+            { name: "Manchester - Sting in the Tale", schedule: "3rd wednesday", location: "", link: "" }
         ];
 
         const specificEvents = [
-            { name: "Winter Tales", date: "2025-12-10", location: "Carvel Lane Coffee House" },
-            { name: "Northampton Storytellers", date: "2024-12-03", location: "" }
+            { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true },
+            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", location: "October Books, Southampton", link: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true },
+            { name: "Northampton Storytellers", date: "03/12/2024", location: "", link: "", isSpecial: false }
         ];
 
         // Events with incomplete information (no specific schedule):
@@ -180,6 +244,17 @@
 
         function parseSchedule(schedule, startDate, endDate) {
             const results = [];
+
+            // Check if it's a specific date in DD/MM/YYYY format
+            if (schedule.includes('/')) {
+                const [day, month, year] = schedule.split('/').map(num => parseInt(num, 10));
+                const specificDate = new Date(year, month - 1, day);
+                if (specificDate >= startDate && specificDate <= endDate) {
+                    results.push(specificDate);
+                }
+                return results;
+            }
+
             const [occurrence, dayName] = schedule.toLowerCase().split(/\s+/);
             const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
             const targetDay = dayMap[dayName];
@@ -240,19 +315,24 @@
                         name: event.name,
                         date: date,
                         schedule: event.schedule,
-                        location: null
+                        location: event.location || null,
+                        link: event.link,
+                        isSpecial: false
                     });
                 });
             });
 
             specificEvents.forEach(event => {
-                const eventDate = new Date(event.date);
+                const [day, month, year] = event.date.split('/').map(num => parseInt(num, 10));
+                const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= startDate && eventDate <= endDate) {
                     allEvents.push({
                         name: event.name,
                         date: eventDate,
                         schedule: null,
-                        location: event.location
+                        location: event.location,
+                        link: event.link,
+                        isSpecial: event.isSpecial || false
                     });
                 }
             });
@@ -274,16 +354,64 @@
                 const year = event.date.getFullYear();
 
                 const scheduleText = event.schedule ? ` (${event.schedule})` : '';
-                const locationText = event.location ? `<div class="event-date">${event.location}</div>` : '';
+                const locationText = event.location ? `<div class="event-location">${event.location}</div>` : '';
+
+                const eventName = event.link
+                    ? `<a href="${event.link}" target="_blank">${event.name}</a>`
+                    : event.name;
+
+                const specialClass = event.isSpecial ? ' special' : '';
 
                 return `
-                    <div class="event">
-                        <div class="event-name">${event.name}</div>
-                        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}</div>
+                    <div class="event${specialClass}">
+                        <div class="event-name">${eventName}</div>
                         ${locationText}
+                        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}</div>
                     </div>
                 `;
             }).join('');
+        }
+
+        function setActiveMode(mode) {
+            // Remove active class from all buttons and inputs
+            document.getElementById('thisWeekBtn').classList.remove('active');
+            document.getElementById('nextWeekBtn').classList.remove('active');
+            document.getElementById('startDate').classList.remove('active');
+            document.getElementById('endDate').classList.remove('active');
+
+            // Add active class based on mode
+            if (mode === 'thisWeek') {
+                document.getElementById('thisWeekBtn').classList.add('active');
+            } else if (mode === 'nextWeek') {
+                document.getElementById('nextWeekBtn').classList.add('active');
+            } else if (mode === 'dateRange') {
+                document.getElementById('startDate').classList.add('active');
+                if (document.getElementById('endDate').value) {
+                    document.getElementById('endDate').classList.add('active');
+                }
+            }
+        }
+
+        function handleDateChange() {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (!startInput) return;
+
+            let startDate = new Date(startInput);
+            let endDate = endInput ? new Date(endInput) : null;
+
+            // If end date is before start date, set end date to start date
+            if (endDate && endDate < startDate) {
+                document.getElementById('endDate').value = startInput;
+                endDate = new Date(startInput);
+            }
+
+            // Auto-update when dates are set
+            if (startInput) {
+                setActiveMode('dateRange');
+                showDateRange();
+            }
         }
 
         function showThisWeek() {
