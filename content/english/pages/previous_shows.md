@@ -12,9 +12,9 @@ draft: false
 
 *The following listing details booked and/or ticketed events I have been involved with. Folk nights, open mic events, story circles &c. are too numerous to list...*
 
-*Open mic/folk nights/storytelling circles incl: Island Storytellers (Isle of Wight), Porter Club, Lake; Waverley folk night, Newport; Arreton Barns folk night, Arreton; Ventnor folk night; Solent Inn, Ryde; Wheatsheaf, Newport; Figgy Gig, CHOYD, Yarmouth; Three Bishops, Brighstone; Union Inn folk night, Plympton; Forest Folk Club, Orepool Inn, Coleford; Crown & Sceptre, Ross-on-Wye; Scribal Gathering, The Crown, Stony Stratford; Tales Tattled & Told, Bletchley; Huddersfield Storytellers (Rat and Ratchet); Dartmoor Storytellers, Chagford Inn.*
+*Open mic/folk nights/storytelling circles incl: Island Storytellers (Isle of Wight), Porter Club, Lake; Waverley folk night, Newport; Arreton Barns folk night, Arreton; Ventnor folk night; Solent Inn, Ryde; Wheatsheaf, Newport; Figgy Gig, CHOYD, Yarmouth; Three Bishops, Brighstone; Union Inn folk night, Plympton; Forest Folk Club, Orepool Inn, Coleford; Crown & Sceptre, Ross-on-Wye; Scribal Gathering, The Crown, Stony Stratford; Tales Tattled & Told, Bletchley; Huddersfield Storytellers, Rat and Ratchet; Dartmoor Storytellers, Chagford Inn.*
 
-*Festival tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025; Something Else Tea Tent: 2025); Wickam (guesting with Cliff Eastabrook: 2025).*
+*Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025; Something Else Tea Tent: 2025); Wickham (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks, 2025).*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
