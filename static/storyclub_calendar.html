@@ -172,6 +172,81 @@
             border-bottom-color: #fff59d !important;
         }
 
+        .event-tickets {
+            margin-top: 8px;
+        }
+
+        .event-tickets a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .event.special .event-tickets a {
+            color: #ffeb3b;
+            border-bottom: 2px solid #fff59d;
+        }
+
+        .event-tickets a:hover {
+            border-bottom-color: #1b5e20;
+        }
+
+        .event.special .event-tickets a:hover {
+            border-bottom-color: #ffffff;
+        }
+
+        .event.clickable {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .event.clickable:hover {
+            background-color: #f0f0f0;
+        }
+
+        .event.special.clickable:hover {
+            background: linear-gradient(135deg, #4caf50 0%, #6ec071 100%);
+        }
+
+        .event-expandable {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+
+        .event-description {
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .event-description p {
+            margin: 0 0 10px 0;
+        }
+
+        .event-flyer-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
         .no-events {
             text-align: center;
             color: #999;
@@ -255,8 +330,8 @@
         ];
 
         const specificEvents = [
-            { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true , price: "£5", "time":"7-9.30pm"},
-            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", "time": "7-10pm", location: "October Books, Southampton", price: "£10", link: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true },
+            { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true , price: "£5", "time":"7-9.30pm", event_flyer:"2025_12_10_solo_carvel-winter-cherries.png"},
+            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", "time": "7-10pm", location: "October Books, Southampton", price: "£10", ticket_url: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true, event_flyer:"2025_12_04_manywhens_protestdays_octoberbooks.png", description: "" },
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/25", club: "stinginthetale" , price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester" , venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer:"2025_12_17STinginthetale_conboy.jpg",  isSpecial: true },
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/25", time:"7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15STinginthetale_morden.jpg",  isSpecial: true },
             { name: "Beyond the Glass Mountain [Cath Little & Bronia Evers]", showname: "Beyond the Glass Mountain", performer: "Cath Little | Bronia Evers", date: "22/11/2025", time: "", club: "", price: "£10", description: "", location: "Chapter Arts, Cardiff", venue_url: "https://www.chapter.org/", event_flyer: "2025_11_22_independent_little_evans.jpg", isSpecial: true },
@@ -404,6 +479,9 @@
                         facebook: event.facebook || null,
                         time: event.time || null,
                         price: event.price || null,
+                        ticket_url: event.ticket_url || null,
+                        event_flyer: event.event_flyer || null,
+                        description: event.description || null,
                         isSpecial: event.isSpecial || false
                     });
                 }
@@ -463,12 +541,53 @@
 
                 const specialClass = event.isSpecial ? ' special' : '';
 
+                // Add ticket link for special events with ticket_url
+                let ticketLink = '';
+                if (event.isSpecial && event.ticket_url && event.ticket_url.trim()) {
+                    ticketLink = `<div class="event-tickets"><a href="${event.ticket_url}" target="_blank">Tickets available here.</a></div>`;
+                }
+
+                // Check if there's expandable content (flyer or description)
+                const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
+                    (event.description && event.description.trim());
+
+                const expandableId = hasExpandableContent ? `event-${Math.random().toString(36).substr(2, 9)}` : '';
+
+                let expandableContent = '';
+                if (hasExpandableContent) {
+                    let flyerHtml = '';
+                    if (event.event_flyer && event.event_flyer.trim()) {
+                        flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                    }
+
+                    let descriptionHtml = '';
+                    if (event.description && event.description.trim()) {
+                        // Simple markdown rendering for paragraphs
+                        const paragraphs = event.description.split('\n\n').map(p =>
+                            p.trim() ? `<p>${p.replace(/\n/g, '<br>')}</p>` : ''
+                        ).join('');
+                        descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
+                    }
+
+                    expandableContent = `
+            <div class="event-expandable" id="${expandableId}" style="display: none;">
+                ${descriptionHtml}
+                ${flyerHtml}
+            </div>
+        `;
+                }
+
+                const clickableClass = hasExpandableContent ? ' clickable' : '';
+                const onclickAttr = hasExpandableContent ? ` onclick="toggleEventDetails('${expandableId}')"` : '';
+
                 return `
-        <div class="event${specialClass}">
+        <div class="event${specialClass}${clickableClass}"${onclickAttr}>
             <div class="event-name">${eventName}${facebookLink}</div>
             ${locationText}
             <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
+            ${ticketLink}
         </div>
+        ${expandableContent}
     `;
             }).join('');
         }
@@ -561,6 +680,15 @@
         }
 
         showThisWeek();
+
+        function toggleEventDetails(id) {
+                const element = document.getElementById(id);
+                if (element.style.display === 'none') {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            }
     </script>
 </body>
 
