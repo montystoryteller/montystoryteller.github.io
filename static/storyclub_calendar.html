@@ -290,10 +290,11 @@
 
     <div class="controls">
         <div class="button-group">
-            <button id="thisWeekBtn" onclick="showThisWeek()">This Week</button>
-            <button id="nextWeekBtn" onclick="showNextWeek()">Next Week</button>
-            <button id="afterThatWeekBtn" onclick="showNextWeek(3)">The Week After That</button>
-            <button id="andAotherWeekBtn" onclick="showNextWeek(4)">And Another</button>
+            <button id="lastWeekBtn" class="" onclick="showWeek(-1)">Last Week</button>
+            <button id="thisWeekBtn" class="" onclick="showThisWeek()">This Week</button>
+            <button id="nextWeekBtn" class="" onclick="showWeek()">Next Week</button>
+            <button id="afterThatWeekBtn" class="" onclick="showWeek(2)">The Week After That</button>
+            <button id="andAnotherWeekBtn" class="" onclick="showWeek(3)">And Another</button>
         </div>
         <div class="date-inputs">
             <label>From:</label>
@@ -314,7 +315,9 @@
             {name:"'Tis Tales", link: "https://tisltales.org.uk", location:"Isle of Wight", facebook:"https://www.facebook.com/tistales", club:"tistales"},
             { name: "Ropetackle storytellers", link: "", location: ", Shoreham-by-Sea", facebook: "https://www.facebook.com/RopetackleStorytellers", club: "ropetackleaST" },
             { name: "Forging Fantastical", link: "", location: "Swindon", club: "forgingfantastical", facebook: "https://www.facebook.com/profile.php?id=100087436102920", tickets_url: "https://www.ticketsource.co.uk/forging-fantastical", club:"adversecamber" },
-            { name: "Adverse Camber", link: "https://www.adversecamber.org/", location: "", club: "adversecamber", facebook: "https://www.facebook.com/adversecamberstories", tickets_url: "" }
+            { name: "Adverse Camber", link: "https://www.adversecamber.org/", location: "", club: "adversecamber", facebook: "https://www.facebook.com/adversecamberstories", tickets_url: "" },
+            { name: "Butser Ancient Farm", link: "https://www.butserancientfarm.co.uk/", location: "Butser Ancient Farm, Hampshire", club: "butserancient", facebook: "https://www.facebook.com/butserancientfarm", tickets_url: "" },
+            { name: "Stealing Thunder", link: "https://stealingthunder.co.uk/", location: "Lake District", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing", tickets_url: "" }
             ];
 
         const events = [
@@ -324,7 +327,7 @@
             { name: "Matlock storytelling circle", schedule: "last wednesday", location: "", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club:"matlockSC"},
             { name: "Leicester Story Tree", schedule: "1st tuesday", location: "", link: "http://leicesterstorytelling.com", facebook: "https://www.facebook.com/profile.php?id=100086273211826" , email: "leicesterstorytelling@gmail.com", club:"leicesterstorytree"},
             { name: "Exeter Story Club", schedule: "2nd wednesday", location: "The Cowick Barton, Exeter", link: "", facebook: "https://www.facebook.com/ExeterStoryClub", club:"exeterSC" },
-            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "", link: "", facebook: "https://www.facebook.com/groups/BirminghamStorytellingcafe", club:"birminghamSCafe" },
+            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "Kitchen Garden Cafe, Birmingham", venue_url:"https://www.kitchengardencafe.co.uk/", link: "https://www.birminghamstorytellingcafe.co.uk/", facebook: "https://www.facebook.com/groups/BirminghamStorytellingcafe", club:"birminghamSCafe" },
             { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", location: "The Folk of Gloucester", link: "", facebook: "https://www.facebook.com/profile.php?id=61554490450596", club: "gloucesterSCafe" },
             { name: "Beeston Tales", schedule: "3rd wednesday", location: "", link: "", facebook: "https://www.facebook.com/groups/beestontales", club: "beestontales", tickets_url: "https://www.tickettailor.com/events/beestontales/" },
             { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "Imperial Rooms, Imperial Road, Matlock", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club:"matlockSCafe", tickets_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/"},
@@ -374,14 +377,22 @@
             { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", time: "7-10pm", location: "October Books, Southampton", price: "£10", ticket_url: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true, event_flyer:"2025_12_04_manywhens_protestdays_octoberbooks.png", description: "" },
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/25", club: "stinginthetale" , price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester" , venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer:"2025_12_17STinginthetale_conboy.jpg",  isSpecial: true },
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/25", time:"7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15STinginthetale_morden.jpg",  isSpecial: true },
-            { name: "Beyond the Glass Mountain [Cath Little & Bronia Evers]", showname: "Beyond the Glass Mountain", performer: "Cath Little | Bronia Evers", date: "22/11/2025", time: "", club: "", price: "£10", description: "", location: "Chapter Arts, Cardiff", venue_url: "https://www.chapter.org/", event_flyer: "2025_11_22_independent_little_evans.jpg", isSpecial: true },
+            { name: "Beyond the Glass Mountain [Cath Little & Bronia Evers]", showname: "Beyond the Glass Mountain", performer: "Cath Little | Bronia Evers", date: "22/11/2025", time: "", club: "", price: "£10", description: "", location: "Chapter Arts, Cardiff", venue_url: "https://www.chapter.org/", event_flyer: "2025_11_22_cardiffSC_little_evans.jpg", isSpecial: true },
+            { name: "Stories Under the Stars: Fireside Myth & Music for Grown Ups [Nick & Emily Hennessey]", showname: "Stories Under the Stars: Fireside Myth & Music for Grown Ups", performer: "Nick  Hennessey | Emily Hennessey", date: "22/11/2025", time: "8-9pm", club: "stealingthunder", price: "", description: "An evening of cosmic stories, soaring through worlds of gods, queens, heroes, mythical creatures and... shopping trolleys!?", location: "Bowland Bridge, South Lakes", venue_url: "https://stealingthunder.co.uk/", event_flyer: "", fb_event: 1149093117173169, isSpecial: true },
             { name: "The Mighty Goddess [Sally Pomme Clayton]", showname: "The Mighty Goddess", performer: "Sally Pomme Clayton", date: "04/12/2025", time: "7pm", club: "abitcrack", price: "£10 / £5 / £3", description: "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.", location: "Alphabetti Theatre, Newcastle", venue_url: "https://www.alphabettitheatre.co.uk/", event_flyer: "2025_12_04_abitcrack_pomme_goddess.jpg", ticket_url: "https://www.alphabettitheatre.co.uk/themightygoddess", isSpecial: true },
+            { name: "Tales of Winter Magic - evening storytelling and Mummers' play", showname: "Tales of Winter Magic - evening storytelling and Mummers' play ", performer: "Red Phoenix | The Prize Old Mummers", date: "05/12/2025", time: "7-9pm", club: "butserancient", price: "19.50", description: "", location: "Butser Ancient Farm, Hampshire", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/tales-of-winter-magic-evening-sr3yk", isSpecial: true, fb_event: 838620332455279 },
             { name: "Warm Hearted Christmas Stories [Cath Edwards & Matt Vaughan]", showname: "Warm Hearted Christmas Stories", performer: "Cath Edwards | Matt Vaughan", date: "09/12/2025", time: "7.30pm", club: "leicesterstorytree", price: "£5 (£3)", description: "", location: "Central Library, Leicester", venue_url: "https://bookfinder.leicester.gov.uk/whats-on#/?tag=Storytelling", fb_event: 1201185658550299 , isSpecial: true },
             { name: "Finding Light in the Dark [Trevor Valentine tells 'The Firefly Man']", showname: "The Firefly Man", performer: "Trevor Valentine", date: "", time: "", club: "gloucesterSCafe", price: "", description: "", location: "The Folk of Gloucester", venue_url: "", event_flyer: "2025_12_04_gloucesterSCafe_valentine_findinglight.jpg", openslots: true , isSpecial: true },
             { name: "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]", showname: "At Winters Heart (Solstice Storytelling", performer: "Henry Moore | Hannah Sneyd", date: "14/12/2025", time: "6pm", club: "", price: "", description: "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.", location: "Moor Imagination Collective, Buckfastleigh", venue_url: "https://www.moorimagination.org/", event_flyer: "2025_12_14_independent_everett_wintersheart.jpg", fb_event: 781568461574252, ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=ce0a6d05c12a5e06", isSpecial: true },
             { name: "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]", showname: "At Winters Heart (Solstice Storytelling", performer: "Henry Moore | Hannah Sneyd", date: "19/12/2025", time: "6pm", club: "", price: "", description: "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.", location: "The Circle Barn, Beden, Sampford Spiney", venue_url: "https://www.moorimagination.org/", event_flyer: "2025_12_14_independent_everett_wintersheart.jpg", fb_event: 781568461574252, ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=fc633890fdf6d24b", isSpecial: true },
             { name: "Lilith: The Other Side of the Story [Katy Cawkwell]", showname: "Lilith: The Other Side of the Story", performer: "Katy Cawkwell", date: "06/12/2025", time: "7pm", club: "forgingfantastical", price: "", description: "", location: "Eastcott community centre, Swindon", venue_url: "", event_flyer: "2025_12_06_cawkwell_lilith.jpg", ticket_url: "", isSpecial: true },
             { name: "Talking to the Dark [Sharon Jacksties]", showname: "Talking to the Dark", performer: "Sharon Jacksties]", date: "30/11/2025", time: "7-8.30pm", club: "", price: "Pay what you like/decide/can", description: "", location: "The Front Room Theatre, Weston-Super-Mare", venue_url: "", event_flyer: "2025_11_30_jacksties_talkingtodark.jpg", ticket_url: "https://frontroomwsm.com/event/talking-to-the-dark", isSpecial: true },
+
+
+            { name: "Madness, Merry Making and Liberation [Sarah Dovey]", showname: "Madness, Merry Making and Liberation", performer: "Sarah Dovey", date: "19/11/2025", time: "7-9.30pm", club: "birminghamSCafe", price: "£10", description: "Dionysus is a God of many facets. Some may know him as the God of wine and merrymaking and it’s not hard to see why that has become one of his most popular aspects. But along with the feasting and indulgence he also brings divine madness. And further still he stands for liberation and rebellion against the social and gender based norms that are so often forced upon us. Tales of Dionysus are tales of joy and freedom, tales of blood and tales of the extremes of human nature. \n\n This evening, Sarah Dovey will explore the many aspects of Dionysus by telling stories of his life, his loves and his vengeance.", location: "Kitchen Garden Cafe, Birmingham", venue_url: "https://www.kitchengardencafe.co.uk/", event_flyer: "", ticket_url: "", isSpecial: true },
+
+
+
             { name: "Welsh Whisperers: Story Circle", showname: "Welsh Whisperers: Story Circle", performer: "Welsh Whisperers", date: "", time: "7-9pm", club: "", price: "£5", description: "Come and join the Dragon Storytellers in the Story Circle. Listen to their stories about Barmouth and Wales: some traditional, some written especially for the Welsh Whisperers Storytelling project. All are warmly invited to share a story of their own if they wish, in the Welsh language, bilingually or in English.", location: "The Dragon Theatre, Barmouth", venue_url: "", event_flyer: "2025_12_05_welshwhisperers_sc.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/141010", isSpecial: true },
             { name: "The Hairy Girl [Kersti Stabi]", showname: "The Hairy Girl", performer: "Kersti Stabi", date: "09/12/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "", event_flyer: "genericSTabi_hairygirl.jpg", isSpecial: true, ticket_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452", isSpecial: true },
             { name: "Uncanny [Nell Phoenix]", showname: "The Hairy Girl", performer: "Nell Phoenix", date: "11/11/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "", event_flyer: "2025_11_11_guesthouseST_phoenix_uncanny.jpg", ticket_url: "", isSpecial: true },
@@ -391,10 +402,10 @@
             { name: "The Goddess of Spreadsheets [Tim Ralphs]", showname: "The Goddess of Spreadsheets", performer: "Tim Ralphs", date: "05/12/2025", time: "7.30-10pm", club: "matlockSCafe", price: "£8 [£6.50]", description: "A position has just opened in our More-than-Human Resources Department! As the heroic head of the hiring committee for the divine pantheon, it's up to you to put together a team of sacred scribes, astral accountants and celestial problem-solvers. Tim has got the candidates for you to consider. With the right team of Godly governors in place, this incorporeal corporation is going places.", fb_event: 3200801733411778, location: "Imperial Rooms, Matlock", venue_url: "", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/1922225", online: "hybrid", isSpecial: true  },
             { name: "Fen, Folk and Fable", showname: "Fen, Folk and Fable", performer: "", date: "25/11/2025", time: "6-7pm", club: "cambridgestorytellers", price: "free", description: "", location: "Newnham Social Club, Cambridge", venue_url: "", event_flyer: "2025_11_25_cambridgestorytellers_fenfolkfable.jpg", ticket_url: "", isSpecial: true },
             { name: "Arnside Sailing Club — Storyteller [Nick Hennessey]", showname: "Arnside Sailing Club — Storyteller", performer: "Nick Hennessey", date: "21/12/2025", time: "3.30-5.00pm", club: "other", price: "£12 / £10 / £8", description: "On the Sunday before Christmas, an afternoon show with Nick Hennessey, an internationally acclaimed storyteller, playwright, folk singer, song writer, harpist and musician.  He has performed at venues such as the South Bank, Barbican, Royal Albert Hall and festivals worldwide, He has broadcast on Radio 4 and his music played on Radio 3. Nick has a particular interest in the story telling tradition of Finland. He will take you to the snow filled forests of the Far North, the darkness of the winter night and the warmth of the winter fire, travelling by song, story and music.", location: "The Old Customs House, Arnside, Carnforth", venue_url: "", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/arnsidesailingclub/1967155" , isSpecial: true },
-            { name: "The Dead of Winter [Merl Fluin & Holly Medland]", showname: "", performer: "Merl Fluin | Holly Medland", date: "The Dead of Winter", time: "7-9.30pm", club: "", price: "£10", description: "__Chilling tales for the Festive Season.__ \n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night. \n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm.", location: "Better Days Cafe, Ventnor", venue_url: "https://thebetterdayscafe.co.uk/", event_flyer: "2025_12_16_medlandfluin_deadofwinter.jpg", ticket_url: "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy", fb_event: 1504363894145970,  isSpecial: true },
-            { name: "The Homing Stone [Hugh Lupton]", showname: "The Homing Stone", performer: "Hugh Lupton", date: "20/02/2026", time: "7.30-10pm", club: "", price: "£12", description: "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent. \n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised. \n In the Homing Stone master storyteller Hugh Lupton(who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.", location: " The Backyard Theatre, Watchet, West Somerset", venue_url: "", event_flyer: "", ticket_url: "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo", isSpecial: true, fb_event: 712262841916596 },
-            { name: "Under a Hill, a King Lays Sleeping [Bernadette Russell]", showname: "Under a Hill, a King Lays Sleeping", performer: "Bernadette Russell", date: "22/05/2026", time: "7-9pm", club: "", price: "£20.50", description: "", location: "Butser Ancient Farm, Hampshire", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell", isSpecial: true, fb_event: 1402520921214581 },
-            { name: "Mad Sprits and Wild Gods [Henry Everett]", showname: "Mad Sprits and Wild Gods", performer: "Henry Everett", date: "17/12/2025", time: "7-9pm", club: "", price: "£10 / £8", description: "Prepare to be led astray into the medieval tales of Kent’s beloved trickster, mischievous Faerie, Robin Goodfellow. \n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land.", location: "The Folk Preservation Society, Teignmouth", venue_url: "", event_flyer: "2025_12_17_everett_madsprits.jpg", ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=91ce8f87219586ef", isSpecial: true, fb_event: 2351372895306527 },
+            { name: "The Dead of Winter [Merl Fluin & Holly Medland]", showname: "", performer: "Merl Fluin | Holly Medland", date: "The Dead of Winter", time: "7-9.30pm", club: "", price: "£10", description: "__Chilling tales for the Festive Season.__ \n\n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night. \n\n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm.", location: "Better Days Cafe, Ventnor", venue_url: "https://thebetterdayscafe.co.uk/", event_flyer: "2025_12_16_medlandfluin_deadofwinter.jpg", ticket_url: "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy", fb_event: 1504363894145970,  isSpecial: true },
+            { name: "The Homing Stone [Hugh Lupton]", showname: "The Homing Stone", performer: "Hugh Lupton", date: "20/02/2026", time: "7.30-10pm", club: "", price: "£12", description: "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent. \n\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised. \n\n In the Homing Stone master storyteller Hugh Lupton(who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.", location: " The Backyard Theatre, Watchet, West Somerset", venue_url: "", event_flyer: "", ticket_url: "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo", isSpecial: true, fb_event: 712262841916596 },
+            { name: "Under a Hill, a King Lays Sleeping [Bernadette Russell]", showname: "Under a Hill, a King Lays Sleeping", performer: "Bernadette Russell", date: "22/05/2026", time: "7-9pm", club: "butserancient", price: "£20.50", description: "", location: "Butser Ancient Farm, Hampshire", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell", isSpecial: true, fb_event: 1402520921214581 },
+            { name: "Mad Sprits and Wild Gods [Henry Everett]", showname: "Mad Sprits and Wild Gods", performer: "Henry Everett", date: "17/12/2025", time: "7-9pm", club: "", price: "£10 / £8", description: "Prepare to be led astray into the medieval tales of Kent’s beloved trickster, mischievous Faerie, Robin Goodfellow. \n\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land.", location: "The Folk Preservation Society, Teignmouth", venue_url: "", event_flyer: "2025_12_17_everett_madsprits.jpg", ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=91ce8f87219586ef", isSpecial: true, fb_event: 2351372895306527 },
             { name: "Haunting Tales and Festive Cheer [Royal Tales story club, Sutton Coldfield]", showname: "Haunting Tales and Festive Cheer", performer: "Royal Tales story club, Sutton Coldfield", date: "16/12/2025", time: "7.30-10pm", club: "royaltales", price: "", description: "", location: "The Station Pub, Sutton Coldfield", venue_url: "", event_flyer: "", ticket_url: "", isSpecial: true , fb_event: 734400295891848 },
 
             { name: "Dreaming the Great Bear [Nick Hennessey]", showname: "Dreaming the Great Bear", performer: "Nick Hennessey", date: "16/11/2025", time: "19.30pm", club: "artsreachdorset", price: "", description: "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it’s all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.", location: "Broadmayne Village Hall, Dorchester", venue_url: "", event_flyer: "", ticket_url: "", isSpecial: true, fb_event: 813746617897458 },
@@ -646,8 +657,8 @@
                     let descriptionHtml = '';
                     if (event.description && event.description.trim()) {
                         // Simple markdown rendering for paragraphs
-                        const paragraphs = event.description.split('\n\n').map(p =>
-                            p.trim() ? `<p>${p.replace(/\n/g, '<br>')}</p>` : ''
+                        const paragraphs = event.description.split('\n\n\n\n').map(p =>
+                            p.trim() ? `<p>${p.replace(/\n\n/g, '<br>')}</p>` : ''
                         ).join('');
                         descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
                     }
@@ -677,17 +688,12 @@
 
         function setActiveMode(mode) {
             // Remove active class from all buttons and inputs
+            //document.getElementById('lastWeekBtn').classList.remove('active');
             document.getElementById('thisWeekBtn').classList.remove('active');
             document.getElementById('nextWeekBtn').classList.remove('active');
-            if (document.getElementById('weekAfterNextBtn')) {
-                document.getElementById('weekAfterNextBtn').classList.remove('active');
-            }
-            if (document.getElementById('afterThatWeekBtn')) {
-                document.getElementById('afterThatWeekBtn').classList.remove('active');
-            }
-            if (document.getElementById('andAnotherWeekBtn')) {
-                document.getElementById('andAnotherWeekBtn').classList.remove('active');
-            }
+            document.getElementById('afterThatWeekBtn').classList.remove('active');
+            document.getElementById('andAnotherWeekBtn').classList.remove('active');
+
             document.getElementById('startDate').classList.remove('active');
             document.getElementById('endDate').classList.remove('active');
 
@@ -696,12 +702,12 @@
                 document.getElementById('thisWeekBtn').classList.add('active');
             } else if (mode === 'nextWeek1') {
                 document.getElementById('nextWeekBtn').classList.add('active');
-            } else if (mode === 'nextWeek2' && document.getElementById('weekAfterNextBtn')) {
-                document.getElementById('weekAfterNextBtn').classList.add('active');
-            } else if (mode === 'nextWeek3' && document.getElementById('afterThatWeekBtn')) {
+            } else if (mode === 'nextWeek2') {
                 document.getElementById('afterThatWeekBtn').classList.add('active');
-            } else if (mode === 'nextWeek4' && document.getElementById('andAnotherWeekBtn')) {
+            } else if (mode === 'nextWeek3') {
                 document.getElementById('andAnotherWeekBtn').classList.add('active');
+            } else if (mode === 'lastWeek1') {
+                document.getElementById('lastWeekBtn').classList.add('active');
             } else if (mode === 'dateRange') {
                 document.getElementById('startDate').classList.add('active');
                 if (document.getElementById('endDate').value) {
@@ -740,18 +746,28 @@
             setActiveMode('thisWeek');
         }
 
-        function showNextWeek(weeksAhead = 1) {
+        function showWeek(weeksAhead = 1) {
             const today = new Date();
             const thisWeekStart = getWeekStart(today);
             const targetWeekStart = new Date(thisWeekStart);
             targetWeekStart.setDate(targetWeekStart.getDate() + (7 * weeksAhead));
             const targetWeekEnd = getWeekEnd(targetWeekStart);
             displayEvents(targetWeekStart, targetWeekEnd);
-            setActiveMode(`nextWeek${weeksAhead}`);
+            
+            let mode;
+            if (weeksAhead > 0) {
+                mode = `nextWeek${weeksAhead}`;
+            } else if (weeksAhead < 0) {
+                mode = `lastWeek${Math.abs(weeksAhead)}`;
+            } else {
+                mode = "thisWeek";
+            }
+
+            setActiveMode(mode);
         }
             
         function showWeekAfterNext() {
-            showNextWeek(2);
+            showWeek(2);
         }
 
         function showDateRange() {
