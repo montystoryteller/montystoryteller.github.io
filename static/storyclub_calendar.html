@@ -292,6 +292,8 @@
         <div class="button-group">
             <button id="thisWeekBtn" onclick="showThisWeek()">This Week</button>
             <button id="nextWeekBtn" onclick="showNextWeek()">Next Week</button>
+            <button id="afterThatWeekBtn" onclick="showNextWeek(3)">The Week After That</button>
+            <button id="andAotherWeekBtn" onclick="showNextWeek(4)">And Another</button>
         </div>
         <div class="date-inputs">
             <label>From:</label>
@@ -318,7 +320,7 @@
             { name: "Leicester Story Tree", schedule: "1st tuesday", location: "", link: "http://leicesterstorytelling.com", facebook: "https://www.facebook.com/profile.php?id=100086273211826" , email: "leicesterstorytelling@gmail.com", club:"leicesterstorytree"},
             { name: "Exeter Story Club", schedule: "2nd wednesday", location: "The Cowick Barton, Exeter", link: "", facebook: "https://www.facebook.com/ExeterStoryClub", club:"exeterSC" },
             { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "", link: "", facebook: "https://www.facebook.com/groups/BirminghamStorytellingcafe", club:"birminghamSCafe" },
-            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", location: "", link: "", facebook: "https://www.facebook.com/profile.php?id=61554490450596", club: "gloucesterSCafe" },
+            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", location: "The Folk of Gloucester", link: "", facebook: "https://www.facebook.com/profile.php?id=61554490450596", club: "gloucesterSCafe" },
             { name: "Beeston Tales", schedule: "3rd wednesday", location: "", link: "", facebook: "https://www.facebook.com/groups/beestontales", club: "beestontales", tickets_url: "https://www.tickettailor.com/events/beestontales/" },
             { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "Imperial Rooms, Imperial Road, Matlock", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club:"matlockSCafe", tickets_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/"},
             { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday", location: "", link: "", facebook: "https://www.facebook.com/TheShaggyDogStorytellers" , club:"shaggydogstorytellers"},
@@ -348,7 +350,7 @@
             { name: "Cardiff Story circle", schedule: "1st sunday", location: "", link: "", facebook:"https://www.facebook.com/groups/1491740927748170/", club:"cardiffSC" },
             { name: "Mendip story circle", schedule: "2nd wednesday", location: "Ston Easton Village Hall, Radstock", link: "https://www.mendipstorycircle.com/", facebook: "https://www.facebook.com/profile.php?id=100064070403986", club: "" },
             { name: "Frome storytelling circle", schedule: "last monday", location: "Three Swans pub, Frome", link: "", facebook: "https://www.facebook.com/laralavender6", club: "fromeSC" },
-            { name: "Brighton Telltales", schedule: "1st wednesday", location: "The Yellow Book", link: "", facebook: "https://www.facebook.com/brightontelltales", club: "brightontelltales",club_flyer:"brighton_telltales_flyer.jpg" },
+            { name: "Brighton Telltales", schedule: "1st wednesday", location: "The Yellow Book, Brighton", link: "", facebook: "https://www.facebook.com/brightontelltales", club: "brightontelltales",club_flyer:"brighton_telltales_flyer.jpg" },
             { name: "Leek storytellers", schedule: "2nd wednesday", location: "The Fountain Inn, Leek (subj. to change)", link: "", facebook: "https://www.facebook.com/leekstorytellers", email:"Fernandfables@gmail.com", club:"leekstorytellers", club_flyer: "leekstorytellers_flyer.jpg" },
             { name: "Sale", schedule: "4th monday", location: "Brook pub, Brooklands - Phil", link: "https://www.thebrooksale.co.uk/", facebook: "" },
             { name: "Much Wenlock, Salop - words at the edge", schedule: "2nd monday", location: "", link: "", facebook: "https://www.facebook.com/groups/wordsattheedge", club: "wordsattheedge" },
@@ -605,7 +607,7 @@
                 if (hasExpandableContent) {
                     let flyerHtml = '';
                     if (event.event_flyer && event.event_flyer.trim()) {
-                        flyerHtml = `<img src="./event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                        flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
                     }
 
                     let descriptionHtml = '';
@@ -644,14 +646,29 @@
             // Remove active class from all buttons and inputs
             document.getElementById('thisWeekBtn').classList.remove('active');
             document.getElementById('nextWeekBtn').classList.remove('active');
+            if (document.getElementById('weekAfterNextBtn')) {
+                document.getElementById('weekAfterNextBtn').classList.remove('active');
+            }
+            if (document.getElementById('afterThatWeekBtn')) {
+                document.getElementById('afterThatWeekBtn').classList.remove('active');
+            }
+            if (document.getElementById('andAnotherWeekBtn')) {
+                document.getElementById('andAnotherWeekBtn').classList.remove('active');
+            }
             document.getElementById('startDate').classList.remove('active');
             document.getElementById('endDate').classList.remove('active');
 
             // Add active class based on mode
             if (mode === 'thisWeek') {
                 document.getElementById('thisWeekBtn').classList.add('active');
-            } else if (mode === 'nextWeek') {
+            } else if (mode === 'nextWeek1') {
                 document.getElementById('nextWeekBtn').classList.add('active');
+            } else if (mode === 'nextWeek2' && document.getElementById('weekAfterNextBtn')) {
+                document.getElementById('weekAfterNextBtn').classList.add('active');
+            } else if (mode === 'nextWeek3' && document.getElementById('afterThatWeekBtn')) {
+                document.getElementById('afterThatWeekBtn').classList.add('active');
+            } else if (mode === 'nextWeek4' && document.getElementById('andAnotherWeekBtn')) {
+                document.getElementById('andAnotherWeekBtn').classList.add('active');
             } else if (mode === 'dateRange') {
                 document.getElementById('startDate').classList.add('active');
                 if (document.getElementById('endDate').value) {
@@ -687,15 +704,21 @@
             const weekStart = getWeekStart(today);
             const weekEnd = getWeekEnd(weekStart);
             displayEvents(weekStart, weekEnd);
+            setActiveMode('thisWeek');
         }
 
-        function showNextWeek() {
+        function showNextWeek(weeksAhead = 1) {
             const today = new Date();
             const thisWeekStart = getWeekStart(today);
-            const nextWeekStart = new Date(thisWeekStart);
-            nextWeekStart.setDate(nextWeekStart.getDate() + 7);
-            const nextWeekEnd = getWeekEnd(nextWeekStart);
-            displayEvents(nextWeekStart, nextWeekEnd);
+            const targetWeekStart = new Date(thisWeekStart);
+            targetWeekStart.setDate(targetWeekStart.getDate() + (7 * weeksAhead));
+            const targetWeekEnd = getWeekEnd(targetWeekStart);
+            displayEvents(targetWeekStart, targetWeekEnd);
+            setActiveMode(`nextWeek${weeksAhead}`);
+        }
+            
+        function showWeekAfterNext() {
+            showNextWeek(2);
         }
 
         function showDateRange() {
