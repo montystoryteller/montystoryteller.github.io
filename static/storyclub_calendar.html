@@ -174,6 +174,9 @@
 
         .event-tickets {
             margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .event-tickets a {
@@ -194,6 +197,34 @@
 
         .event.special .event-tickets a:hover {
             border-bottom-color: #ffffff;
+        }
+
+        .event-facebook-inline {
+            display: inline-flex;
+            text-decoration: none !important;
+            border: none !important;
+            border-bottom: none !important;
+            vertical-align: middle;
+        }
+
+        .event-facebook-inline svg {
+            width: 20px;
+            height: 20px;
+            fill: #1877f2;
+            transition: fill 0.3s;
+        }
+
+        .event-facebook-inline:hover svg {
+            fill: #145dbf;
+        }
+
+        .event-tickets .separator {
+            color: #666;
+            margin: 0 4px;
+        }
+
+        .event.special .event-tickets .separator {
+            color: #e8f5e9;
         }
 
         .event.clickable {
@@ -246,7 +277,6 @@
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .no-events {
             text-align: center;
             color: #999;
@@ -335,7 +365,7 @@
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/25", club: "stinginthetale" , price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester" , venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer:"2025_12_17STinginthetale_conboy.jpg",  isSpecial: true },
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/25", time:"7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15STinginthetale_morden.jpg",  isSpecial: true },
             { name: "Beyond the Glass Mountain [Cath Little & Bronia Evers]", showname: "Beyond the Glass Mountain", performer: "Cath Little | Bronia Evers", date: "22/11/2025", time: "", club: "", price: "£10", description: "", location: "Chapter Arts, Cardiff", venue_url: "https://www.chapter.org/", event_flyer: "2025_11_22_independent_little_evans.jpg", isSpecial: true },
-            { name: "The Mighty Goddess [Sally Pomme Clayton]", showname: "The Mighty Goddess", performer: "Sally Pomme Clayton", date: "04/12/2025", time: "7pm", club: "abitcrack", price: "£10 / £5 / £3", description: "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.", location: "Alphabetti Theatre, Newcastle", venue_url: "https://www.alphabettitheatre.co.uk/", event_flyer: "2025_12_04_abitcrack_pomme_goddess.jpg", ticket_url: "https://www.alphabettitheatre.co.uk/themightygoddess" isSpecial: true },
+            { name: "The Mighty Goddess [Sally Pomme Clayton]", showname: "The Mighty Goddess", performer: "Sally Pomme Clayton", date: "04/12/2025", time: "7pm", club: "abitcrack", price: "£10 / £5 / £3", description: "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.", location: "Alphabetti Theatre, Newcastle", venue_url: "https://www.alphabettitheatre.co.uk/", event_flyer: "2025_12_04_abitcrack_pomme_goddess.jpg", ticket_url: "https://www.alphabettitheatre.co.uk/themightygoddess", isSpecial: true },
             { name: "Warm Hearted Christmas Stories [Cath Edwards & Matt Vaughan]", showname: "Warm Hearted Christmas Stories", performer: "Cath Edwards | Matt Vaughan", date: "09/12/2025", time: "7.30pm", club: "leicesterstorytree", price: "£5 (£3)", description: "", location: "Central Library, Leicester", venue_url: "https://bookfinder.leicester.gov.uk/whats-on#/?tag=Storytelling", fb_event: 1201185658550299 , isSpecial: true },
             { name: "Finding Light in the Dark [Trevor Valentine tells 'The Firefly Man']", showname: "The Firefly Man", performer: "Trevor Valentine", date: "", time: "", club: "gloucesterSCafe", price: "", description: "", location: "The Folk of Gloucester", venue_url: "", event_flyer: "2025_12_04_gloucesterSCafe_valentine_findinglight.jpg", openslots: true , isSpecial: true },
             { name: "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]", showname: "At Winters Heart (Solstice Storytelling", performer: "Henry Moore | Hannah Sneyd", date: "14/12/2025", time: "6pm", club: "", price: "", description: "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.", location: "Moor Imagination Collective, Buckfastleigh", venue_url: "https://www.moorimagination.org/", event_flyer: "2025_12_14_independent_everett_wintersheart.jpg", fb_event: 781568461574252, ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=ce0a6d05c12a5e06", isSpecial: true },
@@ -449,6 +479,7 @@
             const eventsList = document.getElementById('eventsList');
             const allEvents = [];
 
+            // Add recurring events
             events.forEach(event => {
                 const dates = parseSchedule(event.schedule, startDate, endDate);
                 dates.forEach(date => {
@@ -466,6 +497,7 @@
                 });
             });
 
+            // Add specific events
             specificEvents.forEach(event => {
                 const [day, month, year] = event.date.split('/').map(num => parseInt(num, 10));
                 const eventDate = new Date(year, month - 1, day);
@@ -477,6 +509,7 @@
                         location: event.location,
                         link: event.link,
                         facebook: event.facebook || null,
+                        fb_event: event.fb_event || null,
                         time: event.time || null,
                         price: event.price || null,
                         ticket_url: event.ticket_url || null,
@@ -496,7 +529,6 @@
                 eventsList.innerHTML = '<div class="no-events">No events in this period</div>';
                 return;
             }
-
 
             // Create header text
             const startStr = `${startDate.getDate()} ${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
@@ -530,7 +562,7 @@
                     ? `<a href="${event.link}" target="_blank">${event.name}</a>`
                     : event.name;
 
-                // Add Facebook link if available
+                // Add Facebook link if available (for regular facebook page/group)
                 let facebookLink = '';
                 if (event.facebook && event.facebook.trim()) {
                     const fbUrl = event.facebook.startsWith('http')
@@ -541,10 +573,26 @@
 
                 const specialClass = event.isSpecial ? ' special' : '';
 
-                // Add ticket link for special events with ticket_url
-                let ticketLink = '';
-                if (event.isSpecial && event.ticket_url && event.ticket_url.trim()) {
-                    ticketLink = `<div class="event-tickets"><a href="${event.ticket_url}" target="_blank">Tickets available here.</a></div>`;
+                // Build the tickets/event line for special events
+                let ticketsEventLine = '';
+                if (event.isSpecial) {
+                    let fbEventIcon = '';
+                    if (event.fb_event) {
+                        const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
+                        fbEventIcon = `<a href="${fbEventUrl}" target="_blank" class="event-facebook-inline" title="Facebook Event"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                    }
+
+                    let ticketText = '';
+                    if (event.ticket_url && event.ticket_url.trim()) {
+                        ticketText = `<a href="${event.ticket_url}" target="_blank">Tickets available here</a>`;
+                    }
+
+                    // Combine with separator if both exist
+                    if (fbEventIcon && ticketText) {
+                        ticketsEventLine = `<div class="event-tickets">${ticketText} <span class="separator">|</span> ${fbEventIcon}</div>`;
+                    } else if (fbEventIcon || ticketText) {
+                        ticketsEventLine = `<div class="event-tickets">${fbEventIcon}${ticketText}</div>`;
+                    }
                 }
 
                 // Check if there's expandable content (flyer or description)
@@ -557,7 +605,7 @@
                 if (hasExpandableContent) {
                     let flyerHtml = '';
                     if (event.event_flyer && event.event_flyer.trim()) {
-                        flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                        flyerHtml = `<img src="./event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
                     }
 
                     let descriptionHtml = '';
@@ -570,25 +618,25 @@
                     }
 
                     expandableContent = `
-            <div class="event-expandable" id="${expandableId}" style="display: none;">
-                ${descriptionHtml}
-                ${flyerHtml}
-            </div>
-        `;
+                    <div class="event-expandable" id="${expandableId}" style="display: none;">
+                        ${descriptionHtml}
+                        ${flyerHtml}
+                    </div>
+                `;
                 }
 
                 const clickableClass = hasExpandableContent ? ' clickable' : '';
                 const onclickAttr = hasExpandableContent ? ` onclick="toggleEventDetails('${expandableId}')"` : '';
 
                 return `
-        <div class="event${specialClass}${clickableClass}"${onclickAttr}>
-            <div class="event-name">${eventName}${facebookLink}</div>
-            ${locationText}
-            <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
-            ${ticketLink}
-        </div>
-        ${expandableContent}
-    `;
+                <div class="event${specialClass}${clickableClass}"${onclickAttr}>
+                    <div class="event-name">${eventName}${facebookLink}</div>
+                    ${locationText}
+                    <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
+                    ${ticketsEventLine}
+                </div>
+                ${expandableContent}
+            `;
             }).join('');
         }
 
@@ -682,13 +730,13 @@
         showThisWeek();
 
         function toggleEventDetails(id) {
-                const element = document.getElementById(id);
-                if (element.style.display === 'none') {
-                    element.style.display = 'block';
-                } else {
-                    element.style.display = 'none';
-                }
+            const element = document.getElementById(id);
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
             }
+        }
     </script>
 </body>
 
