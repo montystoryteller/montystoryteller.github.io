@@ -19,6 +19,10 @@
             text-align: center;
         }
 
+        .about {
+            margin-top: 15px;
+        }
+
         .controls {
             background: white;
             padding: 20px;
@@ -195,7 +199,14 @@
 
     <div class="events-list" id="eventsList"></div>
 
+    <div class="about" id="colophon"><em>Hacked together by Tony Hirst in conversation with Claude.ai, inspired by <a href="https://www.facebook.com/groups/societyforstorytelling/posts/10172947366465461/">a list</a> of storytelling club dates posted by Peter Giles to the Society for Storytelling Facebook group on Saturday, November 29th, 2025.</em></div>
+
     <script>
+        const troupes_and_promoters = [
+            {name:"'Tis Tales", link: "https://tisltales.org.uk", location:"Isle of Wight", facebook:"https://www.facebook.com/tistales"},
+            { name: "", link: "", location: "Ropetackle Arts Centre, Shoreham-by-Sea", facebook: "https://www.facebook.com/RopetackleStorytellers" },
+            ];
+
         const events = [
             { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "", link: "", facebook: "https://www.facebook.com/groups/94064587663" },
             { name: "Matlock storytelling circle", schedule: "last wednesday", location: "", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe"},
