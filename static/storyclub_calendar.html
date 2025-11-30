@@ -255,8 +255,8 @@
         ];
 
         const specificEvents = [
-            { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true },
-            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", location: "October Books, Southampton", link: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true },
+            { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true , price: "£5", "time":"7-9.30pm"},
+            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", "time": "7-10pm", location: "October Books, Southampton", price: "£10", link: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true },
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/25", club: "stinginthetale" , price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester" , venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer:"2025_12_17STinginthetale_conboy.jpg",  isSpecial: true },
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/25", time:"7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15STinginthetale_morden.jpg",  isSpecial: true },
             { name: "Beyond the Glass Mountain [Cath Little & Bronia Evers]", showname: "Beyond the Glass Mountain", performer: "Cath Little | Bronia Evers", date: "22/11/2025", time: "", club: "", price: "£10", description: "", location: "Chapter Arts, Cardiff", venue_url: "https://www.chapter.org/", event_flyer: "2025_11_22_independent_little_evans.jpg", isSpecial: true },
@@ -384,6 +384,8 @@
                         location: event.location || null,
                         link: event.link,
                         facebook: event.facebook || null,
+                        time: event.time || null,
+                        price: event.price || null,
                         isSpecial: false
                     });
                 });
@@ -400,6 +402,8 @@
                         location: event.location,
                         link: event.link,
                         facebook: event.facebook || null,
+                        time: event.time || null,
+                        price: event.price || null,
                         isSpecial: event.isSpecial || false
                     });
                 }
@@ -432,6 +436,18 @@
                 const scheduleText = event.schedule ? ` (${event.schedule})` : '';
                 const locationText = event.location ? `<div class="event-location">${event.location}</div>` : '';
 
+                // Add time and price if they exist
+                let timeText = '';
+                let priceText = '';
+
+                if (event.time && event.time.trim()) {
+                    timeText = ` • ${event.time}`;
+                }
+
+                if (event.price && event.price.trim()) {
+                    priceText = ` • ${event.price}`;
+                }
+
                 const eventName = event.link
                     ? `<a href="${event.link}" target="_blank">${event.name}</a>`
                     : event.name;
@@ -448,12 +464,12 @@
                 const specialClass = event.isSpecial ? ' special' : '';
 
                 return `
-                    <div class="event${specialClass}">
-                        <div class="event-name">${eventName}${facebookLink}</div>
-                        ${locationText}
-                        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}</div>
-                    </div>
-                `;
+        <div class="event${specialClass}">
+            <div class="event-name">${eventName}${facebookLink}</div>
+            ${locationText}
+            <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
+        </div>
+    `;
             }).join('');
         }
 
