@@ -277,6 +277,40 @@
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .event-email,
+        .event-website {
+            display: inline-block;
+            margin-left: 10px;
+            text-decoration: none !important;
+            vertical-align: middle;
+            border: none;
+            border-bottom: none !important;
+        }
+
+        .event-email svg,
+        .event-website svg {
+            width: 20px;
+            height: 20px;
+            transition: fill 0.3s;
+        }
+
+        .event-email svg {
+            fill: #ffffff;
+        }
+
+        .event-email:hover svg {
+            fill: #77ee77;
+        }
+
+        .event-website svg {
+            fill: #555555;
+        }
+
+        .event-website:hover svg {
+            fill: #1eb868;
+        }
+
         .no-events {
             text-align: center;
             color: #999;
@@ -401,7 +435,7 @@
 
 
             { name: "Welsh Whisperers: Story Circle", showname: "Welsh Whisperers: Story Circle", performer: "Welsh Whisperers", date: "", time: "7-9pm", club: "", price: "£5", description: "Come and join the Dragon Storytellers in the Story Circle. Listen to their stories about Barmouth and Wales: some traditional, some written especially for the Welsh Whisperers Storytelling project. All are warmly invited to share a story of their own if they wish, in the Welsh language, bilingually or in English.", location: "The Dragon Theatre, Barmouth", venue_url: "", event_flyer: "2025_12_05_welshwhisperers_sc.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/141010", isSpecial: true },
-            { name: "The Hairy Girl [Kersti Stabi]", showname: "The Hairy Girl", performer: "Kersti Stabi", date: "09/12/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "", event_flyer: "genericSTabi_hairygirl.jpg", isSpecial: true, ticket_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452", isSpecial: true },
+            { name: "The Hairy Girl [Kersti Stabi]", showname: "The Hairy Girl", performer: "Kersti Stabi", date: "09/12/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "", event_flyer: "generic_stabi_hairygirl.jpg", isSpecial: true, ticket_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452", isSpecial: true },
             { name: "Uncanny [Nell Phoenix]", showname: "The Hairy Girl", performer: "Nell Phoenix", date: "11/11/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "", event_flyer: "2025_11_11_guesthouseST_phoenix_uncanny.jpg", ticket_url: "", isSpecial: true },
             { name: "A Dance with the Minotaur's Sister [Steph Brittain]", showname: "A Dance with the Minotaur’s Sister", performer: "Steph Brittain", date: "17/12/2025", time: "7.30-10pm", club: "beestontales", price: "£8 [£6.50]", description: "Join storyteller Steph Brittain as she follows Ariadne’s journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.", location: "Our Lady of the Assumption Church Hall, Beeston, Nottingham", venue_url: "", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/beestontales/1955497" , isSpecial: true },
             { name: "Last Orders - A Storytelling Show [Mike Payton]", showname: "Last Orders - A Storytelling Show", performer: "Mike Payton", date: "30/01/2026", time: "7.30-10pm", club: "forgingfantastical", price: "£10.84", description: "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…", location: "The Old Stables, behind The White Hart, Cricklade, Swindon", venue_url: "", event_flyer: "2026_01_20_forgingfantastical_payton_lastorders.jpg", ticket_url: "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog", isSpecial: true , fb_event: 2737200426620868 },
@@ -624,7 +658,6 @@
                     locationText = `<div class="event-location">${locationDisplay}</div>`;
                 }
 
-
                 // Add time and price if they exist
                 let timeText = '';
                 let priceText = '';
@@ -637,9 +670,10 @@
                     priceText = ` • ${event.price}`;
                 }
 
-                const eventName = event.link
-                    ? `<a href="${event.link}" target="_blank">${event.name}</a>`
-                    : event.name;
+                //const eventName = event.link
+                //     ? `<a href="${event.link}" target="_blank">${event.name}</a>`
+                //     : event.name;
+                const eventName = event.name;
 
                 // Add Facebook link if available (for regular facebook page/group)
                 let facebookLink = '';
@@ -649,6 +683,21 @@
                         : `https://facebook.com/${event.facebook}`;
                     facebookLink = `<a href="${fbUrl}" target="_blank" class="event-facebook" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
                 }
+
+                // Add email link if available
+                let emailLink = '';
+                if (event.email && event.email.trim()) {
+                    emailLink = `<a href="mailto:${event.email}" class="event-email" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>`;
+                }
+
+                // Add website link if available (but not if it's the same as the main event link)
+                let websiteLink = '';
+                if (event.link && event.link.trim()) {
+                    websiteLink = `<a href="${event.link}" target="_blank" class="event-website" title="Website"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>`;
+                }
+
+                // Combine all icons
+                const allIcons = websiteLink + emailLink + facebookLink;
 
                 const specialClass = event.isSpecial ? ' special' : '';
 
@@ -709,7 +758,7 @@
 
                 return `
                 <div class="event${specialClass}${clickableClass}"${onclickAttr}>
-                    <div class="event-name">${eventName}${facebookLink}</div>
+                    <div class="event-name">${eventName}${allIcons}</div>
                     ${locationText}
                     <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
                     ${ticketsEventLine}
