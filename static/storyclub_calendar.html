@@ -375,7 +375,7 @@
 
         const specificEvents = [
             { name: "Winter Tales", date: "10/12/2025", location: "Carvel Lane Coffee House", link: "", isSpecial: true , price: "£5", time:"7-9.30pm", event_flyer:"2025_12_10_solo_carvel-winter-cherries.png", fb_event: 1838395960217862 },
-            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites — Monty + The AnyWhens", date: "04/12/2025", time: "7-10pm", location: "October Books, Southampton", price: "£10", ticket_url: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true, event_flyer:"2025_12_04_manywhens_protestdays_octoberbooks.png", description: "" },
+            { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites [Monty + The AnyWhens]", showname: "Protest Days, Rebellion Nights: songs and stories of the Luddites", performer: "Monty + The AnyWhens", date: "04/12/2025", time: "7-10pm", location: "October Books, Southampton", price: "£10", venue_url:"https://octoberbooks.org/", ticket_url: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true, event_flyer:"2025_12_04_manywhens_protestdays_octoberbooks.png", description: "" },
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/25", club: "stinginthetale" , price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester" , venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer:"2025_12_17STinginthetale_conboy.jpg",  isSpecial: true },
 
             
@@ -545,6 +545,11 @@
                         facebook: event.facebook || null,
                         time: event.time || null,
                         price: event.price || null,
+                        venue_url: event.venue_url || null,
+                        email: event.email || null,
+                        club: event.club || null,
+                        tickets_url: event.tickets_url || null,
+                        club_flyer: event.club_flyer || null,
                         isSpecial: false
                     });
                 });
@@ -568,6 +573,12 @@
                         ticket_url: event.ticket_url || null,
                         event_flyer: event.event_flyer || null,
                         description: event.description || null,
+                        venue_url: event.venue_url || null,
+                        showname: event.showname || null,
+                        performer: event.performer || null,
+                        club: event.club || null,
+                        openslots: event.openslots || null,
+                        online: event.online || null,
                         isSpecial: event.isSpecial || false
                     });
                 }
@@ -597,7 +608,22 @@
                 const year = event.date.getFullYear();
 
                 const scheduleText = event.schedule ? ` (${event.schedule})` : '';
-                const locationText = event.location ? `<div class="event-location">${event.location}</div>` : '';
+
+                // Process location with venue link if available
+                let locationText = '';
+                if (event.location) {
+                    let locationDisplay = event.location;
+                    if (event.venue_url && event.venue_url.trim()) {
+                        // Extract venue name (text before first comma, or entire location if no comma)
+                        const commaIndex = event.location.indexOf(',');
+                        const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
+                        const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
+                        locationDisplay = `<a href="${event.venue_url}" target="_blank" style="text-decoration: none; color: inherit;"><strong>${venueName}</strong></a>${restOfLocation}`;
+
+                    }
+                    locationText = `<div class="event-location">${locationDisplay}</div>`;
+                }
+
 
                 // Add time and price if they exist
                 let timeText = '';
