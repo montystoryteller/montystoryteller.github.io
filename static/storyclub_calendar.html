@@ -868,6 +868,51 @@
             {title: "24 Story Seeds", leader: "Sally Pomme Clayton", date:"06/12/2025", location:"Summerhill Bowling Club, Newcastle-upon-Tyne", cost:"£40", link:"https://www.facebook.com/ABitCrack", club: "abitcrack", course_flyer: "2025_12_06_abitcrack_pomme_24storyseeds.jpg"},
         ];
 
+        let masterEvents = []; // Holds all upcoming event occurrences
+        let currentStartDate = null;
+        let currentEndDate = null;
+  function generateMasterEvents() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        masterEvents = [];
+
+        // 1. Add Recurring Events (ONE entry per club)
+        events.forEach(event => {
+            // Find the next upcoming date for display purposes
+            // The parseSchedule function should be modified to return ONLY the *next* date
+            // if called without an endDate, but for simplicity, we'll find the first one:
+            const nextDates = parseSchedule(event.schedule, today, new Date(today.getFullYear() + 1, today.getMonth(), today.getDate()));
+
+            // Use the first found date as the display date, or null if none found
+            const nextDate = nextDates.length > 0 ? nextDates[0] : null;
+
+            masterEvents.push({
+                type: 'recurring',
+                // Use the next found date for sorting the main list
+                date: nextDate,
+                ...event // Include all original properties
+            });
+        });
+
+        // 2. Add Specific Events
+        specificEvents.forEach(event => {
+            const eventDate = parseSpecificDate(event.date);
+
+            if (eventDate && eventDate >= today) {
+                masterEvents.push({
+                    type: 'specific',
+                    date: eventDate,
+                    isSpecial: event.isSpecial || false,
+                    ...event
+                });
+            }
+        });
+
+        // Sort the master list by date to keep upcoming events first
+        masterEvents = masterEvents.filter(e => e.date !== null); // Remove recurring events with no future dates
+        masterEvents.sort((a, b) => a.date - b.date);
+    }
         // Events with incomplete information (no specific schedule):
         // - Storytellers of Nottingham (monthly wednesday/thursday - varies)
         // - Dundee blethertaygither (2nd last Thursday)
