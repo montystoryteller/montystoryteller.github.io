@@ -697,7 +697,7 @@
 
     <div class="search-controls">
         <div class="search-row">
-            <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterEvents()">
+            <input type="text" id="searchInput" placeholder="Search within displayed events..." onkeyup="filterEvents()">
             <select id="searchField" onchange="filterEvents()">
                 <option value="all">Search all fields</option>
                 <option value="club">Club</option>
@@ -1080,8 +1080,8 @@
             const startStr = `${startDate.getDate()} ${months[startDate.getMonth()]} ${startDate.getFullYear()}`;
             const endStr = `${endDate.getDate()} ${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
             const headerText = startStr === endStr
-                ? `<em>Showing clubs and events for the week of <strong>${startStr}</strong>.</em>`
-                : `<em>Showing clubs and events for the week of <strong>${startStr} - ${endStr}</strong>.</em>`;
+                ? `<em>Showing clubs and events for the period <strong>${startStr}</strong>.</em>`
+                : `<em>Showing clubs and events for period <strong>${startStr} - ${endStr}</strong>.</em>`;
 
             eventsList.innerHTML = `<div style="margin-bottom: 15px; color: #333;">${headerText}</div><hr/>` + allEvents.map(event => {
                 const dayName = daysOfWeek[event.date.getDay()];
