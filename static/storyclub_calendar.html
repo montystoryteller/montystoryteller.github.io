@@ -700,10 +700,12 @@
             <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterEvents()">
             <select id="searchField" onchange="filterEvents()">
                 <option value="all">Search all fields</option>
-                <option value="name">Event name</option>
-                <option value="performer">Performer</option>
-                <option value="location">Location</option>
                 <option value="club">Club</option>
+                <option value="performer">Performer</option>
+                <option value="name">Event name</option>
+                <option value="location">Location</option>
+                <option value="title">Event title</option> <!-- not implemented yet -->
+                <option value="description">Description</option> <!-- not implemented yet -->
             </select>
             <button onclick="clearSearch()">Clear</button>
         </div>
