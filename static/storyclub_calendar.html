@@ -1081,7 +1081,7 @@
             const endStr = `${endDate.getDate()} ${months[endDate.getMonth()]} ${endDate.getFullYear()}`;
             const headerText = startStr === endStr
                 ? `<em>Showing clubs and events for the period <strong>${startStr}</strong>.</em>`
-                : `<em>Showing clubs and events for period <strong>${startStr} - ${endStr}</strong>.</em>`;
+                : `<em>Showing clubs and events for the period <strong>${startStr} - ${endStr}</strong>.</em>`;
 
             eventsList.innerHTML = `<div style="margin-bottom: 15px; color: #333;">${headerText}</div><hr/>` + allEvents.map(event => {
                 const dayName = daysOfWeek[event.date.getDay()];
@@ -1551,7 +1551,7 @@
                 document.getElementById('sortBy').value = 'date-asc';
                 filterEvents();
             }
-            generateMasterEvents();
+            //generateMasterEvents();
     </script>
 </body>
 
