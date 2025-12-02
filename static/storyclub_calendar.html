@@ -547,6 +547,99 @@
             padding: 20px;
         }
         
+        .search-controls {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+#searchField,
+#sortBy {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.search-controls button {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.filter-row label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-row input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.event.hidden {
+    display: none;
+}
+
+.search-active {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.search-results-info {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e8f5e9;
+    border-left: 4px solid #4CAF50;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.relevance-score {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-left: 8px;
+    font-weight: bold;
+}
     </style>
 </head>
 
@@ -558,13 +651,13 @@
         <div class="info-banner-tabs">
             <div class="info-banner-tabs-header">
                 <span class="header-label">What is/are:</span>
-                <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling</button>
+                <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
                 <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs</button>
+                <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
                 <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('performance')">performance storytelling</button>
+                <button class="header-tab-button" onclick="toggleTabContent('performance')">performance storytelling?</button>
                 <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling shows</button>
+                <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling shows?</button>
             </div>
 
             <div class="tab-content-area" id="storytelling" style="display: none;">
@@ -599,6 +692,35 @@
             <label>To:</label>
             <input type="date" id="endDate" onchange="handleDateChange()">
             <button id="showBtn" onclick="showDateRange()">Show Events</button>
+        </div>
+    </div>
+
+    <div class="search-controls">
+        <div class="search-row">
+            <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterEvents()">
+            <select id="searchField" onchange="filterEvents()">
+                <option value="all">Search all fields</option>
+                <option value="name">Event name</option>
+                <option value="performer">Performer</option>
+                <option value="location">Location</option>
+                <option value="club">Club</option>
+            </select>
+            <button onclick="clearSearch()">Clear</button>
+        </div>
+        <div class="filter-row">
+            <label>
+                <input type="checkbox" id="specialOnly" onchange="filterEvents()">
+                Special events only
+            </label>
+            <label>Sort by:
+                <select id="sortBy" onchange="sortAndDisplayEvents()">
+                    <option value="date-asc">Date (earliest first)</option>
+                    <option value="date-desc">Date (latest first)</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="location">Location (A-Z)</option>
+                    <option value="relevance">Relevance (when searching)</option>
+                </select>
+            </label>
         </div>
     </div>
 
@@ -1175,6 +1297,198 @@
                 element.style.display = 'none';
             }
         }
+
+        let currentEventsData = []; // Store current events with metadata
+
+            function filterEvents() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+                const searchField = document.getElementById('searchField').value;
+                const specialOnly = document.getElementById('specialOnly').checked;
+                const events = document.querySelectorAll('.event');
+                let visibleCount = 0;
+
+                // Remove any existing search info
+                const existingInfo = document.querySelector('.search-results-info');
+                if (existingInfo) existingInfo.remove();
+
+                // Store events with relevance scores
+                currentEventsData = [];
+
+                events.forEach(event => {
+                    let isVisible = true;
+                    let relevanceScore = 0;
+
+                    // Check special events filter
+                    if (specialOnly && !event.classList.contains('special')) {
+                        isVisible = false;
+                    }
+
+                    // Check search term
+                    if (isVisible && searchTerm) {
+                        const eventName = event.querySelector('.event-name')?.textContent.toLowerCase() || '';
+                        const eventLocation = event.querySelector('.event-location')?.textContent.toLowerCase() || '';
+                        const eventDate = event.querySelector('.event-date')?.textContent.toLowerCase() || '';
+                        const fullText = event.textContent.toLowerCase();
+
+                        let fieldText = '';
+                        switch (searchField) {
+                            case 'name':
+                                fieldText = eventName;
+                                break;
+                            case 'performer':
+                                // Extract performer from name (usually in square brackets)
+                                const performerMatch = eventName.match(/\[(.*?)\]/);
+                                fieldText = performerMatch ? performerMatch[1] : eventName;
+                                break;
+                            case 'location':
+                                fieldText = eventLocation;
+                                break;
+                            case 'club':
+                                fieldText = fullText;
+                                break;
+                            default:
+                                fieldText = fullText;
+                        }
+
+                        if (!fieldText.includes(searchTerm)) {
+                            isVisible = false;
+                        } else {
+                            // Calculate relevance score
+                            const words = searchTerm.split(' ');
+                            words.forEach(word => {
+                                if (eventName.includes(word)) relevanceScore += 10;
+                                if (eventLocation.includes(word)) relevanceScore += 5;
+                                if (eventDate.includes(word)) relevanceScore += 3;
+                            });
+
+                            // Bonus for exact matches
+                            if (eventName.includes(searchTerm)) relevanceScore += 20;
+                            if (eventLocation === searchTerm) relevanceScore += 15;
+                        }
+                    }
+
+                    if (isVisible) {
+                        event.classList.remove('hidden');
+                        event.classList.add('search-active');
+                        visibleCount++;
+
+                        // Store event data for sorting
+                        currentEventsData.push({
+                            element: event,
+                            relevance: relevanceScore,
+                            name: event.querySelector('.event-name')?.textContent || '',
+                            location: event.querySelector('.event-location')?.textContent || '',
+                            date: event.querySelector('.event-date')?.textContent || ''
+                        });
+                    } else {
+                        event.classList.add('hidden');
+                        event.classList.remove('search-active');
+                    }
+                });
+
+                // Show search results count
+                if (searchTerm || specialOnly) {
+                    const eventsList = document.getElementById('eventsList');
+                    const firstChild = eventsList.firstChild;
+                    const info = document.createElement('div');
+                    info.className = 'search-results-info';
+                    let infoText = `Found ${visibleCount} event${visibleCount !== 1 ? 's' : ''}`;
+                    if (searchTerm) infoText += ` matching "${searchTerm}"`;
+                    if (specialOnly) infoText += ` (special events only)`;
+                    info.textContent = infoText;
+                    eventsList.insertBefore(info, firstChild);
+                } else {
+                    // Remove search highlighting if no filters active
+                    events.forEach(event => event.classList.remove('search-active'));
+                }
+
+                // Re-sort after filtering
+                sortAndDisplayEvents();
+            }
+
+            function sortAndDisplayEvents() {
+                const sortBy = document.getElementById('sortBy').value;
+                const eventsList = document.getElementById('eventsList');
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+                // Get all events (visible and hidden)
+                const allEvents = Array.from(document.querySelectorAll('.event'));
+                const allExpandables = Array.from(document.querySelectorAll('.event-expandable'));
+
+                // Create pairs of events and their expandable content
+                const eventPairs = allEvents.map((event, index) => {
+                    const nextElement = event.nextElementSibling;
+                    const expandable = nextElement?.classList.contains('event-expandable') ? nextElement : null;
+
+                    // Extract date for sorting
+                    const dateText = event.querySelector('.event-date')?.textContent || '';
+                    const dateMatch = dateText.match(/(\w+), (\d+) (\w+) (\d+)/);
+                    let dateObj = new Date();
+                    if (dateMatch) {
+                        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        const day = parseInt(dateMatch[2]);
+                        const month = months.indexOf(dateMatch[3]);
+                        const year = parseInt(dateMatch[4]);
+                        dateObj = new Date(year, month, day);
+                    }
+
+                    return {
+                        event: event,
+                        expandable: expandable,
+                        name: event.querySelector('.event-name')?.textContent || '',
+                        location: event.querySelector('.event-location')?.textContent || '',
+                        date: dateObj,
+                        relevance: currentEventsData.find(e => e.element === event)?.relevance || 0
+                    };
+                });
+
+                // Sort based on selection
+                eventPairs.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'date-desc':
+                            return b.date - a.date;
+                        case 'name':
+                            return a.name.localeCompare(b.name);
+                        case 'location':
+                            return a.location.localeCompare(b.location);
+                        case 'relevance':
+                            if (searchTerm) {
+                                return b.relevance - a.relevance;
+                            }
+                            return a.date - b.date; // Default to date if no search
+                        case 'date-asc':
+                        default:
+                            return a.date - b.date;
+                    }
+                });
+
+                // Get the header (everything before first event)
+                const firstEvent = allEvents[0];
+                const header = [];
+                let node = eventsList.firstChild;
+                while (node && node !== firstEvent) {
+                    header.push(node);
+                    node = node.nextSibling;
+                }
+
+                // Clear and rebuild
+                eventsList.innerHTML = '';
+                header.forEach(h => eventsList.appendChild(h));
+                eventPairs.forEach(pair => {
+                    eventsList.appendChild(pair.event);
+                    if (pair.expandable) {
+                        eventsList.appendChild(pair.expandable);
+                    }
+                });
+            }
+
+            function clearSearch() {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('searchField').value = 'all';
+                document.getElementById('specialOnly').checked = false;
+                document.getElementById('sortBy').value = 'date-asc';
+                filterEvents();
+            }
     </script>
 </body>
 
