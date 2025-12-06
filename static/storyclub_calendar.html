@@ -809,7 +809,7 @@
             { name: "Southampton Story Club", schedule: "1st thursday", location: "Guide Dog Pub, Southampton", time: "8-10pm", venue_url:"https://www.facebook.com/TheGuideDog", link: "", facebook: "https://www.facebook.com/groups/southamptonstories", club:"southamptonSC" },
             { name: "Sarum Story club", schedule: "3rd tuesday", location: "", link: "", facebook: "https://www.facebook.com/groups/sarumstoryclub", club:"sarumSC"},
             { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday", location: "", link: "", facebook: "https://www.facebook.com/groups/412446392168295", club:"bristolwildwednesday" },
-            { name: "Dartmoor Storytellers", schedule: "2nd wednesday", location: "Chagford Inn, Chagford", link: "", venue_url: "https://www.thechagfordinn.co.uk/", facebook: "https://www.facebook.com/groups/1689129511376075", club:"dartmoorSTorytellers" },
+            { name: "Dartmoor Storytellers", schedule: "2nd wednesday", location: "Chagford Inn, Chagford", link: "", venue_url: "https://www.thechagfordinn.co.uk/", facebook: "https://www.facebook.com/groups/1689129511376075", club:"dartmoorSTorytellers", exceptions: ["17/12/2025"] },
             { name: "A Bit Crack Storytelling", schedule: "1st friday", location: "Chillingham Arms, South Heaton, Newcastle", link: "https://www.abitcrack.com/", time:"7.20-9", venue_url:"https://sjf.co.uk/the-chillingham/", facebook: "https://www.facebook.com/ABitCrack" , club:"abitcrack"},
             { name: "Cardiff Storytelling Circle", schedule: "1st sunday", location: "Chapter Arts Centre, Canton, Cardiff", venue_url:"https://www.chapter.org/", time: "8pm", link: "https://www.literaturewales.org/writer-group/cardiff-storytelling-circle/", facebook:"https://www.facebook.com/groups/1491740927748170/", club:"cardiffSC" },
             { name: "Mendip story circle", schedule: "2nd wednesday", location: "Ston Easton Village Hall, Radstock", venue_url:"https://stoneaston.org.uk/village-hall/", link: "https://www.mendipstorycircle.com/", facebook: "https://www.facebook.com/profile.php?id=100064070403986", club: "" },
@@ -1053,7 +1053,22 @@
             // Add recurring events
             events.forEach(event => {
                 const dates = parseSchedule(event.schedule, startDate, endDate);
+                const exceptions = event.exceptions || [];
+
                 dates.forEach(date => {
+                    const dateStr = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+                    // Check if there's an exception in this same month
+                    const month = date.getMonth();
+                    const year = date.getFullYear();
+                    const exceptionInMonth = exceptions.find(excDate => {
+                        const [d, m, y] = excDate.split('/').map(num => parseInt(num));
+                        return (m - 1) === month && y === year;
+                    });
+
+                    // If there's an exception in this month, this regular date is cancelled
+                    const isCancelled = !!exceptionInMonth;
+
                     allEvents.push({
                         name: event.name,
                         date: date,
@@ -1068,8 +1083,38 @@
                         club: event.club || null,
                         tickets_url: event.tickets_url || null,
                         club_flyer: event.club_flyer || null,
+                        exceptions: event.exceptions || null,
+                        isCancelled: isCancelled,
+                        rescheduledTo: exceptionInMonth,
                         isSpecial: false
                     });
+                });
+
+                // Add exception dates as actual events
+                exceptions.forEach(excDate => {
+                    const [day, month, year] = excDate.split('/').map(num => parseInt(num));
+                    const exceptionDate = new Date(year, month - 1, day);
+
+                    if (exceptionDate >= startDate && exceptionDate <= endDate) {
+                        allEvents.push({
+                            name: event.name,
+                            date: exceptionDate,
+                            schedule: event.schedule,
+                            location: event.location || null,
+                            link: event.link,
+                            facebook: event.facebook || null,
+                            time: event.time || null,
+                            price: event.price || null,
+                            venue_url: event.venue_url || null,
+                            email: event.email || null,
+                            club: event.club || null,
+                            tickets_url: event.tickets_url || null,
+                            club_flyer: event.club_flyer || null,
+                            exceptions: event.exceptions || null,
+                            isRescheduled: true,
+                            isSpecial: false
+                        });
+                    }
                 });
             });
 
@@ -1244,7 +1289,7 @@
                 <div class="event${specialClass}${clickableClass}"${onclickAttr}>
                     <div class="event-name">${eventName}${allIcons}</div>
                     ${locationText}
-                    <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${timeText}${priceText}</div>
+                    <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year}${scheduleText}</span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${new Date(event.rescheduledTo.split('/').reverse().join('-')).getDate()} ${months[new Date(event.rescheduledTo.split('/').reverse().join('-')).getMonth()]} ${new Date(event.rescheduledTo.split('/').reverse().join('-')).getFullYear()})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
                     ${ticketsEventLine}
                 </div>
                 ${expandableContent}
