@@ -385,13 +385,13 @@
 
         .event-name a {
             color: #333;
-            text-decoration: none;
+            text-decoration: none !important;
             border-bottom: 2px solid #4CAF50;
         }
 
         .event.special .event-name a {
             color: #ffffff !important;
-            border-bottom: 2px solid #ffeb3b !important;
+            text-decoration: none !important;
         }
 
         .event-name a:hover {
@@ -795,7 +795,7 @@
             { name: "Cambridge Storytellers", schedule: "2nd sunday", location: "Special events only?", link: "https://www.cambridgestorytellers.com/", facebook: "https://www.facebook.com/CambridgeStorytellers", club:"cambridgestorytellers" },
             { name: "Glasgow Better Crack Storytelling Club", schedule: "3rd Friday", location: "", link: "", facebook: "https://www.facebook.com/groups/115339998550789", club: "glasgowbettercrack" },
             { name: "Glasgow EVEN Better Crack Storytelling Club (Children)", schedule: "3rd saturday", location: "", link: "", facebook: "", club: "glasgowevenbettercrack" },
-            { name: "Island Storytellers, Isle of Wight", schedule: "2nd thursday", time: "7-9pm", location: "Various locations", link: "https://tistales.org.uk/island-storytellers/", facebook: "https://www.facebook.com/groups/islandstorytellers" , club:"islandstorytellers"},
+            { name: "Island Storytellers, Isle of Wight", schedule: "2nd thursday", time: "7-9pm", location: "Various locations", link: "https://tistales.org.uk/island-storytellers/", facebook: "https://www.facebook.com/groups/islandstorytellers" , club:"islandstorytellers", exceptions:["20/11/2025"]},
             { name: "Surrey: Three Heads In A Well storytelling circle", schedule: "4th friday", location: "", link: "https://www.surreystorytellers.co.uk", facebook: "https://www.facebook.com/groups/366190587003",  club:"threeheadsinawell" },
             { name: "Bletchley: Tales Tattled and Told", schedule: "3rd saturday", location: "Rectory Cottages, Bletchley", venue_url:"https://www.mkheritage.co.uk/rct/", link: "", facebook: "https://www.facebook.com/lynettehilluk", club:"talestattledtold" },
             { name: "Northampton: Feast of Fools", schedule: "1st wednesday", location: "Quaker Meeting House, Northampton", time: "7-9.30pm", link: "https://www.storyfeast.uk/", venue_url:"https://northampton.quakermeeting.org/", facebook: "https://www.facebook.com/StorytellingFeast", club:"feastoffools" },
@@ -1299,7 +1299,7 @@
 
         function setActiveMode(mode) {
             // Remove active class from all buttons and inputs
-            //document.getElementById('lastWeekBtn').classList.remove('active');
+            document.getElementById('lastWeekBtn').classList.remove('active');
             document.getElementById('thisWeekBtn').classList.remove('active');
             document.getElementById('nextWeekBtn').classList.remove('active');
             document.getElementById('afterThatWeekBtn').classList.remove('active');
