@@ -333,13 +333,21 @@
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
         }
 
+        .event.music {
+            background: linear-gradient(135deg, #443cd7 0%, #8e9df3 100%);
+            border: 2px solid #1006c6;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
         .event-name {
             font-weight: bold;
             color: #333;
             font-size: 16px;
         }
 
-        .event.special .event-name {
+        .event.special .event-name,
+        .event.music .event-name {
             color: #ffffff;
         }
 
@@ -348,7 +356,8 @@
             margin-top: 5px;
         }
 
-        .event.special .event-date {
+        .event.special .event-date,
+        .event.music .event-date {
             color: #e8f5e9;
         }
 
@@ -359,7 +368,8 @@
             font-size: 14px;
         }
 
-        .event.special .event-location {
+        .event.special .event-location,
+        .event.music .event-location {
             color: #c8e6c9;
         }
 
@@ -389,7 +399,8 @@
             border-bottom: 2px solid #4CAF50;
         }
 
-        .event.special .event-name a {
+        .event.special .event-name a,
+        .event.music .event-name a {
             color: #ffffff !important;
             text-decoration: none !important;
         }
@@ -398,7 +409,8 @@
             border-bottom-color: #45a049;
         }
 
-        .event.special .event-name a:hover {
+        .event.special .event-name a:hover,
+        .event.music .event-name a:hover {
             border-bottom-color: #fff59d !important;
         }
 
@@ -416,7 +428,8 @@
             border-bottom: 2px solid #4CAF50;
         }
 
-        .event.special .event-tickets a {
+        .event.special .event-tickets a,
+        .event.music .event-tickets a {
             color: #ffeb3b;
             border-bottom: 2px solid #fff59d;
         }
@@ -425,7 +438,8 @@
             border-bottom-color: #1b5e20;
         }
 
-        .event.special .event-tickets a:hover {
+        .event.special .event-tickets a:hover,
+        .event.music .event-tickets a:hover {
             border-bottom-color: #ffffff;
         }
 
@@ -474,7 +488,8 @@
             margin: 0 4px;
         }
 
-        .event.special .event-tickets .separator {
+        .event.special .event-tickets .separator,
+        .event.music .event-tickets .separator {
             color: #e8f5e9;
         }
 
@@ -489,6 +504,10 @@
 
         .event.special.clickable:hover {
             background: linear-gradient(135deg, #4caf50 0%, #6ec071 100%);
+        }
+
+        .event.music.clickable:hover {
+            background: linear-gradient(135deg, #697bc4 0%, #a7aadf 100%);
         }
 
         .event-expandable {
@@ -562,13 +581,37 @@
             fill: #1eb868;
         }
 
+        /* Email icon reversed for .event.special */
+/* Normal state inside special event */
+.event.music .event-email svg {
+    fill: #77ee77; /* inverted from white */
+}
+
+/* Hover state inside special event */
+.event.music .event-email:hover svg {
+    fill: #ffffff; /* inverted from #77ee77 */
+}
+
+
+/* -------- WEBSITE -------- */
+
+/* Normal state inside special event */
+.event.music .event-website svg {
+    fill: #1eb868; /* inverted from #555555 */
+}
+
+/* Hover state inside special event */
+.event.music .event-website:hover svg {
+    fill: #555555; /* inverted from #1eb868 */
+}
+
         .no-events {
             text-align: center;
             color: #999;
             padding: 20px;
         }
         
-        .search-controls {
+.search-controls {
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #ddd;
@@ -580,6 +623,7 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
 
 .filter-row {
     display: flex;
@@ -595,6 +639,7 @@
     border-radius: 4px;
     font-size: 14px;
     transition: all 0.3s;
+    min-width: 0; /* Allow flex item to shrink */
 }
 
 #searchInput:focus {
@@ -611,11 +656,27 @@
     font-size: 14px;
     background: white;
     cursor: pointer;
+    flex-shrink: 0; /* Prevent shrinking */
 }
+
 
 .search-controls button {
     padding: 10px 20px;
     white-space: nowrap;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+@media (max-width: 768px) {
+    .search-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #searchInput,
+    #searchField,
+    .search-controls button {
+        width: 100%;
+    }
 }
 
 .filter-row label {
@@ -665,7 +726,7 @@
 </head>
 
 <body>
-    <h1>Storytelling Events Calendar (UK)</h1>
+    <h1>The New Troubadours — Storytelling, Music and Punk Poet Events Calendar (UK)</h1>
 
     <h2>Appropriate all ages, aimed at adults.</h2>
 
@@ -695,6 +756,10 @@
 
             <div class="tab-content-area" id="storytellingshows" style="display: none;">
                 <p>A <em>storytelling show</em> is a performance event in which one or more storytellers tell one or more tales in a formal or semi-formal setting. A storytelling set, or show, show often shapes several stories to fit an overarching narrative or theme. Not comedy, not theatre, storytelling shows take the performer and audience alike into an eternal moment of remembered times and places that never existed. Which is to say, into a time of <em>once</em>...</p>
+            </div>
+
+            <div class="tab-content-area" id="folknopenmic" style="display: none;">
+                <p>For the purpose of this list, <em>folk nights</em>, <em>folk clubs</em> and <em>open mics</em> are open invitation events where storytellers have previously had a slot. (Folk nights as listed here often define "folk music" in quite broad terms..) <em>Folk nights</em> often have a one or two song policy, so a short 3-5 minute tale. <em>Folk clubs</em> are slightly more formal and more traditional in their repertoire. Sometimes you might get a second turn, which means you can split a longer tale at a cliff-hanger. <em>Open mics</em> are typically amplified events, though you can often get away with not using the mic. The slots may be more generous, with an up to four song policy, or a 10-12 minute tale, though you should probably work up to that over several sessions to build trust with the organiser and from the audience. To take part in any of these events, give your name to the person running the club/session. Contacting organisers beforehand can also put them on the look out for you.</p>
             </div>
         </div>
 
@@ -732,8 +797,17 @@
         </div>
         <div class="filter-row">
             <label>
-                <input type="checkbox" id="specialOnly" onchange="filterEvents()">
-                Special events only
+                <input type="checkbox" checked id="storyclubsOn" onchange="filterEvents()">
+                Story clubs
+            </label>
+            <label>
+                <input type="checkbox" checked id="specialOn" onchange="filterEvents()">
+                Special events
+            </label>
+            <label>
+                <input type="checkbox" id="showMusic" onchange="filterEvents()">
+                Music events
+            </label>
             </label>
             <label>Sort by:
                 <select id="sortBy" onchange="sortAndDisplayEvents()">
@@ -915,6 +989,19 @@
             
             // { name: "", showname: "", performer: "", date: "", time:"", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "", ticket_url:"", isSpecial: true },
         ];
+
+        const musicEvents = [
+
+            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield and The Company of Thieves", date: "12/12/2025", time: "7.30pm", club: "gazbrookfield", price: "£16.50 (+1.70)", location: "Yes, Manchester", description:"Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now.Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts.Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.", venue_url: "https://www.yes-manchester.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://wegottickets.com/f/14466#location-28953", isMusic: true },
+            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield and The Company of Thieves", date: "13/12/2025", time: "6.30pm", club: "gazbrookfield", price: "", description: "", location: "Bodega, Nottingham", venue_url: "https://www.bodeganottingham.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://www.alttickets.com/gaz-brookfield-tickets", isMusic: true },
+            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield", date: "19/12/2025", time: "7.30pm", club: "gazbrookfield", price: "£16.00", description: "", location: "Joiners, Southampton", venue_url: "https://www.joinerslive.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://joiners.vticket.co.uk/product.php/2773/gaz-brookfield", isMusic: true },
+            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour, Xmas Show)", showname: "Waiting For Wisdom tour, Xmas Show", performer: "Gaz Brookfield", date: "20/12/2025", time: "7.00pm", club: "gazbrookfield", price: "£16.50", description: "", location: "The Fleece, Bristol", venue_url: "https://thefleece.co.uk/", event_flyer: "gaz_brookfield_xmas25.jpeg", ticket_url: "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479", isMusic: true },
+            
+            {name: "Gaz Brookfield (Almost All Village Halls Tour)", showname: "Almost All Village Halls Tour", performer: "Gaz Brookfield", date: "06/02/2026", time: "7.30pm", club: "gazbrookfield", price: "£16.50", description: "", location: "Gupshill Manor, Tewkesbury", venue_url: "https://gupshillmanor.com/", event_flyer: "tour_gazbrookfield_2026q1-2.jpg", ticket_url: "https://wegottickets.com/event/673293", isMusic: true },
+            //{ name: "Gaz Brookfield", showname: "", performer: "Gaz Brookfield", date: "", time: "", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "tour_gazbrookfield_2026q1-2.jpg", ticket_url: "", isMusic: true },
+            
+            //{ name: "", showname: "", performer: "", date: "", time: "", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "", ticket_url: "", isMusic: true, fb_event:  }
+        ]
 
         const podcasts = [
             {series_title:"Taking the Tradition On", presenter: "Amy Douglas", schedule:"", url: "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn"}
@@ -1110,7 +1197,8 @@
                         exceptions: event.exceptions || null,
                         isCancelled: isCancelled,
                         rescheduledTo: exceptionInMonth,
-                        isSpecial: false
+                        isSpecial: false,
+                        isStoryclub: true
                     });
                 });
 
@@ -1136,7 +1224,8 @@
                             club_flyer: event.club_flyer || null,
                             exceptions: event.exceptions || null,
                             isRescheduled: true,
-                            isSpecial: false
+                            isSpecial: false,
+                            isStoryclub: true
                         });
                     }
                 });
@@ -1166,7 +1255,38 @@
                         club: event.club || null,
                         openslots: event.openslots || null,
                         online: event.online || null,
-                        isSpecial: event.isSpecial || false
+                        isSpecial: event.isSpecial || false,
+                        isStoryclub: false
+                    });
+                }
+            });
+
+            // Add music events
+            musicEvents.forEach(event => {
+                const [day, month, year] = event.date.split('/').map(num => parseInt(num, 10));
+                const eventDate = new Date(year, month - 1, day);
+                if (eventDate >= startDate && eventDate <= endDate) {
+                    allEvents.push({
+                        name: event.name,
+                        date: eventDate,
+                        schedule: null,
+                        location: event.location,
+                        link: event.link,
+                        facebook: event.facebook || null,
+                        fb_event: event.fb_event || null,
+                        time: event.time || null,
+                        price: event.price || null,
+                        ticket_url: event.ticket_url || null,
+                        event_flyer: event.event_flyer || null,
+                        description: event.description || null,
+                        venue_url: event.venue_url || null,
+                        showname: event.showname || null,
+                        performer: event.performer || null,
+                        club: event.club || null,
+                        openslots: event.openslots || null,
+                        online: event.online || null,
+                        isMusic: event.isMusic || false,
+                        isStoryclub: false
                     });
                 }
             });
@@ -1252,11 +1372,13 @@
                 // Combine all icons
                 const allIcons = websiteLink + emailLink + facebookLink;
 
+                const storyclubClass = event.isStoryclub ? ' storyclub' : '';
                 const specialClass = event.isSpecial ? ' special' : '';
+                const musicClass = event.isMusic ? ' music' : '';
 
                 // Build the tickets/event line for special events
                 let ticketsEventLine = '';
-                if (event.isSpecial) {
+                if ((event.isSpecial) || (event.isMusic)) {
                     let fbEventIcon = '';
                     if (event.fb_event) {
                         const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
@@ -1310,7 +1432,7 @@
                 const onclickAttr = hasExpandableContent ? ` onclick="toggleEventDetails('${expandableId}')"` : '';
 
                 return `
-                <div class="event${specialClass}${clickableClass}"${onclickAttr}>
+                <div class="event${storyclubClass}${specialClass}${clickableClass}${musicClass}"${onclickAttr}>
                     <div class="event-name">${eventName}${allIcons}</div>
                     ${locationText}
                     <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year}${scheduleText}</span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${new Date(event.rescheduledTo.split('/').reverse().join('-')).getDate()} ${months[new Date(event.rescheduledTo.split('/').reverse().join('-')).getMonth()]} ${new Date(event.rescheduledTo.split('/').reverse().join('-')).getFullYear()})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
@@ -1455,6 +1577,9 @@
         }
 
         showThisWeek();
+        document.querySelectorAll('.event.music').forEach(event => {
+                event.classList.add('hidden');
+            });
 
         function toggleEventDetails(id) {
             const element = document.getElementById(id);
@@ -1470,7 +1595,9 @@
             function filterEvents() {
                 const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
                 const searchField = document.getElementById('searchField').value;
-                const specialOnly = document.getElementById('specialOnly').checked;
+                const specialOn = document.getElementById('specialOn').checked;
+                const storyclubsOn = document.getElementById('storyclubsOn').checked;
+                const showMusic = document.getElementById('showMusic').checked;
                 const events = document.querySelectorAll('.event');
                 let visibleCount = 0;
 
@@ -1482,12 +1609,20 @@
                 currentEventsData = [];
 
                 events.forEach(event => {
-                    let isVisible = true;
+                    let isVisible = false;
                     let relevanceScore = 0;
+                    
+                    if (storyclubsOn && event.classList.contains('storyclub')) {
+                        isVisible = true;
+                    }
 
                     // Check special events filter
-                    if (specialOnly && !event.classList.contains('special')) {
-                        isVisible = false;
+                    if (specialOn && event.classList.contains('special')) {
+                        isVisible = true;
+                    }
+
+                    if (showMusic && event.classList.contains('music')) {
+                        isVisible = true;
                     }
 
                     // Check search term
@@ -1554,14 +1689,14 @@
                 });
 
                 // Show search results count
-                if (searchTerm || specialOnly) {
+                if (searchTerm) {
                     const eventsList = document.getElementById('eventsList');
                     const firstChild = eventsList.firstChild;
                     const info = document.createElement('div');
                     info.className = 'search-results-info';
                     let infoText = `Found ${visibleCount} event${visibleCount !== 1 ? 's' : ''}`;
                     if (searchTerm) infoText += ` matching "${searchTerm}"`;
-                    if (specialOnly) infoText += ` (special events only)`;
+                    //if (specialOn) infoText += ` (special events only)`;
                     info.textContent = infoText;
                     eventsList.insertBefore(info, firstChild);
                 } else {
@@ -1652,7 +1787,7 @@
             function clearSearch() {
                 document.getElementById('searchInput').value = '';
                 document.getElementById('searchField').value = 'all';
-                document.getElementById('specialOnly').checked = false;
+                //document.getElementById('specialOn').checked = false;
                 document.getElementById('sortBy').value = 'date-asc';
                 filterEvents();
             }
