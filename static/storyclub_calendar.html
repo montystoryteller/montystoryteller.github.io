@@ -448,6 +448,27 @@
             fill: #145dbf;
         }
 
+
+        /* SPECIAL event override — white circle, blue F */
+        .event.special .event-facebook-inline svg,
+        .event.music .event-facebook-inline svg {
+            fill: #ffffff; /* make whole shape white */
+        }
+
+        /* SPECIAL event + hover (if you want the F to stay blue on hover) */
+        .event.special .event-facebook-inline:hover svg,
+        .event.music .event-facebook-inline:hover svg {
+            fill: #ffffff;
+        }
+
+        /* Then recolor only the F using stroke */
+        .event.special .event-facebook-inline svg path,
+        .event.music .event-facebook-inline svg path {
+            stroke: #1877f2;   /* FB blue outline = F shape */
+            stroke-width: 2px; /* adjust until the “F” looks right */
+            stroke-linejoin: round;
+}
+
         .event-tickets .separator {
             color: #666;
             margin: 0 4px;
