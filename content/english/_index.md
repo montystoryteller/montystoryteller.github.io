@@ -30,9 +30,9 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "NEXT SHOW: \"Winter Tales\", Carvel Lane Coffee House, Cowes, Weds December 10th, 2025, 7pm"
+      - "NEXT SHOW: TBC"
     button:
-      enable: true
+      enable: false
       label: "Reserve Tickets for Winter Tales — 10/12/25"
       link: "https://www.instagram.com/carvellanecoffee/"
 
@@ -47,7 +47,7 @@ features:
       - enable: false
         label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
         link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
-      - enable: true
+      - enable: false
         label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
         link: "https://octoberbooks.lemonbooking.com/events/116/details"
 
