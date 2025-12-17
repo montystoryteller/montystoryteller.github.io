@@ -808,6 +808,13 @@
                 <input type="checkbox" id="showMusic" onchange="filterEvents()">
                 Music events
             </label>
+            <label>
+                <input type="checkbox" id="showFolk" onchange="filterEvents()">
+                Folk clubs/nights
+            </label>
+            <label>
+                <input type="checkbox" id="showOpenmic" onchange="filterEvents()">
+                Open mics
             </label>
             <label>Sort by:
                 <select id="sortBy" onchange="sortAndDisplayEvents()">
@@ -869,6 +876,10 @@
             //{name: "", url: "", facebook: "", instagram: "", podcast: "", podcasts: []}, // {podcast_name: "", podcast_date: "", episode_url:""}
         ]
 
+        const locations = [
+            //{venue_name: "", venue_url:"", venue_postcode:"", venue_latlon:[], venue_address:"", venue_county:"", venue_capacity: -1, venue_phone:"", venue_email:"", venue_fb:"", venue_insta:"", venue_photo:"", venue_deal:"", venue_slug:"", venue_type:"" //pub, cafe, villagehall, library, other
+            ]
+
         const events = [
             { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "", link: "", facebook: "https://www.facebook.com/groups/94064587663", club:"sheffieldstoryforge"},
             { name: "Word of Mouth storytelling club", schedule: "1st wednesday", location: "The Britons Protection, Great Bridgewater St., Manchester", link: "https://wordofmouthstorytelling.blogspot.com/", facebook: "https://www.facebook.com/groups/391825947545400/", venue_url:"https://www.thebritonsprotection.co.uk/index", club: "wordofmouthSCl" },
@@ -926,6 +937,20 @@
             // TO DO - lots more legacy stinginthetale
         ];
 
+        const otherClubs = [
+            { name: "Scrag End Folk Club ]", schedule: "first and third tuesday", exceptions: ["not August"], location: "The Mushroom Hall, Swadlincote", link: "https://www.scragfolk.co.uk/index.php", facebook: "", clubtype: "folk"},
+            { name: "Waverley Folk Night", schedule: "every wednesday", location: "The Waverley, Carisbrooke", link: "https://www.waverleyinn.co.uk/index", facebook: "", clubtype: "folknight" },
+            { name: "Solent Inn open mic", schedule: "every thursday", time: "8-11", location: "Solent Inn, Ryde", link: "https://solentinn.co.uk/", facebook: "", clubtype: "openmic" },
+            //{ name: "Forest Folk Club", schedule: "every thursday", time: "8-11", location: "Orepool Inn, Coleford", link: "https://solentinn.co.uk/", facebook: "", clubtype: "folkclub" },
+            //{ name: "Union Inn folk night", schedule: "every thursday", time: "8-11", location: "Union Inn folk night, Plympton", link: "https://solentinn.co.uk/", facebook: "", clubtype: "folknight" },
+
+            //Crown & Sceptre, Ross - on - Wye
+            //Scribal Gathering, The Crown, Stony Stratford;
+            //Arreton Barns folk night, Arreton
+
+
+                    ];
+
         const specificEvents = [
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/2025", time: "7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15STinginthetale_morden.jpg", isSpecial: true },
             { name: "In the time of GIANTS [The Travelling Talesman]", showname: "In the time of GIANTS", performer: "The Travelling Talesman (Cliff Eastabrook)", date: "25/10/2025", time: "", club: "", price: "", description: "", location: "The Hoops, Barton, Cambridge", venue_url: "https://the-hoops.co.uk/", event_flyer: "tour_eastabrook_giant.jpg", ticket_url: "", isSpecial: true },
@@ -947,7 +972,7 @@
             { name: "Finding Light in the Dark [Trevor Valentine tells 'The Firefly Man']", showname: "The Firefly Man", performer: "Trevor Valentine", date: "04/12/2025", time: "", club: "gloucesterSCafe", price: "", description: "", location: "The Folk of Gloucester, Gloucester", venue_url: "https://www.gloucestercivictrust.org/the-folk-home/", event_flyer: "2025_12_04_gloucesterSCafe_valentine_findinglight.jpg", openslots: true, isSpecial: true },
             { name: "The Mighty Goddess [Sally Pomme Clayton]", showname: "The Mighty Goddess", performer: "Sally Pomme Clayton", date: "04/12/2025", time: "7pm", club: "abitcrack", price: "£10 / £5 / £3", description: "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.", location: "Alphabetti Theatre, Newcastle", venue_url: "https://www.alphabettitheatre.co.uk/", event_flyer: "2025_12_04_abitcrack_pomme_goddess.jpg", ticket_url: "https://www.alphabettitheatre.co.uk/themightygoddess", isSpecial: true },
             { name: "Protest Days, Rebellion Nights: songs and stories of the Luddites [Monty + The AnyWhens]", showname: "Protest Days, Rebellion Nights: songs and stories of the Luddites", performer: "Monty + The AnyWhens", date: "04/12/2025", time: "7-10pm", location: "October Books, Southampton", price: "£10", venue_url: "https://octoberbooks.org/", ticket_url: "https://octoberbooks.lemonbooking.com/events/116/details", isSpecial: true, event_flyer: "2025_12_04_manywhens_protestdays_octoberbooks.png", description: "" },
-            { name: "Welsh Whisperers: Story Circle", showname: "Welsh Whisperers: Story Circle", performer: "Welsh Whisperers", date: "05/12/2025", time: "7-9pm", club: "", price: "£5", description: "Come and join the Dragon Storytellers in the Story Circle. Listen to their stories about Barmouth and Wales: some traditional, some written especially for the Welsh Whisperers Storytelling project. All are warmly invited to share a story of their own if they wish, in the Welsh language, bilingually or in English.", location: "The Dragon Theatre, Barmouth", venue_url: "", event_flyer: "2025_12_05_welshwhisperers_sc.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/141010", isSpecial: true },
+            { name: "Welsh Whisperers: Story Circle", showname: "Welsh Whisperers: Story Circle", performer: "Welsh Whisperers", date: "05/12/2025", time: "7-9pm", club: "", price: "£5", description: "Come and join the Dragon Storytellers in the Story Circle. Listen to their stories about Barmouth and Wales: some traditional, some written especially for the Welsh Whisperers Storytelling project. All are warmly invited to share a story of their own if they wish, in the Welsh language, bilingually or in English.", location: "The Dragon Theatre, Barmouth", venue_url: "https://www.theatryddraig.cymru/", event_flyer: "2025_12_05_welshwhisperers_sc.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/141010", isSpecial: true },
             { name: "Tales of Winter Magic - evening storytelling and Mummers' play", showname: "Tales of Winter Magic - evening storytelling and Mummers' play ", performer: "Red Phoenix | The Prize Old Mummers", date: "05/12/2025", time: "7-9pm", club: "butserancient", price: "£19.50", description: "", location: "Butser Ancient Farm, Hampshire", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/tales-of-winter-magic-evening-sr3yk", isSpecial: true, fb_event: 838620332455279 },
             { name: "Lilith: The Other Side of the Story [Katy Cawkwell]", showname: "Lilith: The Other Side of the Story", performer: "Katy Cawkwell", date: "06/12/2025", time: "7pm", club: "forgingfantastical", price: "", description: "", location: "Eastcott community centre, Swindon", venue_url: "https://eastcottcommunity.org/", event_flyer: "2025_12_06_cawkwell_lilith.jpg", ticket_url: "https://www.ticketsource.co.uk/forging-fantastical/", isSpecial: true },
             { name: "The Hairy Girl [Kersti Stabi]", showname: "The Hairy Girl", performer: "Kersti Stabi", date: "09/12/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven", venue_url: "https://www.hillcrestcentre.co.uk/", event_flyer: "generic_stabi_hairygirl.jpg", isSpecial: true, ticket_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452", isSpecial: true },
@@ -977,6 +1002,8 @@
 
          
             { name: "Storytelling Around The Fire - Warm Tales for Winter [Vanessa Woolf]", showname: "Storytelling Around The Fire - Warm Tales for Winter", performer: "Vanessa Woolf", date: "03/01/2026", time: "7-9pm", club: "londondreamtime", price: "£5-15", description: "Gather by the warmth of the fire in our truly beautiful location. Relax and enjoy glorious, mystical, magical tales from storyteller Vanessa to light up the winter dark. Hot chocolate and marshmallows will be available. We will be sitting around the fire- but it is outside... so dress in your cosiest layers! [Limited tickets]", location: "Plot 9 Maze Hill, Greenwich London", venue_url: "https://greenwichsky.com/plot9/", event_flyer: "", ticket_url: "https://www.designmynight.com/london/whats-on/something-a-little-different-events/storytelling-around-the-fire-strange-tales-for-winter?t=tickets", isSpecial: true },
+            { name: "Welsh Whisperers [Gillian Borwnson + Dragon Storytellers] ", showname: "Gillian Brownson", performer: "Gillian Borwnson + Dragon Storytellers", date: "17/01/2026", time: "7-9pm", club: "", price: "£8", description: "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson.", location: "The Dragon Theatre, Barmouth", venue_url: "https://www.theatryddraig.cymru/", event_flyer: "2026_01_17_welshwhisperers_brownson.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/142714", isSpecial: true },
+            
             { name: "The Girl Who Married a Dog [Nell Phoenix]", showname: "The Girl Who Married a Dog", performer: "Nell Phoenix", date: "29/01/2025", time: "7.30pm", club: "criccracclub", price: "", description: "", location: "The Story Museum, Oxford", venue_url: "https://www.storymuseum.org.uk/", event_flyer: "", ticket_url: "https://www.storymuseum.org.uk/whats-on/crick-crack-the-girl-who-married-a-dog", isSpecial: true, online: "hybrid", fb_event: 823991059995862 },
             { name: "Last Orders - A Storytelling Show [Mike Payton]", showname: "Last Orders - A Storytelling Show", performer: "Mike Payton", date: "30/01/2026", time: "7.30-10pm", club: "forgingfantastical", price: "£10.84", description: "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…", location: "The Old Stables, behind The White Hart, Cricklade, Swindon", venue_url: "", event_flyer: "2026_01_30_forgingfantastical_payton_lastorders.jpg", ticket_url: "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog", isSpecial: true, fb_event: 2737200426620868 },
             { name: "The Homing Stone [Hugh Lupton]", showname: "The Homing Stone", performer: "Hugh Lupton", date: "20/02/2026", time: "7.30-10pm", club: "", price: "£12", description: "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent.\n\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised.\n\n In the Homing Stone master storyteller Hugh Lupton(who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.", location: " The Backyard Theatre, Watchet, West Somerset", venue_url: "", event_flyer: "", ticket_url: "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo", isSpecial: true, fb_event: 712262841916596 },
@@ -1585,11 +1612,6 @@
             }
         }
 
-        showThisWeek();
-        document.querySelectorAll('.event.music').forEach(event => {
-                event.classList.add('hidden');
-            });
-
         function toggleEventDetails(id) {
             const element = document.getElementById(id);
             if (element.style.display === 'none') {
@@ -1601,206 +1623,212 @@
 
         let currentEventsData = []; // Store current events with metadata
 
-            function filterEvents() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-                const searchField = document.getElementById('searchField').value;
-                const specialOn = document.getElementById('specialOn').checked;
-                const storyclubsOn = document.getElementById('storyclubsOn').checked;
-                const showMusic = document.getElementById('showMusic').checked;
-                const events = document.querySelectorAll('.event');
-                let visibleCount = 0;
+        function filterEvents() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchField = document.getElementById('searchField').value;
+            const specialOn = document.getElementById('specialOn').checked;
+            const storyclubsOn = document.getElementById('storyclubsOn').checked;
+            const showMusic = document.getElementById('showMusic').checked;
+            const events = document.querySelectorAll('.event');
+            let visibleCount = 0;
 
-                // Remove any existing search info
-                const existingInfo = document.querySelector('.search-results-info');
-                if (existingInfo) existingInfo.remove();
+            // Remove any existing search info
+            const existingInfo = document.querySelector('.search-results-info');
+            if (existingInfo) existingInfo.remove();
 
-                // Store events with relevance scores
-                currentEventsData = [];
+            // Store events with relevance scores
+            currentEventsData = [];
 
-                events.forEach(event => {
-                    let isVisible = false;
-                    let relevanceScore = 0;
-                    
-                    if (storyclubsOn && event.classList.contains('storyclub')) {
-                        isVisible = true;
-                    }
-
-                    // Check special events filter
-                    if (specialOn && event.classList.contains('special')) {
-                        isVisible = true;
-                    }
-
-                    if (showMusic && event.classList.contains('music')) {
-                        isVisible = true;
-                    }
-
-                    // Check search term
-                    if (isVisible && searchTerm) {
-                        const eventName = event.querySelector('.event-name')?.textContent.toLowerCase() || '';
-                        const eventLocation = event.querySelector('.event-location')?.textContent.toLowerCase() || '';
-                        const eventDate = event.querySelector('.event-date')?.textContent.toLowerCase() || '';
-                        const fullText = event.textContent.toLowerCase();
-
-                        let fieldText = '';
-                        switch (searchField) {
-                            case 'name':
-                                fieldText = eventName;
-                                break;
-                            case 'performer':
-                                // Extract performer from name (usually in square brackets)
-                                const performerMatch = eventName.match(/\[(.*?)\]/);
-                                fieldText = performerMatch ? performerMatch[1] : eventName;
-                                break;
-                            case 'location':
-                                fieldText = eventLocation;
-                                break;
-                            case 'club':
-                                fieldText = fullText;
-                                break;
-                            default:
-                                fieldText = fullText;
-                        }
-
-                        if (!fieldText.includes(searchTerm)) {
-                            isVisible = false;
-                        } else {
-                            // Calculate relevance score
-                            const words = searchTerm.split(' ');
-                            words.forEach(word => {
-                                if (eventName.includes(word)) relevanceScore += 10;
-                                if (eventLocation.includes(word)) relevanceScore += 5;
-                                if (eventDate.includes(word)) relevanceScore += 3;
-                            });
-
-                            // Bonus for exact matches
-                            if (eventName.includes(searchTerm)) relevanceScore += 20;
-                            if (eventLocation === searchTerm) relevanceScore += 15;
-                        }
-                    }
-
-                    if (isVisible) {
-                        event.classList.remove('hidden');
-                        event.classList.add('search-active');
-                        visibleCount++;
-
-                        // Store event data for sorting
-                        currentEventsData.push({
-                            element: event,
-                            relevance: relevanceScore,
-                            name: event.querySelector('.event-name')?.textContent || '',
-                            location: event.querySelector('.event-location')?.textContent || '',
-                            date: event.querySelector('.event-date')?.textContent || ''
-                        });
-                    } else {
-                        event.classList.add('hidden');
-                        event.classList.remove('search-active');
-                    }
-                });
-
-                // Show search results count
-                if (searchTerm) {
-                    const eventsList = document.getElementById('eventsList');
-                    const firstChild = eventsList.firstChild;
-                    const info = document.createElement('div');
-                    info.className = 'search-results-info';
-                    let infoText = `Found ${visibleCount} event${visibleCount !== 1 ? 's' : ''}`;
-                    if (searchTerm) infoText += ` matching "${searchTerm}"`;
-                    //if (specialOn) infoText += ` (special events only)`;
-                    info.textContent = infoText;
-                    eventsList.insertBefore(info, firstChild);
-                } else {
-                    // Remove search highlighting if no filters active
-                    events.forEach(event => event.classList.remove('search-active'));
+            events.forEach(event => {
+                let isVisible = false;
+                let relevanceScore = 0;
+                
+                if (storyclubsOn && event.classList.contains('storyclub')) {
+                    isVisible = true;
                 }
 
-                // Re-sort after filtering
-                sortAndDisplayEvents();
-            }
+                // Check special events filter
+                if (specialOn && event.classList.contains('special')) {
+                    isVisible = true;
+                }
 
-            function sortAndDisplayEvents() {
-                const sortBy = document.getElementById('sortBy').value;
-                const eventsList = document.getElementById('eventsList');
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+                if (showMusic && event.classList.contains('music')) {
+                    isVisible = true;
+                }
 
-                // Get all events (visible and hidden)
-                const allEvents = Array.from(document.querySelectorAll('.event'));
-                const allExpandables = Array.from(document.querySelectorAll('.event-expandable'));
+                // Check search term
+                if (isVisible && searchTerm) {
+                    const eventName = event.querySelector('.event-name')?.textContent.toLowerCase() || '';
+                    const eventLocation = event.querySelector('.event-location')?.textContent.toLowerCase() || '';
+                    const eventDate = event.querySelector('.event-date')?.textContent.toLowerCase() || '';
+                    const fullText = event.textContent.toLowerCase();
 
-                // Create pairs of events and their expandable content
-                const eventPairs = allEvents.map((event, index) => {
-                    const nextElement = event.nextElementSibling;
-                    const expandable = nextElement?.classList.contains('event-expandable') ? nextElement : null;
-
-                    // Extract date for sorting
-                    const dateText = event.querySelector('.event-date')?.textContent || '';
-                    const dateMatch = dateText.match(/(\w+), (\d+) (\w+) (\d+)/);
-                    let dateObj = new Date();
-                    if (dateMatch) {
-                        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                        const day = parseInt(dateMatch[2]);
-                        const month = months.indexOf(dateMatch[3]);
-                        const year = parseInt(dateMatch[4]);
-                        dateObj = new Date(year, month, day);
+                    let fieldText = '';
+                    switch (searchField) {
+                        case 'name':
+                            fieldText = eventName;
+                            break;
+                        case 'performer':
+                            // Extract performer from name (usually in square brackets)
+                            const performerMatch = eventName.match(/\[(.*?)\]/);
+                            fieldText = performerMatch ? performerMatch[1] : eventName;
+                            break;
+                        case 'location':
+                            fieldText = eventLocation;
+                            break;
+                        case 'club':
+                            fieldText = fullText;
+                            break;
+                        default:
+                            fieldText = fullText;
                     }
 
-                    return {
-                        event: event,
-                        expandable: expandable,
+                    if (!fieldText.includes(searchTerm)) {
+                        isVisible = false;
+                    } else {
+                        // Calculate relevance score
+                        const words = searchTerm.split(' ');
+                        words.forEach(word => {
+                            if (eventName.includes(word)) relevanceScore += 10;
+                            if (eventLocation.includes(word)) relevanceScore += 5;
+                            if (eventDate.includes(word)) relevanceScore += 3;
+                        });
+
+                        // Bonus for exact matches
+                        if (eventName.includes(searchTerm)) relevanceScore += 20;
+                        if (eventLocation === searchTerm) relevanceScore += 15;
+                    }
+                }
+
+                if (isVisible) {
+                    event.classList.remove('hidden');
+                    event.classList.add('search-active');
+                    visibleCount++;
+
+                    // Store event data for sorting
+                    currentEventsData.push({
+                        element: event,
+                        relevance: relevanceScore,
                         name: event.querySelector('.event-name')?.textContent || '',
                         location: event.querySelector('.event-location')?.textContent || '',
-                        date: dateObj,
-                        relevance: currentEventsData.find(e => e.element === event)?.relevance || 0
-                    };
-                });
+                        date: event.querySelector('.event-date')?.textContent || ''
+                    });
+                } else {
+                    event.classList.add('hidden');
+                    event.classList.remove('search-active');
+                }
+            });
 
-                // Sort based on selection
-                eventPairs.sort((a, b) => {
-                    switch (sortBy) {
-                        case 'date-desc':
-                            return b.date - a.date;
-                        case 'name':
-                            return a.name.localeCompare(b.name);
-                        case 'location':
-                            return a.location.localeCompare(b.location);
-                        case 'relevance':
-                            if (searchTerm) {
-                                return b.relevance - a.relevance;
-                            }
-                            return a.date - b.date; // Default to date if no search
-                        case 'date-asc':
-                        default:
-                            return a.date - b.date;
-                    }
-                });
+            // Show search results count
+            if (searchTerm) {
+                const eventsList = document.getElementById('eventsList');
+                const firstChild = eventsList.firstChild;
+                const info = document.createElement('div');
+                info.className = 'search-results-info';
+                let infoText = `Found ${visibleCount} event${visibleCount !== 1 ? 's' : ''}`;
+                if (searchTerm) infoText += ` matching "${searchTerm}"`;
+                //if (specialOn) infoText += ` (special events only)`;
+                info.textContent = infoText;
+                eventsList.insertBefore(info, firstChild);
+            } else {
+                // Remove search highlighting if no filters active
+                events.forEach(event => event.classList.remove('search-active'));
+            }
 
-                // Get the header (everything before first event)
-                const firstEvent = allEvents[0];
-                const header = [];
-                let node = eventsList.firstChild;
-                while (node && node !== firstEvent) {
-                    header.push(node);
-                    node = node.nextSibling;
+            // Re-sort after filtering
+            sortAndDisplayEvents();
+        }
+
+        function sortAndDisplayEvents() {
+            const sortBy = document.getElementById('sortBy').value;
+            const eventsList = document.getElementById('eventsList');
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            // Get all events (visible and hidden)
+            const allEvents = Array.from(document.querySelectorAll('.event'));
+            const allExpandables = Array.from(document.querySelectorAll('.event-expandable'));
+
+            // Create pairs of events and their expandable content
+            const eventPairs = allEvents.map((event, index) => {
+                const nextElement = event.nextElementSibling;
+                const expandable = nextElement?.classList.contains('event-expandable') ? nextElement : null;
+
+                // Extract date for sorting
+                const dateText = event.querySelector('.event-date')?.textContent || '';
+                const dateMatch = dateText.match(/(\w+), (\d+) (\w+) (\d+)/);
+                let dateObj = new Date();
+                if (dateMatch) {
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const day = parseInt(dateMatch[2]);
+                    const month = months.indexOf(dateMatch[3]);
+                    const year = parseInt(dateMatch[4]);
+                    dateObj = new Date(year, month, day);
                 }
 
-                // Clear and rebuild
-                eventsList.innerHTML = '';
-                header.forEach(h => eventsList.appendChild(h));
-                eventPairs.forEach(pair => {
-                    eventsList.appendChild(pair.event);
-                    if (pair.expandable) {
-                        eventsList.appendChild(pair.expandable);
-                    }
-                });
+                return {
+                    event: event,
+                    expandable: expandable,
+                    name: event.querySelector('.event-name')?.textContent || '',
+                    location: event.querySelector('.event-location')?.textContent || '',
+                    date: dateObj,
+                    relevance: currentEventsData.find(e => e.element === event)?.relevance || 0
+                };
+            });
+
+            // Sort based on selection
+            eventPairs.sort((a, b) => {
+                switch (sortBy) {
+                    case 'date-desc':
+                        return b.date - a.date;
+                    case 'name':
+                        return a.name.localeCompare(b.name);
+                    case 'location':
+                        return a.location.localeCompare(b.location);
+                    case 'relevance':
+                        if (searchTerm) {
+                            return b.relevance - a.relevance;
+                        }
+                        return a.date - b.date; // Default to date if no search
+                    case 'date-asc':
+                    default:
+                        return a.date - b.date;
+                }
+            });
+
+            // Get the header (everything before first event)
+            const firstEvent = allEvents[0];
+            const header = [];
+            let node = eventsList.firstChild;
+            while (node && node !== firstEvent) {
+                header.push(node);
+                node = node.nextSibling;
             }
 
-            function clearSearch() {
-                document.getElementById('searchInput').value = '';
-                document.getElementById('searchField').value = 'all';
-                //document.getElementById('specialOn').checked = false;
-                document.getElementById('sortBy').value = 'date-asc';
-                filterEvents();
-            }
-            //generateMasterEvents();
+            // Clear and rebuild
+            eventsList.innerHTML = '';
+            header.forEach(h => eventsList.appendChild(h));
+            eventPairs.forEach(pair => {
+                eventsList.appendChild(pair.event);
+                if (pair.expandable) {
+                    eventsList.appendChild(pair.expandable);
+                }
+            });
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchField').value = 'all';
+            //document.getElementById('specialOn').checked = false;
+            document.getElementById('sortBy').value = 'date-asc';
+            filterEvents();
+        }
+        //generateMasterEvents();
+
+        showThisWeek();
+        //document.querySelectorAll('.event.music').forEach(event => {
+        //        event.classList.add('hidden');
+        //    });
+        filterEvents();
     </script>
 </body>
 
