@@ -58,7 +58,7 @@ features:
     bulletpoints:
       - "Originally *Three Island Storytellers*, [founded 2022]"
       - "Getting the troupe back together..."
-      - "Step out of the winter chill and  experience the magic of traditional storytelling! Join Island storytellers Sue Bailey, Holly Medland and Tony 'Monty' Hirst as they bring you Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Friday, January 23rd, 2026, The Department, Ryde. Bar 7pm, Show 8pm."
+      - "*Step out of the winter chill and  experience the magic of traditional storytelling! Join Island storytellers Sue Bailey, Holly Medland and Tony 'Monty' Hirst as they bring you Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company.* __Friday, January 23rd, 2026, The Department, Ryde. Bar 7pm, Show 8pm.__"
     button:
       enable: true
       label: "Buy Tickets for the Department, Ryde, 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
@@ -93,5 +93,8 @@ features:
       - enable: true
         label: "Protest Tales series booklets on Amazon.co.uk"
         link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
+      - enable: true
+        label: "Dark Tales series booklets on Amazon.co.uk"
+        link: "https://www.amazon.co.uk/dp/B0FW286JLD"
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "What are 'Storynotes'?"
 date: 2025-12-19T13:00:00Z
-image: "/images/flyers_gallery/box_storynotes_merch.jpg"
+image: "/images/box_storynotes_merch.jpg"
 categories: ["philosophy"]
 collaborator: [ ]
 tags: []
