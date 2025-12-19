@@ -5,12 +5,12 @@ banner:
   content: "Traditional storyteller, based on the Isle of Wight."
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
-    - enable: true
+    - enable: false
       label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
       link: "https://www.facebook.com/profile.php?id=61583286699008"
     - enable: true
-      label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
-      link: "https://octoberbooks.lemonbooking.com/events/116/details"
+      label: "Buy Tickets for the Department, Ryde, 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
+      link: "https://department.byretail.net/menu/Events/Spoken-Word"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
@@ -50,6 +50,19 @@ features:
       - enable: false
         label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
         link: "https://octoberbooks.lemonbooking.com/events/116/details"
+
+
+  - title: "'Tis Tales"
+    image: "/images/tis-tales_SMH-768x589.jpg"
+    content: "The Isle of Wight's original storytelling troupe..."
+    bulletpoints:
+      - "Originally *Three Island Storytellers*, [founded 2022]"
+      - "Getting the troupe back together..."
+      - "Step out of the winter chill and  experience the magic of traditional storytelling! Join Island storytellers Sue Bailey, Holly Medland and Tony 'Monty' Hirst as they bring you Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Friday, January 23rd, 2026, The Department, Ryde. Bar 7pm, Show 8pm."
+    button:
+      enable: true
+      label: "Buy Tickets for the Department, Ryde, 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
+      link: "https://department.byretail.net/menu/Events/Spoken-Word"
 
   - title: "Tea Tales"
     image: "/images/teatales_logo_red_on_transparent.png"
