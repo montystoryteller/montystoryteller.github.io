@@ -7,10 +7,21 @@ description: ""
 outings:
 
   - name: "October Books, Southampton"
-    designation: "Monty + THe Anywhens / Protest Days, Rebellion Nights / October BBooks"
+    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights"
     avatar: "/images/manywhens_octoberbooks_flag.png"
     content: ""
     
+
+  - name: "Carvel Lane Coffee House, Cowes"
+    designation: "Dark Tales / Winter Tales, Nov/Dec 2025"
+    avatar: "/images/carvel_lane_logo.jpg"
+    content: ""
+
+  - name: "St Lawrence Village Hall"
+    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights "
+    avatar: "/images/st_lawrence_vilage_hall.webp"
+    content: ""
+
 
   - name: "Bearded Theory Festival 2025"
     designation: "Something Else Tea Tent / Magic Teapot"
