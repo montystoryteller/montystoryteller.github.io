@@ -33,7 +33,7 @@ features:
  
     button:
       enable: true
-      label: "Buy Tickets for Department, Ryde, 'Tall Tales & Tiny Truths' show — 04/12/25"
+      label: "Buy Tickets for Department, Ryde, 'Tall Tales & Tiny Truths' show — 23/02/26"
       link: "https://department-ryde.org/"
 
 
