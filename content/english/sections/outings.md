@@ -6,6 +6,12 @@ description: ""
 # Outings
 outings:
 
+  - name: "October Books, Southampton"
+    designation: "Monty + THe Anywhens / Protest Days, Rebellion Nights / October BBooks"
+    avatar: "/images/manywhens_octoberbooks_flag.png"
+    content: ""
+    
+
   - name: "Bearded Theory Festival 2025"
     designation: "Something Else Tea Tent / Magic Teapot"
     avatar: "/images/teatales_logo_b_on_w.png"
