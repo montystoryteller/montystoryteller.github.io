@@ -30,7 +30,8 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "NEXT SHOW: TBC"
+      - "NEXT POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
+      - "NEXT SOLO SHOW: TBC"
     button:
       enable: false
       label: "Reserve Tickets for Winter Tales — 10/12/25"
