@@ -1475,6 +1475,8 @@
                 ${expandableContent}
             `;
             }).join('');
+            
+            filterEvents();
         }
 
         function setActiveMode(mode) {
@@ -1544,7 +1546,7 @@
             targetWeekStart.setDate(targetWeekStart.getDate() + (7 * weeksAhead));
             const targetWeekEnd = getWeekEnd(targetWeekStart);
             displayEvents(targetWeekStart, targetWeekEnd);
-            
+
             let mode;
             if (weeksAhead > 0) {
                 mode = `nextWeek${weeksAhead}`;
@@ -1826,7 +1828,6 @@
         //document.querySelectorAll('.event.music').forEach(event => {
         //        event.classList.add('hidden');
         //    });
-        filterEvents();
     </script>
 </body>
 
