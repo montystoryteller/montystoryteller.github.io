@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name=keywords content="Storytelling, stroytelling, events, storytelling events, stroytelling events, storytelling shows, storytelling festival, stroytelling festival, oral tradition, spoken word, tales, legends, myths, lies, local history, local legends, local stories, traditional stories, folk tales, traditional tales, fairy tales, literary fairy tales, Mother Goose, riddles, adult storytellers, stories for adults, stories for grown ups, troubadours,bard, bards, story clubs, storytelling clubs, story circles, performance storytelling, UK, listing, listings, UK listings, event listings, storytelling festival, Festival at the Edge, A Word in Edgeways, Beyond the Border, Stealing THinder, Somewhen storytelling, Society for Storytelling, SfS, FaTE, Monty Storyteller,Tony Hirst, Sheffield Story Forge, Ship Inn Storytelling, Exeter, Tales'n'Ales, Geldeston, Norwich, Matlock storytelling circle, Leicester Story Tree, Exeter Story Club, Birmingham Storytelling Cafe, Gloucester Storytelling Cafe, Beeston Tales, Matlock Storytelling Cafe, Hebden Bridge, Shaggydog storytellers, Huddersfield story circle, Haworth storytelling circle, Story night at Torriano, Chester Triple Spiral, Cambridge Storytellers, Mendip Story Circle, Glasgow Better Crack Storytelling Club, Glasgow EVEN Better Crack Storytelling Club, Island Storytellers, Isle of Wight, Surrey: Three Heads In A Well, Bletchley, Tales Tattled and Told, Northampton, Feast of Fools, South Devon storytellers, Totnes, Plymouth Storytelling Circle, The Plough Storytelling Circle, Liskeard Storytelling Cafe, Lichfield storytellers, Wirral Quirky Tales, Guesthouse storytellers, Newhaven, Southampton Story Club, Sarum Story club, Bristol Wild Wednesday storytelling, Dartmoor Storytellers, A Bit Crack Storytelling, Cardiff Story circle, Mendip story circle, Frome storytelling circle, Brighton Telltales, Leek storytellers, Sale, Much Wenlock, Salop, words at the edge, Manchester, Sting in the Tale, Royal Tales, Sutton Coldfield Storytelling, Aberystwyth Fables Storytelling Circle, Winchester, Wykeham Tales, Word of Mouth storytelling club, fairy tales for grown ups, Jess Silk, Gaz Brookfield">
-    <meta name=description content="Calendar of UK based storytelling events, story clubs, storytelling circles, story circles, performance storytelling events." />
+    <meta name=keywords
+        content="Storytelling, stroytelling, events, storytelling events, stroytelling events, storytelling shows, storytelling festival, stroytelling festival, oral tradition, spoken word, tales, legends, myths, lies, local history, local legends, local stories, traditional stories, folk tales, traditional tales, fairy tales, literary fairy tales, Mother Goose, riddles, adult storytellers, stories for adults, stories for grown ups, troubadours,bard, bards, story clubs, storytelling clubs, story circles, performance storytelling, UK, listing, listings, UK listings, event listings, storytelling festival, Festival at the Edge, A Word in Edgeways, Beyond the Border, Stealing THinder, Somewhen storytelling, Society for Storytelling, SfS, FaTE, Monty Storyteller,Tony Hirst, Sheffield Story Forge, Ship Inn Storytelling, Exeter, Tales'n'Ales, Geldeston, Norwich, Matlock storytelling circle, Leicester Story Tree, Exeter Story Club, Birmingham Storytelling Cafe, Gloucester Storytelling Cafe, Beeston Tales, Matlock Storytelling Cafe, Hebden Bridge, Shaggydog storytellers, Huddersfield story circle, Haworth storytelling circle, Story night at Torriano, Chester Triple Spiral, Cambridge Storytellers, Mendip Story Circle, Glasgow Better Crack Storytelling Club, Glasgow EVEN Better Crack Storytelling Club, Island Storytellers, Isle of Wight, Surrey: Three Heads In A Well, Bletchley, Tales Tattled and Told, Northampton, Feast of Fools, South Devon storytellers, Totnes, Plymouth Storytelling Circle, The Plough Storytelling Circle, Liskeard Storytelling Cafe, Lichfield storytellers, Wirral Quirky Tales, Guesthouse storytellers, Newhaven, Southampton Story Club, Sarum Story club, Bristol Wild Wednesday storytelling, Dartmoor Storytellers, A Bit Crack Storytelling, Cardiff Story circle, Mendip story circle, Frome storytelling circle, Brighton Telltales, Leek storytellers, Sale, Much Wenlock, Salop, words at the edge, Manchester, Sting in the Tale, Royal Tales, Sutton Coldfield Storytelling, Aberystwyth Fables Storytelling Circle, Winchester, Wykeham Tales, Word of Mouth storytelling club, fairy tales for grown ups, Jess Silk, Gaz Brookfield">
+    <meta name=description
+        content="Calendar of UK based storytelling events, story clubs, storytelling circles, story circles, performance storytelling events." />
     <title>Storytelling Events</title>
     <style>
         body {
@@ -58,77 +60,84 @@
             margin-right: 5px;
         }
 
-@media (max-width: 768px) {
-    /* --- 1. Header Container Setup (The Grid) --- */
-    .info-banner-tabs-header {
-        padding: 0; /* Remove padding from header so content controls spacing */
-        
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-        
-        gap: 1px; /* The white border thickness */
-        background: #FFFFFF; /* The color of the border/gap */
-    }
-    
-    /* --- 2. Header Label Styling (Top Row) --- */
-    .header-label {
-        font-size: 14px;
-        font-weight: bold; /* Ensure it stays bold */
-        
-        /* Make label span both columns and sit above the buttons */
-        grid-column: 1 / -1; 
-        
-        /* Apply the main, darker background here (using your original gradient) */
-        background: linear-gradient(135deg, #4CAF50 0%, #66bb6a 100%);
-        color: white; 
-        
-        /* Add back the necessary padding to the label */
-        padding: 12px 15px; 
-        margin: 0; /* Remove any default button margin */
-        line-height: 1.2;
-    }
-    
-    .separator {
-        display: none;
-    }
-    
-    /* --- 3. Button Styling (The 2x2 Grid Items) --- */
-    .header-tab-button {
-        /* Force equal width to fill the grid cell */
-        width: 100%;
-        
-        /* Apply a slightly different/lighter gradient for visual distinction */
-        background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%) !important; 
-        
-        /* Crucial overrides from default button/general styles */
-        border: none;
-        color: white !important; 
-        
-        /* Mobile-specific sizing and alignment */
-        font-size: 12px;
-        padding: 8px 6px;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        line-height: 1.3;
-        
-        /* Reset any original button styles that conflict with a clean look */
-        font-style: normal; 
-        text-decoration: none;
-    }
-    
-    /* Ensure the last button doesn't stretch */
-    .header-tab-button:last-child {
-        grid-column: auto;
-    }
-    
-    /* --- Optional: Hover effect for new button color --- */
-    .header-tab-button:hover {
-        background: linear-gradient(135deg, #81c784 0%, #a5d6a7 100%) !important;
-    }
-}
+        @media (max-width: 768px) {
+
+            /* --- 1. Header Container Setup (The Grid) --- */
+            .info-banner-tabs-header {
+                padding: 0;
+                /* Remove padding from header so content controls spacing */
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 equal columns */
+
+                gap: 1px;
+                /* The white border thickness */
+                background: #FFFFFF;
+                /* The color of the border/gap */
+            }
+
+            /* --- 2. Header Label Styling (Top Row) --- */
+            .header-label {
+                font-size: 14px;
+                font-weight: bold;
+                /* Ensure it stays bold */
+
+                /* Make label span both columns and sit above the buttons */
+                grid-column: 1 / -1;
+
+                /* Apply the main, darker background here (using your original gradient) */
+                background: linear-gradient(135deg, #4CAF50 0%, #66bb6a 100%);
+                color: white;
+
+                /* Add back the necessary padding to the label */
+                padding: 12px 15px;
+                margin: 0;
+                /* Remove any default button margin */
+                line-height: 1.2;
+            }
+
+            .separator {
+                display: none;
+            }
+
+            /* --- 3. Button Styling (The 2x2 Grid Items) --- */
+            .header-tab-button {
+                /* Force equal width to fill the grid cell */
+                width: 100%;
+
+                /* Apply a slightly different/lighter gradient for visual distinction */
+                background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%) !important;
+
+                /* Crucial overrides from default button/general styles */
+                border: none;
+                color: white !important;
+
+                /* Mobile-specific sizing and alignment */
+                font-size: 12px;
+                padding: 8px 6px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.3;
+
+                /* Reset any original button styles that conflict with a clean look */
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            /* Ensure the last button doesn't stretch */
+            .header-tab-button:last-child {
+                grid-column: auto;
+            }
+
+            /* --- Optional: Hover effect for new button color --- */
+            .header-tab-button:hover {
+                background: linear-gradient(135deg, #81c784 0%, #a5d6a7 100%) !important;
+            }
+        }
 
         .separator {
             color: rgba(255, 255, 255, 0.6);
@@ -207,7 +216,7 @@
             .button-group {
                 gap: 6px;
             }
-            
+
             button {
                 padding: 8px 6px;
                 font-size: 11px;
@@ -218,7 +227,7 @@
             .button-group {
                 gap: 4px;
             }
-            
+
             button {
                 padding: 8px 4px;
                 font-size: 10px;
@@ -251,7 +260,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             transition: all 0.3s;
-            flex-grow: 1; 
+            flex-grow: 1;
             min-width: 0;
         }
 
@@ -263,12 +272,12 @@
             .date-inputs {
                 gap: 8px;
             }
-            
+
             input[type="date"] {
                 font-size: 14px;
                 padding: 7px;
             }
-            
+
             .date-inputs label {
                 font-size: 13px;
             }
@@ -279,7 +288,7 @@
                 grid-template-columns: auto 1fr;
                 gap: 8px;
             }
-            
+
             #showBtn {
                 grid-column: 1 / -1;
             }
@@ -289,12 +298,12 @@
             .date-inputs {
                 gap: 6px;
             }
-            
+
             input[type="date"] {
                 padding: 6px;
                 font-size: 12px;
             }
-            
+
             .date-inputs label {
                 font-size: 12px;
             }
@@ -466,7 +475,8 @@
         /* SPECIAL event override — white circle, blue F */
         .event.special .event-facebook-inline svg,
         .event.music .event-facebook-inline svg {
-            fill: #ffffff; /* make whole shape white */
+            fill: #ffffff;
+            /* make whole shape white */
         }
 
         /* SPECIAL event + hover (if you want the F to stay blue on hover) */
@@ -478,10 +488,12 @@
         /* Then recolor only the F using stroke */
         .event.special .event-facebook-inline svg path,
         .event.music .event-facebook-inline svg path {
-            stroke: #1877f2;   /* FB blue outline = F shape */
-            stroke-width: 2px; /* adjust until the “F” looks right */
+            stroke: #1877f2;
+            /* FB blue outline = F shape */
+            stroke-width: 2px;
+            /* adjust until the “F” looks right */
             stroke-linejoin: round;
-}
+        }
 
         .event-tickets .separator {
             color: #666;
@@ -525,6 +537,7 @@
                 opacity: 0;
                 max-height: 0;
             }
+
             to {
                 opacity: 1;
                 max-height: 1000px;
@@ -582,146 +595,153 @@
         }
 
         /* Email icon reversed for .event.special */
-/* Normal state inside special event */
-.event.music .event-email svg {
-    fill: #77ee77; /* inverted from white */
-}
+        /* Normal state inside special event */
+        .event.music .event-email svg {
+            fill: #77ee77;
+            /* inverted from white */
+        }
 
-/* Hover state inside special event */
-.event.music .event-email:hover svg {
-    fill: #ffffff; /* inverted from #77ee77 */
-}
+        /* Hover state inside special event */
+        .event.music .event-email:hover svg {
+            fill: #ffffff;
+            /* inverted from #77ee77 */
+        }
 
 
-/* -------- WEBSITE -------- */
+        /* -------- WEBSITE -------- */
 
-/* Normal state inside special event */
-.event.music .event-website svg {
-    fill: #1eb868; /* inverted from #555555 */
-}
+        /* Normal state inside special event */
+        .event.music .event-website svg {
+            fill: #1eb868;
+            /* inverted from #555555 */
+        }
 
-/* Hover state inside special event */
-.event.music .event-website:hover svg {
-    fill: #555555; /* inverted from #1eb868 */
-}
+        /* Hover state inside special event */
+        .event.music .event-website:hover svg {
+            fill: #555555;
+            /* inverted from #1eb868 */
+        }
 
         .no-events {
             text-align: center;
             color: #999;
             padding: 20px;
         }
-        
-.search-controls {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
 
-.search-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 10px;
-}
+        .search-controls {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
 
-
-.filter-row {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#searchInput {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: all 0.3s;
-    min-width: 0; /* Allow flex item to shrink */
-}
-
-#searchInput:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-}
-
-#searchField,
-#sortBy {
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    background: white;
-    cursor: pointer;
-    flex-shrink: 0; /* Prevent shrinking */
-}
+        .search-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
 
 
-.search-controls button {
-    padding: 10px 20px;
-    white-space: nowrap;
-    flex-shrink: 0; /* Prevent shrinking */
-}
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-@media (max-width: 768px) {
-    .search-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    #searchInput,
-    #searchField,
-    .search-controls button {
-        width: 100%;
-    }
-}
+        #searchInput {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+            min-width: 0;
+            /* Allow flex item to shrink */
+        }
 
-.filter-row label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    color: #333;
-}
+        #searchInput:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
 
-.filter-row input[type="checkbox"] {
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-}
+        #searchField,
+        #sortBy {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            flex-shrink: 0;
+            /* Prevent shrinking */
+        }
 
-.event.hidden {
-    display: none;
-}
 
-.search-active {
-    background-color: #fff3cd;
-    border-left: 4px solid #ffc107;
-}
+        .search-controls button {
+            padding: 10px 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            /* Prevent shrinking */
+        }
 
-.search-results-info {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #e8f5e9;
-    border-left: 4px solid #4CAF50;
-    border-radius: 4px;
-    color: #2e7d32;
-    font-weight: bold;
-}
+        @media (max-width: 768px) {
+            .search-row {
+                flex-direction: column;
+                gap: 10px;
+            }
 
-.relevance-score {
-    display: inline-block;
-    background: #4CAF50;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-size: 11px;
-    margin-left: 8px;
-    font-weight: bold;
-}
+            #searchInput,
+            #searchField,
+            .search-controls button {
+                width: 100%;
+            }
+        }
+
+        .filter-row label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .filter-row input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .event.hidden {
+            display: none;
+        }
+
+        .search-active {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .search-results-info {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .relevance-score {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 8px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -730,38 +750,67 @@
 
     <h2>Appropriate all ages, aimed at adults.</h2>
 
-        <div class="info-banner-tabs">
-            <div class="info-banner-tabs-header">
-                <span class="header-label">What is/are:</span>
-                <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
-                <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
-                <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('performance')">performance storytelling?</button>
-                <span class="separator">|</span>
-                <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling shows?</button>
-            </div>
-
-            <div class="tab-content-area" id="storytelling" style="display: none;">
-                <p>For starters, <em>storytelling</em> is not (just) for children... It's an entertaining way of passing the time. But it's also a lot more than that: a way of sharing epic tales and passing on common sense smarts, explaining the landscape, recounting local legends and keeping the memory of people and place alive.</p>
-            </div>
-    
-            <div class="tab-content-area" id="circles" style="display: none;">
-                <p><em>Story circles</em> and <em>story clubs</em> are often informal gatherings of tellers and listeners who meet up every so often, in a casual setting, to sit around a table and share tales that last 5 to 8 minutes. Stories are <em>told</em> rather than read, and often take the form of folk or traditional tales, as well as myths, legends, and lies, that have been "heard", or "found", rather than "authored", even though they may have been heavily worked on by the teller. By agreement, some story clubs or story circles may provide opportunities for longer stories to be told. Some story clubs may feature <em>performance storytelling</em> from local storytellers or guest storytellers, as well open performance storytelling floor spots.</em></p>
-            </div>
-    
-            <div class="tab-content-area" id="performance" style="display: none;">
-                <p><em>Performance storytelling</em> moves the teller or tellers rather more to centre stage, adopting a more formal setting than a sharing of stories in a story circle, and with the teller clearly taking on a performer role. Stories often take longer in the telling than tales told in story circles, 8 to 15 minutes or so, or even longer, up to an hour for many longer traditional tales.</p>
-            </div>
-
-            <div class="tab-content-area" id="storytellingshows" style="display: none;">
-                <p>A <em>storytelling show</em> is a performance event in which one or more storytellers tell one or more tales in a formal or semi-formal setting. A storytelling set, or show, show often shapes several stories to fit an overarching narrative or theme. Not comedy, not theatre, storytelling shows take the performer and audience alike into an eternal moment of remembered times and places that never existed. Which is to say, into a time of <em>once</em>...</p>
-            </div>
-
-            <div class="tab-content-area" id="folknopenmic" style="display: none;">
-                <p>For the purpose of this list, <em>folk nights</em>, <em>folk clubs</em> and <em>open mics</em> are open invitation events where storytellers have previously had a slot. (Folk nights as listed here often define "folk music" in quite broad terms..) <em>Folk nights</em> often have a one or two song policy, so a short 3-5 minute tale. <em>Folk clubs</em> are slightly more formal and more traditional in their repertoire. Sometimes you might get a second turn, which means you can split a longer tale at a cliff-hanger. <em>Open mics</em> are typically amplified events, though you can often get away with not using the mic. The slots may be more generous, with an up to four song policy, or a 10-12 minute tale, though you should probably work up to that over several sessions to build trust with the organiser and from the audience. To take part in any of these events, give your name to the person running the club/session. Contacting organisers beforehand can also put them on the look out for you.</p>
-            </div>
+    <div class="info-banner-tabs">
+        <div class="info-banner-tabs-header">
+            <span class="header-label">What is/are:</span>
+            <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('performance')">performance
+                storytelling?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling
+                shows?</button>
         </div>
+
+        <div class="tab-content-area" id="storytelling" style="display: none;">
+            <p>For starters, <em>storytelling</em> is not (just) for children... It's an entertaining way of passing the
+                time. But it's also a lot more than that: a way of sharing epic tales and passing on common sense
+                smarts, explaining the landscape, recounting local legends and keeping the memory of people and place
+                alive.</p>
+        </div>
+
+        <div class="tab-content-area" id="circles" style="display: none;">
+            <p><em>Story circles</em> and <em>story clubs</em> are often informal gatherings of tellers and listeners
+                who meet up every so often, in a casual setting, to sit around a table and share tales that last 5 to 8
+                minutes. Stories are <em>told</em> rather than read, and often take the form of folk or traditional
+                tales, as well as myths, legends, and lies, that have been "heard", or "found", rather than "authored",
+                even though they may have been heavily worked on by the teller. By agreement, some story clubs or story
+                circles may provide opportunities for longer stories to be told. Some story clubs may feature
+                <em>performance storytelling</em> from local storytellers or guest storytellers, as well open
+                performance storytelling floor spots.</em>
+            </p>
+        </div>
+
+        <div class="tab-content-area" id="performance" style="display: none;">
+            <p><em>Performance storytelling</em> moves the teller or tellers rather more to centre stage, adopting a
+                more formal setting than a sharing of stories in a story circle, and with the teller clearly taking on a
+                performer role. Stories often take longer in the telling than tales told in story circles, 8 to 15
+                minutes or so, or even longer, up to an hour for many longer traditional tales.</p>
+        </div>
+
+        <div class="tab-content-area" id="storytellingshows" style="display: none;">
+            <p>A <em>storytelling show</em> is a performance event in which one or more storytellers tell one or more
+                tales in a formal or semi-formal setting. A storytelling set, or show, show often shapes several stories
+                to fit an overarching narrative or theme. Not comedy, not theatre, storytelling shows take the performer
+                and audience alike into an eternal moment of remembered times and places that never existed. Which is to
+                say, into a time of <em>once</em>...</p>
+        </div>
+
+        <div class="tab-content-area" id="folknopenmic" style="display: none;">
+            <p>For the purpose of this list, <em>folk nights</em>, <em>folk clubs</em> and <em>open mics</em> are open
+                invitation events where storytellers have previously had a slot. (Folk nights as listed here often
+                define "folk music" in quite broad terms..) <em>Folk nights</em> often have a one or two song policy, so
+                a short 3-5 minute tale. <em>Folk clubs</em> are slightly more formal and more traditional in their
+                repertoire. Sometimes you might get a second turn, which means you can split a longer tale at a
+                cliff-hanger. <em>Open mics</em> are typically amplified events, though you can often get away with not
+                using the mic. The slots may be more generous, with an up to four song policy, or a 10-12 minute tale,
+                though you should probably work up to that over several sessions to build trust with the organiser and
+                from the audience. To take part in any of these events, give your name to the person running the
+                club/session. Contacting organisers beforehand can also put them on the look out for you.</p>
+        </div>
+    </div>
 
 
     <div class="controls">
@@ -783,7 +832,8 @@
 
     <div class="search-controls">
         <div class="search-row">
-            <input type="text" id="searchInput" placeholder="Search within displayed events..." onkeyup="filterEvents()">
+            <input type="text" id="searchInput" placeholder="Search within displayed events..."
+                onkeyup="filterEvents()">
             <select id="searchField" onchange="filterEvents()">
                 <option value="all">Search all fields</option>
                 <option value="club">Club</option>
@@ -830,23 +880,36 @@
 
     <div class="events-list" id="eventsList"></div>
 
-    <div class="about" id="colophon"><p><em>Hacked together by Tony Hirst in conversation with Claude.ai, inspired by <a href="https://www.facebook.com/groups/societyforstorytelling/posts/10172947366465461/">a list</a> of storytelling club dates posted by Peter Giles to the Society for Storytelling Facebook group on Saturday, November 29th, 2025.</em></p>
-    <p><em>For corrections, additions, removals, etc., email: <tt>montystoryteller AT gmail DOT com</tt> / web: <a href="https://montystoryteller.org/"><tt>montystoryteller.org</tt></a> / fb: <a href="https://www.facebook.com/montystoryteller/"><tt>montystoryteller</tt></a> / insta: <a href="https://www.instagram.com/montystoryteller/"><tt>montystoryteller</tt></a>. If you're a regular teller at a folk night / open mic that would welcome other tellers, I can add those to the list too...</em></p>
-    <p><em>Show your appreciation by buying a little something for yourself: <a href="https://www.amazon.co.uk/dp/B0FVYBY4V8">Island Tales</a>; <a href="https://www.amazon.co.uk/dp/B0FY3TZW81">Protest Tales</a>; <a href="https://www.amazon.co.uk/dp/B0FW286JLD">Dark Tales</a>.</em></p>
-    <p><em><tt>This website does not collect cookies or tracking information.</tt></em></p></div>
+    <div class="about" id="colophon">
+        <p><em>Hacked together by Tony Hirst in conversation with Claude.ai, inspired by <a
+                    href="https://www.facebook.com/groups/societyforstorytelling/posts/10172947366465461/">a list</a> of
+                storytelling club dates posted by Peter Giles to the Society for Storytelling Facebook group on
+                Saturday, November 29th, 2025.</em></p>
+        <p><em>For corrections, additions, removals, etc., email: <tt>montystoryteller AT gmail DOT com</tt> / web: <a
+                    href="https://montystoryteller.org/"><tt>montystoryteller.org</tt></a> / fb: <a
+                    href="https://www.facebook.com/montystoryteller/"><tt>montystoryteller</tt></a> / insta: <a
+                    href="https://www.instagram.com/montystoryteller/"><tt>montystoryteller</tt></a>. If you're a
+                regular teller at a folk night / open mic that would welcome other tellers, I can add those to the list
+                too...</em></p>
+        <p><em>Show your appreciation by buying a little something for yourself: <a
+                    href="https://www.amazon.co.uk/dp/B0FVYBY4V8">Island Tales</a>; <a
+                    href="https://www.amazon.co.uk/dp/B0FY3TZW81">Protest Tales</a>; <a
+                    href="https://www.amazon.co.uk/dp/B0FW286JLD">Dark Tales</a>.</em></p>
+        <p><em><tt>This website does not collect cookies or tracking information.</tt></em></p>
+    </div>
 
     <script>
         const troupes_and_promoters = [
-            {name:"'Tis Tales", link: "https://tisltales.org.uk", location:"Isle of Wight", facebook:"https://www.facebook.com/tistales", club:"tistales"},
+            { name: "'Tis Tales", link: "https://tisltales.org.uk", location: "Isle of Wight", facebook: "https://www.facebook.com/tistales", club: "tistales" },
             { name: "Ropetackle storytellers", link: "", location: ", Shoreham-by-Sea", facebook: "https://www.facebook.com/RopetackleStorytellers", club: "ropetackleaST" },
-            { name: "Forging Fantastical", link: "", location: "Swindon", club: "forgingfantastical", facebook: "https://www.facebook.com/profile.php?id=100087436102920", tickets_url: "https://www.ticketsource.co.uk/forging-fantastical", club:"adversecamber" },
+            { name: "Forging Fantastical", link: "", location: "Swindon", club: "forgingfantastical", facebook: "https://www.facebook.com/profile.php?id=100087436102920", tickets_url: "https://www.ticketsource.co.uk/forging-fantastical", club: "adversecamber" },
             { name: "Adverse Camber", link: "https://www.adversecamber.org/", location: "", club: "adversecamber", facebook: "https://www.facebook.com/adversecamberstories", tickets_url: "" },
             { name: "Butser Ancient Farm", link: "https://www.butserancientfarm.co.uk/", location: "Butser Ancient Farm, Hampshire", club: "butserancient", facebook: "https://www.facebook.com/butserancientfarm", tickets_url: "" },
             { name: "Stealing Thunder", link: "https://stealingthunder.co.uk/", location: "Lake District", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing", tickets_url: "" },
             { name: "Connection With Wonder", link: "https://connectionwithwonder.com/events/", location: "London", club: "connectionwithwonder", facebook: "https://www.facebook.com/ConnectionWithWonder", tickets_url: "" },
             { name: "Caravan of Storytellers", link: "https://soniasophia.co.uk/", location: "West Wales", club: "caravanofstorytellers", facebook: "https://www.facebook.com/caravanof.storytellers", tickets_url: "" },
-            
-            ];
+
+        ];
 
         const storytellers = [
             { name: "Daniel Morden", url: "https://danielmorden.org/", facebook: "https://www.facebook.com/DanielMordenStoryteller", instagram: "", podcast: "", podcasts: [] },
@@ -873,73 +936,73 @@
             { name: "Lisa Schneidau", url: "https://www.lisaschneidau.co.uk/", facebook: "", instagram: "", podcast: "", podcasts: [] },
             { name: "Henry Everett", url: "https://www.henryeverett.com/", facebook: "", instagram: "", podcast: "", podcasts: [] },
             { name: "Sarah Rundle", url: "https://www.sarahrundle.co.uk/", facebook: "", instagram: "", podcast: "", podcasts: [] },
-            
+
             //{name: "", url: "", facebook: "", instagram: "", podcast: "", podcasts: []}, // {podcast_name: "", podcast_date: "", episode_url:""}
         ]
 
         const locations = [
             //{venue_name: "", venue_url:"", venue_postcode:"", venue_latlon:[], venue_address:"", venue_county:"", venue_capacity: -1, venue_phone:"", venue_email:"", venue_fb:"", venue_insta:"", venue_photo:"", venue_deal:"", venue_slug:"", venue_type:"" //pub, cafe, villagehall, library, other
-            ]
+        ]
 
         const events = [
-            { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "The Fat Cat, Sheffield, S3 8SA" ,time:"7pm", link: "", venue_url:"https://www.thefatcat.co.uk/", facebook: "https://www.facebook.com/groups/94064587663", club:"sheffieldstoryforge"},
-            { name: "Word of Mouth storytelling club [lapsed?]", schedule: "1st wednesday", location: "The Britons Protection, Great Bridgewater St., Manchester, M1 5LE", link: "https://wordofmouthstorytelling.blogspot.com/", facebook: "https://www.facebook.com/groups/391825947545400/", venue_url:"https://www.thebritonsprotection.co.uk/index", club: "wordofmouthSCl" },
-            
-            { name: "Stealing Thunder", schedule: "2nd saturday", link: "https://stealingthunder.co.uk/", location: "Kendal?", venue_url:"", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing" },
-            { name: "Storytelling Sunday", schedule: "last sunday", location: "Love Shack, London, E2 9HA", link: "https://londondreamtime.com/", venue_url:"https://www.loveshackldn.com/events-1", facebook: "", club:"storytellingsunday"},
-            { name: "Ship Inn Storytelling, Exeter", schedule: "1st thursday", location: "Ship Inn, Exeter, EX1 1EY", time:"7-9pm", link: "", venue_url: "https://www.greeneking.co.uk/pubs/devon/ship", facebook: "https://www.facebook.com/SuzanneArnoldWiseWoman", club: "shipinnstorytelling" },
-            { name: "Tales'n'Ales", schedule: "3rd thursday", time:"8-10pm", location: "Locks Inn, Geldeston, Norwich, NR34 0HW", venue_url:"https://thelocksinn.com/", link: "", facebook: "", club: "talesnales" },
-            { name: "Matlock storytelling circle", schedule: "last wednesday", time:"7.30pm",location: "", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club:"matlockSCl"},
-            { name: "Leicester Story Tree", schedule: "1st tuesday", time: "6.45-8.45pm", location: "Leicester Central Library, Leicester, LE1 6AA", link: "http://leicesterstorytelling.com", facebook: "https://www.facebook.com/profile.php?id=100086273211826" , venue_url:"http://www.leicesterstorytelling.com/story-tree.html", email: "leicesterstorytelling@gmail.com", club:"leicesterstorytree"},
-            { name: "Exeter Story Club", schedule: "2nd wednesday", time:"7.30pm", location: "The Cowick Barton, Exeter, EX2 9HF", link: "", venue_url: "https://www.thecowickbarton.co.uk/", facebook: "https://www.facebook.com/ExeterStoryClub", club:"exeterSC" },
-            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "Kitchen Garden Cafe, Birmingham, B14 7SA", venue_url:"https://www.kitchengardencafe.co.uk/", link: "https://www.birminghamstorytellingcafe.co.uk/", facebook: "https://www.facebook.com/groups/BirminghamStorytellingcafe", club:"birminghamSCafe" },
-            {name: "Elephant Tales (London)", schedule: "1st sunday", location: "The Pullens Centre, 184 Crampton Street, London, SE17 3AE", time: "3-5pm", venue_url: "https://www.pullenstra.org/space-rental/", link: "https://elephanttaleslondo.wixsite.com/elephant-tales", instagram: "https://www.instagram.com/elephant.tales.london/", club: "elephanttales" },
-            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", time:"7pm - 10pm", location: "The Folk of Gloucester, Gloucester, GL1 2PG", link: "", venue_url: "https://www.gloucestercivictrust.org/the-folk-home/", facebook: "https://www.facebook.com/profile.php?id=61554490450596", club: "gloucesterSCafe" },
-            { name: "Beeston Tales", schedule: "3rd wednesday", location: "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE", venue_url: "https://theassumption.co.uk/", time:"7.30pm", link: "", facebook: "https://www.facebook.com/groups/beestontales", club: "beestontales", tickets_url: "https://www.tickettailor.com/events/beestontales/" },
-            { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "Imperial Rooms, Imperial Road, Matlock, DE4 3NL", venue_url: "https://matlock.gov.uk/imperial-rooms/", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club:"matlockSCafe", tickets_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/"},
-            { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday", time:"7.30pm",location: "", link: "", facebook: "https://www.facebook.com/TheShaggyDogStorytellers" , club:"shaggydogstorytellers"},
-            { name: "Huddersfield story circle", schedule: "2nd monday", location: "Rat and Ratchet pub, Huddersfield, HD1 3EB", link: "", facebook: "", time:"7pm?", club: "huddersfieldSCi" },
-            { name: "Haworth storytelling circle", schedule: "1st thursday", location: "", link: "", facebook: "https://www.facebook.com/HaworthStorytellingCircle", time:"8pm", club:"HaworthStorytellingCircle" },
-            { name: "Story night at Torriano", schedule: "2nd wednesday", location: "Torriano Meeting House, London, NW5 2RX", venue_url:"https://torriano.org", link: "", facebook: "https://www.facebook.com/profile.php?id=100069787464247", club: "torrianostorynight" },
-            { name: "Chester Triple Spiral Storytellers", schedule: "1st tuesday", location: "Storyhouse, Hunter St, Chester, CH1 2AR", link: "", venue_url:"https://www.storyhouse.com/whats-on/triple-spiral-storytellers/", time:"1.30-3pm", facebook: "https://www.facebook.com/groups/1432324863552369", club:"chestertriplespiral" },
-            { name: "Cambridge Storytellers", schedule: "2nd sunday", location: "Special events only?", link: "https://www.cambridgestorytellers.com/", facebook: "https://www.facebook.com/CambridgeStorytellers", club:"cambridgestorytellers" },
-            { name: "Glasgow Better Crack Storytelling Club", schedule: "3rd Friday", time:"7pm", location: "", link: "", facebook: "https://www.facebook.com/groups/115339998550789", club: "glasgowbettercrack" },
-            { name: "Glasgow EVEN Better Crack Storytelling Club (Children)", schedule: "3rd saturday", location: "", link: "", facebook: "",  time:"1130am-12.30pm", club: "glasgowevenbettercrack" },
-            { name: "Island Storytellers, Isle of Wight", schedule: "2nd thursday", time: "7-9pm", location: "Various locations", link: "https://tistales.org.uk/island-storytellers/", facebook: "https://www.facebook.com/groups/islandstorytellers" , club:"islandstorytellers", exceptions:["20/11/2025"]},
-            { name: "Surrey: Three Heads In A Well storytelling circle", schedule: "4th friday", time:"7.30pm", location: "", link: "https://www.surreystorytellers.co.uk", facebook: "https://www.facebook.com/groups/366190587003",  club:"threeheadsinawell" },
-            { name: "Bletchley: Tales Tattled and Told", schedule: "3rd saturday", time:"7.30pm", location: "Rectory Cottages, Bletchley, MK3 6BJ", venue_url:"https://www.mkheritage.co.uk/rct/", link: "", facebook: "https://www.facebook.com/lynettehilluk", club:"talestattledtold" },
-            { name: "Northampton: Feast of Fools", schedule: "1st wednesday", location: "Quaker Meeting House, Northampton, NN1 3AS", time: "7-9.30pm", link: "https://www.storyfeast.uk/", venue_url:"https://northampton.quakermeeting.org/", facebook: "https://www.facebook.com/StorytellingFeast", club:"feastoffools" },
-            { name: "South Devon storytellers (Totnes)", schedule: "3rd wednesday", location: "Totnes Brewing Co. / Barrrel House Ballroom, Totnes, TQ9 5PB", venue_url:"https://barrelhousetotnes.co.uk/", link: "https://www.sdstorytellers.co.uk/", facebook: "https://www.facebook.com/profile.php?id=61560384152751", email:"southdevonstorytellers@gmail.com", club:"southdevonstorytellers" },
-            { name: "Plymouth Storytelling Circle", time:"5-7pm",schedule: "4th sunday", location: "Snapdragons, Victoria Park, Plymouth, PL1 5NJ", link: "", facebook: "https://www.facebook.com/profile.php?id=61580047292990", club:"plymouthSCi" },
-            { name: "The Plough Storytelling Circle (North Devon)", schedule: "1st thursday", time:"7.30pm", location: "St Anne's Arts & Community Centre, Barnstaple, EX31 1BH", link: "https://www.theploughartscentre.org.uk/", venue_url: "https://www.theploughartscentre.org.uk/", facebook: "https://www.facebook.com/ploughstorytelling", email:"storytelling.plough@gmail.com", club:"ploughSCi" },
-            { name: "Liskeard Storytelling Cafe", schedule: "4th thursday", time:"7.30pm", location: "Liskeard Public Hall, West Street, Liskeard, PL14 6BW", link: "https://www.strongwords.org.uk/", venue_url:"https://visitliskeard.co.uk/venue/liskeard-public-hall/", facebook: "https://www.facebook.com/groups/488666447814753" , club:"liskeardSCa"},
-            { name: "Lichfield storytellers", schedule: "2nd tuesday", time:"7pm", location: "", link: "", facebook: "https://www.facebook.com/lichfieldstorytellers", email:"lichfieldstorytellers@gmail.com", club: "lichfieldST" },
-            { name: "Wirral Quirky Tales", schedule: "2nd tuesday", time:"7.30-9.30pm", location: "Making Space, 1 Gilroy Road, West Kirby, CH48 6DP", link: "", facebook: "https://www.facebook.com/profile.php?id=100086449665967", club:"quirkytales" },
-            { name: "Guesthouse storytellers, Newhaven", schedule: "2nd tuesday", time:"7.30pm",location: "Hillcrest Community Centre, Newhaven, BN9 9LH", venue_url: "https://www.hillcrestcentre.co.uk/", link: "", facebook: "https://www.facebook.com/groups/guesthousestorytellers", club:"guesthouseST", tickets_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge" },
-            { name: "Southampton Story Club", schedule: "1st thursday", location: "Guide Dog Pub, Southampton, SO14 6SF", time: "8-10pm", venue_url:"https://www.facebook.com/TheGuideDog", link: "", facebook: "https://www.facebook.com/groups/southamptonstories", club:"southamptonSC" },
-            { name: "Sarum Story club [online?]", schedule: "3rd tuesday", location: "", link: "", facebook: "https://www.facebook.com/groups/sarumstoryclub", club:"sarumSC"},
-            { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday", time:"7pm", location: "", link: "", facebook: "https://www.facebook.com/groups/412446392168295", club:"bristolwildwednesday" },
-            { name: "Dartmoor Storytellers", schedule: "2nd wednesday", time:"8-9.30pm", location: "Chagford Inn, Chagford, TQ13 8AW", link: "", venue_url: "https://www.thechagfordinn.co.uk/", facebook: "https://www.facebook.com/groups/1689129511376075", club:"dartmoorStorytellers", exceptions: ["17/12/2025"] },
-            { name: "A Bit Crack Storytelling", schedule: "1st friday", location: "The Chillingham, South Heaton, Newcastle, NE6 5XN", link: "https://www.abitcrack.com/", time:"7.30-9", venue_url:"https://sjf.co.uk/the-chillingham/", facebook: "https://www.facebook.com/ABitCrack" , club:"abitcrack"},
-            { name: "Cardiff Storytelling Circle", schedule: "1st sunday", time:"7pm",location: "Chapter Arts Centre, Canton, Cardiff, CF5 1QE", venue_url:"https://www.chapter.org/", time: "8pm", link: "https://www.literaturewales.org/writer-group/cardiff-storytelling-circle/", facebook:"https://www.facebook.com/groups/1491740927748170/", club:"cardiffSC" },
-            { name: "Mendip story circle", schedule: "2nd wednesday", time:"7.30pm", location: "Ston Easton Village Hall, Radstock, BA3 4DA", venue_url:"https://stoneaston.org.uk/village-hall/", link: "https://www.mendipstorycircle.com/", facebook: "https://www.facebook.com/profile.php?id=100064070403986", exceptions:["17/12/2025"], club: "" },
-            { name: "Frome storytelling circle", schedule: "last monday", time:"7-9pm",location: "Three Swans pub, Frome, BA11 1BH", link: "", facebook: "https://www.facebook.com/laralavender6", club: "fromeSC" },
-            { name: "Brighton Telltales", schedule: "1st wednesday", time:"7pm",location: "The Yellow Book, Brighton, BN1 4GU", link: "", facebook: "https://www.facebook.com/brightontelltales", club: "brightontelltales",  venue_url:"https://www.yellowbook.bar/", club_flyer:"brighton_telltales_flyer.jpg" },
-            { name: "Leek storytellers", schedule: "2nd wednesday", time:"7pm", location: "The Fountain Inn, Leek, ST13 6JR", link: "", venue_url:"https://caldmoretaverns.co.uk/pubs/fountain-inn-leek/", facebook: "https://www.facebook.com/leekstorytellers", email:"Fernandfables@gmail.com", club:"leekstorytellers", club_flyer: "leekstorytellers_flyer.jpg" },
+            { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "The Fat Cat, Sheffield, S3 8SA", time: "7pm", link: "", venue_url: "https://www.thefatcat.co.uk/", facebook: "https://www.facebook.com/groups/94064587663", club: "sheffieldstoryforge" },
+            { name: "Word of Mouth storytelling club [lapsed?]", schedule: "1st wednesday", location: "The Britons Protection, Great Bridgewater St., Manchester, M1 5LE", link: "https://wordofmouthstorytelling.blogspot.com/", facebook: "https://www.facebook.com/groups/391825947545400/", venue_url: "https://www.thebritonsprotection.co.uk/index", club: "wordofmouthSCl" },
+
+            { name: "Stealing Thunder", schedule: "2nd saturday", link: "https://stealingthunder.co.uk/", location: "Kendal?", venue_url: "", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing" },
+            { name: "Storytelling Sunday", schedule: "last sunday", location: "Love Shack, London, E2 9HA", link: "https://londondreamtime.com/", venue_url: "https://www.loveshackldn.com/events-1", facebook: "", club: "storytellingsunday" },
+            { name: "Ship Inn Storytelling, Exeter", schedule: "1st thursday", location: "Ship Inn, Exeter, EX1 1EY", time: "7-9pm", link: "", venue_url: "https://www.greeneking.co.uk/pubs/devon/ship", facebook: "https://www.facebook.com/SuzanneArnoldWiseWoman", club: "shipinnstorytelling" },
+            { name: "Tales'n'Ales", schedule: "3rd thursday", time: "8-10pm", location: "Locks Inn, Geldeston, Norwich, NR34 0HW", venue_url: "https://thelocksinn.com/", link: "", facebook: "", club: "talesnales" },
+            { name: "Matlock storytelling circle", schedule: "last wednesday", time: "7.30pm", location: "", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club: "matlockSCl" },
+            { name: "Leicester Story Tree", schedule: "1st tuesday", time: "6.45-8.45pm", location: "Leicester Central Library, Leicester, LE1 6AA", link: "http://leicesterstorytelling.com", facebook: "https://www.facebook.com/profile.php?id=100086273211826", venue_url: "http://www.leicesterstorytelling.com/story-tree.html", email: "leicesterstorytelling@gmail.com", club: "leicesterstorytree" },
+            { name: "Exeter Story Club", schedule: "2nd wednesday", time: "7.30pm", location: "The Cowick Barton, Exeter, EX2 9HF", link: "", venue_url: "https://www.thecowickbarton.co.uk/", facebook: "https://www.facebook.com/ExeterStoryClub", club: "exeterSC" },
+            { name: "Birmingham Storytelling Cafe", schedule: "3rd wednesday", location: "Kitchen Garden Cafe, Birmingham, B14 7SA", venue_url: "https://www.kitchengardencafe.co.uk/", link: "https://www.birminghamstorytellingcafe.co.uk/", facebook: "https://www.facebook.com/groups/BirminghamStorytellingcafe", club: "birminghamSCafe" },
+            { name: "Elephant Tales (London)", schedule: "1st sunday", location: "The Pullens Centre, 184 Crampton Street, London, SE17 3AE", time: "3-5pm", venue_url: "https://www.pullenstra.org/space-rental/", link: "https://elephanttaleslondo.wixsite.com/elephant-tales", instagram: "https://www.instagram.com/elephant.tales.london/", club: "elephanttales" },
+            { name: "Gloucester Storytelling Cafe", schedule: "1st thursday", time: "7pm - 10pm", location: "The Folk of Gloucester, Gloucester, GL1 2PG", link: "", venue_url: "https://www.gloucestercivictrust.org/the-folk-home/", facebook: "https://www.facebook.com/profile.php?id=61554490450596", club: "gloucesterSCafe" },
+            { name: "Beeston Tales", schedule: "3rd wednesday", location: "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE", venue_url: "https://theassumption.co.uk/", time: "7.30pm", link: "", facebook: "https://www.facebook.com/groups/beestontales", club: "beestontales", tickets_url: "https://www.tickettailor.com/events/beestontales/" },
+            { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "Imperial Rooms, Imperial Road, Matlock, DE4 3NL", venue_url: "https://matlock.gov.uk/imperial-rooms/", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club: "matlockSCafe", tickets_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/" },
+            { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday", time: "7.30pm", location: "", link: "", facebook: "https://www.facebook.com/TheShaggyDogStorytellers", club: "shaggydogstorytellers" },
+            { name: "Huddersfield story circle", schedule: "2nd monday", location: "Rat and Ratchet pub, Huddersfield, HD1 3EB", link: "", facebook: "", time: "7pm?", club: "huddersfieldSCi" },
+            { name: "Haworth storytelling circle", schedule: "1st thursday", location: "", link: "", facebook: "https://www.facebook.com/HaworthStorytellingCircle", time: "8pm", club: "HaworthStorytellingCircle" },
+            { name: "Story night at Torriano", schedule: "2nd wednesday", location: "Torriano Meeting House, London, NW5 2RX", venue_url: "https://torriano.org", link: "", facebook: "https://www.facebook.com/profile.php?id=100069787464247", club: "torrianostorynight" },
+            { name: "Chester Triple Spiral Storytellers", schedule: "1st tuesday", location: "Storyhouse, Hunter St, Chester, CH1 2AR", link: "", venue_url: "https://www.storyhouse.com/whats-on/triple-spiral-storytellers/", time: "1.30-3pm", facebook: "https://www.facebook.com/groups/1432324863552369", club: "chestertriplespiral" },
+            { name: "Cambridge Storytellers", schedule: "2nd sunday", location: "Special events only?", link: "https://www.cambridgestorytellers.com/", facebook: "https://www.facebook.com/CambridgeStorytellers", club: "cambridgestorytellers" },
+            { name: "Glasgow Better Crack Storytelling Club", schedule: "3rd Friday", time: "7pm", location: "", link: "", facebook: "https://www.facebook.com/groups/115339998550789", club: "glasgowbettercrack" },
+            { name: "Glasgow EVEN Better Crack Storytelling Club (Children)", schedule: "3rd saturday", location: "", link: "", facebook: "", time: "1130am-12.30pm", club: "glasgowevenbettercrack" },
+            { name: "Island Storytellers, Isle of Wight", schedule: "2nd thursday", time: "7-9pm", location: "Various locations", link: "https://tistales.org.uk/island-storytellers/", facebook: "https://www.facebook.com/groups/islandstorytellers", club: "islandstorytellers", exceptions: ["20/11/2025"] },
+            { name: "Surrey: Three Heads In A Well storytelling circle", schedule: "4th friday", time: "7.30pm", location: "", link: "https://www.surreystorytellers.co.uk", facebook: "https://www.facebook.com/groups/366190587003", club: "threeheadsinawell" },
+            { name: "Bletchley: Tales Tattled and Told", schedule: "3rd saturday", time: "7.30pm", location: "Rectory Cottages, Bletchley, MK3 6BJ", venue_url: "https://www.mkheritage.co.uk/rct/", link: "", facebook: "https://www.facebook.com/lynettehilluk", club: "talestattledtold" },
+            { name: "Northampton: Feast of Fools", schedule: "1st wednesday", location: "Quaker Meeting House, Northampton, NN1 3AS", time: "7-9.30pm", link: "https://www.storyfeast.uk/", venue_url: "https://northampton.quakermeeting.org/", facebook: "https://www.facebook.com/StorytellingFeast", club: "feastoffools" },
+            { name: "South Devon storytellers (Totnes)", schedule: "3rd wednesday", location: "Totnes Brewing Co. / Barrrel House Ballroom, Totnes, TQ9 5PB", venue_url: "https://barrelhousetotnes.co.uk/", link: "https://www.sdstorytellers.co.uk/", facebook: "https://www.facebook.com/profile.php?id=61560384152751", email: "southdevonstorytellers@gmail.com", club: "southdevonstorytellers" },
+            { name: "Plymouth Storytelling Circle", time: "5-7pm", schedule: "4th sunday", location: "Snapdragons, Victoria Park, Plymouth, PL1 5NJ", link: "", facebook: "https://www.facebook.com/profile.php?id=61580047292990", club: "plymouthSCi" },
+            { name: "The Plough Storytelling Circle (North Devon)", schedule: "1st thursday", time: "7.30pm", location: "St Anne's Arts & Community Centre, Barnstaple, EX31 1BH", link: "https://www.theploughartscentre.org.uk/", venue_url: "https://www.theploughartscentre.org.uk/", facebook: "https://www.facebook.com/ploughstorytelling", email: "storytelling.plough@gmail.com", club: "ploughSCi" },
+            { name: "Liskeard Storytelling Cafe", schedule: "4th thursday", time: "7.30pm", location: "Liskeard Public Hall, West Street, Liskeard, PL14 6BW", link: "https://www.strongwords.org.uk/", venue_url: "https://visitliskeard.co.uk/venue/liskeard-public-hall/", facebook: "https://www.facebook.com/groups/488666447814753", club: "liskeardSCa" },
+            { name: "Lichfield storytellers", schedule: "2nd tuesday", time: "7pm", location: "", link: "", facebook: "https://www.facebook.com/lichfieldstorytellers", email: "lichfieldstorytellers@gmail.com", club: "lichfieldST" },
+            { name: "Wirral Quirky Tales", schedule: "2nd tuesday", time: "7.30-9.30pm", location: "Making Space, 1 Gilroy Road, West Kirby, CH48 6DP", link: "", facebook: "https://www.facebook.com/profile.php?id=100086449665967", club: "quirkytales" },
+            { name: "Guesthouse storytellers, Newhaven", schedule: "2nd tuesday", time: "7.30pm", location: "Hillcrest Community Centre, Newhaven, BN9 9LH", venue_url: "https://www.hillcrestcentre.co.uk/", link: "", facebook: "https://www.facebook.com/groups/guesthousestorytellers", club: "guesthouseST", tickets_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge" },
+            { name: "Southampton Story Club", schedule: "1st thursday", location: "Guide Dog Pub, Southampton, SO14 6SF", time: "8-10pm", venue_url: "https://www.facebook.com/TheGuideDog", link: "", facebook: "https://www.facebook.com/groups/southamptonstories", club: "southamptonSC" },
+            { name: "Sarum Story club [online?]", schedule: "3rd tuesday", location: "", link: "", facebook: "https://www.facebook.com/groups/sarumstoryclub", club: "sarumSC" },
+            { name: "Bristol Wild Wednesday storytelling", schedule: "3rd wednesday", time: "7pm", location: "", link: "", facebook: "https://www.facebook.com/groups/412446392168295", club: "bristolwildwednesday" },
+            { name: "Dartmoor Storytellers", schedule: "2nd wednesday", time: "8-9.30pm", location: "Chagford Inn, Chagford, TQ13 8AW", link: "", venue_url: "https://www.thechagfordinn.co.uk/", facebook: "https://www.facebook.com/groups/1689129511376075", club: "dartmoorStorytellers", exceptions: ["17/12/2025"] },
+            { name: "A Bit Crack Storytelling", schedule: "1st friday", location: "The Chillingham, South Heaton, Newcastle, NE6 5XN", link: "https://www.abitcrack.com/", time: "7.30-9", venue_url: "https://sjf.co.uk/the-chillingham/", facebook: "https://www.facebook.com/ABitCrack", club: "abitcrack" },
+            { name: "Cardiff Storytelling Circle", schedule: "1st sunday", time: "7pm", location: "Chapter Arts Centre, Canton, Cardiff, CF5 1QE", venue_url: "https://www.chapter.org/", time: "8pm", link: "https://www.literaturewales.org/writer-group/cardiff-storytelling-circle/", facebook: "https://www.facebook.com/groups/1491740927748170/", club: "cardiffSC" },
+            { name: "Mendip story circle", schedule: "2nd wednesday", time: "7.30pm", location: "Ston Easton Village Hall, Radstock, BA3 4DA", venue_url: "https://stoneaston.org.uk/village-hall/", link: "https://www.mendipstorycircle.com/", facebook: "https://www.facebook.com/profile.php?id=100064070403986", exceptions: ["17/12/2025"], club: "" },
+            { name: "Frome storytelling circle", schedule: "last monday", time: "7-9pm", location: "Three Swans pub, Frome, BA11 1BH", link: "", facebook: "https://www.facebook.com/laralavender6", club: "fromeSC" },
+            { name: "Brighton Telltales", schedule: "1st wednesday", time: "7pm", location: "The Yellow Book, Brighton, BN1 4GU", link: "", facebook: "https://www.facebook.com/brightontelltales", club: "brightontelltales", venue_url: "https://www.yellowbook.bar/", club_flyer: "brighton_telltales_flyer.jpg" },
+            { name: "Leek storytellers", schedule: "2nd wednesday", time: "7pm", location: "The Fountain Inn, Leek, ST13 6JR", link: "", venue_url: "https://caldmoretaverns.co.uk/pubs/fountain-inn-leek/", facebook: "https://www.facebook.com/leekstorytellers", email: "Fernandfables@gmail.com", club: "leekstorytellers", club_flyer: "leekstorytellers_flyer.jpg" },
             { name: "Sale", schedule: "4th monday", location: "Brook pub, Brooklands, M33 3SQ", link: "https://www.thebrooksale.co.uk/", facebook: "" },
             { name: "Much Wenlock, Salop - words at the edge", schedule: "2nd monday", location: "", link: "", facebook: "https://www.facebook.com/groups/wordsattheedge", club: "wordsattheedge" },
-            { name: "Manchester - Sting in the Tale", schedule: "3rd wednesday", time:"7pm", location: "", link: "", facebook: "https://www.facebook.com/astinginthetaleclub", email:"astinginthetaleclub@gmail.com", club:"stinginthetale"},
-            { name: "3rd Wednesday Storytellers, [online]", schedule: "3rd wednesday", time:"8-10pm", location: "Online", venue_url: "", link: "", facebook: "https://www.facebook.com/groups/4500677516682341" },
-            { name: "Heads & Tales Storytelling Club, Ringwood", schedule: "3rd thursday", location: "The Elm Tree, Ringwood, BH24 3DY", venue_url:"https://www.theelmtreeringwood.co.uk/", link: "", facebook: "https://www.facebook.com/HeadsAndTalesCafe" },
+            { name: "Manchester - Sting in the Tale", schedule: "3rd wednesday", time: "7pm", location: "", link: "", facebook: "https://www.facebook.com/astinginthetaleclub", email: "astinginthetaleclub@gmail.com", club: "stinginthetale" },
+            { name: "3rd Wednesday Storytellers, [online]", schedule: "3rd wednesday", time: "8-10pm", location: "Online", venue_url: "", link: "", facebook: "https://www.facebook.com/groups/4500677516682341" },
+            { name: "Heads & Tales Storytelling Club, Ringwood", schedule: "3rd thursday", location: "The Elm Tree, Ringwood, BH24 3DY", venue_url: "https://www.theelmtreeringwood.co.uk/", link: "", facebook: "https://www.facebook.com/HeadsAndTalesCafe" },
             { name: "Royal Tales (Sutton Coldfield Storytelling)", schedule: "", location: "The Station Pub, Sutton Coldfield, B73 6AT", link: "", facebook: "https://www.facebook.com/groups/613097720652168/", club: "royaltales" },
-            { name: "Aberystwyth Fables Storytelling Circle", schedule: "first wednesday", time:"7-8.30pm", location: "", link: "", facebook: "https://www.facebook.com/groups/aberfables", club: "aberystwythfables" },
+            { name: "Aberystwyth Fables Storytelling Circle", schedule: "first wednesday", time: "7-8.30pm", location: "", link: "", facebook: "https://www.facebook.com/groups/aberfables", club: "aberystwythfables" },
             { name: "Winchester Wykeham Tales [Lapsed?]", schedule: "2nd wednesday", location: "", link: "", facebook: "" },
             // TO DO : add online attribute, default "false", other: "true", "hybrid"; in price, square brackets is online price
             // TO DO - lots more legacy stinginthetale
         ];
 
         const otherClubs = [
-            { name: "Scrag End Folk Club ]", schedule: "first and third tuesday", exceptions: ["not August"], location: "The Mushroom Hall, Swadlincote", link: "https://www.scragfolk.co.uk/index.php", facebook: "", clubtype: "folk"},
+            { name: "Scrag End Folk Club ]", schedule: "first and third tuesday", exceptions: ["not August"], location: "The Mushroom Hall, Swadlincote", link: "https://www.scragfolk.co.uk/index.php", facebook: "", clubtype: "folk" },
             { name: "Waverley Folk Night", schedule: "every wednesday", location: "The Waverley, Carisbrooke", link: "https://www.waverleyinn.co.uk/index", facebook: "", clubtype: "folknight" },
             { name: "Solent Inn open mic", schedule: "every thursday", time: "8-11", location: "Solent Inn, Ryde", link: "https://solentinn.co.uk/", facebook: "", clubtype: "openmic" },
             //{ name: "Forest Folk Club", schedule: "every thursday", time: "8-11", location: "Orepool Inn, Coleford", link: "https://solentinn.co.uk/", facebook: "", clubtype: "folkclub" },
@@ -950,7 +1013,7 @@
             //Arreton Barns folk night, Arreton
 
 
-                    ];
+        ];
 
         const specificEvents = [
             { name: "A Figure of Speech [Daniel Morden]", showname: "A Figure of Speech", performer: "Daniel Morden", date: "15/10/2025", time: "7pm", club: "stinginthetale", price: "£8 / £6", description: "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!", location: "Lock 91 Bar, Manchester, M3 4QL", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_10_15_stinginthetale_morden.jpg", isSpecial: true },
@@ -978,8 +1041,8 @@
             { name: "Tales of Winter Magic - evening storytelling and Mummers' play", showname: "Tales of Winter Magic - evening storytelling and Mummers' play ", performer: "Red Phoenix | The Prize Old Mummers", date: "05/12/2025", time: "7-9pm", club: "butserancient", price: "£19.50", description: "", location: "Butser Ancient Farm, Hampshire, PO8 0BG", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/tales-of-winter-magic-evening-sr3yk", isSpecial: true, fb_event: 838620332455279 },
             { name: "Lilith: The Other Side of the Story [Katy Cawkwell]", showname: "Lilith: The Other Side of the Story", performer: "Katy Cawkwell", date: "06/12/2025", time: "7pm", club: "forgingfantastical", price: "", description: "", location: "Eastcott Community Centre, Swindon, SN1 3LZ", venue_url: "https://eastcottcommunity.org/", event_flyer: "2025_12_06_cawkwell_lilith.jpg", ticket_url: "https://www.ticketsource.co.uk/forging-fantastical/", isSpecial: true },
             { name: "The Hairy Girl [Kersti Stabi]", showname: "The Hairy Girl", performer: "Kersti Stabi", date: "09/12/2025", time: "7.30pm", club: "guesthouseST", price: "£12/£10/£8", description: "", location: "Hillcrest Community Centre, Newhaven, BN9 9LH", venue_url: "https://www.hillcrestcentre.co.uk/", event_flyer: "generic_stabi_hairygirl.jpg", isSpecial: true, ticket_url: "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452", isSpecial: true },
-            { name: "Tales of Winter and Christmas [Lichfield Storytellers Christmas get together]", showname: "Tales of Winter and Christmas", performer: "Lichfield Storytellers Christmas get together", date: "09/12/2025", time: "7-10pm", club: "lichfieldST", price: "£7.70", description: "Traditional Christmas get together with songs and stories from local tellers - mince pies, crackers and cracker jokes, conviviality and mirth", location: "Kings Head, Lichfield, WS13 6PW", venue_url: "https://www.kingsheadlichfield.com/", ticket_url:"https://wegottickets.com/event/684096", fb_event: 830509446572774, isSpecial: true },
-            { name: "Warm Hearted Christmas Stories [Cath Edwards & Matt Vaughan]", showname: "Warm Hearted Christmas Stories", performer: "Cath Edwards | Matt Vaughan", date: "09/12/2025", time: "7.30pm", club: "leicesterstorytree", price: "£5 (£3)", description: "", location: "Central Library, Leicester, LE1 6AA", venue_url: "https://bookfinder.leicester.gov.uk/whats-on#/?tag=Storytelling", fb_event: 1201185658550299 , isSpecial: true },
+            { name: "Tales of Winter and Christmas [Lichfield Storytellers Christmas get together]", showname: "Tales of Winter and Christmas", performer: "Lichfield Storytellers Christmas get together", date: "09/12/2025", time: "7-10pm", club: "lichfieldST", price: "£7.70", description: "Traditional Christmas get together with songs and stories from local tellers - mince pies, crackers and cracker jokes, conviviality and mirth", location: "Kings Head, Lichfield, WS13 6PW", venue_url: "https://www.kingsheadlichfield.com/", ticket_url: "https://wegottickets.com/event/684096", fb_event: 830509446572774, isSpecial: true },
+            { name: "Warm Hearted Christmas Stories [Cath Edwards & Matt Vaughan]", showname: "Warm Hearted Christmas Stories", performer: "Cath Edwards | Matt Vaughan", date: "09/12/2025", time: "7.30pm", club: "leicesterstorytree", price: "£5/£3", description: "", location: "Central Library, Leicester, LE1 6AA", venue_url: "https://bookfinder.leicester.gov.uk/whats-on#/?tag=Storytelling", fb_event: 1201185658550299, isSpecial: true },
             { name: 'Winter Tales [Tony "Monty" Hirst]', date: "10/12/2025", location: "Carvel Lane Coffee House, Cowes, PO31 7TF", performer: 'Tony "Monty" Hirst', venue_url: "https://www.instagram.com/carvellanecoffee/", link: "", isSpecial: true, price: "£5", time: "7-9.30pm", event_flyer: "2025_12_10_solo_carvel-winter-cherries.png", fb_event: 1838395960217862 },
             { name: "Tom Thumb [Amelia Ace Armande]", showname: "Tom Thumb", performer: "Amelia Ace Armande", date: "10/12/2025", time: "7.30-9.30pm", club: "torrianostorynight", price: "£10", description: "It's the time of King Arthur, and young Tom wants more than anything to be a knight at the court of Camelot. There's just one problem: Tom is only the size of a thumb, and he has a bad habit of being eaten. Eaten by wolves and horses and cows and giants and...\n\n A madcap journey through many stomachs and many adventures, this is a 17th century fairytale for telling around tavern tables and at twelfth night feasts.Amelia Ace Armande brings to life one of Britain's most overlooked folklore heroes on his quest for recognition and glory.\n\n A tale of heart, soul, and plenty of guts!", location: "Torriano Meeting House, London, NW5 2RX", venue_url: "https://torriano.org/", event_flyer: "", ticket_url: "", isSpecial: true, fb_event: 1884551392413640 },
             { name: "Dark tales for dark nights — Christmas special [P. D. Brown]", showname: "Dark tales for dark nights — Christmas special", performer: "P. D. Brown", date: "11/12/2025", club: "", price: "£5", description: "", location: "Angels Cut, Darlington, DL3 7RX", venue_url: "https://www.angelscutsales.co.uk/", ticket_url: "https://stephen-gill.sumupstore.com/product/dark-tales-for-dark-nights-christmas-special", event_flyer: "2025_12_11_brown_darktales.png", isSpecial: true },
@@ -992,12 +1055,12 @@
             { name: "Mad Sprits and Wild Gods [Henry Everett]", showname: "Mad Sprits and Wild Gods", performer: "Henry Everett", date: "17/12/2025", time: "7-9pm", club: "", price: "£10 / £8", description: "Prepare to be led astray into the medieval tales of Kent’s beloved trickster, mischievous Faerie, Robin Goodfellow.\n\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land.", location: "The Folk Preservation Society, Teignmouth, TQ14 8DZ", venue_url: "https://www.facebook.com/folk.preservation.society", event_flyer: "2025_12_17_everett_madsprits.jpg", ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=91ce8f87219586ef", isSpecial: true, fb_event: 2351372895306527 },
             { name: "Kukolka [Ronnie Conboy]", showname: "Kulkolka", performer: "Ronnie Conboy", date: "17/12/2025", club: "stinginthetale", price: "£8 / £6", description: "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.", location: "Lock 91 Bar, Manchester, M3 4QL", venue_url: "https://www.manchesterbars.com/lock91.htm", event_flyer: "2025_12_17_stinginthetale_conboy.jpg", isSpecial: true },
             { name: "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]", showname: "At Winters Heart (Solstice Storytelling", performer: "Henry Moore | Hannah Sneyd", date: "19/12/2025", time: "6pm", club: "", price: "", description: "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.", location: "The Circle Barn, Beden, Sampford Spiney, PL20 6LF", venue_url: "https://www.moorimagination.org/", event_flyer: "2025_12_14_independent_everett_wintersheart.jpg", fb_event: 781568461574252, ticket_url: "https://app.workshop-angel.com/form.php?h=1&t=0&e=fc633890fdf6d24b", isSpecial: true },
-            { name: "The Snow Queen [Vanessa Woolf]", showname: "The Snow Queen", performer: "Vanessa Woolf", date: "21/12/2025", time: "3-5pm", club: "londondreamtime", price: "£13.75 - £22.00", description: "", location: "Asylum Chapel, Asylum Rd, London, SE15 2SQ", venue_url: "https://asylumchapel.co.uk/", event_flyer: "2025_12_21_vanessa_woolf_snow_queen.jpg", ticket_url: "https://connectionwithwonder.com/events/the-snow-queen-storytelling-at-the-asylum-chapel/", isSpecial: true },     
+            { name: "The Snow Queen [Vanessa Woolf]", showname: "The Snow Queen", performer: "Vanessa Woolf", date: "21/12/2025", time: "3-5pm", club: "londondreamtime", price: "£13.75 - £22.00", description: "", location: "Asylum Chapel, Asylum Rd, London, SE15 2SQ", venue_url: "https://asylumchapel.co.uk/", event_flyer: "2025_12_21_vanessa_woolf_snow_queen.jpg", ticket_url: "https://connectionwithwonder.com/events/the-snow-queen-storytelling-at-the-asylum-chapel/", isSpecial: true },
 
-            { name: "Arnside Sailing Club — Storyteller [Nick Hennessey]", showname: "Arnside Sailing Club — Storyteller", performer: "Nick Hennessey", date: "21/12/2025", time: "3.30-5.00pm", club: "other", price: "£12 / £10 / £8", description: "On the Sunday before Christmas, an afternoon show with Nick Hennessey, an internationally acclaimed storyteller, playwright, folk singer, song writer, harpist and musician.  He has performed at venues such as the South Bank, Barbican, Royal Albert Hall and festivals worldwide, He has broadcast on Radio 4 and his music played on Radio 3. Nick has a particular interest in the story telling tradition of Finland. He will take you to the snow filled forests of the Far North, the darkness of the winter night and the warmth of the winter fire, travelling by song, story and music.", location: "The Old Customs House, Arnside, Carnforth, LA5 0HD", venue_url: "", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/arnsidesailingclub/1967155" , isSpecial: true },
-            { name: "Comb [Sarah Mooney]", showname: "Comb", performer: "Sarah Mooney", date: "02/01/2026", time: "7.30pm", club: "matlockSCafe", price: "£8", description: "I saw a banshee once, just outside of Galway...\n\nWhen Charlotte was 8 her Grandad told her the beginning of a story but refused to tell the full tale.Years later a chance encounter led her to find the rest of his story buried deep within an archive gathered from families in Ireland.Not only did she discover this unbelievable link to her past but also the more startling realisation that she might actually be cursed.\n\nAt times chilling, hilarious and moving Comb is a lament for the stories and people we have lost.Through a tangled ride into Celtic, Slavic and Siberian folklore, it is a clarion call for understanding just how interwoven we all are.", location: "All Saints Chiurch Hall, Matlock Bank, DE4 3JG", ticket_url:"https://www.tickettailor.com/events/matlockstorytellingcafe/1976436",venue_url: "http://allsaintsmatlock.org.uk/", event_flyer: "", fb_event: 1862219647817717, isSpecial: true },
+            { name: "Arnside Sailing Club — Storyteller [Nick Hennessey]", showname: "Arnside Sailing Club — Storyteller", performer: "Nick Hennessey", date: "21/12/2025", time: "3.30-5.00pm", club: "other", price: "£12 / £10 / £8", description: "On the Sunday before Christmas, an afternoon show with Nick Hennessey, an internationally acclaimed storyteller, playwright, folk singer, song writer, harpist and musician.  He has performed at venues such as the South Bank, Barbican, Royal Albert Hall and festivals worldwide, He has broadcast on Radio 4 and his music played on Radio 3. Nick has a particular interest in the story telling tradition of Finland. He will take you to the snow filled forests of the Far North, the darkness of the winter night and the warmth of the winter fire, travelling by song, story and music.", location: "The Old Customs House, Arnside, Carnforth, LA5 0HD", venue_url: "", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/arnsidesailingclub/1967155", isSpecial: true },
+            { name: "Comb [Sarah Mooney]", showname: "Comb", performer: "Sarah Mooney", date: "02/01/2026", time: "7.30pm", club: "matlockSCafe", price: "£8", description: "I saw a banshee once, just outside of Galway...\n\nWhen Charlotte was 8 her Grandad told her the beginning of a story but refused to tell the full tale.Years later a chance encounter led her to find the rest of his story buried deep within an archive gathered from families in Ireland.Not only did she discover this unbelievable link to her past but also the more startling realisation that she might actually be cursed.\n\nAt times chilling, hilarious and moving Comb is a lament for the stories and people we have lost.Through a tangled ride into Celtic, Slavic and Siberian folklore, it is a clarion call for understanding just how interwoven we all are.", location: "All Saints Chiurch Hall, Matlock Bank, DE4 3JG", ticket_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/1976436", venue_url: "http://allsaintsmatlock.org.uk/", event_flyer: "", fb_event: 1862219647817717, isSpecial: true },
             { name: "Storytelling Around The Fire - Warm Tales for Winter [Vanessa Woolf]", showname: "Storytelling Around The Fire - Warm Tales for Winter", performer: "Vanessa Woolf", date: "03/01/2026", time: "7-9pm", club: "londondreamtime", price: "£5-15", description: "Gather by the warmth of the fire in our truly beautiful location. Relax and enjoy glorious, mystical, magical tales from storyteller Vanessa to light up the winter dark. Hot chocolate and marshmallows will be available. We will be sitting around the fire- but it is outside... so dress in your cosiest layers! [Limited tickets]", location: "Plot 9 Maze Hill, Greenwich, London, SE3 7RD", venue_url: "https://greenwichsky.com/plot9/", event_flyer: "", ticket_url: "https://www.designmynight.com/london/whats-on/something-a-little-different-events/storytelling-around-the-fire-strange-tales-for-winter?t=tickets", isSpecial: true },
-            { name: "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain ]",  showname: "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill", performer: "Ben Haggarty & Steph Brittain ", date: "08/01/2025", time: "6.30pm", club: "cardiffSC", price: "£9.90 (£7.70)", description: "A fatherless son,\n A daughter’s lament,\n A pig stolen from its spit,\n Fires burning out at sea,\n And a dream.\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n Raw, lyrical, and unforgettable.This is not just a wild myth retold.It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n What will survive the tide? \n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n Two halves 60 mins.Age recommendation 16 +\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.", location: "Llanover Hall Arts Center, Cardiff, CF5 1FH", venue_url: "https://www.llanoverhall.com/", event_flyer: "", ticket_url: "https://wegottickets.com/event/683445/", isSpecial: true, fb_event: 2102203970315114 },
+            { name: "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain ]", showname: "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill", performer: "Ben Haggarty & Steph Brittain ", date: "08/01/2025", time: "6.30pm", club: "cardiffSC", price: "£9.90 / £7.70", description: "A fatherless son,\n A daughter’s lament,\n A pig stolen from its spit,\n Fires burning out at sea,\n And a dream.\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n Raw, lyrical, and unforgettable.This is not just a wild myth retold.It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n What will survive the tide? \n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n Two halves 60 mins.Age recommendation 16 +\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.", location: "Llanover Hall Arts Center, Cardiff, CF5 1FH", venue_url: "https://www.llanoverhall.com/", event_flyer: "", ticket_url: "https://wegottickets.com/event/683445/", isSpecial: true, fb_event: 2102203970315114 },
 
             {
                 "name": "Sláine: The Horned God [Jason Buck]",
@@ -1045,7 +1108,7 @@
                 "price": "£11.50+",
                 "location": "The Hop Sun Tap (Microbrewery), Haywards Heath, RH16 4HW",
                 "venue_url": "https://www.thehopsuntap.co.uk/",
-                "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379", fb_event:1466394704450623, isSpecial: true
+                "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379", fb_event: 1466394704450623, isSpecial: true
             },
             {
                 "name": "Sláine: The Horned God [Jason Buck]",
@@ -1064,8 +1127,8 @@
                 "showname": "Sláine: The Horned God",
                 "performer": "Jason Buck",
                 "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-                "date": "18 February 2026",
-                "time": "19:30",
+                "date": "18/02/2026",
+                "time": "7.30pm",
                 "price": "",
                 "location": "Micklethwait Social, York (Jorvik Viking Festival Fringe), UK",
                 "venue_url": "",
@@ -1088,12 +1151,13 @@
                 "showname": "Sláine: The Horned God",
                 "performer": "Jason Buck",
                 "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-                "date": "21//02/2026",
+                "date": "21/02/2026",
                 "time": "7pm",
-                "price": "£15 (£12)",
+                "price": "£15/£12",
                 "location": "Ludlow Assembly Rooms, Shropshire, SY8 1AZ",
                 "venue_url": "https://ludlowassemblyrooms.co.uk/show/slaine-the-horned-god-with-jason-buck/",
-                "ticket_url": "https://ludlowassemblyrooms.ticketsolve.com/ticketbooth/shows/873678681/events/129651718/", isSpecial: true
+                "ticket_url": "https://ludlowassemblyrooms.ticketsolve.com/ticketbooth/shows/873678681/events/129651718/",
+                isSpecial: true
             },
             {
                 "name": "Sláine: The Horned God [Jason Buck]",
@@ -1123,12 +1187,12 @@
 
             { name: "Welsh Whisperers [Gillian Borwnson + Dragon Storytellers] ", showname: "Gillian Brownson", performer: "Gillian Borwnson + Dragon Storytellers", date: "17/01/2026", time: "7-9pm", club: "", price: "£8", description: "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson.", location: "The Dragon Theatre, Barmouth, LL42 1EF", venue_url: "https://www.theatryddraig.cymru/", event_flyer: "2026_01_17_welshwhisperers_brownson.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/142714", isSpecial: true },
             { name: "The Girl Who Married a Dog [Nell Phoenix]", showname: "The Girl Who Married a Dog", performer: "Nell Phoenix", date: "20/01/2025", time: "7.00pm", club: "sheffieldstoryforge", price: "Suggested donation: £8-10", description: "", location: "Alder, Sheffield, S3 8BX", venue_url: "https://www.facebook.com/AlderBarSheff", event_flyer: "", ticket_url: "https://www.eventbrite.co.uk/e/nell-phoenix-with-the-girl-who-married-a-dog-20th-january-tickets-1977171782024", isSpecial: true, fb_event: 1195054529223664 },
-            { name: "Tall Tales & Tiny Truths ['Tis Tales]", showname: "Tall Tales & Tiny Truths", performer: "'Tis Tales'", date: "23/01/2025", time: "7.30pm", club: "islandstorytellers", price: "£10 (£8 u26)", description: "Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Brought to you by Holly Medland, Sue Bailey and Tony 'Monty' Hirst.", location: "Department, Ryde, PO33 2AA", venue_url: "https://department-ryde.org/", event_flyer: "", fb_event: 3353518201472270, ticket_url: "https://department.byretail.net/menu", isSpecial: true },
+            { name: "Tall Tales and Tiny Truths ['Tis Tales]", showname: "Tall Tales and Tiny Truths", performer: "'Tis Tales'", date: "23/01/2026", time: "7.30pm", club: "islandstorytellers", price: "£10 (£8 u26)", description: "Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Brought to you by Holly Medland, Sue Bailey and Tony 'Monty' Hirst.", location: "Department, Ryde, PO33 2AA", venue_url: "https://department-ryde.org/", event_flyer: "", fb_event: 3353518201472270, ticket_url: "https://department.byretail.net/menu", isSpecial: true },
             { name: "The Girl Who Married a Dog [Nell Phoenix]", showname: "The Girl Who Married a Dog", performer: "Nell Phoenix", date: "29/01/2025", time: "7.30pm", club: "criccracclub", price: "", description: "", location: "The Story Museum, Oxford, OX1 1BP", venue_url: "https://www.storymuseum.org.uk/", event_flyer: "", ticket_url: "https://www.storymuseum.org.uk/whats-on/crick-crack-the-girl-who-married-a-dog", isSpecial: true, online: "hybrid", fb_event: 823991059995862 },
             { name: "Last Orders - A Storytelling Show [Mike Payton]", showname: "Last Orders - A Storytelling Show", performer: "Mike Payton", date: "30/01/2026", time: "7.30-10pm", club: "forgingfantastical", price: "£10.84", description: "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…", location: "The Old Stables, behind The White Hart, Cricklade, Swindon, SN6 6AA", venue_url: "https://www.thewhitehartcricklade.co.uk/", event_flyer: "2026_01_30_forgingfantastical_payton_lastorders.jpg", ticket_url: "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog", isSpecial: true, fb_event: 2737200426620868 },
             { name: "The Stealing of the Sun and Moon [Nick Hennessey]", showname: "The Stealing of the Sun and Moon", performer: "Nick Hennessey", date: "21/02/2026", time: "7.30-10pm", club: "beestontales", price: "£8 [£6.50]", description: "oin Nick for a performance that journeys into the deep, snow-filled forests of the Finnish far north, where the river of the underworld flows dark and fast, and the summer sun shines just a little too bright. In this world created from shards of eggshell, the sun and moon are fought over, magic is done and undone, and life is shot through with bizarre ordeals, misguided passions, magical battles and transformations. Expect a remarkable performance of elemental epic.", location: "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE", venue_url: "https://theassumption.co.uk/", event_flyer: "", ticket_url: "https://www.tickettailor.com/events/beestontales/1955498", online: "hybrid", isSpecial: true },
-            { name: "The Homing Stone [Hugh Lupton]", showname: "The Homing Stone", performer: "Hugh Lupton", date: "20/02/2026", time: "7.30-10pm", club: "", price: "£12", description: "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent.\n\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised.\n\n In the Homing Stone master storyteller Hugh Lupton(who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.", location: " The Backyard Theatre, Watchet, West Somerset, TA23 0AZ", venue_url: "", event_flyer: "", ticket_url: "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo", isSpecial: true, fb_event: 712262841916596 },
-            { name: "In the time of GIANTS [The Travelling Talesman]", showname: "In the time of GIANTS", performer: "The Travelling Talesman (Cliff Eastabrook)", date: "15/03/2026", time: "7.30pm", club: "", price: "£18 (£15 adv)", description: "They are big and some of them are clever (not many though!). Europe used to be thick with them.\n\n From Greek Zeus to Scandinavian Thor and from Cornwall’s Jack the Hammer to the northern Molly Whuppie, Gods and humans have waged a devastating series of single combats against large and grotesque beings with dubious manners.In many myths the giants come first, often preceding even the gods themselves, frequently waiting for the human explorers of new lands.\n\n Often a force of oppression, representing the tyranny of might, some have their beginnings in the power of nature, some in actual people who have been exaggerated over the years and some we can only guess at.", location: "The Acorn, Penzance, TR18 4BU", venue_url: "https://www.theacornpenzance.com/", event_flyer: "", ticket_url: "https://theacornpenzance.ticketsolve.com/ticketbooth/shows/1173664705", isSpecial: true },
+            { name: "The Homing Stone [Hugh Lupton]", showname: "The Homing Stone", performer: "Hugh Lupton", date: "20/02/2026", time: "7.30-10pm", club: "", price: "£12", description: "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent.\n\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised.\n\n In the Homing Stone master storyteller Hugh Lupton (who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.", location: " The Backyard Theatre, Watchet, West Somerset, TA23 0AZ", venue_url: "", event_flyer: "", ticket_url: "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo", isSpecial: true, fb_event: 712262841916596 },
+            { name: "In the time of GIANTS [The Travelling Talesman]", showname: "In the time of GIANTS", performer: "The Travelling Talesman (Cliff Eastabrook)", date: "15/03/2026", time: "7.30pm", club: "", price: "£18 / £15 adv", description: "They are big and some of them are clever (not many though!). Europe used to be thick with them.\n\n From Greek Zeus to Scandinavian Thor and from Cornwall’s Jack the Hammer to the northern Molly Whuppie, Gods and humans have waged a devastating series of single combats against large and grotesque beings with dubious manners.In many myths the giants come first, often preceding even the gods themselves, frequently waiting for the human explorers of new lands.\n\n Often a force of oppression, representing the tyranny of might, some have their beginnings in the power of nature, some in actual people who have been exaggerated over the years and some we can only guess at.", location: "The Acorn, Penzance, TR18 4BU", venue_url: "https://www.theacornpenzance.com/", event_flyer: "", ticket_url: "https://theacornpenzance.ticketsolve.com/ticketbooth/shows/1173664705", isSpecial: true },
             { name: "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]", showname: "Stars and their Consolations", performer: "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis", date: "21/03/2026", time: "7.30pm", club: "adversecamber", price: "£14.50, £12.50", description: "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.", location: "Ffwrnes, Llanelli, SA15 3YE", venue_url: "https://www.theatrausirgar.co.uk/en/your-visit/ffwrnes", event_flyer: "morden_lupton_stars.jpg", ticket_url: "https://www.theatrausirgar.co.uk/en/shows/stars-and-their-consolations", isSpecial: true, fb_event: 1196741042508760 },
             { name: "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]", showname: "Stars and their Consolations", performer: "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis", date: "24/03/2026", time: "7.30pm", club: "adversecamber", price: "£15", description: "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.", location: "Torch Theatre, Milford Haven, SA73 2BU", venue_url: "https://www.torchtheatre.co.uk/", event_flyer: "morden_lupton_stars.jpg", ticket_url: "https://www.torchtheatre.co.uk/events/stars-and-their-consolations/", isSpecial: true, fb_event: 1168100702093270 },
             { name: "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]", showname: "Stars and their Consolations", performer: "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis", date: "25/03/2026", time: "8pm", club: "adversecamber", price: "£18, £16", description: "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.", location: "The Riverfront, Newport, Wales, NP20 1HG", venue_url: "https://www.newportlive.co.uk/en/venues/riverfront/", event_flyer: "morden_lupton_stars.jpg", ticket_url: "https://newportlive.ticketsolve.com/ticketbooth/shows/1173669720", isSpecial: true, fb_event: 825438926880868 },
@@ -1140,33 +1204,33 @@
             { name: "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]", showname: "Stars and their Consolations", performer: "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis", date: "01/04/2026", time: "7.30pm", club: "adversecamber", price: "", description: "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.", location: "Pontardawe Arts Centre, SA8 4ED", venue_url: "https://pontardaweartscentre.com/", event_flyer: "morden_lupton_stars.jpg", ticket_url: "https://pontardaweartscentre.com/shows/stars-and-their-consolations/", isSpecial: true, fb_event: 1125644786220403 },
             { name: "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]", showname: "Stars and their Consolations", performer: "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis", date: "02/04/2026", time: "7.30pm", club: "adversecamber", price: "£9-18", description: "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.", location: "Royal Welsh College of Music & Drama, Cardiff, CF10 3ER", venue_url: "https://www.rwcmd.ac.uk/", event_flyer: "morden_lupton_stars.jpg", ticket_url: "https://www.rwcmd.ac.uk/events/stars-and-their-consolations", isSpecial: true, fb_event: 1200748131902541 },
             { name: "Under a Hill, a King Lays Sleeping [Bernadette Russell]", showname: "Under a Hill, a King Lays Sleeping", performer: "Bernadette Russell", date: "22/05/2026", time: "7-9pm", club: "butserancient", price: "£20.50", description: "", location: "Butser Ancient Farm, Hampshire, PO8 0BG", venue_url: "https://www.butserancientfarm.co.uk/", event_flyer: "", ticket_url: "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell", isSpecial: true, fb_event: 1402520921214581 },
-            
+
             // { name: "", showname: "", performer: "", date: "", time:"", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "", ticket_url:"", isSpecial: true },
         ];
 
         const musicEvents = [
 
-            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield and The Company of Thieves", date: "12/12/2025", time: "7.30pm", club: "gazbrookfield", price: "£16.50 (+1.70)", location: "Yes, Manchester, M1 7DB", description:"Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now.Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts.Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.", venue_url: "https://www.yes-manchester.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://wegottickets.com/f/14466#location-28953", isMusic: true },
+            { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield and The Company of Thieves", date: "12/12/2025", time: "7.30pm", club: "gazbrookfield", price: "£16.50 (+1.70)", location: "Yes, Manchester, M1 7DB", description: "Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now.Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts.Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.", venue_url: "https://www.yes-manchester.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://wegottickets.com/f/14466#location-28953", isMusic: true },
             { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield and The Company of Thieves", date: "13/12/2025", time: "6.30pm", club: "gazbrookfield", price: "", description: "", location: "Bodega, Nottingham, NG1 2ED", venue_url: "https://www.bodeganottingham.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://www.alttickets.com/gaz-brookfield-tickets", isMusic: true },
             { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)", showname: "Waiting For Wisdom tour", performer: "Gaz Brookfield", date: "19/12/2025", time: "7.30pm", club: "gazbrookfield", price: "£16.00", description: "", location: "Joiners, Southampton, SO14 1NS", venue_url: "https://www.joinerslive.com/", event_flyer: "tour_gazbrookfield_waitingForWisdom_2025.png", ticket_url: "https://joiners.vticket.co.uk/product.php/2773/gaz-brookfield", isMusic: true },
             { name: "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour, Xmas Show)", showname: "Waiting For Wisdom tour, Xmas Show", performer: "Gaz Brookfield", date: "20/12/2025", time: "7.00pm", club: "gazbrookfield", price: "£16.50", description: "", location: "The Fleece, Bristol, BS1 6JJ", venue_url: "https://thefleece.co.uk/", event_flyer: "gaz_brookfield_xmas25.jpeg", ticket_url: "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479", isMusic: true },
             { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "16/01/2026", time: "7pm", club: "", price: "£10 (+£1)", description: "", location: "Riff Factory, Stoke, ST4 4HS", venue_url: "https://rifffactory.co.uk/", event_flyer: "jess_silk_jan26.jpg", ticket_url: "https://wegottickets.com/event/682211/", isMusic: true, },
-            { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "17/01/2026", time: "", club: "", price: "", description: "", location: "Bolton Socialist Club, BL1 1DY", venue_url: "https://www.facebook.com/profile.php?id=100069735416333", event_flyer: "jess_silk_jan26.jpg", ticket_url: "", isMusic: true,  },
+            { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "17/01/2026", time: "", club: "", price: "", description: "", location: "Bolton Socialist Club, BL1 1DY", venue_url: "https://www.facebook.com/profile.php?id=100069735416333", event_flyer: "jess_silk_jan26.jpg", ticket_url: "", isMusic: true, },
             { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "18/01/2026", time: "4pm", club: "", price: "", description: "", location: "Foxtails, Chorley, PR7 2LA", venue_url: "https://foxtails.co.uk/", event_flyer: "jess_silk_jan26.jpg", ticket_url: "https://www.skiddle.com/whats-on/Chorley/Foxtails-Chorley/Jess-Silk/41280700/", isMusic: true, },
             { name: "Gaz Brookfield (Almost All Village Halls Tour)", showname: "Almost All Village Halls Tour", performer: "Gaz Brookfield", date: "06/02/2026", time: "7.30pm", club: "gazbrookfield", price: "£16.50", description: "", location: "Gupshill Manor, Tewkesbury, GL20 5SG", venue_url: "https://gupshillmanor.com/", event_flyer: "tour_gazbrookfield_2026q1-2.jpg", ticket_url: "https://wegottickets.com/event/673293", isMusic: true },
 
             //{ name: "Gaz Brookfield", showname: "", performer: "Gaz Brookfield", date: "", time: "", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "tour_gazbrookfield_2026q1-2.jpg", ticket_url: "", isMusic: true },
-            
+
             //{ name: "", showname: "", performer: "", date: "", time: "", club: "", price: "", description: "", location: "", venue_url: "", event_flyer: "", ticket_url: "", isMusic: true, fb_event:  }
         ]
 
         const podcasts = [
-            {series_title:"Taking the Tradition On", presenter: "Amy Douglas", schedule:"", url: "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn"}
+            { series_title: "Taking the Tradition On", presenter: "Amy Douglas", schedule: "", url: "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn" }
             //  {series_title: "", presenter: "", schedule:"", url: ""}
         ]
 
         const courses = [
-            {title: "24 Story Seeds", leader: "Sally Pomme Clayton", date:"06/12/2025", location:"Summerhill Bowling Club, Newcastle-upon-Tyne", cost:"£40", link:"https://www.facebook.com/ABitCrack", club: "abitcrack", course_flyer: "2025_12_06_abitcrack_pomme_24storyseeds.jpg"},
+            { title: "24 Story Seeds", leader: "Sally Pomme Clayton", date: "06/12/2025", location: "Summerhill Bowling Club, Newcastle-upon-Tyne", cost: "£40", link: "https://www.facebook.com/ABitCrack", club: "abitcrack", course_flyer: "2025_12_06_abitcrack_pomme_24storyseeds.jpg" },
         ];
 
         let masterEvents = []; // Holds all upcoming event occurrences
@@ -1174,59 +1238,59 @@
         let currentEndDate = null;
 
         function parseSpecificDate(dateString) {
-                if (!dateString) return null;
-                // Date format is DD/MM/YYYY
-                const [day, month, year] = dateString.split('/').map(num => parseInt(num));
+            if (!dateString) return null;
+            // Date format is DD/MM/YYYY
+            const [day, month, year] = dateString.split('/').map(num => parseInt(num));
 
-                // FIX 1: MONTH MUST BE month - 1 (January is 0)
-                const date = new Date(year, month - 1, day);
+            // FIX 1: MONTH MUST BE month - 1 (January is 0)
+            const date = new Date(year, month - 1, day);
 
-                date.setHours(0, 0, 0, 0);
-                return date;
-            }
+            date.setHours(0, 0, 0, 0);
+            return date;
+        }
 
         function generateMasterEvents() {
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
 
-                masterEvents = [];
+            masterEvents = [];
 
-                // 1. Add Recurring Events (ONE entry per club)
-                events.forEach(event => {
-                    // Find the next upcoming date for display purposes
-                    // The parseSchedule function should be modified to return ONLY the *next* date
-                    // if called without an endDate, but for simplicity, we'll find the first one:
-                    const nextDates = parseSchedule(event.schedule, today, new Date(today.getFullYear() + 1, today.getMonth(), today.getDate()));
+            // 1. Add Recurring Events (ONE entry per club)
+            events.forEach(event => {
+                // Find the next upcoming date for display purposes
+                // The parseSchedule function should be modified to return ONLY the *next* date
+                // if called without an endDate, but for simplicity, we'll find the first one:
+                const nextDates = parseSchedule(event.schedule, today, new Date(today.getFullYear() + 1, today.getMonth(), today.getDate()));
 
-                    // Use the first found date as the display date, or null if none found
-                    const nextDate = nextDates.length > 0 ? nextDates[0] : null;
+                // Use the first found date as the display date, or null if none found
+                const nextDate = nextDates.length > 0 ? nextDates[0] : null;
 
+                masterEvents.push({
+                    type: 'recurring',
+                    // Use the next found date for sorting the main list
+                    date: nextDate,
+                    ...event // Include all original properties
+                });
+            });
+
+            // 2. Add Specific Events
+            specificEvents.forEach(event => {
+                const eventDate = parseSpecificDate(event.date);
+
+                if (eventDate && eventDate >= today) {
                     masterEvents.push({
-                        type: 'recurring',
-                        // Use the next found date for sorting the main list
-                        date: nextDate,
-                        ...event // Include all original properties
+                        type: 'specific',
+                        date: eventDate,
+                        isSpecial: event.isSpecial || false,
+                        ...event
                     });
-                });
+                }
+            });
 
-                // 2. Add Specific Events
-                specificEvents.forEach(event => {
-                    const eventDate = parseSpecificDate(event.date);
-
-                    if (eventDate && eventDate >= today) {
-                        masterEvents.push({
-                            type: 'specific',
-                            date: eventDate,
-                            isSpecial: event.isSpecial || false,
-                            ...event
-                        });
-                    }
-                });
-
-                // Sort the master list by date to keep upcoming events first
-                masterEvents = masterEvents.filter(e => e.date !== null); // Remove recurring events with no future dates
-                masterEvents.sort((a, b) => a.date - b.date);
-            }
+            // Sort the master list by date to keep upcoming events first
+            masterEvents = masterEvents.filter(e => e.date !== null); // Remove recurring events with no future dates
+            masterEvents.sort((a, b) => a.date - b.date);
+        }
 
         // Events with incomplete information (no specific schedule):
         // - Storytellers of Nottingham (monthly wednesday/thursday - varies)
@@ -1598,7 +1662,7 @@
                 ${expandableContent}
             `;
             }).join('');
-            
+
             filterEvents();
         }
 
@@ -1681,7 +1745,7 @@
 
             setActiveMode(mode);
         }
-            
+
         function showWeekAfterNext() {
             showWeek(2);
         }
@@ -1765,7 +1829,7 @@
             events.forEach(event => {
                 let isVisible = false;
                 let relevanceScore = 0;
-                
+
                 if (storyclubsOn && event.classList.contains('storyclub')) {
                     isVisible = true;
                 }
