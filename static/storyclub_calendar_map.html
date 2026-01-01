@@ -422,6 +422,7 @@
                     const eventData = {
                         name: event.name,
                         date: date,
+                        time: event.time || null,
                         location: event.location,
                         club: event.club,
                         latlon: event.latlon || null,
@@ -456,6 +457,7 @@
                     const eventData = {
                         name: event.name,
                         date: eventDate,
+                        time: event.time || null,
                         location: event.location,
                         performer: event.performer,
                         latlon: event.latlon || null,
@@ -490,6 +492,7 @@
                     const eventData = {
                         name: event.name,
                         date: eventDate,
+                        time: event.time || null,
                         location: event.location,
                         performer: event.performer,
                         latlon: event.latlon || null,
@@ -598,7 +601,7 @@
                         <div class="event-name">${event.name}</div>
                         ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                         <div class="event-location">${event.location}</div>
-                        <div class="event-date">${dayName}, ${day} ${month} ${year}</div>
+                        <div class="event-date">${dayName}, ${day} ${month} ${year}${event.time ? `, ${event.time}`:''}</div>
                     </div>
                 `;
             }).join('');
