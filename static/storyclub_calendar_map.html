@@ -636,6 +636,7 @@
 
             console.log('Filter settings:', { specialOn, storyclubsOn, showMusic });
 
+            // Filter event list items
             const allEventElements = document.querySelectorAll('.event');
             console.log(`Total event elements: ${allEventElements.length}`);
 
@@ -645,8 +646,6 @@
                 const isStoryclub = event.classList.contains('storyclub');
                 const isSpecial = event.classList.contains('special');
                 const isMusic = event.classList.contains('music');
-
-                console.log(`Event classes: storyclub=${isStoryclub}, special=${isSpecial}, music=${isMusic}`);
 
                 // Show event if its type checkbox is checked
                 if (storyclubsOn && isStoryclub) visible = true;
@@ -660,6 +659,29 @@
                 }
 
                 event.classList.toggle('hidden', !visible);
+            });
+
+            // Filter map markers
+            markers.forEach(marker => {
+                const eventData = marker.eventData;
+                let visible = false;
+
+                if (storyclubsOn && eventData.isStoryclub) visible = true;
+                if (specialOn && eventData.isSpecial) visible = true;
+                if (showMusic && eventData.isMusic) visible = true;
+
+                // Apply search filter if search term exists
+                if (visible && searchTerm) {
+                    const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
+                    visible = searchableText.includes(searchTerm);
+                }
+
+                // Show/hide marker based on filter
+                if (visible) {
+                    marker.setStyle({ opacity: 1, fillOpacity: 0.8 });
+                } else {
+                    marker.setStyle({ opacity: 0, fillOpacity: 0 });
+                }
             });
 
             // Count visible events
