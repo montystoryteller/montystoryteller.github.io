@@ -81,6 +81,21 @@
         1.5171661
       ]
     },
+{
+      "name": "Norwich Storytelling Club",
+      "schedule": "3rd tuesday",
+      "time": "7.30pm",
+      "location": "Gibraltar Gardens, Norwich, NR2 4LZ",
+      "venue_url": "https://www.gibraltargardens-norwich.foodanddrinksites.co.uk/",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/1353388599609560/",
+      "club": "norwichSCl",
+      "latlon": [
+        52.625496,
+        1.281635
+      ]
+    },
+     { name: "", schedule: "3rd tuesday", time: "7.30pm", location: "", venue_url: "", link: "", facebook: "", club: "" },
     {
       "name": "Matlock storytelling circle",
       "schedule": "last wednesday",
