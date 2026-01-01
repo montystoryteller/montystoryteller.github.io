@@ -1,0 +1,2098 @@
+{
+  "events": [
+    {
+      "name": "Sheffield Story Forge",
+      "schedule": "3rd tuesday",
+      "location": "The Fat Cat, Sheffield, S3 8SA",
+      "time": "7pm",
+      "link": "",
+      "venue_url": "https://www.thefatcat.co.uk/",
+      "facebook": "https://www.facebook.com/groups/94064587663",
+      "club": "sheffieldstoryforge",
+      "latlon": [
+        53.3886156,
+        -1.471777
+      ]
+    },
+    {
+      "name": "Word of Mouth storytelling club [lapsed?]",
+      "schedule": "1st wednesday",
+      "location": "The Britons Protection, Great Bridgewater St., Manchester, M1 5LE",
+      "link": "https://wordofmouthstorytelling.blogspot.com/",
+      "facebook": "https://www.facebook.com/groups/391825947545400/",
+      "venue_url": "https://www.thebritonsprotection.co.uk/index",
+      "club": "wordofmouthSCl",
+      "latlon": [
+        53.474863,
+        -2.2469884
+      ]
+    },
+    {
+      "name": "Stealing Thunder",
+      "schedule": "2nd saturday",
+      "link": "https://stealingthunder.co.uk/",
+      "location": "Kendal?",
+      "venue_url": "",
+      "club": "stealingthunder",
+      "facebook": "https://www.facebook.com/thunderstealing",
+      "latlon": [
+        54.3289795,
+        -2.747183
+      ]
+    },
+    {
+      "name": "Storytelling Sunday",
+      "schedule": "last sunday",
+      "location": "Love Shack, London, E2 9HA",
+      "link": "https://londondreamtime.com/",
+      "venue_url": "https://www.loveshackldn.com/events-1",
+      "facebook": "",
+      "club": "storytellingsunday",
+      "latlon": [
+        51.5322132,
+        -0.0572027
+      ]
+    },
+    {
+      "name": "Ship Inn Storytelling, Exeter",
+      "schedule": "1st thursday",
+      "location": "Ship Inn, Exeter, EX1 1EY",
+      "time": "7-9pm",
+      "link": "",
+      "venue_url": "https://www.greeneking.co.uk/pubs/devon/ship",
+      "facebook": "https://www.facebook.com/SuzanneArnoldWiseWoman",
+      "club": "shipinnstorytelling",
+      "latlon": [
+        50.7235857,
+        -3.5302391
+      ]
+    },
+    {
+      "name": "Tales'n'Ales",
+      "schedule": "3rd thursday",
+      "time": "8-10pm",
+      "location": "Locks Inn, Geldeston, Norwich, NR34 0HW",
+      "venue_url": "https://thelocksinn.com/",
+      "link": "",
+      "facebook": "",
+      "club": "talesnales",
+      "latlon": [
+        52.4636358,
+        1.5171661
+      ]
+    },
+    {
+      "name": "Matlock storytelling circle",
+      "schedule": "last wednesday",
+      "time": "7.30pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/MatlockStorytellingCafe",
+      "club": "matlockSCl",
+      "geocode_missing": true
+    },
+    {
+      "name": "Leicester Story Tree",
+      "schedule": "1st tuesday",
+      "time": "6.45-8.45pm",
+      "location": "Leicester Central Library, Leicester, LE1 6AA",
+      "link": "http://leicesterstorytelling.com",
+      "facebook": "https://www.facebook.com/profile.php?id=100086273211826",
+      "venue_url": "http://www.leicesterstorytelling.com/story-tree.html",
+      "email": "leicesterstorytelling@gmail.com",
+      "club": "leicesterstorytree",
+      "latlon": [
+        52.633022,
+        -1.1322806
+      ]
+    },
+    {
+      "name": "Exeter Story Club",
+      "schedule": "2nd wednesday",
+      "time": "7.30pm",
+      "location": "The Cowick Barton, Exeter, EX2 9HF",
+      "link": "",
+      "venue_url": "https://www.thecowickbarton.co.uk/",
+      "facebook": "https://www.facebook.com/ExeterStoryClub",
+      "club": "exeterSC",
+      "latlon": [
+        50.7090421,
+        -3.5464436
+      ]
+    },
+    {
+      "name": "Birmingham Storytelling Cafe",
+      "schedule": "3rd wednesday",
+      "location": "Kitchen Garden Cafe, Birmingham, B14 7SA",
+      "venue_url": "https://www.kitchengardencafe.co.uk/",
+      "link": "https://www.birminghamstorytellingcafe.co.uk/",
+      "facebook": "https://www.facebook.com/groups/BirminghamStorytellingcafe",
+      "club": "birminghamSCafe",
+      "latlon": [
+        52.4341123,
+        -1.8937292
+      ]
+    },
+    {
+      "name": "Elephant Tales (London)",
+      "schedule": "1st sunday",
+      "location": "The Pullens Centre, 184 Crampton Street, London, SE17 3AE",
+      "time": "3-5pm",
+      "venue_url": "https://www.pullenstra.org/space-rental/",
+      "link": "https://elephanttaleslondo.wixsite.com/elephant-tales",
+      "instagram": "https://www.instagram.com/elephant.tales.london/",
+      "club": "elephanttales",
+      "latlon": [
+        51.490419,
+        -0.1000982
+      ]
+    },
+    {
+      "name": "Gloucester Storytelling Cafe",
+      "schedule": "1st thursday",
+      "time": "7pm - 10pm",
+      "location": "The Folk of Gloucester, Gloucester, GL1 2PG",
+      "link": "",
+      "venue_url": "https://www.gloucestercivictrust.org/the-folk-home/",
+      "facebook": "https://www.facebook.com/profile.php?id=61554490450596",
+      "club": "gloucesterSCafe",
+      "latlon": [
+        51.8671663,
+        -2.250251
+      ]
+    },
+    {
+      "name": "Beeston Tales",
+      "schedule": "3rd wednesday",
+      "location": "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE",
+      "venue_url": "https://theassumption.co.uk/",
+      "time": "7.30pm",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/beestontales",
+      "club": "beestontales",
+      "tickets_url": "https://www.tickettailor.com/events/beestontales/",
+      "latlon": [
+        52.9268849,
+        -1.2177308
+      ]
+    },
+    {
+      "name": "Matlock Storytelling Cafe",
+      "schedule": "1st friday",
+      "location": "Imperial Rooms, Imperial Road, Matlock, DE4 3NL",
+      "venue_url": "https://matlock.gov.uk/imperial-rooms/",
+      "link": "",
+      "facebook": "https://www.facebook.com/MatlockStorytellingCafe",
+      "club": "matlockSCafe",
+      "tickets_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/",
+      "latlon": [
+        53.140141,
+        -1.5560718
+      ]
+    },
+    {
+      "name": "Hebden Bridge Shaggydog storytellers",
+      "schedule": "last friday",
+      "time": "7.30pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/TheShaggyDogStorytellers",
+      "club": "shaggydogstorytellers",
+      "geocode_missing": true
+    },
+    {
+      "name": "Huddersfield story circle",
+      "schedule": "2nd monday",
+      "location": "Rat and Ratchet pub, Huddersfield, HD1 3EB",
+      "link": "",
+      "facebook": "",
+      "time": "7pm?",
+      "club": "huddersfieldSCi",
+      "latlon": [
+        53.6415942,
+        -1.7852373
+      ]
+    },
+    {
+      "name": "East Anglian Story Experience",
+      "schedule": "2nd wednesday",
+      "time": "8pm",
+      "location": "B Side cafe, John Peel Centre, Stowmarket, IP14 1ET",
+      "link": "https://johnpeelcentre.com/",
+      "facebook": "https://www.facebook.com/profile.php?id=61568382750023",
+      "club": "ease",
+      "latlon": [
+        52.1881821,
+        0.9974498
+      ]
+    },
+    {
+      "name": "Huddersfield story circle",
+      "schedule": "2nd monday",
+      "location": "Rat and Ratchet pub, Huddersfield, HD1 3EB",
+      "link": "",
+      "facebook": "",
+      "time": "7pm?",
+      "club": "huddersfieldSCi",
+      "latlon": [
+        53.6415942,
+        -1.7852373
+      ]
+    },
+    {
+      "name": "Haworth storytelling circle",
+      "schedule": "1st thursday",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/HaworthStorytellingCircle",
+      "time": "8pm",
+      "club": "HaworthStorytellingCircle",
+      "geocode_missing": true
+    },
+    {
+      "name": "Story night at Torriano",
+      "schedule": "2nd wednesday",
+      "location": "Torriano Meeting House, London, NW5 2RX",
+      "venue_url": "https://torriano.org",
+      "link": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100069787464247",
+      "club": "torrianostorynight",
+      "latlon": [
+        51.5512794,
+        -0.1332178
+      ]
+    },
+    {
+      "name": "Chester Triple Spiral Storytellers",
+      "schedule": "1st tuesday",
+      "location": "Storyhouse, Hunter St, Chester, CH1 2AR",
+      "link": "",
+      "venue_url": "https://www.storyhouse.com/whats-on/triple-spiral-storytellers/",
+      "time": "1.30-3pm",
+      "facebook": "https://www.facebook.com/groups/1432324863552369",
+      "club": "chestertriplespiral",
+      "latlon": [
+        53.1926853,
+        -2.8932261
+      ]
+    },
+    {
+      "name": "Cambridge Storytellers",
+      "schedule": "2nd sunday",
+      "location": "Special events only?",
+      "link": "https://www.cambridgestorytellers.com/",
+      "facebook": "https://www.facebook.com/CambridgeStorytellers",
+      "club": "cambridgestorytellers",
+      "geocode_missing": true
+    },
+    {
+      "name": "Glasgow Better Crack Storytelling Club",
+      "schedule": "3rd Friday",
+      "time": "7pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/115339998550789",
+      "club": "glasgowbettercrack",
+      "geocode_missing": true
+    },
+    {
+      "name": "Glasgow EVEN Better Crack Storytelling Club (Children)",
+      "schedule": "3rd saturday",
+      "location": "",
+      "link": "",
+      "facebook": "",
+      "time": "1130am-12.30pm",
+      "club": "glasgowevenbettercrack",
+      "geocode_missing": true
+    },
+    {
+      "name": "Island Storytellers, Isle of Wight",
+      "schedule": "2nd thursday",
+      "time": "7-9pm",
+      "location": "Various locations",
+      "link": "https://tistales.org.uk/island-storytellers/",
+      "facebook": "https://www.facebook.com/groups/islandstorytellers",
+      "club": "islandstorytellers",
+      "geocode_missing": true
+    },
+    {
+      "name": "Surrey: Three Heads In A Well storytelling circle",
+      "schedule": "4th friday",
+      "time": "7.30pm",
+      "location": "",
+      "link": "https://www.surreystorytellers.co.uk",
+      "facebook": "https://www.facebook.com/groups/366190587003",
+      "club": "threeheadsinawell",
+      "geocode_missing": true
+    },
+    {
+      "name": "Bletchley: Tales Tattled and Told",
+      "schedule": "3rd saturday",
+      "time": "7.30pm",
+      "location": "Rectory Cottages, Bletchley, MK3 6BJ",
+      "venue_url": "https://www.mkheritage.co.uk/rct/",
+      "link": "",
+      "facebook": "https://www.facebook.com/lynettehilluk",
+      "club": "talestattledtold",
+      "latlon": [
+        51.9958309,
+        -0.7443209
+      ]
+    },
+    {
+      "name": "Northampton: Feast of Fools",
+      "schedule": "1st wednesday",
+      "location": "Quaker Meeting House, Northampton, NN1 3AS",
+      "time": "7-9.30pm",
+      "link": "https://www.storyfeast.uk/",
+      "venue_url": "https://northampton.quakermeeting.org/",
+      "facebook": "https://www.facebook.com/StorytellingFeast",
+      "club": "feastoffools",
+      "latlon": [
+        52.2395529,
+        -0.8924581
+      ]
+    },
+    {
+      "name": "South Devon storytellers (Totnes)",
+      "schedule": "3rd wednesday",
+      "location": "Totnes Brewing Co. / Barrrel House Ballroom, Totnes, TQ9 5PB",
+      "venue_url": "https://barrelhousetotnes.co.uk/",
+      "link": "https://www.sdstorytellers.co.uk/",
+      "facebook": "https://www.facebook.com/profile.php?id=61560384152751",
+      "email": "southdevonstorytellers@gmail.com",
+      "club": "southdevonstorytellers",
+      "latlon": [
+        50.4317178,
+        -3.6902135
+      ]
+    },
+    {
+      "name": "Plymouth Storytelling Circle",
+      "time": "5-7pm",
+      "schedule": "4th sunday",
+      "location": "Snapdragons, Victoria Park, Plymouth, PL1 5NJ",
+      "link": "",
+      "facebook": "https://www.facebook.com/profile.php?id=61580047292990",
+      "club": "plymouthSCi",
+      "latlon": [
+        50.37622,
+        -4.15418
+      ]
+    },
+    {
+      "name": "The Plough Storytelling Circle (North Devon)",
+      "schedule": "1st thursday",
+      "time": "7.30pm",
+      "location": "St Anne's Arts & Community Centre, Barnstaple, EX31 1BH",
+      "link": "https://www.theploughartscentre.org.uk/",
+      "venue_url": "https://www.theploughartscentre.org.uk/",
+      "facebook": "https://www.facebook.com/ploughstorytelling",
+      "email": "storytelling.plough@gmail.com",
+      "club": "ploughSCi",
+      "geocode_missing": true
+    },
+    {
+      "name": "Liskeard Storytelling Cafe",
+      "schedule": "4th thursday",
+      "time": "7.30pm",
+      "location": "Liskeard Public Hall, West Street, Liskeard, PL14 6BW",
+      "link": "https://www.strongwords.org.uk/",
+      "venue_url": "https://visitliskeard.co.uk/venue/liskeard-public-hall/",
+      "facebook": "https://www.facebook.com/groups/488666447814753",
+      "club": "liskeardSCa",
+      "latlon": [
+        50.4556034,
+        -4.465947
+      ]
+    },
+    {
+      "name": "Lichfield storytellers",
+      "schedule": "2nd tuesday",
+      "time": "7pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/lichfieldstorytellers",
+      "email": "lichfieldstorytellers@gmail.com",
+      "club": "lichfieldST",
+      "geocode_missing": true
+    },
+    {
+      "name": "Wirral Quirky Tales",
+      "schedule": "2nd tuesday",
+      "time": "7.30-9.30pm",
+      "location": "Making Space, 1 Gilroy Road, West Kirby, CH48 6DP",
+      "link": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100086449665967",
+      "club": "quirkytales",
+      "latlon": [
+        53.3785042,
+        -3.1684084
+      ]
+    },
+    {
+      "name": "Guesthouse storytellers, Newhaven",
+      "schedule": "2nd tuesday",
+      "time": "7.30pm",
+      "location": "Hillcrest Community Centre, Newhaven, BN9 9LH",
+      "venue_url": "https://www.hillcrestcentre.co.uk/",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/guesthousestorytellers",
+      "club": "guesthouseST",
+      "tickets_url": "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge",
+      "latlon": [
+        50.7911271,
+        0.0495688
+      ]
+    },
+    {
+      "name": "Southampton Story Club",
+      "schedule": "1st thursday",
+      "location": "Guide Dog Pub, Southampton, SO14 6SF",
+      "time": "8-10pm",
+      "venue_url": "https://www.facebook.com/TheGuideDog",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/southamptonstories",
+      "club": "southamptonSC",
+      "latlon": [
+        50.9174605,
+        -1.3969686
+      ]
+    },
+    {
+      "name": "Sarum Story club [online?]",
+      "schedule": "3rd tuesday",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/sarumstoryclub",
+      "club": "sarumSC",
+      "geocode_missing": true
+    },
+    {
+      "name": "Bristol Wild Wednesday storytelling",
+      "schedule": "3rd wednesday",
+      "time": "7pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/412446392168295",
+      "club": "bristolwildwednesday",
+      "geocode_missing": true
+    },
+    {
+      "name": "Dartmoor Storytellers",
+      "schedule": "2nd wednesday",
+      "time": "8-9.30pm",
+      "location": "Chagford Inn, Chagford, TQ13 8AW",
+      "link": "",
+      "venue_url": "https://www.thechagfordinn.co.uk/",
+      "facebook": "https://www.facebook.com/groups/1689129511376075",
+      "club": "dartmoorStorytellers",
+      "latlon": [
+        50.6732037,
+        -3.8410961
+      ]
+    },
+    {
+      "name": "A Bit Crack Storytelling",
+      "schedule": "1st friday",
+      "location": "The Chillingham, South Heaton, Newcastle, NE6 5XN",
+      "link": "https://www.abitcrack.com/",
+      "time": "7.30-9",
+      "venue_url": "https://sjf.co.uk/the-chillingham/",
+      "facebook": "https://www.facebook.com/ABitCrack",
+      "club": "abitcrack",
+      "latlon": [
+        54.9855258,
+        -1.576812
+      ]
+    },
+    {
+      "name": "Cardiff Storytelling Circle",
+      "schedule": "1st sunday",
+      "time": "8pm",
+      "location": "Chapter Arts Centre, Canton, Cardiff, CF5 1QE",
+      "venue_url": "https://www.chapter.org/",
+      "link": "https://www.literaturewales.org/writer-group/cardiff-storytelling-circle/",
+      "facebook": "https://www.facebook.com/groups/1491740927748170/",
+      "club": "cardiffSC",
+      "latlon": [
+        51.4828089,
+        -3.2037223
+      ]
+    },
+    {
+      "name": "Mendip story circle",
+      "schedule": "2nd wednesday",
+      "time": "7.30pm",
+      "location": "Ston Easton Village Hall, Radstock, BA3 4DA",
+      "venue_url": "https://stoneaston.org.uk/village-hall/",
+      "link": "https://www.mendipstorycircle.com/",
+      "facebook": "https://www.facebook.com/profile.php?id=100064070403986",
+      "club": "",
+      "latlon": [
+        51.2816199,
+        -2.54426
+      ]
+    },
+    {
+      "name": "Frome storytelling circle",
+      "schedule": "last monday",
+      "time": "7-9pm",
+      "location": "Three Swans pub, Frome, BA11 1BH",
+      "link": "",
+      "facebook": "https://www.facebook.com/laralavender6",
+      "club": "fromeSC",
+      "latlon": [
+        51.2304249,
+        -2.3204812
+      ]
+    },
+    {
+      "name": "Brighton Telltales",
+      "schedule": "1st wednesday",
+      "time": "7pm",
+      "location": "The Yellow Book, Brighton, BN1 4GU",
+      "link": "",
+      "facebook": "https://www.facebook.com/brightontelltales",
+      "club": "brightontelltales",
+      "venue_url": "https://www.yellowbook.bar/",
+      "club_flyer": "brighton_telltales_flyer.jpg",
+      "latlon": [
+        50.8280698,
+        -0.1356262
+      ]
+    },
+    {
+      "name": "Leek storytellers",
+      "schedule": "2nd wednesday",
+      "time": "7pm",
+      "location": "The Fountain Inn, Leek, ST13 6JR",
+      "link": "",
+      "venue_url": "https://caldmoretaverns.co.uk/pubs/fountain-inn-leek/",
+      "facebook": "https://www.facebook.com/leekstorytellers",
+      "email": "Fernandfables@gmail.com",
+      "club": "leekstorytellers",
+      "club_flyer": "leekstorytellers_flyer.jpg",
+      "latlon": [
+        53.1057745,
+        -2.0189963
+      ]
+    },
+    {
+      "name": "Sale",
+      "schedule": "4th monday",
+      "location": "Brook pub, Brooklands, M33 3SQ",
+      "link": "https://www.thebrooksale.co.uk/",
+      "facebook": "",
+      "latlon": [
+        53.4171806,
+        -2.325793
+      ]
+    },
+    {
+      "name": "Much Wenlock, Salop - words at the edge",
+      "schedule": "2nd monday",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/wordsattheedge",
+      "club": "wordsattheedge",
+      "geocode_missing": true
+    },
+    {
+      "name": "Manchester - Sting in the Tale",
+      "schedule": "3rd wednesday",
+      "time": "7pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/astinginthetaleclub",
+      "email": "astinginthetaleclub@gmail.com",
+      "club": "stinginthetale",
+      "geocode_missing": true
+    },
+    {
+      "name": "3rd Wednesday Storytellers, [online]",
+      "schedule": "3rd wednesday",
+      "time": "8-10pm",
+      "location": "Online",
+      "venue_url": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/4500677516682341",
+      "latlon": [
+        51.5013851,
+        -0.2849707
+      ]
+    },
+    {
+      "name": "Heads & Tales Storytelling Club, Ringwood",
+      "schedule": "3rd thursday",
+      "location": "The Elm Tree, Ringwood, BH24 3DY",
+      "venue_url": "https://www.theelmtreeringwood.co.uk/",
+      "link": "",
+      "facebook": "https://www.facebook.com/HeadsAndTalesCafe",
+      "latlon": [
+        50.8432908,
+        -1.7697368
+      ]
+    },
+    {
+      "name": "Royal Tales (Sutton Coldfield Storytelling)",
+      "schedule": "",
+      "location": "The Station Pub, Sutton Coldfield, B73 6AT",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/613097720652168/",
+      "club": "royaltales",
+      "latlon": [
+        52.5649413,
+        -1.8243397
+      ]
+    },
+    {
+      "name": "Aberystwyth Fables Storytelling Circle",
+      "schedule": "first wednesday",
+      "time": "7-8.30pm",
+      "location": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/groups/aberfables",
+      "club": "aberystwythfables",
+      "geocode_missing": true
+    },
+    {
+      "name": "Winchester Wykeham Tales [Lapsed?]",
+      "schedule": "2nd wednesday",
+      "location": "",
+      "link": "",
+      "facebook": "",
+      "geocode_missing": true
+    }
+  ],
+  "specificEvents": [
+    {
+      "name": "A Figure of Speech [Daniel Morden]",
+      "showname": "A Figure of Speech",
+      "performer": "Daniel Morden",
+      "date": "15/10/2025",
+      "time": "7pm",
+      "club": "stinginthetale",
+      "price": "£8 / £6",
+      "description": "Come and hear stories of ridiculous and sometimes horrific bodies; these funny and macabre stories are the perfect way to celebrate a spooky month!",
+      "location": "Lock 91 Bar, Manchester, M3 4QL",
+      "venue_url": "https://www.manchesterbars.com/lock91.htm",
+      "event_flyer": "2025_10_15_stinginthetale_morden.jpg",
+      "isSpecial": true,
+      "latlon": [
+        53.4746329,
+        -2.2508286
+      ]
+    },
+    {
+      "name": "In the time of GIANTS [The Travelling Talesman]",
+      "showname": "In the time of GIANTS",
+      "performer": "The Travelling Talesman (Cliff Eastabrook)",
+      "date": "25/10/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "The Hoops, Barton, Cambridge, CB23 7BD",
+      "venue_url": "https://the-hoops.co.uk/",
+      "event_flyer": "tour_eastabrook_giant.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        52.1822192,
+        0.0572284
+      ]
+    },
+    {
+      "name": "In the time of GIANTS [The Travelling Talesman]",
+      "showname": "In the time of GIANTS",
+      "performer": "The Travelling Talesman (Cliff Eastabrook)",
+      "date": "26/10/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "The Elm Tree, Cambridge, CB1 1JT",
+      "venue_url": "https://www.elmtreecambridge.co.uk/",
+      "event_flyer": "tour_eastabrook_giant.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        52.2051547,
+        0.1294263
+      ]
+    },
+    {
+      "name": "In the time of GIANTS [The Travelling Talesman]",
+      "showname": "In the time of GIANTS",
+      "performer": "The Travelling Talesman (Cliff Eastabrook)",
+      "date": "01/11/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "Castle Tap, Reading, RG1 7RJ",
+      "venue_url": "https://thecastletap.co.uk/",
+      "event_flyer": "tour_eastabrook_giant.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        51.4518506,
+        -0.9789688
+      ]
+    },
+    {
+      "name": "In the time of GIANTS [The Travelling Talesman]",
+      "showname": "In the time of GIANTS",
+      "performer": "The Travelling Talesman (Cliff Eastabrook)",
+      "date": "02/11/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "Bitterns Station (Bunker178), Southampton",
+      "venue_url": "https://thearthousesouthampton.org/bunker178/",
+      "event_flyer": "tour_eastabrook_giant.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "name": "Uncanny [Nell Phoenix]",
+      "showname": "The Hairy Girl",
+      "performer": "Nell Phoenix",
+      "date": "11/11/2025",
+      "time": "7.30pm",
+      "club": "guesthouseST",
+      "price": "£12/£10/£8",
+      "description": "",
+      "location": "Hillcrest Community Centre, Newhaven, BN9 9LH",
+      "venue_url": "https://www.hillcrestcentre.co.uk/",
+      "event_flyer": "2025_11_11_guesthouseST_phoenix_uncanny.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        50.7911271,
+        0.0495688
+      ]
+    },
+    {
+      "name": "Dreaming the Great Bear [Nick Hennessey]",
+      "showname": "Dreaming the Great Bear",
+      "performer": "Nick Hennessey",
+      "date": "14/11/2025",
+      "time": "",
+      "club": "artsreachdorset",
+      "price": "",
+      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it’s all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
+      "location": "Sandford Orcas Village Hall, Dorchester, DT9 4RX",
+      "venue_url": "http://www.sandfordorcas.com/community/sandford-orcas-village-hall-8082/home/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 2248461162298642,
+      "latlon": [
+        50.9846887,
+        -2.5372176
+      ]
+    },
+    {
+      "name": "Dreaming the Great Bear [Nick Hennessey]",
+      "showname": "Dreaming the Great Bear",
+      "performer": "Nick Hennessey",
+      "date": "15/11/2025",
+      "time": "7.30pm",
+      "club": "artsreachdorset",
+      "price": "",
+      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it's all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
+      "location": "Child Okeford Village Hall, Child Okeford, DT11 8EX",
+      "venue_url": "https://www.childokeford.org/directory/child-okeford-village-hall/",
+      "event_flyer": "",
+      "ticket_url": "£12",
+      "isSpecial": true,
+      "fb_event": 775178078631443,
+      "latlon": [
+        50.91625,
+        -2.23862
+      ]
+    },
+    {
+      "name": "Dreaming the Great Bear [Nick Hennessey]",
+      "showname": "Dreaming the Great Bear",
+      "performer": "Nick Hennessey",
+      "date": "16/11/2025",
+      "time": "19.30pm",
+      "club": "artsreachdorset",
+      "price": "",
+      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it’s all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
+      "location": "Broadmayne Village Hall, Dorchester, DT2 8EW",
+      "venue_url": "https://broadmaynevillagehall.chessck.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 813746617897458,
+      "latlon": [
+        50.67728,
+        -2.38386
+      ]
+    },
+    {
+      "name": "Madness, Merry Making and Liberation [Sarah Dovey]",
+      "showname": "Madness, Merry Making and Liberation",
+      "performer": "Sarah Dovey",
+      "date": "19/11/2025",
+      "time": "7-9.30pm",
+      "club": "birminghamSCafe",
+      "price": "£10",
+      "description": "Dionysus is a God of many facets. Some may know him as the God of wine and merrymaking and it’s not hard to see why that has become one of his most popular aspects. But along with the feasting and indulgence he also brings divine madness. And further still he stands for liberation and rebellion against the social and gender based norms that are so often forced upon us. Tales of Dionysus are tales of joy and freedom, tales of blood and tales of the extremes of human nature.\\n\\n This evening, Sarah Dovey will explore the many aspects of Dionysus by telling stories of his life, his loves and his vengeance.",
+      "location": "Kitchen Garden Cafe, Birmingham, B14 7SA",
+      "venue_url": "https://www.kitchengardencafe.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        52.4341123,
+        -1.8937292
+      ]
+    },
+    {
+      "name": "Beyond the Glass Mountain [Cath Little & Bronia Evers]",
+      "showname": "Beyond the Glass Mountain",
+      "performer": "Cath Little | Bronia Evers",
+      "date": "22/11/2025",
+      "time": "",
+      "club": "",
+      "price": "£10",
+      "description": "",
+      "location": "Chapter Arts, Cardiff, CF5 1QE",
+      "venue_url": "https://www.chapter.org/",
+      "event_flyer": "2025_11_22_cardiffSC_little_evans.jpg",
+      "isSpecial": true,
+      "latlon": [
+        51.4828089,
+        -3.2037223
+      ]
+    },
+    {
+      "name": "Stories Under the Stars: Fireside Myth & Music for Grown Ups [Nick & Emily Hennessey]",
+      "showname": "Stories Under the Stars: Fireside Myth & Music for Grown Ups",
+      "performer": "Nick  Hennessey | Emily Hennessey",
+      "date": "22/11/2025",
+      "time": "8-9pm",
+      "club": "stealingthunder",
+      "price": "",
+      "description": "An evening of cosmic stories, soaring through worlds of gods, queens, heroes, mythical creatures and... shopping trolleys!?",
+      "location": "Bowland Bridge, South Lakes",
+      "venue_url": "https://stealingthunder.co.uk/",
+      "event_flyer": "",
+      "isSpecial": true,
+      "fb_event": 1149093117173169,
+      "geocode_missing": true
+    },
+    {
+      "name": "Fen, Folk and Fable",
+      "showname": "Fen, Folk and Fable",
+      "performer": "",
+      "date": "25/11/2025",
+      "time": "6-7pm",
+      "club": "cambridgestorytellers",
+      "price": "free",
+      "description": "",
+      "location": "Newnham Social Club, Cambridge, CB3 9JA",
+      "venue_url": "",
+      "event_flyer": "2025_11_25_cambridgestorytellers_fenfolkfable.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        52.1952318,
+        0.1086743
+      ]
+    },
+    {
+      "name": "Sir Gawain and the Green Knight [Sarah Rundle]",
+      "showname": "Sir Gawain and the Green Knight",
+      "performer": "Sarah Rundle",
+      "date": "26/11/2025",
+      "time": "7pm",
+      "club": "pembrokeshirestorytelling",
+      "price": "£7.50 / £6",
+      "description": "",
+      "location": "Peppers Hub, Fishguard, SA65 9AE",
+      "venue_url": "https://www.peppers-hub.co.uk/",
+      "link": "https://www.peppers-hub.co.uk/events-2/fishguard-storytellling-straeon-gwaun/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        51.9941699,
+        -4.97719
+      ]
+    },
+    {
+      "name": "Rumpelstiltskin and other Stories [Sarah Mooney]",
+      "showname": "Rumpelstiltskin and other Stories",
+      "performer": "Sarah Mooney",
+      "date": "27/11/2025",
+      "time": "7pm",
+      "club": "",
+      "price": "£7 / £10 / £15",
+      "description": "",
+      "location": "The Goddess House, Glastonbury, BA6 9EJ",
+      "venue_url": "https://goddesstempleroomhire.com/the-goddess-house/",
+      "event_flyer": "2025_11_27_mooney_rumpelstiltskin.jpg",
+      "isSpecial": true,
+      "fb_event": 1319875249629444,
+      "latlon": [
+        51.14516,
+        -2.71766
+      ]
+    },
+    {
+      "name": "Norfolk Folk Tales [Dave Tonge]",
+      "showname": "Norfolk Folk Tales ",
+      "performer": "Dave Tonge",
+      "date": "29/11/2025",
+      "time": "2.00pm",
+      "club": "",
+      "price": " £8 / £6",
+      "description": "",
+      "location": "Ketteringham Village Hall, Ketteringham, Wymondham, NR18 9RU",
+      "venue_url": "https://www.facebook.com/profile.php?id=100083280073970",
+      "event_flyer": "2025_11_29_dave_tonge_norfolk_folktales.jpg",
+      "ticket_url": "https://wegottickets.com/event/680968/",
+      "isSpecial": true,
+      "latlon": [
+        52.58544,
+        1.1946304
+      ]
+    },
+    {
+      "name": "Talking to the Dark [Sharon Jacksties]",
+      "showname": "Talking to the Dark",
+      "performer": "Sharon Jacksties",
+      "date": "30/11/2025",
+      "time": "7-8.30pm",
+      "club": "",
+      "price": "Pay what you like/decide/can",
+      "description": "",
+      "location": "The Front Room Theatre, Weston-Super-Mare, BS23 1FF",
+      "venue_url": "https://frontroomwsm.com/",
+      "event_flyer": "2025_11_30_jacksties_talkingtodark.jpg",
+      "ticket_url": "https://frontroomwsm.com/event/talking-to-the-dark",
+      "isSpecial": true,
+      "latlon": [
+        51.3457778,
+        -2.9786388
+      ]
+    },
+    {
+      "name": "Finding Light in the Dark [Trevor Valentine tells 'The Firefly Man']",
+      "showname": "The Firefly Man",
+      "performer": "Trevor Valentine",
+      "date": "04/12/2025",
+      "time": "",
+      "club": "gloucesterSCafe",
+      "price": "",
+      "description": "",
+      "location": "The Folk of Gloucester, Gloucester, GL1 2PG",
+      "venue_url": "https://www.gloucestercivictrust.org/the-folk-home/",
+      "event_flyer": "2025_12_04_gloucesterSCafe_valentine_findinglight.jpg",
+      "openslots": true,
+      "isSpecial": true,
+      "latlon": [
+        51.8671663,
+        -2.250251
+      ]
+    },
+    {
+      "name": "The Mighty Goddess [Sally Pomme Clayton]",
+      "showname": "The Mighty Goddess",
+      "performer": "Sally Pomme Clayton",
+      "date": "04/12/2025",
+      "time": "7pm",
+      "club": "abitcrack",
+      "price": "£10 / £5 / £3",
+      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
+      "location": "Alphabetti Theatre, Newcastle, NE1 4HP",
+      "venue_url": "https://www.alphabettitheatre.co.uk/",
+      "event_flyer": "2025_12_04_abitcrack_pomme_goddess.jpg",
+      "ticket_url": "https://www.alphabettitheatre.co.uk/themightygoddess",
+      "isSpecial": true,
+      "latlon": [
+        54.9691163,
+        -1.6236622
+      ]
+    },
+    {
+      "name": "Protest Days, Rebellion Nights: songs and stories of the Luddites [Monty + The AnyWhens]",
+      "showname": "Protest Days, Rebellion Nights: songs and stories of the Luddites",
+      "performer": "Monty + The AnyWhens",
+      "date": "04/12/2025",
+      "time": "7-10pm",
+      "location": "October Books, Southampton, SO17 2NF,",
+      "price": "£10",
+      "venue_url": "https://octoberbooks.org/",
+      "ticket_url": "https://octoberbooks.lemonbooking.com/events/116/details",
+      "event_flyer": "2025_12_04_manywhens_protestdays_octoberbooks.png",
+      "description": "",
+      "isSpecial": true,
+      "latlon": [
+        50.9253148,
+        -1.393642
+      ]
+    },
+    {
+      "name": "The Goddess of Spreadsheets [Tim Ralphs]",
+      "showname": "The Goddess of Spreadsheets",
+      "performer": "Tim Ralphs",
+      "date": "05/12/2025",
+      "time": "7.30-10pm",
+      "club": "matlockSCafe",
+      "price": "£8 [£6.50]",
+      "description": "A position has just opened in our More-than-Human Resources Department! As the heroic head of the hiring committee for the divine pantheon, it's up to you to put together a team of sacred scribes, astral accountants and celestial problem-solvers. Tim has got the candidates for you to consider. With the right team of Godly governors in place, this incorporeal corporation is going places.",
+      "location": "Imperial Rooms, Matlock, DE4 3NL",
+      "venue_url": "https://matlock.gov.uk/imperial-rooms/",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/1922225",
+      "online": "hybrid",
+      "isSpecial": true,
+      "fb_event": 3200801733411778,
+      "latlon": [
+        53.1395361,
+        -1.555212
+      ]
+    },
+    {
+      "name": "Welsh Whisperers: Story Circle",
+      "showname": "Welsh Whisperers: Story Circle",
+      "performer": "Welsh Whisperers",
+      "date": "05/12/2025",
+      "time": "7-9pm",
+      "club": "",
+      "price": "£5",
+      "description": "Come and join the Dragon Storytellers in the Story Circle. Listen to their stories about Barmouth and Wales: some traditional, some written especially for the Welsh Whisperers Storytelling project. All are warmly invited to share a story of their own if they wish, in the Welsh language, bilingually or in English.",
+      "location": "The Dragon Theatre, Barmouth, LL42 1EF",
+      "venue_url": "https://www.theatryddraig.cymru/",
+      "event_flyer": "2025_12_05_welshwhisperers_sc.jpg",
+      "ticket_url": "https://dragontheatre.littleboxoffice.com/events/141010",
+      "isSpecial": true,
+      "latlon": [
+        52.72072,
+        -4.05375
+      ]
+    },
+    {
+      "name": "Tales of Winter Magic - evening storytelling and Mummers' play",
+      "showname": "Tales of Winter Magic - evening storytelling and Mummers' play ",
+      "performer": "Red Phoenix | The Prize Old Mummers",
+      "date": "05/12/2025",
+      "time": "7-9pm",
+      "club": "butserancient",
+      "price": "£19.50",
+      "description": "",
+      "location": "Butser Ancient Farm, Hampshire, PO8 0BG",
+      "venue_url": "https://www.butserancientfarm.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.butserancientfarm.co.uk/whats-on/calendar/tales-of-winter-magic-evening-sr3yk",
+      "isSpecial": true,
+      "fb_event": 838620332455279,
+      "latlon": [
+        50.942957,
+        -0.9771452
+      ]
+    },
+    {
+      "name": "Lilith: The Other Side of the Story [Katy Cawkwell]",
+      "showname": "Lilith: The Other Side of the Story",
+      "performer": "Katy Cawkwell",
+      "date": "06/12/2025",
+      "time": "7pm",
+      "club": "forgingfantastical",
+      "price": "",
+      "description": "",
+      "location": "Eastcott Community Centre, Swindon, SN1 3LZ",
+      "venue_url": "https://eastcottcommunity.org/",
+      "event_flyer": "2025_12_06_cawkwell_lilith.jpg",
+      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/",
+      "isSpecial": true,
+      "latlon": [
+        51.5553352,
+        -1.7844856
+      ]
+    },
+    {
+      "name": "The Hairy Girl [Kersti Stabi]",
+      "showname": "The Hairy Girl",
+      "performer": "Kersti Stabi",
+      "date": "09/12/2025",
+      "time": "7.30pm",
+      "club": "guesthouseST",
+      "price": "£12/£10/£8",
+      "description": "",
+      "location": "Hillcrest Community Centre, Newhaven, BN9 9LH",
+      "venue_url": "https://www.hillcrestcentre.co.uk/",
+      "event_flyer": "generic_stabi_hairygirl.jpg",
+      "ticket_url": "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/1779452",
+      "isSpecial": true,
+      "latlon": [
+        50.7911271,
+        0.0495688
+      ]
+    },
+    {
+      "name": "Tales of Winter and Christmas [Lichfield Storytellers Christmas get together]",
+      "showname": "Tales of Winter and Christmas",
+      "performer": "Lichfield Storytellers Christmas get together",
+      "date": "09/12/2025",
+      "time": "7-10pm",
+      "club": "lichfieldST",
+      "price": "£7.70",
+      "description": "Traditional Christmas get together with songs and stories from local tellers - mince pies, crackers and cracker jokes, conviviality and mirth",
+      "location": "Kings Head, Lichfield, WS13 6PW",
+      "venue_url": "https://www.kingsheadlichfield.com/",
+      "ticket_url": "https://wegottickets.com/event/684096",
+      "isSpecial": true,
+      "fb_event": 830509446572774,
+      "latlon": [
+        52.68286,
+        -1.8304028
+      ]
+    },
+    {
+      "name": "Warm Hearted Christmas Stories [Cath Edwards & Matt Vaughan]",
+      "showname": "Warm Hearted Christmas Stories",
+      "performer": "Cath Edwards | Matt Vaughan",
+      "date": "09/12/2025",
+      "time": "7.30pm",
+      "club": "leicesterstorytree",
+      "price": "£5/£3",
+      "description": "",
+      "location": "Central Library, Leicester, LE1 6AA",
+      "venue_url": "https://bookfinder.leicester.gov.uk/whats-on#/?tag=Storytelling",
+      "isSpecial": true,
+      "fb_event": 1201185658550299,
+      "latlon": [
+        52.633022,
+        -1.1322806
+      ]
+    },
+    {
+      "date": "10/12/2025",
+      "location": "Carvel Lane Coffee House, Cowes, PO31 7TF",
+      "venue_url": "https://www.instagram.com/carvellanecoffee/",
+      "link": "",
+      "price": "£5",
+      "time": "7-9.30pm",
+      "event_flyer": "2025_12_10_solo_carvel-winter-cherries.png",
+      "name": "Winter Tales [Tony \"Monty\" Hirst]",
+      "performer": "Tony \"Monty\" Hirst",
+      "isSpecial": true,
+      "fb_event": 1838395960217862,
+      "latlon": [
+        50.7621899,
+        -1.29831
+      ]
+    },
+    {
+      "name": "Tom Thumb [Amelia Ace Armande]",
+      "showname": "Tom Thumb",
+      "performer": "Amelia Ace Armande",
+      "date": "10/12/2025",
+      "time": "7.30-9.30pm",
+      "club": "torrianostorynight",
+      "price": "£10",
+      "description": "It's the time of King Arthur, and young Tom wants more than anything to be a knight at the court of Camelot. There's just one problem: Tom is only the size of a thumb, and he has a bad habit of being eaten. Eaten by wolves and horses and cows and giants and...\\n\\n A madcap journey through many stomachs and many adventures, this is a 17th century fairytale for telling around tavern tables and at twelfth night feasts.Amelia Ace Armande brings to life one of Britain's most overlooked folklore heroes on his quest for recognition and glory.\\n\\n A tale of heart, soul, and plenty of guts!",
+      "location": "Torriano Meeting House, London, NW5 2RX",
+      "venue_url": "https://torriano.org/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 1884551392413640,
+      "latlon": [
+        51.5512794,
+        -0.1332178
+      ]
+    },
+    {
+      "name": "Dark tales for dark nights — Christmas special [P. D. Brown]",
+      "showname": "Dark tales for dark nights — Christmas special",
+      "performer": "P. D. Brown",
+      "date": "11/12/2025",
+      "club": "",
+      "price": "£5",
+      "description": "",
+      "location": "Angels Cut, Darlington, DL3 7RX",
+      "venue_url": "https://www.angelscutsales.co.uk/",
+      "ticket_url": "https://stephen-gill.sumupstore.com/product/dark-tales-for-dark-nights-christmas-special",
+      "event_flyer": "2025_12_11_brown_darktales.png",
+      "isSpecial": true,
+      "latlon": [
+        54.5252796,
+        -1.5597309
+      ]
+    },
+    {
+      "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
+      "showname": "A Dance with the Minotaur’s Sister",
+      "performer": "Steph Brittain",
+      "date": "17/12/2025",
+      "time": "7.30-10pm",
+      "club": "beestontales",
+      "price": "£8 [£6.50]",
+      "description": "Join storyteller Steph Brittain as she follows Ariadne’s journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.",
+      "location": "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE",
+      "venue_url": "https://theassumption.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/beestontales/1955497",
+      "isSpecial": true,
+      "latlon": [
+        52.9268849,
+        -1.2177308
+      ]
+    },
+    {
+      "name": "Once Upon an Oddity: Deliciously Strange Tales for Winter Nights [ Mark Fraser]",
+      "showname": "Once Upon an Oddity: Deliciously Strange Tales for Winter Nights",
+      "performer": "Mark Fraser",
+      "date": "12/12/2025",
+      "time": "7.30pm",
+      "club": "wondermonger",
+      "price": "Pay What You Feel ",
+      "description": "Mark Fraser is an itinerant storyteller, traversing the land with his original tales and weird stories. Join him for a selection of the odd, ghastly and vaguely unsettling tales from his own brain and around the world. A dark hour of devilish deeds and strange characters, just perfect for a dark winter’s evening. A writer, an artist and the master of the bizarre story, Mark brings twenty years of storytelling experience to Wonder Monger at Cambridge Junction.",
+      "location": "Cambridge Junction, Cambridge, CB1 7GX",
+      "venue_url": "https://www.junction.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.junction.co.uk/events/once-upon-an-oddity-deliciously-strange-tales-for-winter-nights/",
+      "isSpecial": true,
+      "latlon": [
+        52.1907939,
+        0.1365354
+      ]
+    },
+    {
+      "name": "Beowulf: Storytelling for Grown-Ups [Hugh Lupton]",
+      "showname": "Beowulf: Storytelling for Grown-Ups ",
+      "performer": "Hugh Lupton",
+      "date": "13/12/2025",
+      "time": "7.30pm",
+      "club": "stealingthunder",
+      "price": "£10 on the door",
+      "description": "Beowulf is the oldest story in the English language - and it still has the power to raise the hairs on the back of the neck!\\n It tells of a hero’s life, a life that is mapped by three tremendous blood- curdling encounters.\\n As a young man Beowulf defeats the monster Grendel and his even more terrifying Mother, the original creatures from the Black Lagoon.Then, as an old man, he tries his strength against a gold guarding Fire - Drake(a dragon).\\n Alongside these adrenalin - charged encounters the story explores the journey we all make from the seeming invincibility of youth to the heroic vulnerability of old age.The story has had a tremendous effect on the imagination of many writers and poets, most notably J.R.R.Tolkien.Without Beowulf there would have been no Lord of the Rings.\\n 'Impossibly engaging storytelling' The Guardian\\n Aimed at adults.",
+      "location": "Brigsteer Village Hall, Kendal, LA8 8AL",
+      "venue_url": "https://www.brigsteervillagehall.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 1588963885602693,
+      "latlon": [
+        54.30029,
+        -2.80205
+      ]
+    },
+    {
+      "name": "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]",
+      "showname": "At Winters Heart (Solstice Storytelling",
+      "performer": "Henry Moore | Hannah Sneyd",
+      "date": "14/12/2025",
+      "time": "6pm",
+      "club": "",
+      "price": "",
+      "description": "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.",
+      "location": "Moor Imagination Collective, Buckfastleigh, TQ11 0AB",
+      "venue_url": "https://www.moorimagination.org/",
+      "event_flyer": "2025_12_14_independent_everett_wintersheart.jpg",
+      "ticket_url": "https://app.workshop-angel.com/form.php?h=1&t=0&e=ce0a6d05c12a5e06",
+      "isSpecial": true,
+      "fb_event": 781568461574252,
+      "latlon": [
+        50.4812823,
+        -3.7800139
+      ]
+    },
+    {
+      "name": "Haunting Tales and Festive Cheer [Royal Tales story club, Sutton Coldfield]",
+      "showname": "Haunting Tales and Festive Cheer",
+      "performer": "Royal Tales story club, Sutton Coldfield",
+      "date": "16/12/2025",
+      "time": "7.30-10pm",
+      "club": "royaltales",
+      "price": "",
+      "description": "",
+      "location": "The Station Pub, Sutton Coldfield, B73 6AT",
+      "venue_url": "https://www.socialpubandkitchen.co.uk/station-sutton-coldfield",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 734400295891848,
+      "latlon": [
+        52.5649413,
+        -1.8243397
+      ]
+    },
+    {
+      "name": "The Dead of Winter [Merl Fluin & Holly Medland]",
+      "showname": "The Dead of Winter",
+      "performer": "Merl Fluin | Holly Medland",
+      "date": "16/12/2025",
+      "time": "7-9.30pm",
+      "club": "",
+      "price": "£10",
+      "description": "__Chilling tales for the Festive Season.__\\n\\n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night.\\n\\n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm.",
+      "location": "Better Days Cafe, Ventnor, PO38 1LY",
+      "venue_url": "https://thebetterdayscafe.co.uk/",
+      "event_flyer": "2025_12_16_medlandfluin_deadofwinter.jpg",
+      "ticket_url": "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy",
+      "isSpecial": true,
+      "6": 30,
+      "7": 15,
+      "fb_event": 1504363894145970,
+      "latlon": [
+        50.5954845,
+        -1.2035461
+      ]
+    },
+    {
+      "name": "Mad Sprits and Wild Gods [Henry Everett]",
+      "showname": "Mad Sprits and Wild Gods",
+      "performer": "Henry Everett",
+      "date": "17/12/2025",
+      "time": "7-9pm",
+      "club": "",
+      "price": "£10 / £8",
+      "description": "Prepare to be led astray into the medieval tales of Kent’s beloved trickster, mischievous Faerie, Robin Goodfellow.\\n\\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land.",
+      "location": "The Folk Preservation Society, Teignmouth, TQ14 8DZ",
+      "venue_url": "https://www.facebook.com/folk.preservation.society",
+      "event_flyer": "2025_12_17_everett_madsprits.jpg",
+      "ticket_url": "https://app.workshop-angel.com/form.php?h=1&t=0&e=91ce8f87219586ef",
+      "isSpecial": true,
+      "fb_event": 2351372895306527,
+      "latlon": [
+        50.5468543,
+        -3.4975078
+      ]
+    },
+    {
+      "name": "Kukolka [Ronnie Conboy]",
+      "showname": "Kulkolka",
+      "performer": "Ronnie Conboy",
+      "date": "17/12/2025",
+      "club": "stinginthetale",
+      "price": "£8 / £6",
+      "description": "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.",
+      "location": "Lock 91 Bar, Manchester, M3 4QL",
+      "venue_url": "https://www.manchesterbars.com/lock91.htm",
+      "event_flyer": "2025_12_17_stinginthetale_conboy.jpg",
+      "isSpecial": true,
+      "latlon": [
+        53.4746329,
+        -2.2508286
+      ]
+    },
+    {
+      "name": "At Winters Heart (Solstice Storytelling) [Henry Moore & Hannah Sneyd]",
+      "showname": "At Winters Heart (Solstice Storytelling",
+      "performer": "Henry Moore | Hannah Sneyd",
+      "date": "19/12/2025",
+      "time": "6pm",
+      "club": "",
+      "price": "",
+      "description": "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment.",
+      "location": "The Circle Barn, Beden, Sampford Spiney, PL20 6LF",
+      "venue_url": "https://www.moorimagination.org/",
+      "event_flyer": "2025_12_14_independent_everett_wintersheart.jpg",
+      "ticket_url": "https://app.workshop-angel.com/form.php?h=1&t=0&e=fc633890fdf6d24b",
+      "isSpecial": true,
+      "fb_event": 781568461574252,
+      "latlon": [
+        50.53563,
+        -4.06688
+      ]
+    },
+    {
+      "name": "The Snow Queen [Vanessa Woolf]",
+      "showname": "The Snow Queen",
+      "performer": "Vanessa Woolf",
+      "date": "21/12/2025",
+      "time": "3-5pm",
+      "club": "londondreamtime",
+      "price": "£13.75 - £22.00",
+      "description": "",
+      "location": "Asylum Chapel, Asylum Rd, London, SE15 2SQ",
+      "venue_url": "https://asylumchapel.co.uk/",
+      "event_flyer": "2025_12_21_vanessa_woolf_snow_queen.jpg",
+      "ticket_url": "https://connectionwithwonder.com/events/the-snow-queen-storytelling-at-the-asylum-chapel/",
+      "isSpecial": true,
+      "latlon": [
+        51.4792895,
+        -0.0607237
+      ]
+    },
+    {
+      "name": "Arnside Sailing Club — Storyteller [Nick Hennessey]",
+      "showname": "Arnside Sailing Club — Storyteller",
+      "performer": "Nick Hennessey",
+      "date": "21/12/2025",
+      "time": "3.30-5.00pm",
+      "club": "other",
+      "price": "£12 / £10 / £8",
+      "description": "On the Sunday before Christmas, an afternoon show with Nick Hennessey, an internationally acclaimed storyteller, playwright, folk singer, song writer, harpist and musician.  He has performed at venues such as the South Bank, Barbican, Royal Albert Hall and festivals worldwide, He has broadcast on Radio 4 and his music played on Radio 3. Nick has a particular interest in the story telling tradition of Finland. He will take you to the snow filled forests of the Far North, the darkness of the winter night and the warmth of the winter fire, travelling by song, story and music.",
+      "location": "The Old Customs House, Arnside, Carnforth, LA5 0HD",
+      "venue_url": "",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/arnsidesailingclub/1967155",
+      "isSpecial": true,
+      "latlon": [
+        54.2031956,
+        -2.832955
+      ]
+    },
+    {
+      "name": "Comb [Sarah Mooney]",
+      "showname": "Comb",
+      "performer": "Sarah Mooney",
+      "date": "02/01/2026",
+      "time": "7.30pm",
+      "club": "matlockSCafe",
+      "price": "£8",
+      "description": "I saw a banshee once, just outside of Galway...\\n\\nWhen Charlotte was 8 her Grandad told her the beginning of a story but refused to tell the full tale.Years later a chance encounter led her to find the rest of his story buried deep within an archive gathered from families in Ireland.Not only did she discover this unbelievable link to her past but also the more startling realisation that she might actually be cursed.\\n\\nAt times chilling, hilarious and moving Comb is a lament for the stories and people we have lost.Through a tangled ride into Celtic, Slavic and Siberian folklore, it is a clarion call for understanding just how interwoven we all are.",
+      "location": "All Saints Church Hall, Matlock Bank, DE4 3JG",
+      "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/1976436",
+      "venue_url": "http://allsaintsmatlock.org.uk/",
+      "event_flyer": "",
+      "isSpecial": true,
+      "fb_event": 1862219647817717,
+      "latlon": [
+        53.1432954,
+        -1.5549986
+      ]
+    },
+    {
+      "name": "Storytelling Around The Fire - Warm Tales for Winter [Vanessa Woolf]",
+      "showname": "Storytelling Around The Fire - Warm Tales for Winter",
+      "performer": "Vanessa Woolf",
+      "date": "03/01/2026",
+      "time": "7-9pm",
+      "club": "londondreamtime",
+      "price": "£5-15",
+      "description": "Gather by the warmth of the fire in our truly beautiful location. Relax and enjoy glorious, mystical, magical tales from storyteller Vanessa to light up the winter dark. Hot chocolate and marshmallows will be available. We will be sitting around the fire- but it is outside... so dress in your cosiest layers! [Limited tickets]",
+      "location": "Plot 9 Maze Hill, Greenwich, London, SE3 7RD",
+      "venue_url": "https://greenwichsky.com/plot9/",
+      "event_flyer": "",
+      "ticket_url": "https://www.designmynight.com/london/whats-on/something-a-little-different-events/storytelling-around-the-fire-strange-tales-for-winter?t=tickets",
+      "isSpecial": true,
+      "latlon": [
+        51.482498,
+        0.0016809
+      ]
+    },
+    {
+      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain ]",
+      "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
+      "performer": "Ben Haggarty & Steph Brittain ",
+      "date": "08/01/2025",
+      "time": "6.30pm",
+      "club": "cardiffSC",
+      "price": "£9.90 / £7.70",
+      "description": "A fatherless son,\\n A daughter’s lament,\\n A pig stolen from its spit,\\n Fires burning out at sea,\\n And a dream.\\n\\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \\n\\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\\n\\n Raw, lyrical, and unforgettable.This is not just a wild myth retold.It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\\n What will survive the tide? \\n\\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\\n\\n Two halves 60 mins.Age recommendation 16 +\\n\\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
+      "location": "Llanover Hall Arts Center, Cardiff, CF5 1FH",
+      "venue_url": "https://www.llanoverhall.com/",
+      "event_flyer": "",
+      "ticket_url": "https://wegottickets.com/event/683445/",
+      "isSpecial": true,
+      "fb_event": 2102203970315114,
+      "latlon": [
+        51.4851825,
+        -3.206773
+      ]
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "19": 30,
+      "fb_event": 1466394704450623,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "fb_event": 664806443175962,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "fb_event": 668659776297645,
+      "geocode_missing": true
+    },
+    {
+      "isSpecial": true,
+      "fb_event": 830908939589642,
+      "geocode_missing": true
+    },
+    {
+      "name": "Welsh Whisperers [Gillian Borwnson + Dragon Storytellers] ",
+      "showname": "Gillian Brownson",
+      "performer": "Gillian Borwnson + Dragon Storytellers",
+      "date": "17/01/2026",
+      "time": "7-9pm",
+      "club": "",
+      "price": "£8",
+      "description": "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson.",
+      "location": "The Dragon Theatre, Barmouth, LL42 1EF",
+      "venue_url": "https://www.theatryddraig.cymru/",
+      "event_flyer": "2026_01_17_welshwhisperers_brownson.jpg",
+      "ticket_url": "https://dragontheatre.littleboxoffice.com/events/142714",
+      "isSpecial": true,
+      "latlon": [
+        52.72072,
+        -4.05375
+      ]
+    },
+    {
+      "name": "The Girl Who Married a Dog [Nell Phoenix]",
+      "showname": "The Girl Who Married a Dog",
+      "performer": "Nell Phoenix",
+      "date": "20/01/2026",
+      "time": "7.00pm",
+      "club": "sheffieldstoryforge",
+      "price": "Suggested donation: £8-10",
+      "description": "",
+      "location": "Alder, Sheffield, S3 8BX",
+      "venue_url": "https://www.facebook.com/AlderBarSheff",
+      "event_flyer": "",
+      "ticket_url": "https://www.eventbrite.co.uk/e/nell-phoenix-with-the-girl-who-married-a-dog-20th-january-tickets-1977171782024",
+      "isSpecial": true,
+      "fb_event": 1195054529223664,
+      "latlon": [
+        53.3919404,
+        -1.4761471
+      ]
+    },
+    {
+      "name": "Tall Tales and Tiny Truths ['Tis Tales]",
+      "showname": "Tall Tales and Tiny Truths",
+      "performer": "'Tis Tales'",
+      "date": "23/01/2026",
+      "time": "7.30pm",
+      "club": "islandstorytellers",
+      "price": "£10 (£8 u26)",
+      "description": "Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Brought to you by Holly Medland, Sue Bailey and Tony 'Monty' Hirst.",
+      "location": "Department, Ryde, PO33 2AA",
+      "venue_url": "https://department-ryde.org/",
+      "event_flyer": "",
+      "ticket_url": "https://department.byretail.net/menu",
+      "isSpecial": true,
+      "fb_event": 3353518201472270,
+      "latlon": [
+        50.729912,
+        -1.1625054
+      ]
+    },
+    {
+      "name": "The Girl Who Married a Dog [Nell Phoenix]",
+      "showname": "The Girl Who Married a Dog",
+      "performer": "Nell Phoenix",
+      "date": "29/01/2025",
+      "time": "7.30pm",
+      "club": "criccracclub",
+      "price": "",
+      "description": "",
+      "location": "The Story Museum, Oxford, OX1 1BP",
+      "venue_url": "https://www.storymuseum.org.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-the-girl-who-married-a-dog",
+      "online": "hybrid",
+      "isSpecial": true,
+      "fb_event": 823991059995862,
+      "latlon": [
+        51.7507212,
+        -1.2580933
+      ]
+    },
+    {
+      "name": "Last Orders - A Storytelling Show [Mike Payton]",
+      "showname": "Last Orders - A Storytelling Show",
+      "performer": "Mike Payton",
+      "date": "30/01/2026",
+      "time": "7.30-10pm",
+      "club": "forgingfantastical",
+      "price": "£10.84",
+      "description": "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…",
+      "location": "The Old Stables, behind The White Hart, Cricklade, Swindon, SN6 6AA",
+      "venue_url": "https://www.thewhitehartcricklade.co.uk/",
+      "event_flyer": "2026_01_30_forgingfantastical_payton_lastorders.jpg",
+      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog",
+      "isSpecial": true,
+      "fb_event": 2737200426620868,
+      "latlon": [
+        51.64159,
+        -1.8558189
+      ]
+    },
+    {
+      "name": "Tales That Topple Tyrants: Live Storytelling for Grownups [Merl Fluin]",
+      "showname": "Tales That Topple Tyrants: Live Storytelling for Grownups",
+      "performer": "Merl Fluin",
+      "date": "31/01/2026",
+      "time": "6.30-9pm",
+      "club": "",
+      "price": "£10",
+      "description": "Once upon a time there was a very bad king. He stole from his subjects, laid waste to the land, told outrageous lies, declared war on his neighbours, and always got his own way...\\n\\nExcept he didn’t.",
+      "location": "Buddhist Centre, Southampton, SO14 1NW ",
+      "venue_url": "https://www.southamptonbuddhistcentre.org/",
+      "ticket_url": "https://www.tickettailor.com/events/merlfluin/1985839",
+      "isSpecial": true,
+      "fb_event": 1564415551652047,
+      "latlon": [
+        50.9057819,
+        -1.3969673
+      ]
+    },
+    {
+      "name": "The Stealing of the Sun and Moon [Nick Hennessey]",
+      "showname": "The Stealing of the Sun and Moon",
+      "performer": "Nick Hennessey",
+      "date": "21/02/2026",
+      "time": "7.30-10pm",
+      "club": "beestontales",
+      "price": "£8 [£6.50]",
+      "description": "oin Nick for a performance that journeys into the deep, snow-filled forests of the Finnish far north, where the river of the underworld flows dark and fast, and the summer sun shines just a little too bright. In this world created from shards of eggshell, the sun and moon are fought over, magic is done and undone, and life is shot through with bizarre ordeals, misguided passions, magical battles and transformations. Expect a remarkable performance of elemental epic.",
+      "location": "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE",
+      "venue_url": "https://theassumption.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/beestontales/1955498",
+      "online": "hybrid",
+      "isSpecial": true,
+      "latlon": [
+        52.9268849,
+        -1.2177308
+      ]
+    },
+    {
+      "name": "The Homing Stone [Hugh Lupton]",
+      "showname": "The Homing Stone",
+      "performer": "Hugh Lupton",
+      "date": "20/02/2026",
+      "time": "7.30-10pm",
+      "club": "",
+      "price": "£12",
+      "description": "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent.\\n\\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped.They travelled through Estonia with a horse and cart knowing they would be shot if recognised.\\n\\n In the Homing Stone master storyteller Hugh Lupton (who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.",
+      "location": " The Backyard Theatre, Watchet, West Somerset, TA23 0AZ",
+      "venue_url": "",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo",
+      "isSpecial": true,
+      "fb_event": 712262841916596,
+      "latlon": [
+        51.1809479,
+        -3.33105
+      ]
+    },
+    {
+      "name": "In the time of GIANTS [The Travelling Talesman]",
+      "showname": "In the time of GIANTS",
+      "performer": "The Travelling Talesman (Cliff Eastabrook)",
+      "date": "15/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£18 / £15 adv",
+      "description": "They are big and some of them are clever (not many though!). Europe used to be thick with them.\\n\\n From Greek Zeus to Scandinavian Thor and from Cornwall’s Jack the Hammer to the northern Molly Whuppie, Gods and humans have waged a devastating series of single combats against large and grotesque beings with dubious manners.In many myths the giants come first, often preceding even the gods themselves, frequently waiting for the human explorers of new lands.\\n\\n Often a force of oppression, representing the tyranny of might, some have their beginnings in the power of nature, some in actual people who have been exaggerated over the years and some we can only guess at.",
+      "location": "The Acorn, Penzance, TR18 4BU",
+      "venue_url": "https://www.theacornpenzance.com/",
+      "event_flyer": "",
+      "ticket_url": "https://theacornpenzance.ticketsolve.com/ticketbooth/shows/1173664705",
+      "isSpecial": true,
+      "latlon": [
+        50.1178531,
+        -5.5374654
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "21/03/2026",
+      "time": "7.30pm",
+      "club": "adversecamber",
+      "price": "£14.50, £12.50",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Ffwrnes, Llanelli, SA15 3YE",
+      "venue_url": "https://www.theatrausirgar.co.uk/en/your-visit/ffwrnes",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "https://www.theatrausirgar.co.uk/en/shows/stars-and-their-consolations",
+      "isSpecial": true,
+      "fb_event": 1196741042508760,
+      "latlon": [
+        51.6834341,
+        -4.1583957
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "24/03/2026",
+      "time": "7.30pm",
+      "club": "adversecamber",
+      "price": "£15",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Torch Theatre, Milford Haven, SA73 2BU",
+      "venue_url": "https://www.torchtheatre.co.uk/",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "https://www.torchtheatre.co.uk/events/stars-and-their-consolations/",
+      "isSpecial": true,
+      "fb_event": 1168100702093270,
+      "latlon": [
+        51.7137702,
+        -5.0398996
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "25/03/2026",
+      "time": "8pm",
+      "club": "adversecamber",
+      "price": "£18, £16",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "The Riverfront, Newport, Wales, NP20 1HG",
+      "venue_url": "https://www.newportlive.co.uk/en/venues/riverfront/",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "https://newportlive.ticketsolve.com/ticketbooth/shows/1173669720",
+      "isSpecial": true,
+      "fb_event": 825438926880868,
+      "latlon": [
+        51.588323,
+        -2.9934302
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "26/03/2026",
+      "time": "7.30pm",
+      "club": "adversecamber",
+      "price": "£14-16",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Borough Theatre, Abergavenny, NP7 5HD",
+      "venue_url": "https://boroughtheatreabergavenny.co.uk/",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "https://boroughtheatreabergavenny.co.uk/shows/stars-and-their-consolations/",
+      "isSpecial": true,
+      "fb_event": 853425393835323,
+      "latlon": [
+        51.8219925,
+        -3.0181001
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "28/03/2026",
+      "time": "7.30pm",
+      "club": "adversecamber",
+      "price": "£12",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Hearth, Henbant, Carmarthenshire, LL54 5DF",
+      "venue_url": "https://www.henbant.org/",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "https://www.tickettailor.com/events/henbant/1909878",
+      "isSpecial": true,
+      "fb_event": 1611495913530149,
+      "latlon": [
+        53.01307,
+        -4.30891
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "29/03/2026",
+      "time": "7.30pm",
+      "club": "adversecamber",
+      "price": "£10",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Neuadd Bentref Llangoed Village Hall, LLangoed, LL58 8NY",
+      "venue_url": "https://www.llangoedvillagehall.com/events/stars-and-their-consolations",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "fb_event": 1518843452685413,
+      "latlon": [
+        53.2984255,
+        -4.0885173
+      ]
+    },
+    {
+      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
+      "showname": "Stars and their Consolations",
+      "performer": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
+      "date": "30/03/2026",
+      "time": "7.45pm",
+      "club": "adversecamber",
+      "price": "£15+",
+      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "location": "Theatr Clwyd, Mold, CH7 1YA",
+      "venue_url": "https://www.theatrclwyd.com/",
+      "event_flyer": "morden_lupton_stars.jpg",
+      "latlon": [
+        53.1792422,
+        -3.1368143
+      ]
+    }
+  ],
+  "musicEvents": [
+    {
+      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
+      "showname": "Waiting For Wisdom tour",
+      "performer": "Gaz Brookfield and The Company of Thieves",
+      "date": "12/12/2025",
+      "time": "7.30pm",
+      "club": "gazbrookfield",
+      "price": "£16.50 (+1.70)",
+      "location": "Yes, Manchester, M1 7DB",
+      "description": "Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now.Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \\n\\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts.Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.",
+      "venue_url": "https://www.yes-manchester.com/",
+      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
+      "ticket_url": "https://wegottickets.com/f/14466#location-28953",
+      "isMusic": true,
+      "latlon": [
+        53.4740106,
+        -2.2381584
+      ]
+    },
+    {
+      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
+      "showname": "Waiting For Wisdom tour",
+      "performer": "Gaz Brookfield and The Company of Thieves",
+      "date": "13/12/2025",
+      "time": "6.30pm",
+      "club": "gazbrookfield",
+      "price": "",
+      "description": "",
+      "location": "Bodega, Nottingham, NG1 2ED",
+      "venue_url": "https://www.bodeganottingham.com/",
+      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
+      "ticket_url": "https://www.alttickets.com/gaz-brookfield-tickets",
+      "isMusic": true,
+      "latlon": [
+        52.9537512,
+        -1.1459484
+      ]
+    },
+    {
+      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
+      "showname": "Waiting For Wisdom tour",
+      "performer": "Gaz Brookfield",
+      "date": "19/12/2025",
+      "time": "7.30pm",
+      "club": "gazbrookfield",
+      "price": "£16.00",
+      "description": "",
+      "location": "Joiners, Southampton, SO14 1NS",
+      "venue_url": "https://www.joinerslive.com/",
+      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
+      "ticket_url": "https://joiners.vticket.co.uk/product.php/2773/gaz-brookfield",
+      "isMusic": true,
+      "latlon": [
+        50.9045378,
+        -1.3963543
+      ]
+    },
+    {
+      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour, Xmas Show)",
+      "showname": "Waiting For Wisdom tour, Xmas Show",
+      "performer": "Gaz Brookfield",
+      "date": "20/12/2025",
+      "time": "7.00pm",
+      "club": "gazbrookfield",
+      "price": "£16.50",
+      "description": "",
+      "location": "The Fleece, Bristol, BS1 6JJ",
+      "venue_url": "https://thefleece.co.uk/",
+      "event_flyer": "gaz_brookfield_xmas25.jpeg",
+      "ticket_url": "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479",
+      "isMusic": true,
+      "latlon": [
+        51.4522549,
+        -2.5894636
+      ]
+    },
+    {
+      "name": "Jess Silk",
+      "showname": "",
+      "performer": "Jess Silk",
+      "date": "16/01/2026",
+      "time": "7pm",
+      "club": "",
+      "price": "£10 (+£1)",
+      "description": "",
+      "location": "Riff Factory, Stoke, ST4 4HS",
+      "venue_url": "https://rifffactory.co.uk/",
+      "event_flyer": "jess_silk_jan26.jpg",
+      "ticket_url": "https://wegottickets.com/event/682211/",
+      "isMusic": true,
+      "latlon": [
+        52.99886,
+        -2.17579
+      ]
+    },
+    {
+      "name": "Jess Silk",
+      "showname": "",
+      "performer": "Jess Silk",
+      "date": "17/01/2026",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "Bolton Socialist Club, BL1 1DY",
+      "venue_url": "https://www.facebook.com/profile.php?id=100069735416333",
+      "event_flyer": "jess_silk_jan26.jpg",
+      "ticket_url": "",
+      "isMusic": true,
+      "latlon": [
+        53.57857,
+        -2.42564
+      ]
+    },
+    {
+      "name": "Jess Silk",
+      "showname": "",
+      "performer": "Jess Silk",
+      "date": "18/01/2026",
+      "time": "4pm",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "Foxtails, Chorley, PR7 2LA",
+      "venue_url": "https://foxtails.co.uk/",
+      "event_flyer": "jess_silk_jan26.jpg",
+      "ticket_url": "https://www.skiddle.com/whats-on/Chorley/Foxtails-Chorley/Jess-Silk/41280700/",
+      "isMusic": true,
+      "latlon": [
+        53.6493856,
+        -2.6324886
+      ]
+    },
+    {
+      "name": "Jess Silk",
+      "showname": "",
+      "performer": "Jess Silk",
+      "date": "29/01/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£10",
+      "description": "",
+      "location": "John Peel Centre, Stowmarket, IP14 1ET",
+      "venue_url": "https://johnpeelcentre.com/JohnPeelCentre.dll/WhatsOn?f=482701",
+      "ticket_url": "https://johnpeelcentre.com/JohnPeelCentre.dll/Booking?Booking=TSelectItems.waSelectItemsPrompt.TcsWebMenuItem_0.TcsWebTab_0.TcsPerformance_486773",
+      "isMusic": true,
+      "latlon": [
+        52.1877395,
+        0.9959926
+      ]
+    },
+    {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "06/02/2026",
+      "time": "7.30pm",
+      "club": "gazbrookfield",
+      "price": "£16.50",
+      "description": "",
+      "location": "Gupshill Manor, Tewkesbury, GL20 5SG",
+      "venue_url": "https://gupshillmanor.com/",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673293",
+      "isMusic": true,
+      "latlon": [
+        51.9826265,
+        -2.156726
+      ]
+    },
+    {
+      "name": "Gaz Brookfield",
+      "showname": "",
+      "performer": "Gaz Brookfield",
+      "date": "",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "",
+      "venue_url": "",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "",
+      "isMusic": true,
+      "geocode_missing": true
+    },
+    {
+      "name": "",
+      "showname": "",
+      "performer": "",
+      "date": "",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "location": "",
+      "venue_url": "",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isMusic": true,
+      "geocode_missing": true
+    },
+    {
+      "series_title": "Taking the Tradition On",
+      "presenter": "Amy Douglas",
+      "schedule": "",
+      "url": "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn",
+      "geocode_missing": true
+    },
+    {
+      "series_title": "",
+      "presenter": "",
+      "schedule": "",
+      "url": "",
+      "geocode_missing": true
+    },
+    {
+      "title": "24 Story Seeds",
+      "leader": "Sally Pomme Clayton",
+      "date": "06/12/2025",
+      "location": "Summerhill Bowling Club, Newcastle-upon-Tyne",
+      "cost": "£40",
+      "link": "https://www.facebook.com/ABitCrack",
+      "club": "abitcrack",
+      "course_flyer": "2025_12_06_abitcrack_pomme_24storyseeds.jpg",
+      "geocode_missing": true
+    }
+  ]
+}

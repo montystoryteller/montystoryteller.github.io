@@ -1,0 +1,395 @@
+{
+  " The Backyard Theatre, Watchet, West Somerset, TA23 0AZ": {
+    "lat": 51.1809479,
+    "lon": -3.33105
+  },
+  "Aberystwyth Arts Centre, SY23 3DE": {
+    "lat": 52.4158549,
+    "lon": -4.0628405
+  },
+  "Alder, Sheffield, S3 8BX": {
+    "lat": 53.3919404,
+    "lon": -1.4761471
+  },
+  "All Saints Church Hall, Matlock Bank, DE4 3JG": {
+    "lat": 53.1432954,
+    "lon": -1.5549986
+  },
+  "Alphabetti Theatre, Newcastle, NE1 4HP": {
+    "lat": 54.9691163,
+    "lon": -1.6236622
+  },
+  "Angels Cut, Darlington, DL3 7RX": {
+    "lat": 54.5252796,
+    "lon": -1.5597309
+  },
+  "Asylum Chapel, Asylum Rd, London, SE15 2SQ": {
+    "lat": 51.4792895,
+    "lon": -0.0607237
+  },
+  "B Side cafe, John Peel Centre, Stowmarket, IP14 1ET": {
+    "lat": 52.1881821,
+    "lon": 0.9974498
+  },
+  "Better Days Cafe, Ventnor, PO38 1LY": {
+    "lat": 50.5954845,
+    "lon": -1.2035461
+  },
+  "Bitterns Station (Bunker178), Southampton": null,
+  "Bodega, Nottingham, NG1 2ED": {
+    "lat": 52.9537512,
+    "lon": -1.1459484
+  },
+  "Bolton Socialist Club, BL1 1DY": {
+    "lat": 53.57857,
+    "lon": -2.42564
+  },
+  "Borough Theatre, Abergavenny, NP7 5HD": {
+    "lat": 51.8219925,
+    "lon": -3.0181001
+  },
+  "Bowland Bridge, South Lakes": null,
+  "Brigsteer Village Hall, Kendal, LA8 8AL": {
+    "lat": 54.30029,
+    "lon": -2.80205
+  },
+  "Broadmayne Village Hall, Dorchester, DT2 8EW": {
+    "lat": 50.67728,
+    "lon": -2.38386
+  },
+  "Brook pub, Brooklands, M33 3SQ": {
+    "lat": 53.4171806,
+    "lon": -2.325793
+  },
+  "Buddhist Centre, Southampton, SO14 1NW ": {
+    "lat": 50.9057819,
+    "lon": -1.3969673
+  },
+  "Butser Ancient Farm, Hampshire, PO8 0BG": {
+    "lat": 50.942957,
+    "lon": -0.9771452
+  },
+  "Cambridge Junction, Cambridge, CB1 7GX": {
+    "lat": 52.1907939,
+    "lon": 0.1365354
+  },
+  "Carvel Lane Coffee House, Cowes, PO31 7TF": {
+    "lat": 50.7621899,
+    "lon": -1.29831
+  },
+  "Castle Tap, Reading, RG1 7RJ": {
+    "lat": 51.4518506,
+    "lon": -0.9789688
+  },
+  "Central Library, Leicester, LE1 6AA": {
+    "lat": 52.633022,
+    "lon": -1.1322806
+  },
+  "Chagford Inn, Chagford, TQ13 8AW": {
+    "lat": 50.6732037,
+    "lon": -3.8410961
+  },
+  "Chapter Arts Centre, Canton, Cardiff, CF5 1QE": {
+    "lat": 51.4828089,
+    "lon": -3.2037223
+  },
+  "Chapter Arts, Cardiff, CF5 1QE": {
+    "lat": 51.4828089,
+    "lon": -3.2037223
+  },
+  "Child Okeford Village Hall, Child Okeford, DT11 8EX": {
+    "lat": 50.91625,
+    "lon": -2.23862
+  },
+  "Department, Ryde, PO33 2AA": {
+    "lat": 50.729912,
+    "lon": -1.1625054
+  },
+  "Eastcott Community Centre, Swindon, SN1 3LZ": {
+    "lat": 51.5553352,
+    "lon": -1.7844856
+  },
+  "Ffwrnes, Llanelli, SA15 3YE": {
+    "lat": 51.6834341,
+    "lon": -4.1583957
+  },
+  "Foxtails, Chorley, PR7 2LA": {
+    "lat": 53.6493856,
+    "lon": -2.6324886
+  },
+  "Guide Dog Pub, Southampton, SO14 6SF": {
+    "lat": 50.9174605,
+    "lon": -1.3969686
+  },
+  "Gupshill Manor, Tewkesbury, GL20 5SG": {
+    "lat": 51.9826265,
+    "lon": -2.156726
+  },
+  "Hearth, Henbant, Carmarthenshire, LL54 5DF": {
+    "lat": 53.01307,
+    "lon": -4.30891
+  },
+  "Hillcrest Community Centre, Newhaven, BN9 9LH": {
+    "lat": 50.7911271,
+    "lon": 0.0495688
+  },
+  "Imperial Rooms, Imperial Road, Matlock, DE4 3NL": {
+    "lat": 53.140141,
+    "lon": -1.5560718
+  },
+  "Imperial Rooms, Matlock, DE4 3NL": {
+    "lat": 53.1395361,
+    "lon": -1.555212
+  },
+  "John Peel Centre, Stowmarket, IP14 1ET": {
+    "lat": 52.1877395,
+    "lon": 0.9959926
+  },
+  "Joiners, Southampton, SO14 1NS": {
+    "lat": 50.9045378,
+    "lon": -1.3963543
+  },
+  "Kendal?": {
+    "lat": 54.3289795,
+    "lon": -2.747183
+  },
+  "Ketteringham Village Hall, Ketteringham, Wymondham, NR18 9RU": {
+    "lat": 52.58544,
+    "lon": 1.1946304
+  },
+  "Kings Head, Lichfield, WS13 6PW": {
+    "lat": 52.68286,
+    "lon": -1.8304028
+  },
+  "Kitchen Garden Cafe, Birmingham, B14 7SA": {
+    "lat": 52.4341123,
+    "lon": -1.8937292
+  },
+  "Leicester Central Library, Leicester, LE1 6AA": {
+    "lat": 52.633022,
+    "lon": -1.1322806
+  },
+  "Liskeard Public Hall, West Street, Liskeard, PL14 6BW": {
+    "lat": 50.4556034,
+    "lon": -4.465947
+  },
+  "Llanover Hall Arts Center, Cardiff, CF5 1FH": {
+    "lat": 51.4851825,
+    "lon": -3.206773
+  },
+  "Lock 91 Bar, Manchester, M3 4QL": {
+    "lat": 53.4746329,
+    "lon": -2.2508286
+  },
+  "Locks Inn, Geldeston, Norwich, NR34 0HW": {
+    "lat": 52.4636358,
+    "lon": 1.5171661
+  },
+  "Love Shack, London, E2 9HA": {
+    "lat": 51.5322132,
+    "lon": -0.0572027
+  },
+  "Making Space, 1 Gilroy Road, West Kirby, CH48 6DP": {
+    "lat": 53.3785042,
+    "lon": -3.1684084
+  },
+  "Moor Imagination Collective, Buckfastleigh, TQ11 0AB": {
+    "lat": 50.4812823,
+    "lon": -3.7800139
+  },
+  "Neuadd Bentref Llangoed Village Hall, LLangoed, LL58 8NY": {
+    "lat": 53.2984255,
+    "lon": -4.0885173
+  },
+  "Newnham Social Club, Cambridge, CB3 9JA": {
+    "lat": 52.1952318,
+    "lon": 0.1086743
+  },
+  "October Books, Southampton, SO17 2NF,": {
+    "lat": 50.9253148,
+    "lon": -1.393642
+  },
+  "Online": {
+    "lat": 51.5013851,
+    "lon": -0.2849707
+  },
+  "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE": {
+    "lat": 52.9268849,
+    "lon": -1.2177308
+  },
+  "Peppers Hub, Fishguard, SA65 9AE": {
+    "lat": 51.9941699,
+    "lon": -4.97719
+  },
+  "Plot 9 Maze Hill, Greenwich, London, SE3 7RD": {
+    "lat": 51.482498,
+    "lon": 0.0016809
+  },
+  "Pontardawe Arts Centre, SA8 4ED": {
+    "lat": 51.7198548,
+    "lon": -3.8502485
+  },
+  "Quaker Meeting House, Northampton, NN1 3AS": {
+    "lat": 52.2395529,
+    "lon": -0.8924581
+  },
+  "Rat and Ratchet pub, Huddersfield, HD1 3EB": {
+    "lat": 53.6415942,
+    "lon": -1.7852373
+  },
+  "Rectory Cottages, Bletchley, MK3 6BJ": {
+    "lat": 51.9958309,
+    "lon": -0.7443209
+  },
+  "Riff Factory, Stoke, ST4 4HS": {
+    "lat": 52.99886,
+    "lon": -2.17579
+  },
+  "Royal Welsh College of Music & Drama, Cardiff, CF10 3ER": {
+    "lat": 51.4860419,
+    "lon": -3.1840381
+  },
+  "Sandford Orcas Village Hall, Dorchester, DT9 4RX": {
+    "lat": 50.9846887,
+    "lon": -2.5372176
+  },
+  "Ship Inn, Exeter, EX1 1EY": {
+    "lat": 50.7235857,
+    "lon": -3.5302391
+  },
+  "Snapdragons, Victoria Park, Plymouth, PL1 5NJ": {
+    "lat": 50.37622,
+    "lon": -4.15418
+  },
+  "Special events only?": null,
+  "St Anne": {
+    "lat": 50.7610133,
+    "lon": -4.4643622
+  },
+  "Ston Easton Village Hall, Radstock, BA3 4DA": {
+    "lat": 51.2816199,
+    "lon": -2.54426
+  },
+  "Storyhouse, Hunter St, Chester, CH1 2AR": {
+    "lat": 53.1926853,
+    "lon": -2.8932261
+  },
+  "Summerhill Bowling Club, Newcastle-upon-Tyne": null,
+  "The Acorn, Penzance, TR18 4BU": {
+    "lat": 50.1178531,
+    "lon": -5.5374654
+  },
+  "The Britons Protection, Great Bridgewater St., Manchester, M1 5LE": {
+    "lat": 53.474863,
+    "lon": -2.2469884
+  },
+  "The Chillingham, South Heaton, Newcastle, NE6 5XN": {
+    "lat": 54.9855258,
+    "lon": -1.576812
+  },
+  "The Circle Barn, Beden, Sampford Spiney, PL20 6LF": {
+    "lat": 50.53563,
+    "lon": -4.06688
+  },
+  "The Cowick Barton, Exeter, EX2 9HF": {
+    "lat": 50.7090421,
+    "lon": -3.5464436
+  },
+  "The Dragon Theatre, Barmouth, LL42 1EF": {
+    "lat": 52.72072,
+    "lon": -4.05375
+  },
+  "The Elm Tree, Cambridge, CB1 1JT": {
+    "lat": 52.2051547,
+    "lon": 0.1294263
+  },
+  "The Elm Tree, Ringwood, BH24 3DY": {
+    "lat": 50.8432908,
+    "lon": -1.7697368
+  },
+  "The Fat Cat, Sheffield, S3 8SA": {
+    "lat": 53.3886156,
+    "lon": -1.471777
+  },
+  "The Fleece, Bristol, BS1 6JJ": {
+    "lat": 51.4522549,
+    "lon": -2.5894636
+  },
+  "The Folk Preservation Society, Teignmouth, TQ14 8DZ": {
+    "lat": 50.5468543,
+    "lon": -3.4975078
+  },
+  "The Folk of Gloucester, Gloucester, GL1 2PG": {
+    "lat": 51.8671663,
+    "lon": -2.250251
+  },
+  "The Fountain Inn, Leek, ST13 6JR": {
+    "lat": 53.1057745,
+    "lon": -2.0189963
+  },
+  "The Front Room Theatre, Weston-Super-Mare, BS23 1FF": {
+    "lat": 51.3457778,
+    "lon": -2.9786388
+  },
+  "The Goddess House, Glastonbury, BA6 9EJ": {
+    "lat": 51.14516,
+    "lon": -2.71766
+  },
+  "The Hoops, Barton, Cambridge, CB23 7BD": {
+    "lat": 52.1822192,
+    "lon": 0.0572284
+  },
+  "The Old Customs House, Arnside, Carnforth, LA5 0HD": {
+    "lat": 54.2031956,
+    "lon": -2.832955
+  },
+  "The Old Stables, behind The White Hart, Cricklade, Swindon, SN6 6AA": {
+    "lat": 51.64159,
+    "lon": -1.8558189
+  },
+  "The Pullens Centre, 184 Crampton Street, London, SE17 3AE": {
+    "lat": 51.490419,
+    "lon": -0.1000982
+  },
+  "The Riverfront, Newport, Wales, NP20 1HG": {
+    "lat": 51.588323,
+    "lon": -2.9934302
+  },
+  "The Station Pub, Sutton Coldfield, B73 6AT": {
+    "lat": 52.5649413,
+    "lon": -1.8243397
+  },
+  "The Story Museum, Oxford, OX1 1BP": {
+    "lat": 51.7507212,
+    "lon": -1.2580933
+  },
+  "The Yellow Book, Brighton, BN1 4GU": {
+    "lat": 50.8280698,
+    "lon": -0.1356262
+  },
+  "Theatr Clwyd, Mold, CH7 1YA": {
+    "lat": 53.1792422,
+    "lon": -3.1368143
+  },
+  "Three Swans pub, Frome, BA11 1BH": {
+    "lat": 51.2304249,
+    "lon": -2.3204812
+  },
+  "Torch Theatre, Milford Haven, SA73 2BU": {
+    "lat": 51.7137702,
+    "lon": -5.0398996
+  },
+  "Torriano Meeting House, London, NW5 2RX": {
+    "lat": 51.5512794,
+    "lon": -0.1332178
+  },
+  "Totnes Brewing Co. / Barrrel House Ballroom, Totnes, TQ9 5PB": {
+    "lat": 50.4317178,
+    "lon": -3.6902135
+  },
+  "Various locations": null,
+  "Yes, Manchester, M1 7DB": {
+    "lat": 53.4740106,
+    "lon": -2.2381584
+  }
+}
