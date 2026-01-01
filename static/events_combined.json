@@ -208,11 +208,15 @@
       "name": "Hebden Bridge Shaggydog storytellers",
       "schedule": "last friday",
       "time": "7.30pm",
-      "location": "",
+      "location": "Stubbing Wharf, Hebden Bridge, HX7 6LU",
+      "venue_url": "https://stubbingwharf.co.uk/",
       "link": "",
       "facebook": "https://www.facebook.com/TheShaggyDogStorytellers",
       "club": "shaggydogstorytellers",
-      "geocode_missing": true
+      "latlon": [
+        53.740828,
+        -2.027594
+      ]
     },
     {
       "name": "Huddersfield story circle",
@@ -404,7 +408,10 @@
       "facebook": "https://www.facebook.com/ploughstorytelling",
       "email": "storytelling.plough@gmail.com",
       "club": "ploughSCi",
-      "geocode_missing": true
+      "latlon": [
+        53.7512032,
+        -3.0302632
+      ]
     },
     {
       "name": "Liskeard Storytelling Cafe",
@@ -764,12 +771,15 @@
       "club": "",
       "price": "",
       "description": "",
-      "location": "Bitterns Station (Bunker178), Southampton",
+      "location": "Bitterns Station (Bunker178), Southampton, SO18 1GG",
       "venue_url": "https://thearthousesouthampton.org/bunker178/",
       "event_flyer": "tour_eastabrook_giant.jpg",
       "ticket_url": "",
       "isSpecial": true,
-      "geocode_missing": true
+      "latlon": [
+        50.9182065,
+        -1.3768114
+      ]
     },
     {
       "name": "Uncanny [Nell Phoenix]",
@@ -1521,37 +1531,13 @@
     },
     {
       "isSpecial": true,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
       "19": 30,
       "fb_event": 1466394704450623,
       "geocode_missing": true
     },
     {
       "isSpecial": true,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
       "fb_event": 664806443175962,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
-      "geocode_missing": true
-    },
-    {
-      "isSpecial": true,
       "geocode_missing": true
     },
     {
@@ -2068,22 +2054,6 @@
       "geocode_missing": true
     },
     {
-      "name": "",
-      "showname": "",
-      "performer": "",
-      "date": "",
-      "time": "",
-      "club": "",
-      "price": "",
-      "description": "",
-      "location": "",
-      "venue_url": "",
-      "event_flyer": "",
-      "ticket_url": "",
-      "isMusic": true,
-      "geocode_missing": true
-    },
-    {
       "series_title": "Taking the Tradition On",
       "presenter": "Amy Douglas",
       "schedule": "",
@@ -2091,22 +2061,19 @@
       "geocode_missing": true
     },
     {
-      "series_title": "",
-      "presenter": "",
-      "schedule": "",
-      "url": "",
-      "geocode_missing": true
-    },
-    {
       "title": "24 Story Seeds",
       "leader": "Sally Pomme Clayton",
       "date": "06/12/2025",
-      "location": "Summerhill Bowling Club, Newcastle-upon-Tyne",
+      "location": "Summerhill Bowling Club, Newcastle-upon-Tyne, NE4 6EH",
+      "venue_url": "https://www.summerhilltrust.org.uk/",
       "cost": "£40",
       "link": "https://www.facebook.com/ABitCrack",
       "club": "abitcrack",
       "course_flyer": "2025_12_06_abitcrack_pomme_24storyseeds.jpg",
-      "geocode_missing": true
+      "latlon": [
+        54.970653,
+        -1.628815
+      ]
     }
   ]
 }
