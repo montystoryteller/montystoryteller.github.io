@@ -288,10 +288,8 @@
         let map;
         let markers = [];
         let allEventsData = [];
-        const geocodeCache = {};
         let geocodeQueue = [];
         let isGeocoding = false;
-        let externalGeocodeCache = null;
         let eventsData = null;
 
         // Load events from JSON file
@@ -329,28 +327,6 @@
             }
         }
 
-        // Load external geocode cache
-        async function loadExternalGeocodeCache() {
-            try {
-                const response = await fetch('geocode_cache.json');
-                if (response.ok) {
-                    externalGeocodeCache = await response.json();
-                    console.log(`✓ Loaded ${Object.keys(externalGeocodeCache).length} cached locations from geocode_cache.json`);
-
-                    // Convert to internal format
-                    for (const [location, coords] of Object.entries(externalGeocodeCache)) {
-                        if (coords && coords.lat && coords.lon) {
-                            geocodeCache[location] = { lat: coords.lat, lon: coords.lon };
-                        } else {
-                            geocodeCache[location] = null;
-                        }
-                    }
-                }
-            } catch (error) {
-                console.log('No geocode_cache.json found, will use API geocoding');
-            }
-        }
-
         function initMap() {
             map = L.map('map').setView([53.0, -2.0], 6); // Center on UK
 
@@ -361,64 +337,11 @@
             map.on('moveend', updateMapView);
         }
 
-        // Rate-limited geocoding function
+        // Rate-limited geocoding function (fallback only - most coords in JSON)
         async function geocodeLocation(location) {
-            if (geocodeCache[location]) {
-                return geocodeCache[location];
-            }
-
-            // Add to queue and process
-            return new Promise((resolve) => {
-                geocodeQueue.push({ location, resolve });
-                processGeocodeQueue();
-            });
-        }
-
-        async function processGeocodeQueue() {
-            if (isGeocoding || geocodeQueue.length === 0) return;
-
-            isGeocoding = true;
-            const { location, resolve } = geocodeQueue.shift();
-
-            try {
-                // Add delay to respect rate limits (1 request per second)
-                await new Promise(r => setTimeout(r, 1000));
-
-                const response = await fetch(
-                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}&countrycodes=gb&limit=1`,
-                    {
-                        headers: {
-                            'User-Agent': 'StorytellingEventsCalendar/1.0'
-                        }
-                    }
-                );
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                if (data && data.length > 0) {
-                    const coords = { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) };
-                    geocodeCache[location] = coords;
-                    resolve(coords);
-                } else {
-                    console.warn(`No geocoding results for: ${location}`);
-                    geocodeCache[location] = null;
-                    resolve(null);
-                }
-            } catch (error) {
-                console.error(`Geocoding error for "${location}":`, error.message);
-                geocodeCache[location] = null;
-                resolve(null);
-            } finally {
-                isGeocoding = false;
-                // Process next item in queue
-                if (geocodeQueue.length > 0) {
-                    setTimeout(() => processGeocodeQueue(), 100);
-                }
-            }
+            // This is now just a fallback for events without latlon in the JSON
+            console.warn(`No latlon data for: ${location} - would need API geocoding`);
+            return null;
         }
 
         function parseSchedule(schedule, startDate, endDate) {
@@ -589,8 +512,9 @@
             if (eventData.latlon && Array.isArray(eventData.latlon) && eventData.latlon.length === 2) {
                 coords = { lat: eventData.latlon[0], lon: eventData.latlon[1] };
             } else {
-                // Fall back to geocoding
-                coords = await geocodeLocation(eventData.location);
+                // No coordinates available - skip this event
+                console.warn(`No coordinates for event: ${eventData.name} at ${eventData.location}`);
+                return;
             }
 
             if (coords) {
@@ -804,7 +728,6 @@
         // Initialize
         window.addEventListener('load', async () => {
             await loadEventsData();
-            await loadExternalGeocodeCache();
             initMap();
             showThisWeek();
         });
