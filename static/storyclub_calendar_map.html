@@ -555,9 +555,15 @@
         }
 
         function updateMapView() {
-            // Don't filter by map bounds - show all events in the selected date range
-            // The map bounds filtering was hiding events
-            filterEvents();
+            // Filter events by map bounds
+            const bounds = map.getBounds();
+            const visibleEvents = allEventsData.filter(event => {
+                if (!event.coords) return false;
+                return bounds.contains([event.coords.lat, event.coords.lon]);
+            });
+
+            console.log(`Events in map view: ${visibleEvents.length} of ${allEventsData.length}`);
+            renderEventsList(visibleEvents);
         }
 
         function renderEventsList(eventsToShow) {
