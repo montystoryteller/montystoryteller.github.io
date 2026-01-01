@@ -81,7 +81,7 @@
         1.5171661
       ]
     },
-{
+    {
       "name": "Norwich Storytelling Club",
       "schedule": "3rd tuesday",
       "time": "7.30pm",
@@ -95,7 +95,6 @@
         1.281635
       ]
     },
-     { name: "", schedule: "3rd tuesday", time: "7.30pm", location: "", venue_url: "", link: "", facebook: "", club: "" },
     {
       "name": "Matlock storytelling circle",
       "schedule": "last wednesday",
