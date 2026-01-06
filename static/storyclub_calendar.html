@@ -906,6 +906,7 @@
             { name: "Adverse Camber", link: "https://www.adversecamber.org/", location: "", club: "adversecamber", facebook: "https://www.facebook.com/adversecamberstories", tickets_url: "" },
             { name: "Butser Ancient Farm", link: "https://www.butserancientfarm.co.uk/", location: "Butser Ancient Farm, Hampshire", club: "butserancient", facebook: "https://www.facebook.com/butserancientfarm", tickets_url: "" },
             { name: "Stealing Thunder", link: "https://stealingthunder.co.uk/", location: "Lake District", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing", tickets_url: "" },
+
             { name: "Connection With Wonder", link: "https://connectionwithwonder.com/events/", location: "London", club: "connectionwithwonder", facebook: "https://www.facebook.com/ConnectionWithWonder", tickets_url: "" },
             { name: "Caravan of Storytellers", link: "https://soniasophia.co.uk/", location: "West Wales", club: "caravanofstorytellers", facebook: "https://www.facebook.com/caravanof.storytellers", tickets_url: "" },
 
@@ -947,8 +948,7 @@
         const events = [
             { name: "Sheffield Story Forge", schedule: "3rd tuesday", location: "The Fat Cat, Sheffield, S3 8SA", time: "7pm", link: "", venue_url: "https://www.thefatcat.co.uk/", facebook: "https://www.facebook.com/groups/94064587663", club: "sheffieldstoryforge" },
             { name: "Word of Mouth storytelling club [lapsed?]", schedule: "1st wednesday", location: "The Britons Protection, Great Bridgewater St., Manchester, M1 5LE", link: "https://wordofmouthstorytelling.blogspot.com/", facebook: "https://www.facebook.com/groups/391825947545400/", venue_url: "https://www.thebritonsprotection.co.uk/index", club: "wordofmouthSCl" },
-
-            { name: "Stealing Thunder", schedule: "2nd saturday", link: "https://stealingthunder.co.uk/", location: "Kendal?", venue_url: "", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing" },
+            { name: "Stealing Thunder", schedule: "2nd saturday", link: "https://stealingthunder.co.uk/storynights", time: "7.30pm", location: "Brigsteer Village Hall, Nr Kendal, LA8 8AL", venue_url: "https://www.brigsteervillagehall.co.uk/", club: "stealingthunder", facebook: "https://www.facebook.com/thunderstealing" },
             { name: "Storytelling Sunday", schedule: "last sunday", location: "Love Shack, London, E2 9HA", link: "https://londondreamtime.com/", venue_url: "https://www.loveshackldn.com/events-1", facebook: "", club: "storytellingsunday" },
             { name: "Ship Inn Storytelling, Exeter", schedule: "1st thursday", location: "Ship Inn, Exeter, EX1 1EY", time: "7-9pm", link: "", venue_url: "https://www.greeneking.co.uk/pubs/devon/ship", facebook: "https://www.facebook.com/SuzanneArnoldWiseWoman", club: "shipinnstorytelling" },
             { name: "Tales'n'Ales", schedule: "3rd thursday", time: "8-10pm", location: "Locks Inn, Geldeston, Norwich, NR34 0HW", venue_url: "https://thelocksinn.com/", link: "", facebook: "", club: "talesnales" },
@@ -1000,6 +1000,12 @@
             { name: "Royal Tales (Sutton Coldfield Storytelling)", schedule: "", location: "The Station Pub, Sutton Coldfield, B73 6AT", link: "", facebook: "https://www.facebook.com/groups/613097720652168/", club: "royaltales" },
             { name: "Aberystwyth Fables Storytelling Circle", schedule: "first wednesday", time: "7-8.30pm", location: "", link: "", facebook: "https://www.facebook.com/groups/aberfables", club: "aberystwythfables" },
             { name: "Winchester Wykeham Tales [Lapsed?]", schedule: "2nd wednesday", location: "", link: "", facebook: "" },
+            {
+                name: "Tales & Tunes",
+                 schedule: "last thursday", time:"7pm",
+                location: "The Pit at Newstead, Nottinghamshire, NG15 0BU",
+                facebook: "https://www.facebook.com/thepitatnewstead", club: "taleasandtunesthepit"
+            },
             // TO DO : add online attribute, default "false", other: "true", "hybrid"; in price, square brackets is online price
             // TO DO - lots more legacy stinginthetale
         ];
@@ -1184,13 +1190,15 @@
                 "date": "20/03/2026",
                 "time": "7.30pm",
                 "price": "£10-15",
-                "location": "The Pit at Newstead, Nottinghamshire, UK",
+                "location": "The Pit at Newstead, Nottinghamshire, NG15 0BU",
                 "venue_url": "https://www.thepitatnewstead.co.uk/",
                 "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-notts-tickets-1867486846429", fb_event: 830908939589642, isSpecial: true
             },
 
+            { name: "Tales and Ales — Tombs and Roses by Word of Mouth [P. D. Brown]", showname: "Tales and Ales — Tombs and Roses by Word of Mouth", performer: "P. D. Brown", date: "12/02/2026", time: "7.30pm", club: "", price: "£5", description: "A pre-Valentine's Day blood-red rose bunch of traditional tales!  These tales are not 'chocolate box and roses' - but there is at least one with a happy ending!", location: "Angels Cut, Darlington, DL3 7RX", venue_url: "https://www.angelscutsales.co.uk/", event_flyer: "2026_02_12_talesnales_tombroses_brown.jpg", ticket_url: "https://www.facebook.com/angelscutdarlington", isSpecial: true },
 
-            { name: "Welsh Whisperers [Gillian Borwnson + Dragon Storytellers] ", showname: "Gillian Brownson", performer: "Gillian Borwnson + Dragon Storytellers", date: "17/01/2026", time: "7-9pm", club: "", price: "£8", description: "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson.", location: "The Dragon Theatre, Barmouth, LL42 1EF", venue_url: "https://www.theatryddraig.cymru/", event_flyer: "2026_01_17_welshwhisperers_brownson.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/142714", isSpecial: true },
+
+            { name: "Welsh Whisperers [Gillian Brownson + Dragon Storytellers] ", showname: "Gillian Brownson", performer: "Gillian Brownson + Dragon Storytellers", date: "17/01/2026", time: "7-9pm", club: "", price: "£8", description: "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson.", location: "The Dragon Theatre, Barmouth, LL42 1EF", venue_url: "https://www.theatryddraig.cymru/", event_flyer: "2026_01_17_welshwhisperers_brownson.jpg", ticket_url: "https://dragontheatre.littleboxoffice.com/events/142714", isSpecial: true },
             { name: "The Girl Who Married a Dog [Nell Phoenix]", showname: "The Girl Who Married a Dog", performer: "Nell Phoenix", date: "20/01/2026", time: "7.00pm", club: "sheffieldstoryforge", price: "Suggested donation: £8-10", description: "", location: "Alder, Sheffield, S3 8BX", venue_url: "https://www.facebook.com/AlderBarSheff", event_flyer: "", ticket_url: "https://www.eventbrite.co.uk/e/nell-phoenix-with-the-girl-who-married-a-dog-20th-january-tickets-1977171782024", isSpecial: true, fb_event: 1195054529223664 },
             { name: "Tall Tales and Tiny Truths ['Tis Tales]", showname: "Tall Tales and Tiny Truths", performer: "'Tis Tales'", date: "23/01/2026", time: "7.30pm", club: "islandstorytellers", price: "£10 (£8 u26)", description: "Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Brought to you by Holly Medland, Sue Bailey and Tony 'Monty' Hirst.", location: "Department, Ryde, PO33 2AA", venue_url: "https://department-ryde.org/", event_flyer: "", fb_event: 3353518201472270, ticket_url: "https://department.byretail.net/menu", isSpecial: true },
             { name: "The Girl Who Married a Dog [Nell Phoenix]", showname: "The Girl Who Married a Dog", performer: "Nell Phoenix", date: "29/01/2025", time: "7.30pm", club: "criccracclub", price: "", description: "", location: "The Story Museum, Oxford, OX1 1BP", venue_url: "https://www.storymuseum.org.uk/", event_flyer: "", ticket_url: "https://www.storymuseum.org.uk/whats-on/crick-crack-the-girl-who-married-a-dog", isSpecial: true, online: "hybrid", fb_event: 823991059995862 },
@@ -1223,7 +1231,7 @@
             { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "16/01/2026", time: "7pm", club: "", price: "£10 (+£1)", description: "", location: "Riff Factory, Stoke, ST4 4HS", venue_url: "https://rifffactory.co.uk/", event_flyer: "jess_silk_jan26.jpg", ticket_url: "https://wegottickets.com/event/682211/", isMusic: true, },
             { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "17/01/2026", time: "", club: "", price: "", description: "", location: "Bolton Socialist Club, BL1 1DY", venue_url: "https://www.facebook.com/profile.php?id=100069735416333", event_flyer: "jess_silk_jan26.jpg", ticket_url: "", isMusic: true, },
             { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "18/01/2026", time: "4pm", club: "", price: "", description: "", location: "Foxtails, Chorley, PR7 2LA", venue_url: "https://foxtails.co.uk/", event_flyer: "jess_silk_jan26.jpg", ticket_url: "https://www.skiddle.com/whats-on/Chorley/Foxtails-Chorley/Jess-Silk/41280700/", isMusic: true, },
-            { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "29/01/2026", time: "7.30pm", club: "", price: "£10", description: "", location: "John Peel Centre, Stowmarket, IP14 1ET", venue_url: "https://johnpeelcentre.com/JohnPeelCentre.dll/WhatsOn?f=482701",  ticket_url: "https://johnpeelcentre.com/JohnPeelCentre.dll/Booking?Booking=TSelectItems.waSelectItemsPrompt.TcsWebMenuItem_0.TcsWebTab_0.TcsPerformance_486773", isMusic: true, },
+            { name: "Jess Silk", showname: "", performer: "Jess Silk", date: "29/01/2026", time: "7.30pm", club: "", price: "£10", description: "", location: "John Peel Centre, Stowmarket, IP14 1ET", venue_url: "https://johnpeelcentre.com/JohnPeelCentre.dll/WhatsOn?f=482701", ticket_url: "https://johnpeelcentre.com/JohnPeelCentre.dll/Booking?Booking=TSelectItems.waSelectItemsPrompt.TcsWebMenuItem_0.TcsWebTab_0.TcsPerformance_486773", isMusic: true, },
             { name: "Gaz Brookfield (Almost All Village Halls Tour)", showname: "Almost All Village Halls Tour", performer: "Gaz Brookfield", date: "06/02/2026", time: "7.30pm", club: "gazbrookfield", price: "£16.50", description: "", location: "Gupshill Manor, Tewkesbury, GL20 5SG", venue_url: "https://gupshillmanor.com/", event_flyer: "tour_gazbrookfield_2026q1-2.jpg", ticket_url: "https://wegottickets.com/event/673293", isMusic: true },
             {
                 fb_event: 1515954242876116,
