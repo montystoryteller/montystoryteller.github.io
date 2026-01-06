@@ -30,9 +30,10 @@
     {
       "name": "Stealing Thunder",
       "schedule": "2nd saturday",
-      "link": "https://stealingthunder.co.uk/",
-      "location": "Kendal?",
-      "venue_url": "",
+      "time": "7.30pm", 
+      "link": "https://stealingthunder.co.uk/storynights",
+      "location": "Brigsteer Village Hall, Nr Kendal, LA8 8AL",
+      "venue_url": "https://www.brigsteervillagehall.co.uk/",
       "club": "stealingthunder",
       "facebook": "https://www.facebook.com/thunderstealing",
       "latlon": [
@@ -1550,6 +1551,24 @@
       ]
     },
     {
+      "name": "Tales and Ales — Tombs and Roses by Word of Mouth [P. D. Brown] [P. D. Brown]",
+      "showname": "Tales and Ales — Tombs and Roses by Word of Mouth",
+      "performer": "P. D. Brown",
+      "date": "11/12/2025",
+      "club": "",
+      "price": "£5",
+      "description": "",
+      "location": "Angels Cut, Darlington, DL3 7RX",
+      "venue_url": "https://www.angelscutsales.co.uk/",
+      "ticket_url": "https://www.facebook.com/angelscutdarlington",
+      "event_flyer": "2026_02_12_talesnales_tombroses_brown.png",
+      "isSpecial": true,
+      "latlon": [
+        54.5252796,
+        -1.5597309
+      ]
+    },
+    {
       "isSpecial": true,
       "19": 30,
       "fb_event": 1466394704450623,
@@ -1571,9 +1590,9 @@
       "geocode_missing": true
     },
     {
-      "name": "Welsh Whisperers [Gillian Borwnson + Dragon Storytellers] ",
+      "name": "Welsh Whisperers [Gillian Brownson + Dragon Storytellers] ",
       "showname": "Gillian Brownson",
-      "performer": "Gillian Borwnson + Dragon Storytellers",
+      "performer": "Gillian Brownson + Dragon Storytellers",
       "date": "17/01/2026",
       "time": "7-9pm",
       "club": "",
