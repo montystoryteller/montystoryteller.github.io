@@ -11,6 +11,9 @@ banner:
     - enable: true
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"
+    - enable: true
+      label: "Buy Tickets for St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
+      link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
@@ -31,6 +34,7 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "NEXT POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
+      - "NEXT FESTIVAL SET: Quay Arts Kashmir Fringe, Saturday Febr. 7th, 2026, Acoustic stage" 
       - "NEXT SOLO SHOW: TBC"
     button:
       enable: false
@@ -41,7 +45,8 @@ features:
     image: "/images/monty_anywhens_vf25.jpg"
     content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
     bulletpoints:
-      - "__Current show:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
+      - "__New show for 2026:__ Faery Tale Blues: stories'n'songs revisiting fairy tales and the fae folk__"
+      - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales"
       - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
     buttons:
@@ -51,6 +56,9 @@ features:
       - enable: false
         label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
         link: "https://octoberbooks.lemonbooking.com/events/116/details"
+      - enable: true
+        label: "Buy Tickets for St Lawrence, 'Faery Tale Blues — 18/04/26"
+        link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
 
 
   - title: "'Tis Tales"
