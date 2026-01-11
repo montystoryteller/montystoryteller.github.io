@@ -33,7 +33,7 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "NEXT POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
+      - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
       - "NEXT FESTIVAL SET: Quay Arts Kashmir Fringe, Saturday Febr. 7th, 2026, Acoustic stage" 
       - "NEXT SOLO SHOW: TBC"
     button:
@@ -57,7 +57,7 @@ features:
         label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
         link: "https://octoberbooks.lemonbooking.com/events/116/details"
       - enable: true
-        label: "Buy Tickets for St Lawrence, 'Faery Tale Blues — 18/04/26"
+        label: "Buy Tickets for St Lawrence, 'Faery Tale Blues' show — 18/04/26"
         link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
 
 
