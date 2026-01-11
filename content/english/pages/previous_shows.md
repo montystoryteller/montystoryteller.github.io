@@ -18,6 +18,7 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Saturday, 10th January 2026 | Round the Fire Tales | Silurian Morris / Westons Cideer Wassail, Much Marcle | Wassail tales |
 | Wednesday, 10th December 2025 | The Winter Cherries & Other Seasonal Tales | Carvel Lane Coffee House, Cowes | Dark stories freeform set |
 | Thursday, 4th December, 2025 | Monty + The AnyWhens | October Books, Southampton | Protest Days, Rebellion Nights |
 | Saturday, 22nd November 2025 | Monty + The AnyWhens | Village Hall, St Lawrence | Protest Days, Rebellion Nights |
