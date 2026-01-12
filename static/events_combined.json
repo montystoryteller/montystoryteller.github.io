@@ -1659,6 +1659,44 @@
       ]
     },
     {
+      "name": "The Fire, The Flame, and the Light [Maria Buckley Whatton]",
+      "showname": "The Fire, The Flame, and the Light",
+      "performer": "Maria Buckley Whatton",
+      "date": "21/01/2026",
+      "time": "7pm",
+      "club": "stinginthetale",
+      "price": "£8 / £6",
+      "description": "A baby born with a blue flame of hair\n A cursed horse and doomed lovers.\n A glorious Saint who presides over an Irish chip shop.\n Join us on Wed 21st Jan and let Maria Whatton stir the seeds of Spring with her stories! There will be a flaming goddess, a startling saint, Mary of Kildare, and many more besides.",
+      "location": "Lock 91 Bar, Manchester, M3 4QL",
+      "venue_url": "https://www.manchesterbars.com/lock91.htm",
+      "event_flyer": "2026_01_21_stinginthetale_whatton.jpg",
+      "isSpecial": true,
+      "latlon": [
+        53.4746329,
+        -2.2508286
+      ]
+    },
+    {
+      "name": "Peronik: The Diary In The Attic [Marion Leeper]",
+      "showname": "Peronik: The Diary In The Attic",
+      "performer": "Marion Leeper",
+      "date": "23/01/2026",
+      "time": "7.30-10pm",
+      "club": "threeheadsinawell",
+      "price": "£10 [£7; £6 online]",
+      "description": "Across myth and memory, two young men set out on separate quests: one for treasure, one for love. But both must beware the ogres waiting in the dark. ",
+      "location": "St. John's Church Hall, Worcester Park, KT4 7NY",
+      "venue_url": "https://www.stjohnsoldmalden.org.uk/church-hall/",
+      "event_flyer": "",
+      "ticket_url": "https://surreystorytellers.co.uk/booking/",
+      "online": "hybrid",
+      "isSpecial": true,
+      "latlon": [
+        51.38317,
+        -0.24984
+      ]
+    },
+    {
       "name": "The Girl Who Married a Dog [Nell Phoenix]",
       "showname": "The Girl Who Married a Dog",
       "performer": "Nell Phoenix",
@@ -1699,6 +1737,28 @@
         -1.8558189
       ]
     },
+
+    {
+      "name": "Tales By The Teign [Shane Ibbs]",
+      "showname": "Tales By The Teign",
+      "performer": "Shane Ibbs",
+      "date": "25/01/2026",
+      "time": "2-4pm",
+      "club": "",
+      "price": "£5 (£4)",
+      "description": "",
+      "location": "The Folk Preservation Society, Teignmouth, TQ14 8DZ",
+      "venue_url": "https://www.facebook.com/folk.preservation.society",
+      "event_flyer": "2026_01_25_tales_teign.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        50.5468543,
+        -3.4975078
+      ]
+    },
+
+
     {
       "name": "Tales That Topple Tyrants: Live Storytelling for Grownups [Merl Fluin]",
       "showname": "Tales That Topple Tyrants: Live Storytelling for Grownups",
