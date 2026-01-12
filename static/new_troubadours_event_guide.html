@@ -563,6 +563,8 @@
                         time: event.time || null,
                         location: event.location,
                         performer: event.performer,
+                        description: event.description || null,
+                        event_flyer: event.event_flyer || null,
                         latlon: event.latlon || null,
                         isStoryclub: false,
                         isSpecial: false,
@@ -682,7 +684,7 @@
             let expandableContent = '';
 
             if (hasExpandableContent) {
-                expandButton = ` <span class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">[Details]</span>`;
+                expandButton = ` <span class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">[More info...]</span>`;
 
                 let flyerHtml = '';
                 if (event.event_flyer && event.event_flyer.trim()) {
