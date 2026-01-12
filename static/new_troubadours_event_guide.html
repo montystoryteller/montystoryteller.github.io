@@ -425,6 +425,7 @@
                         time: event.time || null,
                         location: event.location,
                         club: event.club,
+                        schedule: event.schedule || null,
                         latlon: event.latlon || null,
                         isStoryclub: true,
                         isSpecial: false,
@@ -591,18 +592,19 @@
                 const storyclubClass = event.isStoryclub ? ' storyclub' : '';
                 const specialClass = event.isSpecial ? ' special' : '';
                 const musicClass = event.isMusic ? ' music' : '';
+                const scheduleText = event.schedule ? ` (${event.schedule})` : '';
 
                 console.log(`Event: ${event.name}, classes: storyclub=${event.isStoryclub}, special=${event.isSpecial}, music=${event.isMusic}`);
 
                 return `
                     <div class="event${storyclubClass}${specialClass}${musicClass}" 
-                         onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
-                         data-event-id="${event.name}-${event.date.getTime()}">
-                        <div class="event-name">${event.name}</div>
-                        ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
-                        <div class="event-location">${event.location}</div>
-                        <div class="event-date">${dayName}, ${day} ${month} ${year}${event.time ? `, ${event.time}`:''}</div>
-                    </div>
+         onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
+         data-event-id="${event.name}-${event.date.getTime()}">
+        <div class="event-name">${event.name}</div>
+        ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
+        <div class="event-location">${event.location}</div>
+        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
+    </div>
                 `;
             }).join('');
 
