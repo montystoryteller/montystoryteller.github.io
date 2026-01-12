@@ -14,5 +14,5 @@ Getting the old gang back together for a new show at [Department, Ryde](https://
 
 [Department, Ryde](https://department-ryde.org/), Friday, January 23rd, 2026, bar at 7pm, show from 8pm.
 
-![](/images/flyers_gallery/2026_01_23_tistales_department_talltalestinytruths.jpg)
+![](/images/flyers_gallery/2026_01_23_tistales_department_talltalestinytruths.png)
 
