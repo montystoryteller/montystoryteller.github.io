@@ -2260,8 +2260,8 @@
       "date": "06/02/2026",
       "time": "7.30pm",
       "club": "gazbrookfield",
-      "price": "£16.50",
-      "description": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
       "location": "Gupshill Manor, Tewkesbury, GL20 5SG",
       "venue_url": "https://gupshillmanor.com/",
       "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
@@ -2272,15 +2272,148 @@
         -2.156726
       ]
     },
+     {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "07/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Tolpuddle Village Hall, Tolpuddle, DT2 7ES",
+      "venue_url": "https://tolpuddlevillagehall.com/",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673294",
+      "isMusic": true,
+      "latlon": [
+        50.74924,
+        -2.29324
+      ]
+    },
     {
-      "name": "Gaz Brookfield",
-      "showname": "",
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "13/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Grantchester Village Hall, Grantchester, CB3 9NG",
+      "venue_url": "",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673295",
+      "isMusic": true,
+      "latlon": [
+        52.1927,
+        0.10688
+      ]
+    },
+     {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "14/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Welford Youth and Community Centre, Welford, NN6 6HJ",
+      "venue_url": "https://www.welford-pc.gov.uk/welford-youth-and-community-cent",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673296",
+      "isMusic": true,
+      "latlon": [
+        52.41526,
+        -1.06256
+      ]
+    },
+    {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Packington Village Hall, Packington, LE65 1WJ",
+      "venue_url": "https://pmhv.uk/",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673297",
+      "isMusic": true,
+      "latlon": [
+        52.72851,
+        -1.4661
+      ]
+    },
+    {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "21/02/2026",
+      "time": "7pm",
+      "club": "",
+      "price": "£15 (+£1.26)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Wroot Rocks, Wroot, Doncaster, DN9 2BN",
+      "venue_url": "https://www.ticketsource.co.uk/wroot-rocks",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
+      "isMusic": true,
+       "latlon": [
+        53.51938,
+       -0.92375
+      ]
+    },
+    {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "27/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Chew Stoke Church Hall, Chew Stoke, BS40 8TU",
+      "venue_url": "https://www.chewstoke.org.uk/",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673299",
+      "isMusic": true,
+      "latlon": [
+        51.35448,
+       -2.63734
+      ]
+    },
+        {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
+      "performer": "Gaz Brookfield",
+      "date": "28/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "location": "Porthtowan Village Hall, Porthtowan, TR4 8AD",
+      "venue_url": "https://pvhall.com/",
+      "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "ticket_url": "https://wegottickets.com/event/673301",
+      "isMusic": true,
+      "latlon": [
+        50.28496,
+       -5.23941
+      ]
+    },
+    {
+      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
+      "showname": "Almost All Village Halls Tour",
       "performer": "Gaz Brookfield",
       "date": "",
       "time": "",
       "club": "",
       "price": "",
-      "description": "",
+      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
       "location": "",
       "venue_url": "",
       "event_flyer": "tour_gazbrookfield_2026q1-2.jpg",
