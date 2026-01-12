@@ -231,6 +231,71 @@
                 gap: 8px;
             }
         }
+
+        event-expand-btn {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.3s;
+    vertical-align: middle;
+}
+
+.event-expand-btn:hover {
+    background: #45a049;
+}
+
+.event.special .event-expand-btn,
+.event.music .event-expand-btn {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.event.special .event-expand-btn:hover,
+.event.music .event-expand-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.event-expandable {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-left: 4px solid #4CAF50;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+.event-description {
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.event-description p {
+    margin: 0 0 10px 0;
+}
+
+.event-flyer-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
     </style>
 </head>
 
@@ -461,6 +526,8 @@
                         time: event.time || null,
                         location: event.location,
                         performer: event.performer,
+                        description: event.description || null,
+                        event_flyer: event.event_flyer || null,
                         latlon: event.latlon || null,
                         isStoryclub: false,
                         isSpecial: true,  // All specificEvents are special events
@@ -570,46 +637,89 @@
             renderEventsList(visibleEvents);
         }
 
-        function renderEventsList(eventsToShow) {
-            const eventsList = document.getElementById('eventsList');
-            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-            if (eventsToShow.length === 0) {
-                eventsList.innerHTML = '<div class="no-events">No events in this view</div>';
-                return;
+        function toggleEventExpandable(eventId, event) {
+                event.stopPropagation(); // Prevent map zoom when clicking the button
+                const expandable = document.getElementById(eventId);
+                if (expandable) {
+                    if (expandable.style.display === 'none') {
+                        expandable.style.display = 'block';
+                    } else {
+                        expandable.style.display = 'none';
+                    }
+                }
             }
 
-            console.log(`Rendering ${eventsToShow.length} events`);
+    function renderEventsList(eventsToShow) {
+        const eventsList = document.getElementById('eventsList');
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-            eventsList.innerHTML = eventsToShow.map(event => {
-                const dayName = daysOfWeek[event.date.getDay()];
-                const day = event.date.getDate();
-                const month = months[event.date.getMonth()];
-                const year = event.date.getFullYear();
-
-                // Properly set CSS classes based on event type
-                const storyclubClass = event.isStoryclub ? ' storyclub' : '';
-                const specialClass = event.isSpecial ? ' special' : '';
-                const musicClass = event.isMusic ? ' music' : '';
-                const scheduleText = event.schedule ? ` (${event.schedule})` : '';
-
-                console.log(`Event: ${event.name}, classes: storyclub=${event.isStoryclub}, special=${event.isSpecial}, music=${event.isMusic}`);
-
-                return `
-                    <div class="event${storyclubClass}${specialClass}${musicClass}" 
-         onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
-         data-event-id="${event.name}-${event.date.getTime()}">
-        <div class="event-name">${event.name}</div>
-        ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
-        <div class="event-location">${event.location}</div>
-        <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
-    </div>
-                `;
-            }).join('');
-
-            filterEvents();
+        if (eventsToShow.length === 0) {
+            eventsList.innerHTML = '<div class="no-events">No events in this view</div>';
+            return;
         }
+
+        console.log(`Rendering ${eventsToShow.length} events`);
+
+        eventsList.innerHTML = eventsToShow.map(event => {
+            const dayName = daysOfWeek[event.date.getDay()];
+            const day = event.date.getDate();
+            const month = months[event.date.getMonth()];
+            const year = event.date.getFullYear();
+            const scheduleText = event.schedule ? ` (${event.schedule})` : '';
+
+            const storyclubClass = event.isStoryclub ? ' storyclub' : '';
+            const specialClass = event.isSpecial ? ' special' : '';
+            const musicClass = event.isMusic ? ' music' : '';
+
+            // Check if there's expandable content (flyer or description)
+            const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
+                (event.description && event.description.trim());
+
+            const expandableId = hasExpandableContent ? `event-expand-${Math.random().toString(36).substr(2, 9)}` : '';
+
+            let expandButton = '';
+            let expandableContent = '';
+
+            if (hasExpandableContent) {
+                expandButton = ` <span class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">[Details]</span>`;
+
+                let flyerHtml = '';
+                if (event.event_flyer && event.event_flyer.trim()) {
+                    flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                }
+
+                let descriptionHtml = '';
+                if (event.description && event.description.trim()) {
+                    const paragraphs = event.description.split('\n\n\n\n').map(p =>
+                        p.trim() ? `<p>${p.replace(/\n\n/g, '<br>')}</p>` : ''
+                    ).join('');
+                    descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
+                }
+
+                expandableContent = `
+                <div class="event-expandable" id="${expandableId}" style="display: none;">
+                    ${descriptionHtml}
+                    ${flyerHtml}
+                </div>
+            `;
+            }
+
+            return `
+            <div class="event${storyclubClass}${specialClass}${musicClass}" 
+                 onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
+                 data-event-id="${event.name}-${event.date.getTime()}">
+                <div class="event-name">${event.name}${expandButton}</div>
+                ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
+                <div class="event-location">${event.location}</div>
+                <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
+            </div>
+            ${expandableContent}
+        `;
+        }).join('');
+
+        filterEvents();
+    }
 
         function zoomToEvent(lat, lon) {
             if (lat && lon) {
