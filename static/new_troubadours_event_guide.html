@@ -341,12 +341,19 @@
         </div>
     </div>
 
-    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
-        <label style="display: flex; align-items: center; gap: 10px;">
-            <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
-            <span>Pin current map view (don't auto-zoom when changing dates)</span>
-        </label>
+<div
+    style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+    <label style="display: flex; align-items: center; gap: 10px;">
+        <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
+        <span>Pin current map view (don't auto-zoom when changing dates)</span>
+    </label>
+    <div style="display: flex; gap: 10px; align-items: center;">
+        <button onclick="copyShareableLink()" style="background-color: #2196F3;">
+            📋 Copy Shareable Link
+        </button>
+        <span id="copyFeedback" style="color: #4CAF50; font-size: 14px; display: none;">✓ Link copied!</span>
     </div>
+</div>
 
     <div class="layout-container">
         <div id="map-container">
@@ -993,20 +1000,103 @@
         }
     }
 
-    // Helper function to format date for input field
-    function formatDateForInput(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
+ function generateShareableURL(startDate, endDate) {
+        const formatForInput = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        const params = new URLSearchParams();
+        params.set('start', formatForInput(startDate));
+        params.set('end', formatForInput(endDate));
+
+        // Add filter states
+        params.set('storyclubs', document.getElementById('storyclubsOn').checked ? '1' : '0');
+        params.set('special', document.getElementById('specialOn').checked ? '1' : '0');
+        params.set('music', document.getElementById('showMusic').checked ? '1' : '0');
+
+        return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
     }
+
+        async function copyShareableLink() {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (!startInput) {
+                alert('Please select a date range first');
+                return;
+            }
+
+            const startDate = new Date(startInput);
+            const endDate = endInput ? new Date(endInput) : getWeekEnd(getWeekStart(startDate));
+
+            const shareableURL = generateShareableURL(startDate, endDate);
+
+            try {
+                await navigator.clipboard.writeText(shareableURL);
+                const feedback = document.getElementById('copyFeedback');
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                const tempInput = document.createElement('input');
+                tempInput.value = shareableURL;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                const feedback = document.getElementById('copyFeedback');
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            }
+        }
+
+        function getURLParams() {
+                const params = new URLSearchParams(window.location.search);
+                const start = params.get('start');
+                const end = params.get('end');
+
+                if (start) {
+                    return {
+                        startDate: new Date(start),
+                        endDate: end ? new Date(end) : null,
+                        storyclubs: params.get('storyclubs') === '1', // default false unless explicitly '1'
+                        special: params.get('special') === '1',       // default false unless explicitly '1'
+                        music: params.get('music') === '1'            // default false unless explicitly '1'
+                    };
+                }
+                return null;
+            }
 
         // Initialize
         window.addEventListener('load', async () => {
-            await loadEventsData();
-            initMap();
-            showThisWeek();
-        });
+                await loadEventsData();
+                initMap();
+
+                // Check for URL parameters first
+                const urlParams = getURLParams();
+            if (urlParams) {
+                const startDate = urlParams.startDate;
+                const endDate = urlParams.endDate || getWeekEnd(getWeekStart(startDate));
+
+                // Apply filter settings from URL
+                document.getElementById('storyclubsOn').checked = urlParams.storyclubs;
+                document.getElementById('specialOn').checked = urlParams.special;
+                document.getElementById('showMusic').checked = urlParams.music;
+
+                updateDateInputs(startDate, endDate);
+                await displayEvents(startDate, endDate);
+            } else {
+                showThisWeek();
+            }
+            });
     </script>
 </body>
 
