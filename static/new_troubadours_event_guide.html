@@ -615,7 +615,7 @@
             const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
             const targetDay = dayMap[dayName];
 
-            const current = new Date(startDate.getFullYear(), startDate.getMonth() - 1, 1);
+            const current = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
             const extendedEnd = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 0);
 
             while (current <= extendedEnd) {

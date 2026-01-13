@@ -962,7 +962,6 @@
             { name: "Beeston Tales", schedule: "3rd wednesday", location: "Our Lady of the Assumption Church Hall, Beeston, Nottingham, NG9 1AE", venue_url: "https://theassumption.co.uk/", time: "7.30pm", link: "", facebook: "https://www.facebook.com/groups/beestontales", club: "beestontales", tickets_url: "https://www.tickettailor.com/events/beestontales/" },
             { name: "Matlock Storytelling Cafe", schedule: "1st friday", location: "Imperial Rooms, Imperial Road, Matlock, DE4 3NL", venue_url: "https://matlock.gov.uk/imperial-rooms/", link: "", facebook: "https://www.facebook.com/MatlockStorytellingCafe", club: "matlockSCafe", tickets_url: "https://www.tickettailor.com/events/matlockstorytellingcafe/" },
             { name: "Hebden Bridge Shaggydog storytellers", schedule: "last friday", time: "7.30pm", location: "Stubbing Wharf, Hebden Bridge, HX7 6LU", venue_url: "https://stubbingwharf.co.uk/", link: "", facebook: "https://www.facebook.com/TheShaggyDogStorytellers", club: "shaggydogstorytellers" },
-            { name: "Huddersfield story circle", schedule: "2nd monday", location: "Rat and Ratchet pub, Huddersfield, HD1 3EB", link: "", facebook: "", time: "7pm?", club: "huddersfieldSCi" },
             { name: "East Anglian Story Experience", schedule: "2nd wednesday", time: "8pm", location: "B Side cafe, John Peel Centre, Stowmarket, IP14 1ET", link: "https://johnpeelcentre.com/", facebook: "https://www.facebook.com/profile.php?id=61568382750023", club: "ease" },
             { name: "Huddersfield story circle", schedule: "2nd monday", location: "Rat and Ratchet pub, Huddersfield, HD1 3EB", venue_url: "https://ossett-brewery.co.uk/pages/our-pubs", link: "", facebook: "", time: "7pm?", club: "huddersfieldSCi" },
             { name: "Haworth storytelling circle", schedule: "1st thursday", location: "", link: "", facebook: "https://www.facebook.com/HaworthStorytellingCircle", time: "8pm", club: "HaworthStorytellingCircle" },
@@ -1617,7 +1616,7 @@
             const targetDay = dayMap[dayName];
 
             // Start from the month before startDate to catch events that might fall in the range
-            const current = new Date(startDate.getFullYear(), startDate.getMonth() - 1, 1);
+            const current = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
             const end = new Date(endDate);
             // Extend to month after endDate to catch all possibilities
             const extendedEnd = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 0);
