@@ -154,7 +154,9 @@
             margin-top: 5px;
         }
 
+
         .event-location {
+            color: #c8e6c9;
             font-style: italic;
             margin-top: 3px;
             font-size: 14px;
@@ -593,6 +595,7 @@
                         club: event.club,
                         schedule: event.schedule || null,
                         latlon: event.latlon || null,
+                        venue_url: event.venue_url || null,
                         isStoryclub: true,
                         isSpecial: false,
                         isMusic: false
@@ -632,6 +635,7 @@
                         latlon: event.latlon || null,
                         fb_event: event.fb_event || null,
                         ticket_url: event.ticket_url || null,
+                        venue_url: event.venue_url || null,
                         isStoryclub: false,
                         isSpecial: true,  // All specificEvents are special events
                         isMusic: false
@@ -671,6 +675,7 @@
                         fb_event: event.fb_event || null,
                         ticket_url: event.ticket_url || null,
                         latlon: event.latlon || null,
+                        venue_url: event.venue_url || null,
                         isStoryclub: false,
                         isSpecial: false,
                         isMusic: true  // All musicEvents are music
@@ -851,6 +856,21 @@
                 }
             }
 
+            // Process location with venue link if available
+            let locationText = '';
+            if (event.location) {
+                let locationDisplay = event.location;
+                if (event.venue_url && event.venue_url.trim()) {
+                    // Extract venue name (text before first comma, or entire location if no comma)
+                    const commaIndex = event.location.indexOf(',');
+                    const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
+                    const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
+                    locationDisplay = `<a href="${event.venue_url}" target="_blank" style="text-decoration: none; color: inherit;"><strong>${venueName}</strong></a>${restOfLocation}`;
+
+                }
+                locationText = `<div class="event-location">${locationDisplay}</div>`;
+            }
+
             // Check if there's expandable content (flyer or description)
             const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
                 (event.description && event.description.trim());
@@ -890,7 +910,7 @@
                  data-event-id="${event.name}-${event.date.getTime()}">
                 <div class="event-name">${event.name}${expandButton}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
-                <div class="event-location">${event.location}</div>
+                ${locationText}
                 <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
                 ${ticketsEventLine}
             </div>
