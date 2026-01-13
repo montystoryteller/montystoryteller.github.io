@@ -41,6 +41,7 @@ draft: false
 | Sunday, 15th September, 2024 | Solo | Waverley Holiday Park Beer & Music Festival, East Cowes | (misc. tale) |
 | Saturday, 14th September, 2024 | Solo | Waverley Holiday Park Beer & Music Festival, East Cowes | (misc. tale) |
 | Sunday, 4th August, 2024 | Solo / (others) | Chale Show, Chale | (misc. tales) |
+| Saturday, 27th July, 2024 | 'Tis Tales | Ingrams Yard, Ventnor Fringe | Elemental Tales |
 | Wednesday, 24th July, 2024 | Stories'n'Harp (trio) | Ingrams Yard, Ventnor Fringe | Tales of Britain & Ireland (England and Scotland) |
 | Tuesday, 23rd July, 2024 | Stories'n'Harp (trio) | Ingrams Yard, Ventnor Fringe | Tales of Britain & Ireland (Ireland and Wales) |
 | Thursday, 4th July, 2024 | Stories'n'Harp (trio) | Babushka Books, Shanklin | Mediaeval Tales (WIP) |
