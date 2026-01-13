@@ -164,6 +164,90 @@
             display: none;
         }
 
+        .event-facebook {
+            display: inline-block;
+            margin-left: 10px;
+            text-decoration: none !important;
+            vertical-align: middle;
+            border: none;
+            border-bottom: none !important;
+        }
+
+        .event-facebook svg {
+            width: 20px;
+            height: 20px;
+            fill: #1877f2;
+            transition: fill 0.3s;
+        }
+
+        .event-facebook:hover svg {
+            fill: #145dbf;
+        }
+
+
+        .event-facebook-inline {
+            display: inline-flex;
+            text-decoration: none !important;
+            border: none !important;
+            border-bottom: none !important;
+            vertical-align: middle;
+        }
+
+        .event-facebook-inline svg {
+            width: 20px;
+            height: 20px;
+            fill: #1877f2;
+            transition: fill 0.3s;
+        }
+
+        .event-facebook-inline:hover svg {
+            fill: #145dbf;
+        }
+
+
+        /* SPECIAL event override — white circle, blue F */
+        .event-facebook-inline svg {
+            fill: #ffffff;
+            /* make whole shape white */
+        }
+
+        /* SPECIAL event + hover (if you want the F to stay blue on hover) */
+        .event-facebook-inline:hover svg {
+            fill: #ffffff;
+        }
+
+        /* Then recolor only the F using stroke */
+        .event-facebook-inline svg path {
+            stroke: #1877f2;
+            /* FB blue outline = F shape */
+            stroke-width: 2px;
+            /* adjust until the “F” looks right */
+            stroke-linejoin: round;
+        }
+
+        .event-tickets {
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-tickets a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .event-tickets a {
+            color: #ffeb3b;
+            border-bottom: 2px solid #fff59d;
+        }
+
+        .event-tickets a:hover {
+            border-bottom-color: #ffffff;
+        }
+
         .search-controls {
             margin-top: 15px;
             padding-top: 15px;
@@ -546,6 +630,8 @@
                         description: event.description || null,
                         event_flyer: event.event_flyer || null,
                         latlon: event.latlon || null,
+                        fb_event: event.fb_event || null,
+                        ticket_url: event.ticket_url || null,
                         isStoryclub: false,
                         isSpecial: true,  // All specificEvents are special events
                         isMusic: false
@@ -582,6 +668,8 @@
                         performer: event.performer,
                         description: event.description || null,
                         event_flyer: event.event_flyer || null,
+                        fb_event: event.fb_event || null,
+                        ticket_url: event.ticket_url || null,
                         latlon: event.latlon || null,
                         isStoryclub: false,
                         isSpecial: false,
@@ -741,6 +829,28 @@
             const specialClass = event.isSpecial ? ' special' : '';
             const musicClass = event.isMusic ? ' music' : '';
 
+            // Build the tickets/event line for special events
+            let ticketsEventLine = '';
+            if ((event.isSpecial) || (event.isMusic)) {
+                let fbEventIcon = '';
+                if (event.fb_event) {
+                    const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
+                    fbEventIcon = `<a href="${fbEventUrl}" target="_blank" class="event-facebook-inline" title="Facebook Event"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                }
+
+                let ticketText = '';
+                if (event.ticket_url && event.ticket_url.trim()) {
+                    ticketText = `<a href="${event.ticket_url}" target="_blank">Tickets available here</a>`;
+                }
+
+                // Combine with separator if both exist
+                if (fbEventIcon && ticketText) {
+                    ticketsEventLine = `<div class="event-tickets">${ticketText} <span class="separator">|</span> ${fbEventIcon}</div>`;
+                } else if (fbEventIcon || ticketText) {
+                    ticketsEventLine = `<div class="event-tickets">${fbEventIcon}${ticketText}</div>`;
+                }
+            }
+
             // Check if there's expandable content (flyer or description)
             const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
                 (event.description && event.description.trim());
@@ -782,6 +892,7 @@
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 <div class="event-location">${event.location}</div>
                 <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
+                ${ticketsEventLine}
             </div>
             ${expandableContent}
         `;
@@ -1064,12 +1175,19 @@
                 const end = params.get('end');
 
                 if (start) {
+                    const storyclubs = params.get('storyclubs') === '1';
+                    const special = params.get('special') === '1';
+                    const music = params.get('music') === '1';
+
+                    // If none are selected, default storyclubs and special to true
+                    const noneSelected = !storyclubs && !special && !music;
+
                     return {
                         startDate: new Date(start),
                         endDate: end ? new Date(end) : null,
-                        storyclubs: params.get('storyclubs') === '1', // default false unless explicitly '1'
-                        special: params.get('special') === '1',       // default false unless explicitly '1'
-                        music: params.get('music') === '1'            // default false unless explicitly '1'
+                        storyclubs: noneSelected ? true : storyclubs,
+                        special: noneSelected ? true : special,
+                        music: music
                     };
                 }
                 return null;
