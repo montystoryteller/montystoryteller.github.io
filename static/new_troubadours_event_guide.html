@@ -313,9 +313,9 @@
         </div>
         <div class="date-inputs">
             <label>From:</label>
-            <input type="date" id="startDate" onchange="handleDateChange()">
+            <input type="date" id="startDate" onchange="handleStartDateChange()">
             <label>To:</label>
-            <input type="date" id="endDate" onchange="handleDateChange()">
+            <input type="date" id="endDate" onchange="handleEndDateChange()">
             <button id="showBtn" onclick="showDateRange()">Show Events</button>
         </div>
 
@@ -857,10 +857,24 @@
             else if (mode === 'lastWeek1') document.getElementById('lastWeekBtn').classList.add('active');
         }
 
+        function updateDateInputs(startDate, endDate) {
+                // Format dates as YYYY-MM-DD for the date inputs
+                const formatForInput = (date) => {
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                };
+
+                document.getElementById('startDate').value = formatForInput(startDate);
+                document.getElementById('endDate').value = formatForInput(endDate);
+            }
+
         function showThisWeek() {
             const today = new Date();
             const weekStart = getWeekStart(today);
             const weekEnd = getWeekEnd(weekStart);
+            updateDateInputs(weekStart, weekEnd); 
             displayEvents(weekStart, weekEnd);
             setActiveMode('thisWeek');
         }
@@ -871,28 +885,85 @@
             const targetWeekStart = new Date(thisWeekStart);
             targetWeekStart.setDate(targetWeekStart.getDate() + (7 * weeksAhead));
             const targetWeekEnd = getWeekEnd(targetWeekStart);
+            updateDateInputs(targetWeekStart, targetWeekEnd);
             displayEvents(targetWeekStart, targetWeekEnd);
             setActiveMode(weeksAhead > 0 ? `nextWeek${weeksAhead}` : `lastWeek${Math.abs(weeksAhead)}`);
         }
 
-        function showDateRange() {
-            const startInput = document.getElementById('startDate').value;
-            const endInput = document.getElementById('endDate').value;
+    function showDateRange(clearActiveButton = true) {
+        const startInput = document.getElementById('startDate').value;
+        const endInput = document.getElementById('endDate').value;
 
-            if (!startInput) {
-                alert('Please select at least a start date');
-                return;
+        if (!startInput) {
+            alert('Please select at least a start date');
+            return;
+        }
+
+        const startDate = new Date(startInput);
+        const endDate = endInput ? new Date(endInput) : getWeekEnd(getWeekStart(startDate));
+        displayEvents(startDate, endDate);
+
+        // Only clear active button styling when manually using custom date range
+        if (clearActiveButton) {
+            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
+        }
+    }
+    let lastStartDate = '';
+    let lastEndDate = '';
+
+    function handleStartDateChange() {
+        const startInput = document.getElementById('startDate').value;
+        const endInput = document.getElementById('endDate').value;
+
+        if (startInput && endInput) {
+            const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
+            const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
+
+            const startDate = new Date(startYear, startMonth - 1, startDay);
+            const endDate = new Date(endYear, endMonth - 1, endDay);
+
+            // Start date changed - if it's now after end date, adjust end to end of start's week
+            if (startDate > endDate) {
+                const weekEnd = getWeekEnd(getWeekStart(startDate));
+                document.getElementById('endDate').value = formatDateForInput(weekEnd);
             }
-
-            const startDate = new Date(startInput);
-            const endDate = endInput ? new Date(endInput) : getWeekEnd(getWeekStart(startDate));
-            displayEvents(startDate, endDate);
         }
 
-        function handleDateChange() {
-            const startInput = document.getElementById('startDate').value;
-            if (startInput) showDateRange();
+        if (startInput) {
+            showDateRange(true);
         }
+    }
+
+    function handleEndDateChange() {
+        const startInput = document.getElementById('startDate').value;
+        const endInput = document.getElementById('endDate').value;
+
+        if (startInput && endInput) {
+            const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
+            const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
+
+            const startDate = new Date(startYear, startMonth - 1, startDay);
+            const endDate = new Date(endYear, endMonth - 1, endDay);
+
+            // End date changed - if it's now before start date, adjust start to beginning of end's week
+            if (endDate < startDate) {
+                const weekStart = getWeekStart(endDate);
+                document.getElementById('startDate').value = formatDateForInput(weekStart);
+            }
+        }
+
+        if (startInput) {
+            showDateRange(true);
+        }
+    }
+
+    // Helper function to format date for input field
+    function formatDateForInput(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
 
         // Initialize
         window.addEventListener('load', async () => {
