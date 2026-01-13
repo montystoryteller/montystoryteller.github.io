@@ -341,6 +341,13 @@
         </div>
     </div>
 
+    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
+            <span>Pin current map view (don't auto-zoom when changing dates)</span>
+        </label>
+    </div>
+
     <div class="layout-container">
         <div id="map-container">
             <div id="map"></div>
@@ -356,6 +363,9 @@
         let geocodeQueue = [];
         let isGeocoding = false;
         let eventsData = null;
+
+        let mapViewPinned = false;
+        let pinnedMapView = null;
 
         // Load events from JSON file
         async function loadEventsData() {
@@ -580,29 +590,55 @@
             // Zoom map to fit all events
             fitMapToEvents();
         }
-    function fitMapToEvents() {
-        // Get all events with valid coordinates
-        const eventsWithCoords = allEventsData.filter(event => event.coords);
 
-        if (eventsWithCoords.length === 0) {
-            // No events with coordinates, zoom to UK
-            map.setView([53.0, -2.0], 6);
-            return;
+    function togglePinMapView() {
+        mapViewPinned = document.getElementById('pinMapView').checked;
+
+        if (mapViewPinned) {
+            // Save current map view
+            pinnedMapView = {
+                center: map.getCenter(),
+                zoom: map.getZoom()
+            };
+            console.log('Map view pinned:', pinnedMapView);
+        } else {
+            pinnedMapView = null;
+            console.log('Map view unpinned - fitting to current events');
+            // When unpinning, immediately fit to current events
+            fitMapToEvents();
         }
-
-        if (eventsWithCoords.length === 1) {
-            // Only one event, zoom to it
-            const event = eventsWithCoords[0];
-            map.setView([event.coords.lat, event.coords.lon], 12);
-            return;
-        }
-
-        // Multiple events - fit bounds to show all
-        const bounds = L.latLngBounds(
-            eventsWithCoords.map(event => [event.coords.lat, event.coords.lon])
-        );
-        map.fitBounds(bounds, { padding: [50, 50] });
     }
+
+    function fitMapToEvents() {
+            // If map view is pinned, don't auto-zoom
+            if (mapViewPinned && pinnedMapView) {
+                map.setView(pinnedMapView.center, pinnedMapView.zoom);
+                return;
+            }
+
+            // Get all events with valid coordinates
+            const eventsWithCoords = allEventsData.filter(event => event.coords);
+
+            if (eventsWithCoords.length === 0) {
+                // No events with coordinates, zoom to UK
+                map.setView([53.0, -2.0], 6);
+                return;
+            }
+
+            if (eventsWithCoords.length === 1) {
+                // Only one event, zoom to it
+                const event = eventsWithCoords[0];
+                map.setView([event.coords.lat, event.coords.lon], 12);
+                return;
+            }
+
+            // Multiple events - fit bounds to show all
+            const bounds = L.latLngBounds(
+                eventsWithCoords.map(event => [event.coords.lat, event.coords.lon])
+            );
+            map.fitBounds(bounds, { padding: [50, 50] });
+        }
+
         async function addMarkerForEvent(eventData) {
             // Check if latlon is provided directly
             let coords;
