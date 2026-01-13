@@ -696,6 +696,7 @@
                         email: event.email || null,
                         link: event.link || null,
                         schedule: event.schedule || null,
+                        location: event.location || null,
                         latlon: event.latlon || null,
                         venue_url: event.venue_url || null,
                         isStoryclub: true,
@@ -895,6 +896,10 @@
             // Filter events by map bounds
             const bounds = map.getBounds();
             const visibleEvents = allEventsData.filter(event => {
+                // Always show events with "Various" location and no coords
+                if (!event.coords && event.location && event.location.startsWith('Various')) {
+                    return true;
+                }
                 if (!event.coords) return false;
                 return bounds.contains([event.coords.lat, event.coords.lon]);
             });
