@@ -726,6 +726,7 @@
                         latlon: event.latlon || null,
                         fb_event: event.fb_event || null,
                         ticket_url: event.ticket_url || null,
+                        price: event.price || null,
                         venue_url: event.venue_url || null,
                         isStoryclub: false,
                         isSpecial: true,  // All specificEvents are special events
@@ -765,6 +766,7 @@
                         event_flyer: event.event_flyer || null,
                         fb_event: event.fb_event || null,
                         ticket_url: event.ticket_url || null,
+                        price: event.price || null,
                         latlon: event.latlon || null,
                         venue_url: event.venue_url || null,
                         isStoryclub: false,
@@ -986,6 +988,11 @@
                 locationText = `<div class="event-location">${locationDisplay}</div>`;
             }
 
+            let priceText = '';
+            if (event.price && event.price.trim()) {
+                priceText = ` • ${event.price}`;
+            }
+
             // Check if there's expandable content (flyer or description)
             const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
                 (event.description && event.description.trim());
@@ -1026,7 +1033,7 @@
                 <div class="event-name">${event.name} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
-                <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''}</div>
+                <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''} ${priceText}</div>
                 ${ticketsEventLine} ${expandButton}
             </div>
             ${expandableContent}
