@@ -1601,11 +1601,20 @@
         function parseSchedule(schedule, startDate, endDate) {
             const results = [];
 
-            // Check if it's a specific date in DD/MM/YYYY format
+            // Normalize dates to midnight for consistent comparison
+            const normalizeDate = (date) => {
+                const d = new Date(date);
+                d.setHours(0, 0, 0, 0);
+                return d;
+            };
+
+            const normalizedStart = normalizeDate(startDate);
+            const normalizedEnd = normalizeDate(endDate);
+
             if (schedule.includes('/')) {
                 const [day, month, year] = schedule.split('/').map(num => parseInt(num, 10));
-                const specificDate = new Date(year, month - 1, day);
-                if (specificDate >= startDate && specificDate <= endDate) {
+                const specificDate = normalizeDate(new Date(year, month - 1, day));
+                if (specificDate >= normalizedStart && specificDate <= normalizedEnd) {
                     results.push(specificDate);
                 }
                 return results;
@@ -1615,24 +1624,19 @@
             const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
             const targetDay = dayMap[dayName];
 
-            // Start from the month before startDate to catch events that might fall in the range
-            const current = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
-            const end = new Date(endDate);
-            // Extend to month after endDate to catch all possibilities
-            const extendedEnd = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 0);
+            const current = new Date(normalizedStart.getFullYear(), normalizedStart.getMonth() - 1, 1);
+            const extendedEnd = new Date(normalizedEnd.getFullYear(), normalizedEnd.getMonth() + 1, 0);
 
             while (current <= extendedEnd) {
                 const year = current.getFullYear();
                 const month = current.getMonth();
-
-                const firstDay = new Date(year, month, 1);
                 const lastDay = new Date(year, month + 1, 0);
 
                 let eventDate = null;
 
                 if (occurrence === 'last') {
                     for (let d = lastDay.getDate(); d >= 1; d--) {
-                        const testDate = new Date(year, month, d);
+                        const testDate = normalizeDate(new Date(year, month, d));
                         if (testDate.getDay() === targetDay) {
                             eventDate = testDate;
                             break;
@@ -1642,7 +1646,7 @@
                     const occurrenceNum = occurrence === '1st' ? 1 : occurrence === '2nd' ? 2 : occurrence === '3rd' ? 3 : 4;
                     let count = 0;
                     for (let d = 1; d <= lastDay.getDate(); d++) {
-                        const testDate = new Date(year, month, d);
+                        const testDate = normalizeDate(new Date(year, month, d));
                         if (testDate.getDay() === targetDay) {
                             count++;
                             if (count === occurrenceNum) {
@@ -1653,7 +1657,7 @@
                     }
                 }
 
-                if (eventDate && eventDate >= startDate && eventDate <= endDate) {
+                if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
                     results.push(eventDate);
                 }
 
