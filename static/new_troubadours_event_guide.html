@@ -577,8 +577,32 @@
 
             allEventsData.sort((a, b) => a.date - b.date);
             renderEventsList(allEventsData);
+            // Zoom map to fit all events
+            fitMapToEvents();
+        }
+    function fitMapToEvents() {
+        // Get all events with valid coordinates
+        const eventsWithCoords = allEventsData.filter(event => event.coords);
+
+        if (eventsWithCoords.length === 0) {
+            // No events with coordinates, zoom to UK
+            map.setView([53.0, -2.0], 6);
+            return;
         }
 
+        if (eventsWithCoords.length === 1) {
+            // Only one event, zoom to it
+            const event = eventsWithCoords[0];
+            map.setView([event.coords.lat, event.coords.lon], 12);
+            return;
+        }
+
+        // Multiple events - fit bounds to show all
+        const bounds = L.latLngBounds(
+            eventsWithCoords.map(event => [event.coords.lat, event.coords.lon])
+        );
+        map.fitBounds(bounds, { padding: [50, 50] });
+    }
         async function addMarkerForEvent(eventData) {
             // Check if latlon is provided directly
             let coords;
