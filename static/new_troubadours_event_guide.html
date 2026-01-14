@@ -848,11 +848,30 @@
         async function addMarkerForEvent(eventData) {
             // Check if latlon is provided directly
             let coords;
-            if (eventData.latlon && Array.isArray(eventData.latlon) && eventData.latlon.length === 2) {
-                coords = { lat: eventData.latlon[0], lon: eventData.latlon[1] };
-            } else {
-                // No coordinates available - skip this event
-                console.warn(`No coordinates for event: ${eventData.name} at ${eventData.location}`);
+            
+            // Accept [lat, lon]
+            if (Array.isArray(eventData.latlon) && eventData.latlon.length === 2) {
+                coords = {
+                    lat: eventData.latlon[0],
+                    lon: eventData.latlon[1]
+                };
+            }
+
+            // Accept { lat, lon }
+            else if (
+                eventData.latlon &&
+                typeof eventData.latlon === 'object' &&
+                'lat' in eventData.latlon &&
+                'lon' in eventData.latlon
+            ) {
+                coords = {
+                    lat: eventData.latlon.lat,
+                    lon: eventData.latlon.lon
+                };
+            }
+
+            else {
+                console.warn(`No usable coordinates for event: ${eventData.name} at ${eventData.location}`);
                 return;
             }
 
@@ -864,13 +883,20 @@
                     eventData.isSpecial ? '#4CAF50' :
                         '#808080'; // grey for regular story clubs
 
+                const isStory = eventData.isStoryclub;
+                const radius = // if required have different size markers
+                    isStory ? 8 :
+                        eventData.isSpecial ? 8 :
+                            eventData.isMusic ? 8 :
+                                5;
+
                 const marker = L.circleMarker([coords.lat, coords.lon], {
-                    radius: 8,
+                    radius: radius,
                     fillColor: markerColor,
-                    color: '#fff',
+                    color:  '#fff', // isStory ? '#666' : '#fff',,
                     weight: 2,
                     opacity: 1,
-                    fillOpacity: 0.8
+                    fillOpacity: isStory ? 0.7 : 0.8
                 }).addTo(map);
 
                 const popupContent = `
@@ -1145,7 +1171,26 @@
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
-            filterEvents();
+
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (startInput) {
+                const startDate = new Date(startInput);
+                const endDate = endInput
+                    ? new Date(endInput)
+                    : getWeekEnd(getWeekStart(startDate));
+
+                // Re-run date-based display
+                displayEvents(startDate, endDate);
+
+                // Clear active week buttons (optional UX choice)
+                document.querySelectorAll('.button-group button')
+                    .forEach(btn => btn.classList.remove('active'));
+            } else {
+                // Fallback (should rarely happen)
+                filterEvents();
+            }
         }
 
         async function searchAllUpcoming() {
@@ -1242,7 +1287,8 @@
 
                     // Check if matches search term
                     const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
-                    if (searchableText.includes(searchTerm)) {
+                    console.log(searchableText,"....", searchTerm )
+                    if (searchableText.includes(searchTerm.toLowerCase())) {
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -1450,6 +1496,11 @@
         params.set('special', document.getElementById('specialOn').checked ? '1' : '0');
         params.set('music', document.getElementById('showMusic').checked ? '1' : '0');
 
+        const searchTerm = document.getElementById('searchInput').value.trim();
+        if (searchTerm) {
+            params.set('q', searchTerm);
+        }
+
         return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
     }
 
@@ -1504,12 +1555,15 @@
                     // If none are selected, default storyclubs and special to true
                     const noneSelected = !storyclubs && !special && !music;
 
+                    const q = params.get('q');
+
                     return {
                         startDate: new Date(start),
                         endDate: end ? new Date(end) : null,
                         storyclubs: noneSelected ? true : storyclubs,
                         special: noneSelected ? true : special,
-                        music: music
+                        music: music,
+                        searchTerm: q
                     };
                 }
                 return null;
@@ -1526,13 +1580,21 @@
                 const startDate = urlParams.startDate;
                 const endDate = urlParams.endDate || getWeekEnd(getWeekStart(startDate));
 
-                // Apply filter settings from URL
                 document.getElementById('storyclubsOn').checked = urlParams.storyclubs;
                 document.getElementById('specialOn').checked = urlParams.special;
                 document.getElementById('showMusic').checked = urlParams.music;
 
                 updateDateInputs(startDate, endDate);
-                await displayEvents(startDate, endDate);
+
+                //  restore search term
+                if (urlParams.searchTerm) {
+                    document.getElementById('searchInput').value = urlParams.searchTerm;
+
+                    // Behave exactly like "Search All Upcoming"
+                    await searchAllUpcoming();
+                } else {
+                    await displayEvents(startDate, endDate);
+                }
             } else {
                 showThisWeek();
             }
