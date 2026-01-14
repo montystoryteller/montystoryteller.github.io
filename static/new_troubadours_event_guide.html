@@ -549,6 +549,11 @@
         let mapViewPinned = false;
         let pinnedMapView = null;
 
+        const UK_IRELAND_BOUNDS = L.latLngBounds(
+                [49.5, -11.0],  // SW corner (Atlantic)
+                [61.0, 2.5]     // NE corner (North Sea)
+            );
+
         // Load events from JSON file
         async function loadEventsData() {
             try {
@@ -585,7 +590,11 @@
         }
 
         function initMap() {
-            map = L.map('map').setView([53.0, -2.0], 6); // Center on UK
+            map = L.map('map', {
+                maxBounds: UK_IRELAND_BOUNDS,
+                maxBoundsViscosity: 1.0, minZoom: 5,
+                maxZoom: 16
+                }).setView([53.0, -2.0], 6); // Center on UK
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
