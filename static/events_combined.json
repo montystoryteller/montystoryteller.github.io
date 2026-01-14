@@ -1538,9 +1538,9 @@
       ]
     },
     {
-      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain ]",
+      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
       "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
-      "performer": "Ben Haggarty & Steph Brittain ",
+      "performer": "Ben Haggarty & Steph Brittain",
       "date": "08/01/2025",
       "time": "6.30pm",
       "club": "cardiffSC",
@@ -1614,6 +1614,7 @@
         -1.4761471
       ]
     },
+
     {
       "name": "Tall Tales and Tiny Truths ['Tis Tales]",
       "showname": "Tall Tales and Tiny Truths",
@@ -1810,6 +1811,27 @@
       "latlon": [
         51.1809479,
         -3.33105
+      ]
+    },
+
+    {
+      "name": "City of Ladies - Dinas y Lêdis [Tamar Eluned Williams & Jordan Price Williams]",
+      "showname": "City of Ladies - Dinas y Lêdis",
+      "performer": "Tamar Eluned Williams & Jordan Price Williams",
+      "date": "12/02/2026",
+      "time": "6.30pm",
+      "club": "cardiffSC",
+      "price": "£9.90 / £7.70",
+      "description": "A The wheel of fortune turns. It makes the rich richer and the poor poorer. God knows it doesn’t pay storytellers enough...\n In a lost city, stories interweave: riotous tales of love, lust, and intrigue. A girl is raised as a boy, embarking on a quest of self-discovery. A king falls in love with a werewolf. A wild wizard prowls the woods, waiting to be captured. The wheel of fortune will bring them all together.\n City of Ladies/Dinas y Lêdis is an exciting new collaboration between award-winning storyteller Tamar Eluned Williams and musician Jordan Price Williams (VRï, Elfen, Pendevig). Fusing bilingual storytelling and music to uncover the queer romances of the French medieval court, the show traverses a rich and layered landscape, from Cornwall to Wales to Brittany.\n Age restrictions: 16+\n Content restrictions: the show contains references to violence, sexual violence, childbirth, torture, and homophobic attitudes, contextualised within a medieval framework.\n The development of this show is supported by the Arts Council of Wales, in partnership with Awen Cultural Trust, Theatr Soar, TRAC and Cardiff Storytelling Circle.",
+      "location": "Llanover Hall Arts Center, Cardiff, CF5 1FH",
+      "venue_url": "https://www.llanoverhall.com/",
+      "event_flyer": "",
+      "ticket_url": "https://wegottickets.com/event/687771",
+      "isSpecial": true,
+      "fb_event": 4141128949494651,
+      "latlon": [
+        51.4851825,
+        -3.206773
       ]
     },
     {
