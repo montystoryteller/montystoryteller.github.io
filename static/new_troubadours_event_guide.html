@@ -1888,7 +1888,7 @@
             fitMapToEvents();
 
             if (allEventsData.length === 0) {
-                alert(`No upcoming events found matching "${searchTerm}"`);
+                eventsList.innerHTML = `<div class="no-events">No upcoming events found matching "${rawSearchTerm}"</div>`;
             }
         }
 
