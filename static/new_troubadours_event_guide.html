@@ -756,6 +756,38 @@
             return results;
         }
 
+        function parseExceptionDate(str) {
+                let [d, m, y] = str.split('/').map(Number);
+
+                // normalize year (assume 00–99 means 2000–2099)
+                if (y < 100) y += 2000;
+
+                // JS months are 0-based
+                return new Date(y, m - 1, d);
+            }
+
+       function evaluateReschedule(startDate, endDate, date, exceptions) {
+            const exceptionDate = exceptions.length
+                ? parseExceptionDate(exceptions[0])
+                : null;
+
+            const scheduledInRange = date >= startDate && date <= endDate;
+            const exceptionInRange =
+                exceptionDate &&
+                exceptionDate >= startDate &&
+                exceptionDate <= endDate;
+
+
+                rescheduledToStr: rescheduledTo
+                    ? rescheduledTo.toLocaleDateString('en-GB', {
+                        weekday: 'short',
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                    : null
+            };
+        }
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
                 console.error('Events data not loaded');
@@ -763,6 +795,7 @@
             }
 
             const eventsList = document.getElementById('eventsList');
+
             allEventsData = [];
 
             // Clear existing markers
@@ -771,6 +804,7 @@
 
             // Process recurring events
             for (const event of eventsData.events || []) {
+                const exceptions = event.exceptions || [];
                 const dates = parseSchedule(event.schedule, startDate, endDate);
                 for (const date of dates) {
                     const eventData = {
@@ -786,13 +820,64 @@
                         price: event.price || null,
                         location: event.location || null,
                         latlon: event.latlon || null,
+                        exceptions: event.exceptions || null,
                         venue_url: event.venue_url || null,
                         isStoryclub: true,
                         isSpecial: false,
                         isMusic: false
                     };
+                    
+                    const reschedule = evaluateReschedule(
+                        startDate,
+                        endDate,
+                        date,
+                        exceptions
+                    );
+
+                    // If there's an exception in this month, this regular date is cancelled
+                    eventData.isCancelled = reschedule.isCancelled;
+                    eventData.rescheduledTo = reschedule.rescheduledTo;
+                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
                     allEventsData.push(eventData);
                     await addMarkerForEvent(eventData);
+                }
+                for (const excDate of exceptions) {
+                    const date = parseExceptionDate(excDate);
+                    const eventData = {
+                        name: event.name,
+                        date: date,
+                        time: event.time || null,
+                        location: event.location,
+                        club: event.club,
+                        facebook: event.facebook || null,
+                        email: event.email || null,
+                        link: event.link || null,
+                        schedule: event.schedule || null,
+                        price: event.price || null,
+                        location: event.location || null,
+                        latlon: event.latlon || null,
+                        exceptions: event.exceptions || null,
+                        venue_url: event.venue_url || null,
+                        isStoryclub: true,
+                        isSpecial: false,
+                        isMusic: false
+                    };
+
+                    const reschedule = evaluateReschedule(
+                        startDate,
+                        endDate,
+                        date,
+                        exceptions
+                    );
+
+                    if (reschedule.isRescheduled) {
+                        eventData.isRescheduled =  reschedule.isRescheduled;
+                        eventData.rescheduledTo = reschedule.rescheduledTo;
+                        eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+
                 }
             }
 
@@ -1123,6 +1208,11 @@
                 priceText = ` • ${event.price}`;
             }
 
+            let timeText = '';
+            if (event.time && event.time.trim()) {
+                timeText = ` • ${event.time}`;
+            }
+
             // Check if there's expandable content (flyer or description)
             const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
                 (event.description && event.description.trim());
@@ -1163,7 +1253,7 @@
                 <div class="event-name">${event.name} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
-                <div class="event-date">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em> ${event.time ? `, ${event.time}` : ''} ${priceText}</div>
+                <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
                 ${ticketsEventLine} ${expandButton}
             </div>
             ${expandableContent}

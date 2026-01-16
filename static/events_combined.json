@@ -472,7 +472,8 @@
       "facebook": "https://www.facebook.com/storytellersofnottingham",
       "club": "storytellersnotts",
       "price": "£5",
-      "latlon": []
+      "latlon": [],
+      "exceptions": ["15/1/2026"]
     },
     {
       "name": "Southampton Story Club",
