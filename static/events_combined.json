@@ -2604,5 +2604,48 @@
                     -2.1578764
                 ]
             }
+  ],
+  "folkNights": [
+    {
+      "name": "Forest Folk Night",
+      "schedule": "1st and 3rd Sunday",
+      "time": "7.30pm",
+      "location": "Orepool Inn, Sling, Coleford GL16 8LH",
+      "venue_url": "https://www.orepoolinn.co.uk/",
+      "price": "£8 event, £2 singers' night",
+      "link": "https://forestfolkclub.com/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    51.76702,
+                    -2.60893
+                ]
+    },
+        {
+      "name": "Star Folk Club",
+      "schedule": "2nd sunday",
+      "time": "12-3pm",
+      "location": "Star Coffee & Ale House, Ryde,  PO33 2HT",
+      "venue_url": "https://ryde.cafe/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.72797,
+                    -1.16252
+                ]
+    }
+  ],
+  "irishSessions": [
+    {
+      "name": "The Grove Irish session",
+      "schedule": "Every Thursday",
+      "time": "8pm",
+      "location": "The Grove, Huddersfield, HD1 4BP",
+      "venue_url": "https://www.thegrove.pub/",
+      "latlon": [
+                    52.458169,
+                    -2.1578764
+                ]
+    }
   ]
 }

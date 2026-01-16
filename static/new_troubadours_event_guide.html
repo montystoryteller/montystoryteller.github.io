@@ -321,6 +321,58 @@
             /* inverted from #1eb868 */
         }
         
+        .event.folk {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            border: 2px solid #654321;
+            color: white;
+        }
+
+        .event.session {
+            background: linear-gradient(135deg, #90ee90 0%, #98fb98 100%);
+            border: 2px solid #228b22;
+            color: #1a5c1a;
+        }
+
+        .folk .event-location {
+            color: #f5deb3;
+        }
+
+        .session .event-location {
+            color: #2d5a2d;
+        }
+
+        .event.folk .event-email svg {
+            fill: #f5deb3;
+        }
+
+        .event.folk .event-email:hover svg {
+            fill: #ffffff;
+        }
+
+        .event.folk .event-website svg {
+            fill: #f5deb3;
+        }
+
+        .event.folk .event-website:hover svg {
+            fill: #ffffff;
+        }
+
+        .event.session .event-email svg {
+            fill: #228b22;
+        }
+
+        .event.session .event-email:hover svg {
+            fill: #1a5c1a;
+        }
+
+        .event.session .event-website svg {
+            fill: #228b22;
+        }
+
+        .event.session .event-website:hover svg {
+            fill: #1a5c1a;
+        }
+
         .search-row {
             display: flex;
             gap: 10px;
@@ -406,12 +458,16 @@
 }
 
 .event.special .event-expand-btn,
-.event.music .event-expand-btn {
+.event.music .event-expand-btn,
+.event.folk .event-expand-btn,
+.event.session .event-expand-btn {
     background: rgba(255, 255, 255, 0.3);
 }
 
 .event.special .event-expand-btn:hover,
-.event.music .event-expand-btn:hover {
+.event.music .event-expand-btn:hover,
+.event.folk .event-expand-btn:hover,
+.event.session .event-expand-btn:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 
@@ -491,6 +547,14 @@
                     Story shows
                 </label>
                 <label>
+                    <input type="checkbox" checked id="showFolk" onchange="filterEvents()">
+                    Folk clubs
+                </label>
+                <label>
+                    <input type="checkbox" checked id="showSessions" onchange="filterEvents()">
+                    Irish sessions
+                </label>
+                <label>
                     <input type="checkbox" id="showMusic" onchange="filterEvents()">
                     Music events
                 </label>
@@ -565,6 +629,8 @@
                     console.log(`  - ${eventsData.events?.length || 0} recurring events`);
                     console.log(`  - ${eventsData.specificEvents?.length || 0} specific events`);
                     console.log(`  - ${eventsData.musicEvents?.length || 0} music events`);
+                    console.log(`  - ${eventsData.folkNights?.length || 0} folk nights`);
+                    console.log(`  - ${eventsData.irishSessions?.length || 0} Irish sessions`);
 
                     // Flag events with missing geocode
                     const checkMissing = (eventsList, label) => {
@@ -632,6 +698,98 @@
                     results.push(specificDate);
                 }
                 return results;
+            }
+
+
+            // Handle "every [dayname]" schedules
+            if (schedule.toLowerCase().startsWith('every ')) {
+                const dayName = schedule.toLowerCase().replace('every ', '').trim();
+                const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+                const targetDay = dayMap[dayName];
+
+                if (targetDay === undefined) {
+                    console.warn(`Invalid day name in schedule: ${schedule}`);
+                    return results;
+                }
+
+                const current = new Date(normalizedStart);
+
+                // Find the first occurrence of the target day on or after the start date
+                while (current.getDay() !== targetDay) {
+                    current.setDate(current.getDate() + 1);
+                }
+
+                // Add all occurrences of this day within the date range
+                while (current <= normalizedEnd) {
+                    const eventDate = normalizeDate(new Date(current));
+                    if (eventDate >= normalizedStart && eventDate <= normalizedEnd) {
+                        results.push(eventDate);
+                    }
+                    current.setDate(current.getDate() + 7); // Move to next week
+                }
+
+                return results;
+            }
+
+            // Handle multiple occurrences in same month (e.g., "1st and 3rd wednesday")
+            if (schedule.toLowerCase().includes(' and ')) {
+                const [occurrence1Str, rest] = schedule.toLowerCase().split(' and ');
+                const parts = rest.trim().split(/\s+/);
+                const occurrence2Str = parts[0];
+                const dayName = parts[1];
+
+                const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+                const targetDay = dayMap[dayName];
+
+                const occurrenceMap = { '1st': 1, '2nd': 2, '3rd': 3, '4th': 4, 'last': 'last' };
+                const occurrence1 = occurrenceMap[occurrence1Str.trim()];
+                const occurrence2 = occurrenceMap[occurrence2Str.trim()];
+
+                const current = new Date(normalizedStart.getFullYear(), normalizedStart.getMonth() - 1, 1);
+                const extendedEnd = new Date(normalizedEnd.getFullYear(), normalizedEnd.getMonth() + 1, 0);
+
+                while (current <= extendedEnd) {
+                    const year = current.getFullYear();
+                    const month = current.getMonth();
+                    const lastDay = new Date(year, month + 1, 0);
+
+                    // Find both occurrences
+                    const occurrences = [occurrence1, occurrence2];
+
+                    occurrences.forEach(occ => {
+                        let eventDate = null;
+
+                        if (occ === 'last') {
+                            for (let d = lastDay.getDate(); d >= 1; d--) {
+                                const testDate = normalizeDate(new Date(year, month, d));
+                                if (testDate.getDay() === targetDay) {
+                                    eventDate = testDate;
+                                    break;
+                                }
+                            }
+                        } else {
+                            let count = 0;
+                            for (let d = 1; d <= lastDay.getDate(); d++) {
+                                const testDate = normalizeDate(new Date(year, month, d));
+                                if (testDate.getDay() === targetDay) {
+                                    count++;
+                                    if (count === occ) {
+                                        eventDate = testDate;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
+                            results.push(eventDate);
+                        }
+                    });
+
+                    current.setMonth(current.getMonth() + 1);
+                }
+
+                return results.sort((a, b) => a - b);
             }
 
             // Handle alternating schedules (e.g., "1st wednesday (even months) | 1st thursday (odd months)")
@@ -994,6 +1152,152 @@
                 }
             }
 
+            // Process folk nights (recurring, like story clubs)
+            for (const event of eventsData.folkNights || []) {
+                const exceptions = event.exceptions || [];
+                const dates = parseSchedule(event.schedule, startDate, endDate);
+                for (const date of dates) {
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+
+                    const eventData = {
+                        name: event.name,
+                        date: date,
+                        time: event.time || null,
+                        club: event.club,
+                        facebook: event.facebook || null,
+                        email: event.email || null,
+                        link: event.link || null,
+                        schedule: event.schedule || null,
+                        alternate_locations: event.alternate_locations || null,
+                        price: event.price || null,
+                        location,
+                        latlon,
+                        exceptions: event.exceptions || null,
+                        venue_url,
+                        storiesWelcome: event.storiesWelcome || false,
+                        isStoryclub: false,
+                        isSpecial: false,
+                        isMusic: false,
+                        isFolk: true,
+                        isSession: false
+                    };
+
+                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
+                    eventData.isCancelled = reschedule.isCancelled;
+                    eventData.rescheduledTo = reschedule.rescheduledTo;
+                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                    allEventsData.push(eventData);
+                    await addMarkerForEvent(eventData);
+                }
+
+                for (const excDate of exceptions) {
+                    const date = parseExceptionDate(excDate);
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
+
+                    if (reschedule.isRescheduled) {
+                        const eventData = {
+                            name: event.name,
+                            date: reschedule.rescheduledTo,
+                            time: event.time || null,
+                            club: event.club,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            price: event.price || null,
+                            location: location,
+                            latlon: latlon,
+                            exceptions: event.exceptions || null,
+                            venue_url: venue_url,
+                            storiesWelcome: event.storiesWelcome || false,
+                            isRescheduled: true,
+                            rescheduledTo: reschedule.rescheduledTo,
+                            rescheduledToStr: reschedule.rescheduledToStr,
+                            isStoryclub: false,
+                            isSpecial: false,
+                            isMusic: false,
+                            isFolk: true,
+                            isSession: false
+                        };
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+
+            // Process Irish sessions (recurring, like story clubs)
+            for (const event of eventsData.irishSessions || []) {
+                const exceptions = event.exceptions || [];
+                const dates = parseSchedule(event.schedule, startDate, endDate);
+                for (const date of dates) {
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+
+                    const eventData = {
+                        name: event.name,
+                        date: date,
+                        time: event.time || null,
+                        club: event.club,
+                        facebook: event.facebook || null,
+                        email: event.email || null,
+                        link: event.link || null,
+                        schedule: event.schedule || null,
+                        alternate_locations: event.alternate_locations || null,
+                        price: event.price || null,
+                        location,
+                        latlon,
+                        exceptions: event.exceptions || null,
+                        venue_url,
+                        isStoryclub: false,
+                        isSpecial: false,
+                        isMusic: false,
+                        isFolk: false,
+                        isSession: true
+                    };
+
+                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
+                    eventData.isCancelled = reschedule.isCancelled;
+                    eventData.rescheduledTo = reschedule.rescheduledTo;
+                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                    allEventsData.push(eventData);
+                    await addMarkerForEvent(eventData);
+                }
+
+                for (const excDate of exceptions) {
+                    const date = parseExceptionDate(excDate);
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
+
+                    if (reschedule.isRescheduled) {
+                        const eventData = {
+                            name: event.name,
+                            date: reschedule.rescheduledTo,
+                            time: event.time || null,
+                            club: event.club,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            price: event.price || null,
+                            location: location,
+                            latlon: latlon,
+                            exceptions: event.exceptions || null,
+                            venue_url: venue_url,
+                            isRescheduled: true,
+                            rescheduledTo: reschedule.rescheduledTo,
+                            rescheduledToStr: reschedule.rescheduledToStr,
+                            isStoryclub: false,
+                            isSpecial: false,
+                            isMusic: false,
+                            isFolk: false,
+                            isSession: true
+                        };
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+
             allEventsData.sort((a, b) => a.date - b.date);
 
             renderEventsList(allEventsData);
@@ -1083,9 +1387,13 @@
                 eventData.coords = coords;
 
                 // Color coding: grey for story clubs, green for special events, blue for music
-                const markerColor = eventData.isMusic ? '#443cd7' :
-                    eventData.isSpecial ? '#4CAF50' :
-                        '#808080'; // grey for regular story clubs
+                const markerColor =
+                    eventData.isSession ? '#90ee90' :
+                        eventData.isFolk ? '#8b4513' :
+                            eventData.isMusic ? '#443cd7' :
+                                eventData.isSpecial ? '#4CAF50' :
+                                    '#808080';
+
 
                 const isStory = eventData.isStoryclub;
                 const radius = // if required have different size markers
@@ -1174,6 +1482,8 @@
             const storyclubClass = event.isStoryclub ? ' storyclub' : '';
             const specialClass = event.isSpecial ? ' special' : '';
             const musicClass = event.isMusic ? ' music' : '';
+            const folkClass = event.isFolk ? ' folk' : '';
+            const sessionClass = event.isSession ? ' session' : '';
 
             // Add Facebook link if available (for regular facebook page/group)
             let facebookLink = '';
@@ -1279,11 +1589,16 @@
             `;
             }
 
+            let storiesWelcomeBadge = '';
+            if (event.isFolk && event.storiesWelcome) {
+                storiesWelcomeBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">📖 Stories Welcome</span>';
+            }
+
             return `
-            <div class="event${storyclubClass}${specialClass}${musicClass}" 
+            <div class="event${storyclubClass}${specialClass}${musicClass}${folkClass}${sessionClass}" 
                  onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
                  data-event-id="${event.name}-${event.date.getTime()}">
-                <div class="event-name">${event.name} ${allIcons}</div>
+                <div class="event-name">${event.name}${storiesWelcomeBadge} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
                 <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
@@ -1323,6 +1638,8 @@
             const specialOn = document.getElementById('specialOn').checked;
             const storyclubsOn = document.getElementById('storyclubsOn').checked;
             const showMusic = document.getElementById('showMusic').checked;
+            const showFolk = document.getElementById('showFolk').checked;
+            const showSessions = document.getElementById('showSessions').checked;
 
             console.log('Filter settings:', { specialOn, storyclubsOn, showMusic });
 
@@ -1336,11 +1653,15 @@
                 const isStoryclub = event.classList.contains('storyclub');
                 const isSpecial = event.classList.contains('special');
                 const isMusic = event.classList.contains('music');
+                const isFolk = event.classList.contains('folk');
+                const isSession = event.classList.contains('session');
 
                 // Show event if its type checkbox is checked
                 if (storyclubsOn && isStoryclub) visible = true;
                 if (specialOn && isSpecial) visible = true;
                 if (showMusic && isMusic) visible = true;
+                if (showFolk && isFolk) visible = true;
+                if (showSessions && isSession) visible = true;
 
                 // Apply search filter if search term exists
                 if (visible && searchTerm) {
@@ -1359,6 +1680,8 @@
                 if (storyclubsOn && eventData.isStoryclub) visible = true;
                 if (specialOn && eventData.isSpecial) visible = true;
                 if (showMusic && eventData.isMusic) visible = true;
+                if (showFolk && eventData.isFolk) visible = true;
+                if (showSessions && eventData.isSession) visible = true;
 
                 // Apply search filter if search term exists
                 if (visible && searchTerm) {
@@ -1706,6 +2029,8 @@
         params.set('storyclubs', document.getElementById('storyclubsOn').checked ? '1' : '0');
         params.set('special', document.getElementById('specialOn').checked ? '1' : '0');
         params.set('music', document.getElementById('showMusic').checked ? '1' : '0');
+        params.set('folk', document.getElementById('showFolk').checked ? '1' : '0');
+        params.set('sessions', document.getElementById('showSessions').checked ? '1' : '0');
 
         const searchTerm = document.getElementById('searchInput').value.trim();
         if (searchTerm) {
@@ -1762,9 +2087,11 @@
                     const storyclubs = params.get('storyclubs') === '1';
                     const special = params.get('special') === '1';
                     const music = params.get('music') === '1';
+                    const folk = params.get('folk') === '1';
+                    const sessions = params.get('sessions') === '1';
 
                     // If none are selected, default storyclubs and special to true
-                    const noneSelected = !storyclubs && !special && !music;
+                    const noneSelected = !storyclubs && !special && !music && !folk && !sessions;
 
                     const q = params.get('q');
 
@@ -1773,6 +2100,8 @@
                         endDate: end ? new Date(end) : null,
                         storyclubs: noneSelected ? true : storyclubs,
                         special: noneSelected ? true : special,
+                        folk: noneSelected ? true : folk,
+                        sessions: noneSelected ? true : sessions,
                         music: music,
                         searchTerm: q
                     };
@@ -1794,6 +2123,8 @@
                 document.getElementById('storyclubsOn').checked = urlParams.storyclubs;
                 document.getElementById('specialOn').checked = urlParams.special;
                 document.getElementById('showMusic').checked = urlParams.music;
+                document.getElementById('showFolk').checked = urlParams.folk;
+                document.getElementById('showSessions').checked = urlParams.sessions;
 
                 updateDateInputs(startDate, endDate);
 
