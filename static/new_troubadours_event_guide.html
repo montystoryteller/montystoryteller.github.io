@@ -876,24 +876,6 @@
                 for (const excDate of exceptions) {
                     const date = parseExceptionDate(excDate);
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
-                    const eventData = {
-                        name: event.name,
-                        date: date,
-                        time: event.time || null,
-                        club: event.club,
-                        facebook: event.facebook || null,
-                        email: event.email || null,
-                        link: event.link || null,
-                        schedule: event.schedule || null,
-                        price: event.price || null,
-                        location: location,
-                        exceptions: event.exceptions || null,
-                        venue_url: venue_url,
-                        isStoryclub: true,
-                        isSpecial: false,
-                        isMusic: false
-                    };
-
                     const reschedule = evaluateReschedule(
                         startDate,
                         endDate,
@@ -902,10 +884,27 @@
                     );
                     
                     if (reschedule.isRescheduled) {
-                        console.log(reschedule)
-                        eventData.isRescheduled =  reschedule.isRescheduled;
-                        eventData.rescheduledTo = reschedule.rescheduledTo;
-                        eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                        const eventData = {
+                            name: event.name,
+                            date: reschedule.rescheduledTo,
+                            time: event.time || null,
+                            club: event.club,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            price: event.price || null,
+                            location: location,
+                            latlon: latlon,
+                            exceptions: event.exceptions || null,
+                            venue_url: venue_url,
+                            isRescheduled : true,
+                            rescheduledTo : reschedule.rescheduledTo,
+                            rescheduledToStr: reschedule.rescheduledToStr,
+                            isStoryclub: true,
+                            isSpecial: false,
+                            isMusic: false
+                        };
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -996,6 +995,7 @@
             }
 
             allEventsData.sort((a, b) => a.date - b.date);
+
             renderEventsList(allEventsData);
             // Zoom map to fit all events
             fitMapToEvents();
@@ -1152,6 +1152,7 @@
             }
 
     function renderEventsList(eventsToShow) {
+
         const eventsList = document.getElementById('eventsList');
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
