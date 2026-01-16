@@ -624,6 +624,7 @@
             const normalizedStart = normalizeDate(startDate);
             const normalizedEnd = normalizeDate(endDate);
 
+            // Handle specific dates (DD/MM/YYYY)
             if (schedule.includes('/')) {
                 const [day, month, year] = schedule.split('/').map(num => parseInt(num, 10));
                 const specificDate = normalizeDate(new Date(year, month - 1, day));
@@ -633,6 +634,81 @@
                 return results;
             }
 
+            // Handle alternating schedules (e.g., "1st wednesday (even months) | 1st thursday (odd months)")
+            if (schedule.includes('|')) {
+                const parts = schedule.split('|').map(s => s.trim());
+
+                parts.forEach(part => {
+                    // Extract the pattern and condition
+                    const match = part.match(/^(.+?)\s*\((\w+)\s+months\)$/i);
+                    if (!match) return;
+
+                    const pattern = match[1].trim(); // e.g., "1st wednesday"
+                    const condition = match[2].toLowerCase(); // "even" or "odd"
+
+                    // Parse the base pattern
+                    const [occurrence, dayName] = pattern.toLowerCase().split(/\s+/);
+                    const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+                    const targetDay = dayMap[dayName];
+
+                    const current = new Date(normalizedStart.getFullYear(), normalizedStart.getMonth() - 1, 1);
+                    const extendedEnd = new Date(normalizedEnd.getFullYear(), normalizedEnd.getMonth() + 1, 0);
+
+                    while (current <= extendedEnd) {
+                        const year = current.getFullYear();
+                        const month = current.getMonth();
+
+                        // Check if this month matches the condition
+                        const monthNumber = month + 1; // 1-12
+                        const isEvenMonth = monthNumber % 2 === 0;
+                        const matchesCondition = (condition === 'even' && isEvenMonth) ||
+                            (condition === 'odd' && !isEvenMonth);
+
+                        if (!matchesCondition) {
+                            current.setMonth(current.getMonth() + 1);
+                            continue;
+                        }
+
+                        const lastDay = new Date(year, month + 1, 0);
+                        let eventDate = null;
+
+                        if (occurrence === 'last') {
+                            for (let d = lastDay.getDate(); d >= 1; d--) {
+                                const testDate = normalizeDate(new Date(year, month, d));
+                                if (testDate.getDay() === targetDay) {
+                                    eventDate = testDate;
+                                    break;
+                                }
+                            }
+                        } else {
+                            const occurrenceNum = occurrence === '1st' ? 1 :
+                                occurrence === '2nd' ? 2 :
+                                    occurrence === '3rd' ? 3 : 4;
+                            let count = 0;
+                            for (let d = 1; d <= lastDay.getDate(); d++) {
+                                const testDate = normalizeDate(new Date(year, month, d));
+                                if (testDate.getDay() === targetDay) {
+                                    count++;
+                                    if (count === occurrenceNum) {
+                                        eventDate = testDate;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
+                            results.push(eventDate);
+                        }
+
+                        current.setMonth(current.getMonth() + 1);
+                    }
+                });
+
+                return results.sort((a, b) => a - b);
+            }
+
+            // Handle standard recurring schedules (existing code)
             const [occurrence, dayName] = schedule.toLowerCase().split(/\s+/);
             const dayMap = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
             const targetDay = dayMap[dayName];
@@ -707,6 +783,7 @@
                         email: event.email || null,
                         link: event.link || null,
                         schedule: event.schedule || null,
+                        price: event.price || null,
                         location: event.location || null,
                         latlon: event.latlon || null,
                         venue_url: event.venue_url || null,
@@ -1086,7 +1163,7 @@
                 <div class="event-name">${event.name} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
-                <div class="event-date">${dayName}, ${day} ${month} ${year}${scheduleText}${event.time ? `, ${event.time}` : ''} ${priceText}</div>
+                <div class="event-date">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em> ${event.time ? `, ${event.time}` : ''} ${priceText}</div>
                 ${ticketsEventLine} ${expandButton}
             </div>
             ${expandableContent}
@@ -1247,6 +1324,7 @@
                                 time: event.time || null,
                                 location: event.location,
                                 club: event.club,
+                                price: event.price || null,
                                 facebook: event.facebook || null,
                                 email: event.email || null,
                                 link: event.link || null,
