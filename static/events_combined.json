@@ -2651,13 +2651,26 @@
       "name": "Ventnor Folk Club",
       "schedule": "third friday",
       "time": "7-10pm",
-      "location": "Ventnor British Legion, Ventnor, PO38 1LZ ",
+      "location": "Ventnor British Legion, Ventnor, PO38 1LZ",
       "venue_url": "https://www.facebook.com/ventnorlegion/",
       "storiesWelcome": true,
       "exceptions": [],
       "latlon": [
                     50.5966,
                     -1.20076
+                ]
+    },
+    {
+      "name": "Pennine Folk Club",
+      "schedule": "3rd sunday",
+      "time": "1.30-4.30pm",
+      "location": "Stocksmoor Village Hall, Stocksmoor, Huddersfield, HD4 6XN",
+      "venue_url": "https://www.penninefolkclub.org.uk/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    53.59386,
+                    -1.72396
                 ]
     }
   ],
