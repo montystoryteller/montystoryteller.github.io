@@ -656,6 +656,14 @@
             }
         }
 
+        function extractPostcodeArea(location) {
+                if (!location) return '';
+                const parts = location.split(',');
+                const lastPart = parts[parts.length - 1].trim();
+                const postcodeMatch = lastPart.match(/^([A-Z]+)/i);
+                return postcodeMatch ? postcodeMatch[1] : '';
+            }
+
         function initMap() {
             map = L.map('map', {
                 maxBounds: UK_IRELAND_BOUNDS,

@@ -2621,7 +2621,7 @@
                     -2.60893
                 ]
     },
-        {
+    {
       "name": "Star Folk Club",
       "schedule": "2nd sunday",
       "time": "12-3pm",
@@ -2632,6 +2632,32 @@
       "latlon": [
                     50.72797,
                     -1.16252
+                ]
+    },
+    {
+      "name": "Waverley Folk Club",
+      "schedule": "every wednesday",
+      "time": "7-9.30pm",
+      "location": "Waverley, Carisbrooke, PO30 1PA",
+      "venue_url": "https://www.waverleyinn.co.uk/index",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.69165,
+                    -1.31558
+                ]
+    },
+    {
+      "name": "Ventnor Folk Club",
+      "schedule": "third friday",
+      "time": "7-10pm",
+      "location": "Ventnor British Legion, Ventnor, PO38 1LZ ",
+      "venue_url": "https://www.facebook.com/ventnorlegion/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.5966,
+                    -1.20076
                 ]
     }
   ],
