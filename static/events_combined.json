@@ -2649,7 +2649,7 @@
     },
     {
       "name": "Ventnor Folk Club",
-      "schedule": "third friday",
+      "schedule": "3rd friday",
       "time": "7-10pm",
       "location": "Ventnor British Legion, Ventnor, PO38 1LZ",
       "venue_url": "https://www.facebook.com/ventnorlegion/",
@@ -2658,6 +2658,19 @@
       "latlon": [
                     50.5966,
                     -1.20076
+                ]
+    },
+       {
+      "name": "Quay Folk Club",
+      "schedule": "3rd sunday",
+      "time": "7-10pm",
+      "location": "Quay Arts, Newport, Isle of Wight, PO30 5BD",
+      "venue_url": "https://www.quayarts.org/",
+      "byInvitation": true,
+      "exceptions": [],
+      "latlon": [
+                    50.70172,
+                    -1.29177
                 ]
     },
     {

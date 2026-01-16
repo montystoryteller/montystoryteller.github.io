@@ -1183,6 +1183,7 @@
                         exceptions: event.exceptions || null,
                         venue_url,
                         storiesWelcome: event.storiesWelcome || false,
+                        byInvitation: event.byInvitation || null, 
                         isStoryclub: false,
                         isSpecial: false,
                         isMusic: false,
@@ -1218,7 +1219,7 @@
                             latlon: latlon,
                             exceptions: event.exceptions || null,
                             venue_url: venue_url,
-                            storiesWelcome: event.storiesWelcome || false,
+                            storiesWelcome: event.storiesWelcome || false, byInvitation: event.byInvitation || null, 
                             isRescheduled: true,
                             rescheduledTo: reschedule.rescheduledTo,
                             rescheduledToStr: reschedule.rescheduledToStr,
@@ -1602,11 +1603,15 @@
                 storiesWelcomeBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">📖 Stories Welcome</span>';
             }
 
+            let byInvitationBadge = '';
+            if (event.isFolk && event.byInvitation) {
+                byInvitationBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">By Invitation</span>';
+            }
             return `
             <div class="event${storyclubClass}${specialClass}${musicClass}${folkClass}${sessionClass}" 
                  onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
                  data-event-id="${event.name}-${event.date.getTime()}">
-                <div class="event-name">${event.name}${storiesWelcomeBadge} ${allIcons}</div>
+                <div class="event-name">${event.name}${storiesWelcomeBadge}${byInvitationBadge} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
                 <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
