@@ -472,7 +472,18 @@
       "facebook": "https://www.facebook.com/storytellersofnottingham",
       "club": "storytellersnotts",
       "price": "£5",
-      "latlon": [],
+        "alternate_locations": {
+          "odd": {
+            "location": "The Embankment, Nottingham, NG2 2GR",
+            "latlon": [52.94798, -1.15157],
+            "venue_url": "https://www.castlerockbrewery.co.uk/pubs/embankment/"
+          },
+          "even": {
+            "location": "Malt Cross, Nottingham, NG1 6FG",
+            "latlon": [52.95314, -1.15261],
+            "venue_url": "https://maltcross.co.uk/"
+          }
+        },
       "exceptions": ["15/1/2026"]
     },
     {

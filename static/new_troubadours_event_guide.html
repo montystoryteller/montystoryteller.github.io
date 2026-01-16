@@ -756,15 +756,36 @@
             return results;
         }
 
-        function parseExceptionDate(str) {
-                let [d, m, y] = str.split('/').map(Number);
+        function getMonthParity(date) {
+            return ((date.getMonth() + 1) % 2 === 0) ? 'even' : 'odd';
+        }
 
-                // normalize year (assume 00–99 means 2000–2099)
-                if (y < 100) y += 2000;
+        function resolveEventVenue(event, date) {
+            const parity = getMonthParity(date);
 
-                // JS months are 0-based
-                return new Date(y, m - 1, d);
+            let location = event.location;
+            let latlon = event.latlon || null;
+            let venue_url = event.venue_url || null;
+
+            if (event.alternate_locations?.[parity]) {
+                const alt = event.alternate_locations[parity];
+                location = alt.location || location;
+                latlon = alt.latlon || latlon;
+                venue_url = alt.venue_url || venue_url;
             }
+
+            return { location, latlon, venue_url };
+        }
+
+        function parseExceptionDate(str) {
+            let [d, m, y] = str.split('/').map(Number);
+
+            // normalize year (assume 00–99 means 2000–2099)
+            if (y < 100) y += 2000;
+
+            // JS months are 0-based
+            return new Date(y, m - 1, d);
+        }
 
        function evaluateReschedule(startDate, endDate, date, exceptions) {
             const exceptionDate = exceptions.length
@@ -778,6 +799,15 @@
                 exceptionDate <= endDate;
 
 
+           const rescheduledTo =
+               exceptionDate && (scheduledInRange || exceptionInRange)
+                   ? exceptionDate
+                   : null;
+
+            return {
+                isCancelled: Boolean(exceptionDate && scheduledInRange),
+                isRescheduled: Boolean(exceptionInRange),
+                rescheduledTo: rescheduledTo,
                 rescheduledToStr: rescheduledTo
                     ? rescheduledTo.toLocaleDateString('en-GB', {
                         weekday: 'short',
@@ -807,21 +837,23 @@
                 const exceptions = event.exceptions || [];
                 const dates = parseSchedule(event.schedule, startDate, endDate);
                 for (const date of dates) {
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+
                     const eventData = {
                         name: event.name,
                         date: date,
                         time: event.time || null,
-                        location: event.location,
                         club: event.club,
                         facebook: event.facebook || null,
                         email: event.email || null,
                         link: event.link || null,
                         schedule: event.schedule || null,
+                        alternate_locations: event.alternate_locations || null,
                         price: event.price || null,
-                        location: event.location || null,
-                        latlon: event.latlon || null,
+                        location,
+                        latlon,
                         exceptions: event.exceptions || null,
-                        venue_url: event.venue_url || null,
+                        venue_url,
                         isStoryclub: true,
                         isSpecial: false,
                         isMusic: false
@@ -843,21 +875,20 @@
                 }
                 for (const excDate of exceptions) {
                     const date = parseExceptionDate(excDate);
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
                     const eventData = {
                         name: event.name,
                         date: date,
                         time: event.time || null,
-                        location: event.location,
                         club: event.club,
                         facebook: event.facebook || null,
                         email: event.email || null,
                         link: event.link || null,
                         schedule: event.schedule || null,
                         price: event.price || null,
-                        location: event.location || null,
-                        latlon: event.latlon || null,
+                        location: location,
                         exceptions: event.exceptions || null,
-                        venue_url: event.venue_url || null,
+                        venue_url: venue_url,
                         isStoryclub: true,
                         isSpecial: false,
                         isMusic: false
@@ -869,8 +900,9 @@
                         date,
                         exceptions
                     );
-
+                    
                     if (reschedule.isRescheduled) {
+                        console.log(reschedule)
                         eventData.isRescheduled =  reschedule.isRescheduled;
                         eventData.rescheduledTo = reschedule.rescheduledTo;
                         eventData.rescheduledToStr = reschedule.rescheduledToStr;
