@@ -2621,6 +2621,20 @@
                     -2.60893
                 ]
     },
+     {
+      "name": "Travellers Joy Folk Club",
+      "schedule": "1st and 3rd Thursday",
+      "time": "2-4pm",
+      "location": "Travellers Joy, Northwood, Cowes, PO31 8LS",
+      "venue_url": "https://www.thetravellersjoy-iow.co.uk/",
+      "link": "https://forestfolkclub.com/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.74063,
+                    -1.32194
+                ]
+    },
     {
       "name": "Star Folk Club",
       "schedule": "2nd sunday",
