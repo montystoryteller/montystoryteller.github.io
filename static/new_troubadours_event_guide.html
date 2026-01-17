@@ -162,10 +162,11 @@
             font-size: 14px;
         }
 
-        .special .event-location, .music .event-location
-         {
+        .special .event-location,
+        .music .event-location {
             color: #c8e6c9;
         }
+
         .event.hidden {
             display: none;
         }
@@ -323,7 +324,7 @@
             fill: #555555;
             /* inverted from #1eb868 */
         }
-        
+
         .event.folk {
             background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
             border: 2px solid #654321;
@@ -438,79 +439,80 @@
             }
         }
 
-.event-expand-btn {
-    display: block;
-    margin-top: 12px;
-    padding: 6px 12px;
-    background: #4CAF50;
-    color: white;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: fit-content;
-}
+        .event-expand-btn {
+            display: block;
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: fit-content;
+        }
 
-.event-expand-btn:hover {
-    border-bottom-color: #ffffff;
-}
+        .event-expand-btn:hover {
+            border-bottom-color: #ffffff;
+        }
 
-.event-tickets .separator {
-    color: #ffeb3b;
-    margin: 0 8px;
-}
+        .event-tickets .separator {
+            color: #ffeb3b;
+            margin: 0 8px;
+        }
 
-.event.special .event-expand-btn,
-.event.music .event-expand-btn,
-.event.folk .event-expand-btn,
-.event.session .event-expand-btn {
-    background: rgba(255, 255, 255, 0.3);
-}
+        .event.special .event-expand-btn,
+        .event.music .event-expand-btn,
+        .event.folk .event-expand-btn,
+        .event.session .event-expand-btn {
+            background: rgba(255, 255, 255, 0.3);
+        }
 
-.event.special .event-expand-btn:hover,
-.event.music .event-expand-btn:hover,
-.event.folk .event-expand-btn:hover,
-.event.session .event-expand-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
+        .event.special .event-expand-btn:hover,
+        .event.music .event-expand-btn:hover,
+        .event.folk .event-expand-btn:hover,
+        .event.session .event-expand-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
 
-.event-expandable {
-    margin-top: 10px;
-    padding: 15px;
-    background-color: #ffffff;
-    border-left: 4px solid #4CAF50;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    animation: slideDown 0.3s ease-out;
-}
+        .event-expandable {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            animation: slideDown 0.3s ease-out;
+        }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        max-height: 0;
-    }
-    to {
-        opacity: 1;
-        max-height: 1000px;
-    }
-}
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
 
-.event-description {
-    margin-bottom: 15px;
-    color: #333;
-    line-height: 1.6;
-}
+            to {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
 
-.event-description p {
-    margin: 0 0 10px 0;
-}
+        .event-description {
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.event-flyer-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .event-description p {
+            margin: 0 0 10px 0;
+        }
+
+        .event-flyer-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
 
         .info-banner-tabs {
@@ -589,11 +591,11 @@
                     Story shows
                 </label>
                 <label>
-                    <input type="checkbox" checked id="showFolk" onchange="filterEvents()">
+                    <input type="checkbox" id="showFolk" onchange="filterEvents()">
                     Folk clubs
                 </label>
                 <label>
-                    <input type="checkbox" checked id="showSessions" onchange="filterEvents()">
+                    <input type="checkbox" id="showSessions" onchange="filterEvents()">
                     Irish sessions
                 </label>
                 <label>
@@ -604,109 +606,112 @@
         </div>
     </div>
 
-<div
-    style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-    <label style="display: flex; align-items: center; gap: 10px;">
-        <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
-        <span>Pin current map view (don't auto-zoom when changing dates)</span>
-    </label>
-    <div style="display: flex; gap: 10px; align-items: center;">
-        <button onclick="copyShareableLink()" style="background-color: #2196F3;">
-            📋 Copy Shareable Link
-        </button>
-        <span id="copyFeedback" style="color: #4CAF50; font-size: 14px; display: none;">✓ Link copied!</span>
+    <div
+        style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <label style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
+            <span>Pin current map view (don't auto-zoom when changing dates)</span>
+        </label>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <button onclick="copyShareableLink()" style="background-color: #2196F3;">
+                📋 Copy Shareable Link
+            </button>
+            <span id="copyFeedback" style="color: #4CAF50; font-size: 14px; display: none;">✓ Link copied!</span>
+        </div>
     </div>
-</div>
 
     <div class="layout-container">
         <div id="map-container">
             <div id="map"></div>
         </div>
         <div class="events-list" id="eventsList"></div>
-        
+
     </div>
 
-<div class="info-banner-tabs">
-    <div class="info-banner-tabs-header">
-        <span class="header-label">What is/are:</span>
-        <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
-        <span class="separator">|</span>
-        <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
-        <span class="separator">|</span>
-        <button class="header-tab-button" onclick="toggleTabContent('performance')">performance
-            storytelling?</button>
-        <span class="separator">|</span>
-        <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling
-            shows?</button>
-        <span class="separator">|</span>
-        <button class="header-tab-button" onclick="toggleTabContent('folknopenmic')">folk club etiquette?</button>
+    <div class="info-banner-tabs">
+        <div class="info-banner-tabs-header">
+            <span class="header-label">What is/are:</span>
+            <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('performance')">performance
+                storytelling?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling
+                shows?</button>
+            <span class="separator">|</span>
+            <button class="header-tab-button" onclick="toggleTabContent('folknopenmic')">folk club etiquette?</button>
+        </div>
+
+        <div class="tab-content-area" id="storytelling" style="display: none;">
+            <p>For starters, <em>storytelling</em> is not (just) for children... It's an entertaining way of passing the
+                time. But it's also a lot more than that: a way of sharing epic tales and passing on common sense
+                smarts, explaining the landscape, recounting local legends and keeping the memory of people and place
+                alive.</p>
+        </div>
+
+        <div class="tab-content-area" id="circles" style="display: none;">
+            <p><em>Story circles</em> and <em>story clubs</em> are often informal gatherings of tellers and listeners
+                who meet up every so often, in a casual setting, to sit around a table and share tales that last 5 to 8
+                minutes. Stories are <em>told</em> rather than read, and often take the form of folk or traditional
+                tales, as well as myths, legends, and lies, that have been "heard", or "found", rather than "authored",
+                even though they may have been heavily worked on by the teller. By agreement, some story clubs or story
+                circles may provide opportunities for longer stories to be told. Some story clubs may feature
+                <em>performance storytelling</em> from local storytellers or guest storytellers, as well open
+                performance storytelling floor spots.</em>
+            </p>
+        </div>
+
+        <div class="tab-content-area" id="performance" style="display: none;">
+            <p><em>Performance storytelling</em> moves the teller or tellers rather more to centre stage, adopting a
+                more formal setting than a sharing of stories in a story circle, and with the teller clearly taking on a
+                performer role. Stories often take longer in the telling than tales told in story circles, 8 to 15
+                minutes or so, or even longer, up to an hour for many longer traditional tales.</p>
+        </div>
+
+        <div class="tab-content-area" id="storytellingshows" style="display: none;">
+            <p>A <em>storytelling show</em> is a performance event in which one or more storytellers tell one or more
+                tales in a formal or semi-formal setting. A storytelling set, or show, show often shapes several stories
+                to fit an overarching narrative or theme. Not comedy, not theatre, storytelling shows take the performer
+                and audience alike into an eternal moment of remembered times and places that never existed. Which is to
+                say, into a time of <em>once</em>...</p>
+        </div>
+
+        <div class="tab-content-area" id="folknopenmic" style="display: none;">
+            <p>For the purpose of this list, <em>folk nights</em>, <em>folk clubs</em> and <em>open mics</em> are open
+                invitation events where storytellers have previously had a slot. (Folk nights as listed here often
+                define "folk music" in quite broad terms..) <em>Folk nights</em> often have a one or two song policy, so
+                a short 3-5 minute tale. By invitation, (particularly if you have travelled and can demonstrate a
+                performance reputation elsewhere) you may be able to get a longer slot. <em>Folk clubs</em> are slightly
+                more formal and more traditional in their
+                repertoire. Sometimes you might get a second turn, which means you can split a longer tale at a
+                cliff-hanger. <em>Open mics</em> are typically amplified events, though you can often get away with not
+                using the mic. The slots may be more generous, with an up to four song policy, or a 10-12 minute tale,
+                though you should probably work up to that over several sessions to build trust with the organiser and
+                from the audience. To take part in any of these events, give your name to the person running the
+                club/session. Contacting organisers beforehand can also put them on the look out for you.</p>
+        </div>
     </div>
 
-    <div class="tab-content-area" id="storytelling" style="display: none;">
-        <p>For starters, <em>storytelling</em> is not (just) for children... It's an entertaining way of passing the
-            time. But it's also a lot more than that: a way of sharing epic tales and passing on common sense
-            smarts, explaining the landscape, recounting local legends and keeping the memory of people and place
-            alive.</p>
+    <div class="about" id="colophon">
+        <p><em>Hacked together by Tony Hirst in conversation with Claude.ai, inspired by <a
+                    href="https://www.facebook.com/groups/societyforstorytelling/posts/10172947366465461/">a list</a> of
+                storytelling club dates posted by Peter Giles to the Society for Storytelling Facebook group on
+                Saturday, November 29th, 2025.</em></p>
+        <p><em>For corrections, additions, removals, etc., email: <tt>montystoryteller AT gmail DOT com</tt> / web: <a
+                    href="https://montystoryteller.org/"><tt>montystoryteller.org</tt></a> / fb: <a
+                    href="https://www.facebook.com/montystoryteller/"><tt>montystoryteller</tt></a> / insta: <a
+                    href="https://www.instagram.com/montystoryteller/"><tt>montystoryteller</tt></a>. If you're a
+                regular teller at a folk night / open mic that would welcome other tellers, I can add those to the list
+                too... That said, this list is opinionated. So for folk nights and open mics, I may not add the listing
+                until I've visited to check that tellers are welcome.</em></p>
+        <p><em>Show your appreciation by booking me for a gig, or buying a little something for yourself:<a
+                    href="https://www.amazon.co.uk/dp/B0FVYBY4V8">Island Tales</a>; <a
+                    href="https://www.amazon.co.uk/dp/B0FY3TZW81">Protest Tales</a>; <a
+                    href="https://www.amazon.co.uk/dp/B0FW286JLD">Dark Tales</a>.</em></p>
+        <p><em><tt>This website does not collect cookies or tracking information.</tt></em></p>
     </div>
-
-    <div class="tab-content-area" id="circles" style="display: none;">
-        <p><em>Story circles</em> and <em>story clubs</em> are often informal gatherings of tellers and listeners
-            who meet up every so often, in a casual setting, to sit around a table and share tales that last 5 to 8
-            minutes. Stories are <em>told</em> rather than read, and often take the form of folk or traditional
-            tales, as well as myths, legends, and lies, that have been "heard", or "found", rather than "authored",
-            even though they may have been heavily worked on by the teller. By agreement, some story clubs or story
-            circles may provide opportunities for longer stories to be told. Some story clubs may feature
-            <em>performance storytelling</em> from local storytellers or guest storytellers, as well open
-            performance storytelling floor spots.</em>
-        </p>
-    </div>
-
-    <div class="tab-content-area" id="performance" style="display: none;">
-        <p><em>Performance storytelling</em> moves the teller or tellers rather more to centre stage, adopting a
-            more formal setting than a sharing of stories in a story circle, and with the teller clearly taking on a
-            performer role. Stories often take longer in the telling than tales told in story circles, 8 to 15
-            minutes or so, or even longer, up to an hour for many longer traditional tales.</p>
-    </div>
-
-    <div class="tab-content-area" id="storytellingshows" style="display: none;">
-        <p>A <em>storytelling show</em> is a performance event in which one or more storytellers tell one or more
-            tales in a formal or semi-formal setting. A storytelling set, or show, show often shapes several stories
-            to fit an overarching narrative or theme. Not comedy, not theatre, storytelling shows take the performer
-            and audience alike into an eternal moment of remembered times and places that never existed. Which is to
-            say, into a time of <em>once</em>...</p>
-    </div>
-
-    <div class="tab-content-area" id="folknopenmic" style="display: none;">
-        <p>For the purpose of this list, <em>folk nights</em>, <em>folk clubs</em> and <em>open mics</em> are open
-            invitation events where storytellers have previously had a slot. (Folk nights as listed here often
-            define "folk music" in quite broad terms..) <em>Folk nights</em> often have a one or two song policy, so
-            a short 3-5 minute tale. By invitation, (particularly if you have travelled and can demonstrate a performance reputation elsewhere) you may be able to get a longer slot. <em>Folk clubs</em> are slightly more formal and more traditional in their
-            repertoire. Sometimes you might get a second turn, which means you can split a longer tale at a
-            cliff-hanger. <em>Open mics</em> are typically amplified events, though you can often get away with not
-            using the mic. The slots may be more generous, with an up to four song policy, or a 10-12 minute tale,
-            though you should probably work up to that over several sessions to build trust with the organiser and
-            from the audience. To take part in any of these events, give your name to the person running the
-            club/session. Contacting organisers beforehand can also put them on the look out for you.</p>
-    </div>
-</div>
-
-<div class="about" id="colophon">
-    <p><em>Hacked together by Tony Hirst in conversation with Claude.ai, inspired by <a
-                href="https://www.facebook.com/groups/societyforstorytelling/posts/10172947366465461/">a list</a> of
-            storytelling club dates posted by Peter Giles to the Society for Storytelling Facebook group on
-            Saturday, November 29th, 2025.</em></p>
-    <p><em>For corrections, additions, removals, etc., email: <tt>montystoryteller AT gmail DOT com</tt> / web: <a
-                href="https://montystoryteller.org/"><tt>montystoryteller.org</tt></a> / fb: <a
-                href="https://www.facebook.com/montystoryteller/"><tt>montystoryteller</tt></a> / insta: <a
-                href="https://www.instagram.com/montystoryteller/"><tt>montystoryteller</tt></a>. If you're a
-            regular teller at a folk night / open mic that would welcome other tellers, I can add those to the list
-            too... That said, this list is opinionated. So for folk nights and open mics, I may not add the listing until I've visited to check that tellers are welcome.</em></p>
-    <p><em>Show your appreciation by booking me for a gig, or buying a little something for yourself:<a
-                href="https://www.amazon.co.uk/dp/B0FVYBY4V8">Island Tales</a>; <a
-                href="https://www.amazon.co.uk/dp/B0FY3TZW81">Protest Tales</a>; <a
-                href="https://www.amazon.co.uk/dp/B0FW286JLD">Dark Tales</a>.</em></p>
-    <p><em><tt>This website does not collect cookies or tracking information.</tt></em></p>
-</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
@@ -721,9 +726,9 @@
         let pinnedMapView = null;
 
         const UK_IRELAND_BOUNDS = L.latLngBounds(
-                [49.5, -11.0],  // SW corner (Atlantic)
-                [61.0, 2.5]     // NE corner (North Sea)
-            );
+            [49.5, -11.0],  // SW corner (Atlantic)
+            [61.0, 2.5]     // NE corner (North Sea)
+        );
 
         // Load events from JSON file
         async function loadEventsData() {
@@ -763,19 +768,19 @@
         }
 
         function extractPostcodeArea(location) {
-                if (!location) return '';
-                const parts = location.split(',');
-                const lastPart = parts[parts.length - 1].trim();
-                const postcodeMatch = lastPart.match(/^([A-Z]+)/i);
-                return postcodeMatch ? postcodeMatch[1] : '';
-            }
+            if (!location) return '';
+            const parts = location.split(',');
+            const lastPart = parts[parts.length - 1].trim();
+            const postcodeMatch = lastPart.match(/^([A-Z]+)/i);
+            return postcodeMatch ? postcodeMatch[1] : '';
+        }
 
         function initMap() {
             map = L.map('map', {
                 maxBounds: UK_IRELAND_BOUNDS,
                 maxBoundsViscosity: 1.0, minZoom: 5,
                 maxZoom: 16
-                }).setView([53.0, -2.0], 6); // Center on UK
+            }).setView([53.0, -2.0], 6); // Center on UK
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
@@ -1059,7 +1064,7 @@
             return new Date(y, m - 1, d);
         }
 
-       function evaluateReschedule(startDate, endDate, date, exceptions) {
+        function evaluateReschedule(startDate, endDate, date, exceptions) {
             const exceptionDate = exceptions.length
                 ? parseExceptionDate(exceptions[0])
                 : null;
@@ -1071,10 +1076,10 @@
                 exceptionDate <= endDate;
 
 
-           const rescheduledTo =
-               exceptionDate && (scheduledInRange || exceptionInRange)
-                   ? exceptionDate
-                   : null;
+            const rescheduledTo =
+                exceptionDate && (scheduledInRange || exceptionInRange)
+                    ? exceptionDate
+                    : null;
 
             return {
                 isCancelled: Boolean(exceptionDate && scheduledInRange),
@@ -1130,7 +1135,7 @@
                         isSpecial: false,
                         isMusic: false
                     };
-                    
+
                     const reschedule = evaluateReschedule(
                         startDate,
                         endDate,
@@ -1154,7 +1159,7 @@
                         date,
                         exceptions
                     );
-                    
+
                     if (reschedule.isRescheduled) {
                         const eventData = {
                             name: event.name,
@@ -1170,8 +1175,8 @@
                             latlon: latlon,
                             exceptions: event.exceptions || null,
                             venue_url: venue_url,
-                            isRescheduled : true,
-                            rescheduledTo : reschedule.rescheduledTo,
+                            isRescheduled: true,
+                            rescheduledTo: reschedule.rescheduledTo,
                             rescheduledToStr: reschedule.rescheduledToStr,
                             isStoryclub: true,
                             isSpecial: false,
@@ -1289,7 +1294,7 @@
                         exceptions: event.exceptions || null,
                         venue_url,
                         storiesWelcome: event.storiesWelcome || false,
-                        byInvitation: event.byInvitation || null, 
+                        byInvitation: event.byInvitation || null,
                         isStoryclub: false,
                         isSpecial: false,
                         isMusic: false,
@@ -1325,7 +1330,7 @@
                             latlon: latlon,
                             exceptions: event.exceptions || null,
                             venue_url: venue_url,
-                            storiesWelcome: event.storiesWelcome || false, byInvitation: event.byInvitation || null, 
+                            storiesWelcome: event.storiesWelcome || false, byInvitation: event.byInvitation || null,
                             isRescheduled: true,
                             rescheduledTo: reschedule.rescheduledTo,
                             rescheduledToStr: reschedule.rescheduledToStr,
@@ -1420,25 +1425,25 @@
             fitMapToEvents();
         }
 
-    function togglePinMapView() {
-        mapViewPinned = document.getElementById('pinMapView').checked;
+        function togglePinMapView() {
+            mapViewPinned = document.getElementById('pinMapView').checked;
 
-        if (mapViewPinned) {
-            // Save current map view
-            pinnedMapView = {
-                center: map.getCenter(),
-                zoom: map.getZoom()
-            };
-            console.log('Map view pinned:', pinnedMapView);
-        } else {
-            pinnedMapView = null;
-            console.log('Map view unpinned - fitting to current events');
-            // When unpinning, immediately fit to current events
-            fitMapToEvents();
+            if (mapViewPinned) {
+                // Save current map view
+                pinnedMapView = {
+                    center: map.getCenter(),
+                    zoom: map.getZoom()
+                };
+                console.log('Map view pinned:', pinnedMapView);
+            } else {
+                pinnedMapView = null;
+                console.log('Map view unpinned - fitting to current events');
+                // When unpinning, immediately fit to current events
+                fitMapToEvents();
+            }
         }
-    }
 
-    function fitMapToEvents() {
+        function fitMapToEvents() {
             // If map view is pinned, don't auto-zoom
             if (mapViewPinned && pinnedMapView) {
                 map.setView(pinnedMapView.center, pinnedMapView.zoom);
@@ -1471,7 +1476,7 @@
         async function addMarkerForEvent(eventData) {
             // Check if latlon is provided directly
             let coords;
-            
+
             // Accept [lat, lon]
             if (Array.isArray(eventData.latlon) && eventData.latlon.length === 2) {
                 coords = {
@@ -1520,7 +1525,7 @@
                 const marker = L.circleMarker([coords.lat, coords.lon], {
                     radius: radius,
                     fillColor: markerColor,
-                    color:  '#fff', // isStory ? '#666' : '#fff',,
+                    color: '#fff', // isStory ? '#666' : '#fff',,
                     weight: 2,
                     opacity: 1,
                     fillOpacity: isStory ? 0.7 : 0.8
@@ -1563,157 +1568,157 @@
         }
 
         function toggleEventExpandable(eventId, event) {
-                event.stopPropagation(); // Prevent map zoom when clicking the button
-                const expandable = document.getElementById(eventId);
-                if (expandable) {
-                    if (expandable.style.display === 'none') {
-                        expandable.style.display = 'block';
-                    } else {
-                        expandable.style.display = 'none';
-                    }
+            event.stopPropagation(); // Prevent map zoom when clicking the button
+            const expandable = document.getElementById(eventId);
+            if (expandable) {
+                if (expandable.style.display === 'none') {
+                    expandable.style.display = 'block';
+                } else {
+                    expandable.style.display = 'none';
                 }
             }
-
-    function renderEventsList(eventsToShow) {
-
-        const eventsList = document.getElementById('eventsList');
-        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-        if (eventsToShow.length === 0) {
-            eventsList.innerHTML = '<div class="no-events">No events in this view</div>';
-            return;
         }
 
-        console.log(`Rendering ${eventsToShow.length} events`);
+        function renderEventsList(eventsToShow) {
 
-        eventsList.innerHTML = eventsToShow.map(event => {
-            const dayName = daysOfWeek[event.date.getDay()];
-            const day = event.date.getDate();
-            const month = months[event.date.getMonth()];
-            const year = event.date.getFullYear();
-            const scheduleText = event.schedule ? ` (${event.schedule})` : '';
+            const eventsList = document.getElementById('eventsList');
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-            const storyclubClass = event.isStoryclub ? ' storyclub' : '';
-            const specialClass = event.isSpecial ? ' special' : '';
-            const musicClass = event.isMusic ? ' music' : '';
-            const folkClass = event.isFolk ? ' folk' : '';
-            const sessionClass = event.isSession ? ' session' : '';
-
-            // Add Facebook link if available (for regular facebook page/group)
-            let facebookLink = '';
-            if (event.facebook && event.facebook.trim()) {
-                const fbUrl = event.facebook.startsWith('http')
-                    ? event.facebook
-                    : `https://facebook.com/${event.facebook}`;
-                facebookLink = `<a href="${fbUrl}" target="_blank" class="event-facebook" title="Facebook" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+            if (eventsToShow.length === 0) {
+                eventsList.innerHTML = '<div class="no-events">No events in this view</div>';
+                return;
             }
 
-            // Add email link if available
-            let emailLink = '';
-            if (event.email && event.email.trim()) {
-                emailLink = `<a href="mailto:${event.email}" class="event-email" title="Email" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>`;
-            }
+            console.log(`Rendering ${eventsToShow.length} events`);
 
-            // Add website link if available (but not if it's the same as the main event link)
-            let websiteLink = '';
-            if (event.link && event.link.trim()) {
-                websiteLink = `<a href="${event.link}" target="_blank" class="event-website" title="Website" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>`;
-            }
+            eventsList.innerHTML = eventsToShow.map(event => {
+                const dayName = daysOfWeek[event.date.getDay()];
+                const day = event.date.getDate();
+                const month = months[event.date.getMonth()];
+                const year = event.date.getFullYear();
+                const scheduleText = event.schedule ? ` (${event.schedule})` : '';
 
-            // Combine all icons
-            const allIcons = websiteLink + emailLink + facebookLink;
+                const storyclubClass = event.isStoryclub ? ' storyclub' : '';
+                const specialClass = event.isSpecial ? ' special' : '';
+                const musicClass = event.isMusic ? ' music' : '';
+                const folkClass = event.isFolk ? ' folk' : '';
+                const sessionClass = event.isSession ? ' session' : '';
 
-            // Build the tickets/event line for special events
-            let ticketsEventLine = '';
-            if ((event.isSpecial) || (event.isMusic)) {
-                let fbEventIcon = '';
-                if (event.fb_event) {
-                    const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
-                    fbEventIcon = `<a href="${fbEventUrl}" target="_blank" class="event-facebook-inline" title="Facebook Event" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                // Add Facebook link if available (for regular facebook page/group)
+                let facebookLink = '';
+                if (event.facebook && event.facebook.trim()) {
+                    const fbUrl = event.facebook.startsWith('http')
+                        ? event.facebook
+                        : `https://facebook.com/${event.facebook}`;
+                    facebookLink = `<a href="${fbUrl}" target="_blank" class="event-facebook" title="Facebook" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
                 }
 
-                let ticketText = '';
-                if (event.ticket_url && event.ticket_url.trim()) {
-                    ticketText = `<a href="${event.ticket_url}" target="_blank">Tickets available here</a>`;
+                // Add email link if available
+                let emailLink = '';
+                if (event.email && event.email.trim()) {
+                    emailLink = `<a href="mailto:${event.email}" class="event-email" title="Email" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>`;
                 }
 
-                // Combine with separator if both exist
-                if (fbEventIcon && ticketText) {
-                    ticketsEventLine = `<div class="event-tickets">${ticketText} <span class="separator">|</span> ${fbEventIcon}</div>`;
-                } else if (fbEventIcon || ticketText) {
-                    ticketsEventLine = `<div class="event-tickets">${fbEventIcon}${ticketText}</div>`;
-                }
-            }
-
-            // Process location with venue link if available
-            let locationText = '';
-            if (event.location) {
-                let locationDisplay = event.location;
-                if (event.venue_url && event.venue_url.trim()) {
-                    // Extract venue name (text before first comma, or entire location if no comma)
-                    const commaIndex = event.location.indexOf(',');
-                    const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
-                    const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
-                    locationDisplay = `<a href="${event.venue_url}" target="_blank" style="text-decoration: none; color: inherit;"><strong>${venueName}</strong></a>${restOfLocation}`;
-
-                }
-                locationText = `<div class="event-location">${locationDisplay}</div>`;
-            }
-
-            let priceText = '';
-            if (event.price && event.price.trim()) {
-                priceText = ` • ${event.price}`;
-            }
-
-            let timeText = '';
-            if (event.time && event.time.trim()) {
-                timeText = ` • ${event.time}`;
-            }
-
-            // Check if there's expandable content (flyer or description)
-            const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
-                (event.description && event.description.trim());
-
-            const expandableId = hasExpandableContent ? `event-expand-${Math.random().toString(36).substr(2, 9)}` : '';
-
-            let expandButton = '';
-            let expandableContent = '';
-
-            if (hasExpandableContent) {
-                expandButton = ` <div class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">More info...</div>`;
-
-                let flyerHtml = '';
-                if (event.event_flyer && event.event_flyer.trim()) {
-                    flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                // Add website link if available (but not if it's the same as the main event link)
+                let websiteLink = '';
+                if (event.link && event.link.trim()) {
+                    websiteLink = `<a href="${event.link}" target="_blank" class="event-website" title="Website" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>`;
                 }
 
-                let descriptionHtml = '';
-                if (event.description && event.description.trim()) {
-                    const paragraphs = event.description.split('\n\n\n\n').map(p =>
-                        p.trim() ? `<p>${p.replace(/\n\n/g, '<br>')}</p>` : ''
-                    ).join('');
-                    descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
+                // Combine all icons
+                const allIcons = websiteLink + emailLink + facebookLink;
+
+                // Build the tickets/event line for special events
+                let ticketsEventLine = '';
+                if ((event.isSpecial) || (event.isMusic)) {
+                    let fbEventIcon = '';
+                    if (event.fb_event) {
+                        const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
+                        fbEventIcon = `<a href="${fbEventUrl}" target="_blank" class="event-facebook-inline" title="Facebook Event" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                    }
+
+                    let ticketText = '';
+                    if (event.ticket_url && event.ticket_url.trim()) {
+                        ticketText = `<a href="${event.ticket_url}" target="_blank">Tickets available here</a>`;
+                    }
+
+                    // Combine with separator if both exist
+                    if (fbEventIcon && ticketText) {
+                        ticketsEventLine = `<div class="event-tickets">${ticketText} <span class="separator">|</span> ${fbEventIcon}</div>`;
+                    } else if (fbEventIcon || ticketText) {
+                        ticketsEventLine = `<div class="event-tickets">${fbEventIcon}${ticketText}</div>`;
+                    }
                 }
 
-                expandableContent = `
+                // Process location with venue link if available
+                let locationText = '';
+                if (event.location) {
+                    let locationDisplay = event.location;
+                    if (event.venue_url && event.venue_url.trim()) {
+                        // Extract venue name (text before first comma, or entire location if no comma)
+                        const commaIndex = event.location.indexOf(',');
+                        const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
+                        const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
+                        locationDisplay = `<a href="${event.venue_url}" target="_blank" style="text-decoration: none; color: inherit;"><strong>${venueName}</strong></a>${restOfLocation}`;
+
+                    }
+                    locationText = `<div class="event-location">${locationDisplay}</div>`;
+                }
+
+                let priceText = '';
+                if (event.price && event.price.trim()) {
+                    priceText = ` • ${event.price}`;
+                }
+
+                let timeText = '';
+                if (event.time && event.time.trim()) {
+                    timeText = ` • ${event.time}`;
+                }
+
+                // Check if there's expandable content (flyer or description)
+                const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
+                    (event.description && event.description.trim());
+
+                const expandableId = hasExpandableContent ? `event-expand-${Math.random().toString(36).substr(2, 9)}` : '';
+
+                let expandButton = '';
+                let expandableContent = '';
+
+                if (hasExpandableContent) {
+                    expandButton = ` <div class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">More info...</div>`;
+
+                    let flyerHtml = '';
+                    if (event.event_flyer && event.event_flyer.trim()) {
+                        flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                    }
+
+                    let descriptionHtml = '';
+                    if (event.description && event.description.trim()) {
+                        const paragraphs = event.description.split('\n\n\n\n').map(p =>
+                            p.trim() ? `<p>${p.replace(/\n\n/g, '<br>')}</p>` : ''
+                        ).join('');
+                        descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
+                    }
+
+                    expandableContent = `
                 <div class="event-expandable" id="${expandableId}" style="display: none;">
                     ${descriptionHtml}
                     ${flyerHtml}
                 </div>
             `;
-            }
+                }
 
-            let storiesWelcomeBadge = '';
-            if (event.isFolk && event.storiesWelcome) {
-                storiesWelcomeBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">📖 Stories Welcome</span>';
-            }
+                let storiesWelcomeBadge = '';
+                if (event.isFolk && event.storiesWelcome) {
+                    storiesWelcomeBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">📖 Stories Welcome</span>';
+                }
 
-            let byInvitationBadge = '';
-            if (event.isFolk && event.byInvitation) {
-                byInvitationBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">By Invitation</span>';
-            }
-            return `
+                let byInvitationBadge = '';
+                if (event.isFolk && event.byInvitation) {
+                    byInvitationBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">By Invitation</span>';
+                }
+                return `
             <div class="event${storyclubClass}${specialClass}${musicClass}${folkClass}${sessionClass}" 
                  onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
                  data-event-id="${event.name}-${event.date.getTime()}">
@@ -1725,10 +1730,10 @@
             </div>
             ${expandableContent}
         `;
-        }).join('');
+            }).join('');
 
-        filterEvents();
-    }
+            filterEvents();
+        }
 
         function zoomToEvent(lat, lon) {
             if (lat && lon) {
@@ -1940,7 +1945,7 @@
 
                     // Check if matches search term
                     const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
-                    console.log(searchableText,"....", searchTerm )
+                    console.log(searchableText, "....", searchTerm)
                     if (searchableText.includes(searchTerm.toLowerCase())) {
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
@@ -2026,23 +2031,23 @@
         }
 
         function updateDateInputs(startDate, endDate) {
-                // Format dates as YYYY-MM-DD for the date inputs
-                const formatForInput = (date) => {
-                    const year = date.getFullYear();
-                    const month = String(date.getMonth() + 1).padStart(2, '0');
-                    const day = String(date.getDate()).padStart(2, '0');
-                    return `${year}-${month}-${day}`;
-                };
+            // Format dates as YYYY-MM-DD for the date inputs
+            const formatForInput = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
 
-                document.getElementById('startDate').value = formatForInput(startDate);
-                document.getElementById('endDate').value = formatForInput(endDate);
-            }
+            document.getElementById('startDate').value = formatForInput(startDate);
+            document.getElementById('endDate').value = formatForInput(endDate);
+        }
 
         function showThisWeek() {
             const today = new Date();
             const weekStart = getWeekStart(today);
             const weekEnd = getWeekEnd(weekStart);
-            updateDateInputs(weekStart, weekEnd); 
+            updateDateInputs(weekStart, weekEnd);
             displayEvents(weekStart, weekEnd);
             setActiveMode('thisWeek');
         }
@@ -2058,106 +2063,115 @@
             setActiveMode(weeksAhead > 0 ? `nextWeek${weeksAhead}` : `lastWeek${Math.abs(weeksAhead)}`);
         }
 
-    function showDateRange(clearActiveButton = true) {
-        const startInput = document.getElementById('startDate').value;
-        const endInput = document.getElementById('endDate').value;
+        function showDateRange(clearActiveButton = true) {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
 
-        if (!startInput) {
-            alert('Please select at least a start date');
-            return;
-        }
+            if (!startInput) {
+                alert('Please select at least a start date');
+                return;
+            }
 
-        const startDate = new Date(startInput);
-        const endDate = endInput ? new Date(endInput) : getWeekEnd(getWeekStart(startDate));
-        displayEvents(startDate, endDate);
+            const startDate = new Date(startInput);
+            const endDate = endInput ? new Date(endInput) : getWeekEnd(getWeekStart(startDate));
+            displayEvents(startDate, endDate);
 
-        // Only clear active button styling when manually using custom date range
-        if (clearActiveButton) {
-            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
-        }
-    }
-    let lastStartDate = '';
-    let lastEndDate = '';
-
-    function formatDateForInput(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    }
-
-    function handleStartDateChange() {
-        const startInput = document.getElementById('startDate').value;
-        const endInput = document.getElementById('endDate').value;
-
-        if (startInput && endInput) {
-            const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
-            const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
-
-            const startDate = new Date(startYear, startMonth - 1, startDay);
-            const endDate = new Date(endYear, endMonth - 1, endDay);
-
-            // Start date changed - if it's now after end date, adjust end to end of start's week
-            if (startDate > endDate) {
-                const weekEnd = getWeekEnd(getWeekStart(startDate));
-                document.getElementById('endDate').value = formatDateForInput(weekEnd);
+            // Only clear active button styling when manually using custom date range
+            if (clearActiveButton) {
+                document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
             }
         }
+        let lastStartDate = '';
+        let lastEndDate = '';
 
-        if (startInput) {
-            showDateRange(true);
-        }
-    }
-
-    function handleEndDateChange() {
-        const startInput = document.getElementById('startDate').value;
-        const endInput = document.getElementById('endDate').value;
-
-        if (startInput && endInput) {
-            const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
-            const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
-
-            const startDate = new Date(startYear, startMonth - 1, startDay);
-            const endDate = new Date(endYear, endMonth - 1, endDay);
-
-            // End date changed - if it's now before start date, adjust start to beginning of end's week
-            if (endDate < startDate) {
-                const weekStart = getWeekStart(endDate);
-                document.getElementById('startDate').value = formatDateForInput(weekStart);
-            }
-        }
-
-        if (startInput) {
-            showDateRange(true);
-        }
-    }
-
- function generateShareableURL(startDate, endDate) {
-        const formatForInput = (date) => {
+        function formatDateForInput(date) {
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0');
             const day = String(date.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
-        };
-
-        const params = new URLSearchParams();
-        params.set('start', formatForInput(startDate));
-        params.set('end', formatForInput(endDate));
-
-        // Add filter states
-        params.set('storyclubs', document.getElementById('storyclubsOn').checked ? '1' : '0');
-        params.set('special', document.getElementById('specialOn').checked ? '1' : '0');
-        params.set('music', document.getElementById('showMusic').checked ? '1' : '0');
-        params.set('folk', document.getElementById('showFolk').checked ? '1' : '0');
-        params.set('sessions', document.getElementById('showSessions').checked ? '1' : '0');
-
-        const searchTerm = document.getElementById('searchInput').value.trim();
-        if (searchTerm) {
-            params.set('q', searchTerm);
         }
 
-        return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-    }
+        function handleStartDateChange() {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (startInput && endInput) {
+                const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
+                const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
+
+                const startDate = new Date(startYear, startMonth - 1, startDay);
+                const endDate = new Date(endYear, endMonth - 1, endDay);
+
+                // Start date changed - if it's now after end date, adjust end to end of start's week
+                if (startDate > endDate) {
+                    const weekEnd = getWeekEnd(getWeekStart(startDate));
+                    document.getElementById('endDate').value = formatDateForInput(weekEnd);
+                }
+            }
+
+            if (startInput) {
+                showDateRange(true);
+            }
+        }
+
+        function handleEndDateChange() {
+            const startInput = document.getElementById('startDate').value;
+            const endInput = document.getElementById('endDate').value;
+
+            if (startInput && endInput) {
+                const [startYear, startMonth, startDay] = startInput.split('-').map(Number);
+                const [endYear, endMonth, endDay] = endInput.split('-').map(Number);
+
+                const startDate = new Date(startYear, startMonth - 1, startDay);
+                const endDate = new Date(endYear, endMonth - 1, endDay);
+
+                // End date changed - if it's now before start date, adjust start to beginning of end's week
+                if (endDate < startDate) {
+                    const weekStart = getWeekStart(endDate);
+                    document.getElementById('startDate').value = formatDateForInput(weekStart);
+                }
+            }
+
+            if (startInput) {
+                showDateRange(true);
+            }
+        }
+
+        function generateShareableURL(startDate, endDate) {
+            const formatForInput = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
+
+            const params = new URLSearchParams();
+            params.set('start', formatForInput(startDate));
+            params.set('end', formatForInput(endDate));
+
+            // Add filter states
+            params.set('storyclubs', document.getElementById('storyclubsOn').checked ? '1' : '0');
+            params.set('special', document.getElementById('specialOn').checked ? '1' : '0');
+            params.set('music', document.getElementById('showMusic').checked ? '1' : '0');
+            params.set('folk', document.getElementById('showFolk').checked ? '1' : '0');
+            params.set('sessions', document.getElementById('showSessions').checked ? '1' : '0');
+
+            const center = map.getCenter();
+            const lat = center.lat;
+            const lng = center.lng;
+            const zoom = map.getZoom();
+            params.set('lat', lat);
+            params.set('lng', lng);
+            params.set('zoom', zoom);
+            params.set('pinmap', document.getElementById('pinMapView').checked ? '1' : '0');
+
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (searchTerm) {
+                params.set('q', searchTerm);
+            }
+
+            return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        }
 
         async function copyShareableLink() {
             const startInput = document.getElementById('startDate').value;
@@ -2198,64 +2212,71 @@
         }
 
         function getURLParams() {
-                const params = new URLSearchParams(window.location.search);
-                const start = params.get('start');
-                const end = params.get('end');
+            const params = new URLSearchParams(window.location.search);
+            const start = params.get('start');
+            const end = params.get('end');
 
-                if (start) {
-                    const storyclubs = params.get('storyclubs') === '1';
-                    const special = params.get('special') === '1';
-                    const music = params.get('music') === '1';
-                    const folk = params.get('folk') === '1';
-                    const sessions = params.get('sessions') === '1';
+            if (start) {
+                const storyclubs = params.get('storyclubs') === '1';
+                const special = params.get('special') === '1';
+                const music = params.get('music') === '1';
+                const folk = params.get('folk') === '1';
+                const sessions = params.get('sessions') === '1';
+                const pinmap = params.get('pinmap') === '1';
+                const zoom = params.get('zoom') ? parseInt(params.get('zoom'), 10) : 6;;
+                const lat = params.get('lat') ? parseFloat(params.get('lat')) : 53.0;
+                const lng = params.get('lng') ? parseFloat(params.get('lng')) : 0.0;
+                // If none are selected, default storyclubs and special to true
+                const noneSelected = !storyclubs && !special && !music && !folk && !sessions;
 
-                    // If none are selected, default storyclubs and special to true
-                    const noneSelected = !storyclubs && !special && !music && !folk && !sessions;
+                const q = params.get('q');
 
-                    const q = params.get('q');
-
-                    return {
-                        startDate: new Date(start),
-                        endDate: end ? new Date(end) : null,
-                        storyclubs: noneSelected ? true : storyclubs,
-                        special: noneSelected ? true : special,
-                        folk: noneSelected ? true : folk,
-                        sessions: noneSelected ? true : sessions,
-                        music: music,
-                        searchTerm: q
-                    };
-                }
-                return null;
+                return {
+                    startDate: new Date(start),
+                    endDate: end ? new Date(end) : null,
+                    storyclubs: noneSelected ? true : storyclubs,
+                    special: noneSelected ? true : special,
+                    folk: noneSelected ? true : folk,
+                    sessions: noneSelected ? true : sessions,
+                    music: music,
+                    pinmap: pinmap,
+                    lat: lat,
+                    lng: lng,
+                    zoom: zoom,
+                    searchTerm: q
+                };
             }
-
-
-    function toggleTabContent(tabId) {
-        const allTabs = document.querySelectorAll('.tab-content-area');
-        const clickedTab = document.getElementById(tabId);
-        const allButtons = document.querySelectorAll('.header-tab-button');
-
-        // If clicking the already-open tab, close it
-        if (clickedTab.style.display === 'block') {
-            clickedTab.style.display = 'none';
-            event.target.classList.remove('active');
-        } else {
-            // Close all tabs
-            allTabs.forEach(tab => tab.style.display = 'none');
-            allButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Open clicked tab
-            clickedTab.style.display = 'block';
-            event.target.classList.add('active');
+            return null;
         }
-    }
+
+
+        function toggleTabContent(tabId) {
+            const allTabs = document.querySelectorAll('.tab-content-area');
+            const clickedTab = document.getElementById(tabId);
+            const allButtons = document.querySelectorAll('.header-tab-button');
+
+            // If clicking the already-open tab, close it
+            if (clickedTab.style.display === 'block') {
+                clickedTab.style.display = 'none';
+                event.target.classList.remove('active');
+            } else {
+                // Close all tabs
+                allTabs.forEach(tab => tab.style.display = 'none');
+                allButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Open clicked tab
+                clickedTab.style.display = 'block';
+                event.target.classList.add('active');
+            }
+        }
 
         // Initialize
         window.addEventListener('load', async () => {
-                await loadEventsData();
-                initMap();
+            await loadEventsData();
+            initMap();
 
-                // Check for URL parameters first
-                const urlParams = getURLParams();
+            // Check for URL parameters first
+            const urlParams = getURLParams();
             if (urlParams) {
                 const startDate = urlParams.startDate;
                 const endDate = urlParams.endDate || getWeekEnd(getWeekStart(startDate));
@@ -2267,6 +2288,21 @@
                 document.getElementById('showSessions').checked = urlParams.sessions;
 
                 updateDateInputs(startDate, endDate);
+
+                document.getElementById('pinMapView').checked = urlParams.pinmap;
+                console.log("pinmap", urlParams, urlParams.pinmap)
+                mapViewPinned = urlParams.pinmap;
+
+                // Apply specific map view if provided
+                if (urlParams.lat && urlParams.lng && urlParams.zoom) {
+                    map.setView([urlParams.lat, urlParams.lng], urlParams.zoom);
+                    if (mapViewPinned) {
+                        pinnedMapView = {
+                            center: [urlParams.lat, urlParams.lng],
+                            zoom: urlParams.zoom
+                        };
+                    }
+                }
 
                 //  restore search term
                 if (urlParams.searchTerm) {
@@ -2280,8 +2316,8 @@
             } else {
                 showThisWeek();
             }
-            });
-            
+        });
+
     </script>
 </body>
 
