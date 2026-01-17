@@ -2627,6 +2627,7 @@
       "time": "2-4pm",
       "location": "Travellers Joy, Northwood, Cowes, PO31 8LS",
       "venue_url": "https://www.thetravellersjoy-iow.co.uk/",
+      "facebook": "https://www.facebook.com/groups/334736596708368",
       "storiesWelcome": true,
       "exceptions": [],
       "latlon": [
@@ -2653,6 +2654,7 @@
       "time": "7-9.30pm",
       "location": "Waverley, Carisbrooke, PO30 1PA",
       "venue_url": "https://www.waverleyinn.co.uk/index",
+      "facebook": "https://www.facebook.com/groups/2033281523395054",
       "storiesWelcome": true,
       "exceptions": [],
       "latlon": [
@@ -2680,7 +2682,7 @@
       "location": "Quay Arts, Newport, Isle of Wight, PO30 5BD",
       "venue_url": "https://www.quayarts.org/",
       "byInvitation": true,
-      "link": "https://www.facebook.com/groups/334736596708368",
+      "facebook": "https://www.facebook.com/groups/334736596708368",
       "exceptions": [],
       "latlon": [
                     50.70172,
