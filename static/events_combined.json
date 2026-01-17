@@ -2660,7 +2660,7 @@
                     -1.20076
                 ]
     },
-       {
+    {
       "name": "Quay Folk Club",
       "schedule": "3rd sunday",
       "time": "7-10pm",
@@ -2671,6 +2671,33 @@
       "latlon": [
                     50.70172,
                     -1.29177
+                ]
+    },
+    {
+      "name": "Bay Folk Night",
+      "schedule": "2nd thursday",
+      "time": "7-10pm",
+      "price": "£2 suggested",
+      "location": "Porter Club, Lake, PO36 9LE",
+      "venue_url": "https://www.facebook.com/people/Porter-Club-Ltd/100065241022858/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.6462,
+                    -1.16883
+                ]
+    },
+     {
+      "name": "Arreton Barns Folk Night",
+      "schedule": "every tuesday",
+      "time": "8-10pm",
+      "location": "Dairyman's Daughter, Arreton, PO30 3AA",
+      "venue_url": "https://dairymansdaughter.co.uk/",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    50.67772,
+                    -1.24635
                 ]
     },
     {
