@@ -212,17 +212,20 @@
 
 
         /* SPECIAL event override — white circle, blue F */
+        .folk svg,
         .event-facebook-inline svg {
             fill: #ffffff;
             /* make whole shape white */
         }
 
         /* SPECIAL event + hover (if you want the F to stay blue on hover) */
+        .folk svg,
         .event-facebook-inline:hover svg {
             fill: #ffffff;
         }
 
         /* Then recolor only the F using stroke */
+        .folk svg path,
         .event-facebook-inline svg path {
             stroke: #1877f2;
             /* FB blue outline = F shape */
