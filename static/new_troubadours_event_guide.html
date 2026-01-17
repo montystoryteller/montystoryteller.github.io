@@ -1614,7 +1614,7 @@
                 <div class="event-name">${event.name}${storiesWelcomeBadge}${byInvitationBadge} ${allIcons}</div>
                 ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
                 ${locationText}
-                <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}${event.isRescheduled ? '' : scheduleText}`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
+                <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}<em>${event.isRescheduled ? '' : scheduleText}</em>`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
                 ${ticketsEventLine} ${expandButton}
             </div>
             ${expandableContent}
