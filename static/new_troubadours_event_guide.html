@@ -1545,6 +1545,35 @@
             map.fitBounds(bounds, { padding: [50, 50] });
         }
 
+        // Color coding: grey for story clubs, green for special events, blue for music
+        const EVENT_COLORS = {
+            session: '#90ee90',
+            folk: '#8b4513',
+            music: '#443cd7',
+            special: '#4CAF50',
+            storyclub: '#808080',
+            default: '#808080'
+        };
+
+        const EVENT_MARKER_CONFIG = {
+            session: { radius: 8, fillOpacity: 0.8 },
+            folk: { radius: 8, fillOpacity: 0.8 },
+            music: { radius: 8, fillOpacity: 0.8 },
+            special: { radius: 8, fillOpacity: 0.8 },
+            storyclub: { radius: 8, fillOpacity: 0.7 },
+            default: { radius: 5, fillOpacity: 0.8 }
+        };
+
+        // Helper function to get event type
+        function getEventType(eventData) {
+            if (eventData.isSession) return 'session';
+            if (eventData.isFolk) return 'folk';
+            if (eventData.isMusic) return 'music';
+            if (eventData.isSpecial) return 'special';
+            if (eventData.isStoryclub) return 'storyclub';
+            return 'default';
+        }
+
         async function addMarkerForEvent(eventData) {
             // Check if latlon is provided directly
             let coords;
@@ -1578,29 +1607,17 @@
             if (coords) {
                 eventData.coords = coords;
 
-                // Color coding: grey for story clubs, green for special events, blue for music
-                const markerColor =
-                    eventData.isSession ? '#90ee90' :
-                        eventData.isFolk ? '#8b4513' :
-                            eventData.isMusic ? '#443cd7' :
-                                eventData.isSpecial ? '#4CAF50' :
-                                    '#808080';
-
-
-                const isStory = eventData.isStoryclub;
-                const radius = // if required have different size markers
-                    isStory ? 8 :
-                        eventData.isSpecial ? 8 :
-                            eventData.isMusic ? 8 :
-                                5;
+                const eventType = getEventType(eventData);
+                const markerColor = EVENT_COLORS[eventType];
+                const markerConfig = EVENT_MARKER_CONFIG[eventType];
 
                 const marker = L.circleMarker([coords.lat, coords.lon], {
-                    radius: radius,
+                    radius: markerConfig.radius,
                     fillColor: markerColor,
-                    color: '#fff', // isStory ? '#666' : '#fff',,
+                    color: '#fff',
                     weight: 2,
                     opacity: 1,
-                    fillOpacity: isStory ? 0.7 : 0.8
+                    fillOpacity: markerConfig.fillOpacity
                 }).addTo(map);
 
                 marker.bindPopup(createSafePopup(eventData));
@@ -2092,44 +2109,44 @@
             markers.forEach(marker => map.removeLayer(marker));
             markers = [];
 
-            // Check if story clubs filter is enabled
-            const storyclubsOn = document.getElementById('storyclubsOn').checked;
+            // The checkboxes will filter visibility after loading
 
-            // Search recurring story club events if enabled
-            if (storyclubsOn) {
-                for (const event of eventsData.events || []) {
-                    const searchableText = `${event.name} ${event.location} ${event.club || ''}`.toLowerCase();
-                    if (searchableText.includes(searchTerm)) {
-                        // Find the next occurrence of this recurring event
-                        const dates = parseSchedule(event.schedule, today, futureDate);
-                        if (dates.length > 0) {
-                            // Just show the first (next) occurrence
-                            const nextDate = dates[0];
-                            const eventData = {
-                                name: event.name,
-                                date: nextDate,
-                                time: event.time || null,
-                                location: event.location,
-                                club: event.club,
-                                price: event.price || null,
-                                facebook: event.facebook || null,
-                                email: event.email || null,
-                                link: event.link || null,
-                                schedule: event.schedule || null,
-                                latlon: event.latlon || null,
-                                venue_url: event.venue_url || null,
-                                isStoryclub: true,
-                                isSpecial: false,
-                                isMusic: false
-                            };
-                            allEventsData.push(eventData);
-                            await addMarkerForEvent(eventData);
-                        }
+            // Search recurring story club events (load regardless of checkbox)
+            for (const event of eventsData.events || []) {
+                const searchableText = `${event.name} ${event.location} ${event.club || ''}`.toLowerCase();
+                if (searchableText.includes(searchTerm)) {
+                    // Find the next occurrence of this recurring event
+                    const dates = parseSchedule(event.schedule, today, futureDate);
+                    if (dates.length > 0) {
+                        // Just show the first (next) occurrence
+                        const nextDate = dates[0];
+                        const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
+                        const eventData = {
+                            name: event.name,
+                            date: nextDate,
+                            time: event.time || null,
+                            location: location,
+                            club: event.club,
+                            price: event.price || null,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            latlon: latlon,
+                            venue_url: venue_url,
+                            isStoryclub: true,
+                            isSpecial: false,
+                            isMusic: false,
+                            isFolk: false,
+                            isSession: false
+                        };
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
                     }
                 }
             }
 
-            // Only load specific events and music events (not recurring story clubs)
+            // Search specific events (story shows)
             for (const event of eventsData.specificEvents || []) {
                 if (!event.date) continue;
 
@@ -2142,34 +2159,35 @@
 
                 const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= today && eventDate <= futureDate) {
-                    const eventData = {
-                        name: event.name,
-                        date: eventDate,
-                        time: event.time || null,
-                        location: event.location,
-                        performer: event.performer,
-                        description: event.description || null,
-                        event_flyer: event.event_flyer || null,
-                        latlon: event.latlon || null,
-                        fb_event: event.fb_event || null,
-                        ticket_url: event.ticket_url || null,
-                        price: event.price || null,
-                        venue_url: event.venue_url || null,
-                        isStoryclub: false,
-                        isSpecial: true,
-                        isMusic: false
-                    };
+                    const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
 
-                    // Check if matches search term
-                    const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
-                    console.log(searchableText, "....", searchTerm)
-                    if (searchableText.includes(searchTerm.toLowerCase())) {
+                    if (searchableText.includes(searchTerm)) {
+                        const eventData = {
+                            name: event.name,
+                            date: eventDate,
+                            time: event.time || null,
+                            location: event.location,
+                            performer: event.performer,
+                            description: event.description || null,
+                            event_flyer: event.event_flyer || null,
+                            latlon: event.latlon || null,
+                            fb_event: event.fb_event || null,
+                            ticket_url: event.ticket_url || null,
+                            price: event.price || null,
+                            venue_url: event.venue_url || null,
+                            isStoryclub: false,
+                            isSpecial: true,
+                            isMusic: false,
+                            isFolk: false,
+                            isSession: false
+                        };
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
                 }
             }
 
+            // Search music events
             for (const event of eventsData.musicEvents || []) {
                 if (!event.date) continue;
 
@@ -2182,27 +2200,96 @@
 
                 const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= today && eventDate <= futureDate) {
-                    const eventData = {
-                        name: event.name,
-                        date: eventDate,
-                        time: event.time || null,
-                        location: event.location,
-                        performer: event.performer,
-                        description: event.description || null,
-                        event_flyer: event.event_flyer || null,
-                        fb_event: event.fb_event || null,
-                        ticket_url: event.ticket_url || null,
-                        price: event.price || null,
-                        latlon: event.latlon || null,
-                        venue_url: event.venue_url || null,
-                        isStoryclub: false,
-                        isSpecial: false,
-                        isMusic: true
-                    };
+                    const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
 
-                    // Check if matches search term
-                    const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
                     if (searchableText.includes(searchTerm)) {
+                        const eventData = {
+                            name: event.name,
+                            date: eventDate,
+                            time: event.time || null,
+                            location: event.location,
+                            performer: event.performer,
+                            description: event.description || null,
+                            event_flyer: event.event_flyer || null,
+                            fb_event: event.fb_event || null,
+                            ticket_url: event.ticket_url || null,
+                            price: event.price || null,
+                            latlon: event.latlon || null,
+                            venue_url: event.venue_url || null,
+                            isStoryclub: false,
+                            isSpecial: false,
+                            isMusic: true,
+                            isFolk: false,
+                            isSession: false
+                        };
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+
+            // Search folk nights
+            for (const event of eventsData.folkNights || []) {
+                const searchableText = `${event.name} ${event.location} ${event.club || ''}`.toLowerCase();
+                if (searchableText.includes(searchTerm)) {
+                    const dates = parseSchedule(event.schedule, today, futureDate);
+                    if (dates.length > 0) {
+                        const nextDate = dates[0];
+                        const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
+                        const eventData = {
+                            name: event.name,
+                            date: nextDate,
+                            time: event.time || null,
+                            location: location,
+                            club: event.club,
+                            price: event.price || null,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            latlon: latlon,
+                            venue_url: venue_url,
+                            storiesWelcome: event.storiesWelcome || false,
+                            byInvitation: event.byInvitation || null,
+                            isStoryclub: false,
+                            isSpecial: false,
+                            isMusic: false,
+                            isFolk: true,
+                            isSession: false
+                        };
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+
+            // Search Irish sessions
+            for (const event of eventsData.irishSessions || []) {
+                const searchableText = `${event.name} ${event.location} ${event.club || ''}`.toLowerCase();
+                if (searchableText.includes(searchTerm)) {
+                    const dates = parseSchedule(event.schedule, today, futureDate);
+                    if (dates.length > 0) {
+                        const nextDate = dates[0];
+                        const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
+                        const eventData = {
+                            name: event.name,
+                            date: nextDate,
+                            time: event.time || null,
+                            location: location,
+                            club: event.club,
+                            price: event.price || null,
+                            facebook: event.facebook || null,
+                            email: event.email || null,
+                            link: event.link || null,
+                            schedule: event.schedule || null,
+                            latlon: latlon,
+                            venue_url: venue_url,
+                            isStoryclub: false,
+                            isSpecial: false,
+                            isMusic: false,
+                            isFolk: false,
+                            isSession: true
+                        };
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2221,10 +2308,10 @@
             fitMapToEvents();
 
             if (allEventsData.length === 0) {
-                eventsList.innerHTML = `<div class="no-events">No upcoming events found matching "${rawSearchTerm}"</div>`;
+                const eventsList = document.getElementById('eventsList');
+                eventsList.innerHTML = `<div class="no-events">No upcoming events found matching "${searchTerm}"</div>`;
             }
         }
-
         function getWeekStart(date) {
             const d = new Date(date);
             const day = d.getDay();
