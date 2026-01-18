@@ -100,11 +100,14 @@
       "name": "Matlock storytelling circle",
       "schedule": "last wednesday",
       "time": "7.30pm",
-      "location": "",
-      "link": "",
+      "location": "The Duke William, Matlock, DE4 3BZ",
+      "link": "https://www.thedukewilliammatlock.com/",
       "facebook": "https://www.facebook.com/MatlockStorytellingCafe",
       "club": "matlockSCl",
-      "geocode_missing": true
+      "latlon": [
+        53.13332,
+        -1.55226
+      ]
     },
     {
       "name": "Leicester Story Tree",
@@ -429,12 +432,15 @@
       "name": "Lichfield storytellers",
       "schedule": "2nd tuesday",
       "time": "7pm",
-      "location": "",
-      "link": "",
+      "location": "Kings Head Pub, Lichfield, WS13 6PW",
+      "venue_url": "https://www.kingsheadlichfield.com/",
       "facebook": "https://www.facebook.com/lichfieldstorytellers",
       "email": "lichfieldstorytellers@gmail.com",
       "club": "lichfieldST",
-      "geocode_missing": true
+      "latlon": [
+        52.68292,
+        -1.83053
+      ]
     },
     {
       "name": "Wirral Quirky Tales",
@@ -633,11 +639,15 @@
     {
       "name": "Much Wenlock, Salop - words at the edge",
       "schedule": "2nd monday",
-      "location": "",
+      "location": "Town Hall, Bishops Castle, SY9 5B",
       "link": "",
+      "venue_url": "https://bishopscastletownhall.co.uk/",
       "facebook": "https://www.facebook.com/groups/wordsattheedge",
       "club": "wordsattheedge",
-      "geocode_missing": true
+      "latlon": [
+        52.49381,
+        -2.99812
+      ]
     },
     {
       "name": "Manchester - Sting in the Tale",
