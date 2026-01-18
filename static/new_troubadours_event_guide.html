@@ -258,6 +258,40 @@
             border-bottom-color: #ffffff;
         }
 
+        .event-badge {
+            background: rgba(76, 175, 80, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+
+        .event-date-cancelled {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .event-date-rescheduled-notice {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .event-date-usually {
+            color: #2e7d32;
+            font-style: italic;
+        }
+
+        .venue-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .venue-link:hover {
+            text-decoration: underline;
+        }
+
         .search-controls {
             margin-top: 15px;
             padding-top: 15px;
@@ -1706,7 +1740,7 @@
                 // Add badges if applicable
                 if (event.isFolk && event.storiesWelcome) {
                     const badge = document.createElement('span');
-                    badge.style.cssText = 'background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;';
+                    badge.className = 'event-badge';
                     badge.textContent = '📖 Stories Welcome';
                     eventNameDiv.appendChild(document.createTextNode(' '));
                     eventNameDiv.appendChild(badge);
@@ -1714,7 +1748,7 @@
 
                 if (event.isFolk && event.byInvitation) {
                     const badge = document.createElement('span');
-                    badge.style.cssText = 'background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;';
+                    badge.className = 'event-badge';
                     badge.textContent = 'By Invitation';
                     eventNameDiv.appendChild(document.createTextNode(' '));
                     eventNameDiv.appendChild(badge);
@@ -1797,7 +1831,7 @@
                             const venueLink = document.createElement('a');
                             venueLink.href = safeVenueUrl;
                             venueLink.target = '_blank';
-                            venueLink.style.cssText = 'text-decoration: none; color: inherit;';
+                            venueLink.className = 'venue-link';
 
                             const venueStrong = document.createElement('strong');
                             venueStrong.textContent = venueName;
@@ -1832,13 +1866,13 @@
 
                 if (event.isCancelled) {
                     const cancelledSpan = document.createElement('span');
-                    cancelledSpan.style.cssText = 'text-decoration: line-through; color: #999;';
+                    cancelledSpan.className = 'event-date-cancelled';
                     cancelledSpan.textContent = `${dayName}, ${day} ${month} ${year} ${scheduleText}`;
                     dateDiv.appendChild(cancelledSpan);
 
                     if (event.rescheduledTo) {
                         const rescheduledSpan = document.createElement('span');
-                        rescheduledSpan.style.cssText = 'color: #d32f2f; font-weight: bold;';
+                        rescheduledSpan.className = 'event-date-rescheduled-notice';
                         rescheduledSpan.textContent = ` (Rescheduled to ${event.rescheduledToStr})`;
                         dateDiv.appendChild(rescheduledSpan);
                     }
@@ -1847,7 +1881,7 @@
 
                     if (event.isRescheduled) {
                         const usuallySpan = document.createElement('span');
-                        usuallySpan.style.cssText = 'color: #2e7d32; font-style: italic;';
+                        usuallySpan.className = 'event-date-usually';
                         usuallySpan.textContent = ` (usually ${event.schedule})`;
                         dateDiv.appendChild(usuallySpan);
                     }
