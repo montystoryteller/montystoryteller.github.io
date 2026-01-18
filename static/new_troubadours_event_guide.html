@@ -730,6 +730,48 @@
             [61.0, 2.5]     // NE corner (North Sea)
         );
 
+
+        /**
+         * Sanitize HTML to prevent XSS attacks
+         * @param {string} text - The text to sanitize
+         * @returns {string} - Sanitized text
+         */
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        /**
+         * Validate and sanitize URL
+         * @param {string} url - The URL to validate
+         * @returns {string|null} - Sanitized URL or null if invalid
+         */
+        function sanitizeUrl(url) {
+            if (!url) return null;
+
+            // Remove any whitespace
+            url = url.trim();
+
+            // Only allow http, https, and mailto protocols
+            const allowedProtocols = ['http:', 'https:', 'mailto:'];
+
+            try {
+                const urlObj = new URL(url, window.location.origin);
+
+                if (!allowedProtocols.includes(urlObj.protocol)) {
+                    console.warn('Blocked potentially dangerous URL:', url);
+                    return null;
+                }
+
+                return urlObj.href;
+            } catch (e) {
+                console.warn('Invalid URL:', url);
+                return null;
+            }
+        }
+
         // Load events from JSON file
         async function loadEventsData() {
             try {
@@ -1095,6 +1137,36 @@
                     : null
             };
         }
+
+        function createSafePopup(eventData) {
+            const container = document.createElement('div');
+            container.className = 'popup-content';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = eventData.name;
+            container.appendChild(h3);
+
+            const dateP = document.createElement('p');
+            const dateStrong = document.createElement('strong');
+            dateStrong.textContent = formatDate(eventData.date);
+            dateP.appendChild(dateStrong);
+            container.appendChild(dateP);
+
+            const locationP = document.createElement('p');
+            locationP.textContent = eventData.location;
+            container.appendChild(locationP);
+
+            if (eventData.performer) {
+                const performerP = document.createElement('p');
+                const performerEm = document.createElement('em');
+                performerEm.textContent = eventData.performer;
+                performerP.appendChild(performerEm);
+                container.appendChild(performerP);
+            }
+
+            return container;
+        }
+
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
                 console.error('Events data not loaded');
@@ -1531,16 +1603,7 @@
                     fillOpacity: isStory ? 0.7 : 0.8
                 }).addTo(map);
 
-                const popupContent = `
-                    <div class="popup-content">
-                        <h3>${eventData.name}</h3>
-                        <p><strong>${formatDate(eventData.date)}</strong></p>
-                        <p>${eventData.location}</p>
-                        ${eventData.performer ? `<p><em>${eventData.performer}</em></p>` : ''}
-                    </div>
-                `;
-
-                marker.bindPopup(popupContent);
+                marker.bindPopup(createSafePopup(eventData));
                 marker.eventData = eventData;
 
                 marker.on('click', () => {
@@ -1579,8 +1642,8 @@
             }
         }
 
-        function renderEventsList(eventsToShow) {
 
+        function renderEventsList(eventsToShow) {
             const eventsList = document.getElementById('eventsList');
             const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -1592,146 +1655,300 @@
 
             console.log(`Rendering ${eventsToShow.length} events`);
 
-            eventsList.innerHTML = eventsToShow.map(event => {
+            // Clear existing content
+            eventsList.innerHTML = '';
+
+            eventsToShow.forEach(event => {
+                // Create event container
+                const eventDiv = document.createElement('div');
+                eventDiv.className = 'event';
+
+                // Add type classes
+                if (event.isStoryclub) eventDiv.classList.add('storyclub');
+                if (event.isSpecial) eventDiv.classList.add('special');
+                if (event.isMusic) eventDiv.classList.add('music');
+                if (event.isFolk) eventDiv.classList.add('folk');
+                if (event.isSession) eventDiv.classList.add('session');
+
+                // Add click handler
+                if (event.coords?.lat && event.coords?.lon) {
+                    eventDiv.onclick = () => zoomToEvent(event.coords.lat, event.coords.lon);
+                }
+
+                // Set data attribute
+                eventDiv.setAttribute('data-event-id', `${escapeHtml(event.name)}-${event.date.getTime()}`);
+
+                // Build event name section with icons
+                const eventNameDiv = document.createElement('div');
+                eventNameDiv.className = 'event-name';
+
+                // Add event name (SANITIZED)
+                const nameText = document.createTextNode(event.name);
+                eventNameDiv.appendChild(nameText);
+
+                // Add badges if applicable
+                if (event.isFolk && event.storiesWelcome) {
+                    const badge = document.createElement('span');
+                    badge.style.cssText = 'background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;';
+                    badge.textContent = '📖 Stories Welcome';
+                    eventNameDiv.appendChild(document.createTextNode(' '));
+                    eventNameDiv.appendChild(badge);
+                }
+
+                if (event.isFolk && event.byInvitation) {
+                    const badge = document.createElement('span');
+                    badge.style.cssText = 'background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;';
+                    badge.textContent = 'By Invitation';
+                    eventNameDiv.appendChild(document.createTextNode(' '));
+                    eventNameDiv.appendChild(badge);
+                }
+
+                // Add icons (website, email, facebook) - SANITIZED URLS
+                const iconsContainer = document.createElement('span');
+
+                // Website icon
+                if (event.link) {
+                    const safeUrl = sanitizeUrl(event.link);
+                    if (safeUrl) {
+                        const link = document.createElement('a');
+                        link.href = safeUrl;
+                        link.target = '_blank';
+                        link.className = 'event-website';
+                        link.title = 'Website';
+                        link.onclick = (e) => e.stopPropagation();
+                        link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
+                        iconsContainer.appendChild(link);
+                    }
+                }
+
+                // Email icon
+                if (event.email) {
+                    const safeEmail = sanitizeUrl(`mailto:${event.email}`);
+                    if (safeEmail) {
+                        const link = document.createElement('a');
+                        link.href = safeEmail;
+                        link.className = 'event-email';
+                        link.title = 'Email';
+                        link.onclick = (e) => e.stopPropagation();
+                        link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>';
+                        iconsContainer.appendChild(link);
+                    }
+                }
+
+                // Facebook icon
+                if (event.facebook) {
+                    const fbUrl = event.facebook.startsWith('http')
+                        ? event.facebook
+                        : `https://facebook.com/${event.facebook}`;
+                    const safeFbUrl = sanitizeUrl(fbUrl);
+
+                    if (safeFbUrl) {
+                        const link = document.createElement('a');
+                        link.href = safeFbUrl;
+                        link.target = '_blank';
+                        link.className = 'event-facebook';
+                        link.title = 'Facebook';
+                        link.onclick = (e) => e.stopPropagation();
+                        link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
+                        iconsContainer.appendChild(link);
+                    }
+                }
+
+                eventNameDiv.appendChild(iconsContainer);
+                eventDiv.appendChild(eventNameDiv);
+
+                // Add performer if present (SANITIZED)
+                if (event.performer) {
+                    const performerDiv = document.createElement('div');
+                    performerDiv.style.fontStyle = 'italic';
+                    performerDiv.textContent = event.performer;
+                    eventDiv.appendChild(performerDiv);
+                }
+
+                // Add location (SANITIZED with venue link)
+                if (event.location) {
+                    const locationDiv = document.createElement('div');
+                    locationDiv.className = 'event-location';
+
+                    if (event.venue_url) {
+                        const safeVenueUrl = sanitizeUrl(event.venue_url);
+                        if (safeVenueUrl) {
+                            const commaIndex = event.location.indexOf(',');
+                            const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
+                            const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
+
+                            const venueLink = document.createElement('a');
+                            venueLink.href = safeVenueUrl;
+                            venueLink.target = '_blank';
+                            venueLink.style.cssText = 'text-decoration: none; color: inherit;';
+
+                            const venueStrong = document.createElement('strong');
+                            venueStrong.textContent = venueName;
+                            venueLink.appendChild(venueStrong);
+
+                            locationDiv.appendChild(venueLink);
+                            locationDiv.appendChild(document.createTextNode(restOfLocation));
+                        } else {
+                            locationDiv.textContent = event.location;
+                        }
+                    } else {
+                        locationDiv.textContent = event.location;
+                    }
+
+                    eventDiv.appendChild(locationDiv);
+                }
+
+                // Add date information
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'event-date';
+
                 const dayName = daysOfWeek[event.date.getDay()];
                 const day = event.date.getDate();
                 const month = months[event.date.getMonth()];
                 const year = event.date.getFullYear();
                 const scheduleText = event.schedule ? ` (${event.schedule})` : '';
 
-                const storyclubClass = event.isStoryclub ? ' storyclub' : '';
-                const specialClass = event.isSpecial ? ' special' : '';
-                const musicClass = event.isMusic ? ' music' : '';
-                const folkClass = event.isFolk ? ' folk' : '';
-                const sessionClass = event.isSession ? ' session' : '';
-
-                // Add Facebook link if available (for regular facebook page/group)
-                let facebookLink = '';
-                if (event.facebook && event.facebook.trim()) {
-                    const fbUrl = event.facebook.startsWith('http')
-                        ? event.facebook
-                        : `https://facebook.com/${event.facebook}`;
-                    facebookLink = `<a href="${fbUrl}" target="_blank" class="event-facebook" title="Facebook" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                let dateText = `${dayName}, ${day} ${month} ${year}`;
+                if (!event.isRescheduled) {
+                    dateText += scheduleText;
                 }
 
-                // Add email link if available
-                let emailLink = '';
-                if (event.email && event.email.trim()) {
-                    emailLink = `<a href="mailto:${event.email}" class="event-email" title="Email" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>`;
+                if (event.isCancelled) {
+                    const cancelledSpan = document.createElement('span');
+                    cancelledSpan.style.cssText = 'text-decoration: line-through; color: #999;';
+                    cancelledSpan.textContent = `${dayName}, ${day} ${month} ${year} ${scheduleText}`;
+                    dateDiv.appendChild(cancelledSpan);
+
+                    if (event.rescheduledTo) {
+                        const rescheduledSpan = document.createElement('span');
+                        rescheduledSpan.style.cssText = 'color: #d32f2f; font-weight: bold;';
+                        rescheduledSpan.textContent = ` (Rescheduled to ${event.rescheduledToStr})`;
+                        dateDiv.appendChild(rescheduledSpan);
+                    }
+                } else {
+                    dateDiv.appendChild(document.createTextNode(dateText));
+
+                    if (event.isRescheduled) {
+                        const usuallySpan = document.createElement('span');
+                        usuallySpan.style.cssText = 'color: #2e7d32; font-style: italic;';
+                        usuallySpan.textContent = ` (usually ${event.schedule})`;
+                        dateDiv.appendChild(usuallySpan);
+                    }
                 }
 
-                // Add website link if available (but not if it's the same as the main event link)
-                let websiteLink = '';
-                if (event.link && event.link.trim()) {
-                    websiteLink = `<a href="${event.link}" target="_blank" class="event-website" title="Website" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>`;
+                // Add time and price
+                if (event.time) {
+                    dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
+                }
+                if (event.price) {
+                    dateDiv.appendChild(document.createTextNode(` • ${event.price}`));
                 }
 
-                // Combine all icons
-                const allIcons = websiteLink + emailLink + facebookLink;
+                eventDiv.appendChild(dateDiv);
 
-                // Build the tickets/event line for special events
-                let ticketsEventLine = '';
-                if ((event.isSpecial) || (event.isMusic)) {
-                    let fbEventIcon = '';
+                // Add tickets/event line for special/music events (SANITIZED)
+                if ((event.isSpecial || event.isMusic)) {
+                    const ticketsDiv = document.createElement('div');
+                    ticketsDiv.className = 'event-tickets';
+
+                    if (event.ticket_url) {
+                        const safeTicketUrl = sanitizeUrl(event.ticket_url);
+                        if (safeTicketUrl) {
+                            const ticketLink = document.createElement('a');
+                            ticketLink.href = safeTicketUrl;
+                            ticketLink.target = '_blank';
+                            ticketLink.textContent = 'Tickets available here';
+                            ticketsDiv.appendChild(ticketLink);
+                        }
+                    }
+
                     if (event.fb_event) {
-                        const fbEventUrl = `https://www.facebook.com/events/${event.fb_event}`;
-                        fbEventIcon = `<a href="${fbEventUrl}" target="_blank" class="event-facebook-inline" title="Facebook Event" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>`;
+                        if (event.ticket_url) {
+                            const separator = document.createElement('span');
+                            separator.className = 'separator';
+                            separator.textContent = '|';
+                            ticketsDiv.appendChild(separator);
+                        }
+
+                        const fbEventUrl = sanitizeUrl(`https://www.facebook.com/events/${event.fb_event}`);
+                        if (fbEventUrl) {
+                            const fbLink = document.createElement('a');
+                            fbLink.href = fbEventUrl;
+                            fbLink.target = '_blank';
+                            fbLink.className = 'event-facebook-inline';
+                            fbLink.title = 'Facebook Event';
+                            fbLink.onclick = (e) => e.stopPropagation();
+                            fbLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
+                            ticketsDiv.appendChild(fbLink);
+                        }
                     }
 
-                    let ticketText = '';
-                    if (event.ticket_url && event.ticket_url.trim()) {
-                        ticketText = `<a href="${event.ticket_url}" target="_blank">Tickets available here</a>`;
-                    }
-
-                    // Combine with separator if both exist
-                    if (fbEventIcon && ticketText) {
-                        ticketsEventLine = `<div class="event-tickets">${ticketText} <span class="separator">|</span> ${fbEventIcon}</div>`;
-                    } else if (fbEventIcon || ticketText) {
-                        ticketsEventLine = `<div class="event-tickets">${fbEventIcon}${ticketText}</div>`;
+                    if (ticketsDiv.children.length > 0) {
+                        eventDiv.appendChild(ticketsDiv);
                     }
                 }
 
-                // Process location with venue link if available
-                let locationText = '';
-                if (event.location) {
-                    let locationDisplay = event.location;
-                    if (event.venue_url && event.venue_url.trim()) {
-                        // Extract venue name (text before first comma, or entire location if no comma)
-                        const commaIndex = event.location.indexOf(',');
-                        const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
-                        const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
-                        locationDisplay = `<a href="${event.venue_url}" target="_blank" style="text-decoration: none; color: inherit;"><strong>${venueName}</strong></a>${restOfLocation}`;
-
-                    }
-                    locationText = `<div class="event-location">${locationDisplay}</div>`;
-                }
-
-                let priceText = '';
-                if (event.price && event.price.trim()) {
-                    priceText = ` • ${event.price}`;
-                }
-
-                let timeText = '';
-                if (event.time && event.time.trim()) {
-                    timeText = ` • ${event.time}`;
-                }
-
-                // Check if there's expandable content (flyer or description)
+                // Add expandable content if present (SANITIZED)
                 const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
                     (event.description && event.description.trim());
 
-                const expandableId = hasExpandableContent ? `event-expand-${Math.random().toString(36).substr(2, 9)}` : '';
-
-                let expandButton = '';
-                let expandableContent = '';
-
                 if (hasExpandableContent) {
-                    expandButton = ` <div class="event-expand-btn" onclick="toggleEventExpandable('${expandableId}', event)">More info...</div>`;
+                    const expandableId = `event-expand-${Math.random().toString(36).substr(2, 9)}`;
 
-                    let flyerHtml = '';
-                    if (event.event_flyer && event.event_flyer.trim()) {
-                        flyerHtml = `<img src="./storyclub_assets/event_flyers/${event.event_flyer}" alt="${event.name} flyer" class="event-flyer-image">`;
+                    const expandBtn = document.createElement('div');
+                    expandBtn.className = 'event-expand-btn';
+                    expandBtn.textContent = 'More info...';
+                    expandBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        const expandable = document.getElementById(expandableId);
+                        if (expandable) {
+                            expandable.style.display = expandable.style.display === 'none' ? 'block' : 'none';
+                        }
+                    };
+                    eventDiv.appendChild(expandBtn);
+
+                    // Create expandable content
+                    const expandableDiv = document.createElement('div');
+                    expandableDiv.className = 'event-expandable';
+                    expandableDiv.id = expandableId;
+                    expandableDiv.style.display = 'none';
+
+                    if (event.description) {
+                        const descDiv = document.createElement('div');
+                        descDiv.className = 'event-description';
+
+                        // SANITIZED: Split description into paragraphs
+                        const paragraphs = event.description.split('\n\n\n\n');
+                        paragraphs.forEach(p => {
+                            if (p.trim()) {
+                                const pElem = document.createElement('p');
+                                pElem.textContent = p.replace(/\n\n/g, '\n');
+                                descDiv.appendChild(pElem);
+                            }
+                        });
+
+                        expandableDiv.appendChild(descDiv);
                     }
 
-                    let descriptionHtml = '';
-                    if (event.description && event.description.trim()) {
-                        const paragraphs = event.description.split('\n\n\n\n').map(p =>
-                            p.trim() ? `<p>${p.replace(/\n\n/g, '<br>')}</p>` : ''
-                        ).join('');
-                        descriptionHtml = `<div class="event-description">${paragraphs}</div>`;
+                    if (event.event_flyer) {
+                        const img = document.createElement('img');
+                        // SANITIZED: Use textContent for alt attribute
+                        const altText = `${event.name} flyer`;
+                        img.alt = altText;
+                        // Basic path validation
+                        const flyerPath = event.event_flyer.replace(/[^a-zA-Z0-9._-]/g, '');
+                        img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+                        img.className = 'event-flyer-image';
+                        expandableDiv.appendChild(img);
                     }
 
-                    expandableContent = `
-                <div class="event-expandable" id="${expandableId}" style="display: none;">
-                    ${descriptionHtml}
-                    ${flyerHtml}
-                </div>
-            `;
+                    eventDiv.appendChild(expandableDiv);
                 }
 
-                let storiesWelcomeBadge = '';
-                if (event.isFolk && event.storiesWelcome) {
-                    storiesWelcomeBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">📖 Stories Welcome</span>';
-                }
+                eventsList.appendChild(eventDiv);
+            });
 
-                let byInvitationBadge = '';
-                if (event.isFolk && event.byInvitation) {
-                    byInvitationBadge = ' <span style="background: rgba(76, 175, 80, 0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">By Invitation</span>';
-                }
-                return `
-            <div class="event${storyclubClass}${specialClass}${musicClass}${folkClass}${sessionClass}" 
-                 onclick="zoomToEvent(${event.coords?.lat}, ${event.coords?.lon})"
-                 data-event-id="${event.name}-${event.date.getTime()}">
-                <div class="event-name">${event.name}${storiesWelcomeBadge}${byInvitationBadge} ${allIcons}</div>
-                ${event.performer ? `<div style="font-style: italic;">${event.performer}</div>` : ''}
-                ${locationText}
-                <div class="event-date">${event.isCancelled ? `<span style="text-decoration: line-through; color: #999;">${dayName}, ${day} ${month} ${year} <em>${scheduleText}</em></span>` : `${dayName}, ${day} ${month} ${year}<em>${event.isRescheduled ? '' : scheduleText}</em>`}${event.isCancelled && event.rescheduledTo ? ` <span style="color: #d32f2f; font-weight: bold;">(Rescheduled to ${event.rescheduledToStr})</span>` : ''}${event.isRescheduled ? ` <span style="color: #2e7d32; font-style: italic;">(usually ${event.schedule})</span>` : ''}${timeText}${priceText}</div>
-                ${ticketsEventLine} ${expandButton}
-            </div>
-            ${expandableContent}
-        `;
-            }).join('');
-
+            // Apply filters after rendering
             filterEvents();
         }
 
