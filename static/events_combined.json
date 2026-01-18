@@ -1853,7 +1853,26 @@
         -3.33105
       ]
     },
-
+{
+      "name": "Crazy Kings & Killer Queens [Merl Fluin & Holly Medland]",
+      "showname": "Crazy Kings & Killer Queens",
+      "performer": "Merl Fluin & Holly Medland",
+      "date": "26/02/2026",
+      "time": "7-9pm",
+      "club": "",
+      "price": "£10",
+      "description": "Performance storytellers Merl Fluin and Holly Medland present two popular Ventnor Fringe shows in one unmissable night:\n\n\n\n TALES THAT TOPPLE TYRANTS Once upon a time there was a very bad king. He lied, bullied, stole, cheated, and always got his own way… until he didn't. Merl Fluin tells weird and wonderful fairy tales about dastardly despots and how to defy them. \n\n\n\n WHAT DO WOMEN WANT? When a hapless knight insults the Queen, she gives him a year to find the answer to a seemingly impossible question. If he fails, he’ll lose his head. Cue magic, madness and medieval mayhem as he sets out on his quest. Holly Medland’s hit show sold out fast at Ventnor Fringe.\n\n\n\n Storytelling starts 7pm. Total runtime 90 mins plus interval. Home-cooked meals available in the bar downstairs before the show. Stories suitable for age 16+.",
+      "location": "Bargeman's Rest, Newport, Isle of Wight, PO30 5BS",
+      "venue_url": "https://bargemansrest.com/",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/merlfluin/2016716",
+      "isSpecial": true,
+      "fb_event": 1544986679915808,
+      "latlon": [
+        50.70429,
+        -1.29157
+      ]
+    },
     {
       "name": "City of Ladies - Dinas y Lêdis [Tamar Eluned Williams & Jordan Price Williams]",
       "showname": "City of Ladies - Dinas y Lêdis",
@@ -1911,6 +1930,25 @@
       "latlon": [
         51.6834341,
         -4.1583957
+      ]
+    },
+    {
+      "name": "Tales from the Time Between Times [Owen Staton]",
+      "showname": "Tales from the Time Between Times",
+      "performer": "Owen Staton",
+      "date": "27/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "Free",
+      "description": "Tales from the Time between Times starting at 7.30pm . You will hear about Ghosts the Tylweth Teg and of course Y Mari Lwyd as we explore the dark tales of the Swansea valley and beyond .",
+      "location": "Coelbren Welfare Hall, Coelbren, SA10 9PL",
+      "venue_url": "https://www.coelbrenwelfare.org/",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        51.79096,
+        -3.66773
       ]
     },
     {
