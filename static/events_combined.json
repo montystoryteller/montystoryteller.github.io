@@ -375,7 +375,7 @@
     {
       "name": "South Devon storytellers (Totnes)",
       "schedule": "3rd wednesday",
-      "location": "Totnes Brewing Co. / Barrrel House Ballroom, Totnes, TQ9 5PB",
+      "location": "Totnes Brewing Co. / Barrel House Ballroom, Totnes, TQ9 5PB",
       "venue_url": "https://barrelhousetotnes.co.uk/",
       "link": "https://www.sdstorytellers.co.uk/",
       "facebook": "https://www.facebook.com/profile.php?id=61560384152751",
@@ -1823,6 +1823,26 @@
         -1.3969673
       ]
     },
+     {
+      "name": "The Glass Palace of the Moon-Maid [Shonaleigh]",
+      "showname": "The Glass Palace of the Moon-Maid",
+      "performer": "Shonaleigh",
+      "location": "Quaker Meeting House, Northampton, NN1 3AS",
+      "date": "04/02/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "£10.05",
+      "description": "The Glass Palace of the Moon-Maid is a magical wonder-tale spanning this world and the beyond, a tale of stars and comets and moons, life and death, love and betrayal,  two very magical cats, and the occasional goat. This tale belongs to the Cycle of Hillel, which is the first of twelve epic, latticed, interlinked cycles of stories passed down through generations of Drut'syla storytellers.",
+      "venue_url": "https://northampton.quakermeeting.org/",
+      "ticket_url": "https://wegottickets.com/event/688802",
+      "online": "hybrid",
+      "isSpecial": true,
+      "fb_event": 762375106879668,
+            "latlon": [
+        52.2395529,
+        -0.8924581
+      ]
+    },
     {
       "name": "The Stealing of the Sun and Moon [Nick Hennessey]",
       "showname": "The Stealing of the Sun and Moon",
@@ -2788,6 +2808,33 @@
       "latlon": [
                     53.64422,
                     -1.78937
+                ]
+    }
+  ],
+  "spokenword": [
+    {
+      "name": "Burwell Spoken Word",
+      "schedule": "3rd thursday",
+      "time": "7-9pm",
+      "price": "Free (donations appreciated)",
+      "location": "Burwell Day centre, Burwell, Cambridge, CB25 0DR",
+      "venue_url": "https://burwelldaycentre.co.uk/",
+      "exceptions": ["22/01/2026"],
+      "latlon": [
+                  52.27491,
+                  0.32461
+                ]
+    },
+    {
+      "name": "Spoken Word at Monkton Arts",
+      "schedule": "3rd thursday",
+      "time": "3.30-5pm",
+      "location": "Monkton Arts, Ryde, PO33 1JP",
+      "venue_url": "https://burwelldaycentre.co.uk/",
+      "exceptions": ["26/02/2026", "11/06/2026", "10/12/2026"],
+      "latlon": [
+                  50.72981,
+                  -1.15355
                 ]
     }
   ]
