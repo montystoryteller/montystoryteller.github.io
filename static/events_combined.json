@@ -387,17 +387,17 @@
       ]
     },
     {
-      "name": "South Devon storytellers (Totnes)",
-      "schedule": "3rd wednesday",
-      "location": "Totnes Brewing Co. / Barrel House Ballroom, Totnes, TQ9 5PB",
-      "venue_url": "https://barrelhousetotnes.co.uk/",
+      "name": "South Devon storytellers",
+      "schedule": "4th wednesday",
+      "location": "Moor Imagination Collective (MIC) Lounge Cafe, Buckfastleigh, TQ11 0AB",
+      "venue_url": "https://www.moorimagination.org/",
       "link": "https://www.sdstorytellers.co.uk/",
       "facebook": "https://www.facebook.com/profile.php?id=61560384152751",
       "email": "southdevonstorytellers@gmail.com",
       "club": "southdevonstorytellers",
       "latlon": [
-        50.4317178,
-        -3.6902135
+        50.48129,
+        -3.77984
       ]
     },
     {
@@ -406,6 +406,7 @@
       "schedule": "4th sunday",
       "location": "Snapdragons, Victoria Park, Plymouth, PL1 5NJ",
       "link": "",
+      "venue_url": "https://www.snapdragonsplymouth.co.uk/",
       "facebook": "https://www.facebook.com/profile.php?id=61580047292990",
       "club": "plymouthSCi",
       "latlon": [
@@ -1403,8 +1404,8 @@
       "isSpecial": true,
       "fb_event": 781568461574252,
       "latlon": [
-        50.4812823,
-        -3.7800139
+        50.48129,
+        -3.77984
       ]
     },
     {
@@ -2172,8 +2173,41 @@
         -3.1368143
       ]
     },
-
-
+    {
+      "name": "Stirring Stories: An Imbolc Storytelling at MIC [Henry Everett and Hannah Sneyd]",
+      "showname": "Stirring Stories: An Imbolc Storytelling at MIC",
+      "performer": "Henry Everett and Hannah Sneyd",
+      "date": "31/01/2026",
+      "time": "11am-1pm",
+      "club": "southdevonstorytellers",
+      "price": "",
+      "description": "The days are lengthening, and green shoots are nudging their way through the soil. As winter loosens its icy grip on the world, it is time to celebrate Imbolc, the Celtic festival of early spring, whose name means 'in the belly.'\n\n\n\n Join us for Stirring Stories, a series of uplifting tales to stoke the fire within and rouse us from our winter slumber. Forget the to-do list, gather together and and allow your imagination to unfurl into the realm of myth and magic.\n\n\n\n This special event with Dartmoor storytellers Henry Everett and Hannah Sneyd promises a vivid array of stories formed through deep communion with the landscape. Blending traditional tales from around the world with original stories, games and song, we curate our events to closely match the energy of the season.\n\n\n\n Things to note: This is a family-friendly event, with a 20-minute interval and food and drink available from The Lounge Cafe - please see the MIC website for further details.",
+      "location": "Moor Imagination Collective (MIC) Lounge Cafe, Buckfastleigh, TQ11 0AB",
+      "venue_url": "https://www.moorimagination.org/",
+      "fb_event": 1522583958999477,
+      "latlon": [
+        50.48129,
+        -3.77984
+      ]
+    },
+    {
+      "name": "Stories & Stars: Storytelling in the wild heart of Plymouth",
+      "showname": "Stories & Stars: Storytelling in the wild heart of Plymouth",
+      "performer": "Hannah Sneyd",
+      "date": "12/02/2026",
+      "time": "4.30-6pm",
+      "club": "",
+      "price": "Adult tickets £7, Children £4 (Under 4s go free) Concessions available",
+      "email":"hello@hannahsneyd.com",
+      "description": "Come one, come all, for a treasure-trove of stories around an open fire, at the Snapdragons community space in Plymouth. Feast your ears on tales both old and new, told by local storyteller Hannah Sneyd.\n\n\n\n Featuring reluctant moles, dancing rivers and sharp-witted crones, Hannah’s stories inhabit the space between mythic realms and mundane modern life. She peppers her tales with insights from the natural world, and always tells with a healthy dose of humour.n\n\n\n Stories are suitable for all ages. We have seating available, but you are invited to bring something cosy to sit on (blanket, rug) and to dress warmly. A hot drink (dairy free) will be available.n\n\n\n If it's very wet or cold, we will use the indoor space at Snapdragons.",
+      "location": "Snapdragons, Victoria Park, Plymouth, PL1 5NJ",
+      "venue_url": "https://www.snapdragonsplymouth.co.uk/",
+      "fb_event": 1181245144186017,
+      "latlon": [
+        50.37622,
+        -4.15418
+      ]
+    },
             {
                 "name": "Sláine: The Horned God [Jason Buck]",
                 "showname": "Sláine: The Horned God",
