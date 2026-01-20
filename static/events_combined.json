@@ -1683,6 +1683,62 @@
       ]
     },
     {
+      "name": "Dark tales for dark nights [Amy Douglas and Jason Buck]",
+      "showname": "Dark tales for dark nights",
+      "performer": "Amy Douglas and Jason Buck",
+      "date": "31/01/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15",
+      "description": "Ghost and horror stories for grown ups. Strange things lurk in the shadows — these are tales of held breath, hearts thumping and the relief of shutting the door on the dark.\n\n\n\n Join Amy Douglas and Jason Buck in a storytelling celebration for National Storytelling Week, and hear tales of dark myths from the wilds of the British countryside, to the eerie legends of what hides beneath the streets of old London town!\n\n\n\n Enjoy a drink included with your ticket, and make a night of it by adding our £25 dinner option, available before the show, from 5pm.\n\n\n\n Ages: Adults and teens (12+)",
+      "location": "Hotel Indigo Clerkenwell, London, EC1M 5PQ",
+      "venue_url": "https://www.ihg.com/hotelindigo/hotels/gb/en/london/lonrc/hoteldetail",
+      "ticket_url": "https://www.eventbrite.co.uk/e/national-storytelling-week-dark-tales-for-dark-nights-tickets-1978835018810",
+      "event_flyer": "",
+      "isSpecial": true,
+      "latlon": [
+        51.5231,
+       -0.10437
+      ]
+    },
+    {
+      "name": "Myth, Magic and Mischief (age 5+) [Amy Douglas and Jason Buck]",
+      "showname": "Myth, Magic and Mischief",
+      "performer": "Amy Douglas and Jason Buck",
+      "date": "31/01/2026",
+      "time": "2.30pm or 4pm (45 min. show)",
+      "club": "",
+      "price": "£7.50 each or £25 family ticket (2 adults and 2 children)",
+      "description": "It's National Storytelling Week! If you're in the London area, it's a great opportunity to hear SGK regular storytellers, Amy Douglas and Jason Buck, in a storytelling celebration of the Isle of Britain.\n\n\n\n This land is layered in legend, full of stories of magic and mystery, boggarts and bogles, dragons and worms. Every mountain, field and river has a story to tell.\n\n\n\n 45 minute storytelling sessions for children and families (age 5+).  Traditional myths, legends and folk tales of England, Scotland and Wales.\n\n\n\n Amy Douglas is a word-hoarder, a word-storer, a word-catcher and a word explorer. After winning 'Young Storyteller of the Year' at 16, Amy apprenticed to world-renowned traditional Scots Traveller and storyteller Duncan Williamson, and now holds many of his stories in trust. She's been a storyteller, performer and author for over three decades, with her three folk tales collections winning Storytelling World Awards.\n\n\n\n Jason Buck has been a performer most of his life including comedy and sword-swallowing — but his passion lies in telling stories. Jason makes an astonishing array of amazing vocal sound effects — but beware, many of stories end with 'pockets of poo!'",
+      "location": "Hotel Indigo Clerkenwell, London, EC1M 5PQ",
+      "venue_url": "https://www.ihg.com/hotelindigo/hotels/gb/en/london/lonrc/hoteldetail",
+      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826",
+      "event_flyer": "",
+      "isSpecial": true,
+      "latlon": [
+        51.5231,
+       -0.10437
+      ]
+    },{
+      "name": "Myth, Magic and Mischief (age 5+) [Amy Douglas and Jason Buck]",
+      "showname": "Myth, Magic and Mischief",
+      "performer": "Amy Douglas and Jason Buck",
+      "date": "01/02/2026",
+      "time": "11.30am or half past noon (40 min. show)",
+      "club": "",
+      "price": "£7.50 each or £25 family ticket (2 adults and 2 children)",
+      "description": "It's National Storytelling Week! If you're in the London area, it's a great opportunity to hear SGK regular storytellers, Amy Douglas and Jason Buck, in a storytelling celebration of the Isle of Britain.\n\n\n\n This land is layered in legend, full of stories of magic and mystery, boggarts and bogles, dragons and worms. Every mountain, field and river has a story to tell.\n\n\n\n 45 minute storytelling sessions for children and families (age 5+).  Traditional myths, legends and folk tales of England, Scotland and Wales.\n\n\n\n Amy Douglas is a word-hoarder, a word-storer, a word-catcher and a word explorer. After winning 'Young Storyteller of the Year' at 16, Amy apprenticed to world-renowned traditional Scots Traveller and storyteller Duncan Williamson, and now holds many of his stories in trust. She's been a storyteller, performer and author for over three decades, with her three folk tales collections winning Storytelling World Awards.\n\n\n\n Jason Buck has been a performer most of his life including comedy and sword-swallowing — but his passion lies in telling stories. Jason makes an astonishing array of amazing vocal sound effects — but beware, many of stories end with 'pockets of poo!'",
+      "location": "Hotel Indigo Clerkenwell, London, EC1M 5PQ",
+      "venue_url": "https://www.ihg.com/hotelindigo/hotels/gb/en/london/lonrc/hoteldetail",
+      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826",
+      "event_flyer": "",
+      "isSpecial": true,
+      "latlon": [
+        51.5231,
+       -0.10437
+      ]
+    },
+    {
       "name": "The Fire, The Flame, and the Light [Maria Buckley Whatton]",
       "showname": "The Fire, The Flame, and the Light",
       "performer": "Maria Buckley Whatton",
@@ -1862,7 +1918,7 @@
       "name": "The Stealing of the Sun and Moon [Nick Hennessey]",
       "showname": "The Stealing of the Sun and Moon",
       "performer": "Nick Hennessey",
-      "date": "21/02/2026",
+      "date": "21/01/2026",
       "time": "7.30-10pm",
       "club": "beestontales",
       "price": "£8 [£6.50]",
