@@ -1573,7 +1573,7 @@
       "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
       "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
       "performer": "Ben Haggarty & Steph Brittain",
-      "date": "08/01/2025",
+      "date": "08/01/2026",
       "time": "6.30pm",
       "club": "cardiffSC",
       "price": "£9.90 / £7.70",
@@ -1727,7 +1727,7 @@
       "name": "The Girl Who Married a Dog [Nell Phoenix]",
       "showname": "The Girl Who Married a Dog",
       "performer": "Nell Phoenix",
-      "date": "29/01/2025",
+      "date": "29/01/2026",
       "time": "7.30pm",
       "club": "criccracclub",
       "price": "",
@@ -1901,6 +1901,26 @@
       "latlon": [
         50.70429,
         -1.29157
+      ]
+    },
+    {
+      "name": "Queen of Between [Lucy Lill & Sarah-Liisa Wilkinson]",
+      "showname": "Queen of Between",
+      "performer": "Lucy Lill & Sarah-Liisa Wilkinson",
+      "date": "29/01/2026",
+      "time": "7pm",
+      "club": "artemisStorytelling",
+      "price": "£15.40 / £13.20",
+      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're… stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
+      "location": "Cygnet Theatre, Exeter, EX2 4AZ",
+      "venue_url": "https://www.cygnettheatre.co.uk/",
+      "promoter_link": "https://www.artemis-storytelling.co.uk/performances",
+      "event_flyer": "",
+      "ticket_url": "https://wegottickets.com/event/680745",
+      "isSpecial": true,
+      "latlon": [
+        50.7192,
+        -3.52944
       ]
     },
     {
@@ -2081,6 +2101,27 @@
         -4.0885173
       ]
     },
+
+    {
+      "name": "The Girl Who Married a Dog [Nell Phoenix]",
+      "showname": "The Girl Who Married a Dog",
+      "performer": "Nell Phoenix",
+      "date": "27/03/2026",
+      "time": "7-9.45pm",
+      "club": "artemisStorytelling",
+      "price": "£14",
+      "description": "At the northerly point of north, it gets very, very cold. In this snow-blinding place the weirdest, wildest stories are told...\n\n\n\nNell Phoenix revels in the earthy humour and passions of Arctic stories, peopled with unconventional families, the desperate and lonely-hearted, and elderly relatives whose attempts to assist are misguided, to say the least.\n\n\n\nThis is a place where what happens next is probably not what you'd expect — and some images will stay with you forever...\n\n\n\nAge Guidance 18+",
+      "location": "St Nicholas Priory, Exeter, EX4 3BL",
+      "venue_url": "https://nicholaspriory.com/events/artemis-storytelling-presents-the-girl-who-married-a-dog/",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/nicholaspriory/t-aaqjdgp",
+      "isSpecial": true,
+      "latlon": [
+        50.7214,
+        -3.53431
+      ]
+    },
+
     {
       "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
       "showname": "Stars and their Consolations",
