@@ -314,13 +314,27 @@
       "club": "glasgowbettercrack",
       "geocode_missing": true
     },
+      {
+      "name": "Storytelling Ambassadors",
+      "schedule": "3rd friday",
+      "location": "Salvation Army Hall, Fordingbridge, SP6 1AQ",
+      "link": "https://www.avcmatters.org/storytelling",
+      "facebook": "https://www.facebook.com/StorytellingAmbassadorsFordingbridge",
+      "time": "7.30pm",
+      "club": "storytellingambassadors",
+      "email":"Storytellingambassadors-info@yahoo.com",
+      "latlon": [
+        50.92766,
+        -1.79055
+      ]
+    },
     {
       "name": "Glasgow EVEN Better Crack Storytelling Club (Children)",
       "schedule": "3rd saturday",
       "location": "",
       "link": "",
       "facebook": "",
-      "time": "1130am-12.30pm",
+      "time": "11.30am-12.30pm",
       "club": "glasgowevenbettercrack",
       "geocode_missing": true
     },
@@ -2761,7 +2775,7 @@
       "name": "Waverley Folk Club",
       "schedule": "every wednesday",
       "time": "7-9.30pm",
-      "location": "Waverley, Carisbrooke, PO30 1PA",
+      "location": "The Waverley, Carisbrooke, Isle of Wight, PO30 1PA",
       "venue_url": "https://www.waverleyinn.co.uk/index",
       "facebook": "https://www.facebook.com/groups/2033281523395054",
       "storiesWelcome": true,
