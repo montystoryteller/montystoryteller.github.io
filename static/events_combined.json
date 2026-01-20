@@ -126,16 +126,16 @@
     },
     {
       "name": "Exeter Story Club",
-      "schedule": "2nd wednesday",
-      "time": "7.30pm",
-      "location": "The Cowick Barton, Exeter, EX2 9HF",
+      "schedule": "4th wednesday",
+      "time": "7-9pm",
+      "location": "Rougemont Room, Exeter Library, Exeter, EX4 3PQ",
       "link": "",
-      "venue_url": "https://www.thecowickbarton.co.uk/",
+      "venue_url": "https://discover.librariesunlimited.org.uk/-/exeter-library#/",
       "facebook": "https://www.facebook.com/ExeterStoryClub",
       "club": "exeterSC",
       "latlon": [
-        50.7090421,
-        -3.5464436
+        50.72511,
+        -3.53015
       ]
     },
     {
@@ -433,7 +433,7 @@
       "name": "Liskeard Storytelling Cafe",
       "schedule": "4th thursday",
       "time": "7.30pm",
-      "location": "Liskeard Public Hall, West Street, Liskeard, PL14 6BW",
+      "location": "Liskeard Public Rooms, West Street, Liskeard, PL14 6BW",
       "link": "https://www.strongwords.org.uk/",
       "venue_url": "https://visitliskeard.co.uk/venue/liskeard-public-hall/",
       "facebook": "https://www.facebook.com/groups/488666447814753",
