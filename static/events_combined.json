@@ -1938,6 +1938,25 @@
       ]
     },
     {
+      "name": "A Harvest of Tales [Storytelling Ambassadors]",
+      "showname": "A Harvest of Tales",
+      "performer": "Storytelling Ambassadors",
+      "date": "08/02/2026",
+      "time": "2-4pm",
+      "club": "storytellingambassadors",
+      "price": "Free",
+      "description": "",
+      "location": "1st Fordingbridge Scout Hut, Roundhill, SP6 1AQ",
+      "venue_url": "https://www.fordingbridgescouts.org.uk/",
+      "event_flyer": "2026_02_08_storyambassadors_harvest_of_tales.jpg",
+      "ticket_url": "https://www.facebook.com/StorytellingAmbassadorsFordingbridge/posts/pfbid02E9SdLcRu6MqfQhnzukFbToDiXeY3Pj2GCD5R4FTzZkjYpMZQdekuwiwcqhSQFnhul",
+      "isSpecial": true,
+      "latlon": [
+        50.92797,
+        -1.79014
+      ]
+    },
+    {
       "name": "City of Ladies - Dinas y Lêdis [Tamar Eluned Williams & Jordan Price Williams]",
       "showname": "City of Ladies - Dinas y Lêdis",
       "performer": "Tamar Eluned Williams & Jordan Price Williams",
