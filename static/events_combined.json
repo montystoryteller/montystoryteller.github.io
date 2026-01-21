@@ -2733,6 +2733,188 @@
       "isMusic": true,
       "geocode_missing": true
     },
+
+        {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "06/03/2026",
+      "time": "",
+      "price": "£11",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "The Hop Inn, Swindon, SN1 4BH",
+      "venue_url": "https://www.hopinnswindon.co.uk/",
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://gwr.seetickets.com/event/nick-parker/the-hop-inn-8-devizes-road-swindon-sn1-4bh/3595047",
+      "isMusic": true,
+       "latlon": [
+        51.5512,
+       -1.77715
+      ]
+    },
+     {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "07/03/2026",
+      "time": "Doors 6.30pm, start 8.15pm",
+      "price": "£12.50 + £1.30 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "Katie Fitzgerald's, Stourbridge, DY8 3TB", "venue_url": "https://www.katiessecretgarden.com/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://wegottickets.com/f/15208",
+      "isMusic": true,
+      "latlon": [
+                    52.458169,
+                    -2.1578764
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "08/03/2026",
+      "time": "7pm",
+      "price": "£11.25",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "Prohibition Recording Studios, Liverpool, L7 7BP", "venue_url": "https://www.prohibitionrecordingstudios.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://www.prohibitionrecordingstudios.co.uk/events/nick-parker-support-live-at-prohibition-recording-studios/",
+      "isMusic": true,
+      "latlon": [
+                    53.40266,
+                    -2.96919
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "13/03/2026",
+      "time": "7.30pm",
+      "price": "£10",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "The Georgian Theatre, Stockton-on-Tees, TS18 1AT", "venue_url": "https://georgiantheatre.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://georgiantheatre.co.uk/live-events/nick-parker/",
+      "isMusic": true,
+      "latlon": [
+                    54.56443,
+                    -1.31233
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "14/03/2026",
+      "time": "7.30pm",
+      "price": "£10",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "The Black Swan Inn, York, YO1 7DE", "venue_url": "https://blackswanyork.com/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://wegottickets.com/event/690054/",
+      "isMusic": true,
+      "latlon": [
+                    53.96018,
+                    -1.07574
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "15/03/2026",
+      "time": "7.30pm",
+      "price": "£12 + £1.20 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "The Grove, Nottingham, NG1 1DQ", "venue_url": "https://thegrovenotts.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://wegottickets.com/event/689386/",
+      "isMusic": true,
+      "latlon": [
+                    52.95409,
+                    -1.1378
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "20/03/2026",
+      "time": "7pm",
+      "price": "£12 + £1.20 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "Nelly's Retro & Vintage, Stratford-upon-Avon, CV37 0AH", "venue_url": "https://thegrovenotts.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://www.seetickets.com/event/nick-parker-solo/nelly-s-retro-vintage/3595090",
+      "isMusic": true,
+      "latlon": [
+                    52.19601,
+                    -1.71522
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "27/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "The Brunswick (Cellar bar), Brighton, BN3 1JF", "venue_url": "https://www.brunswickpub.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://good-show.co.uk/events/3193",
+      "isMusic": true,
+      "latlon": [
+                    50.82416,
+                    -0.16246
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "28/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "CWRW, Carmarthen, SA31 1BS", "venue_url": "https://www.cwrw.co.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://wegottickets.com/location/26434",
+      "isMusic": true,
+      "latlon": [
+                    51.85794,
+                    -4.3039
+                ]
+    },
+    {
+      "name": "Nick Parker (Chuckie Egg Tour)",
+      "showname": "Chuckie Egg Tour",
+      "performer": "Nick Parker",
+      "perfoemer_url": "https://nick-parker.co.uk/",
+      "date": "29/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee",
+      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
+      "location": "Exeter Phoenix, Exeter, EX4 3LS", "venue_url": "https://exeterphoenix.org.uk/", 
+      "event_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "ticket_url": "https://wegottickets.com/event/688979/",
+      "isMusic": true,
+      "latlon": [
+                    50.72506,
+                    -3.5315
+                ]
+    },
     {
       "series_title": "Taking the Tradition On",
       "presenter": "Amy Douglas",
