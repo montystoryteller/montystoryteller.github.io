@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Norfolk Folk Tales [Dave Tonge]",
-      "showname": "Norfolk Folk Tales ",
+      "showname": "Norfolk Folk Tales",
       "performer": "Dave Tonge",
       "date": "29/11/2025",
       "time": "2.00pm",
@@ -1162,7 +1162,7 @@
     },
     {
       "name": "Tales of Winter Magic - evening storytelling and Mummers' play",
-      "showname": "Tales of Winter Magic - evening storytelling and Mummers' play ",
+      "showname": "Tales of Winter Magic - evening storytelling and Mummers' play",
       "performer": "Red Phoenix | The Prize Old Mummers",
       "date": "05/12/2025",
       "time": "7-9pm",
@@ -1336,7 +1336,7 @@
       "date": "12/12/2025",
       "time": "7.30pm",
       "club": "wondermonger",
-      "price": "Pay What You Feel ",
+      "price": "Pay What You Feel",
       "description": "Mark Fraser is an itinerant storyteller, traversing the land with his original tales and weird stories. Join him for a selection of the odd, ghastly and vaguely unsettling tales from his own brain and around the world. A dark hour of devilish deeds and strange characters, just perfect for a dark winter’s evening. A writer, an artist and the master of the bizarre story, Mark brings twenty years of storytelling experience to Wonder Monger at Cambridge Junction.",
       "location": "Cambridge Junction, Cambridge, CB1 7GX",
       "venue_url": "https://www.junction.co.uk/",
@@ -1370,7 +1370,7 @@
     },
     {
       "name": "Beowulf: Storytelling for Grown-Ups [Hugh Lupton]",
-      "showname": "Beowulf: Storytelling for Grown-Ups ",
+      "showname": "Beowulf: Storytelling for Grown-Ups",
       "performer": "Hugh Lupton",
       "date": "13/12/2025",
       "time": "7.30pm",
@@ -1623,7 +1623,7 @@
       ]
     },
     {
-      "name": "Welsh Whisperers [Gillian Brownson + Dragon Storytellers] ",
+      "name": "Welsh Whisperers [Gillian Brownson + Dragon Storytellers]",
       "showname": "Gillian Brownson",
       "performer": "Gillian Brownson + Dragon Storytellers",
       "date": "17/01/2026",
@@ -1782,7 +1782,7 @@
       "time": "7.30-10pm",
       "club": "threeheadsinawell",
       "price": "£10 [£7; £6 online]",
-      "description": "Across myth and memory, two young men set out on separate quests: one for treasure, one for love. But both must beware the ogres waiting in the dark. ",
+      "description": "Across myth and memory, two young men set out on separate quests: one for treasure, one for love. But both must beware the ogres waiting in the dark.",
       "location": "St. John's Church Hall, Worcester Park, KT4 7NY",
       "venue_url": "https://www.stjohnsoldmalden.org.uk/church-hall/",
       "event_flyer": "",
@@ -1884,7 +1884,7 @@
       "club": "",
       "price": "£10",
       "description": "Once upon a time there was a very bad king. He stole from his subjects, laid waste to the land, told outrageous lies, declared war on his neighbours, and always got his own way...\n\n\n\nExcept he didn’t.",
-      "location": "Buddhist Centre, Southampton, SO14 1NW ",
+      "location": "Buddhist Centre, Southampton, SO14 1NW",
       "venue_url": "https://www.southamptonbuddhistcentre.org/",
       "ticket_url": "https://www.tickettailor.com/events/merlfluin/1985839",
       "isSpecial": true,
@@ -1892,6 +1892,24 @@
       "latlon": [
         50.9057819,
         -1.3969673
+      ]
+    },
+    {
+      "name": "An Evening of Sussex Folklore and Wine [Jon Mason]",
+      "showname": "An Evening of Sussex Folklore and Wine",
+      "performer": "Jon Mason",
+      "date": "04/02/2026",
+      "time": "7pm",
+      "club": "",
+      "price": "£20",
+      "description": "Join us for an intimate, captivating night of traditional storytelling at Everflyht vineyard.\n\n\n\n Step back, or sideways, or deeper into a Sussex filled with story… This county is crammed full of fascinating folktales, from the Weald to the Downs, from the fields to the towns: smugglers' tunnels, fairies beneath the earth, witches becoming hares, ghostly black dogs. Wherever you go, there is a story to tell you the hopes, dreams and fears of people just like you. Come and join professional storyteller and local folklorist Jon for a night of tales, told live in person, to bring the magic and history of the place alive. You may never see the spaces we live in the same way again!\n\n\n\n The evening will feature two 40-minute sets with a relaxing interval, allowing time to chat and enjoy the vineyard atmosphere.\n\n\n\n Your ticket price includes the full storytelling performance and a glass of Everflyht wine.",
+      "location": "Everflyht vineyard, Ditchling, East Sussex, BN6 8XB",
+      "venue_url": "https://www.everflyht.com/",
+      "ticket_url": "https://www.everflyht.com/product/an-evening-of-sussex-folklore-wine-with-jon-norman-mason/",
+      "isSpecial": true,
+      "latlon": [
+        50.91073,
+        -0.11494
       ]
     },
      {
