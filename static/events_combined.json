@@ -2429,6 +2429,21 @@
         53.0712,
         -1.22619
       ]
+            },
+              {
+                "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
+                "showname": "Under a Hill, a King Lays Sleeping",
+                "performer": "Bernadette Russell",
+                "description": "Come join local author and storyteller Bernadette Russell for a wild and magical evening of Hampshire myth and folklore - featuring the tales of the King asleep beneath a hill which is perhaps a slumbering dragon, the giant Ascapart and his battles with Bevis of Hampton, an enchanted stone circle and a ghostly horse, our local witches and their spells, incantations and potions, the Otherworld and the Bentworth Thorn, and the grampus that lives in a Yew Tree. With stories, songs, poetry and even a spell from a Hampshire Grimoire - this will be a night to remember - guaranteed fun and packed full of ancient wisdom too!\n\n\n\n Come and let yourself be re-enchanted by this beautiful region full of chalk downlands, heathland, forest and coastline, bustling with rich legends and fairytales. With stories, songs, and poetry this will be a night to remember- guaranteed fun and packed full of ancient wisdom too!",
+                "date": "22/05/2026",
+                "time": "7-9pm",
+                "price": "£20.50",
+                "location": "Butser Ancient Farm, Hampshire, PO8 0BG",
+                "venue_url": "https://www.butserancientfarm.co.uk/",
+                "ticket_url": "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell", "isSpecial": true, "latlon": [
+        50.942957,
+        -0.9771452
+      ]
             }
   ],
   "musicEvents": [
