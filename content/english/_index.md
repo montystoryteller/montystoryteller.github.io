@@ -42,11 +42,14 @@ features:
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
       - "NEXT FESTIVAL SET: Quay Arts Kashmir Fringe, Saturday Febr. 7th, 2026, Acoustic stage" 
-      - "NEXT SOLO SHOW: TBC"
-    button:
-      enable: false
-      label: "Reserve Tickets for Winter Tales — 10/12/25"
-      link: "https://www.instagram.com/carvellanecoffee/"
+      - "NEXT SOLO SHOW: 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
+    buttons:
+      - enable: false
+        label: "Reserve Tickets for Winter Tales — 10/12/25"
+        link: "https://www.instagram.com/carvellanecoffee/"
+      - enable: true
+        label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
+        link: "https://www.tickettailor.com/events/montystoryteller/2023546"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
