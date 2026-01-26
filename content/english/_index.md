@@ -5,13 +5,19 @@ banner:
   content: "Traditional storyteller, based on the Isle of Wight."
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
+      - enable: true
+      label: "Looking for UK stroytelling events calendar map? CLICK HERE"
+      link: "https://montystoryteller.org/new_troubadours_event_guide.html"
     - enable: false
       label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
       link: "https://www.facebook.com/profile.php?id=61583286699008"
     - enable: true
+      label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
+      link: "https://www.tickettailor.com/events/montystoryteller/2023546"
+    - enable: false
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
-      link: "https://department.byretail.net/menu/Events/Spoken-Word"
-    - enable: true
+      link: "https://department.byretail.net/menu/Events/Spoken-Word"   
+    - enable: false
       label: "Buy Tickets for St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
     - enable: false
@@ -20,6 +26,7 @@ banner:
     - enable: false
       label: "Buy 'Protest Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
+
 
 # Features
 features:
