@@ -5,7 +5,7 @@ banner:
   content: "Traditional storyteller, based on the Isle of Wight."
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
-      - enable: true
+    - enable: true
       label: "Looking for UK storytelling events calendar map? CLICK HERE"
       link: "https://montystoryteller.org/new_troubadours_event_guide.html"
     - enable: false
