@@ -2285,6 +2285,23 @@
         -3.77984
       ]
     },
+       {
+                "name": "The Petal Demon [Shonaleigh]",
+                "showname": "The Petal Demon",
+                "performer": "Shonaleigh",
+                "description": "The Petal Demon follows the story of a woman who is pursued by a mage, and how she's helped by Lilith to create a maze of flowers, that traps the mage and becomes a sanctuary for her. This woman becomes known as the Petal Demon, and through her wanderings she leaves legends behind her.\n\n\n\n Tickets on the door.",
+                "date": "06/02/2026",
+                "time": "7.30-9.30pm",
+                "price": "",
+                "link":"https://www.abitcrack.com/",
+                "location": "The Chillingham, South Heaton, Newcastle, NE6 5XN",
+                "venue_url": "https://sjf.co.uk/the-chillingham/",
+      "facebook": "https://www.facebook.com/ABitCrack",  "isSpecial": true, "club": "abitcrack",
+      "latlon": [
+        54.9855258,
+        -1.576812
+      ]
+            },
     {
       "name": "Stories & Stars: Storytelling in the wild heart of Plymouth",
       "showname": "Stories & Stars: Storytelling in the wild heart of Plymouth",
@@ -2449,6 +2466,26 @@
                 "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-notts-tickets-1867486846429", "fb_event": 830908939589642, "isSpecial": true, "isMusic":false, "latlon": [
         53.0712,
         -1.22619
+      ]
+            },
+               {
+                "name": "The Petal Demon [Shonaleigh]",
+                "showname": "The Petal Demon",
+                "performer": "Shonaleigh",
+                "performer_url": "https://shonaleigh.uk/about",
+                "description": "The Petal Demon follows the story of a woman who is pursued by a mage, and how she's helped by Lilith to create a maze of flowers, that traps the mage and becomes a sanctuary for her. This woman becomes known as the Petal Demon, and through her wanderings she leaves legends behind her.",
+                "date": "11/04/2026",
+                "time": "7.30-9.30pm",
+                "price": "£20",
+                "ticket_url": "https://www.tickettailor.com/events/southdevonstorytellers/1775135",
+                "link":"",
+                "club": "southdevonstorytellers",
+                "location": "Caddaford Barn Studio, Buckfastleigh, TQ11 0JT",
+                "venue_url": "https://demo8.uk.webeasy.slightlydifferent.co.nz/",
+      "facebook": "", "fb_event":1738988050319883,  "isSpecial": true, "club": "",
+      "latlon": [
+        50.47491,
+        -3.75244
       ]
             },
               {
