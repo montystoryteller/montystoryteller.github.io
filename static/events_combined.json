@@ -668,12 +668,15 @@
       "name": "Manchester - Sting in the Tale",
       "schedule": "3rd wednesday",
       "time": "7pm",
-      "location": "",
-      "link": "",
+      "location": "Lock 91 Bar, Manchester, M3 4QL",
+      "venue_url": "https://www.manchesterbars.com/lock91.htm",
       "facebook": "https://www.facebook.com/astinginthetaleclub",
       "email": "astinginthetaleclub@gmail.com",
       "club": "stinginthetale",
-      "geocode_missing": true
+      "latlon": [
+        53.4746329,
+        -2.2508286
+      ]
     },
     {
       "name": "3rd Wednesday Storytellers, [online]",
@@ -1894,6 +1897,24 @@
         -1.3969673
       ]
     },
+       {
+      "name": "Tales Tattled & Told at StonyWords Literary Festival",
+      "showname": "Tales Tattled & Told at StonyWords Literary Festival",
+      "performer": "Lynette Hill, Stephen Hobbs, Rebecca LaChance, Peter Boyce, 2026 Bard of Stony Stratford, Gill and Patrick Larley",
+      "date": "01/02/2026",
+      "time": "7pm",
+      "club": "talestattledtold",
+      "price": "£12 (+ £1.20 booking fee)",
+      "description": "In 'Shapes' storyteller Gill blends a haunting Selkie tale set on the Isle of Harris with an Innuit folk tale, plus a story of the Albrecht Durer painting, 'The Hare.'\n\n\n\n Gill is a performance storyteller with a passion for encouraging the imagination to take her audiences to far away places and times! Patrick, a freelance musician and composer, weaves his harp tunes like golden magic around the words of the tales - shapeshifting selkies, hares and bears. \n\n\n\n Some of Patrick's recent compositions include his settings of commissioned poems by Shropshire/Welsh poets, A Shropshire Lass, and his Cantata, The Gentle Earth of Wales, based on Welsh folksongs and poetry.\n\n\n\n We'll also have the fantastic music of Rebecca LaChance and the joyous stories of Lynette Hill, Pete Boyce and fingers crossed, the artistry of the newly cloaked Bard of Stony Stratford! Hosted by Stephen Hobbs.\n\n\n\n This event is intended for ages 16 and older.",
+      "location": "The Stables at the Bull Hotel, Stony Stratford, MK11 1AQ",
+      "venue_url": "https://thebullhotelstonystratford.co.uk/",
+      "ticket_url": "https://wegottickets.com/event/662417",
+      "isSpecial": true,
+      "latlon": [
+        52.05741,
+        -0.85334
+      ]
+    },
     {
       "name": "An Evening of Sussex Folklore and Wine [Jon Mason]",
       "showname": "An Evening of Sussex Folklore and Wine",
@@ -1927,7 +1948,7 @@
       "online": "hybrid",
       "isSpecial": true,
       "fb_event": 762375106879668,
-            "latlon": [
+      "latlon": [
         52.2395529,
         -0.8924581
       ]
