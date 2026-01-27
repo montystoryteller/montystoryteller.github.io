@@ -3328,6 +3328,21 @@
                     53.59386,
                     -1.72396
                 ]
+    },
+     {
+      "name": "Scrag End Folk Club",
+      "schedule": "1st and 3rd tuesday",
+      "time": "8pm",
+      "location": "The Mushroom Hall, Swadlincote, DE11 8EN",
+      "link": "https://www.scragfolk.co.uk/index.php",
+      "venue_url": "https://www.scragfolk.co.uk/index.php/venues/the-mushroom-hall",
+      "facebook": "https://www.facebook.com/scragend.folkclub",
+      "storiesWelcome": true,
+      "exceptions": [],
+      "latlon": [
+                    52.7601,
+                    -1.55044
+                ]
     }
   ],
   "irishSessions": [
