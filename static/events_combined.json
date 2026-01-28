@@ -1863,7 +1863,25 @@
         -3.4975078
       ]
     },
-
+   {
+      "name": "Tales from Pixieland [Henry Everett]",
+      "showname": "Tales from Pixieland",
+      "performer": "Henry Everett",
+      "date": "04/02/2026",
+      "time": "7-9pm",
+      "club": "",
+      "price": "£10 / £8",
+      "description": "Deep in the South West, the sound of laughter choruses through the woods, along the mossy rocky river ways... Take care! Pixie tricks are close at hand! \n\n\n\n You're invited to 'Tales from Pixieland' a storytelling show exploring the traditional tales of the Pixies, by performance storyteller Henry Everett.\n\n\n\n Pixies are recognised around the world as a mischievous member of the fairy race, but their traditional stories are traced back to the hills and valleys of Cornwall, Devon and Somerset. Let their tales re-enchant your connection to this land and to life.\n\n\n\n Henry has spent the past few years exploring the tales and folklore of the Pixie's and published 'Pixie Folk Tales' with the History Press, 2025.\n\n\n\n Aimed at adults, 12+",
+      "location": "The Folk Preservation Society, Teignmouth, TQ14 8DZ",
+      "venue_url": "https://www.facebook.com/folk.preservation.society",
+      "event_flyer": "2026_02_04_everett_tales_pixieland_fps.jpg",
+      "ticket_url": "https://app.workshop-angel.com/form.php?h=1&t=0&e=cf3b2b7b0e4197cb",
+      "isSpecial": true,
+      "latlon": [
+        50.5468543,
+        -3.4975078
+      ]
+    },
     {
       "name": "Work in Progress: Berserker [Marcus Pibworth]",
       "showname": "Work in Progress: Berserker",
