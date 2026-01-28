@@ -1326,6 +1326,7 @@
                         time: event.time || null,
                         location: event.location,
                         performer: event.performer,
+                        performer_url: event.performer_url || null,
                         description: event.description || null,
                         event_flyer: event.event_flyer || null,
                         latlon: event.latlon || null,
@@ -1367,6 +1368,7 @@
                         time: event.time || null,
                         location: event.location,
                         performer: event.performer,
+                        performer_url: event.performer_url || null,
                         description: event.description || null,
                         event_flyer: event.event_flyer || null,
                         fb_event: event.fb_event || null,
@@ -1818,7 +1820,27 @@
                 if (event.performer) {
                     const performerDiv = document.createElement('div');
                     performerDiv.style.fontStyle = 'italic';
-                    performerDiv.textContent = event.performer;
+                    if (event.performer_url) {
+                        const safePerformerUrl = sanitizeUrl(event.performer_url);
+                        if (safePerformerUrl) {
+                            const performerLink = document.createElement('a');
+                            performerLink.href = safePerformerUrl;
+                            performerLink.target = '_blank';
+                            performerLink.style.color = 'inherit';
+                            performerLink.style.textDecoration = 'none';
+                            performerLink.onclick = (e) => e.stopPropagation();
+
+                            const performerStrong = document.createElement('strong');
+                            performerStrong.textContent = event.performer;
+                            performerLink.appendChild(performerStrong);
+
+                            performerDiv.appendChild(performerLink);
+                        } else {
+                            performerDiv.textContent = event.performer;
+                        }
+                    } else {
+                        performerDiv.textContent = event.performer;
+                    }
                     eventDiv.appendChild(performerDiv);
                 }
 
@@ -2208,6 +2230,7 @@
                             time: event.time || null,
                             location: event.location,
                             performer: event.performer,
+                            performer_url: event.performer_url || null,
                             description: event.description || null,
                             event_flyer: event.event_flyer || null,
                             latlon: event.latlon || null,
@@ -2249,6 +2272,7 @@
                             time: event.time || null,
                             location: event.location,
                             performer: event.performer,
+                            performer_url: event.performer_url || null,
                             description: event.description || null,
                             event_flyer: event.event_flyer || null,
                             fb_event: event.fb_event || null,
