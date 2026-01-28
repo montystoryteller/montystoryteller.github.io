@@ -1920,6 +1920,23 @@
         -1.3969673
       ]
     },
+
+        {
+      "name": "Storytelling at the Kashmir Fringe [Tony 'Monty' Hirst]",
+      "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
+      "performer": "Tony 'Monty' Hirst",
+      "date": "07/02/2026",
+      "time": "5.15pm",
+      "price": "Free",
+      "description": "A stroytelling slot in a local music festival.",
+      "location": "Quay Arts, Newport, Isle of Wight, PO30 5BD",
+      "venue_url": "https://www.quayarts.org/",
+      "event_flyer": "2026_02_07_kashmir_slot.png",
+      "latlon": [
+       50.70172, -1.29177
+      ]
+    },
+
        {
       "name": "Tales Tattled & Told at StonyWords Literary Festival",
       "showname": "Tales Tattled & Told at StonyWords Literary Festival",
@@ -2344,8 +2361,8 @@
       ]
     },
 {
-      "name": " The Steed o' Bells [Iris Pibworth & Colin Rowan]",
-      "showname": " The Steed o' Bells",
+      "name": "The Steed o' Bells [Iris Pibworth & Colin Rowan]",
+      "showname": "The Steed o' Bells",
       "performer": "Iris Pibworth & Colin Rowan",
       "date": "21/02/2026",
       "time": "Doors 6.30pm, show 7.30pm",
@@ -2358,6 +2375,22 @@
       "latlon": [
         53.7501,
         -2.48403
+      ]
+    },
+    {
+      "name": "The Sin-eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
+      "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
+      "performer": "Tony 'Monty' Hirst",
+      "date": "10/03/2026",
+      "time": "7.30pm",
+      "price": "£5",
+      "description": "An evening of traditional storytelling with storyteller Tony 'Monty' Hirst, featuring legends of Ross-on-Wye (who is, or was, the sin-eater of Ross? How did Old Maid's Walk get its name?), tales of the Forest, and a traditional tale or two from the time of once...\n\n\n Age: grown-ups. Because stories aren't just for children..,.",
+      "location": "Crown & Sceptre, Ross-on-Wye, HR9 5NX",
+      "venue_url": "https://www.tickettailor.com/events/montystoryteller/2023546",
+      "event_flyer": "2026_03_10_sineater_crown.png",
+      "latlon": [
+        51.91427,
+        -2.58428
       ]
     },
             {
