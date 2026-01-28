@@ -342,11 +342,15 @@
       "name": "Island Storytellers, Isle of Wight",
       "schedule": "2nd thursday",
       "time": "7-9pm",
-      "location": "Various locations",
+      "location": "Calverts Hotel, Newport, Isle of Wight, PO30 5BA",
       "link": "https://tistales.org.uk/island-storytellers/",
       "facebook": "https://www.facebook.com/groups/islandstorytellers",
+      "venue_url": "https://www.calvertshotel.co.uk/",
       "club": "islandstorytellers",
-      "geocode_missing": true
+      "latlon": [
+        50.70051,
+        -1.29359
+      ]
     },
     {
       "name": "Surrey: Three Heads In A Well storytelling circle",
