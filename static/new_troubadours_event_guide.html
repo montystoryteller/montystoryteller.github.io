@@ -2054,74 +2054,65 @@
             return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
         }
 
+        function shouldShowEvent(eventData, filters) {
+                const { storyclubsOn, specialOn, showMusic, showFolk, showSessions } = filters;
+
+                if (storyclubsOn && eventData.isStoryclub) return true;
+                if (specialOn && eventData.isSpecial) return true;
+                if (showMusic && eventData.isMusic) return true;
+                if (showFolk && eventData.isFolk) return true;
+                if (showSessions && eventData.isSession) return true;
+
+                return false;
+            }
+            
         function filterEvents() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const specialOn = document.getElementById('specialOn').checked;
-            const storyclubsOn = document.getElementById('storyclubsOn').checked;
-            const showMusic = document.getElementById('showMusic').checked;
-            const showFolk = document.getElementById('showFolk').checked;
-            const showSessions = document.getElementById('showSessions').checked;
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const filters = {
+                    storyclubsOn: document.getElementById('storyclubsOn').checked,
+                    specialOn: document.getElementById('specialOn').checked,
+                    showMusic: document.getElementById('showMusic').checked,
+                    showFolk: document.getElementById('showFolk').checked,
+                    showSessions: document.getElementById('showSessions').checked
+                };
 
-            console.log('Filter settings:', { specialOn, storyclubsOn, showMusic });
+                // Filter event list items
+                document.querySelectorAll('.event').forEach(event => {
+                    const isStoryclub = event.classList.contains('storyclub');
+                    const isSpecial = event.classList.contains('special');
+                    const isMusic = event.classList.contains('music');
+                    const isFolk = event.classList.contains('folk');
+                    const isSession = event.classList.contains('session');
 
-            // Filter event list items
-            const allEventElements = document.querySelectorAll('.event');
-            console.log(`Total event elements: ${allEventElements.length}`);
+                    const eventData = { isStoryclub, isSpecial, isMusic, isFolk, isSession };
+                    let visible = shouldShowEvent(eventData, filters);
 
-            allEventElements.forEach(event => {
-                let visible = false;
+                    if (visible && searchTerm) {
+                        visible = event.textContent.toLowerCase().includes(searchTerm);
+                    }
 
-                const isStoryclub = event.classList.contains('storyclub');
-                const isSpecial = event.classList.contains('special');
-                const isMusic = event.classList.contains('music');
-                const isFolk = event.classList.contains('folk');
-                const isSession = event.classList.contains('session');
+                    event.classList.toggle('hidden', !visible);
+                });
 
-                // Show event if its type checkbox is checked
-                if (storyclubsOn && isStoryclub) visible = true;
-                if (specialOn && isSpecial) visible = true;
-                if (showMusic && isMusic) visible = true;
-                if (showFolk && isFolk) visible = true;
-                if (showSessions && isSession) visible = true;
+                // Filter map markers
+                markers.forEach(marker => {
+                    let visible = shouldShowEvent(marker.eventData, filters);
 
-                // Apply search filter if search term exists
-                if (visible && searchTerm) {
-                    const text = event.textContent.toLowerCase();
-                    visible = text.includes(searchTerm);
-                }
+                    if (visible && searchTerm) {
+                        const searchableText = `${marker.eventData.name} ${marker.eventData.location} ${marker.eventData.performer || ''}`.toLowerCase();
+                        visible = searchableText.includes(searchTerm);
+                    }
 
-                event.classList.toggle('hidden', !visible);
-            });
+                    if (visible) {
+                        marker.setStyle({ opacity: 1, fillOpacity: 0.8 });
+                    } else {
+                        marker.setStyle({ opacity: 0, fillOpacity: 0 });
+                    }
+                });
 
-            // Filter map markers
-            markers.forEach(marker => {
-                const eventData = marker.eventData;
-                let visible = false;
-
-                if (storyclubsOn && eventData.isStoryclub) visible = true;
-                if (specialOn && eventData.isSpecial) visible = true;
-                if (showMusic && eventData.isMusic) visible = true;
-                if (showFolk && eventData.isFolk) visible = true;
-                if (showSessions && eventData.isSession) visible = true;
-
-                // Apply search filter if search term exists
-                if (visible && searchTerm) {
-                    const searchableText = `${eventData.name} ${eventData.location} ${eventData.performer || ''}`.toLowerCase();
-                    visible = searchableText.includes(searchTerm);
-                }
-
-                // Show/hide marker based on filter
-                if (visible) {
-                    marker.setStyle({ opacity: 1, fillOpacity: 0.8 });
-                } else {
-                    marker.setStyle({ opacity: 0, fillOpacity: 0 });
-                }
-            });
-
-            // Count visible events
-            const visibleCount = document.querySelectorAll('.event:not(.hidden)').length;
-            console.log(`Visible events after filtering: ${visibleCount}`);
-        }
+                const visibleCount = document.querySelectorAll('.event:not(.hidden)').length;
+                console.log(`Visible events after filtering: ${visibleCount}`);
+            }
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
