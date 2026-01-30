@@ -758,7 +758,6 @@
         let map;
         let markers = [];
         let allEventsData = [];
-        let geocodeQueue = [];
         let isGeocoding = false;
         let eventsData = null;
 
@@ -870,13 +869,6 @@
             }).addTo(map);
 
             map.on('moveend', updateMapView);
-        }
-
-        // Rate-limited geocoding function (fallback only - most coords in JSON)
-        async function geocodeLocation(location) {
-            // This is now just a fallback for events without latlon in the JSON
-            console.warn(`No latlon data for: ${location} - would need API geocoding`);
-            return null;
         }
 
         function parseSchedule(schedule, startDate, endDate) {
@@ -1208,6 +1200,52 @@
             return container;
         }
 
+        function createEventData(baseEvent, date, eventType) {
+                const { location, latlon, venue_url } = resolveEventVenue(baseEvent, date);
+
+                const eventData = {
+                    name: baseEvent.name,
+                    date: date,
+                    time: baseEvent.time || null,
+                    location: location,
+                    latlon: latlon,
+                    venue_url: venue_url,
+                    price: baseEvent.price || null,
+                    isStoryclub: eventType === 'storyclub',
+                    isSpecial: eventType === 'special',
+                    isMusic: eventType === 'music',
+                    isFolk: eventType === 'folk',
+                    isSession: eventType === 'session'
+                };
+
+                // Add type-specific fields
+                if (eventType === 'storyclub' || eventType === 'folk' || eventType === 'session') {
+                    eventData.club = baseEvent.club;
+                    eventData.facebook = baseEvent.facebook || null;
+                    eventData.email = baseEvent.email || null;
+                    eventData.link = baseEvent.link || null;
+                    eventData.schedule = baseEvent.schedule || null;
+                    eventData.alternate_locations = baseEvent.alternate_locations || null;
+                    eventData.exceptions = baseEvent.exceptions || null;
+
+                    if (eventType === 'folk') {
+                        eventData.storiesWelcome = baseEvent.storiesWelcome || false;
+                        eventData.byInvitation = baseEvent.byInvitation || null;
+                    }
+                }
+
+                if (eventType === 'special' || eventType === 'music') {
+                    eventData.performer = baseEvent.performer;
+                    eventData.performer_url = baseEvent.performer_url || null;
+                    eventData.description = baseEvent.description || null;
+                    eventData.event_flyer = baseEvent.event_flyer || null;
+                    eventData.fb_event = baseEvent.fb_event || null;
+                    eventData.ticket_url = baseEvent.ticket_url || null;
+                }
+
+                return eventData;
+            }
+
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
                 console.error('Events data not loaded');
@@ -1229,25 +1267,7 @@
                 for (const date of dates) {
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
 
-                    const eventData = {
-                        name: event.name,
-                        date: date,
-                        time: event.time || null,
-                        club: event.club,
-                        facebook: event.facebook || null,
-                        email: event.email || null,
-                        link: event.link || null,
-                        schedule: event.schedule || null,
-                        alternate_locations: event.alternate_locations || null,
-                        price: event.price || null,
-                        location,
-                        latlon,
-                        exceptions: event.exceptions || null,
-                        venue_url,
-                        isStoryclub: true,
-                        isSpecial: false,
-                        isMusic: false
-                    };
+                    const eventData = createEventData(event, date, 'storyclub');
 
                     const reschedule = evaluateReschedule(
                         startDate,
@@ -1274,27 +1294,7 @@
                     );
 
                     if (reschedule.isRescheduled) {
-                        const eventData = {
-                            name: event.name,
-                            date: reschedule.rescheduledTo,
-                            time: event.time || null,
-                            club: event.club,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            price: event.price || null,
-                            location: location,
-                            latlon: latlon,
-                            exceptions: event.exceptions || null,
-                            venue_url: venue_url,
-                            isRescheduled: true,
-                            rescheduledTo: reschedule.rescheduledTo,
-                            rescheduledToStr: reschedule.rescheduledToStr,
-                            isStoryclub: true,
-                            isSpecial: false,
-                            isMusic: false
-                        };
+                        const eventData = createEventData(event, reschedule.rescheduledTo, 'storyclub');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -1321,24 +1321,7 @@
 
                 const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= startDate && eventDate <= endDate) {
-                    const eventData = {
-                        name: event.name,
-                        date: eventDate,
-                        time: event.time || null,
-                        location: event.location,
-                        performer: event.performer,
-                        performer_url: event.performer_url || null,
-                        description: event.description || null,
-                        event_flyer: event.event_flyer || null,
-                        latlon: event.latlon || null,
-                        fb_event: event.fb_event || null,
-                        ticket_url: event.ticket_url || null,
-                        price: event.price || null,
-                        venue_url: event.venue_url || null,
-                        isStoryclub: false,
-                        isSpecial: true,  // All specificEvents are special events
-                        isMusic: false
-                    };
+                    const eventData = createEventData(event, eventDate, 'special');
                     allEventsData.push(eventData);
                     await addMarkerForEvent(eventData);
                 }
@@ -1363,24 +1346,7 @@
 
                 const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= startDate && eventDate <= endDate) {
-                    const eventData = {
-                        name: event.name,
-                        date: eventDate,
-                        time: event.time || null,
-                        location: event.location,
-                        performer: event.performer,
-                        performer_url: event.performer_url || null,
-                        description: event.description || null,
-                        event_flyer: event.event_flyer || null,
-                        fb_event: event.fb_event || null,
-                        ticket_url: event.ticket_url || null,
-                        price: event.price || null,
-                        latlon: event.latlon || null,
-                        venue_url: event.venue_url || null,
-                        isStoryclub: false,
-                        isSpecial: false,
-                        isMusic: true  // All musicEvents are music
-                    };
+                    const eventData = createEventData(event, eventDate, 'music');
                     allEventsData.push(eventData);
                     await addMarkerForEvent(eventData);
                 }
@@ -1393,29 +1359,7 @@
                 for (const date of dates) {
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
 
-                    const eventData = {
-                        name: event.name,
-                        date: date,
-                        time: event.time || null,
-                        club: event.club,
-                        facebook: event.facebook || null,
-                        email: event.email || null,
-                        link: event.link || null,
-                        schedule: event.schedule || null,
-                        alternate_locations: event.alternate_locations || null,
-                        price: event.price || null,
-                        location,
-                        latlon,
-                        exceptions: event.exceptions || null,
-                        venue_url,
-                        storiesWelcome: event.storiesWelcome || false,
-                        byInvitation: event.byInvitation || null,
-                        isStoryclub: false,
-                        isSpecial: false,
-                        isMusic: false,
-                        isFolk: true,
-                        isSession: false
-                    };
+                    const eventData = createEventData(event, date, 'folk');
 
                     const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
                     eventData.isCancelled = reschedule.isCancelled;
@@ -1431,30 +1375,7 @@
                     const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
 
                     if (reschedule.isRescheduled) {
-                        const eventData = {
-                            name: event.name,
-                            date: reschedule.rescheduledTo,
-                            time: event.time || null,
-                            club: event.club,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            price: event.price || null,
-                            location: location,
-                            latlon: latlon,
-                            exceptions: event.exceptions || null,
-                            venue_url: venue_url,
-                            storiesWelcome: event.storiesWelcome || false, byInvitation: event.byInvitation || null,
-                            isRescheduled: true,
-                            rescheduledTo: reschedule.rescheduledTo,
-                            rescheduledToStr: reschedule.rescheduledToStr,
-                            isStoryclub: false,
-                            isSpecial: false,
-                            isMusic: false,
-                            isFolk: true,
-                            isSession: false
-                        };
+                        const eventData = createEventData(event, reschedule.rescheduledTo, 'folk');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -1468,27 +1389,7 @@
                 for (const date of dates) {
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
 
-                    const eventData = {
-                        name: event.name,
-                        date: date,
-                        time: event.time || null,
-                        club: event.club,
-                        facebook: event.facebook || null,
-                        email: event.email || null,
-                        link: event.link || null,
-                        schedule: event.schedule || null,
-                        alternate_locations: event.alternate_locations || null,
-                        price: event.price || null,
-                        location,
-                        latlon,
-                        exceptions: event.exceptions || null,
-                        venue_url,
-                        isStoryclub: false,
-                        isSpecial: false,
-                        isMusic: false,
-                        isFolk: false,
-                        isSession: true
-                    };
+                   const eventData = createEventData(event, date, 'session');
 
                     const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
                     eventData.isCancelled = reschedule.isCancelled;
@@ -1504,29 +1405,7 @@
                     const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
 
                     if (reschedule.isRescheduled) {
-                        const eventData = {
-                            name: event.name,
-                            date: reschedule.rescheduledTo,
-                            time: event.time || null,
-                            club: event.club,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            price: event.price || null,
-                            location: location,
-                            latlon: latlon,
-                            exceptions: event.exceptions || null,
-                            venue_url: venue_url,
-                            isRescheduled: true,
-                            rescheduledTo: reschedule.rescheduledTo,
-                            rescheduledToStr: reschedule.rescheduledToStr,
-                            isStoryclub: false,
-                            isSpecial: false,
-                            isMusic: false,
-                            isFolk: false,
-                            isSession: true
-                        };
+                        const eventData = createEventData(event, reschedule.rescheduledTo, 'session');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2065,7 +1944,7 @@
 
                 return false;
             }
-            
+
         function filterEvents() {
                 const searchTerm = document.getElementById('searchInput').value.toLowerCase();
                 const filters = {
