@@ -2054,25 +2054,7 @@
                         // Just show the first (next) occurrence
                         const nextDate = dates[0];
                         const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
-                        const eventData = {
-                            name: event.name,
-                            date: nextDate,
-                            time: event.time || null,
-                            location: location,
-                            club: event.club,
-                            price: event.price || null,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            latlon: latlon,
-                            venue_url: venue_url,
-                            isStoryclub: true,
-                            isSpecial: false,
-                            isMusic: false,
-                            isFolk: false,
-                            isSession: false
-                        };
+                        const eventData = createEventData(event, nextDate, 'storyclub');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2095,26 +2077,7 @@
                     const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
 
                     if (searchableText.includes(searchTerm)) {
-                        const eventData = {
-                            name: event.name,
-                            date: eventDate,
-                            time: event.time || null,
-                            location: event.location,
-                            performer: event.performer,
-                            performer_url: event.performer_url || null,
-                            description: event.description || null,
-                            event_flyer: event.event_flyer || null,
-                            latlon: event.latlon || null,
-                            fb_event: event.fb_event || null,
-                            ticket_url: event.ticket_url || null,
-                            price: event.price || null,
-                            venue_url: event.venue_url || null,
-                            isStoryclub: false,
-                            isSpecial: true,
-                            isMusic: false,
-                            isFolk: false,
-                            isSession: false
-                        };
+                        const eventData = createEventData(event, eventDate, 'special');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2137,26 +2100,7 @@
                     const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
 
                     if (searchableText.includes(searchTerm)) {
-                        const eventData = {
-                            name: event.name,
-                            date: eventDate,
-                            time: event.time || null,
-                            location: event.location,
-                            performer: event.performer,
-                            performer_url: event.performer_url || null,
-                            description: event.description || null,
-                            event_flyer: event.event_flyer || null,
-                            fb_event: event.fb_event || null,
-                            ticket_url: event.ticket_url || null,
-                            price: event.price || null,
-                            latlon: event.latlon || null,
-                            venue_url: event.venue_url || null,
-                            isStoryclub: false,
-                            isSpecial: false,
-                            isMusic: true,
-                            isFolk: false,
-                            isSession: false
-                        };
+                        const eventData = createEventData(event, eventDate, 'music');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2171,27 +2115,7 @@
                     if (dates.length > 0) {
                         const nextDate = dates[0];
                         const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
-                        const eventData = {
-                            name: event.name,
-                            date: nextDate,
-                            time: event.time || null,
-                            location: location,
-                            club: event.club,
-                            price: event.price || null,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            latlon: latlon,
-                            venue_url: venue_url,
-                            storiesWelcome: event.storiesWelcome || false,
-                            byInvitation: event.byInvitation || null,
-                            isStoryclub: false,
-                            isSpecial: false,
-                            isMusic: false,
-                            isFolk: true,
-                            isSession: false
-                        };
+                        const eventData = createEventData(event, nextDate, 'folk');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2206,25 +2130,7 @@
                     if (dates.length > 0) {
                         const nextDate = dates[0];
                         const { location, latlon, venue_url } = resolveEventVenue(event, nextDate);
-                        const eventData = {
-                            name: event.name,
-                            date: nextDate,
-                            time: event.time || null,
-                            location: location,
-                            club: event.club,
-                            price: event.price || null,
-                            facebook: event.facebook || null,
-                            email: event.email || null,
-                            link: event.link || null,
-                            schedule: event.schedule || null,
-                            latlon: latlon,
-                            venue_url: venue_url,
-                            isStoryclub: false,
-                            isSpecial: false,
-                            isMusic: false,
-                            isFolk: false,
-                            isSession: true
-                        };
+                        const eventData = createEventData(event, nextDate, 'session');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
