@@ -69,7 +69,7 @@
       ]
     },
     {
-      "name": "Tales'n'Ales",
+      "name": "Tales & Ales",
       "schedule": "3rd thursday",
       "time": "8-10pm",
       "location": "Locks Inn, Geldeston, Norwich, NR34 0HW",
@@ -82,9 +82,10 @@
         1.5171661
       ]
     },
+    {"name": "Tea & Tales", "schedule":"1st wednesday","time":"2.30-3.30pm", "price":"£2 pay on the door", "location": "Palace Theatre, Westcliff on Sea, SS0 9LA", "venue_url":"https://trafalgartickets.com/palace-theatre-southend/en-GB", "latlon":[51.54387,0.69182]},
     {
       "name": "Norwich Storytelling Club",
-      "schedule": "3rd tuesday",
+      "schedule": "1st tuesday",
       "time": "7.30pm",
       "location": "Gibraltar Gardens, Norwich, NR2 4LZ",
       "venue_url": "https://www.gibraltargardens-norwich.foodanddrinksites.co.uk/",
@@ -237,9 +238,10 @@
       ]
     },
     {
-      "name": "East Anglian Story Experience",
+      "name": "East Anglian Storytelling Experience (EASE)",
       "schedule": "2nd wednesday",
-      "time": "8pm",
+      "time": "8-10pm",
+      "price":"£3 or pay what you can on the door",
       "location": "B Side cafe, John Peel Centre, Stowmarket, IP14 1ET",
       "link": "https://johnpeelcentre.com/",
       "facebook": "https://www.facebook.com/profile.php?id=61568382750023",
@@ -247,6 +249,20 @@
       "latlon": [
         52.1881821,
         0.9974498
+      ]
+    },
+     {
+      "name": "Storytelling with Bards Aloud",
+      "schedule": "3rd tuesday",
+      "time": "8pm",
+      "price":"",
+      "location": "The Dove St. Inn, Ipswich, IP4 2LA",
+      "link": "https://dovestreetinn.co.uk/",
+      "facebook": "https://www.facebook.com/groups/378838935541646",
+      "club": "bardsaloud",
+      "latlon": [
+        52.05641,
+        1.16418
       ]
     },
     {
@@ -2107,6 +2123,65 @@
         -3.52944
       ]
     },
+      {
+      "name": "Touching the Light [Sharon Jacksties]",
+      "showname": "Touching the Light",
+      "performer": "Sharon Jacksties",
+      "date": "28/02/2026",
+      "time": "7-8.30pm",
+      "club": "",
+      "price": "Pay what you like/decide/can (min £5)",
+      "description": "The days are getting longer, and as we celebrate the returning light, here is a new show to share world-wide inspirational stories of hope and resilience. Collected for her most recent book, 'A History of the World in 100 Tales', their world wide wisdom will uplift you as your storyteller unfolds this '... magical, captivating and atmospheric journey...'\n\n\n\nThis new work has been developed as a companion to her critically acclaimed piece, 'Talking to the Dark' which recently toured Romania. She is delighted that it reflects this year's World Storytelling Day's theme of 'light in the darkness'\n\n\n\n Sharon Jacksties is a professional performance storyteller and author, performing and teaching storytelling here and abroad, and is the author of several anthologies celebrating our world heritage of traditional literature",
+      "location": "The Front Room Theatre, Weston-Super-Mare, BS23 1FF",
+      "venue_url": "https://frontroomwsm.com/",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/weston-super-mare/front-room-weston-super-mare/touching-the-light-storytelling-by-sharon-jacksties/e-rbobbq",
+      "isSpecial": true,
+      "latlon": [
+        51.3457778,
+        -2.9786388
+      ]
+    },
+    {
+      "name": "Queen of Between [Lucy Lill & Sarah-Liisa Wilkinson]",
+      "showname": "Queen of Between",
+      "performer": "Lucy Lill & Sarah-Liisa Wilkinson",
+      "date": "03/02/2026",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're… stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
+      "location": "Cambridge Junction, Cambridge, CB1 7GX",
+      "venue_url": "https://www.junction.co.uk/",
+      "promoter_link": "https://www.artemis-storytelling.co.uk/performances",
+      "event_flyer": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "latlon": [
+        52.1907939,
+        0.1365354
+      ]
+    },
+    {
+      "name": "Deliver Us From Evil [Ropetackle Storytellers]",
+      "showname": "Deliver Us From Evil",
+      "performer": "Ropetackle Storytellers",
+      "date": "09/02/2026",
+      "time": "7.30-9.30pm",
+      "club": "",
+      "price": "£10",
+      "description": "Storyteller Aaron Oliver shares the forgotten story of the first recorded case of Tourette's Syndrome — a 15th Century priest who believed he was possessed by a demon. With two vicars for parents and his own Tourette's diagnosis, Aaron dives into the mind of a religious leader at war with his own body and asks: how do the stories we tell ourselves change us? \n\n\n\n Ropetackle Storytellers regulars Amelia Ace Armande and Joshua Crisp will be sharing short stories of hauntings and possessions.",
+      "location": "Ropetackle Arts Centre, Shoreham-by-Sea, BN43 5EG",
+      "venue_url": "https://ropetacklecentre.co.uk/",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-deliver-us-from-evil/",
+      "isSpecial": true,
+      "latlon": [
+        50.8326,
+        -0.27906
+      ]
+    },
     {
       "name": "A Harvest of Tales [Storytelling Ambassadors]",
       "showname": "A Harvest of Tales",
@@ -2244,6 +2319,26 @@
       "latlon": [
         51.588323,
         -2.9934302
+      ]
+    },
+    {
+      "name": "The Mighty Goddess [Sally Pomme Clayton]",
+      "showname": "The Mighty Goddess",
+      "performer": "Sally Pomme Clayton",
+      "performer_url": "https://sallypommeclayton.com/",
+      "date": "20/02/2026",
+      "time": "7.30 pm",
+      "club": "",
+      "price": "Pay what you decide (min. £5)",
+      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
+      "location": "The Front Room Theatre, Weston-Super-Mare, BS23 1FF",
+      "venue_url": "https://frontroomwsm.com/",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/frontroomwsm/the-mighty-goddess/e-bblzao",
+      "isSpecial": true,
+      "latlon": [
+        51.3457778,
+        -2.9786388
       ]
     },
     {
@@ -2415,6 +2510,26 @@
         -2.48403
       ]
     },
+     {
+      "name": "The Mighty Goddess [Sally Pomme Clayton]",
+      "showname": "The Mighty Goddess",
+      "performer": "Sally Pomme Clayton",
+      "performer_url": "https://sallypommeclayton.com/",
+      "date": "08/03/2026",
+      "time": "8pm",
+      "club": "",
+      "price": "£20 (£18 conc; SfS discount code: GODDESS15)",
+      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
+      "location": "Omnibus Theatre, Clapham, SW4 0QW",
+      "venue_url": "https://www.omnibus-clapham.org/",
+      "event_flyer": "",
+      "ticket_url": "https://www.omnibus-clapham.org/mighty-goddess/",
+      "isSpecial": true,
+      "latlon": [
+        51.46365,
+        -0.14243
+      ]
+    },
     {
       "name": "The Sin-eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
       "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
@@ -2430,6 +2545,26 @@
       "latlon": [
         51.91427,
         -2.58428
+      ]
+    },
+     {
+      "name": "The Mighty Goddess [Sally Pomme Clayton]",
+      "showname": "The Mighty Goddess",
+      "performer": "Sally Pomme Clayton",
+      "performer_url": "https://sallypommeclayton.com/",
+      "date": "26/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£12",
+      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
+      "location": "The Story Museum, Oxford, OX1 1BP",
+      "venue_url": "https://www.storymuseum.org.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-the-mighty-goddess",
+      "isSpecial": true,
+      "latlon": [
+        51.75074,
+        -1.25791
       ]
     },
             {
