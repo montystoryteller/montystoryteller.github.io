@@ -867,7 +867,7 @@
     },
     {
       "name": "Uncanny [Nell Phoenix]",
-      "showname": "The Hairy Girl",
+      "showname": "Uncanny",
       "performer": "Nell Phoenix",
       "promoter_link": "http://nellphoenix.co.uk/",
       "date": "11/11/2025",
@@ -1849,7 +1849,7 @@
       "promoter_link": "http://nellphoenix.co.uk/",
       "date": "29/01/2026",
       "time": "7.30pm",
-      "club": "criccracclub",
+      "club": "crickcrack",
       "price": "",
       "description": "",
       "location": "The Story Museum, Oxford, OX1 1BP",
@@ -2263,6 +2263,25 @@
       ]
     },
     {
+      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
+      "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
+      "performer": "Ben Haggarty & Steph Brittain",
+      "date": "08/01/2026",
+      "time": "7.15-9.45pm",
+      "club": "crickcrack",
+      "price": "£12, £10 concessions, £15 support the artist (+£1 booking fee) ",
+      "description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
+      "location": "NEXT DOOR at Theatre Deli, EC3A 4AF",
+      "venue_url": "https://www.theatredeli.co.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://tickets.storypickandmix.co.uk/events/thehouseofrumour/2014267",
+      "isSpecial": true,
+      "latlon": [
+        51.51382,
+        -0.08058
+      ]
+    },
+    {
       "name": "Storytelling Night with Laura Sampson and Stacey Blythe",
       "showname": "Storytelling Night with ...",
       "performer": "Laura Sampson and Stacey Blythe",
@@ -2626,6 +2645,45 @@
       "latlon": [
         51.91427,
         -2.58428
+      ]
+    },
+    {
+      "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
+      "showname": "A Dance with the Minotaur's Sister",
+      "performer": "Steph Brittain",
+      "date": "26/02/2026",
+      "time": "7.30",
+      "club": "crickcrack",
+      "price": "£12",
+      "description": "Join storyteller Steph Brittain as she follows Ariadne's journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.",
+      "location": "The Story Museum, Oxford, OX1 1BP",
+      "venue_url": "https://www.storymuseum.org.uk/",
+      "event_flyer": "",
+      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-a-dance-with-the-minotaurs-sister",
+      "isSpecial": true,
+      "latlon": [
+        51.75074,
+        -1.25791
+      ]
+    },
+      {
+      "name": "Uncanny [Nell Phoenix]",
+      "showname": "Uncanny",
+      "performer": "Nell Phoenix",
+      "promoter_link": "http://nellphoenix.co.uk/",
+      "date": "19/03/2026",
+      "time": "7.30pm",
+      "club": "crickcrack",
+      "price": "£12.50",
+      "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.",
+      "location": "The Cube, Kingsdown, Bristol, BS2 8NQ",
+      "venue_url": "https://www.headfirstbristol.co.uk/whats-on/the-cube",
+      "event_flyer": "",
+      "ticket_url": "https://www.headfirstbristol.co.uk/whats-on/the-cube/thu-19-mar-uncanny-146375",
+      "isSpecial": true,
+      "latlon": [
+        51.46113,
+       -2.59325
       ]
     },
      {
