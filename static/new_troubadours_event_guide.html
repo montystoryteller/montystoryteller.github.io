@@ -1240,132 +1240,70 @@
             }
         }
 
+        async function processRecurringEvents(events, eventType, startDate, endDate) {
+            for (const event of events || []) {
+                const exceptions = event.exceptions || [];
+                const dates = parseSchedule(event.schedule, startDate, endDate);
+
+                for (const date of dates) {
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+
+                    const eventData = createEventData(event, date, eventType);
+
+                    const reschedule = evaluateReschedule(
+                        startDate,
+                        endDate,
+                        date,
+                        exceptions
+                    );
+
+                    eventData.isCancelled = reschedule.isCancelled;
+                    eventData.rescheduledTo = reschedule.rescheduledTo;
+                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                    allEventsData.push(eventData);
+                    await addMarkerForEvent(eventData);
+                }
+
+                for (const excDate of exceptions) {
+                    const date = parseExceptionDate(excDate);
+                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+                    const reschedule = evaluateReschedule(
+                        startDate,
+                        endDate,
+                        date,
+                        exceptions
+                    );
+
+                    if (reschedule.isRescheduled) {
+                        const eventData = createEventData(event, reschedule.rescheduledTo, eventType);
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+        }
+
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
                 console.error('Events data not loaded');
                 return;
             }
 
-            const eventsList = document.getElementById('eventsList');
-
             allEventsData = [];
-
-            // Clear existing markers
             markers.forEach(marker => map.removeLayer(marker));
             markers = [];
 
-            // Process recurring events
-            for (const event of eventsData.events || []) {
-                const exceptions = event.exceptions || [];
-                const dates = parseSchedule(event.schedule, startDate, endDate);
-                for (const date of dates) {
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
+            // Process all recurring event types with one function
+            await processRecurringEvents(eventsData.events, 'storyclub', startDate, endDate);
+            await processRecurringEvents(eventsData.folkNights, 'folk', startDate, endDate);
+            await processRecurringEvents(eventsData.irishSessions, 'session', startDate, endDate);
 
-                    const eventData = createEventData(event, date, 'storyclub');
-
-                    const reschedule = evaluateReschedule(
-                        startDate,
-                        endDate,
-                        date,
-                        exceptions
-                    );
-
-                    // If there's an exception in this month, this regular date is cancelled
-                    eventData.isCancelled = reschedule.isCancelled;
-                    eventData.rescheduledTo = reschedule.rescheduledTo;
-                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
-                    allEventsData.push(eventData);
-                    await addMarkerForEvent(eventData);
-                }
-                for (const excDate of exceptions) {
-                    const date = parseExceptionDate(excDate);
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-                    const reschedule = evaluateReschedule(
-                        startDate,
-                        endDate,
-                        date,
-                        exceptions
-                    );
-
-                    if (reschedule.isRescheduled) {
-                        const eventData = createEventData(event, reschedule.rescheduledTo, 'storyclub');
-                        allEventsData.push(eventData);
-                        await addMarkerForEvent(eventData);
-                    }
-
-                }
-            }
-
-            // Process specific events
+            // Process one-off events (these don't have schedules/exceptions)
             await processSpecialEvents(eventsData.specificEvents, 'special', startDate, endDate);
-
-            // Process music events
             await processSpecialEvents(eventsData.musicEvents, 'music', startDate, endDate);
 
-            // Process folk nights (recurring, like story clubs)
-            for (const event of eventsData.folkNights || []) {
-                const exceptions = event.exceptions || [];
-                const dates = parseSchedule(event.schedule, startDate, endDate);
-                for (const date of dates) {
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-
-                    const eventData = createEventData(event, date, 'folk');
-
-                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
-                    eventData.isCancelled = reschedule.isCancelled;
-                    eventData.rescheduledTo = reschedule.rescheduledTo;
-                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
-                    allEventsData.push(eventData);
-                    await addMarkerForEvent(eventData);
-                }
-
-                for (const excDate of exceptions) {
-                    const date = parseExceptionDate(excDate);
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
-
-                    if (reschedule.isRescheduled) {
-                        const eventData = createEventData(event, reschedule.rescheduledTo, 'folk');
-                        allEventsData.push(eventData);
-                        await addMarkerForEvent(eventData);
-                    }
-                }
-            }
-
-            // Process Irish sessions (recurring, like story clubs)
-            for (const event of eventsData.irishSessions || []) {
-                const exceptions = event.exceptions || [];
-                const dates = parseSchedule(event.schedule, startDate, endDate);
-                for (const date of dates) {
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-
-                    const eventData = createEventData(event, date, 'session');
-
-                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
-                    eventData.isCancelled = reschedule.isCancelled;
-                    eventData.rescheduledTo = reschedule.rescheduledTo;
-                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
-                    allEventsData.push(eventData);
-                    await addMarkerForEvent(eventData);
-                }
-
-                for (const excDate of exceptions) {
-                    const date = parseExceptionDate(excDate);
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-                    const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
-
-                    if (reschedule.isRescheduled) {
-                        const eventData = createEventData(event, reschedule.rescheduledTo, 'session');
-                        allEventsData.push(eventData);
-                        await addMarkerForEvent(eventData);
-                    }
-                }
-            }
-
             allEventsData.sort((a, b) => a.date - b.date);
-
             renderEventsList(allEventsData);
-            // Zoom map to fit all events
             fitMapToEvents();
         }
 
