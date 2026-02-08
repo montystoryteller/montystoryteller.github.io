@@ -1207,6 +1207,7 @@
                 eventData.performer_url = baseEvent.performer_url || null;
                 eventData.description = baseEvent.description || null;
                 eventData.event_flyer = baseEvent.event_flyer || null;
+                eventData.tour_flyer = baseEvent.tour_flyer || null;
                 eventData.fb_event = baseEvent.fb_event || null;
                 eventData.ticket_url = baseEvent.ticket_url || null;
             }
@@ -1729,6 +1730,7 @@
 
                 // Add expandable content if present (SANITIZED)
                 const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
+                    (event.tour_flyer && event.tour_flyer.trim()) ||
                     (event.description && event.description.trim());
 
                 if (hasExpandableContent) {
@@ -1769,17 +1771,25 @@
                         expandableDiv.appendChild(descDiv);
                     }
 
-                    if (event.event_flyer) {
-                        const img = document.createElement('img');
-                        // SANITIZED: Use textContent for alt attribute
-                        const altText = `${event.name} flyer`;
-                        img.alt = altText;
-                        // Basic path validation
-                        const flyerPath = event.event_flyer.replace(/[^a-zA-Z0-9._-]/g, '');
-                        img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
-                        img.className = 'event-flyer-image';
-                        expandableDiv.appendChild(img);
-                    }
+                    const flyers = [
+                        { path: event.event_flyer, altSuffix: 'flyer' },
+                        { path: event.tour_flyer, altSuffix: 'tour flyer' }
+                    ];
+
+                    flyers.forEach((flyer, index) => {
+                        if (flyer.path) {
+                            const img = document.createElement('img');
+                            img.alt = `${event.name} ${flyer.altSuffix}`;
+                            const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
+                            img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+                            img.className = 'event-flyer-image';
+                            // Add spacing between flyers if this is the second one
+                            if (index > 0 && flyers[0].path) {
+                                img.style.marginTop = '15px';
+                            }
+                            expandableDiv.appendChild(img);
+                        }
+                    });
 
                     eventDiv.appendChild(expandableDiv);
                 }
