@@ -1246,6 +1246,32 @@
             return eventData;
         }
 
+        async function processSpecialEvents(events, typ, startDate, endDate) {
+            for (const event of events || []) {
+                if (!event.date) {
+                    console.warn(`Missing date for ${typ} event:`, event);
+                    continue;
+                }
+
+                const dateParts = event.date.split('/');
+                if (dateParts.length !== 3) {
+                    console.warn(`Invalid date format for ${typ} event:`, event);
+                    continue;
+                }
+
+                const day = parseInt(dateParts[0], 10);
+                const month = parseInt(dateParts[1], 10);
+                const year = parseInt(dateParts[2], 10);
+
+                const eventDate = new Date(year, month - 1, day);
+                if (eventDate >= startDate && eventDate <= endDate) {
+                    const eventData = createEventData(event, eventDate, typ);
+                    allEventsData.push(eventData);
+                    await addMarkerForEvent(eventData);
+                }
+            }
+        }
+
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
                 console.error('Events data not loaded');
@@ -1303,54 +1329,10 @@
             }
 
             // Process specific events
-            for (const event of eventsData.specificEvents || []) {
-                if (!event.date) {
-                    console.warn('Specific event missing date:', event);
-                    continue;
-                }
-
-                const dateParts = event.date.split('/');
-                if (dateParts.length !== 3) {
-                    console.warn('Invalid date format for event:', event);
-                    continue;
-                }
-
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10);
-                const year = parseInt(dateParts[2], 10);
-
-                const eventDate = new Date(year, month - 1, day);
-                if (eventDate >= startDate && eventDate <= endDate) {
-                    const eventData = createEventData(event, eventDate, 'special');
-                    allEventsData.push(eventData);
-                    await addMarkerForEvent(eventData);
-                }
-            }
+            await processSpecialEvents(eventsData.specificEvents, 'special', startDate, endDate);
 
             // Process music events
-            for (const event of eventsData.musicEvents || []) {
-                if (!event.date) {
-                    console.warn('Music event missing date:', event);
-                    continue;
-                }
-
-                const dateParts = event.date.split('/');
-                if (dateParts.length !== 3) {
-                    console.warn('Invalid date format for music event:', event);
-                    continue;
-                }
-
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10);
-                const year = parseInt(dateParts[2], 10);
-
-                const eventDate = new Date(year, month - 1, day);
-                if (eventDate >= startDate && eventDate <= endDate) {
-                    const eventData = createEventData(event, eventDate, 'music');
-                    allEventsData.push(eventData);
-                    await addMarkerForEvent(eventData);
-                }
-            }
+            await processSpecialEvents(eventsData.musicEvents, 'music', startDate, endDate);
 
             // Process folk nights (recurring, like story clubs)
             for (const event of eventsData.folkNights || []) {
