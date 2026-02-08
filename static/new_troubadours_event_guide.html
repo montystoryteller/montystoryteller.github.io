@@ -871,6 +871,35 @@
             map.on('moveend', updateMapView);
         }
 
+        function findNthDayInMonth(year, month, targetDay, occurrence) {
+            const lastDay = new Date(year, month + 1, 0);
+
+            if (occurrence === 'last') {
+                // Count backwards from end of month
+                for (let d = lastDay.getDate(); d >= 1; d--) {
+                    const testDate = new Date(year, month, d);
+                    testDate.setHours(0, 0, 0, 0);
+                    if (testDate.getDay() === targetDay) {
+                        return testDate;
+                    }
+                }
+            } else {
+                // Count forwards from start of month
+                let count = 0;
+                for (let d = 1; d <= lastDay.getDate(); d++) {
+                    const testDate = new Date(year, month, d);
+                    testDate.setHours(0, 0, 0, 0);
+                    if (testDate.getDay() === targetDay) {
+                        count++;
+                        if (count === occurrence) {
+                            return testDate;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
         function parseSchedule(schedule, startDate, endDate) {
             const results = [];
 
@@ -926,6 +955,7 @@
             }
 
             // Handle multiple occurrences in same month (e.g., "1st and 3rd wednesday")
+            // TO DO - this only really handles a case of X, or, X and Y?
             if (schedule.toLowerCase().includes(' and ')) {
                 const [occurrence1Str, rest] = schedule.toLowerCase().split(' and ');
                 const parts = rest.trim().split(/\s+/);
@@ -951,29 +981,7 @@
                     const occurrences = [occurrence1, occurrence2];
 
                     occurrences.forEach(occ => {
-                        let eventDate = null;
-
-                        if (occ === 'last') {
-                            for (let d = lastDay.getDate(); d >= 1; d--) {
-                                const testDate = normalizeDate(new Date(year, month, d));
-                                if (testDate.getDay() === targetDay) {
-                                    eventDate = testDate;
-                                    break;
-                                }
-                            }
-                        } else {
-                            let count = 0;
-                            for (let d = 1; d <= lastDay.getDate(); d++) {
-                                const testDate = normalizeDate(new Date(year, month, d));
-                                if (testDate.getDay() === targetDay) {
-                                    count++;
-                                    if (count === occ) {
-                                        eventDate = testDate;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
+                        const eventDate = findNthDayInMonth(year, month, targetDay, occ);
 
                         if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
                             results.push(eventDate);
@@ -1021,33 +1029,12 @@
                             continue;
                         }
 
-                        const lastDay = new Date(year, month + 1, 0);
-                        let eventDate = null;
-
-                        if (occurrence === 'last') {
-                            for (let d = lastDay.getDate(); d >= 1; d--) {
-                                const testDate = normalizeDate(new Date(year, month, d));
-                                if (testDate.getDay() === targetDay) {
-                                    eventDate = testDate;
-                                    break;
-                                }
-                            }
-                        } else {
-                            const occurrenceNum = occurrence === '1st' ? 1 :
+                        const occurrenceNum = occurrence === 'last' ? 'last' :
+                            occurrence === '1st' ? 1 :
                                 occurrence === '2nd' ? 2 :
                                     occurrence === '3rd' ? 3 : 4;
-                            let count = 0;
-                            for (let d = 1; d <= lastDay.getDate(); d++) {
-                                const testDate = normalizeDate(new Date(year, month, d));
-                                if (testDate.getDay() === targetDay) {
-                                    count++;
-                                    if (count === occurrenceNum) {
-                                        eventDate = testDate;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
+
+                        const eventDate = findNthDayInMonth(year, month, targetDay, occurrenceNum);
 
                         if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
                             results.push(eventDate);
@@ -1071,32 +1058,13 @@
             while (current <= extendedEnd) {
                 const year = current.getFullYear();
                 const month = current.getMonth();
-                const lastDay = new Date(year, month + 1, 0);
 
-                let eventDate = null;
+                const occurrenceNum = occurrence === 'last' ? 'last' :
+                    occurrence === '1st' ? 1 :
+                        occurrence === '2nd' ? 2 :
+                            occurrence === '3rd' ? 3 : 4;
 
-                if (occurrence === 'last') {
-                    for (let d = lastDay.getDate(); d >= 1; d--) {
-                        const testDate = normalizeDate(new Date(year, month, d));
-                        if (testDate.getDay() === targetDay) {
-                            eventDate = testDate;
-                            break;
-                        }
-                    }
-                } else {
-                    const occurrenceNum = occurrence === '1st' ? 1 : occurrence === '2nd' ? 2 : occurrence === '3rd' ? 3 : 4;
-                    let count = 0;
-                    for (let d = 1; d <= lastDay.getDate(); d++) {
-                        const testDate = normalizeDate(new Date(year, month, d));
-                        if (testDate.getDay() === targetDay) {
-                            count++;
-                            if (count === occurrenceNum) {
-                                eventDate = testDate;
-                                break;
-                            }
-                        }
-                    }
-                }
+                const eventDate = findNthDayInMonth(year, month, targetDay, occurrenceNum);
 
                 if (eventDate && eventDate >= normalizedStart && eventDate <= normalizedEnd) {
                     results.push(eventDate);
