@@ -1201,50 +1201,50 @@
         }
 
         function createEventData(baseEvent, date, eventType) {
-                const { location, latlon, venue_url } = resolveEventVenue(baseEvent, date);
+            const { location, latlon, venue_url } = resolveEventVenue(baseEvent, date);
 
-                const eventData = {
-                    name: baseEvent.name,
-                    date: date,
-                    time: baseEvent.time || null,
-                    location: location,
-                    latlon: latlon,
-                    venue_url: venue_url,
-                    price: baseEvent.price || null,
-                    isStoryclub: eventType === 'storyclub',
-                    isSpecial: eventType === 'special',
-                    isMusic: eventType === 'music',
-                    isFolk: eventType === 'folk',
-                    isSession: eventType === 'session'
-                };
+            const eventData = {
+                name: baseEvent.name,
+                date: date,
+                time: baseEvent.time || null,
+                location: location,
+                latlon: latlon,
+                venue_url: venue_url,
+                price: baseEvent.price || null,
+                isStoryclub: eventType === 'storyclub',
+                isSpecial: eventType === 'special',
+                isMusic: eventType === 'music',
+                isFolk: eventType === 'folk',
+                isSession: eventType === 'session'
+            };
 
-                // Add type-specific fields
-                if (eventType === 'storyclub' || eventType === 'folk' || eventType === 'session') {
-                    eventData.club = baseEvent.club;
-                    eventData.facebook = baseEvent.facebook || null;
-                    eventData.email = baseEvent.email || null;
-                    eventData.link = baseEvent.link || null;
-                    eventData.schedule = baseEvent.schedule || null;
-                    eventData.alternate_locations = baseEvent.alternate_locations || null;
-                    eventData.exceptions = baseEvent.exceptions || null;
+            // Add type-specific fields
+            if (eventType === 'storyclub' || eventType === 'folk' || eventType === 'session') {
+                eventData.club = baseEvent.club;
+                eventData.facebook = baseEvent.facebook || null;
+                eventData.email = baseEvent.email || null;
+                eventData.link = baseEvent.link || null;
+                eventData.schedule = baseEvent.schedule || null;
+                eventData.alternate_locations = baseEvent.alternate_locations || null;
+                eventData.exceptions = baseEvent.exceptions || null;
 
-                    if (eventType === 'folk') {
-                        eventData.storiesWelcome = baseEvent.storiesWelcome || false;
-                        eventData.byInvitation = baseEvent.byInvitation || null;
-                    }
+                if (eventType === 'folk') {
+                    eventData.storiesWelcome = baseEvent.storiesWelcome || false;
+                    eventData.byInvitation = baseEvent.byInvitation || null;
                 }
-
-                if (eventType === 'special' || eventType === 'music') {
-                    eventData.performer = baseEvent.performer;
-                    eventData.performer_url = baseEvent.performer_url || null;
-                    eventData.description = baseEvent.description || null;
-                    eventData.event_flyer = baseEvent.event_flyer || null;
-                    eventData.fb_event = baseEvent.fb_event || null;
-                    eventData.ticket_url = baseEvent.ticket_url || null;
-                }
-
-                return eventData;
             }
+
+            if (eventType === 'special' || eventType === 'music') {
+                eventData.performer = baseEvent.performer;
+                eventData.performer_url = baseEvent.performer_url || null;
+                eventData.description = baseEvent.description || null;
+                eventData.event_flyer = baseEvent.event_flyer || null;
+                eventData.fb_event = baseEvent.fb_event || null;
+                eventData.ticket_url = baseEvent.ticket_url || null;
+            }
+
+            return eventData;
+        }
 
         async function displayEvents(startDate, endDate) {
             if (!eventsData) {
@@ -1389,7 +1389,7 @@
                 for (const date of dates) {
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
 
-                   const eventData = createEventData(event, date, 'session');
+                    const eventData = createEventData(event, date, 'session');
 
                     const reschedule = evaluateReschedule(startDate, endDate, date, exceptions);
                     eventData.isCancelled = reschedule.isCancelled;
@@ -1934,64 +1934,64 @@
         }
 
         function shouldShowEvent(eventData, filters) {
-                const { storyclubsOn, specialOn, showMusic, showFolk, showSessions } = filters;
+            const { storyclubsOn, specialOn, showMusic, showFolk, showSessions } = filters;
 
-                if (storyclubsOn && eventData.isStoryclub) return true;
-                if (specialOn && eventData.isSpecial) return true;
-                if (showMusic && eventData.isMusic) return true;
-                if (showFolk && eventData.isFolk) return true;
-                if (showSessions && eventData.isSession) return true;
+            if (storyclubsOn && eventData.isStoryclub) return true;
+            if (specialOn && eventData.isSpecial) return true;
+            if (showMusic && eventData.isMusic) return true;
+            if (showFolk && eventData.isFolk) return true;
+            if (showSessions && eventData.isSession) return true;
 
-                return false;
-            }
+            return false;
+        }
 
         function filterEvents() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const filters = {
-                    storyclubsOn: document.getElementById('storyclubsOn').checked,
-                    specialOn: document.getElementById('specialOn').checked,
-                    showMusic: document.getElementById('showMusic').checked,
-                    showFolk: document.getElementById('showFolk').checked,
-                    showSessions: document.getElementById('showSessions').checked
-                };
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filters = {
+                storyclubsOn: document.getElementById('storyclubsOn').checked,
+                specialOn: document.getElementById('specialOn').checked,
+                showMusic: document.getElementById('showMusic').checked,
+                showFolk: document.getElementById('showFolk').checked,
+                showSessions: document.getElementById('showSessions').checked
+            };
 
-                // Filter event list items
-                document.querySelectorAll('.event').forEach(event => {
-                    const isStoryclub = event.classList.contains('storyclub');
-                    const isSpecial = event.classList.contains('special');
-                    const isMusic = event.classList.contains('music');
-                    const isFolk = event.classList.contains('folk');
-                    const isSession = event.classList.contains('session');
+            // Filter event list items
+            document.querySelectorAll('.event').forEach(event => {
+                const isStoryclub = event.classList.contains('storyclub');
+                const isSpecial = event.classList.contains('special');
+                const isMusic = event.classList.contains('music');
+                const isFolk = event.classList.contains('folk');
+                const isSession = event.classList.contains('session');
 
-                    const eventData = { isStoryclub, isSpecial, isMusic, isFolk, isSession };
-                    let visible = shouldShowEvent(eventData, filters);
+                const eventData = { isStoryclub, isSpecial, isMusic, isFolk, isSession };
+                let visible = shouldShowEvent(eventData, filters);
 
-                    if (visible && searchTerm) {
-                        visible = event.textContent.toLowerCase().includes(searchTerm);
-                    }
+                if (visible && searchTerm) {
+                    visible = event.textContent.toLowerCase().includes(searchTerm);
+                }
 
-                    event.classList.toggle('hidden', !visible);
-                });
+                event.classList.toggle('hidden', !visible);
+            });
 
-                // Filter map markers
-                markers.forEach(marker => {
-                    let visible = shouldShowEvent(marker.eventData, filters);
+            // Filter map markers
+            markers.forEach(marker => {
+                let visible = shouldShowEvent(marker.eventData, filters);
 
-                    if (visible && searchTerm) {
-                        const searchableText = `${marker.eventData.name} ${marker.eventData.location} ${marker.eventData.performer || ''}`.toLowerCase();
-                        visible = searchableText.includes(searchTerm);
-                    }
+                if (visible && searchTerm) {
+                    const searchableText = `${marker.eventData.name} ${marker.eventData.location} ${marker.eventData.performer || ''}`.toLowerCase();
+                    visible = searchableText.includes(searchTerm);
+                }
 
-                    if (visible) {
-                        marker.setStyle({ opacity: 1, fillOpacity: 0.8 });
-                    } else {
-                        marker.setStyle({ opacity: 0, fillOpacity: 0 });
-                    }
-                });
+                if (visible) {
+                    marker.setStyle({ opacity: 1, fillOpacity: 0.8 });
+                } else {
+                    marker.setStyle({ opacity: 0, fillOpacity: 0 });
+                }
+            });
 
-                const visibleCount = document.querySelectorAll('.event:not(.hidden)').length;
-                console.log(`Visible events after filtering: ${visibleCount}`);
-            }
+            const visibleCount = document.querySelectorAll('.event:not(.hidden)').length;
+            console.log(`Visible events after filtering: ${visibleCount}`);
+        }
 
         function clearSearch() {
             document.getElementById('searchInput').value = '';
