@@ -1493,10 +1493,330 @@
             }
         }
 
-        function renderEventsList(eventsToShow) {
-            const eventsList = document.getElementById('eventsList');
+        function createEventElement(event) {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = 'event';
+
+            // Add type classes
+            if (event.isStoryclub) eventDiv.classList.add('storyclub');
+            if (event.isSpecial) eventDiv.classList.add('special');
+            if (event.isMusic) eventDiv.classList.add('music');
+            if (event.isFolk) eventDiv.classList.add('folk');
+            if (event.isSession) eventDiv.classList.add('session');
+
+            // Add click handler
+            if (event.coords?.lat && event.coords?.lon) {
+                eventDiv.onclick = () => zoomToEvent(event.coords.lat, event.coords.lon);
+            }
+
+            eventDiv.setAttribute('data-event-id', `${escapeHtml(event.name)}-${event.date.getTime()}`);
+
+            // Build event content
+            eventDiv.appendChild(createEventHeader(event));
+
+            if (event.performer) {
+                eventDiv.appendChild(createPerformerSection(event));
+            }
+
+            if (event.location) {
+                eventDiv.appendChild(createLocationSection(event));
+            }
+
+            eventDiv.appendChild(createDateSection(event));
+
+            const ticketsSection = createTicketsSection(event);
+            if (ticketsSection) {
+                eventDiv.appendChild(ticketsSection);
+            }
+
+            const expandable = createExpandableSection(event);
+            if (expandable) {
+                eventDiv.appendChild(expandable);
+            }
+
+            return eventDiv;
+        }
+
+        function createEventHeader(event) {
+            const header = document.createElement('div');
+            header.className = 'event-name';
+            header.appendChild(document.createTextNode(event.name));
+
+            // Add badges
+            if (event.isFolk && event.storiesWelcome) {
+                header.appendChild(document.createTextNode(' '));
+                header.appendChild(createBadge('📖 Stories Welcome'));
+            }
+
+            if (event.isFolk && event.byInvitation) {
+                header.appendChild(document.createTextNode(' '));
+                header.appendChild(createBadge('By Invitation'));
+            }
+
+            // Add icons
+            header.appendChild(createIconsContainer(event));
+
+            return header;
+        }
+
+        function createBadge(text) {
+            const badge = document.createElement('span');
+            badge.className = 'event-badge';
+            badge.textContent = text;
+            return badge;
+        }
+
+        function createIconsContainer(event) {
+            const container = document.createElement('span');
+
+            if (event.link) {
+                createIcon(container, 'website', event.link);
+            }
+
+            if (event.email) {
+                createIcon(container, 'email', `mailto:${event.email}`);
+            }
+
+            if (event.facebook) {
+                const fbUrl = event.facebook.startsWith('http')
+                    ? event.facebook
+                    : `https://facebook.com/${event.facebook}`;
+                createIcon(container, 'facebook', fbUrl);
+            }
+
+            return container;
+        }
+
+        function createPerformerSection(event) {
+            const performerDiv = document.createElement('div');
+            performerDiv.style.fontStyle = 'italic';
+
+            if (event.performer_url) {
+                const safePerformerUrl = sanitizeUrl(event.performer_url);
+                if (safePerformerUrl) {
+                    const performerLink = document.createElement('a');
+                    performerLink.href = safePerformerUrl;
+                    performerLink.target = '_blank';
+                    performerLink.style.color = 'inherit';
+                    performerLink.style.textDecoration = 'none';
+                    performerLink.onclick = (e) => e.stopPropagation();
+
+                    const performerStrong = document.createElement('strong');
+                    performerStrong.textContent = event.performer;
+                    performerLink.appendChild(performerStrong);
+
+                    performerDiv.appendChild(performerLink);
+                } else {
+                    performerDiv.textContent = event.performer;
+                }
+            } else {
+                performerDiv.textContent = event.performer;
+            }
+
+            return performerDiv;
+        }
+
+        function createLocationSection(event) {
+            const locationDiv = document.createElement('div');
+            locationDiv.className = 'event-location';
+
+            if (event.venue_url) {
+                const safeVenueUrl = sanitizeUrl(event.venue_url);
+                if (safeVenueUrl) {
+                    const commaIndex = event.location.indexOf(',');
+                    const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
+                    const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
+
+                    const venueLink = document.createElement('a');
+                    venueLink.href = safeVenueUrl;
+                    venueLink.target = '_blank';
+                    venueLink.className = 'venue-link';
+
+                    const venueStrong = document.createElement('strong');
+                    venueStrong.textContent = venueName;
+                    venueLink.appendChild(venueStrong);
+
+                    locationDiv.appendChild(venueLink);
+                    locationDiv.appendChild(document.createTextNode(restOfLocation));
+                } else {
+                    locationDiv.textContent = event.location;
+                }
+            } else {
+                locationDiv.textContent = event.location;
+            }
+
+            return locationDiv;
+        }
+
+        function createDateSection(event) {
             const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            const dateDiv = document.createElement('div');
+            dateDiv.className = 'event-date';
+
+            const dayName = daysOfWeek[event.date.getDay()];
+            const day = event.date.getDate();
+            const month = months[event.date.getMonth()];
+            const year = event.date.getFullYear();
+            const scheduleText = event.schedule ? ` (${event.schedule})` : '';
+
+            let dateText = `${dayName}, ${day} ${month} ${year}`;
+            if (!event.isRescheduled) {
+                dateText += scheduleText;
+            }
+
+            if (event.isCancelled) {
+                const cancelledSpan = document.createElement('span');
+                cancelledSpan.className = 'event-date-cancelled';
+                cancelledSpan.textContent = `${dayName}, ${day} ${month} ${year} ${scheduleText}`;
+                dateDiv.appendChild(cancelledSpan);
+
+                if (event.rescheduledTo) {
+                    const rescheduledSpan = document.createElement('span');
+                    rescheduledSpan.className = 'event-date-rescheduled-notice';
+                    rescheduledSpan.textContent = ` (Rescheduled to ${event.rescheduledToStr})`;
+                    dateDiv.appendChild(rescheduledSpan);
+                }
+            } else {
+                dateDiv.appendChild(document.createTextNode(dateText));
+
+                if (event.isRescheduled) {
+                    const usuallySpan = document.createElement('span');
+                    usuallySpan.className = 'event-date-usually';
+                    usuallySpan.textContent = ` (usually ${event.schedule})`;
+                    dateDiv.appendChild(usuallySpan);
+                }
+            }
+
+            // Add time and price
+            if (event.time) {
+                dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
+            }
+            if (event.price) {
+                dateDiv.appendChild(document.createTextNode(` • ${event.price}`));
+            }
+
+            return dateDiv;
+        }
+
+        function createTicketsSection(event) {
+            if (!event.isSpecial && !event.isMusic) {
+                return null;
+            }
+
+            const ticketsDiv = document.createElement('div');
+            ticketsDiv.className = 'event-tickets';
+
+            if (event.ticket_url) {
+                const safeTicketUrl = sanitizeUrl(event.ticket_url);
+                if (safeTicketUrl) {
+                    const ticketLink = document.createElement('a');
+                    ticketLink.href = safeTicketUrl;
+                    ticketLink.target = '_blank';
+                    ticketLink.textContent = 'Tickets available here';
+                    ticketsDiv.appendChild(ticketLink);
+                }
+            }
+
+            if (event.fb_event) {
+                if (event.ticket_url) {
+                    const separator = document.createElement('span');
+                    separator.className = 'separator';
+                    separator.textContent = '|';
+                    ticketsDiv.appendChild(separator);
+                }
+
+                const fbEventUrl = sanitizeUrl(`https://www.facebook.com/events/${event.fb_event}`);
+                if (fbEventUrl) {
+                    const fbLink = document.createElement('a');
+                    fbLink.href = fbEventUrl;
+                    fbLink.target = '_blank';
+                    fbLink.className = 'event-facebook-inline';
+                    fbLink.title = 'Facebook Event';
+                    fbLink.onclick = (e) => e.stopPropagation();
+                    fbLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
+                    ticketsDiv.appendChild(fbLink);
+                }
+            }
+
+            return ticketsDiv.children.length > 0 ? ticketsDiv : null;
+        }
+
+        function createExpandableSection(event) {
+            const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
+                (event.tour_flyer && event.tour_flyer.trim()) ||
+                (event.description && event.description.trim());
+
+            if (!hasExpandableContent) {
+                return null;
+            }
+
+            const container = document.createElement('div');
+            const expandableId = `event-expand-${Math.random().toString(36).substr(2, 9)}`;
+
+            // Create expand button
+            const expandBtn = document.createElement('div');
+            expandBtn.className = 'event-expand-btn';
+            expandBtn.textContent = 'More info...';
+            expandBtn.onclick = (e) => {
+                e.stopPropagation();
+                const expandable = document.getElementById(expandableId);
+                if (expandable) {
+                    expandable.style.display = expandable.style.display === 'none' ? 'block' : 'none';
+                }
+            };
+            container.appendChild(expandBtn);
+
+            // Create expandable content
+            const expandableDiv = document.createElement('div');
+            expandableDiv.className = 'event-expandable';
+            expandableDiv.id = expandableId;
+            expandableDiv.style.display = 'none';
+
+            // Add description
+            if (event.description) {
+                const descDiv = document.createElement('div');
+                descDiv.className = 'event-description';
+
+                const paragraphs = event.description.split('\n\n\n\n');
+                paragraphs.forEach(p => {
+                    if (p.trim()) {
+                        const pElem = document.createElement('p');
+                        pElem.textContent = p.replace(/\n\n/g, '\n');
+                        descDiv.appendChild(pElem);
+                    }
+                });
+
+                expandableDiv.appendChild(descDiv);
+            }
+
+            // Add flyers
+            const flyers = [
+                { path: event.event_flyer, altSuffix: 'flyer' },
+                { path: event.tour_flyer, altSuffix: 'tour flyer' }
+            ];
+
+            flyers.forEach((flyer, index) => {
+                if (flyer.path) {
+                    const img = document.createElement('img');
+                    img.alt = `${event.name} ${flyer.altSuffix}`;
+                    const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
+                    img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+                    img.className = 'event-flyer-image';
+                    if (index > 0 && flyers[0].path) {
+                        img.style.marginTop = '15px';
+                    }
+                    expandableDiv.appendChild(img);
+                }
+            });
+
+            container.appendChild(expandableDiv);
+            return container;
+        }
+
+        function renderEventsList(eventsToShow) {
+            const eventsList = document.getElementById('eventsList');
 
             if (eventsToShow.length === 0) {
                 eventsList.innerHTML = '<div class="no-events">No events in this view</div>';
@@ -1504,300 +1824,12 @@
             }
 
             console.log(`Rendering ${eventsToShow.length} events`);
-
-            // Clear existing content
             eventsList.innerHTML = '';
 
             eventsToShow.forEach(event => {
-                // Create event container
-                const eventDiv = document.createElement('div');
-                eventDiv.className = 'event';
-
-                // Add type classes
-                if (event.isStoryclub) eventDiv.classList.add('storyclub');
-                if (event.isSpecial) eventDiv.classList.add('special');
-                if (event.isMusic) eventDiv.classList.add('music');
-                if (event.isFolk) eventDiv.classList.add('folk');
-                if (event.isSession) eventDiv.classList.add('session');
-
-                // Add click handler
-                if (event.coords?.lat && event.coords?.lon) {
-                    eventDiv.onclick = () => zoomToEvent(event.coords.lat, event.coords.lon);
-                }
-
-                // Set data attribute
-                eventDiv.setAttribute('data-event-id', `${escapeHtml(event.name)}-${event.date.getTime()}`);
-
-                // Build event name section with icons
-                const eventNameDiv = document.createElement('div');
-                eventNameDiv.className = 'event-name';
-
-                // Add event name (SANITIZED)
-                const nameText = document.createTextNode(event.name);
-                eventNameDiv.appendChild(nameText);
-
-                // Add badges if applicable
-                if (event.isFolk && event.storiesWelcome) {
-                    const badge = document.createElement('span');
-                    badge.className = 'event-badge';
-                    badge.textContent = '📖 Stories Welcome';
-                    eventNameDiv.appendChild(document.createTextNode(' '));
-                    eventNameDiv.appendChild(badge);
-                }
-
-                if (event.isFolk && event.byInvitation) {
-                    const badge = document.createElement('span');
-                    badge.className = 'event-badge';
-                    badge.textContent = 'By Invitation';
-                    eventNameDiv.appendChild(document.createTextNode(' '));
-                    eventNameDiv.appendChild(badge);
-                }
-
-                // Add icons (website, email, facebook) - SANITIZED URLS
-                const iconsContainer = document.createElement('span');
-
-                // Website icon
-                if (event.link) {
-                    createIcon(iconsContainer, 'website', event.link)
-                }
-
-                // Email icon
-                if (event.email) {
-                    createIcon(iconsContainer, 'email', `mailto:${event.email}`)
-                }
-
-                // Facebook icon
-                if (event.facebook) {
-                    const fbUrl = event.facebook.startsWith('http')
-                        ? event.facebook
-                        : `https://facebook.com/${event.facebook}`;
-                    createIcon(iconsContainer, 'facebook', fbUrl)
-                }
-
-                eventNameDiv.appendChild(iconsContainer);
-                eventDiv.appendChild(eventNameDiv);
-
-                // Add performer if present (SANITIZED)
-                if (event.performer) {
-                    const performerDiv = document.createElement('div');
-                    performerDiv.style.fontStyle = 'italic';
-                    if (event.performer_url) {
-                        const safePerformerUrl = sanitizeUrl(event.performer_url);
-                        if (safePerformerUrl) {
-                            const performerLink = document.createElement('a');
-                            performerLink.href = safePerformerUrl;
-                            performerLink.target = '_blank';
-                            performerLink.style.color = 'inherit';
-                            performerLink.style.textDecoration = 'none';
-                            performerLink.onclick = (e) => e.stopPropagation();
-
-                            const performerStrong = document.createElement('strong');
-                            performerStrong.textContent = event.performer;
-                            performerLink.appendChild(performerStrong);
-
-                            performerDiv.appendChild(performerLink);
-                        } else {
-                            performerDiv.textContent = event.performer;
-                        }
-                    } else {
-                        performerDiv.textContent = event.performer;
-                    }
-                    eventDiv.appendChild(performerDiv);
-                }
-
-                // Add location (SANITIZED with venue link)
-                if (event.location) {
-                    const locationDiv = document.createElement('div');
-                    locationDiv.className = 'event-location';
-
-                    if (event.venue_url) {
-                        const safeVenueUrl = sanitizeUrl(event.venue_url);
-                        if (safeVenueUrl) {
-                            const commaIndex = event.location.indexOf(',');
-                            const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
-                            const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
-
-                            const venueLink = document.createElement('a');
-                            venueLink.href = safeVenueUrl;
-                            venueLink.target = '_blank';
-                            venueLink.className = 'venue-link';
-
-                            const venueStrong = document.createElement('strong');
-                            venueStrong.textContent = venueName;
-                            venueLink.appendChild(venueStrong);
-
-                            locationDiv.appendChild(venueLink);
-                            locationDiv.appendChild(document.createTextNode(restOfLocation));
-                        } else {
-                            locationDiv.textContent = event.location;
-                        }
-                    } else {
-                        locationDiv.textContent = event.location;
-                    }
-
-                    eventDiv.appendChild(locationDiv);
-                }
-
-                // Add date information
-                const dateDiv = document.createElement('div');
-                dateDiv.className = 'event-date';
-
-                const dayName = daysOfWeek[event.date.getDay()];
-                const day = event.date.getDate();
-                const month = months[event.date.getMonth()];
-                const year = event.date.getFullYear();
-                const scheduleText = event.schedule ? ` (${event.schedule})` : '';
-
-                let dateText = `${dayName}, ${day} ${month} ${year}`;
-                if (!event.isRescheduled) {
-                    dateText += scheduleText;
-                }
-
-                if (event.isCancelled) {
-                    const cancelledSpan = document.createElement('span');
-                    cancelledSpan.className = 'event-date-cancelled';
-                    cancelledSpan.textContent = `${dayName}, ${day} ${month} ${year} ${scheduleText}`;
-                    dateDiv.appendChild(cancelledSpan);
-
-                    if (event.rescheduledTo) {
-                        const rescheduledSpan = document.createElement('span');
-                        rescheduledSpan.className = 'event-date-rescheduled-notice';
-                        rescheduledSpan.textContent = ` (Rescheduled to ${event.rescheduledToStr})`;
-                        dateDiv.appendChild(rescheduledSpan);
-                    }
-                } else {
-                    dateDiv.appendChild(document.createTextNode(dateText));
-
-                    if (event.isRescheduled) {
-                        const usuallySpan = document.createElement('span');
-                        usuallySpan.className = 'event-date-usually';
-                        usuallySpan.textContent = ` (usually ${event.schedule})`;
-                        dateDiv.appendChild(usuallySpan);
-                    }
-                }
-
-                // Add time and price
-                if (event.time) {
-                    dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
-                }
-                if (event.price) {
-                    dateDiv.appendChild(document.createTextNode(` • ${event.price}`));
-                }
-
-                eventDiv.appendChild(dateDiv);
-
-                // Add tickets/event line for special/music events (SANITIZED)
-                if ((event.isSpecial || event.isMusic)) {
-                    const ticketsDiv = document.createElement('div');
-                    ticketsDiv.className = 'event-tickets';
-
-                    if (event.ticket_url) {
-                        const safeTicketUrl = sanitizeUrl(event.ticket_url);
-                        if (safeTicketUrl) {
-                            const ticketLink = document.createElement('a');
-                            ticketLink.href = safeTicketUrl;
-                            ticketLink.target = '_blank';
-                            ticketLink.textContent = 'Tickets available here';
-                            ticketsDiv.appendChild(ticketLink);
-                        }
-                    }
-
-                    if (event.fb_event) {
-                        if (event.ticket_url) {
-                            const separator = document.createElement('span');
-                            separator.className = 'separator';
-                            separator.textContent = '|';
-                            ticketsDiv.appendChild(separator);
-                        }
-
-                        const fbEventUrl = sanitizeUrl(`https://www.facebook.com/events/${event.fb_event}`);
-                        if (fbEventUrl) {
-                            const fbLink = document.createElement('a');
-                            fbLink.href = fbEventUrl;
-                            fbLink.target = '_blank';
-                            fbLink.className = 'event-facebook-inline';
-                            fbLink.title = 'Facebook Event';
-                            fbLink.onclick = (e) => e.stopPropagation();
-                            fbLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
-                            ticketsDiv.appendChild(fbLink);
-                        }
-                    }
-
-                    if (ticketsDiv.children.length > 0) {
-                        eventDiv.appendChild(ticketsDiv);
-                    }
-                }
-
-                // Add expandable content if present (SANITIZED)
-                const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
-                    (event.tour_flyer && event.tour_flyer.trim()) ||
-                    (event.description && event.description.trim());
-
-                if (hasExpandableContent) {
-                    const expandableId = `event-expand-${Math.random().toString(36).substr(2, 9)}`;
-
-                    const expandBtn = document.createElement('div');
-                    expandBtn.className = 'event-expand-btn';
-                    expandBtn.textContent = 'More info...';
-                    expandBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        const expandable = document.getElementById(expandableId);
-                        if (expandable) {
-                            expandable.style.display = expandable.style.display === 'none' ? 'block' : 'none';
-                        }
-                    };
-                    eventDiv.appendChild(expandBtn);
-
-                    // Create expandable content
-                    const expandableDiv = document.createElement('div');
-                    expandableDiv.className = 'event-expandable';
-                    expandableDiv.id = expandableId;
-                    expandableDiv.style.display = 'none';
-
-                    if (event.description) {
-                        const descDiv = document.createElement('div');
-                        descDiv.className = 'event-description';
-
-                        // SANITIZED: Split description into paragraphs
-                        const paragraphs = event.description.split('\n\n\n\n');
-                        paragraphs.forEach(p => {
-                            if (p.trim()) {
-                                const pElem = document.createElement('p');
-                                pElem.textContent = p.replace(/\n\n/g, '\n');
-                                descDiv.appendChild(pElem);
-                            }
-                        });
-
-                        expandableDiv.appendChild(descDiv);
-                    }
-
-                    const flyers = [
-                        { path: event.event_flyer, altSuffix: 'flyer' },
-                        { path: event.tour_flyer, altSuffix: 'tour flyer' }
-                    ];
-
-                    flyers.forEach((flyer, index) => {
-                        if (flyer.path) {
-                            const img = document.createElement('img');
-                            img.alt = `${event.name} ${flyer.altSuffix}`;
-                            const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
-                            img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
-                            img.className = 'event-flyer-image';
-                            // Add spacing between flyers if this is the second one
-                            if (index > 0 && flyers[0].path) {
-                                img.style.marginTop = '15px';
-                            }
-                            expandableDiv.appendChild(img);
-                        }
-                    });
-
-                    eventDiv.appendChild(expandableDiv);
-                }
-
-                eventsList.appendChild(eventDiv);
+                eventsList.appendChild(createEventElement(event));
             });
 
-            // Apply filters after rendering
             filterEvents();
         }
 
