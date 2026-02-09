@@ -1,8 +1,8 @@
 ---
 title: "'Tis Tales"
 image: "/images/tis_tales_jan_2026.jpg"
-description: this is meta description
-weight: 2
+description: Isle of Wight based stroytelling troupe, 'Tis Tales: Monty + Holly Medland + Sue Bailey
+weight: 30
 social:
   - name: facebook
     icon: fa-brands fa-facebook

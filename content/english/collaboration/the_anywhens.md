@@ -1,7 +1,7 @@
 ---
 title: The AnyWhens
 image: "/images/anywhens_star.png"
-description: this is meta description
+description: Monty + The AnyWhens (Glenn Koppany and Sue Cain, folk and blues duo) — stories and song collaboration, sets and shows
 weight: 1
 social:
   - name: facebook

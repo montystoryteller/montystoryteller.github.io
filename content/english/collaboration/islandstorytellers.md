@@ -1,8 +1,8 @@
 ---
 title: "Island Storytellers"
 image: "/images/island_storytellers.jpg"
-description: this is meta description
-weight: 5
+description: Monty stroyteller as one of the Island Storytellers
+weight: 60
 social:
   - name: facebook
     icon: fa-brands fa-facebook
