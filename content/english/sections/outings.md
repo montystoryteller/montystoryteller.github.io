@@ -7,7 +7,7 @@ description: ""
 outings:
 
   - name: "Kashmir Fringe, Quay Arts, Newport IW"
-    designation: "Four Tales"
+    designation: "Four Tales + music from Sophie and Glenn, Feb. 2026"
     avatar: "/images/Kashmir_Fringe_2026.jpg"
     content: ""
 
