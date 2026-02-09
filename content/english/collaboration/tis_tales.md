@@ -1,6 +1,6 @@
 ---
 title: "'Tis Tales"
-image: "/images/tis-tales_SMH-768x589.jpg"
+image: "/images/tis_tales_jan_2026.jpg"
 description: this is meta description
 weight: 2
 social:
