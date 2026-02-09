@@ -1,7 +1,7 @@
 ---
 title: "Island Storytellers"
 image: "/images/island_storytellers.jpg"
-description: Monty stroyteller as one of the Island Storytellers
+description: "Monty stroyteller as one of the Island Storytellers"
 weight: 60
 social:
   - name: facebook
