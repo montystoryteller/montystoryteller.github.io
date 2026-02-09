@@ -1,10 +1,424 @@
-{
+{"tours": {
+    "sorrel-nation-spring-2026": {
+      "name": "Sorrel Nation + band — Spring Tour 2026",
+      "tour_name": "Spring Tour 2026",
+      "performer_id": "sorrel-nation",
+      "tour_description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention.",
+      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
+      "tags": ["music", "folk", "tour", "2026"],
+      "isMusic": true,
+      "tour_dates": [
+        {
+      "date": "18/04/2026",
+      "time": "8-11pm",
+      "price": "£18 (£15 advance)", 
+      "ticket_url": "https://www.quayarts.org/event/sorrel-nation/",
+      "venue_id": "quay-arts-newport"
+    },
+    {
+      "date": "23/04/2026",
+      "time": "7pm",
+      "price": "£15 (+£1.50 booking fee)", 
+      "ticket_url": "https://wegottickets.com/event/685002",
+      "venue_id": "unicorn-theatre-abingdon"
+    },
+    {
+      "date": "24/04/2026", 
+      "venue_id": "the-arty-barn-nr"
+    },
+    {
+      "date": "25/04/2026",
+      "time": "7.30pm",
+      "price": "£15 (+£1.50 booking fee)", 
+      "ticket_url": "https://wegottickets.com/f/15769",
+      "venue_id": "swiss-cottage-twyford"
+    },
+    {
+      "date": "26/04/2026",
+      "time": "7pm",
+      "price": "£16 (+£1.60 booking fee)", 
+      "ticket_url": "https://wegottickets.com/event/684218",
+      "venue_id": "st-marys-church-oxted"
+    },
+    {
+      "date": "29/04/2026",
+      "time": "7.30pm",
+      "price": "£15 (+£1.50 booking fee)", 
+      "ticket_url": "https://wegottickets.com/f/15505",
+      "venue_id": "kitchen-garden-cafe-birmingham"
+    },
+    {
+      "date": "01/05/2026",
+      "time": "7.30pm",
+      "price": "£12 (+£0.84 booking fee)",
+      "event_flyer": "2026_05_01_sorrel_nation_lantern_sheffield.jpg",
+      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
+      "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd",
+      "venue_id": "the-lantern-theatre-sheffield"
+    },
+    {
+      "date": "02/05/2026",
+      "time": "7-10.30pm",
+      "price": "£15", 
+      "ticket_url": "https://www.barnoldswickmusicandartscentre.com/sorrel-nation",
+      "venue_id": "barnoldswick-music-arts-centre"
+    },
+    {
+      "date": "03/05/2026",
+      "time": "7pm",
+      "price": "£15 (+£1.50 booking fee)", 
+      "ticket_url": "https://wegottickets.com/event/685018",
+      "venue_id": "knutsford-little-theatre"
+    },
+    {
+      "date": "07/05/2026",
+      "time": "7.30pm",
+      "price": "£13.50 (£+1.35) Adv / £16 Doors", 
+      "ticket_url": "https://tickets.halfmoon.co.uk/events/4f089017-40a1-4194-847e-dcc617e47bd5",
+      "venue_id": "the-half-moon-putney"
+    },
+    {
+      "date": "08/05/2026",
+      "time": "7pm",
+      "price": "£16.00 + £0.95 booking fee", 
+      "ticket_url": "https://www.the-bear.club/whats-on/sorrel-nation-26-wx8nt",
+      "venue_id": "the-bear-club-luton"
+    },
+    {
+      "date": "09/05/2026",
+      "time": "7pm",
+      "price": "£16-£18, + booking fee; U25 £10 (+£1)", 
+      "ticket_url": "https://wegottickets.com/event/683298",
+      "venue_id": "village-hall-great"
+    },
+    {
+      "date": "10/05/2026",
+      "time": "",
+      "price": "Free", 
+      "ticket_url": "",
+      "venue_id": "harta-retreat-barnstaple"
+    },
+    {
+      "date": "16/05/2026",
+      "time": "",
+      "price": "", 
+      "ticket_url": "",
+      "venue_id": "dart-music-festival-dartmouth"
+    },
+    {
+      "date": "17/05/2026",
+      "time": "8pm",
+      "price": "£11", 
+      "ticket_url": "https://www.theacornpenzance.com/events/sorrel-nation/",
+      "venue_id": "the-acorn-penzance"
+    },
+    {
+      "date": "23/05/2026",
+      "time": "",
+      "price": "",
+      "festival_url": "https://www.thebigretreatfestival.com/",
+      "ticket_url": "https://www.thebigretreatfestival.com/products/the-big-retreat-tickets-2026",
+      "isFestival": true,
+      "venue_id": "the-big-retreat-festival-lawrenny",
+      "performer_id": "sorrel-nation"
+    }]
+    },
+    "jess-silk-matt-johnson-dashboard-jesus-2026": {
+      "name": "Jess Silk + Matt Johnson — The Dashboard Jesus Tour",
+      "tour_name": "Dashboard Jesus Tour",
+      "performer_id": "jess-silk-matt-johnson",
+      "tour_description": "",
+      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
+      "tags": ["music", "tour", "2026"],
+      "isMusic": true,
+      "tour_dates":[
+        {
+      "fb_event": 1515954242876116,
+      "date": "03/04/2026",
+      "time": "7.30pm",
+      "ticket_url": "https://wegottickets.com/event/678672?",
+      "price": "£13.20",
+      "venue_id": "the-palladium-club-bideford"    },
+    {
+      "fb_event": 837731841927515,
+      "date": "04/04/2026",
+      "time": "7pm",
+      "ticket_url": "https://wegottickets.com/event/677850", 
+      "venue_id": "feniton-sports-social-club"    },
+    {
+      "fb_event": 1500622354496608,
+      "date": "09/04/2026",
+      "time": "7pm",
+      "ticket_url": "https://wegottickets.com/event/684546/",
+      "price": "£11",
+      "venue_id": "spin-the-black-circle-worcester"    },
+    {
+      "fb_event": 1383542720156558,
+      "date": "10/04/2026",
+      "time": "7.30pm",
+      "ticket_url": "",
+      "price": "£ Pay what you want", 
+      "venue_id": "the-ropemakers-bridport"    },
+    {
+      "fb_event": 2545305215845339,
+      "date": "11/04/2026",
+      "time": "7.30pm", 
+      "ticket_url": "",
+      "venue_id": "wycombe-arts-centre-high"    },
+    {
+      "fb_event": 2018542882313275,
+      "date": "12/04/2026",
+      "time": "4.pm",
+      "ticket_url": "https://www.foremansbar.co.uk/product/jess-silk-matt-johnson-april-12th-2026-doors-4pm",
+      "price": "£17",
+      "venue_id": "foremans-bar-nottingham"    },
+    {
+      "fb_event": 818935460576685,
+      "date": "16/04/2026",
+      "time": "7.30pm",
+      "ticket_url": "https://wegottickets.com/f/14322",
+      "price": "£16.50",
+      "venue_id": "kitchen-garden-cafe-birmingham"    },
+    {
+      "fb_event": 730494563371725,
+      "date": "17/04/2026",
+      "time": "7.30pm",
+      "ticket_url": "https://theportlandarms.co.uk/wp/product/jess-silk-and-matt-johnson-17th-april-26/",
+      "price": "£13.20",
+      "venue_id": "portland-arms-cambridge"    },
+    {
+      "fb_event": 1093444672771528,
+      "date": "18/04/2026",
+      "time": "7.30pm",
+      "ticket_url": "https://wegottickets.com/event/677958",
+      "venue_id": "avalon-club-glastonbury"    }
+    ]
+    },
+    "gaz-brookfield-almost-all-village-halls-2026": {
+      "name": "Gaz Brookfield — Almost All Village Halls Tour",
+      "tour_name":"Almost All Village Halls Tour",
+      "performer_id": "gaz-brookfield",
+      "tour_description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "tags": ["music", "tour", "folk", "2026"],
+      "isMusic": true,
+      "tour_dates" : [
+        {
+      "date": "06/02/2026",
+      "time": "7.30pm",
+      "club": "gazbrookfield",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673293",
+      "venue_id": "gupshill-manor-tewkesbury"
+    },
+    {
+      "date": "07/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673294",
+      "venue_id": "tolpuddle-village-hall"
+    },
+    {
+      "date": "13/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673295",
+      "venue_id": "grantchester-village-hall"
+    },
+    {
+      "date": "14/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673296",
+
+      "venue_id": "welford-youth-and-community-centre"
+    },
+    {
+      "date": "",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673297",
+      "venue_id": "packington-village-hall"
+    },
+    {
+      "date": "21/02/2026",
+      "time": "7pm",
+      "club": "",
+      "price": "£15 (+£1.26)", 
+      "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
+      "venue_id": "wroot-rocks"
+    },
+    {
+      "date": "27/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673299",
+      "venue_id": "chew-stoke-church-hall"
+    },
+    {
+      "date": "28/02/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 (+£1.50)", 
+      "ticket_url": "https://wegottickets.com/event/673301",
+      "venue_id": "porthtowan-village-hall"
+    },
+    {
+      "date": "06/03/2026",
+      "time": "7pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673302",
+      "venue_id": "the-chester-tavern-kidderminster"
+    },
+    {
+      "date": "07/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673303",
+      "venue_id": "kingswood-village-hall-wotton"
+    },
+    {
+      "date": "13/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673305",
+      "venue_id": "the-burton-institute-matlock"
+    },
+    {
+      "date": "14/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673306",
+      "venue_id": "reeth-memorial-hall-richmond"
+    },
+    {
+      "date": "20/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673307",
+      "venue_id": "silchester-village-hall-reading"
+    },
+    {
+      "date": "21/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673308",
+      "venue_id": "west-lavington-village-hall-devizes"
+    },
+    {
+      "date": "27/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673309",
+      "venue_id": "hook-village-hall-royal"
+    },
+    {
+      "date": "28/03/2026",
+      "time": "7.30pm",
+      "club": "",
+      "price": "£15 + £1.50 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/673312",
+      "venue_id": "payhembury-village-hall-honiton"
+    }]
+    },
+    "nick-parker-chuckie-egg-2026": {
+      "name": "Nick Parker — Chuckie Egg Tour 2026",
+      "tour_name": "Chuckie Egg Tour",
+      "performer_id": "nick-parker",
+      "tour_description": "Nick embarked on a solo career in 2010 and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way...",
+      "isMusic": true,
+      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
+      "tags": ["music", "tour", "2026"],
+      "tour_dates": [
+        {
+      "date": "06/03/2026",
+      "time": "",
+      "price": "£11", 
+      "ticket_url": "https://gwr.seetickets.com/event/nick-parker/the-hop-inn-8-devizes-road-swindon-sn1-4bh/3595047",
+      "venue_id": "the-hop-inn-swindon"
+    },
+    {
+      "date": "07/03/2026",
+      "time": "Doors 6.30pm, start 8.15pm",
+      "price": "£12.50 + £1.30 booking fee", 
+      "ticket_url": "https://wegottickets.com/f/15208",
+      "venue_id": "katie-fitzgeralds-stourbridge"
+    },
+    {
+      "date": "08/03/2026",
+      "time": "7pm",
+      "price": "£11.25", 
+      "ticket_url": "https://www.prohibitionrecordingstudios.co.uk/events/nick-parker-support-live-at-prohibition-recording-studios/",
+      "venue_id": "prohibition-recording-studios-liverpool"
+    },
+    {
+      "date": "13/03/2026",
+      "time": "7.30pm",
+      "price": "£10", 
+      "ticket_url": "https://georgiantheatre.co.uk/live-events/nick-parker/",
+      "venue_id": "the-georgian-theatre-stockton"
+    },
+    {
+      "date": "14/03/2026",
+      "time": "7.30pm",
+      "price": "£10", 
+      "ticket_url": "https://wegottickets.com/event/690054/",
+      "venue_id": "the-black-swan-inn-york"
+    },
+    {
+      "date": "15/03/2026",
+      "time": "7.30pm",
+      "price": "£12 + £1.20 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/689386/",
+      "venue_id": "the-grove-nottingham"
+    },
+    {
+      "date": "20/03/2026",
+      "time": "7pm",
+      "price": "£12 + £1.20 booking fee", 
+      "ticket_url": "https://www.seetickets.com/event/nick-parker-solo/nelly-s-retro-vintage/3595090",
+      "venue_id": "nellys-retro-vintage-stratford"
+    },
+    {
+      "date": "27/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee", 
+      "ticket_url": "https://good-show.co.uk/events/3193",
+      "venue_id": "the-brunswick-cellar-bar-brighton"
+    },
+    {
+      "date": "28/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee", 
+      "ticket_url": "https://wegottickets.com/location/26434",
+      "venue_id": "cwrw-carmarthen"
+    },
+    {
+      "date": "29/03/2026",
+      "time": "7.30pm",
+      "price": "£10 + £1.00 booking fee", 
+      "ticket_url": "https://wegottickets.com/event/688979/",
+      "venue_id": "exeter-phoenix"
+    }]
+    }
+  },
   "events": [
     {
       "name": "Sheffield Story Forge",
       "schedule": "3rd tuesday",
       "time": "7pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/94064587663",
       "club": "sheffieldstoryforge",
       "venue_id": "the-fat-cat-sheffield"
@@ -30,7 +444,6 @@
       "name": "Storytelling Sunday",
       "schedule": "last sunday",
       "link": "https://londondreamtime.com/",
-      "facebook": "",
       "club": "storytellingsunday",
       "venue_id": "love-shack-london"
     },
@@ -38,7 +451,6 @@
       "name": "Ship Inn Storytelling, Exeter",
       "schedule": "1st thursday",
       "time": "7-9pm",
-      "link": "",
       "facebook": "https://www.facebook.com/SuzanneArnoldWiseWoman",
       "club": "shipinnstorytelling",
       "venue_id": "ship-inn-exeter"
@@ -47,8 +459,6 @@
       "name": "Tales'n'Ales",
       "schedule": "3rd thursday",
       "time": "8-10pm",
-      "link": "",
-      "facebook": "",
       "club": "talesnales",
       "venue_id": "locks-inn-geldeston"
     },
@@ -63,7 +473,6 @@
       "name": "Norwich Storytelling Club",
       "schedule": "1st tuesday",
       "time": "7.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/1353388599609560/",
       "club": "norwichSCl",
       "venue_id": "gibraltar-gardens-norwich"
@@ -91,7 +500,6 @@
       "name": "Exeter Story Club",
       "schedule": "4th wednesday",
       "time": "7-9pm",
-      "link": "",
       "facebook": "https://www.facebook.com/ExeterStoryClub",
       "club": "exeterSC",
       "venue_id": "rougemont-room-exeter"
@@ -117,7 +525,6 @@
       "name": "Gloucester Storytelling Cafe",
       "schedule": "1st thursday",
       "time": "7pm - 10pm",
-      "link": "",
       "facebook": "https://www.facebook.com/profile.php?id=61554490450596",
       "club": "gloucesterSCafe",
       "venue_id": "the-folk-of-gloucester"
@@ -126,7 +533,6 @@
       "name": "Beeston Tales",
       "schedule": "3rd wednesday",
       "time": "7.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/beestontales",
       "club": "beestontales",
       "tickets_url": "https://www.tickettailor.com/events/beestontales/",
@@ -135,7 +541,6 @@
     {
       "name": "Matlock Storytelling Cafe",
       "schedule": "1st friday",
-      "link": "",
       "facebook": "https://www.facebook.com/MatlockStorytellingCafe",
       "club": "matlockSCafe",
       "tickets_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/",
@@ -145,7 +550,6 @@
       "name": "Hebden Bridge Shaggydog storytellers",
       "schedule": "last friday",
       "time": "7.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/TheShaggyDogStorytellers",
       "club": "shaggydogstorytellers",
       "venue_id": "stubbing-wharf-hebden"
@@ -153,7 +557,6 @@
     {
       "name": "Huddersfield story circle",
       "schedule": "2nd monday",
-      "link": "",
       "facebook": "",
       "time": "7pm?",
       "club": "huddersfieldSCi",
@@ -183,7 +586,6 @@
       "name": "Haworth storytelling circle",
       "schedule": "1st thursday",
       "location": "",
-      "link": "",
       "facebook": "https://www.facebook.com/HaworthStorytellingCircle",
       "time": "8pm",
       "club": "HaworthStorytellingCircle",
@@ -192,7 +594,6 @@
     {
       "name": "Story night at Torriano",
       "schedule": "2nd wednesday",
-      "link": "",
       "facebook": "https://www.facebook.com/profile.php?id=100069787464247",
       "club": "torrianostorynight",
       "venue_id": "torriano-meeting-house-london"
@@ -200,7 +601,6 @@
     {
       "name": "Chester Triple Spiral Storytellers",
       "schedule": "1st tuesday",
-      "link": "",
       "time": "1.30-3pm",
       "facebook": "https://www.facebook.com/groups/1432324863552369",
       "club": "chestertriplespiral",
@@ -209,7 +609,6 @@
     {
       "name": "Grampian Association of Storytellers - GAS",
       "schedule": "1st friday",
-      "link": "",
       "facebook": "https://www.facebook.com/grampianassocationofstorytellers/",
       "club": "grampiangas",
       "venue_id": "various"
@@ -228,7 +627,6 @@
       "schedule": "3rd Friday",
       "time": "7pm",
       "location": "",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/115339998550789",
       "club": "glasgowbettercrack",
       "geocode_missing": true
@@ -247,7 +645,6 @@
       "name": "Glasgow EVEN Better Crack Storytelling Club (Children)",
       "schedule": "3rd saturday",
       "location": "",
-      "link": "",
       "facebook": "",
       "time": "11.30am-12.30pm",
       "club": "glasgowevenbettercrack",
@@ -276,7 +673,6 @@
       "name": "Bletchley: Tales Tattled and Told",
       "schedule": "3rd saturday",
       "time": "7.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/lynettehilluk",
       "club": "talestattledtold",
       "venue_id": "rectory-cottages-bletchley"
@@ -304,7 +700,6 @@
       "name": "Plymouth Storytelling Circle",
       "time": "5-7pm",
       "schedule": "4th sunday",
-      "link": "",
       "facebook": "https://www.facebook.com/profile.php?id=61580047292990",
       "club": "plymouthSCi",
       "venue_id": "snapdragons-victoria"
@@ -341,7 +736,6 @@
       "name": "Wirral Quirky Tales",
       "schedule": "2nd tuesday",
       "time": "7.30-9.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/profile.php?id=100086449665967",
       "club": "quirkytales",
       "venue_id": "making-space-1"
@@ -350,7 +744,6 @@
       "name": "Guesthouse storytellers, Newhaven",
       "schedule": "2nd tuesday",
       "time": "7.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/guesthousestorytellers",
       "club": "guesthouseST",
       "tickets_url": "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge",
@@ -363,12 +756,9 @@
       "facebook": "https://www.facebook.com/storytellersofnottingham",
       "club": "storytellersnotts",
       "price": "£5",
-      "alternate_locations": {
-        "odd": {
-          "venue_id": "the-embankment-nottingham"
+      "alternate_locations": {        "odd": {          "venue_id": "the-embankment-nottingham"
         },
-        "even": {
-          "venue_id": "malt-cross-nottingham"
+        "even": {          "venue_id": "malt-cross-nottingham"
         }
       },
       "exceptions": [
@@ -380,7 +770,6 @@
       "name": "Southampton Story Club",
       "schedule": "1st thursday",
       "time": "8-10pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/southamptonstories",
       "club": "southamptonSC",
       "venue_id": "guide-dog-pub-southampton"
@@ -389,7 +778,6 @@
       "name": "Sarum Story club [online?]",
       "schedule": "3rd tuesday",
       "location": "",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/sarumstoryclub",
       "club": "sarumSC",
       "geocode_missing": true
@@ -399,7 +787,6 @@
       "schedule": "3rd wednesday",
       "time": "7pm",
       "location": "",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/412446392168295",
       "club": "bristolwildwednesday",
       "geocode_missing": true
@@ -408,7 +795,6 @@
       "name": "Dartmoor Storytellers",
       "schedule": "2nd wednesday",
       "time": "8-9.30pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/1689129511376075",
       "club": "dartmoorStorytellers",
       "venue_id": "chagford-inn"
@@ -444,7 +830,6 @@
       "name": "Frome storytelling circle",
       "schedule": "last monday",
       "time": "7-9pm",
-      "link": "",
       "facebook": "https://www.facebook.com/laralavender6",
       "club": "fromeSC",
       "venue_id": "three-swans-pub-frome"
@@ -453,7 +838,6 @@
       "name": "Brighton Telltales",
       "schedule": "1st wednesday",
       "time": "7pm",
-      "link": "",
       "facebook": "https://www.facebook.com/brightontelltales",
       "club": "brightontelltales",
       "club_flyer": "brighton_telltales_flyer.jpg",
@@ -463,7 +847,6 @@
       "name": "Leek storytellers",
       "schedule": "2nd wednesday",
       "time": "7pm",
-      "link": "",
       "facebook": "https://www.facebook.com/leekstorytellers",
       "email": "Fernandfables@gmail.com",
       "club": "leekstorytellers",
@@ -480,7 +863,6 @@
     {
       "name": "Much Wenlock, Salop - words at the edge",
       "schedule": "2nd monday",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/wordsattheedge",
       "club": "wordsattheedge",
       "venue_id": "town-hall-bishops"
@@ -498,21 +880,18 @@
       "name": "3rd Wednesday Storytellers, [online]",
       "schedule": "3rd wednesday",
       "time": "8-10pm",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/4500677516682341",
       "venue_id": "online"
     },
     {
       "name": "Heads & Tales Storytelling Club, Ringwood",
       "schedule": "3rd thursday",
-      "link": "",
       "facebook": "https://www.facebook.com/HeadsAndTalesCafe",
       "venue_id": "the-elm-tree-ringwood"
     },
     {
       "name": "Royal Tales (Sutton Coldfield Storytelling)",
       "schedule": "",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/613097720652168/",
       "club": "royaltales",
       "venue_id": "the-station-pub-sutton"
@@ -530,7 +909,6 @@
       "schedule": "first wednesday",
       "time": "7-8.30pm",
       "location": "",
-      "link": "",
       "facebook": "https://www.facebook.com/groups/aberfables",
       "club": "aberystwythfables",
       "geocode_missing": true
@@ -539,7 +917,6 @@
       "name": "Winchester Wykeham Tales [Lapsed?]",
       "schedule": "2nd wednesday",
       "location": "",
-      "link": "",
       "facebook": "",
       "geocode_missing": true
     }
@@ -930,7 +1307,6 @@
     },
     {
       "date": "10/12/2025",
-      "link": "",
       "price": "£5",
       "time": "7-9.30pm",
       "event_flyer": "2025_12_10_solo_carvel-winter-cherries.png",
@@ -2100,7 +2476,6 @@
       "time": "7.30-9.30pm",
       "price": "£20",
       "ticket_url": "https://www.tickettailor.com/events/southdevonstorytellers/1775135",
-      "link": "",
       "club": "",
       "facebook": "",
       "fb_event": 1738988050319883,
@@ -2234,374 +2609,7 @@
       "venue_id": "john-peel-centre-stowmarket",
       "performer_id": "jess-silk"
     },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "06/02/2026",
-      "time": "7.30pm",
-      "club": "gazbrookfield",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673293",
-      "isMusic": true,
-      "venue_id": "gupshill-manor-tewkesbury",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "07/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673294",
-      "isMusic": true,
-      "venue_id": "tolpuddle-village-hall",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "13/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673295",
-      "isMusic": true,
-      "venue_id": "grantchester-village-hall",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "14/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673296",
-      "isMusic": true,
-      "venue_id": "welford-youth-and-community-centre",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673297",
-      "isMusic": true,
-      "venue_id": "packington-village-hall",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "21/02/2026",
-      "time": "7pm",
-      "club": "",
-      "price": "£15 (+£1.26)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
-      "isMusic": true,
-      "venue_id": "wroot-rocks",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "27/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673299",
-      "isMusic": true,
-      "venue_id": "chew-stoke-church-hall",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "28/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673301",
-      "isMusic": true,
-      "venue_id": "porthtowan-village-hall",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "06/03/2026",
-      "time": "7pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673302",
-      "isMusic": true,
-      "venue_id": "the-chester-tavern-kidderminster",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "07/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673303",
-      "isMusic": true,
-      "venue_id": "kingswood-village-hall-wotton",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "13/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673305",
-      "isMusic": true,
-      "venue_id": "the-burton-institute-matlock",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "14/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673306",
-      "isMusic": true,
-      "venue_id": "reeth-memorial-hall-richmond",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "20/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673307",
-      "isMusic": true,
-      "venue_id": "silchester-village-hall-reading",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "21/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673308",
-      "isMusic": true,
-      "venue_id": "west-lavington-village-hall-devizes",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "27/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673309",
-      "isMusic": true,
-      "venue_id": "hook-village-hall-royal",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "28/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "https://wegottickets.com/event/673312",
-      "isMusic": true,
-      "venue_id": "payhembury-village-hall-honiton",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield (Almost All Village Halls Tour)",
-      "showname": "Almost All Village Halls Tour",
-      "date": "",
-      "time": "",
-      "club": "",
-      "price": "",
-      "description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "location": "",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "ticket_url": "",
-      "isMusic": true,
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "06/03/2026",
-      "time": "",
-      "price": "£11",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://gwr.seetickets.com/event/nick-parker/the-hop-inn-8-devizes-road-swindon-sn1-4bh/3595047",
-      "isMusic": true,
-      "venue_id": "the-hop-inn-swindon",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "07/03/2026",
-      "time": "Doors 6.30pm, start 8.15pm",
-      "price": "£12.50 + £1.30 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://wegottickets.com/f/15208",
-      "isMusic": true,
-      "venue_id": "katie-fitzgeralds-stourbridge",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "08/03/2026",
-      "time": "7pm",
-      "price": "£11.25",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://www.prohibitionrecordingstudios.co.uk/events/nick-parker-support-live-at-prohibition-recording-studios/",
-      "isMusic": true,
-      "venue_id": "prohibition-recording-studios-liverpool",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "13/03/2026",
-      "time": "7.30pm",
-      "price": "£10",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://georgiantheatre.co.uk/live-events/nick-parker/",
-      "isMusic": true,
-      "venue_id": "the-georgian-theatre-stockton",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "14/03/2026",
-      "time": "7.30pm",
-      "price": "£10",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://wegottickets.com/event/690054/",
-      "isMusic": true,
-      "venue_id": "the-black-swan-inn-york",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "15/03/2026",
-      "time": "7.30pm",
-      "price": "£12 + £1.20 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://wegottickets.com/event/689386/",
-      "isMusic": true,
-      "venue_id": "the-grove-nottingham",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "20/03/2026",
-      "time": "7pm",
-      "price": "£12 + £1.20 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://www.seetickets.com/event/nick-parker-solo/nelly-s-retro-vintage/3595090",
-      "isMusic": true,
-      "venue_id": "nellys-retro-vintage-stratford",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "27/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://good-show.co.uk/events/3193",
-      "isMusic": true,
-      "venue_id": "the-brunswick-cellar-bar-brighton",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "28/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://wegottickets.com/location/26434",
-      "isMusic": true,
-      "venue_id": "cwrw-carmarthen",
-      "performer_id": "nick-parker"
-    },
-    {
-      "name": "Nick Parker (Chuckie Egg Tour)",
-      "showname": "Chuckie Egg Tour",
-      "date": "29/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee",
-      "description": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain.",
-      "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "ticket_url": "https://wegottickets.com/event/688979/",
-      "isMusic": true,
-      "venue_id": "exeter-phoenix",
-      "performer_id": "nick-parker"
-    },
+    
     {
       "series_title": "Taking the Tradition On",
       "presenter": "Amy Douglas",
@@ -2620,129 +2628,6 @@
       "venue_id": "summerhill-bowling-club-newcastle"
     },
     {
-      "fb_event": 1515954242876116,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "03/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/event/678672?",
-      "price": "£13.20",
-      "isMusic": true,
-      "isSpecial": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "the-palladium-club-bideford",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 837731841927515,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "04/04/2026",
-      "time": "7pm",
-      "ticket_url": "https://wegottickets.com/event/677850",
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "isMusic": true,
-      "isSpecial": true,
-      "venue_id": "feniton-sports-social-club",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 1500622354496608,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "09/04/2026",
-      "time": "7pm",
-      "ticket_url": "https://wegottickets.com/event/684546/",
-      "price": "£11",
-      "isMusic": true,
-      "isSpecial": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "spin-the-black-circle-worcester",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 1383542720156558,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "10/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "",
-      "isMusic": true,
-      "isSpecial": true,
-      "price": "£ Pay what you want",
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "the-ropemakers-bridport",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 2545305215845339,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "11/04/2026",
-      "time": "7.30pm",
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "ticket_url": "",
-      "isMusic": true,
-      "isSpecial": true,
-      "venue_id": "wycombe-arts-centre-high",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 2018542882313275,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "12/04/2026",
-      "time": "4.pm",
-      "ticket_url": "https://www.foremansbar.co.uk/product/jess-silk-matt-johnson-april-12th-2026-doors-4pm",
-      "price": "£17",
-      "isMusic": true,
-      "isSpecial": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "foremans-bar-nottingham",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 818935460576685,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "16/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/f/14322",
-      "price": "£16.50",
-      "isMusic": true,
-      "isSpecial": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "kitchen-garden-cafe-birmingham",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 730494563371725,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "17/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://theportlandarms.co.uk/wp/product/jess-silk-and-matt-johnson-17th-april-26/",
-      "price": "£13.20",
-      "isMusic": true,
-      "isSpecial": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "venue_id": "portland-arms-cambridge",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
-      "fb_event": 1093444672771528,
-      "name": "Jess Silk + Matt Johnson (The Dashboard Jesus Tour)",
-      "showname": "Dashboard Jesus Tour",
-      "date": "18/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/event/677958",
-      "isMusic": true,
-      "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "isSpecial": true,
-      "venue_id": "avalon-club-glastonbury",
-      "performer_id": "jess-silk-matt-johnson"
-    },
-    {
       "fb_event": 1338473741103128,
       "name": "Jess Silk",
       "date": "26/09/2026",
@@ -2752,201 +2637,6 @@
       "isMusic": true,
       "isSpecial": true,
       "venue_id": "katie-fitzgeralds-stourbridge"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "18/04/2026",
-      "time": "8-11pm",
-      "price": "£18 (£15 advance)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.quayarts.org/event/sorrel-nation/",
-      "isMusic": true,
-      "venue_id": "quay-arts-newport",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "23/04/2026",
-      "time": "7pm",
-      "price": "£15 (+£1.50 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/event/685002",
-      "isMusic": true,
-      "venue_id": "unicorn-theatre-abingdon",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "24/04/2026",
-      "time": "",
-      "price": "",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "",
-      "isMusic": true,
-      "venue_id": "the-arty-barn-nr",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "25/04/2026",
-      "time": "7.30pm",
-      "price": "£15 (+£1.50 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/f/15769",
-      "isMusic": true,
-      "venue_id": "swiss-cottage-twyford",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "26/04/2026",
-      "time": "7pm",
-      "price": "£16 (+£1.60 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/event/684218",
-      "isMusic": true,
-      "venue_id": "st-marys-church-oxted",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "29/04/2026",
-      "time": "7.30pm",
-      "price": "£15 (+£1.50 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/f/15505",
-      "isMusic": true,
-      "venue_id": "kitchen-garden-cafe-birmingham",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "01/05/2026",
-      "time": "7.30pm",
-      "price": "£12 (+£0.84 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "event_flyer": "2026_05_01_sorrel_nation_lantern_sheffield.jpg",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd",
-      "isMusic": true,
-      "venue_id": "the-lantern-theatre-sheffield",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "02/05/2026",
-      "time": "7-10.30pm",
-      "price": "£15",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.barnoldswickmusicandartscentre.com/sorrel-nation",
-      "isMusic": true,
-      "venue_id": "barnoldswick-music-arts-centre",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "03/05/2026",
-      "time": "7pm",
-      "price": "£15 (+£1.50 booking fee)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/event/685018",
-      "isMusic": true,
-      "venue_id": "knutsford-little-theatre",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "07/05/2026",
-      "time": "7.30pm",
-      "price": "£13.50 (£+1.35) Adv / £16 Doors",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://tickets.halfmoon.co.uk/events/4f089017-40a1-4194-847e-dcc617e47bd5",
-      "isMusic": true,
-      "venue_id": "the-half-moon-putney",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "08/05/2026",
-      "time": "7pm",
-      "price": "£16.00 + £0.95 booking fee",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.the-bear.club/whats-on/sorrel-nation-26-wx8nt",
-      "isMusic": true,
-      "venue_id": "the-bear-club-luton",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "09/05/2026",
-      "time": "7pm",
-      "price": "£16-£18, + booking fee; U25 £10 (+£1)",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://wegottickets.com/event/683298",
-      "isMusic": true,
-      "venue_id": "village-hall-great",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "10/05/2026",
-      "time": "",
-      "price": "Free",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "",
-      "isMusic": true,
-      "venue_id": "harta-retreat-barnstaple",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "16/05/2026",
-      "time": "",
-      "price": "",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "",
-      "isMusic": true,
-      "venue_id": "dart-music-festival-dartmouth",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "17/05/2026",
-      "time": "8pm",
-      "price": "£11",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.theacornpenzance.com/events/sorrel-nation/",
-      "isMusic": true,
-      "venue_id": "the-acorn-penzance",
-      "performer_id": "sorrel-nation"
-    },
-    {
-      "name": "Sorrel Nation + band, Spring Tour 2026",
-      "date": "23/05/2026",
-      "time": "",
-      "price": "",
-      "description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound.",
-      "festival_url": "https://www.thebigretreatfestival.com/",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.thebigretreatfestival.com/products/the-big-retreat-tickets-2026",
-      "isMusic": true,
-      "isFestival": true,
-      "venue_id": "the-big-retreat-festival-lawrenny",
-      "performer_id": "sorrel-nation"
     },
     {
       "name": "Jess Silk",
@@ -5417,8 +5107,7 @@
       ]
     }
   },
-  "performers": {
-    "daniel-morden": {
+  "performers": {    "daniel-morden": {
       "id": "daniel-morden",
       "name": "Daniel Morden",
       "url": "https://danielmorden.org/",

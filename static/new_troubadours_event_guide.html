@@ -763,6 +763,7 @@
 
         let venuesLookup = {};
         let performersLookup = {};
+        let toursLookup = {};
 
         let mapViewPinned = false;
         let pinnedMapView = null;
@@ -814,6 +815,7 @@
             }
         }
 
+
         // Load events from JSON file
         async function loadEventsData() {
             try {
@@ -821,6 +823,8 @@
                 const response = await fetch(`events_normalized.json?v=${cacheBuster}`);
                 if (response.ok) {
                     eventsData = await response.json();
+                    toursLookup = eventsData.tours || {};
+
                     console.log(`✓ Loaded events from JSON:`);
                     if (eventsData.venues) {
                         venuesLookup = eventsData.venues;
@@ -1091,6 +1095,20 @@
             return ((date.getMonth() + 1) % 2 === 0) ? 'even' : 'odd';
         }
 
+        function getEventDescription(event) {
+            // First priority: event-specific description
+            if (event.description && event.description.trim()) {
+                return event.description;
+            }
+
+            // Second priority: tour description via tour_id lookup
+            if (event.tour_id && toursLookup[event.tour_id]?.tour_description) {
+                return toursLookup[event.tour_id].tour_description;
+            }
+
+            return '';
+        }
+
         function resolveEventVenue(event, date) {
             const parity = getMonthParity(date);
 
@@ -1190,6 +1208,9 @@
             }
 
             if (eventType === 'special' || eventType === 'music') {
+                eventData.tour_id = baseEvent.tour_id || null;
+                eventData.performer_id = baseEvent.performer_id || null;
+
                 // Look up performer details from collection
                 const performer_id = baseEvent.performer_id;
                 if (performer_id && performersLookup[performer_id]) {
@@ -1207,6 +1228,58 @@
             }
 
             return eventData;
+        }
+
+        async function processTourEvents(startDate, endDate) {
+            const tours = eventsData.tours || {};
+
+            for (const tourKey in tours) {
+                const tour = tours[tourKey];
+
+                // Skip if not a music tour
+                if (!tour.isMusic) continue;
+
+                // Process each tour date
+                for (const tourDate of tour.tour_dates || []) {
+                    if (!tourDate.date) {
+                        console.warn(`Missing date for tour event in ${tour.name}:`, tourDate);
+                        continue;
+                    }
+
+                    const dateParts = tourDate.date.split('/');
+                    if (dateParts.length !== 3) {
+                        console.warn(`Invalid date format for tour event in ${tour.name}:`, tourDate);
+                        continue;
+                    }
+
+                    const day = parseInt(dateParts[0], 10);
+                    const month = parseInt(dateParts[1], 10);
+                    const year = parseInt(dateParts[2], 10);
+
+                    const eventDate = new Date(year, month - 1, day);
+                    if (eventDate >= startDate && eventDate <= endDate) {
+                        // Merge tour-level and date-level properties
+                        const mergedEvent = {
+                            name: tour.name,
+                            tour_id: tourKey,
+                            performer_id: tour.performer_id,
+                            date: tourDate.date,
+                            time: tourDate.time || tour.time || null,
+                            price: tourDate.price || tour.price || null,
+                            venue_id: tourDate.venue_id,
+                            description: tour.tour_description || null,
+                            event_flyer: tourDate.event_flyer || null,
+                            tour_flyer: tour.tour_flyer || null,
+                            fb_event: tourDate.fb_event || null,
+                            ticket_url: tourDate.ticket_url || null
+                        };
+
+                        const eventData = createEventData(mergedEvent, eventDate, 'music');
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
         }
 
         async function processSpecialEvents(events, typ, startDate, endDate) {
@@ -1332,6 +1405,9 @@
             // Process one-off events (these don't have schedules/exceptions)
             await processSpecialEvents(eventsData.specificEvents, 'special', startDate, endDate);
             await processSpecialEvents(eventsData.musicEvents, 'music', startDate, endDate);
+
+            // Add tour dates
+            await processTourEvents(startDate, endDate);
 
             allEventsData.sort((a, b) => a.date - b.date);
             renderEventsList(allEventsData);
@@ -1773,75 +1849,176 @@
             return ticketsDiv.children.length > 0 ? ticketsDiv : null;
         }
 
-        function createExpandableSection(event) {
-            const hasExpandableContent = (event.event_flyer && event.event_flyer.trim()) ||
-                (event.tour_flyer && event.tour_flyer.trim()) ||
-                (event.description && event.description.trim());
+        function getExpandableContent(event) {
+            // Get description using the proper lookup function
+            const description = getEventDescription(event);
 
-            if (!hasExpandableContent) {
+            const flyers = [];
+
+            // Add event flyer if available
+            if (event.event_flyer && event.event_flyer.trim()) {
+                flyers.push({
+                    path: event.event_flyer,
+                    altSuffix: 'event flyer'
+                });
+            }
+
+            // Add tour flyer - check event first, then tour lookup
+            let tourFlyer = event.tour_flyer;
+            if (!tourFlyer && event.tour_id && toursLookup[event.tour_id]) {
+                tourFlyer = toursLookup[event.tour_id].tour_flyer;
+            }
+
+            if (tourFlyer && tourFlyer.trim()) {
+                flyers.push({
+                    path: tourFlyer,
+                    altSuffix: 'tour flyer'
+                });
+            }
+
+            return {
+                hasContent: Boolean(description?.trim() || flyers.length > 0),
+                description,
+                flyers
+            };
+        }
+
+        function createExpandableSection(event) {
+            const { hasContent, description, flyers } = getExpandableContent(event);
+
+            // Check if performer has a bio
+            const performer_id = event.performer_id;
+            const hasBio = performer_id && performersLookup[performer_id]?.bio;
+
+            // Return null if no expandable content at all
+            if (!hasContent && !hasBio) {
                 return null;
             }
 
             const container = document.createElement('div');
-            const expandableId = `event-expand-${Math.random().toString(36).substr(2, 9)}`;
 
-            // Create expand button
-            const expandBtn = document.createElement('div');
-            expandBtn.className = 'event-expand-btn';
-            expandBtn.textContent = 'More info...';
-            expandBtn.onclick = (e) => {
-                e.stopPropagation();
-                const expandable = document.getElementById(expandableId);
-                if (expandable) {
-                    expandable.style.display = expandable.style.display === 'none' ? 'block' : 'none';
+            // Create unique IDs for this event's expandables
+            const bioExpandableId = `event-bio-${Math.random().toString(36).substr(2, 9)}`;
+            const infoExpandableId = `event-info-${Math.random().toString(36).substr(2, 9)}`;
+
+            // Helper function to toggle expandables (close others)
+            const toggleExpandable = (targetId) => {
+                const bioDiv = document.getElementById(bioExpandableId);
+                const infoDiv = document.getElementById(infoExpandableId);
+
+                if (targetId === bioExpandableId) {
+                    // Toggle bio
+                    const isCurrentlyOpen = bioDiv.style.display === 'block';
+                    bioDiv.style.display = isCurrentlyOpen ? 'none' : 'block';
+                    // Close info
+                    if (infoDiv) infoDiv.style.display = 'none';
+                } else if (targetId === infoExpandableId) {
+                    // Toggle info
+                    const isCurrentlyOpen = infoDiv.style.display === 'block';
+                    infoDiv.style.display = isCurrentlyOpen ? 'none' : 'block';
+                    // Close bio
+                    if (bioDiv) bioDiv.style.display = 'none';
                 }
             };
-            container.appendChild(expandBtn);
 
-            // Create expandable content
-            const expandableDiv = document.createElement('div');
-            expandableDiv.className = 'event-expandable';
-            expandableDiv.id = expandableId;
-            expandableDiv.style.display = 'none';
+            // Create button container for Bio and More Info buttons
+            const buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+            buttonContainer.style.gap = '10px';
+            buttonContainer.style.marginTop = '12px';
 
-            // Add description
-            if (event.description) {
-                const descDiv = document.createElement('div');
-                descDiv.className = 'event-description';
+            // More info button (if event content exists)
+            if (hasContent) {
+                const expandBtn = document.createElement('div');
+                expandBtn.className = 'event-expand-btn';
+                expandBtn.textContent = 'More info...';
+                expandBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleExpandable(infoExpandableId);
+                };
+                buttonContainer.appendChild(expandBtn);
+            }
 
-                const paragraphs = event.description.split('\n\n\n\n');
+            // Bio button (if bio exists)
+            if (hasBio) {
+                const bioBtn = document.createElement('div');
+                bioBtn.className = 'event-expand-btn';
+                bioBtn.textContent = 'Bio';
+                bioBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleExpandable(bioExpandableId);
+                };
+                buttonContainer.appendChild(bioBtn);
+            }
+
+            container.appendChild(buttonContainer);
+
+            // Create bio expandable content
+            if (hasBio) {
+                const bioExpandableDiv = document.createElement('div');
+                bioExpandableDiv.className = 'event-expandable';
+                bioExpandableDiv.id = bioExpandableId;
+                bioExpandableDiv.style.display = 'none';
+
+                const bioDiv = document.createElement('div');
+                bioDiv.className = 'event-description';
+
+                const bio = performersLookup[performer_id].bio;
+                const paragraphs = bio.split('\n\n\n\n');
                 paragraphs.forEach(p => {
                     if (p.trim()) {
                         const pElem = document.createElement('p');
                         pElem.textContent = p.replace(/\n\n/g, '\n');
-                        descDiv.appendChild(pElem);
+                        bioDiv.appendChild(pElem);
                     }
                 });
 
-                expandableDiv.appendChild(descDiv);
+                bioExpandableDiv.appendChild(bioDiv);
+                container.appendChild(bioExpandableDiv);
             }
 
-            // Add flyers
-            const flyers = [
-                { path: event.event_flyer, altSuffix: 'flyer' },
-                { path: event.tour_flyer, altSuffix: 'tour flyer' }
-            ];
+            // Create info expandable content
+            if (hasContent) {
+                const expandableDiv = document.createElement('div');
+                expandableDiv.className = 'event-expandable';
+                expandableDiv.id = infoExpandableId;
+                expandableDiv.style.display = 'none';
 
-            flyers.forEach((flyer, index) => {
-                if (flyer.path) {
-                    const img = document.createElement('img');
-                    img.alt = `${event.name} ${flyer.altSuffix}`;
-                    const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
-                    img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
-                    img.className = 'event-flyer-image';
-                    if (index > 0 && flyers[0].path) {
-                        img.style.marginTop = '15px';
-                    }
-                    expandableDiv.appendChild(img);
+                // Process description
+                if (description) {
+                    const descDiv = document.createElement('div');
+                    descDiv.className = 'event-description';
+
+                    const paragraphs = description.split('\n\n\n\n');
+                    paragraphs.forEach(p => {
+                        if (p.trim()) {
+                            const pElem = document.createElement('p');
+                            pElem.textContent = p.replace(/\n\n/g, '\n');
+                            descDiv.appendChild(pElem);
+                        }
+                    });
+
+                    expandableDiv.appendChild(descDiv);
                 }
-            });
 
-            container.appendChild(expandableDiv);
+                // Add flyers
+                flyers.forEach((flyer, index) => {
+                    if (flyer.path) {
+                        const img = document.createElement('img');
+                        img.alt = `${event.name} ${flyer.altSuffix}`;
+                        const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
+                        img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+                        img.className = 'event-flyer-image';
+                        if (index > 0 && flyers[0].path) {
+                            img.style.marginTop = '15px';
+                        }
+                        expandableDiv.appendChild(img);
+                    }
+                });
+
+                container.appendChild(expandableDiv);
+            }
+
             return container;
         }
 
@@ -2055,6 +2232,72 @@
                         const eventData = createEventData(event, eventDate, 'music');
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+
+            // Search tour events (music tours)
+            // Search tour events (music tours)
+            const tours = eventsData.tours || {};
+            for (const tourKey in tours) {
+                const tour = tours[tourKey];
+
+                if (!tour.isMusic) continue;
+
+                // Get performer name if available
+                let performerName = '';
+                if (tour.performer_id && performersLookup[tour.performer_id]) {
+                    performerName = performersLookup[tour.performer_id].name;
+                }
+
+                // Build tour-level searchable text
+                const tourSearchText = `${tour.name} ${tour.tour_name || ''} ${performerName} ${tour.tour_description || ''}`.toLowerCase();
+
+                for (const tourDate of tour.tour_dates || []) {
+                    if (!tourDate.date) continue;
+
+                    const dateParts = tourDate.date.split('/');
+                    if (dateParts.length !== 3) continue;
+
+                    const day = parseInt(dateParts[0], 10);
+                    const month = parseInt(dateParts[1], 10);
+                    const year = parseInt(dateParts[2], 10);
+
+                    const eventDate = new Date(year, month - 1, day);
+                    if (eventDate >= today && eventDate <= futureDate) {
+                        // Get venue info for this specific date
+                        const venue_id = tourDate.venue_id;
+                        let venueName = '';
+                        let venueLocation = '';
+                        if (venue_id && venuesLookup[venue_id]) {
+                            venueName = venuesLookup[venue_id].name || '';
+                            venueLocation = venuesLookup[venue_id].full_address || '';
+                        }
+
+                        // Build complete searchable text
+                        const fullSearchText = `${tourSearchText} ${venueName} ${venueLocation} ${tourDate.time || ''} ${tourDate.price || ''}`.toLowerCase();
+
+                        if (fullSearchText.includes(searchTerm)) {
+                            const mergedEvent = {
+                                name: tour.name,
+                                tour_id: tourKey,
+                                performer_id: tour.performer_id,
+                                date: tourDate.date,
+                                time: tourDate.time || tour.time || null,
+                                price: tourDate.price || tour.price || null,
+                                venue_id: tourDate.venue_id,
+                                description: tour.tour_description || null,
+                                event_flyer: tourDate.event_flyer || null,
+                                tour_flyer: tour.tour_flyer || null,
+                                fb_event: tourDate.fb_event || null,
+                                ticket_url: tourDate.ticket_url || null
+                            };
+
+                            const eventData = createEventData(mergedEvent, eventDate, 'music');
+                            allEventsData.push(eventData);
+                            await addMarkerForEvent(eventData);
+                            // REMOVED: break; // <-- This was stopping after first match
+                        }
                     }
                 }
             }
