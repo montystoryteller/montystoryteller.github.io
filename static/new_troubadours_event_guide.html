@@ -761,6 +761,9 @@
         let isGeocoding = false;
         let eventsData = null;
 
+        let venuesLookup = {};
+        let performersLookup = {};
+
         let mapViewPinned = false;
         let pinnedMapView = null;
 
@@ -815,10 +818,18 @@
         async function loadEventsData() {
             try {
                 const cacheBuster = new Date().getTime();
-                const response = await fetch(`events_combined.json?v=${cacheBuster}`);
+                const response = await fetch(`events_normalized.json?v=${cacheBuster}`);
                 if (response.ok) {
                     eventsData = await response.json();
                     console.log(`✓ Loaded events from JSON:`);
+                    if (eventsData.venues) {
+                        venuesLookup = eventsData.venues;
+                        console.log(`  - ${Object.keys(venuesLookup).length} venues`);
+                    }
+                    if (eventsData.performers) {
+                        performersLookup = eventsData.performers;
+                        console.log(`  - ${Object.keys(performersLookup).length} performers`);
+                    }
                     console.log(`  - ${eventsData.events?.length || 0} recurring events`);
                     console.log(`  - ${eventsData.specificEvents?.length || 0} specific events`);
                     console.log(`  - ${eventsData.musicEvents?.length || 0} music events`);
@@ -1083,15 +1094,22 @@
         function resolveEventVenue(event, date) {
             const parity = getMonthParity(date);
 
-            let location = event.location;
-            let latlon = event.latlon || null;
-            let venue_url = event.venue_url || null;
+            let venue_id = event.venue_id || null;
+            let location = null;
+            let latlon = null;
+            let venue_url = null;
 
+            // Check alternate locations first
             if (event.alternate_locations?.[parity]) {
-                const alt = event.alternate_locations[parity];
-                location = alt.location || location;
-                latlon = alt.latlon || latlon;
-                venue_url = alt.venue_url || venue_url;
+                venue_id = event.alternate_locations[parity].venue_id || venue_id;
+            }
+
+            // Look up venue details from venues collection
+            if (venue_id && venuesLookup[venue_id]) {
+                const venue = venuesLookup[venue_id];
+                location = venue.full_address || venue.name;
+                latlon = venue.latlon || null;
+                venue_url = venue.url || null;
             }
 
             return { location, latlon, venue_url };
@@ -1172,8 +1190,15 @@
             }
 
             if (eventType === 'special' || eventType === 'music') {
-                eventData.performer = baseEvent.performer;
-                eventData.performer_url = baseEvent.performer_url || null;
+                // Look up performer details from collection
+                const performer_id = baseEvent.performer_id;
+                if (performer_id && performersLookup[performer_id]) {
+                    eventData.performer = performersLookup[performer_id].name;
+                    eventData.performer_url = performersLookup[performer_id].url || null;
+                } else {
+                    eventData.performer = baseEvent.performer || null;
+                    eventData.performer_url = null;
+                }
                 eventData.description = baseEvent.description || null;
                 eventData.event_flyer = baseEvent.event_flyer || null;
                 eventData.tour_flyer = baseEvent.tour_flyer || null;
