@@ -1107,37 +1107,6 @@
             return new Date(y, m - 1, d);
         }
 
-        function evaluateReschedule(startDate, endDate, date, exceptions) {
-            const exceptionDate = exceptions.length
-                ? parseExceptionDate(exceptions[0])
-                : null;
-
-            const scheduledInRange = date >= startDate && date <= endDate;
-            const exceptionInRange =
-                exceptionDate &&
-                exceptionDate >= startDate &&
-                exceptionDate <= endDate;
-
-
-            const rescheduledTo =
-                exceptionDate && (scheduledInRange || exceptionInRange)
-                    ? exceptionDate
-                    : null;
-
-            return {
-                isCancelled: Boolean(exceptionDate && scheduledInRange),
-                isRescheduled: Boolean(exceptionInRange),
-                rescheduledTo: rescheduledTo,
-                rescheduledToStr: rescheduledTo
-                    ? rescheduledTo.toLocaleDateString('en-GB', {
-                        weekday: 'short',
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    })
-                    : null
-            };
-        }
 
         function createSafePopup(eventData) {
             const container = document.createElement('div');
@@ -1244,39 +1213,75 @@
         async function processRecurringEvents(events, eventType, startDate, endDate) {
             for (const event of events || []) {
                 const exceptions = event.exceptions || [];
+
+                // Parse exception dates
+                const exceptionDates = exceptions.map(parseExceptionDate);
+
+                // Expand range to capture context
+                let expandedStart = new Date(startDate);
+                let expandedEnd = new Date(endDate);
+
+                if (exceptionDates.length > 0) {
+                    expandedStart = new Date(Math.min(startDate, ...exceptionDates));
+                    expandedStart.setMonth(expandedStart.getMonth() - 1);
+
+                    expandedEnd = new Date(Math.max(endDate, ...exceptionDates));
+                    expandedEnd.setMonth(expandedEnd.getMonth() + 1);
+                }
+
+                // Get all scheduled dates in expanded range
+                const allScheduledDates = parseSchedule(event.schedule, expandedStart, expandedEnd);
+
+                // Build reschedule map: for each exception date, find the regularly scheduled date in that same month
+                const rescheduleMap = new Map(); // Key: cancelled date, Value: rescheduled date
+
+                exceptionDates.forEach(excDate => {
+                    // Find the regularly scheduled date in the SAME month as the exception
+                    const regularDateInSameMonth = allScheduledDates.find(schedDate =>
+                        schedDate.getFullYear() === excDate.getFullYear() &&
+                        schedDate.getMonth() === excDate.getMonth()
+                    );
+
+                    if (regularDateInSameMonth) {
+                        // The regular date is cancelled, exception date is the reschedule
+                        const cancelKey = `${regularDateInSameMonth.getFullYear()}-${regularDateInSameMonth.getMonth()}-${regularDateInSameMonth.getDate()}`;
+                        rescheduleMap.set(cancelKey, excDate);
+                    }
+                });
+
+                // Process dates in the REQUESTED range
                 const dates = parseSchedule(event.schedule, startDate, endDate);
 
                 for (const date of dates) {
                     const { location, latlon, venue_url } = resolveEventVenue(event, date);
-
                     const eventData = createEventData(event, date, eventType);
 
-                    const reschedule = evaluateReschedule(
-                        startDate,
-                        endDate,
-                        date,
-                        exceptions
-                    );
+                    // Check if THIS specific date was cancelled
+                    const dateKey = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+                    const rescheduledTo = rescheduleMap.get(dateKey);
 
-                    eventData.isCancelled = reschedule.isCancelled;
-                    eventData.rescheduledTo = reschedule.rescheduledTo;
-                    eventData.rescheduledToStr = reschedule.rescheduledToStr;
+                    if (rescheduledTo) {
+                        eventData.isCancelled = true;
+                        eventData.rescheduledTo = rescheduledTo;
+                        eventData.rescheduledToStr = rescheduledTo.toLocaleDateString('en-GB', {
+                            weekday: 'short',
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric'
+                        });
+                    }
+
                     allEventsData.push(eventData);
                     await addMarkerForEvent(eventData);
                 }
 
-                for (const excDate of exceptions) {
-                    const date = parseExceptionDate(excDate);
-                    const { location, latlon, venue_url } = resolveEventVenue(event, date);
-                    const reschedule = evaluateReschedule(
-                        startDate,
-                        endDate,
-                        date,
-                        exceptions
-                    );
+                // Add rescheduled dates that fall within the current range
+                for (const excDate of exceptionDates) {
+                    if (excDate >= startDate && excDate <= endDate) {
+                        const { location, latlon, venue_url } = resolveEventVenue(event, excDate);
+                        const eventData = createEventData(event, excDate, eventType);
+                        eventData.isRescheduled = true;
 
-                    if (reschedule.isRescheduled) {
-                        const eventData = createEventData(event, reschedule.rescheduledTo, eventType);
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
