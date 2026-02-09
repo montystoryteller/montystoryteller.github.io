@@ -9,7 +9,7 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 features:
 
   - title: "The Sin Eater of Ross & Other Traditional Tales — Crown & Sceptre, Ross-on-Wye — Tuesday 26/03/26, 7.15pm"
-    image: "/images/flyers/2026_03_10_sineater_crown.png"
+    image: "/images/flyers_gallery/2026_03_10_sineater_crown.png"
     content: ""
     bulletpoints:
       - "Talking a full set of stories to Ross for the first time..."
@@ -22,7 +22,7 @@ features:
       link: "https://www.tickettailor.com/events/montystoryteller/2023546"
 
   - title: "Faery Tale Blues [Monty + The AnyWhens] — St Lawrence Village Hall — Saturday 18/04/26, bar from 7pm"
-    image: "/images/flyers/2026_04_18_Faery_Tale_Blues.png"
+    image: "/images/flyers_gallery/2026_04_18_Faery_Tale_Blues.png"
     content: ""
     bulletpoints:
       - "Contemporary folk'n'blues tunes, playful lyrics and perfect harmonies"
@@ -36,7 +36,7 @@ features:
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
 
   - title: "Monty + The AnyWhens — Three Rivers Music Festival"
-    image: "/images/flyers/2026_05_30_manywhens_three_rivers_highlight.png"
+    image: "/images/flyers_gallery/2026_05_30_manywhens_three_rivers_highlight.png"
     content: ""
     bulletpoints:
       - "Family friendly festival, 29-31st May, 2026"
