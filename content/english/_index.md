@@ -18,7 +18,7 @@ banner:
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"   
     - enable: true
-      label: "Buy Tickets for St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
+      label: "Buy Tickets for Monty + The AnyWhens — St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
