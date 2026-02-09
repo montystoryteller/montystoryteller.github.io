@@ -17,7 +17,7 @@ banner:
     - enable: false
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"   
-    - enable: false
+    - enable: true
       label: "Buy Tickets for St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
     - enable: false
@@ -55,9 +55,9 @@ features:
     image: "/images/monty_anywhens_vf25.jpg"
     content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
     bulletpoints:
-      - "__New show for 2026:__ Faery Tale Blues: stories'n'songs revisiting fairy tales and the fae folk__"
+      - "__Coming soon:__ Faery Tale Blues: stories'n'songs revisiting fairy tales and the fae folk__"
       - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
-      - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales"
+      - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales (20-200mins)"
       - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
     buttons:
       - enable: false
@@ -72,14 +72,12 @@ features:
 
 
   - title: "'Tis Tales"
-    image: "/images/tis-tales_SMH-768x589.jpg"
+    image: "/images/tis_tales_jan_2026.jpg"
     content: "The Isle of Wight's original storytelling troupe..."
     bulletpoints:
       - "Originally *Three Island Storytellers*, [founded 2022]"
-      - "Getting the troupe back together..."
-      - "*Step out of the winter chill and  experience the magic of traditional storytelling! Join Island storytellers Sue Bailey, Holly Medland and Tony 'Monty' Hirst as they bring you Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company.* __Friday, January 23rd, 2026, The Department, Ryde. Bar 7pm, Show 8pm.__"
     button:
-      enable: true
+      enable: false
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"
 

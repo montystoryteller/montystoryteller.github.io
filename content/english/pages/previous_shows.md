@@ -18,6 +18,7 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Saturday, 7th February 2026 | Solo (+ Sophhie Kate, Glenn Koppany) | Kashmir Fringe, Quay Arts, Newport | Four tales |
 | Friday, 23rd January 2026 | 'Tis Tales | Department, Ryde | Tall Tales & Tiny Truths |
 | Saturday, 10th January 2026 | Silurian Morris / Westons Cider Wassail | Westons, Much Marcle | (Wassail tales)|
 | Wednesday, 10th December 2025 | Solo | Carvel Lane Coffee House, Cowes | The Winter Cherries & Other Seasonal Tales |

@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Kashmir Fringe, Quay Arts, Newport IW"
+    designation: "Four Tales"
+    avatar: "/images/Kashmir_Fringe_2026.jpg"
+    content: ""
+
   - name: "October Books, Southampton"
     designation: "Monty + The Anywhens / Protest Days, Rebellion Nights"
     avatar: "/images/manywhens_octoberbooks_flag.png"
