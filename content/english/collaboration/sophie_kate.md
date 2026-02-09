@@ -1,5 +1,5 @@
 ---
-title: Theresa Ellis (Harp)
+title: Sophie Kate (Fiddle)
 image: "/images/monty_sophie_solent.png"
 description: this is meta description
 weight: 1.5
