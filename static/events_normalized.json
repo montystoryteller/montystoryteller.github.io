@@ -202,7 +202,8 @@
         },
         {
           "date": "24/04/2026",
-          "venue_id": "the-arty-barn-nr"
+          "venue_id": "the-arty-barn",
+          "description": "The aRTy Barn is a private home venue located in Nettleden, near Berkhamsted. The exact house location and parking instructions are sent to ticket holders via email after booking."
         },
         {
           "date": "25/04/2026",
@@ -5016,14 +5017,15 @@
         -1.27908
       ]
     },
-    "the-arty-barn-nr": {
-      "id": "the-arty-barn-nr",
+    "the-arty-barn": {
+      "id": "the-arty-barn",
       "name": "The ARTy Barn",
       "city": "nr Berkhamsted",
-      "postcode": "",
-      "full_address": "The ARTy Barn, nr Berkhamsted",
-      "url": "",
-      "latlon": []
+      "postcode": "HP2 7PE",
+      "description": "The aRTy Barn is a private home venue located in Nettleden, near Berkhamsted. The exact house location and parking instructions are sent to ticket holders via email after booking.",
+      "full_address": "The ARTy Barn, Nettleden, nr Berkhamsted, HP4 1QZ ish",
+      "url": "https://www.sofaconcerts.org/en/hosts/aRTyBarn",
+      "latlon": [51.83764,-0.56509]
     },
     "swiss-cottage-twyford": {
       "id": "swiss-cottage-twyford",

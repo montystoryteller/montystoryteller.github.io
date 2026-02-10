@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details - New Troubadours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="events-styles.css">
+    <style>
+        .tour-header {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-title {
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .tour-subtitle {
+            color: #666;
+            font-style: italic;
+            margin: 0 0 20px 0;
+        }
+
+        .tour-description {
+            line-height: 1.6;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .tour-flyer {
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .tour-flyer img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-selector {
+            display: grid;
+            grid-template-columns: auto 1fr auto 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            background-color: #45a049;
+        }
+
+        .tour-dates-list {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-date-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        .tour-date-item.music {
+            background: linear-gradient(135deg, #443cd7 0%, #8e9df3 100%);
+            border: 2px solid #1006c6;
+            color: white;
+        }
+
+        .tour-date-item:hover {
+            background-color: #f0f0f0;
+            border-left-color: #2e7d32;
+            transform: translateX(5px);
+            transition: all 0.2s ease;
+        }
+
+        .tour-date-item.music:hover {
+            filter: brightness(1.1);
+            transform: translateX(5px);
+        }
+
+        .date-header {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .date-details {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .tour-date-item.music .date-details {
+            color: #c8e6c9;
+        }
+
+        #map-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 500px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        #map {
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Stack vertically on mobile, side-by-side on desktop */
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 1024px) {
+            .layout-container {
+                flex-direction: row;
+                /* Puts Map and List next to each other */
+            }
+
+            #map-container {
+                flex: 1.5;
+                /* Map takes more space */
+                position: sticky;
+                top: 20px;
+                /* Anchors map to top of screen when scrolling */
+                height: 600px;
+                /* Ensure map has a fixed height for the sticky effect */
+            }
+
+            .tour-dates-list {
+                flex: 1;
+                /* List takes up the remaining side space */
+                max-height: none;
+                /* Let the whole page scroll rather than just the div */
+            }
+        }
+
+        /* Feedback for clickable items */
+        .tour-date-item {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tour-date-item:hover {
+            transform: translateX(5px);
+            box-shadow: -4px 0 0 #2e7d32;
+            background-color: #f0f0f0;
+        }
+
+        /* Share button styling */
+        .share-container {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            padding: 8px 15px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background-color: #333;
+        }
+
+        .btn-reset {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-reset:hover {
+            background-color: #e2e2e2;
+            border-color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tour Details</h1>
+
+    <a href="index.html" class="back-link">← Back to Calendar</a>
+
+    <div class="tour-controls">
+        <div class="tour-selector">
+            <label for="performerSelect">Performer:</label>
+            <select id="performerSelect" onchange="handlePerformerChange()">
+                <option value="">Select a performer...</option>
+            </select>
+
+            <label for="tourSelect">Tour:</label>
+            <select id="tourSelect" onchange="handleTourChange()">
+                <option value="">Select a tour...</option>
+            </select>
+
+            <button onclick="loadTour()" style="background-color: #2e7d32;">Show Tour</button>
+        </div>
+
+        <div class="share-container" style="margin-top: 15px; display: flex; gap: 10px;">
+            <button onclick="shareTourLink()" class="btn-secondary">🔗 Copy Shareable Link</button>
+        </div>
+    </div>
+
+    <div id="tourContent" style="display: none;">
+        <div class="tour-header">
+            <h2 class="tour-title" id="tourTitle"></h2>
+            <h3 class="tour-subtitle" id="tourSubtitle"></h3>
+
+            <div id="tourFlyerContainer" class="tour-flyer" style="display: none;">
+                <img id="tourFlyerImage" alt="Tour flyer">
+            </div>
+
+            <div id="tourDescriptionContainer" class="tour-description" style="display: none;"></div>
+        </div>
+
+        <div class="layout-container">
+            <div id="map-container">
+                <div class="map-toolbar">
+                    <button onclick="resetMapZoom()" class="btn-reset">
+                        ⟲ Reset Map View
+                    </button>
+                </div>
+                <div id="map"></div>
+            </div>
+            <div class="tour-dates-list">
+                <h3>Tour Dates</h3>
+                <div id="tourDatesList"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="tour_display.js"></script>
+</body>
+
+</html>
