@@ -733,8 +733,10 @@
         </div>
 
         <div class="tab-content-area" id="musicpolicy" style="display: none;">
-            <p>The performers listed under the <em>music</em> filter are : a) ones that I like and don't want to miss if they
-                happen to be playing somewhere where I'm near; and b) that I can imagine as part of a small (intimate) venue
+            <p>The performers listed under the <em>music</em> filter are : a) ones that I like and don't want to miss if
+                they
+                happen to be playing somewhere where I'm near; and b) that I can imagine as part of a small (intimate)
+                venue
                 <em>New Troubadours</em> acoustic set billing with support from, or co-billing with, a storyteller.
             </p>
             <p>Typically, they are likely to fall into the folk/protest/narrative ballad singer category. Although, not
@@ -1905,21 +1907,22 @@
             }
 
             return {
-                hasContent: Boolean(description?.trim() || flyers.length > 0),
+                hasDescription: Boolean(description?.trim()),
+                hasFlyers: flyers.length > 0,
                 description,
                 flyers
             };
         }
 
         function createExpandableSection(event) {
-            const { hasContent, description, flyers } = getExpandableContent(event);
+            const { hasDescription, hasFlyers, description, flyers } = getExpandableContent(event);
 
             // Check if performer has a bio
             const performer_id = event.performer_id;
             const hasBio = performer_id && performersLookup[performer_id]?.bio;
 
             // Return null if no expandable content at all
-            if (!hasContent && !hasBio) {
+            if (!hasDescription && !hasFlyers && !hasBio) {
                 return null;
             }
 
@@ -1928,35 +1931,40 @@
             // Create unique IDs for this event's expandables
             const bioExpandableId = `event-bio-${Math.random().toString(36).substr(2, 9)}`;
             const infoExpandableId = `event-info-${Math.random().toString(36).substr(2, 9)}`;
+            const flyersExpandableId = `event-flyers-${Math.random().toString(36).substr(2, 9)}`;
 
             // Helper function to toggle expandables (close others)
             const toggleExpandable = (targetId) => {
                 const bioDiv = document.getElementById(bioExpandableId);
                 const infoDiv = document.getElementById(infoExpandableId);
+                const flyersDiv = document.getElementById(flyersExpandableId);
 
                 if (targetId === bioExpandableId) {
-                    // Toggle bio
                     const isCurrentlyOpen = bioDiv.style.display === 'block';
                     bioDiv.style.display = isCurrentlyOpen ? 'none' : 'block';
-                    // Close info
                     if (infoDiv) infoDiv.style.display = 'none';
+                    if (flyersDiv) flyersDiv.style.display = 'none';
                 } else if (targetId === infoExpandableId) {
-                    // Toggle info
                     const isCurrentlyOpen = infoDiv.style.display === 'block';
                     infoDiv.style.display = isCurrentlyOpen ? 'none' : 'block';
-                    // Close bio
                     if (bioDiv) bioDiv.style.display = 'none';
+                    if (flyersDiv) flyersDiv.style.display = 'none';
+                } else if (targetId === flyersExpandableId) {
+                    const isCurrentlyOpen = flyersDiv.style.display === 'block';
+                    flyersDiv.style.display = isCurrentlyOpen ? 'none' : 'block';
+                    if (bioDiv) bioDiv.style.display = 'none';
+                    if (infoDiv) infoDiv.style.display = 'none';
                 }
             };
 
-            // Create button container for Bio and More Info buttons
+            // Create button container
             const buttonContainer = document.createElement('div');
             buttonContainer.style.display = 'flex';
             buttonContainer.style.gap = '10px';
             buttonContainer.style.marginTop = '12px';
 
-            // More info button (if event content exists)
-            if (hasContent) {
+            // More info button (only if description exists)
+            if (hasDescription) {
                 const expandBtn = document.createElement('div');
                 expandBtn.className = 'event-expand-btn';
                 expandBtn.textContent = 'More info...';
@@ -1965,6 +1973,18 @@
                     toggleExpandable(infoExpandableId);
                 };
                 buttonContainer.appendChild(expandBtn);
+            }
+
+            // Flyer(s) button (only if flyers exist)
+            if (hasFlyers) {
+                const flyersBtn = document.createElement('div');
+                flyersBtn.className = 'event-expand-btn';
+                flyersBtn.textContent = flyers.length > 1 ? 'Flyers' : 'Flyer';
+                flyersBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleExpandable(flyersExpandableId);
+                };
+                buttonContainer.appendChild(flyersBtn);
             }
 
             // Bio button (if bio exists)
@@ -2005,31 +2025,36 @@
                 container.appendChild(bioExpandableDiv);
             }
 
-            // Create info expandable content
-            if (hasContent) {
+            // Create info expandable content (description only)
+            if (hasDescription) {
                 const expandableDiv = document.createElement('div');
                 expandableDiv.className = 'event-expandable';
                 expandableDiv.id = infoExpandableId;
                 expandableDiv.style.display = 'none';
 
-                // Process description
-                if (description) {
-                    const descDiv = document.createElement('div');
-                    descDiv.className = 'event-description';
+                const descDiv = document.createElement('div');
+                descDiv.className = 'event-description';
 
-                    const paragraphs = description.split('\n\n\n\n');
-                    paragraphs.forEach(p => {
-                        if (p.trim()) {
-                            const pElem = document.createElement('p');
-                            pElem.textContent = p.replace(/\n\n/g, '\n');
-                            descDiv.appendChild(pElem);
-                        }
-                    });
+                const paragraphs = description.split('\n\n\n\n');
+                paragraphs.forEach(p => {
+                    if (p.trim()) {
+                        const pElem = document.createElement('p');
+                        pElem.textContent = p.replace(/\n\n/g, '\n');
+                        descDiv.appendChild(pElem);
+                    }
+                });
 
-                    expandableDiv.appendChild(descDiv);
-                }
+                expandableDiv.appendChild(descDiv);
+                container.appendChild(expandableDiv);
+            }
 
-                // Add flyers
+            // Create flyers expandable content (flyers only)
+            if (hasFlyers) {
+                const flyersExpandableDiv = document.createElement('div');
+                flyersExpandableDiv.className = 'event-expandable';
+                flyersExpandableDiv.id = flyersExpandableId;
+                flyersExpandableDiv.style.display = 'none';
+
                 flyers.forEach((flyer, index) => {
                     if (flyer.path) {
                         const img = document.createElement('img');
@@ -2037,14 +2062,14 @@
                         const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
                         img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
                         img.className = 'event-flyer-image';
-                        if (index > 0 && flyers[0].path) {
+                        if (index > 0) {
                             img.style.marginTop = '15px';
                         }
-                        expandableDiv.appendChild(img);
+                        flyersExpandableDiv.appendChild(img);
                     }
                 });
 
-                container.appendChild(expandableDiv);
+                container.appendChild(flyersExpandableDiv);
             }
 
             return container;
