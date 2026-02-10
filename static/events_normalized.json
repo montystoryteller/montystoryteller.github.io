@@ -663,7 +663,7 @@
       "facebook": "https://www.facebook.com/MatlockStorytellingCafe",
       "club": "matlockSCafe",
       "tickets_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/",
-      "venue_id": "imperial-rooms"
+      "venue_id": "imperial-rooms-matlock"
     },
     {
       "name": "Hebden Bridge Shaggydog storytellers",
@@ -2410,6 +2410,22 @@
       "performer_id": "ffion-phillips-dragon-storytellers"
     },
     {
+      "name": "Tales of Travellers and Fools [Ian Douglas]",
+      "showname": "Tales of Travellers and Fools",
+      "date": "06/03/2026",
+      "time": "7.30-10pm",
+      "club": "matlockSCafe",
+      "price": "£8 (£6 zoom)",
+      "description": "Boat dweller and storyteller Ian Douglas, has a storytelling career that spans 32 years, he was first inspired to begin his journey by the late great Scottish traveller, Duncan Williamson. Ian has held the prestigious title of Fool of Muncaster Castle and was apprenticed to the renowned storyteller Taffy Thomas MBE, during Taffy's three year stint as Storytelling  Laureate. Along the way Ian has collected many a tale and we are delighted that he is bringing a choice, curated collection of them to us in Matlock.  Join us as he regales us with stories of Travellers and Fools, it's sure to be an evening of jolly japes.",
+      "event_flyer": "",
+      "online": "hybrid",
+      "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/2062824",
+      "isSpecial": true,
+      "venue_id": "imperial-rooms-matlock",
+      "fb_event": 1227875168809603,
+      "performer_id": "ian-douglas"
+    },
+    {
       "name": "The Sin-eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
       "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
       "date": "10/03/2026",
@@ -2956,18 +2972,6 @@
       "latlon": [
         52.9268849,
         -1.2177308
-      ]
-    },
-    "imperial-rooms": {
-      "id": "imperial-rooms",
-      "name": "Imperial Rooms",
-      "city": "Imperial Road",
-      "postcode": "Matlock",
-      "full_address": "Imperial Rooms, Imperial Road, Matlock, DE4 3NL",
-      "url": "https://matlock.gov.uk/imperial-rooms/",
-      "latlon": [
-        53.140141,
-        -1.5560718
       ]
     },
     "stubbing-wharf-hebden": {
@@ -3593,8 +3597,8 @@
       "full_address": "Imperial Rooms, Matlock, DE4 3NL",
       "url": "https://matlock.gov.uk/imperial-rooms/",
       "latlon": [
-        53.1395361,
-        -1.555212
+        53.13958,
+        -1.55519
       ]
     },
     "the-dragon-theatre-barmouth": {
@@ -5377,6 +5381,12 @@
       "name": "Amy Douglas and Jason Buck",
       "url": "",
       "bio": "Amy Douglas is a vibrant professional storyteller with a passion for traditional stories and riddles. Over the past twenty years she has delved deep into the folklore of Britain, reveling in tales of the strange and macabre; memories of magic and otherworlds; proud recollections of folk history; stories to make you smile, sigh or shiver; stories that have been moulded by the land, weather and generations of tongues wagging.\n\n\n\nJason Buck is an award-winning performance storyteller, author and illustrator."
+    },
+    "ian-douglas": {
+      "id": "ian-douglas",
+      "name": "Ian Douglas",
+      "url": "http://www.iandouglas-storyteller.co.uk/",
+      "bio": "Ian Douglas is a Storyteller and Theatre Maker Who works extensively across the British Isles. With over 20 years of experience delivering storytelling, performance and theatre activities for schools, arts organisations, communities and festivals across Britain, he has developed a practise approach which mixes sensitivity, Commedic energy and wit leading to a style all of his own.\n\n\n\n The origins of Ian's work are steeped in the traditions of street theatre which has helped him develop his unique storytelling style. His work has been described as 'truly inspirational' and draws upon a rich vein of British folk tales and world myths."
     },
     "maria-buckley-whatton": {
       "id": "maria-buckley-whatton",
