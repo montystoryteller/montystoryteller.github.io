@@ -733,8 +733,12 @@
         </div>
 
         <div class="tab-content-area" id="musicpolicy" style="display: none;">
-            <p>The performers listed under the <em>music</em> filter: a) ones that I like and don't want to miss if they happen to be  playing somewhere where I'm near; b) that I can imagine as part of a small (intimate) venue <em>New Troubadours</em> acoustic set billing supported by a storyteller.</p>
-            <p>Typically, they are likely to fall into the folk/protest/narrative ballad singer category. Although, not necessarily...</p>
+            <p>The performers listed under the <em>music</em> filter: a) ones that I like and don't want to miss if they
+                happen to be playing somewhere where I'm near; b) that I can imagine as part of a small (intimate) venue
+                <em>New Troubadours</em> acoustic set billing supported by a storyteller.
+            </p>
+            <p>Typically, they are likely to fall into the folk/protest/narrative ballad singer category. Although, not
+                necessarily...</p>
         </div>
     </div>
 
@@ -779,6 +783,15 @@
             [49.5, -11.0],  // SW corner (Atlantic)
             [61.0, 2.5]     // NE corner (North Sea)
         );
+
+        const EVENT_TYPES = {
+            SESSION: 'session',
+            FOLK: 'folk',
+            MUSIC: 'music',
+            SPECIAL: 'special',
+            STORYCLUB: 'storyclub'
+        };
+
 
 
         /**
@@ -1490,12 +1503,19 @@
 
         // Helper function to get event type
         function getEventType(eventData) {
-            if (eventData.isSession) return 'session';
-            if (eventData.isFolk) return 'folk';
-            if (eventData.isMusic) return 'music';
-            if (eventData.isSpecial) return 'special';
-            if (eventData.isStoryclub) return 'storyclub';
+            if (eventData.isSession) return EVENT_TYPES.SESSION;
+            if (eventData.isFolk) return EVENT_TYPES.FOLK;
+            if (eventData.isMusic) return EVENT_TYPES.MUSIC;
+            if (eventData.isSpecial) return EVENT_TYPES.SPECIAL;
+            if (eventData.isStoryclub) return EVENT_TYPES.STORYCLUB;
             return 'default';
+        }
+
+        function addEventTypeClasses(element, eventData) {
+            const type = getEventType(eventData);
+            if (type !== 'default') {
+                element.classList.add(type);
+            }
         }
 
         async function addMarkerForEvent(eventData) {
@@ -1609,13 +1629,10 @@
         function createEventElement(event) {
             const eventDiv = document.createElement('div');
             eventDiv.className = 'event';
+            addEventTypeClasses(eventDiv, event);
 
             // Add type classes
-            if (event.isStoryclub) eventDiv.classList.add('storyclub');
-            if (event.isSpecial) eventDiv.classList.add('special');
-            if (event.isMusic) eventDiv.classList.add('music');
-            if (event.isFolk) eventDiv.classList.add('folk');
-            if (event.isSession) eventDiv.classList.add('session');
+            addEventTypeClasses(eventDiv, event);
 
             // Add click handler
             if (event.coords?.lat && event.coords?.lon) {
