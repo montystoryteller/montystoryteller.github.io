@@ -1256,8 +1256,12 @@
             for (const tourKey in tours) {
                 const tour = tours[tourKey];
 
-                // Skip if not a music tour
-                if (!tour.isMusic) continue;
+                // Process both music and special event tours
+                // Skip tours that are neither music nor special
+                if (!tour.isMusic && !tour.isSpecial) continue;
+
+                // Determine event type
+                const eventType = tour.isMusic ? 'music' : 'special';
 
                 // Process each tour date
                 for (const tourDate of tour.tour_dates || []) {
@@ -1294,7 +1298,7 @@
                             ticket_url: tourDate.ticket_url || null
                         };
 
-                        const eventData = createEventData(mergedEvent, eventDate, 'music');
+                        const eventData = createEventData(mergedEvent, eventDate, eventType);
                         allEventsData.push(eventData);
                         await addMarkerForEvent(eventData);
                     }
@@ -2266,7 +2270,11 @@
             for (const tourKey in tours) {
                 const tour = tours[tourKey];
 
-                if (!tour.isMusic) continue;
+                // Skip tours that are neither music nor special
+                if (!tour.isMusic && !tour.isSpecial) continue;
+
+                // Determine event type (same as processTourEvents)
+                const eventType = tour.isMusic ? 'music' : 'special';
 
                 // Get performer name if available
                 let performerName = '';
@@ -2317,7 +2325,7 @@
                                 ticket_url: tourDate.ticket_url || null
                             };
 
-                            const eventData = createEventData(mergedEvent, eventDate, 'music');
+                            const eventData = createEventData(mergedEvent, eventDate, eventType);
                             allEventsData.push(eventData);
                             await addMarkerForEvent(eventData);
                             // REMOVED: break; // <-- This was stopping after first match

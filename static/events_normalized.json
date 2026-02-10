@@ -1,127 +1,223 @@
-{"tours": {
+{
+  "tours": {
+    "jason-buck-slaine-horned-god-2026": {
+      "name": "Sláine: The Horned God",
+      "tour_name": "Sláine: The Horned God Tour",
+      "performer_id": "jason-buck",
+      "tour_description": "The graphic novel, adapted as traditional storytelling, for modern audiences. A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods.",
+      "tags": [
+        "storytelling",
+        "tour",
+        "2026"
+      ],
+      "isMusic": false,
+      "isSpecial": true,
+      "tour_dates": [
+        {
+          "date": "15/01/2026",
+          "time": "7.30pm",
+          "price": "£14/£12",
+          "ticket_url": "https://www.oxfordplayhouse.com/events/slaine-the-horned-god-2026",
+          "venue_id": "burton-taylor-studio-oxford"
+        },
+        {
+          "date": "20/01/2026",
+          "time": "7-9.30pm",
+          "price": "£16.50 (£12.50) + booking fee",
+          "ticket_url": "https://www.eventbrite.co.uk/e/stories-temperance-slaine-the-horned-god-jason-buck-tickets-1905874745669",
+          "venue_id": "temperance-caf-bar-royal"
+        },
+        {
+          "date": "22/01/2026",
+          "time": "7.30pm",
+          "price": "£10-15.50",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-glastonbury-tickets-1862956165039",
+          "venue_id": "the-assembly-rooms-glastonbury"
+        },
+        {
+          "date": "09/02/2026",
+          "time": "19:30",
+          "price": "£11.50+",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379",
+          "fb_event": 1466394704450623,
+          "venue_id": "the-hop-sun-tap-microbrewery-haywards"
+        },
+        {
+          "date": "16/02/2026",
+          "time": "7pm",
+          "price": "£16.50",
+          "ticket_url": "https://wegottickets.com/event/678321",
+          "venue_id": "cafe-9-sheffield"
+        },
+        {
+          "date": "18/02/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://jorvikvikingfestival.co.uk/events/slaine-the-horned-god/",
+          "fb_event": 664806443175962,
+          "venue_id": "micklethwait-social-york"
+        },
+        {
+          "date": "20/02/2026",
+          "time": "7-9pm",
+          "price": "£20.50",
+          "ticket_url": "https://butserancientfarm.ticketsolve.com/ticketbooth/shows/1173670846",
+          "venue_id": "butser-ancient-farm-hampshire"
+        },
+        {
+          "date": "21/02/2026",
+          "time": "7pm",
+          "price": "£15/£12",
+          "ticket_url": "https://ludlowassemblyrooms.ticketsolve.com/ticketbooth/shows/873678681/events/129651718/",
+          "venue_id": "ludlow-assembly-rooms-shropshire"
+        },
+        {
+          "date": "05/03/2026",
+          "time": "7.30-9.30pm",
+          "price": "£11.50-15.50",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-birmingham-tickets-1806505248829",
+          "fb_event": 668659776297645,
+          "venue_id": "merlins-cafe-bar-birmingham"
+        },
+        {
+          "date": "20/03/2026",
+          "time": "7.30pm",
+          "price": "£10-15",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-notts-tickets-1867486846429",
+          "fb_event": 830908939589642,
+          "venue_id": "the-pit-at-newstead-nottinghamshire"
+        }
+      ]
+    },
     "sorrel-nation-spring-2026": {
       "name": "Sorrel Nation + band — Spring Tour 2026",
       "tour_name": "Spring Tour 2026",
       "performer_id": "sorrel-nation",
       "tour_description": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention.",
       "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "tags": ["music", "folk", "tour", "2026"],
+      "tags": [
+        "music",
+        "folk",
+        "tour",
+        "2026"
+      ],
       "isMusic": true,
       "tour_dates": [
         {
-      "date": "18/04/2026",
-      "time": "8-11pm",
-      "price": "£18 (£15 advance)", 
-      "ticket_url": "https://www.quayarts.org/event/sorrel-nation/",
-      "venue_id": "quay-arts-newport"
-    },
-    {
-      "date": "23/04/2026",
-      "time": "7pm",
-      "price": "£15 (+£1.50 booking fee)", 
-      "ticket_url": "https://wegottickets.com/event/685002",
-      "venue_id": "unicorn-theatre-abingdon"
-    },
-    {
-      "date": "24/04/2026", 
-      "venue_id": "the-arty-barn-nr"
-    },
-    {
-      "date": "25/04/2026",
-      "time": "7.30pm",
-      "price": "£15 (+£1.50 booking fee)", 
-      "ticket_url": "https://wegottickets.com/f/15769",
-      "venue_id": "swiss-cottage-twyford"
-    },
-    {
-      "date": "26/04/2026",
-      "time": "7pm",
-      "price": "£16 (+£1.60 booking fee)", 
-      "ticket_url": "https://wegottickets.com/event/684218",
-      "venue_id": "st-marys-church-oxted"
-    },
-    {
-      "date": "29/04/2026",
-      "time": "7.30pm",
-      "price": "£15 (+£1.50 booking fee)", 
-      "ticket_url": "https://wegottickets.com/f/15505",
-      "venue_id": "kitchen-garden-cafe-birmingham"
-    },
-    {
-      "date": "01/05/2026",
-      "time": "7.30pm",
-      "price": "£12 (+£0.84 booking fee)",
-      "event_flyer": "2026_05_01_sorrel_nation_lantern_sheffield.jpg",
-      "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-      "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd",
-      "venue_id": "the-lantern-theatre-sheffield"
-    },
-    {
-      "date": "02/05/2026",
-      "time": "7-10.30pm",
-      "price": "£15", 
-      "ticket_url": "https://www.barnoldswickmusicandartscentre.com/sorrel-nation",
-      "venue_id": "barnoldswick-music-arts-centre"
-    },
-    {
-      "date": "03/05/2026",
-      "time": "7pm",
-      "price": "£15 (+£1.50 booking fee)", 
-      "ticket_url": "https://wegottickets.com/event/685018",
-      "venue_id": "knutsford-little-theatre"
-    },
-    {
-      "date": "07/05/2026",
-      "time": "7.30pm",
-      "price": "£13.50 (£+1.35) Adv / £16 Doors", 
-      "ticket_url": "https://tickets.halfmoon.co.uk/events/4f089017-40a1-4194-847e-dcc617e47bd5",
-      "venue_id": "the-half-moon-putney"
-    },
-    {
-      "date": "08/05/2026",
-      "time": "7pm",
-      "price": "£16.00 + £0.95 booking fee", 
-      "ticket_url": "https://www.the-bear.club/whats-on/sorrel-nation-26-wx8nt",
-      "venue_id": "the-bear-club-luton"
-    },
-    {
-      "date": "09/05/2026",
-      "time": "7pm",
-      "price": "£16-£18, + booking fee; U25 £10 (+£1)", 
-      "ticket_url": "https://wegottickets.com/event/683298",
-      "venue_id": "village-hall-great"
-    },
-    {
-      "date": "10/05/2026",
-      "time": "",
-      "price": "Free", 
-      "ticket_url": "",
-      "venue_id": "harta-retreat-barnstaple"
-    },
-    {
-      "date": "16/05/2026",
-      "time": "",
-      "price": "", 
-      "ticket_url": "",
-      "venue_id": "dart-music-festival-dartmouth"
-    },
-    {
-      "date": "17/05/2026",
-      "time": "8pm",
-      "price": "£11", 
-      "ticket_url": "https://www.theacornpenzance.com/events/sorrel-nation/",
-      "venue_id": "the-acorn-penzance"
-    },
-    {
-      "date": "23/05/2026",
-      "time": "",
-      "price": "",
-      "festival_url": "https://www.thebigretreatfestival.com/",
-      "ticket_url": "https://www.thebigretreatfestival.com/products/the-big-retreat-tickets-2026",
-      "isFestival": true,
-      "venue_id": "the-big-retreat-festival-lawrenny",
-      "performer_id": "sorrel-nation"
-    }]
+          "date": "18/04/2026",
+          "time": "8-11pm",
+          "price": "£18 (£15 advance)",
+          "ticket_url": "https://www.quayarts.org/event/sorrel-nation/",
+          "venue_id": "quay-arts-newport"
+        },
+        {
+          "date": "23/04/2026",
+          "time": "7pm",
+          "price": "£15 (+£1.50 booking fee)",
+          "ticket_url": "https://wegottickets.com/event/685002",
+          "venue_id": "unicorn-theatre-abingdon"
+        },
+        {
+          "date": "24/04/2026",
+          "venue_id": "the-arty-barn-nr"
+        },
+        {
+          "date": "25/04/2026",
+          "time": "7.30pm",
+          "price": "£15 (+£1.50 booking fee)",
+          "ticket_url": "https://wegottickets.com/f/15769",
+          "venue_id": "swiss-cottage-twyford"
+        },
+        {
+          "date": "26/04/2026",
+          "time": "7pm",
+          "price": "£16 (+£1.60 booking fee)",
+          "ticket_url": "https://wegottickets.com/event/684218",
+          "venue_id": "st-marys-church-oxted"
+        },
+        {
+          "date": "29/04/2026",
+          "time": "7.30pm",
+          "price": "£15 (+£1.50 booking fee)",
+          "ticket_url": "https://wegottickets.com/f/15505",
+          "venue_id": "kitchen-garden-cafe-birmingham"
+        },
+        {
+          "date": "01/05/2026",
+          "time": "7.30pm",
+          "price": "£12 (+£0.84 booking fee)",
+          "event_flyer": "2026_05_01_sorrel_nation_lantern_sheffield.jpg",
+          "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
+          "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd",
+          "venue_id": "the-lantern-theatre-sheffield"
+        },
+        {
+          "date": "02/05/2026",
+          "time": "7-10.30pm",
+          "price": "£15",
+          "ticket_url": "https://www.barnoldswickmusicandartscentre.com/sorrel-nation",
+          "venue_id": "barnoldswick-music-arts-centre"
+        },
+        {
+          "date": "03/05/2026",
+          "time": "7pm",
+          "price": "£15 (+£1.50 booking fee)",
+          "ticket_url": "https://wegottickets.com/event/685018",
+          "venue_id": "knutsford-little-theatre"
+        },
+        {
+          "date": "07/05/2026",
+          "time": "7.30pm",
+          "price": "£13.50 (£+1.35) Adv / £16 Doors",
+          "ticket_url": "https://tickets.halfmoon.co.uk/events/4f089017-40a1-4194-847e-dcc617e47bd5",
+          "venue_id": "the-half-moon-putney"
+        },
+        {
+          "date": "08/05/2026",
+          "time": "7pm",
+          "price": "£16.00 + £0.95 booking fee",
+          "ticket_url": "https://www.the-bear.club/whats-on/sorrel-nation-26-wx8nt",
+          "venue_id": "the-bear-club-luton"
+        },
+        {
+          "date": "09/05/2026",
+          "time": "7pm",
+          "price": "£16-£18, + booking fee; U25 £10 (+£1)",
+          "ticket_url": "https://wegottickets.com/event/683298",
+          "venue_id": "village-hall-great"
+        },
+        {
+          "date": "10/05/2026",
+          "time": "",
+          "price": "Free",
+          "ticket_url": "",
+          "venue_id": "harta-retreat-barnstaple"
+        },
+        {
+          "date": "16/05/2026",
+          "time": "",
+          "price": "",
+          "ticket_url": "",
+          "venue_id": "dart-music-festival-dartmouth"
+        },
+        {
+          "date": "17/05/2026",
+          "time": "8pm",
+          "price": "£11",
+          "ticket_url": "https://www.theacornpenzance.com/events/sorrel-nation/",
+          "venue_id": "the-acorn-penzance"
+        },
+        {
+          "date": "23/05/2026",
+          "time": "",
+          "price": "",
+          "festival_url": "https://www.thebigretreatfestival.com/",
+          "ticket_url": "https://www.thebigretreatfestival.com/products/the-big-retreat-tickets-2026",
+          "isFestival": true,
+          "venue_id": "the-big-retreat-festival-lawrenny",
+          "performer_id": "sorrel-nation"
+        }
+      ]
     },
     "jess-silk-matt-johnson-dashboard-jesus-2026": {
       "name": "Jess Silk + Matt Johnson — The Dashboard Jesus Tour",
@@ -129,209 +225,227 @@
       "performer_id": "jess-silk-matt-johnson",
       "tour_description": "",
       "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
-      "tags": ["music", "tour", "2026"],
+      "tags": [
+        "music",
+        "tour",
+        "2026"
+      ],
       "isMusic": true,
-      "tour_dates":[
+      "tour_dates": [
         {
-      "fb_event": 1515954242876116,
-      "date": "03/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/event/678672?",
-      "price": "£13.20",
-      "venue_id": "the-palladium-club-bideford"    },
-    {
-      "fb_event": 837731841927515,
-      "date": "04/04/2026",
-      "time": "7pm",
-      "ticket_url": "https://wegottickets.com/event/677850", 
-      "venue_id": "feniton-sports-social-club"    },
-    {
-      "fb_event": 1500622354496608,
-      "date": "09/04/2026",
-      "time": "7pm",
-      "ticket_url": "https://wegottickets.com/event/684546/",
-      "price": "£11",
-      "venue_id": "spin-the-black-circle-worcester"    },
-    {
-      "fb_event": 1383542720156558,
-      "date": "10/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "",
-      "price": "£ Pay what you want", 
-      "venue_id": "the-ropemakers-bridport"    },
-    {
-      "fb_event": 2545305215845339,
-      "date": "11/04/2026",
-      "time": "7.30pm", 
-      "ticket_url": "",
-      "venue_id": "wycombe-arts-centre-high"    },
-    {
-      "fb_event": 2018542882313275,
-      "date": "12/04/2026",
-      "time": "4.pm",
-      "ticket_url": "https://www.foremansbar.co.uk/product/jess-silk-matt-johnson-april-12th-2026-doors-4pm",
-      "price": "£17",
-      "venue_id": "foremans-bar-nottingham"    },
-    {
-      "fb_event": 818935460576685,
-      "date": "16/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/f/14322",
-      "price": "£16.50",
-      "venue_id": "kitchen-garden-cafe-birmingham"    },
-    {
-      "fb_event": 730494563371725,
-      "date": "17/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://theportlandarms.co.uk/wp/product/jess-silk-and-matt-johnson-17th-april-26/",
-      "price": "£13.20",
-      "venue_id": "portland-arms-cambridge"    },
-    {
-      "fb_event": 1093444672771528,
-      "date": "18/04/2026",
-      "time": "7.30pm",
-      "ticket_url": "https://wegottickets.com/event/677958",
-      "venue_id": "avalon-club-glastonbury"    }
-    ]
+          "fb_event": 1515954242876116,
+          "date": "03/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "https://wegottickets.com/event/678672?",
+          "price": "£13.20",
+          "venue_id": "the-palladium-club-bideford"
+        },
+        {
+          "fb_event": 837731841927515,
+          "date": "04/04/2026",
+          "time": "7pm",
+          "ticket_url": "https://wegottickets.com/event/677850",
+          "venue_id": "feniton-sports-social-club"
+        },
+        {
+          "fb_event": 1500622354496608,
+          "date": "09/04/2026",
+          "time": "7pm",
+          "ticket_url": "https://wegottickets.com/event/684546/",
+          "price": "£11",
+          "venue_id": "spin-the-black-circle-worcester"
+        },
+        {
+          "fb_event": 1383542720156558,
+          "date": "10/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "",
+          "price": "£ Pay what you want",
+          "venue_id": "the-ropemakers-bridport"
+        },
+        {
+          "fb_event": 2545305215845339,
+          "date": "11/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "",
+          "venue_id": "wycombe-arts-centre-high"
+        },
+        {
+          "fb_event": 2018542882313275,
+          "date": "12/04/2026",
+          "time": "4.pm",
+          "ticket_url": "https://www.foremansbar.co.uk/product/jess-silk-matt-johnson-april-12th-2026-doors-4pm",
+          "price": "£17",
+          "venue_id": "foremans-bar-nottingham"
+        },
+        {
+          "fb_event": 818935460576685,
+          "date": "16/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "https://wegottickets.com/f/14322",
+          "price": "£16.50",
+          "venue_id": "kitchen-garden-cafe-birmingham"
+        },
+        {
+          "fb_event": 730494563371725,
+          "date": "17/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "https://theportlandarms.co.uk/wp/product/jess-silk-and-matt-johnson-17th-april-26/",
+          "price": "£13.20",
+          "venue_id": "portland-arms-cambridge"
+        },
+        {
+          "fb_event": 1093444672771528,
+          "date": "18/04/2026",
+          "time": "7.30pm",
+          "ticket_url": "https://wegottickets.com/event/677958",
+          "venue_id": "avalon-club-glastonbury"
+        }
+      ]
     },
     "gaz-brookfield-almost-all-village-halls-2026": {
       "name": "Gaz Brookfield — Almost All Village Halls Tour",
-      "tour_name":"Almost All Village Halls Tour",
+      "tour_name": "Almost All Village Halls Tour",
       "performer_id": "gaz-brookfield",
       "tour_description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
       "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
-      "tags": ["music", "tour", "folk", "2026"],
+      "tags": [
+        "music",
+        "tour",
+        "folk",
+        "2026"
+      ],
       "isMusic": true,
-      "tour_dates" : [
+      "tour_dates": [
         {
-      "date": "06/02/2026",
-      "time": "7.30pm",
-      "club": "gazbrookfield",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673293",
-      "venue_id": "gupshill-manor-tewkesbury"
-    },
-    {
-      "date": "07/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673294",
-      "venue_id": "tolpuddle-village-hall"
-    },
-    {
-      "date": "13/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673295",
-      "venue_id": "grantchester-village-hall"
-    },
-    {
-      "date": "14/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673296",
-
-      "venue_id": "welford-youth-and-community-centre"
-    },
-    {
-      "date": "",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673297",
-      "venue_id": "packington-village-hall"
-    },
-    {
-      "date": "21/02/2026",
-      "time": "7pm",
-      "club": "",
-      "price": "£15 (+£1.26)", 
-      "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
-      "venue_id": "wroot-rocks"
-    },
-    {
-      "date": "27/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673299",
-      "venue_id": "chew-stoke-church-hall"
-    },
-    {
-      "date": "28/02/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 (+£1.50)", 
-      "ticket_url": "https://wegottickets.com/event/673301",
-      "venue_id": "porthtowan-village-hall"
-    },
-    {
-      "date": "06/03/2026",
-      "time": "7pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673302",
-      "venue_id": "the-chester-tavern-kidderminster"
-    },
-    {
-      "date": "07/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673303",
-      "venue_id": "kingswood-village-hall-wotton"
-    },
-    {
-      "date": "13/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673305",
-      "venue_id": "the-burton-institute-matlock"
-    },
-    {
-      "date": "14/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673306",
-      "venue_id": "reeth-memorial-hall-richmond"
-    },
-    {
-      "date": "20/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673307",
-      "venue_id": "silchester-village-hall-reading"
-    },
-    {
-      "date": "21/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673308",
-      "venue_id": "west-lavington-village-hall-devizes"
-    },
-    {
-      "date": "27/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673309",
-      "venue_id": "hook-village-hall-royal"
-    },
-    {
-      "date": "28/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£15 + £1.50 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/673312",
-      "venue_id": "payhembury-village-hall-honiton"
-    }]
+          "date": "06/02/2026",
+          "time": "7.30pm",
+          "club": "gazbrookfield",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673293",
+          "venue_id": "gupshill-manor-tewkesbury"
+        },
+        {
+          "date": "07/02/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673294",
+          "venue_id": "tolpuddle-village-hall"
+        },
+        {
+          "date": "13/02/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673295",
+          "venue_id": "grantchester-village-hall"
+        },
+        {
+          "date": "14/02/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673296",
+          "venue_id": "welford-youth-and-community-centre"
+        },
+        {
+          "date": "20/01/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673297",
+          "venue_id": "packington-village-hall"
+        },
+        {
+          "date": "21/02/2026",
+          "time": "7pm",
+          "club": "",
+          "price": "£15 (+£1.26)",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
+          "venue_id": "wroot-rocks"
+        },
+        {
+          "date": "27/02/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673299",
+          "venue_id": "chew-stoke-church-hall"
+        },
+        {
+          "date": "28/02/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 (+£1.50)",
+          "ticket_url": "https://wegottickets.com/event/673301",
+          "venue_id": "porthtowan-village-hall"
+        },
+        {
+          "date": "06/03/2026",
+          "time": "7pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673302",
+          "venue_id": "the-chester-tavern-kidderminster"
+        },
+        {
+          "date": "07/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673303",
+          "venue_id": "kingswood-village-hall-wotton"
+        },
+        {
+          "date": "13/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673305",
+          "venue_id": "the-burton-institute-matlock"
+        },
+        {
+          "date": "14/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673306",
+          "venue_id": "reeth-memorial-hall-richmond"
+        },
+        {
+          "date": "20/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673307",
+          "venue_id": "silchester-village-hall-reading"
+        },
+        {
+          "date": "21/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673308",
+          "venue_id": "west-lavington-village-hall-devizes"
+        },
+        {
+          "date": "27/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673309",
+          "venue_id": "hook-village-hall-royal"
+        },
+        {
+          "date": "28/03/2026",
+          "time": "7.30pm",
+          "club": "",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/event/673312",
+          "venue_id": "payhembury-village-hall-honiton"
+        }
+      ]
     },
     "nick-parker-chuckie-egg-2026": {
       "name": "Nick Parker — Chuckie Egg Tour 2026",
@@ -340,78 +454,83 @@
       "tour_description": "Nick embarked on a solo career in 2010 and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way...",
       "isMusic": true,
       "tour_flyer": "tour_nick_parker_chuckie_egg_2026.jpg",
-      "tags": ["music", "tour", "2026"],
+      "tags": [
+        "music",
+        "tour",
+        "2026"
+      ],
       "tour_dates": [
         {
-      "date": "06/03/2026",
-      "time": "",
-      "price": "£11", 
-      "ticket_url": "https://gwr.seetickets.com/event/nick-parker/the-hop-inn-8-devizes-road-swindon-sn1-4bh/3595047",
-      "venue_id": "the-hop-inn-swindon"
-    },
-    {
-      "date": "07/03/2026",
-      "time": "Doors 6.30pm, start 8.15pm",
-      "price": "£12.50 + £1.30 booking fee", 
-      "ticket_url": "https://wegottickets.com/f/15208",
-      "venue_id": "katie-fitzgeralds-stourbridge"
-    },
-    {
-      "date": "08/03/2026",
-      "time": "7pm",
-      "price": "£11.25", 
-      "ticket_url": "https://www.prohibitionrecordingstudios.co.uk/events/nick-parker-support-live-at-prohibition-recording-studios/",
-      "venue_id": "prohibition-recording-studios-liverpool"
-    },
-    {
-      "date": "13/03/2026",
-      "time": "7.30pm",
-      "price": "£10", 
-      "ticket_url": "https://georgiantheatre.co.uk/live-events/nick-parker/",
-      "venue_id": "the-georgian-theatre-stockton"
-    },
-    {
-      "date": "14/03/2026",
-      "time": "7.30pm",
-      "price": "£10", 
-      "ticket_url": "https://wegottickets.com/event/690054/",
-      "venue_id": "the-black-swan-inn-york"
-    },
-    {
-      "date": "15/03/2026",
-      "time": "7.30pm",
-      "price": "£12 + £1.20 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/689386/",
-      "venue_id": "the-grove-nottingham"
-    },
-    {
-      "date": "20/03/2026",
-      "time": "7pm",
-      "price": "£12 + £1.20 booking fee", 
-      "ticket_url": "https://www.seetickets.com/event/nick-parker-solo/nelly-s-retro-vintage/3595090",
-      "venue_id": "nellys-retro-vintage-stratford"
-    },
-    {
-      "date": "27/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee", 
-      "ticket_url": "https://good-show.co.uk/events/3193",
-      "venue_id": "the-brunswick-cellar-bar-brighton"
-    },
-    {
-      "date": "28/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee", 
-      "ticket_url": "https://wegottickets.com/location/26434",
-      "venue_id": "cwrw-carmarthen"
-    },
-    {
-      "date": "29/03/2026",
-      "time": "7.30pm",
-      "price": "£10 + £1.00 booking fee", 
-      "ticket_url": "https://wegottickets.com/event/688979/",
-      "venue_id": "exeter-phoenix"
-    }]
+          "date": "06/03/2026",
+          "time": "",
+          "price": "£11",
+          "ticket_url": "https://gwr.seetickets.com/event/nick-parker/the-hop-inn-8-devizes-road-swindon-sn1-4bh/3595047",
+          "venue_id": "the-hop-inn-swindon"
+        },
+        {
+          "date": "07/03/2026",
+          "time": "Doors 6.30pm, start 8.15pm",
+          "price": "£12.50 + £1.30 booking fee",
+          "ticket_url": "https://wegottickets.com/f/15208",
+          "venue_id": "katie-fitzgeralds-stourbridge"
+        },
+        {
+          "date": "08/03/2026",
+          "time": "7pm",
+          "price": "£11.25",
+          "ticket_url": "https://www.prohibitionrecordingstudios.co.uk/events/nick-parker-support-live-at-prohibition-recording-studios/",
+          "venue_id": "prohibition-recording-studios-liverpool"
+        },
+        {
+          "date": "13/03/2026",
+          "time": "7.30pm",
+          "price": "£10",
+          "ticket_url": "https://georgiantheatre.co.uk/live-events/nick-parker/",
+          "venue_id": "the-georgian-theatre-stockton"
+        },
+        {
+          "date": "14/03/2026",
+          "time": "7.30pm",
+          "price": "£10",
+          "ticket_url": "https://wegottickets.com/event/690054/",
+          "venue_id": "the-black-swan-inn-york"
+        },
+        {
+          "date": "15/03/2026",
+          "time": "7.30pm",
+          "price": "£12 + £1.20 booking fee",
+          "ticket_url": "https://wegottickets.com/event/689386/",
+          "venue_id": "the-grove-nottingham"
+        },
+        {
+          "date": "20/03/2026",
+          "time": "7pm",
+          "price": "£12 + £1.20 booking fee",
+          "ticket_url": "https://www.seetickets.com/event/nick-parker-solo/nelly-s-retro-vintage/3595090",
+          "venue_id": "nellys-retro-vintage-stratford"
+        },
+        {
+          "date": "27/03/2026",
+          "time": "7.30pm",
+          "price": "£10 + £1.00 booking fee",
+          "ticket_url": "https://good-show.co.uk/events/3193",
+          "venue_id": "the-brunswick-cellar-bar-brighton"
+        },
+        {
+          "date": "28/03/2026",
+          "time": "7.30pm",
+          "price": "£10 + £1.00 booking fee",
+          "ticket_url": "https://wegottickets.com/location/26434",
+          "venue_id": "cwrw-carmarthen"
+        },
+        {
+          "date": "29/03/2026",
+          "time": "7.30pm",
+          "price": "£10 + £1.00 booking fee",
+          "ticket_url": "https://wegottickets.com/event/688979/",
+          "venue_id": "exeter-phoenix"
+        }
+      ]
     }
   },
   "events": [
@@ -756,9 +875,12 @@
       "facebook": "https://www.facebook.com/storytellersofnottingham",
       "club": "storytellersnotts",
       "price": "£5",
-      "alternate_locations": {        "odd": {          "venue_id": "the-embankment-nottingham"
+      "alternate_locations": {
+        "odd": {
+          "venue_id": "the-embankment-nottingham"
         },
-        "even": {          "venue_id": "malt-cross-nottingham"
+        "even": {
+          "venue_id": "malt-cross-nottingham"
         }
       },
       "exceptions": [
@@ -1443,8 +1565,6 @@
       "event_flyer": "2025_12_16_medlandfluin_deadofwinter.jpg",
       "ticket_url": "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy",
       "isSpecial": true,
-      "6": 30,
-      "7": 15,
       "fb_event": 1504363894145970,
       "venue_id": "better-days-cafe-ventnor",
       "performer_id": "merl-fluin-holly-medland"
@@ -2344,131 +2464,6 @@
       "performer_id": "sally-pomme-clayton"
     },
     {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; all this live online (or watch later), from the comfort of your own home. In partnership with 2000 AD and Rebellion Publishing.",
-      "date": "15/01/2026",
-      "time": "7.30pm",
-      "price": "£14/£12",
-      "ticket_url": "https://www.oxfordplayhouse.com/events/slaine-the-horned-god-2026",
-      "isSpecial": true,
-      "venue_id": "burton-taylor-studio-oxford",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "20/01/2026",
-      "time": "7-9.30pm",
-      "price": "£16.50 (£12.50) + booking fee",
-      "ticket_url": "https://www.eventbrite.co.uk/e/stories-temperance-slaine-the-horned-god-jason-buck-tickets-1905874745669",
-      "isSpecial": true,
-      "venue_id": "temperance-caf-bar-royal",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "22/01/2026",
-      "time": "7.30pm",
-      "price": "£10-15.50",
-      "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-glastonbury-tickets-1862956165039",
-      "isSpecial": true,
-      "venue_id": "the-assembly-rooms-glastonbury",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "09/02/2026",
-      "time": "19:30",
-      "price": "£11.50+",
-      "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379",
-      "fb_event": 1466394704450623,
-      "isSpecial": true,
-      "venue_id": "the-hop-sun-tap-microbrewery-haywards",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "16/02/2026",
-      "time": "7pm",
-      "price": "£16.50",
-      "ticket_url": "https://wegottickets.com/event/678321",
-      "isSpecial": true,
-      "venue_id": "cafe-9-sheffield",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "18/02/2026",
-      "time": "7.30pm",
-      "price": "",
-      "ticket_url": "https://jorvikvikingfestival.co.uk/events/slaine-the-horned-god/",
-      "fb_event": 664806443175962,
-      "isSpecial": true,
-      "venue_id": "micklethwait-social-york",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "20/02/2026",
-      "time": "7-9pm",
-      "price": "£20.50",
-      "ticket_url": "https://butserancientfarm.ticketsolve.com/ticketbooth/shows/1173670846",
-      "isSpecial": true,
-      "venue_id": "butser-ancient-farm-hampshire",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "21/02/2026",
-      "time": "7pm",
-      "price": "£15/£12",
-      "ticket_url": "https://ludlowassemblyrooms.ticketsolve.com/ticketbooth/shows/873678681/events/129651718/",
-      "isSpecial": true,
-      "venue_id": "ludlow-assembly-rooms-shropshire",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Sláine: The Horned God [Jason Buck]",
-      "showname": "Sláine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "05/03/2026",
-      "time": "7.30-9.30pm",
-      "price": "£11.50-15.50",
-      "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-birmingham-tickets-1806505248829",
-      "fb_event": 668659776297645,
-      "isSpecial": true,
-      "venue_id": "merlins-cafe-bar-birmingham",
-      "performer_id": "jason-buck"
-    },
-    {
-      "name": "Slaine: The Horned God [Jason Buck]",
-      "showname": "Slaine: The Horned God",
-      "description": "The graphic novel, adapted as traditional storytelling, for modern audiences.\n\n\n\n A tale of ancient Celtic heroes and villains, monsters and magic, dragons and demons, and goddesses and gods; live storytelling.",
-      "date": "20/03/2026",
-      "time": "7.30pm",
-      "price": "£10-15",
-      "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-notts-tickets-1867486846429",
-      "fb_event": 830908939589642,
-      "isSpecial": true,
-      "isMusic": false,
-      "venue_id": "the-pit-at-newstead-nottinghamshire",
-      "performer_id": "jason-buck"
-    },
-    {
       "name": "The Petal Demon [Shonaleigh]",
       "showname": "The Petal Demon",
       "description": "The Petal Demon follows the story of a woman who is pursued by a mage, and how she's helped by Lilith to create a maze of flowers, that traps the mage and becomes a sanctuary for her. This woman becomes known as the Petal Demon, and through her wanderings she leaves legends behind her.",
@@ -2609,7 +2604,6 @@
       "venue_id": "john-peel-centre-stowmarket",
       "performer_id": "jess-silk"
     },
-    
     {
       "series_title": "Taking the Tradition On",
       "presenter": "Amy Douglas",
@@ -5154,7 +5148,7 @@
       "id": "cath-little-bronia-evers",
       "name": "Cath Little | Bronia Evers",
       "url": "",
-      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
+      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
     },
     "nick-hennessey-emily-hennessey": {
       "id": "nick-hennessey-emily-hennessey",
@@ -5366,11 +5360,17 @@
       "url": "https://tistales.org.uk/",
       "bio": "'Tis Tales is a storytelling troupe (Holly Medland, Sue Bailey and Tony 'Monty' Hirst) telling tales to adult audience on the Isle of Wight."
     },
-     "amy-douglas": {
+    "amy-douglas": {
       "id": "amy-douglas",
       "name": "Amy Douglas",
       "url": "https://amydouglas.com/",
       "bio": "Amy Douglas is a vibrant professional storyteller with a passion for traditional stories and riddles.\n\n\n\n Over the past twenty years she has delved deep into the folklore of Britain, reveling in tales of the strange and macabre; memories of magic and otherworlds; proud recollections of folk history; stories to make you smile, sigh or shiver; stories that have been moulded by the land, weather and generations of tongues wagging."
+    },
+    "jason-buck": {
+      "id": "jason-buck",
+      "name": "Jason Buck",
+      "url": "https://www.facebook.com/JasonBuckStoryteller/",
+      "bio": "Award-winning performance storyteller, author and illustrator."
     },
     "amy-douglas-and-jason-buck": {
       "id": "amy-douglas-and-jason-buck",
@@ -5486,7 +5486,6 @@
       "url": "https://www.welshstoryteller.com/",
       "bio": "Welsh Storyteller and Performer and host of The Time between Times Storytelling podcast. Ever since he was a small child, Owen has been fascinated by the amazing myths and legends that were born on his doorstep. Owen has performed all over the world as a Storyteller and Actor for over thirty years. He is available for storytelling bookings or podcast appearances and can design and write storytelling sessions for all ages. Owen also has experience as a stage, television, and Voice actor and is an experienced public speaker lecturer, and theatrical director."
     },
-
     "henry-everett-and-hannah-sneyd": {
       "id": "henry-everett-and-hannah-sneyd",
       "name": "Henry Everett and Hannah Sneyd",
@@ -5510,12 +5509,6 @@
       "name": "Ffion Phillips + Dragon Storytellers",
       "url": "",
       "bio": "ome and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Ffion Phillips.\n\n\n\nFfion is a bilingual storyteller and folk musician with a passion for breathing new enchantment into old tales and reworking scraps of forgotten material into fresh stories. Her work often explores environmentalist themes and the natural world(s), with much of her repertoire rooted deeply in her native Eryri. As part of the 'Harebell Tellers' alongside Ailsa Dixon she has brought her collaborative shows 'Hear us and Hasten' and 5 star sell-out 'Aderyn/Bird' to the Edinburgh Fringe."
-    },
-    "jason-buck": {
-      "id": "jason-buck",
-      "name": "Jason Buck",
-      "url": "https://www.facebook.com/JasonBuckStoryteller/",
-      "bio": "Award-winning performance storyteller, author and illustrator."
     },
     "bernadette-russell": {
       "id": "bernadette-russell",
