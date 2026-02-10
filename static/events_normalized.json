@@ -14,7 +14,7 @@
       "time": "6.30pm",
       "club": "cardiffSC",
       "price": "£9.90 / £7.70",
-      "ticket_url": "https://wegottickets.com/event/683445/",
+      "ticket_url": "https://wegottickets.com/af/671/event/683445/",
       "isSpecial": true,
       "fb_event": 2102203970315114,
       "venue_id": "llanover-hall-arts-center-cardiff"
@@ -129,7 +129,7 @@
           "date": "16/02/2026",
           "time": "7pm",
           "price": "£16.50",
-          "ticket_url": "https://wegottickets.com/event/678321",
+          "ticket_url": "https://wegottickets.com/af/671/event/678321",
           "venue_id": "cafe-9-sheffield"
         },
         {
@@ -197,7 +197,7 @@
           "date": "23/04/2026",
           "time": "7pm",
           "price": "£15 (+£1.50 booking fee)",
-          "ticket_url": "https://wegottickets.com/event/685002",
+          "ticket_url": "https://wegottickets.com/af/671/event/685002",
           "venue_id": "unicorn-theatre-abingdon"
         },
         {
@@ -215,7 +215,7 @@
           "date": "26/04/2026",
           "time": "7pm",
           "price": "£16 (+£1.60 booking fee)",
-          "ticket_url": "https://wegottickets.com/event/684218",
+          "ticket_url": "https://wegottickets.com/af/671/event/684218",
           "venue_id": "st-marys-church-oxted"
         },
         {
@@ -245,7 +245,7 @@
           "date": "03/05/2026",
           "time": "7pm",
           "price": "£15 (+£1.50 booking fee)",
-          "ticket_url": "https://wegottickets.com/event/685018",
+          "ticket_url": "https://wegottickets.com/af/671/event/685018",
           "venue_id": "knutsford-little-theatre"
         },
         {
@@ -266,7 +266,7 @@
           "date": "09/05/2026",
           "time": "7pm",
           "price": "£16-£18, + booking fee; U25 £10 (+£1)",
-          "ticket_url": "https://wegottickets.com/event/683298",
+          "ticket_url": "https://wegottickets.com/af/671/event/683298",
           "venue_id": "village-hall-great"
         },
         {
@@ -319,7 +319,7 @@
           "fb_event": 1515954242876116,
           "date": "03/04/2026",
           "time": "7.30pm",
-          "ticket_url": "https://wegottickets.com/event/678672?",
+          "ticket_url": "https://wegottickets.com/af/671/event/678672?",
           "price": "£13.20",
           "venue_id": "the-palladium-club-bideford"
         },
@@ -327,14 +327,14 @@
           "fb_event": 837731841927515,
           "date": "04/04/2026",
           "time": "7pm",
-          "ticket_url": "https://wegottickets.com/event/677850",
+          "ticket_url": "https://wegottickets.com/af/671/event/677850",
           "venue_id": "feniton-sports-social-club"
         },
         {
           "fb_event": 1500622354496608,
           "date": "09/04/2026",
           "time": "7pm",
-          "ticket_url": "https://wegottickets.com/event/684546/",
+          "ticket_url": "https://wegottickets.com/af/671/event/684546/",
           "price": "£11",
           "venue_id": "spin-the-black-circle-worcester"
         },
@@ -381,7 +381,7 @@
           "fb_event": 1093444672771528,
           "date": "18/04/2026",
           "time": "7.30pm",
-          "ticket_url": "https://wegottickets.com/event/677958",
+          "ticket_url": "https://wegottickets.com/af/671/event/677958",
           "venue_id": "avalon-club-glastonbury"
         }
       ]
@@ -405,45 +405,40 @@
           "time": "7.30pm",
           "club": "gazbrookfield",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673293",
+          "ticket_url": "https://wegottickets.com/af/671/event/673293",
           "venue_id": "gupshill-manor-tewkesbury"
         },
         {
           "date": "07/02/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673294",
+          "ticket_url": "https://wegottickets.com/af/671/event/673294",
           "venue_id": "tolpuddle-village-hall"
         },
         {
           "date": "13/02/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673295",
+          "ticket_url": "https://wegottickets.com/af/671/event/673295",
           "venue_id": "grantchester-village-hall"
         },
         {
           "date": "14/02/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673296",
+          "ticket_url": "https://wegottickets.com/af/671/event/673296",
           "venue_id": "welford-youth-and-community-centre"
         },
         {
           "date": "20/01/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673297",
+          "ticket_url": "https://wegottickets.com/af/671/event/673297",
           "venue_id": "packington-village-hall"
         },
         {
           "date": "21/02/2026",
           "time": "7pm",
-          "club": "",
           "price": "£15 (+£1.26)",
           "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje?ref=montystoryteller.org",
           "venue_id": "wroot-rocks"
@@ -451,82 +446,128 @@
         {
           "date": "27/02/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673299",
+          "ticket_url": "https://wegottickets.com/af/671/event/673299",
           "venue_id": "chew-stoke-church-hall"
         },
         {
           "date": "28/02/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 (+£1.50)",
-          "ticket_url": "https://wegottickets.com/event/673301",
+          "ticket_url": "https://wegottickets.com/af/671/event/673301",
           "venue_id": "porthtowan-village-hall"
         },
         {
           "date": "06/03/2026",
           "time": "7pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673302",
+          "ticket_url": "https://wegottickets.com/af/671/event/673302",
           "venue_id": "the-chester-tavern-kidderminster"
         },
         {
           "date": "07/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673303",
+          "ticket_url": "https://wegottickets.com/af/671/event/673303",
           "venue_id": "kingswood-village-hall-wotton"
         },
         {
           "date": "13/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673305",
+          "ticket_url": "https://wegottickets.com/af/671/event/673305",
           "venue_id": "the-burton-institute-matlock"
         },
         {
           "date": "14/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673306",
+          "ticket_url": "https://wegottickets.com/af/671/event/673306",
           "venue_id": "reeth-memorial-hall-richmond"
         },
         {
           "date": "20/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673307",
+          "ticket_url": "https://wegottickets.com/af/671/event/673307",
           "venue_id": "silchester-village-hall-reading"
         },
         {
           "date": "21/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673308",
+          "ticket_url": "https://wegottickets.com/af/671/event/673308",
           "venue_id": "west-lavington-village-hall-devizes"
         },
         {
           "date": "27/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673309",
+          "ticket_url": "https://wegottickets.com/af/671/event/673309",
           "venue_id": "hook-village-hall-royal"
         },
         {
           "date": "28/03/2026",
           "time": "7.30pm",
-          "club": "",
           "price": "£15 + £1.50 booking fee",
-          "ticket_url": "https://wegottickets.com/event/673312",
+          "ticket_url": "https://wegottickets.com/af/671/event/673312",
           "venue_id": "payhembury-village-hall-honiton"
+        },
+        {
+          "date": "10/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673313",
+          "venue_id": "broome-village-hall-bungay"
+        },
+        {
+          "date": "11/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673314",
+          "venue_id": "pitstone-memorial-hall"
+        },
+        {
+          "date": "17/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673316",
+          "venue_id": "loppington-village-hall"
+        },
+        {
+          "date": "18/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/683225",
+          "venue_id": "nash-village-hall"
+        },
+         {
+          "date": "24/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673317",
+          "venue_id": "chartham-village-hall"
+        },
+        {
+          "date": "25/04/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673318",
+          "venue_id": "hassocks-adastra-hall"
+        },
+        {
+          "date": "01/05/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673791",
+          "venue_id": "rudry-parish-hall"
+        },
+        {
+          "date": "02/05/2026",
+          "time": "7:30PM",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673319",
+          "venue_id": "east-challow-village-hall"
         }
       ]
     },
@@ -575,14 +616,14 @@
           "date": "14/03/2026",
           "time": "7.30pm",
           "price": "£10",
-          "ticket_url": "https://wegottickets.com/event/690054/",
+          "ticket_url": "https://wegottickets.com/af/671/event/690054/",
           "venue_id": "the-black-swan-inn-york"
         },
         {
           "date": "15/03/2026",
           "time": "7.30pm",
           "price": "£12 + £1.20 booking fee",
-          "ticket_url": "https://wegottickets.com/event/689386/",
+          "ticket_url": "https://wegottickets.com/af/671/event/689386/",
           "venue_id": "the-grove-nottingham"
         },
         {
@@ -610,7 +651,7 @@
           "date": "29/03/2026",
           "time": "7.30pm",
           "price": "£10 + £1.00 booking fee",
-          "ticket_url": "https://wegottickets.com/event/688979/",
+          "ticket_url": "https://wegottickets.com/af/671/event/688979/",
           "venue_id": "exeter-phoenix"
         }
       ]
@@ -1052,7 +1093,7 @@
       "name": "Tales at the Tavern",
       "schedule": "1st wednesday",
       "time": "7.15-9.30pm",
-      "facebook":"https://talesatthetavern.co.uk/",
+      "link":"https://talesatthetavern.co.uk/",
       "club": "talesatthetavern",
       "description": "Open-mic slots of up 10 mins (approx) for performers, on a first come first served basis. To book a slot or find out more, contact Laura or Niall.\n\n\n\n *NEW: Sometimes, we give some space to tellers with something longer form to test. Also bookable in advance.\n\n\n\n As well as amazing stories and general joy, the Tavern does great food and drinks, and is a lovely welcoming place to be.",
       "facebook": "https://www.facebook.com/talesatthetavern/",
@@ -1360,7 +1401,7 @@
       "price": " £8 / £6",
       "description": "",
       "event_flyer": "2025_11_29_dave_tonge_norfolk_folktales.jpg",
-      "ticket_url": "https://wegottickets.com/event/680968/",
+      "ticket_url": "https://wegottickets.com/af/671/event/680968/",
       "isSpecial": true,
       "venue_id": "ketteringham-village-hall",
       "performer_id": "dave-tonge"
@@ -1501,7 +1542,7 @@
       "club": "lichfieldST",
       "price": "£7.70",
       "description": "Traditional Christmas get together with songs and stories from local tellers - mince pies, crackers and cracker jokes, conviviality and mirth",
-      "ticket_url": "https://wegottickets.com/event/684096",
+      "ticket_url": "https://wegottickets.com/af/671/event/684096",
       "isSpecial": true,
       "fb_event": 830509446572774,
       "venue_id": "kings-head-lichfield",
@@ -2009,7 +2050,7 @@
       "club": "talestattledtold",
       "price": "£12 (+ £1.20 booking fee)",
       "description": "In 'Shapes' storyteller Gill blends a haunting Selkie tale set on the Isle of Harris with an Innuit folk tale, plus a story of the Albrecht Durer painting, 'The Hare.'\n\n\n\n Gill is a performance storyteller with a passion for encouraging the imagination to take her audiences to far away places and times! Patrick, a freelance musician and composer, weaves his harp tunes like golden magic around the words of the tales - shapeshifting selkies, hares and bears. \n\n\n\n Some of Patrick's recent compositions include his settings of commissioned poems by Shropshire/Welsh poets, A Shropshire Lass, and his Cantata, The Gentle Earth of Wales, based on Welsh folksongs and poetry.\n\n\n\n We'll also have the fantastic music of Rebecca LaChance and the joyous stories of Lynette Hill, Pete Boyce and fingers crossed, the artistry of the newly cloaked Bard of Stony Stratford! Hosted by Stephen Hobbs.\n\n\n\n This event is intended for ages 16 and older.",
-      "ticket_url": "https://wegottickets.com/event/662417",
+      "ticket_url": "https://wegottickets.com/af/671/event/662417",
       "isSpecial": true,
       "venue_id": "the-stables-at-the-bull-hotel-stony",
       "performer_id": "lynette-hill-stephen-hobbs-rebecca-lachance-peter-boyce-2026-bard-of-stony-stratford-gill-and-patrick-larley"
@@ -2035,7 +2076,7 @@
       "club": "feastoffools",
       "price": "£10.05",
       "description": "The Glass Palace of the Moon-Maid is a magical wonder-tale spanning this world and the beyond, a tale of stars and comets and moons, life and death, love and betrayal,  two very magical cats, and the occasional goat. This tale belongs to the Cycle of Hillel, which is the first of twelve epic, latticed, interlinked cycles of stories passed down through generations of Drut'syla storytellers.",
-      "ticket_url": "https://wegottickets.com/event/688802",
+      "ticket_url": "https://wegottickets.com/af/671/event/688802",
       "online": "hybrid",
       "isSpecial": true,
       "fb_event": 762375106879668,
@@ -2125,7 +2166,7 @@
       "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're… stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
       "promoter_link": "https://www.artemis-storytelling.co.uk/performances",
       "event_flyer": "",
-      "ticket_url": "https://wegottickets.com/event/680745",
+      "ticket_url": "https://wegottickets.com/af/671/event/680745",
       "isSpecial": true,
       "venue_id": "cygnet-theatre-exeter",
       "performer_id": "lucy-lill-sarah-liisa-wilkinson"
@@ -2197,7 +2238,7 @@
       "price": "£9.90 / £7.70",
       "description": "The wheel of fortune turns. It makes the rich richer and the poor poorer. God knows it doesn't pay storytellers enough...\n\n\n\n In a lost city, stories interweave: riotous tales of love, lust, and intrigue. A girl is raised as a boy, embarking on a quest of self-discovery. A king falls in love with a werewolf. A wild wizard prowls the woods, waiting to be captured. The wheel of fortune will bring them all together.\n\n\n\n City of Ladies/Dinas y Lêdis is an exciting new collaboration between award-winning storyteller Tamar Eluned Williams and musician Jordan Price Williams (VRï, Elfen, Pendevig). Fusing bilingual storytelling and music to uncover the queer romances of the French medieval court, the show traverses a rich and layered landscape, from Cornwall to Wales to Brittany.\n\n\n\n Age restrictions: 16+\n\n\n\n Content restrictions: the show contains references to violence, sexual violence, childbirth, torture, and homophobic attitudes, contextualised within a medieval framework.\n\n\n\n The development of this show is supported by the Arts Council of Wales, in partnership with Awen Cultural Trust, Theatr Soar, TRAC and Cardiff Storytelling Circle.",
       "event_flyer": "",
-      "ticket_url": "https://wegottickets.com/event/687771",
+      "ticket_url": "https://wegottickets.com/af/671/event/687771",
       "isSpecial": true,
       "fb_event": 4141128949494651,
       "venue_id": "llanover-hall-arts-center-cardiff",
@@ -2637,7 +2678,7 @@
       "price": "£10 (+£1)",
       "description": "",
       "tour_flyer": "jess_silk_jan26.jpg",
-      "ticket_url": "https://wegottickets.com/event/682211/",
+      "ticket_url": "https://wegottickets.com/af/671/event/682211/",
       "isMusic": true,
       "venue_id": "riff-factory-stoke",
       "performer_id": "jess-silk"
@@ -2705,7 +2746,7 @@
       "name": "Jess Silk",
       "date": "26/09/2026",
       "time": "6.30pm",
-      "ticket_url": "https://wegottickets.com/event/682723",
+      "ticket_url": "https://wegottickets.com/af/671/event/682723",
       "price": "£12.50(+£1.30)",
       "isMusic": true,
       "isSpecial": true,
@@ -5214,6 +5255,83 @@
         53.64422,
         -1.78937
       ]
+    },
+    "broome-village-hall-bungay": {
+      "id": "broome-village-hall-bungay",
+      "name": "Broome Village Hall",
+      "city": "Bungay",
+      "postcode": "NR35 2RW",
+      "full_address": "Broome Village Hall, Bungay, NR35 2RW",
+      "url": "https://broomevillagehall.com/",
+      "latlon": [
+        52.47275,
+        1.45829
+      ]
+     },
+    "pitstone-memorial-hall": {
+      "id": "pitstone-memorial-hall",
+      "name": "Pitstone Memorial Hall",
+      "city": "Pitstone, Leighton Buzzard",
+      "postcode": "LU7 9EY",
+      "full_address": "Pitstone Memorial Hall,Vicarage Rd, Pitstone, Leighton Buzzard, LU7 9EY",
+      "url": "https://pitstonememorialhall.co.uk/",
+      "latlon": [51.82783,-0.63932]
+     },
+     "loppington-village-hall": {
+      "id": "loppington-village-hall",
+      "name": "Loppington Village Hall",
+      "city": "Loppington, Shrewsbury",
+      "postcode": "SY4 5NG",
+      "full_address": "Loppington Village Hall, Shrewsbury, SY4 5NG",
+      "url": "https://www.loppingtonvillagehall.co.uk/",
+      "latlon": [52.86149,-2.78483]
+    },
+    "nash-village-hall": {
+      "id": "nash-village-hall",
+      "name": "Nash Village Hall",
+      "city": "Nash, Ludlow,",
+      "postcode": "SY8 3AL",
+      "full_address": "Nash Village Hall, Clee Hill Road, Nash, Ludlow, SY8 3AL",
+      "url": "https://nashvillagehall.co.uk/",
+      "latlon": [52.35367,-2.58634]
+    },
+    "chartham-village-hall": {
+      "id": "chartham-village-hall",
+      "name": "Chartham Village Hall",
+      "city": "Canterbury",
+      "postcode": "CT4 7JA",
+      "full_address": "Chartham Village Hall, Canterbury, CT4 7JA",
+      "url": "https://charthamvillagehall.co.uk/",
+      "latlon": [51.2713,1.01405]
+    },
+    "hassocks-adastra-hall": {
+      "id": "hassocks-adastra-hall",
+      "name": "Adastra Hall",
+      "city": "Keymer, Hassocks",
+      "postcode": "BN6 8QH",
+      "full_address": "Adastra Hall, Keymer, Hassocks, BN6 8QH",
+      "url": "https://adastrahall.com/",
+      "latlon": [50.92544,-0.13784]
+    },
+    "rudry-parish-hall": {
+      "id": "rudry-parish-hall",
+      "name": "Rudry Parish Hall",
+      "city": "Rudry, Caerphilly",
+      "postcode": "CF83 3DF",
+      "full_address": "Rudry Parish Hall, Rudry, Caerphilly, CF83 3DF",
+      "url": "https://rudryparishhall.org/",
+      "latlon": [51.57742,-3.16693
+      ]
+    },
+    "east-challow-village-hall": {
+      "id": "east-challow-village-hall",
+      "name": "East Challow Village Hall",
+      "city": "Wantage",
+      "postcode": "OX12 9SR",
+      "full_address": "East Challow Village Hall, Wantage, OX12 9SR",
+      "url": "https://www.eastchallowpc.co.uk/village-facilities/village-hall/",
+      "latlon": [51.59194,-1.45263
+      ]
     }
   },
   "performers": {
@@ -5233,7 +5351,7 @@
       "id": "nell-phoenix",
       "name": "Nell Phoenix",
       "url": "http://www.nellphoenix.co.uk/",
-      "bio": "Nell has been performing professionally since graduating from Goldsmiths College. She has performed with theatre companies for 12 years touring all around the world – from the Blackpool Grand to the Sydney Opera House; all over the UK, Ireland, Eastern and Western Europe, Australia and in all sorts of spaces and places in-between.\n\n\n\nShe is Artistic Director of StoryNight at Torriano, Kentish Town's thriving performance storytelling clubs for adults. Nell is a passionate promoter of storytelling as a contemporary performance art."
+      "bio": "Nell has been performing professionally since graduating from Goldsmiths College. She has performed with theatre companies for 12 years touring all around the world - from the Blackpool Grand to the Sydney Opera House; all over the UK, Ireland, Eastern and Western Europe, Australia and in all sorts of spaces and places in-between.\n\n\n\nShe is Artistic Director of StoryNight at Torriano, Kentish Town's thriving performance storytelling clubs for adults. Nell is a passionate promoter of storytelling as a contemporary performance art."
     },
     "nick-hennessey": {
       "id": "nick-hennessey",
