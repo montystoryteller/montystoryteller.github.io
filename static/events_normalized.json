@@ -1916,7 +1916,7 @@
       "isSpecial": true,
       "fb_event": 1544986679915808,
       "venue_id": "bargemans-rest-newport",
-      "performer_id": "merl-fluin-holly-medland-2"
+      "performer_id": "merl-fluin-holly-medland"
     },
     {
       "name": "Queen of Between [Lucy Lill & Sarah-Liisa Wilkinson]",
@@ -5107,7 +5107,8 @@
       ]
     }
   },
-  "performers": {    "daniel-morden": {
+  "performers": {
+    "daniel-morden": {
       "id": "daniel-morden",
       "name": "Daniel Morden",
       "url": "https://danielmorden.org/",
@@ -5137,29 +5138,41 @@
       "url": "",
       "bio": ""
     },
+    "cath-little": {
+      "id": "cath-little",
+      "name": "Cath Little",
+      "url": "https://cathlittle.co.uk/",
+      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\n She tells traditional stories from her Irish English heritage and her Welsh homeland. Cath enjoys re-imagining and retelling stories from The Mabinogion.\n\n\n\n Cath helps run the Cardiff Storytelling Circle and curates their seasonal concerts, Tales for the Turning Year. She tells and listens to stories at Oasis, a Cardiff Charity which offers a warm Welsh welcome to refugees and asylum seekers."
+    },
+    "bronia-evers": {
+      "id": "bronia-evers",
+      "name": "Bronia Evers",
+      "url": "https://www.broniaevers.com/",
+      "bio": "Bronia is a storyteller, designer, maker and puppeteer.\n\n\n\nHer practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
+    },
     "cath-little-bronia-evers": {
       "id": "cath-little-bronia-evers",
       "name": "Cath Little | Bronia Evers",
       "url": "",
-      "bio": ""
+      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
     },
     "nick-hennessey-emily-hennessey": {
       "id": "nick-hennessey-emily-hennessey",
       "name": "Nick  Hennessey | Emily Hennessey",
       "url": "",
-      "bio": "Husband and wife team, Nick and Emily Hennessey are both acclaimed storytellers in their own right."
+      "bio": "Husband and wife team, Nick and Emily Hennessey are both acclaimed storytellers in their own right.\n\n\n\nNick Hennessey is an internationally acclaimed storyteller, playwright, folk singer, song writer and musician. He has told stories for more than 20 years, performing at venues such as the South Bank Centre and Royal Albert Hall. He is particularly drawn to North European cultural traditions and has been awarded high honours in Finland for his work on their National Epic, Kalevala.\n\n\n\nEmily Hennessey is a playful and dynamic performance storyteller with a great love of Hindu mythology. She has travelled over 10,000 miles across India and Nepal by train, bus, rattling rickshaw and bicycle. Emily has toured in India, Iceland and Japan and performed at venues and festivals across Europe. She spent many months at the Kattaikkuttu School in Tamil Nadu, learning from the children who perform stories from the Mahabharata through music, dance and song."
     },
     "sarah-rundle": {
       "id": "sarah-rundle",
       "name": "Sarah Rundle",
-      "url": "",
-      "bio": ""
+      "url": "https://www.sarahrundle.co.uk/",
+      "bio": "Sarah Rundle is a professional storyteller based in west London. She trained in community storytelling in South Cheshire, and in acting at Drama Studio London. Over the last nineeen years, Sarah has performed at a diverse range of venues, from museums and theatres, to pubs, cafés, and a Saxon longhouse."
     },
     "sarah-mooney": {
       "id": "sarah-mooney",
       "name": "Sarah Mooney",
       "url": "https://sarahmooney.co.uk/",
-      "bio": "Stories that transform, ceremonies that reconnect, wisdom that remembers \n\n\n\n For twenty-five years sarah has been walking a ceremonial path — unwinding old tales so their original wisdom can flow through again, creating spaces where stories become medicine.\n\n\n\n Sarah trained with Clarissa Pinkola Estés (author of Women Who Run With The Wolves) and actors from the legendary Peter Brook Company, learning that the deepest stories aren't just told — they are lived, embodied, remembered. For the last fifteen years, She has supported initiation rites and vision quests, working with and learning from shamans in Mexico and Ecuador, discovering how the old ways of storytelling can guide transformation."
+      "bio": "Stories that transform, ceremonies that reconnect, wisdom that remembers \n\n\n\n For twenty-five years, Sarah has been walking a ceremonial path — unwinding old tales so their original wisdom can flow through again, creating spaces where stories become medicine.\n\n\n\n Sarah trained with Clarissa Pinkola Estés (author of Women Who Run With The Wolves) and actors from the legendary Peter Brook Company, learning that the deepest stories aren't just told — they are lived, embodied, remembered. For the last fifteen years, She has supported initiation rites and vision quests, working with and learning from shamans in Mexico and Ecuador, discovering how the old ways of storytelling can guide transformation."
     },
     "dave-tonge": {
       "id": "dave-tonge",
@@ -5227,11 +5240,23 @@
       "url": "",
       "bio": ""
     },
+    "cath-edwards": {
+      "id": "cath-edwards",
+      "name": "Cath Edwards",
+      "url": "https://storytellingforall.co.uk/",
+      "bio": "Cath Edwrds is a storyteller, telling stories to adult audiences, family audiences, very young children, school-age children, and children and young people with special needs."
+    },
+    "matt-vaughan": {
+      "id": "matt-vaughan",
+      "name": "Matt Vaughan",
+      "url": "https://www.sfs.org.uk/profile/vaughanmatthew69gmail-com/",
+      "bio": "Matthew is a storyteller of 10 years experience. He has worked since 2011 in a Public Library Service in the East-Midlands and has been lucky enough to be able to develop his storytelling practice in his professional environment, performing stories and providing interactive workshops to audiences of all ages. He has worked in early years settings, primary and secondary schools and performed in clubs. He loves to perform international folk tales and wonder tales of all kinds as well as having particular interest in the stories of working folk of Britain, drawing on stories from his own coal mining heritage and beyond, and stories about nature the wild places of this world."
+    },
     "cath-edwards-matt-vaughan": {
       "id": "cath-edwards-matt-vaughan",
       "name": "Cath Edwards | Matt Vaughan",
       "url": "",
-      "bio": ""
+      "bio": "Cath Edwrds is a storyteller, telling stories to adult audiences, family audiences, very young children, school-age children, and children and young people with special needs.\n\n\n\nMatthew is a storyteller of 10 years experience. He has worked since 2011 in a Public Library Service in the East-Midlands and has been lucky enough to be able to develop his storytelling practice in his professional environment, performing stories and providing interactive workshops to audiences of all ages. He has worked in early years settings, primary and secondary schools and performed in clubs. He loves to perform international folk tales and wonder tales of all kinds as well as having particular interest in the stories of working folk of Britain, drawing on stories from his own coal mining heritage and beyond, and stories about nature the wild places of this world."
     },
     "tony-monty-hirst": {
       "id": "tony-monty-hirst",
@@ -5242,8 +5267,8 @@
     "amelia-ace-armande": {
       "id": "amelia-ace-armande",
       "name": "Amelia Ace Armande",
-      "url": "",
-      "bio": "It's the time of King Arthur, and young Tom wants more than anything to be a knight at the court of Camelot. There's just one problem: Tom is only the size of a thumb, and he has a bad habit of being eaten. Eaten by wolves and horses and cows and giants and...\n\n\n\n A madcap journey through many stomachs and many adventures, this is a 17th century fairytale for telling around tavern tables and at twelfth night feasts. Amelia Ace Armande brings to life one of Britain's most overlooked folklore heroes on his quest for recognition and glory.\n\n\n\n A tale of heart, soul, and plenty of guts!"
+      "url": "https://ameliaarmande.wordpress.com/",
+      "bio": "Ace began telling professionally with the Brighton Storytellers, and has told at the 'Get A Word in Edgeways' Spoken Word Festival, the Oxford Storytelling Festival, Beeston Tales and the Crick Crack Club. Ace toured Austria as a storyteller with Helbling Publishing. Ace is a founder of the Ropetackle Storytellers Club and mentor for the Step Up Spoken Word initiative."
     },
     "p-d-brown": {
       "id": "p-d-brown",
@@ -5255,7 +5280,7 @@
       "id": "steph-brittain",
       "name": "Steph Brittain",
       "url": "",
-      "bio": "Join storyteller Steph Brittain as she follows Ariadne's journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage."
+      "bio": "Steph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme."
     },
     "mark-fraser": {
       "id": "mark-fraser",
@@ -5267,19 +5292,31 @@
       "id": "emily-hennessey",
       "name": "Emily Hennessey",
       "url": "https://emilyhennessey.co.uk/",
-      "bio": "Wild, irreverent, stupid, wise, dangerous and outrageously rude, Coyote has questions.\n\n\n\n BIG Questions.\n\n\n\n Looking for answers he crosses land and sky, breaks the rules, dances with illusion, cheats death and wreaks havoc at every turn. \n\n\n\n Emily Hennessey stumbles through the chaos of parenthood and life while celebrating the great First Nation trickster, the original creator and fool, riffing on the blues and high on himself.\n\n\n\n Raw, rough and close to the edge.\n\n\n\n A storytelling show for adults."
+      "bio": "Emily Hennessey is a playful and dynamic performance storyteller with a great love of Hindu mythology. She has travelled over 10,000 miles across India and Nepal by train, bus, rattling rickshaw and bicycle. Emily has toured in India, Iceland and Japan and performed at venues and festivals across Europe. She spent many months at the Kattaikkuttu School in Tamil Nadu, learning from the children who perform stories from the Mahabharata through music, dance and song."
     },
     "hugh-lupton": {
       "id": "hugh-lupton",
       "name": "Hugh Lupton",
       "url": "https://hughlupton.co.uk/",
-      "bio": "Beowulf is the oldest story in the English language - and it still has the power to raise the hairs on the back of the neck!\n\n\n\n It tells of a hero's life, a life that is mapped by three tremendous blood- curdling encounters.\n\n\n\n As a young man Beowulf defeats the monster Grendel and his even more terrifying Mother, the original creatures from the Black Lagoon. Then, as an old man, he tries his strength against a gold guarding Fire - Drake(a dragon).\n\n\n\n Alongside these adrenalin - charged encounters the story explores the journey we all make from the seeming invincibility of youth to the heroic vulnerability of old age. The story has had a tremendous effect on the imagination of many writers and poets, most notably J.R.R. Tolkien. Without Beowulf there would have been no Lord of the Rings.\n\n\n\n 'Impossibly engaging storytelling' The Guardian\n\n\n\n Aimed at adults."
+      "bio": "Hugh Lupton is an award-winning storyteller, performer and author. He is also a poet and lyricist. His work spans over 35 years, working on both solo projects and in partnership with other artists, writers, musicians, illustrators and performers.\n\n\n\nHe has toured both nationally and internationally and has performed at the RSC, the National Theatre and the Barbican, as well as at schools, community venues and arts centres the length and breadth of Britain. His repertoire ranges from Greek epic to Grimms Fairy Tales, from Norse and Celtic myth to East Anglian folk-tales, from the Great War to John Clare. Thematically his work often explores our place in the landscape and the deep cultural memories we carry."
+    },
+    "henry-everett": {
+      "id": "henry-everett",
+      "name": "Henry Everett",
+      "url": "https://www.henryeverett.com/",
+      "bio": "Henry Everett is a storyteller, telling tales in the oral storytelling tradition, passed down through the generations. He tells traditional tales inspired by our connection to the land, of spirits of place and our human relationship with the magical landscape."
+    },
+    "hannah-sneyd": {
+      "id": "hannah-sneyd",
+      "name": "Hannah Sneyd",
+      "url": "https://www.instagram.com/hanu_oh/",
+      "bio": "Hannah Sneyd is a storyteller and healer based in the Dartmoor wilds. Her original stories arrive on the wind and thread a canny path between the familiar and the fantastical."
     },
     "henry-everett-hannah-sneyd": {
       "id": "henry-everett-hannah-sneyd",
       "name": "Henry Everett | Hannah Sneyd",
       "url": "",
-      "bio": "Dartmoor-based storytellers Henry Everett and Hannah Sneyd promise a rich evening of tales crafted especially for the Solstice. Blending traditional stories from around the world with original tales inspired by the land and the deepening shadows of the season, we will gather together to bring light, joy, and depth to this midwinter moment."
+      "bio": "Henry Everett is a storyteller, telling tales in the oral storytelling tradition, passed down through the generations. He tells traditional tales inspired by our connection to the land, of spirits of place and our human relationship with the magical landscape.\n\n\n\n "
     },
     "royal-tales-story-club-sutton-coldfield": {
       "id": "royal-tales-story-club-sutton-coldfield",
@@ -5293,12 +5330,6 @@
       "url": "",
       "bio": "__Chilling tales for the Festive Season.__\n\n\n\n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night.\n\n\n\n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm."
     },
-    "henry-everett": {
-      "id": "henry-everett",
-      "name": "Henry Everett",
-      "url": "https://www.henryeverett.com/",
-      "bio": "Prepare to be led astray into the medieval tales of Kent's beloved trickster, mischievous Faerie, Robin Goodfellow.\n\n\n\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land."
-    },
     "ronnie-conboy": {
       "id": "ronnie-conboy",
       "name": "Ronnie Conboy",
@@ -5308,56 +5339,68 @@
     "vanessa-woolf": {
       "id": "vanessa-woolf",
       "name": "Vanessa Woolf",
-      "url": "",
-      "bio": ""
+      "url": "https://londondreamtime.com/",
+      "bio": "Vanessa Woolf tells stories for adults and kids. Vanessa is a founder of Elephant Tales (ex Story Co Op) London's beautiful free Sunday open-mic storytelling club, and lead storyteller of Connection With Wonder, who provide storytellers, programme festivals and offer year-round training."
     },
     "ben-haggarty-steph-brittain": {
       "id": "ben-haggarty-steph-brittain",
       "name": "Ben Haggarty & Steph Brittain",
       "url": "",
-      "bio": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor."
+      "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK’s most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word.\n\n\n\nSteph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme"
+    },
+    "gillian-brownson": {
+      "id": "gillian-brownson",
+      "name": "Gillian Brownson",
+      "url": "http://gillianbrownson.co.uk/",
+      "bio": "Gillian Brownson is as story artist, multi-disciplinary practitioner blending writing, storytelling, acting, singing & illustration."
     },
     "gillian-brownson-dragon-storytellers": {
       "id": "gillian-brownson-dragon-storytellers",
       "name": "Gillian Brownson + Dragon Storytellers",
       "url": "",
-      "bio": "Come and listen to stories about kings and queens, the Tylwyth Teg and fairies, dragons and monsters and ordinary people as well. Stories of Barmouth, Gwynedd and Wales, stories from long ago and tomorrow. The Dragon Storytellers will be joined by professional storyteller Gillian Brownson."
+      "bio": "Gillian Brownson is as story artist, multi-disciplinary practitioner blending writing, storytelling, acting, singing & illustration."
     },
     "tis-tales": {
       "id": "tis-tales",
       "name": "'Tis Tales",
       "url": "https://tistales.org.uk/",
-      "bio": "Tall Tales and Tiny Truths - stories of wit, wisdom and wonder, with maybe just a tiny touch of truth woven in. Myths and mischief, legends and lies, these stories are made to be spoken and shared in good company. Brought to you by Holly Medland, Sue Bailey and Tony 'Monty' Hirst."
+      "bio": "'Tis Tales is a storytelling troupe (Holly Medland, Sue Bailey and Tony 'Monty' Hirst) telling tales to adult audience on the Isle of Wight."
+    },
+     "amy-douglas": {
+      "id": "amy-douglas",
+      "name": "Amy Douglas",
+      "url": "https://amydouglas.com/",
+      "bio": "Amy Douglas is a vibrant professional storyteller with a passion for traditional stories and riddles.\n\n\n\n Over the past twenty years she has delved deep into the folklore of Britain, reveling in tales of the strange and macabre; memories of magic and otherworlds; proud recollections of folk history; stories to make you smile, sigh or shiver; stories that have been moulded by the land, weather and generations of tongues wagging."
     },
     "amy-douglas-and-jason-buck": {
       "id": "amy-douglas-and-jason-buck",
       "name": "Amy Douglas and Jason Buck",
       "url": "",
-      "bio": "Ghost and horror stories for grown ups. Strange things lurk in the shadows — these are tales of held breath, hearts thumping and the relief of shutting the door on the dark.\n\n\n\n Join Amy Douglas and Jason Buck in a storytelling celebration for National Storytelling Week, and hear tales of dark myths from the wilds of the British countryside, to the eerie legends of what hides beneath the streets of old London town!\n\n\n\n Enjoy a drink included with your ticket, and make a night of it by adding our £25 dinner option, available before the show, from 5pm.\n\n\n\n Ages: Adults and teens (12+)"
+      "bio": "Amy Douglas is a vibrant professional storyteller with a passion for traditional stories and riddles. Over the past twenty years she has delved deep into the folklore of Britain, reveling in tales of the strange and macabre; memories of magic and otherworlds; proud recollections of folk history; stories to make you smile, sigh or shiver; stories that have been moulded by the land, weather and generations of tongues wagging.\n\n\n\nJason Buck is an award-winning performance storyteller, author and illustrator."
     },
     "maria-buckley-whatton": {
       "id": "maria-buckley-whatton",
       "name": "Maria Buckley Whatton",
       "url": "https://www.storytellermaria.com/",
-      "bio": "A baby born with a blue flame of hair\n\n\n\n A cursed horse and doomed lovers.\n\n\n\n A glorious Saint who presides over an Irish chip shop.\n\n\n\n Join us on Wed 21st Jan and let Maria Whatton stir the seeds of Spring with her stories! There will be a flaming goddess, a startling saint, Mary of Kildare, and many more besides."
+      "bio": "Maria Whatton is a treasured storyteller and fiction author. A winner of Outstanding Female Storyteller of Great Britain in 2013 (British Awards for Storytelling Excellence) she is renowned for her compelling, vibrant performances.\n\n\n\n She has a vast knowledge of traditional stories passed down by her Irish father and grandmother which she brings to life with her lucid, engaging style."
     },
     "chris-richardson": {
       "id": "chris-richardson",
       "name": "Chris Richardson",
       "url": "https://legemaine.co.uk/",
-      "bio": "Newspapers and court records tell the facts of the notorious of Suffolk and East Anglia, but what of the people behind them? Join the storyteller, Chris Richardson, as he explores the events of Behind Bars and brings to life the drama, characters and world of these events. Chris tells folk tales and historical stories in events and festivals across East Anglia. Suitable for an Audience 12+"
+      "bio": "Chris Richardson has been telling stories a long time — as long as he can remember. But it has only been the last 10 years or so that he have sought out audiences to share the wonder of how things are, should be or could be in our wildest dreams. He has been described as quirky, in part becuase ge can't resist fiddling with a story as it comes to him, or writing something new if it says what he wants to say. All the old stories were new once, and it's up to the storytellers of today to keep the old tales relevant and to add original ones that reflect and record the way we live today."
     },
     "marion-leeper": {
       "id": "marion-leeper",
       "name": "Marion Leeper",
       "url": "https://www.marionleeperstoryteller.co.uk/",
-      "bio": "Across myth and memory, two young men set out on separate quests: one for treasure, one for love. But both must beware the ogres waiting in the dark."
+      "bio": "Marion Leeper is based in Cambridge, and is familiar visitors to museums, schools and libraries around the region. She has toured her shows for grownups to clubs and festivals around the country and internationally. She tells stories for children of all ages, and specialises in multi-sensory storytelling for the very young and for people with learning difficulties, working with the charity Bag Books.\n\n\n\n She is a long time member of the local group Cambridge Storytellers, and is currently involved in organising the East Anglian Storytelling Festival."
     },
     "mike-payton": {
       "id": "mike-payton",
       "name": "Mike Payton",
       "url": "https://www.mikepayton.org/",
-      "bio": "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…"
+      "bio": "Mike Payton has been telling tall tales all his life, and decided to turn this into a career in 2008. He was Lancastrian born, but is now based in Nottingham, drawing his tales from Britain's rich heritage and also from the four corners of the earth. His delivery is  warm and engaging, and he has a penchant for the strange and unexplainable.\n\n\n\n For the past 10 years, Mike has co-run the ever popular Beeston Tales with ace storyteller Tim Ralphs, a monthly storytelling club that brings the best of contemporary storytelling to an adult audience. As well as his work in schools, he has performed at museums, galleries, festivals, castles, pubs, clubs and cafes throughout the land. Early in his career he was the winner of The Black Country Story Slam, and was invited by The Society for Storytelling to perform at their annual gathering. He performed at The Wellcome Trust’s Day of the Dead celebrations on a day when the gallery had its busiest ever day: He has visited over 250 schools across the UK and Europe, performing and running workshops to all ages."
     },
     "shane-ibbs": {
       "id": "shane-ibbs",
@@ -5369,13 +5412,13 @@
       "id": "marcus-pibworth",
       "name": "Marcus Pibworth",
       "url": "https://www.marcuspibworth.com/",
-      "bio": "A Wild Norse Epic retold by Storyteller Marcus Pibworth\n\n\n\n A kingdom shivers beneath the shadow of a winged terror.\n\n\n\n Kings rise, kings fall and betrayal coils in every hall.\n\n\n\n Warriors hunger for the clash of steel. Whispers of old sorcery stir in the dark places of the world.\n\n\n\n Old wounds demand their due. Revenge begets revenge.\n\n\n\n Can Bodvar Bjarki—bear-strong, battle-scarred—rally the king's champions and lead them across the frozen breadth of the Northlands, outwitting gods and men, toward a destiny where only the bravest may stand against the gathering doom?\n\n\n\n Born of the same ancient narrative root that gave rise to the Old English epic Beowulf, but treading a path into strange and mysterious realms of its own, Marcus Pibworth's darkly comic retelling of an Old Norse saga leads you deep into the uncharted wilds of myth and legend."
+      "bio": "Shane is a modern day Oral Storyteller who first heard traditional stories as a child from his father, then often repeated them to his siblings and eventually his own three children. In 1997 Shane went to Canada and while he was there, he was invitated to meet with the indidgenous Metis people and be part of  their Ceremonies and a Story Healing Circle, an immense privalage. This experience not only rekindled Shane's storytelling spark, it also provided a profound shift in his thinking as he began to use 'Applied Storytelling' as a Social Worker and then as a Counselling Therapist. His life long storytelling journey continued, with fresh insight."
     },
     "merl-fluin": {
       "id": "merl-fluin",
       "name": "Merl Fluin",
       "url": "",
-      "bio": "Once upon a time there was a very bad king. He stole from his subjects, laid waste to the land, told outrageous lies, declared war on his neighbours, and always got his own way...\n\n\n\nExcept he didn't."
+      "bio": ""
     },
     "lynette-hill-stephen-hobbs-rebecca-lachance-peter-boyce-2026-bard-of-stony-stratford-gill-and-patrick-larley": {
       "id": "lynette-hill-stephen-hobbs-rebecca-lachance-peter-boyce-2026-bard-of-stony-stratford-gill-and-patrick-larley",
@@ -5387,7 +5430,7 @@
       "id": "jon-mason",
       "name": "Jon Mason",
       "url": "https://jonthestoryteller.com/",
-      "bio": "Storyteller based in Brighton.\n\n\n\n Storyteller, you ask? What, like some sort of minstrel who tells old fairy tales about princesses and magic?\n\n\n\n Well, yes — sort of. But there's a lot more besides...\n\n\n\n Jon tells stories about times gone by and the modern day, blending fact and fantasy, from all over the world, for kids and grownups. Jon has given performances and workshops at festivals, community events, schools, spoken word nights, and storytelling clubs around the country — he creates shows and sessions to suit all needs.\n\n\n\n Jon is also a folklorist and cultural historian, researching stories in the context of their time, place and social meaning. He has appeared as a guest on BBC Radio, and teach up to university level on storytelling skills, folklore and more."
+      "bio": "Storyteller based in Brighton.\n\n\n\n Jon tells stories about times gone by and the modern day, blending fact and fantasy, from all over the world, for kids and grownups. Jon has given performances and workshops at festivals, community events, schools, spoken word nights, and storytelling clubs around the country — he creates shows and sessions to suit all needs.\n\n\n\n Jon is also a folklorist and cultural historian, researching stories in the context of their time, place and social meaning. He has appeared as a guest on BBC Radio, and teach up to university level on storytelling skills, folklore and more."
     },
     "shonaleigh": {
       "id": "shonaleigh",
@@ -5400,12 +5443,6 @@
       "name": "Maria Credali",
       "url": "https://mariacredali.co.uk/",
       "bio": "Storyteller and artist based in Lichfield, in the Midlands of England. Maria Credell creates unique and memorable storytelling shows for adults and work as a performer, educator and workshop facilitator. She is a registered Artsmark practitioner and a trained creative mentor, specialising in trauma informed practice.\n\n\n\n Working orally and unscripted, she reworks ancient stories for modern audiences. Maria works with theatres, heritage organisations, festivals, schools, private and community groups. She can help bring myths and legends to life at your school, to celebrate special occasions with friends, and to provide unforgettable experiences for listeners. Previous clients include The Royal Shakespeare Company, Festival at the Edge and many national and international festivals."
-    },
-    "merl-fluin-holly-medland-2": {
-      "id": "merl-fluin-holly-medland-2",
-      "name": "Merl Fluin & Holly Medland",
-      "url": "",
-      "bio": ""
     },
     "lucy-lill-sarah-liisa-wilkinson": {
       "id": "lucy-lill-sarah-liisa-wilkinson",
@@ -5449,17 +5486,12 @@
       "url": "https://www.welshstoryteller.com/",
       "bio": "Welsh Storyteller and Performer and host of The Time between Times Storytelling podcast. Ever since he was a small child, Owen has been fascinated by the amazing myths and legends that were born on his doorstep. Owen has performed all over the world as a Storyteller and Actor for over thirty years. He is available for storytelling bookings or podcast appearances and can design and write storytelling sessions for all ages. Owen also has experience as a stage, television, and Voice actor and is an experienced public speaker lecturer, and theatrical director."
     },
+
     "henry-everett-and-hannah-sneyd": {
       "id": "henry-everett-and-hannah-sneyd",
       "name": "Henry Everett and Hannah Sneyd",
       "url": "",
       "bio": "The days are lengthening, and green shoots are nudging their way through the soil. As winter loosens its icy grip on the world, it is time to celebrate Imbolc, the Celtic festival of early spring, whose name means 'in the belly.'\n\n\n\n Join us for Stirring Stories, a series of uplifting tales to stoke the fire within and rouse us from our winter slumber. Forget the to-do list, gather together and and allow your imagination to unfurl into the realm of myth and magic.\n\n\n\n This special event with Dartmoor storytellers Henry Everett and Hannah Sneyd promises a vivid array of stories formed through deep communion with the landscape. Blending traditional tales from around the world with original stories, games and song, we curate our events to closely match the energy of the season.\n\n\n\n Things to note: This is a family-friendly event, with a 20-minute interval and food and drink available from The Lounge Cafe - please see the MIC website for further details."
-    },
-    "hannah-sneyd": {
-      "id": "hannah-sneyd",
-      "name": "Hannah Sneyd",
-      "url": "https://www.instagram.com/hanu_oh/",
-      "bio": ""
     },
     "iris-pibworth-colin-rowan": {
       "id": "iris-pibworth-colin-rowan",
@@ -5494,8 +5526,8 @@
     "gaz-brookfield-and-the-company-of-thieves": {
       "id": "gaz-brookfield-and-the-company-of-thieves",
       "name": "Gaz Brookfield and The Company of Thieves",
-      "url": "",
-      "bio": "Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now. Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n\n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts. Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in."
+      "url": "https://gazbrookfield.com/",
+      "bio": "West country based Gaz Brookfield is an award winning solo acoustic musician, with two number one albums to his name.\n\n\n\n He has spent the last fifteen years tirelessly touring all over the UK and beyond, building a strong and loyal following wherever he goes.\n\n\n\n Brookfield was the first independent musician to sell out Bristol's The Fleece (450 cap) and The Bierkeller (750 cap) and more recently SWX (1000 cap). \n\n\n\n Gaz has an impressive ten album strong back catalogue. In the autumn of 2023, Gaz's ninth album, 'Morning Walking Club', saw him achieve his first number one in the Official UK Folk Albums Chart.\n\n\n\n Brookfield got his second number one album in September 2025, when 'Waiting for Wisdom' topped the Official UK Download Charts.\n\n\n\n Not a bad result for this fiercely independent musician, with no record label, no manager, no agent - just a guitar, a van, and a steadfastly belligerent refusal to give in."
     },
     "gaz-brookfield": {
       "id": "gaz-brookfield",
@@ -5519,7 +5551,7 @@
       "id": "jess-silk-matt-johnson",
       "name": "Jess Silk + Matt Johnson",
       "url": "",
-      "bio": ""
+      "bio": "Jess Silk is a guitarist, singer and songwriter from the Black Country. Her passionate and  melodic brand of folk/punk music gets people sitting up and listening. Armed only with an increasingly sticker-covered acoustic guitar, lyrics right from the heart and a distinctive, powerful voice that many don't expect, Jess plays to audiences up and down the UK and has shared stages with many well known names among the folk/punk scene.\n\n\n\nMatt Johnson is a Midlands based Singer / songwriter who really wears his heart on his sleeve at the same times as completely captivating his audience. His subjects range from his family and the love of his life through to his view of the world now and his opinion on the plight of the oceans and our wildlife. He has a fantastic ear for melodyand bulids a hook into every song that has his audience singing back at him by the second chorus."
     },
     "sorrel-nation": {
       "id": "sorrel-nation",
