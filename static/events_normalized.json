@@ -1,5 +1,88 @@
 {
   "tours": {
+
+    "haggerty_brittain-bodies-beach": {
+      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
+      "tour_name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
+      "performer_id": "ben-haggarty-steph-brittain",
+      "tour_description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
+      "isMusic": false,
+      "isSpecial": true,
+      "tour_dates": [
+        {
+      "date": "08/01/2026",
+      "time": "6.30pm",
+      "club": "cardiffSC",
+      "price": "£9.90 / £7.70",
+      "ticket_url": "https://wegottickets.com/event/683445/",
+      "isSpecial": true,
+      "fb_event": 2102203970315114,
+      "venue_id": "llanover-hall-arts-center-cardiff"
+    },
+        {"date": "10/02/2026",
+          "time": "7.30-10pm",
+          "club": "guesthouseST",
+          "price": "£12 / £8",
+          "ticket_url": "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/2034002",
+          "isSpecial": true,
+          "venue_id": "hillcrest-community-centre-newhaven"
+        },
+        {
+      "date": "04/03/2026",
+      "time": "7.15-9.45pm",
+      "club": "crickcrack",
+      "price": "£12, £10 concessions, £15 support the artist (+£1 booking fee)",
+      "ticket_url": "https://tickets.storypickandmix.co.uk/events/thehouseofrumour/2014267",
+      "isSpecial": true,
+      "fb_event": 1390857539185833,
+      "venue_id": "next-door-at-theatre-deli-ec3a",
+      "performer_id": "ben-haggarty-steph-brittain"
+    },
+    {
+      "date": "06/03/2026",
+      "time": "7.30pm",
+      "club": "crickcrack",
+      "price": "£12, £10 concessions",
+      "ticket_url": "https://bridportandwestbay.co.uk/product/the-bodies-on-the-beach-a-preview-at-the-lyric-theatre-friday-06-march/",
+      "isSpecial": true,
+      "fb_event": 1605762193927587,
+      "venue_id": "lyric-theatre-bridport",
+      "performer_id": "ben-haggarty-steph-brittain"
+    },
+    {
+      "date": "26/03/2026",
+      "time": "7-9pm",
+      "club": "crickcrack",
+      "price": "£10, £8 concessions",
+      "ticket_url": "https://www.leicestermuseums.org/event-details/?id=606d1dc6-eacb-4f12-b7e8-1e29c82d14b3",
+      "isSpecial": true,
+      "fb_event": 1457789589386678,
+      "venue_id": "leicester-guildhall",
+      "performer_id": "ben-haggarty-steph-brittain"
+    },
+    {
+      "date": "18/04/2026",
+      "time": "7-9pm",
+      "club": "crickcrack",
+      "price": "£13 (+£0.90 booking fee)",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/cranborne/cranborne-earthouse/bodies-on-the-beach-the-last-battles-of-fionn-maccumhaill/e-kqxblv",
+      "isSpecial": true,
+      "fb_event": 1197885285708477,
+      "venue_id": "cranborne-earthouse",
+      "performer_id": "ben-haggarty-steph-brittain"
+    },{
+      "date": "23/04/2026",
+      "time": "8-10.15pm",
+      "club": "crickcrack",
+      "price": "£12.50",
+      "ticket_url": "https://www.headfirstbristol.co.uk/whats-on/the-cube/thu-23-apr-bodies-on-the-beach-the-last-battles-of-fionn-maccumhaill-147990#e147990",
+      "isSpecial": true,
+      "fb_event": 1384563516241836,
+      "venue_id": "the-cube-kingsdown",
+      "performer_id": "ben-haggarty-steph-brittain"
+    }
+    ]
+    },
     "jason-buck-slaine-horned-god-2026": {
       "name": "Sláine: The Horned God",
       "tour_name": "Sláine: The Horned God Tour",
@@ -148,7 +231,7 @@
           "price": "£12 (+£0.84 booking fee)",
           "event_flyer": "2026_05_01_sorrel_nation_lantern_sheffield.jpg",
           "tour_flyer": "tour_sorrel_nation_spring_26.jpg",
-          "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd",
+          "ticket_url": "https://www.ticketsource.co.uk/thelanternsheff/sorrel-nation/e-bglzjd?ref=montystoryteller.org",
           "venue_id": "the-lantern-theatre-sheffield"
         },
         {
@@ -362,7 +445,7 @@
           "time": "7pm",
           "club": "",
           "price": "£15 (+£1.26)",
-          "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje?ref=montystoryteller.org",
           "venue_id": "wroot-rocks"
         },
         {
@@ -1381,7 +1464,7 @@
       "price": "",
       "description": "",
       "event_flyer": "2025_12_06_cawkwell_lilith.jpg",
-      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/",
+      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/?ref=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "eastcott-community-centre-swindon",
       "performer_id": "katy-cawkwell"
@@ -1563,7 +1646,7 @@
       "price": "£10",
       "description": "__Chilling tales for the Festive Season.__\n\n\n\n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night.\n\n\n\n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm.",
       "event_flyer": "2025_12_16_medlandfluin_deadofwinter.jpg",
-      "ticket_url": "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy",
+      "ticket_url": "https://www.ticketsource.com/storytelling/the-dead-of-winter-chilling-tales-for-the-festive-season/e-kjbezy?ref=montystoryteller.org",
       "isSpecial": true,
       "fb_event": 1504363894145970,
       "venue_id": "better-days-cafe-ventnor",
@@ -1667,21 +1750,6 @@
       "isSpecial": true,
       "venue_id": "plot-9-maze-hill-greenwich",
       "performer_id": "vanessa-woolf"
-    },
-    {
-      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
-      "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
-      "date": "08/01/2026",
-      "time": "6.30pm",
-      "club": "cardiffSC",
-      "price": "£9.90 / £7.70",
-      "description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
-      "event_flyer": "",
-      "ticket_url": "https://wegottickets.com/event/683445/",
-      "isSpecial": true,
-      "fb_event": 2102203970315114,
-      "venue_id": "llanover-hall-arts-center-cardiff",
-      "performer_id": "ben-haggarty-steph-brittain"
     },
     {
       "name": "Tales and Ales — Tombs and Roses by Word of Mouth [P. D. Brown] [P. D. Brown]",
@@ -1850,7 +1918,7 @@
       "price": "£10.84",
       "description": "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…",
       "event_flyer": "2026_01_30_forgingfantastical_payton_lastorders.jpg",
-      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog",
+      "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog?ref=montystoryteller.org",
       "isSpecial": true,
       "fb_event": 2737200426620868,
       "venue_id": "the-old-stables-behind",
@@ -1965,6 +2033,19 @@
       "performer_id": "shonaleigh"
     },
     {
+      "name": "Crow Dog [TUUP]",
+      "showname": "Crow Dog",
+      "date": "11/02/2026",
+      "time": "7pm",
+      "club": "torrianostorynight",
+      "price": "£10 on the door",
+      "description": "The lamposts leaned down to listen through the letterbox, Time tells the story of the past looking over the shoulder of the present while holding the hand of the future - listen if you have ears to hear' Tuup \n\n\n\n 'Tuup is recognised as one of the most inspiring storytellers from the African-Caribbean community - as well as the wider international community. Tuup embodies the African oral tradition of the griot' Keith Waithe",
+      "isSpecial": true,
+      "fb_event": 1257784272917362,
+      "venue_id": "torriano-meeting-house-london",
+      "performer_id": "tuup"
+    },
+    {
       "name": "The Stealing of the Sun and Moon [Nick Hennessey]",
       "showname": "The Stealing of the Sun and Moon",
       "date": "21/01/2026",
@@ -1980,20 +2061,6 @@
       "performer_id": "nick-hennessey"
     },
     {
-      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
-      "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
-      "date": "10/02/2026",
-      "time": "7.30-10pm",
-      "club": "guesthouseST",
-      "price": "£12 / £8",
-      "description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
-      "event_flyer": "",
-      "ticket_url": "https://www.tickettailor.com/events/xanthegreshamknightguesthousethegoddesslounge/2034002",
-      "isSpecial": true,
-      "venue_id": "hillcrest-community-centre-newhaven",
-      "performer_id": "ben-haggarty-steph-brittain"
-    },
-    {
       "name": "The Homing Stone [Hugh Lupton]",
       "showname": "The Homing Stone",
       "date": "20/02/2026",
@@ -2002,7 +2069,7 @@
       "price": "£12",
       "description": "Arthur Ransome is well known as the author of the 'Swallows and Amazons' books. What is less well known is that as a young man he went to Russia to collect folk-tales and was swept into the maelstrom of the Russian Revolution. During the six years he lived in Moscow he became the only British journalist trusted by the Bolsheviks. He played chess with Lenin and fell in love with Trotsky's secretary Evgenia Shelepina. In England he was regarded with profound suspicion as a possible Soviet agent.\n\n\n\n In 1919 when Moscow was surrounded by counter- revolutionaries, he and Evgenia escaped. They travelled through Estonia with a horse and cart knowing they would be shot if recognised.\n\n\n\n In the Homing Stone master storyteller Hugh Lupton (who is also Ransome's great - nephew) tells the epic tale of that perilous and extraordinary journey.'s great-nephew) tells the epic tale of that perilous and extraordinary journey.",
       "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo",
+      "ticket_url": "https://www.ticketsource.co.uk/words-in-watchet/the-homing-stone-athur-ransome-s-journey-home/e-dylrzo?ref=montystoryteller.org",
       "isSpecial": true,
       "fb_event": 712262841916596,
       "venue_id": "the-backyard-theatre-watchet",
@@ -2010,7 +2077,7 @@
     },
     {
       "name": "Letters Through Time - a traditional storytelling for adults. [Maria Credali]",
-      "showname": "Letters Through Time - a traditional storytelling for adults. ",
+      "showname": "Letters Through Time - a traditional storytelling for adults.",
       "date": "13/02/2026",
       "time": "7pm",
       "club": "",
@@ -2062,7 +2129,7 @@
       "price": "Pay what you like/decide/can (min £5)",
       "description": "The days are getting longer, and as we celebrate the returning light, here is a new show to share world-wide inspirational stories of hope and resilience. Collected for her most recent book, 'A History of the World in 100 Tales', their world wide wisdom will uplift you as your storyteller unfolds this '... magical, captivating and atmospheric journey...'\n\n\n\nThis new work has been developed as a companion to her critically acclaimed piece, 'Talking to the Dark' which recently toured Romania. She is delighted that it reflects this year's World Storytelling Day's theme of 'light in the darkness'\n\n\n\n Sharon Jacksties is a professional performance storyteller and author, performing and teaching storytelling here and abroad, and is the author of several anthologies celebrating our world heritage of traditional literature",
       "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/whats-on/weston-super-mare/front-room-weston-super-mare/touching-the-light-storytelling-by-sharon-jacksties/e-rbobbq",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/weston-super-mare/front-room-weston-super-mare/touching-the-light-storytelling-by-sharon-jacksties/e-rbobbq?ref=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "the-front-room-theatre-weston",
       "performer_id": "sharon-jacksties"
@@ -2139,20 +2206,6 @@
       "isSpecial": true,
       "venue_id": "the-acorn-penzance",
       "performer_id": "the-travelling-talesman-cliff-eastabrook"
-    },
-    {
-      "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
-      "showname": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
-      "date": "04/03/2026",
-      "time": "7.15-9.45pm",
-      "club": "crickcrack",
-      "price": "£12, £10 concessions, £15 support the artist (+£1 booking fee) ",
-      "description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
-      "event_flyer": "",
-      "ticket_url": "https://tickets.storypickandmix.co.uk/events/thehouseofrumour/2014267",
-      "isSpecial": true,
-      "venue_id": "next-door-at-theatre-deli-ec3a",
-      "performer_id": "ben-haggarty-steph-brittain"
     },
     {
       "name": "Storytelling Night with Laura Sampson and Stacey Blythe",
@@ -2237,7 +2290,7 @@
       "price": "Pay what you decide (min. £5)",
       "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
       "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/frontroomwsm/the-mighty-goddess/e-bblzao",
+      "ticket_url": "https://www.ticketsource.co.uk/frontroomwsm/the-mighty-goddess/e-bblzao?ref=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "the-front-room-theatre-weston",
       "performer_id": "sally-pomme-clayton"
@@ -2297,7 +2350,7 @@
       "price": "£14",
       "description": "At the northerly point of north, it gets very, very cold. In this snow-blinding place the weirdest, wildest stories are told...\n\n\n\nNell Phoenix revels in the earthy humour and passions of Arctic stories, peopled with unconventional families, the desperate and lonely-hearted, and elderly relatives whose attempts to assist are misguided, to say the least.\n\n\n\nThis is a place where what happens next is probably not what you'd expect — and some images will stay with you forever...\n\n\n\nAge Guidance 18+",
       "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/nicholaspriory/t-aaqjdgp",
+      "ticket_url": "https://www.ticketsource.co.uk/nicholaspriory/t-aaqjdgp?ref=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "st-nicholas-priory-exeter",
       "performer_id": "nell-phoenix"
@@ -2360,7 +2413,7 @@
       "time": "Doors 6.30pm, show 7.30pm",
       "club": "stinginthetale",
       "price": "£15 (@£12 concessions, £8 bursary, £20 pay it forward)",
-      "description": "A life for a story - A story for a life.\n\n\n\n This father and daughter duo bring to life a tale of thievery, giants, ghosts; and many a close brush with death. How much is a story worth? A reworking of a tale found across the British Isles in the 1800's, Colin and Iris bring a contemporary edge to these traditional tales with their unique style. ",
+      "description": "A life for a story - A story for a life.\n\n\n\n This father and daughter duo bring to life a tale of thievery, giants, ghosts; and many a close brush with death. How much is a story worth? A reworking of a tale found across the British Isles in the 1800's, Colin and Iris bring a contemporary edge to these traditional tales with their unique style.",
       "event_flyer": "2026_02_21_pibworth.jpg",
       "venue_id": "bureau-centre-for-the-arts-blackburn",
       "performer_id": "iris-pibworth-colin-rowan"
@@ -3637,6 +3690,18 @@
         -1.7844856
       ]
     },
+    "cranborne-earthouse": {
+      "id": "cranborne-earthouse",
+      "name": "Cranborne Earthhouse",
+      "city": "Swindon",
+      "postcode": "BH21 5RP",
+      "full_address": "Cranborne Earthhouse, Ancient Technology Centre, Damerham Road, Wimborne, Dorset, BH21 5RP",
+      "url": "https://earthouse.org.uk/",
+      "latlon": [
+        50.9214,
+        -1.92039
+      ]
+    },
     "kings-head-lichfield": {
       "id": "kings-head-lichfield",
       "name": "Kings Head",
@@ -4165,13 +4230,37 @@
         -3.1368143
       ]
     },
+    "lyric-theatre-bridport": {
+      "id":"lyric-theatre-bridport",
+      "name": "Lyric Theatre",
+      "city": "Bridport",
+      "postcode": "DT6 3LX",
+      "full_address": "Lyric Theatre, 9 Barrack Street, Bridport, DT6 3LX",
+      "url": "https://the-lyric.com/",
+      "latlon": [
+        50.73378,
+        -2.75479
+      ]
+    },
+    "leicester-guildhall": {
+      "id":"leicester-guildhall",
+      "name": "Leicester Guildhall",
+      "city": "Leicester",
+      "postcode": "LE1 5FQ",
+      "full_address": "Leicester Guildhall, Guildhall Lane, Leicester, LE1 5FQ",
+      "url": "https://www.leicestermuseums.org/leicester-guildhall/",
+      "latlon": [
+        52.635,
+        -1.1373
+      ]
+    },
     "bureau-centre-for-the-arts-blackburn": {
       "id": "bureau-centre-for-the-arts-blackburn",
       "name": "Bureau Centre for the Arts",
       "city": "Blackburn",
       "postcode": "BB1 7JN",
       "full_address": "Bureau Centre for the Arts, Blackburn, BB1 7JN",
-      "url": "https://www.ticketsource.co.uk/whats-on/blackburn/the-bureau-centre-for-the-arts/the-steed-of-bells-storytelling-performance-colin-rowan-and-iris-skipworth/2026-02-21/19:30/t-yzakplp",
+      "url": "https://www.ticketsource.co.uk/whats-on/blackburn/the-bureau-centre-for-the-arts/the-steed-of-bells-storytelling-performance-colin-rowan-and-iris-skipworth/2026-02-21/19:30/t-yzakplp?ref=montystoryteller.org",
       "latlon": [
         53.7501,
         -2.48403
@@ -4480,7 +4569,7 @@
       "city": "Wroot",
       "postcode": "Doncaster",
       "full_address": "Wroot Rocks, Wroot, Doncaster, DN9 2BN",
-      "url": "https://www.ticketsource.co.uk/wroot-rocks",
+      "url": "https://www.ticketsource.co.uk/wroot-rocks?ref=montystoryteller.org",
       "latlon": [
         53.51938,
         -0.92375
@@ -5441,6 +5530,12 @@
       "name": "Jon Mason",
       "url": "https://jonthestoryteller.com/",
       "bio": "Storyteller based in Brighton.\n\n\n\n Jon tells stories about times gone by and the modern day, blending fact and fantasy, from all over the world, for kids and grownups. Jon has given performances and workshops at festivals, community events, schools, spoken word nights, and storytelling clubs around the country — he creates shows and sessions to suit all needs.\n\n\n\n Jon is also a folklorist and cultural historian, researching stories in the context of their time, place and social meaning. He has appeared as a guest on BBC Radio, and teach up to university level on storytelling skills, folklore and more."
+    },
+    "tuup": {
+      "id": "tuup",
+      "name": "TUUP",
+      "url": "https://tuup-storyteller.wixsite.com/tuup",
+      "bio": "TuuP was born in London of Guyanese parents.\n\n\n\n In the early 80s, Tuup was recognised by a small guyanese publishing house, run by Jessica & Eric Huntley, called Bogle L'Ouverture Press.\n\n\n\n Tuup joined the famous West London Storytelling Unit, run by artistic-director, Ben Haggarty and assistant-director, Georgiana Kebbel, a challenging innovative arts group looking at performance storytelling for adults.\n\n\n\nIn the mid 80s, Tuup formed a storytelling group with Flora Devi called 'Tellers of Time' (indian dance & folk tales coupled alongside african-caribbean tales & rhythms)."
     },
     "shonaleigh": {
       "id": "shonaleigh",
