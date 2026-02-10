@@ -65,7 +65,7 @@
       "time": "7-9pm",
       "club": "crickcrack",
       "price": "£13 (+£0.90 booking fee)",
-      "ticket_url": "https://www.ticketsource.co.uk/whats-on/cranborne/cranborne-earthouse/bodies-on-the-beach-the-last-battles-of-fionn-maccumhaill/e-kqxblv",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/cranborne/cranborne-earthouse/bodies-on-the-beach-the-last-battles-of-fionn-maccumhaill/e-kqxblv?ref=montystoryteller.org",
       "isSpecial": true,
       "fb_event": 1197885285708477,
       "venue_id": "cranborne-earthouse",
@@ -1047,6 +1047,16 @@
       "club": "brightontelltales",
       "club_flyer": "brighton_telltales_flyer.jpg",
       "venue_id": "the-yellow-book-brighton"
+    },
+    {
+      "name": "Tales at the Tavern",
+      "schedule": "1st wednesday",
+      "time": "7.15-9.30pm",
+      "facebook":"https://talesatthetavern.co.uk/",
+      "club": "talesatthetavern",
+      "description": "Open-mic slots of up 10 mins (approx) for performers, on a first come first served basis. To book a slot or find out more, contact Laura or Niall.\n\n\n\n *NEW: Sometimes, we give some space to tellers with something longer form to test. Also bookable in advance.\n\n\n\n As well as amazing stories and general joy, the Tavern does great food and drinks, and is a lovely welcoming place to be.",
+      "facebook": "https://www.facebook.com/talesatthetavern/",
+      "venue_id": "london-hospital-tavern"
     },
     {
       "name": "Leek storytellers",
@@ -3880,6 +3890,18 @@
       "latlon": [
         51.4851825,
         -3.206773
+      ]
+    },
+    "london-hospital-tavern": {
+      "id": "london-hospital-tavern",
+      "name": "London Hosptial Tavern",
+      "city": "Whitechapel, London",
+      "postcode": "E1 1BJ",
+      "full_address": "176 Whitechapel Road, London, E1 1BJ",
+      "url": "https://www.londonhospitaltavern.com/",
+      "latlon": [
+        51.51902,
+        -0.05886
       ]
     },
     "alder-sheffield": {
