@@ -392,6 +392,8 @@
       "performer_id": "gaz-brookfield",
       "tour_description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
       "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "time": "7.30pm",
+      "price": "£15 (+£1.50)",
       "tags": [
         "music",
         "tour",
@@ -402,37 +404,27 @@
       "tour_dates": [
         {
           "date": "06/02/2026",
-          "time": "7.30pm",
           "club": "gazbrookfield",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673293",
           "venue_id": "gupshill-manor-tewkesbury"
         },
         {
           "date": "07/02/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673294",
           "venue_id": "tolpuddle-village-hall"
         },
         {
           "date": "13/02/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673295",
           "venue_id": "grantchester-village-hall"
         },
         {
           "date": "14/02/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673296",
           "venue_id": "welford-youth-and-community-centre"
         },
         {
           "date": "20/01/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673297",
           "venue_id": "packington-village-hall"
         },
@@ -445,165 +437,155 @@
         },
         {
           "date": "27/02/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673299",
           "venue_id": "chew-stoke-church-hall"
         },
         {
           "date": "28/02/2026",
-          "time": "7.30pm",
-          "price": "£15 (+£1.50)",
           "ticket_url": "https://wegottickets.com/af/671/event/673301",
           "venue_id": "porthtowan-village-hall"
         },
         {
           "date": "06/03/2026",
-          "time": "7pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673302",
           "venue_id": "the-chester-tavern-kidderminster"
         },
         {
           "date": "07/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673303",
           "venue_id": "kingswood-village-hall-wotton"
         },
         {
           "date": "13/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673305",
           "venue_id": "the-burton-institute-matlock"
         },
         {
           "date": "14/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673306",
           "venue_id": "reeth-memorial-hall-richmond"
         },
         {
           "date": "20/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673307",
           "venue_id": "silchester-village-hall-reading"
         },
         {
           "date": "21/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673308",
           "venue_id": "west-lavington-village-hall-devizes"
         },
         {
           "date": "27/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673309",
           "venue_id": "hook-village-hall-royal"
         },
         {
           "date": "28/03/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673312",
           "venue_id": "payhembury-village-hall-honiton"
         },
         {
           "date": "10/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673313",
           "venue_id": "broome-village-hall-bungay"
         },
         {
           "date": "11/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673314",
           "venue_id": "pitstone-memorial-hall"
         },
         {
           "date": "17/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673316",
           "venue_id": "loppington-village-hall"
         },
         {
           "date": "18/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/683225",
           "venue_id": "nash-village-hall"
         },
          {
           "date": "24/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673317",
           "venue_id": "chartham-village-hall"
         },
         {
           "date": "25/04/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673318",
           "venue_id": "hassocks-adastra-hall"
         },
         {
           "date": "01/05/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673791",
           "venue_id": "rudry-parish-hall"
         },
         {
           "date": "02/05/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673319",
           "venue_id": "east-challow-village-hall"
         },
         {
           "date": "09/05/2026",
           "time": "7pm",
-          "price":  "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673321",
           "venue_id": "south-petherton-the-david-hall"
         },
         {
           "date": "19/05/2026",
-          "time": "7.30pm",
-          "price":  "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/684295",
           "isMusic": true,
           "venue_id": "edingale-village-hall"
         },
         {
           "date": "28/05/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/684296",
           "venue_id": "woodmancote-village-hall"
         },
         {
           "date": "17/06/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/684297",
           "venue_id": "bitterley-village-hall"
         },
         {
           "date": "30/06/2026",
-          "time": "7.30pm",
-          "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/684298",
           "venue_id": "bramshaw-village-hall"
+        },
+         {
+          "date": "01/07/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684299",
+          "venue_id": "minety-village-hall"
+        },
+        {
+          "date": "22/07/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684301",
+          "venue_id": "shaw-village-hall"
+        },
+        {
+          "date": "04/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684302",
+          "venue_id": "wellington-heath-memorial-hall"
+        },
+        {
+          "date": "19/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684303",
+          "venue_id": "tretower-village-hall"
+        },
+        {
+          "date": "26/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684307",
+          "venue_id": "grafton-underwood-village-hall"
+        },
+        {
+          "date": "27/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684308",
+          "venue_id": "condover-village-hall"
+        },
+        {
+          "date": "02/09/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684309",
+          "venue_id": "sixpenny-handley-village-hall"
         }
       ]
     },
@@ -5418,6 +5400,69 @@
       "url": "https://www.bramshawvillagehall.co.uk/",
       "latlon": [50.94133,-1.61792
       ]
+    },
+    "minety-village-hall": {
+      "id": "minety-village-hall",
+      "name": "Minety Village Hall",
+      "city": "Malmesbury",
+      "postcode": "SN16 9QH",
+      "full_address": "Minety Village Hall, Hornbury Hill, Minety, Malmesbury, SN16 9QH",
+      "url": "https://minetyvillagehall.uk/",
+      "latlon": [51.61427,-1.96722]
+    },
+    "shaw-village-hall": {
+      "id": "shaw-village-hall",
+      "name": "Shaw Village Hall",
+      "city": "Melksham",
+      "postcode": "SN12 8EP",
+      "full_address": "Shaw Village Hall, Melksham, SN12 8EP",
+      "url": "https://hallbookingonline.com/shaw/",
+      "latlon": [51.38946, -2.16474]
+    },
+    "wellington-heath-memorial-hall": {
+      "id": "wellington-heath-memorial-hall",
+      "name": "Wellington Heath Memorial Hall, Ledbury",
+      "city": "Ledbury",
+      "postcode": "HR8 1ND",
+      "full_address": "Wellington Heath Memorial Hall, Ledbury, HR8 1ND",
+      "url": "https://www.wellingtonheathmemorialhall.com/",
+      "latlon": [52.06162,-2.42287]
+    },
+    "tretower-village-hall": {
+      "id": "tretower-village-hall",
+      "name": "Tretower Village Hall",
+      "city": "Crickhowell",
+      "postcode": "NP8 1RF",
+      "full_address": "Tretower Village Hall, Crickhowell, NP8 1RF",
+      "url": "https://tretowervillagehall.org.uk/",
+      "latlon": [51.88445,-3.1856]
+    },
+       "grafton-underwood-village-hall": {
+      "id": "grafton-underwood-village-hall",
+      "name": "Grafton Underwood Village Hall",
+      "city": "Kettering",
+      "postcode": "NN14 3AA",
+      "full_address": "Grafton Underwood Village Hall, Kettering, NN14 3AA",
+      "url": "https://www.facebook.com/graftonunderwoodvillagehall/?locale=en_GB",
+      "latlon": [52.41267,-0.64358]
+    },
+     "condover-village-hall": {
+      "id": "condover-village-hall",
+      "name": "Condover Village Hall",
+      "city": "Shrewsbury",
+      "postcode": "SY5 7AA",
+      "full_address": "Condover Village Hall, Shrewsbury, SY5 7AA",
+      "url": "https://www.condovervillagehall.co.uk/",
+      "latlon": [52.64925,-2.74988]
+    },
+    "sixpenny-handley-village-hall": {
+      "id": "sixpenny-handley-village-hall",
+      "name": "Sixpenny Handley Village Hall",
+      "city": "Salisbury",
+      "postcode": "SP5 5NJ",
+      "full_address": "Sixpenny Handley Village Hall, Salisbury, SP5 5NJ",
+      "url": "https://sixpennyhandley.info/venues/sixpenny-handley-village-hall",
+      "latlon": [50.95474,-2.01061]
     }
   },
   "performers": {
