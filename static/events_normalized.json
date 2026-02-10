@@ -564,10 +564,46 @@
         },
         {
           "date": "02/05/2026",
-          "time": "7:30PM",
+          "time": "7.30pm",
           "price": "£15 + £1.50 booking fee",
           "ticket_url": "https://wegottickets.com/af/671/event/673319",
           "venue_id": "east-challow-village-hall"
+        },
+        {
+          "date": "09/05/2026",
+          "time": "7pm",
+          "price":  "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/673321",
+          "venue_id": "south-petherton-the-david-hall"
+        },
+        {
+          "date": "19/05/2026",
+          "time": "7.30pm",
+          "price":  "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/684295",
+          "isMusic": true,
+          "venue_id": "edingale-village-hall"
+        },
+        {
+          "date": "28/05/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/684296",
+          "venue_id": "woodmancote-village-hall"
+        },
+        {
+          "date": "17/06/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/684297",
+          "venue_id": "bitterley-village-hall"
+        },
+        {
+          "date": "30/06/2026",
+          "time": "7.30pm",
+          "price": "£15 + £1.50 booking fee",
+          "ticket_url": "https://wegottickets.com/af/671/event/684298",
+          "venue_id": "bramshaw-village-hall"
         }
       ]
     },
@@ -5331,6 +5367,56 @@
       "full_address": "East Challow Village Hall, Wantage, OX12 9SR",
       "url": "https://www.eastchallowpc.co.uk/village-facilities/village-hall/",
       "latlon": [51.59194,-1.45263
+      ]
+    },
+    "south-petherton-david-hall": {
+      "id": "south-petherton-david-hall",
+      "name": "The David Hall",
+      "city": "South Petherton ",
+      "postcode": "TA13 5AA",
+      "full_address": "The David Hall, Roundwell St, South Petherton, TA13 5AA",
+      "url": "https://www.thedavidhall.com/",
+      "latlon": [50.94884,-2.8063
+      ]
+    },
+    "edingale-village-hall": {
+      "id": "edingale-village-hall",
+      "name": "Edingale Village Hall",
+      "city": "Tamworth",
+      "postcode": "B79 9LJ",
+      "full_address": "Edingale Village Hall, Edingale, Tamworth, B79 9LJ",
+      "url": "https://www.edingalevillagehall.com/",
+      "latlon": [52.70641,-1.68757
+      ]
+    },
+    "woodmancote-village-hall": {
+      "id": "woodmancote-village-hall",
+      "name": "Woodmancote Village Hall",
+      "city": "Cheltenham",
+      "postcode": "GL52 9HX",
+      "full_address": "Woodmancote Village Hall, Cheltenham, GL52 9HX",
+      "url": "https://www.woodmancotevillagehall.org.uk/",
+      "latlon": [51.94452,-2.04301
+      ]
+    },
+    "bitterley-village-hall": {
+      "id": "bitterley-village-hall",
+      "name": "Bitterley Village Hall",
+      "city": "Ludlow",
+      "postcode": "SY8 3HQ",
+      "full_address": "Bitterley Village Hall, Ludlow, SY8 3HQ",
+      "url": "https://sites.google.com/site/bitterleyvillagehall/",
+      "latlon": [52.39405,-2.64235
+      ]
+    },
+    "bramshaw-village-hall": {
+      "id": "bramshaw-village-hall",
+      "name": "Bramshaw Village Hall",
+      "city": "Lyndhurst",
+      "postcode": "SO43 7JE",
+      "full_address": "Bramshaw Village Hall, Lyndhurst, SO43 7JE",
+      "url": "https://www.bramshawvillagehall.co.uk/",
+      "latlon": [50.94133,-1.61792
       ]
     }
   },
