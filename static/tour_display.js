@@ -7,6 +7,16 @@ let toursLookup = {};
 
 const UK_IRELAND_BOUNDS = L.latLngBounds([49.5, -11.0], [61.0, 2.5]);
 
+// Icon SVGs matching the main event guide
+const ICON_SVG = {
+  facebook:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+  email:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>',
+  website:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
+};
+
 function sanitizeUrl(url) {
   if (!url) return null;
   url = url.trim();
@@ -155,7 +165,12 @@ function handlePerformerChange() {
 }
 
 function handleTourChange() {
-  // Tour selected, ready to load
+  // Auto-load tour when selection changes
+  const tourId = document.getElementById("tourSelect").value;
+  if (tourId) {
+    displayTour(tourId);
+    updateURL(tourId);
+  }
 }
 
 function getURLParams() {
@@ -332,6 +347,22 @@ function createExpandableSection(parent, label, content, type) {
   parent.appendChild(expandable);
 }
 
+function createIcon(container, type, url) {
+  if (url) {
+    const safeUrl = sanitizeUrl(url);
+    if (safeUrl) {
+      const link = document.createElement("a");
+      link.href = safeUrl;
+      link.target = "_blank";
+      link.className = `event-${type}`;
+      link.title = String(type).charAt(0).toUpperCase() + String(type).slice(1);
+      link.onclick = (e) => e.stopPropagation();
+      link.innerHTML = ICON_SVG[type];
+      container.appendChild(link);
+    }
+  }
+}
+
 function createTourDateElement(tourDate, tour) {
   const div = document.createElement("div");
   // Use the standard event classes for gradients and borders
@@ -362,7 +393,7 @@ function createTourDateElement(tourDate, tour) {
   });
   div.appendChild(nameDiv);
 
-  // Venue Location
+  // Venue Location with icons
   if (tourDate.venue_id && venuesLookup[tourDate.venue_id]) {
     const venue = venuesLookup[tourDate.venue_id];
     const venueDiv = document.createElement("div");
@@ -388,29 +419,77 @@ function createTourDateElement(tourDate, tour) {
     } else {
       venueDiv.textContent = venue.full_address || venue.name;
     }
+
+    // Add venue icons (email, website, facebook)
+    const venueIconsContainer = document.createElement("span");
+    venueIconsContainer.style.marginLeft = "8px";
+
+    if (venue.url) {
+      createIcon(venueIconsContainer, "website", venue.url);
+    }
+    if (venue.email) {
+      createIcon(venueIconsContainer, "email", `mailto:${venue.email}`);
+    }
+    if (venue.facebook) {
+      const fbUrl = venue.facebook.startsWith("http")
+        ? venue.facebook
+        : `https://facebook.com/${venue.facebook}`;
+      createIcon(venueIconsContainer, "facebook", fbUrl);
+    }
+
+    venueDiv.appendChild(venueIconsContainer);
     div.appendChild(venueDiv);
   }
 
-  // Tickets
-  if (tourDate.ticket_url) {
-    const safeTicketUrl = sanitizeUrl(tourDate.ticket_url);
-    if (safeTicketUrl) {
-      const ticketDiv = document.createElement("div");
-      ticketDiv.className = "event-tickets"; // Use class from events-styles.css
+  // Tickets and Facebook Event
+  const hasTickets = tourDate.ticket_url;
+  const hasFbEvent = tourDate.fb_event;
 
-      const ticketLink = document.createElement("a");
-      ticketLink.href = safeTicketUrl;
-      ticketLink.target = "_blank";
-      ticketLink.textContent = "Get tickets";
+  if (hasTickets || hasFbEvent) {
+    const ticketDiv = document.createElement("div");
+    ticketDiv.className = "event-tickets";
 
-      // ADD THIS: Prevent map zoom on ticket click
-      ticketLink.addEventListener("click", (e) => {
-        e.stopPropagation();
-      });
+    if (hasTickets) {
+      const safeTicketUrl = sanitizeUrl(tourDate.ticket_url);
+      if (safeTicketUrl) {
+        const ticketLink = document.createElement("a");
+        ticketLink.href = safeTicketUrl;
+        ticketLink.target = "_blank";
+        ticketLink.textContent = "Tickets available here";
 
-      ticketDiv.appendChild(ticketLink);
-      div.appendChild(ticketDiv);
+        // Prevent map zoom on ticket click
+        ticketLink.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+
+        ticketDiv.appendChild(ticketLink);
+      }
     }
+
+    // Add Facebook event link if present
+    if (hasFbEvent) {
+      const fbEventUrl = sanitizeUrl(
+        `https://www.facebook.com/events/${tourDate.fb_event}`,
+      );
+      if (fbEventUrl) {
+        if (hasTickets) {
+          const separator = document.createElement("span");
+          separator.className = "separator";
+          separator.textContent = " | ";
+          ticketDiv.appendChild(separator);
+        }
+
+        const fbLink = document.createElement("a");
+        fbLink.href = fbEventUrl;
+        fbLink.target = "_blank";
+        fbLink.className = "event-facebook-inline";
+        fbLink.onclick = (e) => e.stopPropagation();
+        fbLink.innerHTML = ICON_SVG.facebook;
+        ticketDiv.appendChild(fbLink);
+      }
+    }
+
+    div.appendChild(ticketDiv);
   }
 
   // --- Advice Button ---
