@@ -1,6 +1,83 @@
 {
-  "tours": {
+  "touring_shows": {
 
+    "sally-pomme-clayton-mighty-goddess": {
+      "name": "The Mighty Goddess [Sally Pomme Clayton]",
+      "showname": "The Mighty Goddess",
+      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
+      "touring_event_flyer": "",
+      "isSpecial": true,
+      "performer_id": "sally-pomme-clayton",
+      "show_dates": [
+        {
+          "date": "04/12/2025",
+          "time": "7pm",
+          "club": "abitcrack",
+          "price": "£10 / £5 / £3",
+          "event_flyer": "2025_12_04_abitcrack_pomme_goddess.jpg",
+          "ticket_url": "https://www.alphabettitheatre.co.uk/themightygoddess",
+          "venue_id": "alphabetti-theatre-newcastle"
+        },
+        {
+          "date": "20/02/2026",
+          "time": "7.30 pm",
+          "price": "Pay what you decide (min. £5)",
+          "ticket_url": "https://www.ticketsource.co.uk/frontroomwsm/the-mighty-goddess/e-bblzao?ref=montystoryteller.org",
+          "venue_id": "the-front-room-theatre-weston"
+        },
+        {
+          "date": "08/03/2026",
+          "time": "8pm",
+          "price": "£20 (£18 conc; SfS discount code: GODDESS15)",
+          "ticket_url": "https://www.omnibus-clapham.org/mighty-goddess/",
+          "venue_id": "omnibus-theatre-clapham"
+        },
+        {
+          "date": "26/03/2026",
+          "time": "7.30pm",
+          "club": "storymuseum",
+          "price": "£12",
+          "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-the-mighty-goddess",
+          "venue_id": "the-story-museum-oxford"
+        }
+      ]
+    }
+  },
+  "tours": {
+    "nick-hennessey-dreaming-great-bear-2025": {
+      "name": "Dreaming the Great Bear [Nick Hennessey]",
+      "tour_name": "Dreaming the Great Bear",
+      "performer_id": "nick-hennessey",
+      "tour_description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it's all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
+      "tags": [
+        "storytelling",
+        "tour",
+        "2025"
+      ],
+      "isMusic": false,
+      "isSpecial": true,
+      "club":"artsreachdorset",
+      "tour_dates": [
+        {
+          "date": "14/11/2025",
+          "fb_event": 2248461162298642,
+          "venue_id": "sandford-orcas-village-hall-dorchester"
+        },
+        {
+          "date": "15/11/2025",
+          "time": "7.30pm",
+          "price": "£12",
+          "fb_event": 775178078631443,
+          "venue_id": "child-okeford-village-hall"
+        },
+        {
+          "date": "16/11/2025",
+          "time": "19.30pm",
+          "fb_event": 813746617897458,
+          "venue_id": "broadmayne-village-hall-dorchester"
+        }
+        ]
+      },
     "haggerty_brittain-bodies-beach": {
       "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
       "tour_name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
@@ -1378,51 +1455,6 @@
       "isSpecial": true,
       "venue_id": "hillcrest-community-centre-newhaven",
       "performer_id": "nell-phoenix"
-    },
-    {
-      "name": "Dreaming the Great Bear [Nick Hennessey]",
-      "showname": "Dreaming the Great Bear",
-      "date": "14/11/2025",
-      "time": "",
-      "club": "artsreachdorset",
-      "price": "",
-      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it's all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
-      "event_flyer": "",
-      "ticket_url": "",
-      "isSpecial": true,
-      "fb_event": 2248461162298642,
-      "venue_id": "sandford-orcas-village-hall-dorchester",
-      "performer_id": "nick-hennessey"
-    },
-    {
-      "name": "Dreaming the Great Bear [Nick Hennessey]",
-      "showname": "Dreaming the Great Bear",
-      "date": "15/11/2025",
-      "time": "7.30pm",
-      "club": "artsreachdorset",
-      "price": "",
-      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it's all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
-      "event_flyer": "",
-      "ticket_url": "£12",
-      "isSpecial": true,
-      "fb_event": 775178078631443,
-      "venue_id": "child-okeford-village-hall",
-      "performer_id": "nick-hennessey"
-    },
-    {
-      "name": "Dreaming the Great Bear [Nick Hennessey]",
-      "showname": "Dreaming the Great Bear",
-      "date": "16/11/2025",
-      "time": "19.30pm",
-      "club": "artsreachdorset",
-      "price": "",
-      "description": "Here in the Finnish far north the light is just a little too bright and the dark a little too blinding, the rivers flow fast and deep and it's all too easy to get lost in the forest. Internationally acclaimed storyteller and musician Nick Hennessey forges a world into being. With electric harp, vocal looping and acoustic wizardry, he conjures a cosmos of the imagination. Expect a remarkable, elemental epic and a world of sound as we enter the wild, playful, and surreal territories of the Finnish myth, the Kalevala.",
-      "event_flyer": "",
-      "ticket_url": "",
-      "isSpecial": true,
-      "fb_event": 813746617897458,
-      "venue_id": "broadmayne-village-hall-dorchester",
-      "performer_id": "nick-hennessey"
     },
     {
       "name": "Madness, Merry Making and Liberation [Sarah Dovey]",
