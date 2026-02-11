@@ -2362,6 +2362,18 @@
       "performer_id": "tamar-eluned-williams-jordan-price-williams"
     },
     {
+      "name": "Tales & Ales — Valentine special [P. D. Brown]",
+      "showname": "Tales & Ales — Valentine special",
+      "performer_id": "p-d-brown",
+      "date": "12/02/2026",
+      "price": "£5",
+      "description": "Bitter sweet love stories with a twist: a Valentine’s Day Special!\n\n\n\n Hear five tales straight from the heart :- n\n\n\nValkyrie's only love oncen\n\n\nThe seal maidenn\n\n\nThe lovers' coven\n\n\n Tristan & Isolden\n\n\nDeirdru of the Sorrowsn\n\n\nAll told by master storyteller P.D.Brown",
+      "venue_id": "angels-cut-darlington",
+      "ticket_url": "https://stephen-gill.sumupstore.com/product/tales-and-ales-valentine-special-12th-feb",
+      "event_flyer": "2026_02_12_tales_ales_valentine.png",
+      "isSpecial": true
+    },
+    {
       "name": "In the time of GIANTS [The Travelling Talesman]",
       "showname": "In the time of GIANTS",
       "date": "15/03/2026",
@@ -5665,8 +5677,8 @@
     "p-d-brown": {
       "id": "p-d-brown",
       "name": "P. D. Brown",
-      "url": "",
-      "bio": ""
+      "url": "https://www.facebook.com/halfmanhalfmyth/",
+      "bio": "Since 1985, David Brown has been telling stories in theatres, art centres, libraries, city farms and schools, in woods and fields, at camp sites and festivals from Orkney to Land's End.\n\n\n\n David specialises in epics, myths and legends from the so-called “Dark Ages” or early mediaeval period including the Welsh Four Branches of the Mabinogion, the Norse mythological cycle, Beowulf, Wayland the Smith and historical tales of sixth century northern British kings, from Gwynedd to Edinburgh.\n\n\n\n He is keen to promote storytelling for the enjoyment of adults as well as children. Ghost and horror stories are his second favourite genre which he has collected from trips to Cornwall and Iceland as well as his native Cumbria.\n\n\n\nDavid first started telling stories after hearing a cassette of Robin Williamson's tales.  He learnt a couple of the stories on the cassette, commenced learning the Norse mythological cycle and has not stopped since then. To more fully recreate the voice of the bards, David's translations of appropriate poems are interspersed in the narrative of such stories, as well as his own poems composed according to the rules of Anglo-Saxon and Norse verse. The lyre — the storyteller's instrument up until the early Middle Ages —  accompanies some of these tales."
     },
     "steph-brittain": {
       "id": "steph-brittain",
