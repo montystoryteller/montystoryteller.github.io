@@ -413,6 +413,7 @@
                     console.log(`  - ${eventsData.musicEvents?.length || 0} music events`);
                     console.log(`  - ${eventsData.folkNights?.length || 0} folk nights`);
                     console.log(`  - ${eventsData.irishSessions?.length || 0} Irish sessions`);
+                    console.log(`  - ${Object.keys(eventsData.touring_shows || {}).length} touring shows`);
 
                     // Flag events with missing geocode
                     const checkMissing = (eventsList, label) => {
@@ -804,6 +805,60 @@
             return eventData;
         }
 
+        async function processTouringShows(startDate, endDate) {
+            const touringShows = eventsData.touring_shows || {};
+
+            for (const showKey in touringShows) {
+                const show = touringShows[showKey];
+
+                // Determine event type - default to 'special' if isSpecial is true
+                const eventType = show.isSpecial ? 'special' : 'storyclub';
+
+                // Process each show date
+                for (const showDate of show.show_dates || []) {
+                    if (!showDate.date) {
+                        console.warn(`Missing date for touring show in ${show.name}:`, showDate);
+                        continue;
+                    }
+
+                    const dateParts = showDate.date.split('/');
+                    if (dateParts.length !== 3) {
+                        console.warn(`Invalid date format for touring show in ${show.name}:`, showDate);
+                        continue;
+                    }
+
+                    const day = parseInt(dateParts[0], 10);
+                    const month = parseInt(dateParts[1], 10);
+                    const year = parseInt(dateParts[2], 10);
+
+                    const eventDate = new Date(year, month - 1, day);
+                    if (eventDate >= startDate && eventDate <= endDate) {
+                        // Merge show-level and date-level properties
+                        const mergedEvent = {
+                            name: show.name,
+                            showname: show.showname,
+                            touring_show_id: showKey,
+                            performer_id: show.performer_id,
+                            date: showDate.date,
+                            time: showDate.time || show.time || null,
+                            price: showDate.price || show.price || null,
+                            venue_id: showDate.venue_id,
+                            club: showDate.club || show.club || null,
+                            description: show.description || null,
+                            event_flyer: showDate.event_flyer || null,
+                            touring_event_flyer: show.touring_event_flyer || null,
+                            fb_event: showDate.fb_event || null,
+                            ticket_url: showDate.ticket_url || null
+                        };
+
+                        const eventData = createEventData(mergedEvent, eventDate, eventType);
+                        allEventsData.push(eventData);
+                        await addMarkerForEvent(eventData);
+                    }
+                }
+            }
+        }
+
         async function processTourEvents(startDate, endDate) {
             const tours = eventsData.tours || {};
 
@@ -986,6 +1041,9 @@
 
             // Add tour dates
             await processTourEvents(startDate, endDate);
+
+            // Add touring show dates (NEW LINE)
+            await processTouringShows(startDate, endDate);
 
             allEventsData.sort((a, b) => a.date - b.date);
             renderEventsList(allEventsData);
