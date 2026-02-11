@@ -242,10 +242,15 @@
 
         /* Ensure links stay white and clean on Music/Folk cards */
         .tour-date-item.music .event-location a,
-        .tour-date-item.music .event-tickets a,
-        .tour-date-item.folk .event-location a,
-        .tour-date-item.folk .event-tickets a {
+        .tour-date-item.folk .event-location a {
             color: #ffffff !important;
+            text-decoration: none !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .tour-date-item.music .event-tickets a,
+        .tour-date-item.folk .event-tickets a {
+            color: #fefa16 !important;
             text-decoration: none !important;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
