@@ -220,6 +220,29 @@ function loadTour() {
   updateURL(tourId);
 }
 
+function createPerformerLinkElement(performer, isHeader = true) {
+  if (!performer) return null;
+
+  if (performer.url) {
+    const safeUrl = sanitizeUrl(performer.url);
+    const link = document.createElement("a");
+    link.href = safeUrl;
+    link.target = "_blank";
+    link.className = `performer-link ${isHeader ? "site-link-header" : "site-link-footer"}`;
+    link.textContent = isHeader
+      ? `Visit ${performer.name}'s Website`
+      : `Official Website: ${performer.name}`;
+    return link;
+  } else {
+    // Return a plain span if no URL exists
+    const span = document.createElement("span");
+    span.className = `performer-link ${isHeader ? "site-link-header" : "site-link-footer"}`;
+    span.style.color = "#333"; // Darker color for non-links
+    span.textContent = performer.name;
+    return span;
+  }
+}
+
 function displayTour(tourId) {
   const tour = toursLookup[tourId];
   if (!tour) {
@@ -238,42 +261,53 @@ function displayTour(tourId) {
   document.getElementById("tourTitle").textContent = tour.name;
   document.getElementById("tourSubtitle").textContent = tour.tour_name || "";
 
-  // Performer website
+  // Performer websites
   const performer = performersLookup[tour.performer_id];
-  const flyerContainer = document.getElementById("tourFlyerContainer");
-  const flyerImage = document.getElementById("tourFlyerImage");
-
-  // Display tour flyer if available
-  const existingLinks = flyerContainer.querySelectorAll(".performer-link");
-  existingLinks.forEach((link) => link.remove());
-
-  if (performer && performer.url) {
-    const safeUrl = sanitizeUrl(performer.url);
-
-    // Create Top Link
-    const topLink = document.createElement("a");
-    topLink.href = safeUrl;
-    topLink.target = "_blank";
-    topLink.className = "performer-link site-link-header";
-    topLink.textContent = `Visit ${performer.name}'s Website`;
-    flyerContainer.insertBefore(topLink, flyerImage);
-
-    // Create Bottom Link
-    const bottomLink = document.createElement("a");
-    bottomLink.href = safeUrl;
-    bottomLink.target = "_blank";
-    bottomLink.className = "performer-link site-link-footer";
-    bottomLink.textContent = `Official Website: ${performer.name}`;
-    flyerContainer.appendChild(bottomLink);
+  const performerIds = new Set();
+  if (tour.performer_id) performerIds.add(tour.performer_id);
+  if (tour.performer_ids && Array.isArray(tour.performer_ids)) {
+    tour.performer_ids.forEach((id) => performerIds.add(id));
   }
 
+  const flyerContainer = document.getElementById("tourFlyerContainer");
+  const flyerImage = document.getElementById("tourFlyerImage");
+  flyerContainer
+    .querySelectorAll(".performer-link")
+    .forEach((link) => link.remove());
+
+  performerIds.forEach((id) => {
+    const perf = performersLookup[id];
+    if (perf && perf.url) {
+      const safeUrl = sanitizeUrl(perf.url);
+      if (!safeUrl) return;
+
+      // Create Top Link
+      const topLink = document.createElement("a");
+      topLink.href = safeUrl;
+      topLink.target = "_blank";
+      topLink.className = "performer-link site-link-header";
+      topLink.textContent = `Visit ${perf.name}'s Website`;
+      flyerContainer.insertBefore(topLink, flyerImage); // Before the image
+
+      // Create Bottom Link
+      const bottomLink = document.createElement("a");
+      bottomLink.href = safeUrl;
+      bottomLink.target = "_blank";
+      bottomLink.className = "performer-link site-link-footer";
+      bottomLink.textContent = `Official Website: ${perf.name}`;
+      flyerContainer.appendChild(bottomLink); // After the image
+    }
+  });
   if (tour.tour_flyer) {
     const flyerPath = tour.tour_flyer.replace(/[^a-zA-Z0-9._-]/g, "");
     flyerImage.src = `./storyclub_assets/event_flyers/${flyerPath}`;
     flyerImage.alt = `${tour.name} tour flyer`;
+    flyerImage.style.display = "block";
     flyerContainer.style.display = "block";
   } else {
-    flyerContainer.style.display = "none";
+    flyerImage.style.display = "none";
+    // Show container if there are links, even if image is missing
+    flyerContainer.style.display = performerIds.size > 0 ? "block" : "none";
   }
 
   // Display tour description if available

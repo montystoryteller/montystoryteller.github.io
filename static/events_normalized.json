@@ -87,6 +87,7 @@
       "name": "Stars and their Consolations",
       "tour_name": "Stars and their Consolations Tour",
       "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis",
+      "performer_ids": ["daniel-morden", "hugh-lupton", "sarah-lianne-lewis"],
       "tour_description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
       "tour_flyer": "morden_lupton_stars.jpg",
       "tags": [
@@ -5882,6 +5883,12 @@
       "name": "Laura Sampson and Stacey Blythe",
       "url": "",
       "bio": ""
+    },
+    "sarah-lianne-lewis": {
+      "id": "sarah-lianne-lewis",
+      "name": "Sarah Lianne Lewis",
+      "url": "https://www.sarahliannelewis.com/",
+      "bio": "Sarah Lianne Lewis is a Welsh composer crafting vivid and inventive music that bridges tradition and innovation. Working in both concert hall and stage, her music weaves unexpected sonorities - acoustic and electronic - into bold soundscapes that captivate and challenge in equal measure."
     },
     "daniel-morden-hugh-lupton-sarah-lianne-lewis": {
       "id": "daniel-morden-hugh-lupton-sarah-lianne-lewis",
