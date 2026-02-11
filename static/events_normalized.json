@@ -83,6 +83,103 @@
     }
     ]
     },
+    "daniel-morden-hugh-lupton-stars-consolations-2026": {
+      "name": "Stars and their Consolations",
+      "tour_name": "Stars and their Consolations Tour",
+      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis",
+      "tour_description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
+      "tour_flyer": "morden_lupton_stars.jpg",
+      "tags": [
+        "storytelling",
+        "tour",
+        "2026"
+      ],
+      "isMusic": false,
+      "isSpecial": true,
+      "club":"adversecamber",
+      "tour_dates": [
+        {
+          "date": "21/03/2026",
+          "time": "7.30pm",
+          "price": "£14.50, £12.50",
+          "ticket_url": "https://www.theatrausirgar.co.uk/en/shows/stars-and-their-consolations",
+          "venue_id": "ffwrnes-llanelli",
+          "fb_event": 1196741042508760
+        },
+        {
+          "date": "24/03/2026",
+          "time": "7.30pm",
+          "price": "£15",
+          "ticket_url": "https://www.torchtheatre.co.uk/events/stars-and-their-consolations/",
+          "venue_id": "torch-theatre-milford",
+          "fb_event": 1168100702093270
+        },
+        {
+          "date": "25/03/2026",
+          "time": "8pm",
+          "price": "£18, £16",
+          "ticket_url": "https://newportlive.ticketsolve.com/ticketbooth/shows/1173669720",
+          "venue_id": "the-riverfront-newport",
+          "fb_event": 825438926880868
+        },
+        {
+          "date": "26/03/2026",
+          "time": "7.30pm",
+          "price": "£14-16",
+          "ticket_url": "https://boroughtheatreabergavenny.co.uk/shows/stars-and-their-consolations/",
+          "venue_id": "borough-theatre-abergavenny",
+          "fb_event": 853425393835323
+        },
+        {
+          "date": "28/03/2026",
+          "time": "7.30pm",
+          "price": "£12",
+          "ticket_url": "https://www.tickettailor.com/events/henbant/1909878",
+          "venue_id": "hearth-henbant",
+          "fb_event": 1611495913530149
+        },
+        {
+          "date": "29/03/2026",
+          "time": "7.30pm",
+          "price": "£10",
+          "ticket_url": "https://www.llangoedvillagehall.com/events/stars-and-their-consolations",
+          "venue_id": "neuadd-bentref-llangoed-village-hall",
+          "fb_event": 1518843452685413
+        },
+        {
+          "date": "30/03/2026",
+          "time": "7.45pm",
+          "price": "£15+",
+          "ticket_url": "https://www.theatrclwyd.com/event/stars-and-their-consolations",
+          "venue_id": "theatr-clwyd-mold",
+          "fbevent": 779536088375149
+        },
+        {
+          "date": "31/03/2026",
+          "time": "7.30pm",
+          "price": "£10-£17 (+£1.50)",
+          "ticket_url": "https://aberystwythartscentre.ticketsolve.com/ticketbooth/shows/1173671328",
+          "venue_id": "aberystwyth-arts-centre",
+          "fbevent": 2122318315183564
+        },
+        {
+          "date": "01/04/2026",
+          "time": "7.30-9.30pm",
+          "price": "£14.50 (£12.50)",
+          "ticket_url": "https://pontardaweartscentre.com/shows/stars-and-their-consolations/",
+          "venue_id": "pontardawe-arts-centre",
+          "fbevent": 1125644786220403
+        },
+        {
+          "date": "02/04/2026",
+          "time": "7.30-9.30pm",
+          "price": "£9-£18",
+          "ticket_url": "https://www.rwcmd.ac.uk/events/stars-and-their-consolations",
+          "venue_id": "royal-welsh-college-music-drama",
+          "fbevent": 1200748131902541
+        }
+      ]
+    },
     "jason-buck-slaine-horned-god-2026": {
       "name": "Sláine: The Horned God",
       "tour_name": "Sláine: The Horned God Tour",
@@ -2293,21 +2390,6 @@
       "performer_id": "laura-sampson-and-stacey-blythe"
     },
     {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "21/03/2026",
-      "time": "7.30pm",
-      "club": "adversecamber",
-      "price": "£14.50, £12.50",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "https://www.theatrausirgar.co.uk/en/shows/stars-and-their-consolations",
-      "isSpecial": true,
-      "fb_event": 1196741042508760,
-      "venue_id": "ffwrnes-llanelli",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
-    },
-    {
       "name": "Tales from the Time Between Times [Owen Staton]",
       "showname": "Tales from the Time Between Times",
       "date": "27/02/2026",
@@ -2320,36 +2402,6 @@
       "isSpecial": true,
       "venue_id": "coelbren-welfare-hall",
       "performer_id": "owen-staton"
-    },
-    {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "24/03/2026",
-      "time": "7.30pm",
-      "club": "adversecamber",
-      "price": "£15",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "https://www.torchtheatre.co.uk/events/stars-and-their-consolations/",
-      "isSpecial": true,
-      "fb_event": 1168100702093270,
-      "venue_id": "torch-theatre-milford",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
-    },
-    {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "25/03/2026",
-      "time": "8pm",
-      "club": "adversecamber",
-      "price": "£18, £16",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "https://newportlive.ticketsolve.com/ticketbooth/shows/1173669720",
-      "isSpecial": true,
-      "fb_event": 825438926880868,
-      "venue_id": "the-riverfront-newport",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
     },
     {
       "name": "The Mighty Goddess [Sally Pomme Clayton]",
@@ -2366,51 +2418,6 @@
       "performer_id": "sally-pomme-clayton"
     },
     {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "26/03/2026",
-      "time": "7.30pm",
-      "club": "adversecamber",
-      "price": "£14-16",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "https://boroughtheatreabergavenny.co.uk/shows/stars-and-their-consolations/",
-      "isSpecial": true,
-      "fb_event": 853425393835323,
-      "venue_id": "borough-theatre-abergavenny",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
-    },
-    {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "28/03/2026",
-      "time": "7.30pm",
-      "club": "adversecamber",
-      "price": "£12",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "https://www.tickettailor.com/events/henbant/1909878",
-      "isSpecial": true,
-      "fb_event": 1611495913530149,
-      "venue_id": "hearth-henbant",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
-    },
-    {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "29/03/2026",
-      "time": "7.30pm",
-      "club": "adversecamber",
-      "price": "£10",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "ticket_url": "",
-      "isSpecial": true,
-      "fb_event": 1518843452685413,
-      "venue_id": "neuadd-bentref-llangoed-village-hall",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
-    },
-    {
       "name": "The Girl Who Married a Dog [Nell Phoenix]",
       "showname": "The Girl Who Married a Dog",
       "promoter_link": "http://nellphoenix.co.uk/",
@@ -2424,18 +2431,6 @@
       "isSpecial": true,
       "venue_id": "st-nicholas-priory-exeter",
       "performer_id": "nell-phoenix"
-    },
-    {
-      "name": "Stars and their Consolations [Daniel Morden, Hugh Lupton & Sarah Lianne Lewis]",
-      "showname": "Stars and their Consolations",
-      "date": "30/03/2026",
-      "time": "7.45pm",
-      "club": "adversecamber",
-      "price": "£15+",
-      "description": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape.",
-      "event_flyer": "morden_lupton_stars.jpg",
-      "venue_id": "theatr-clwyd-mold",
-      "performer_id": "daniel-morden-hugh-lupton-sarah-lianne-lewis"
     },
     {
       "name": "Stirring Stories: An Imbolc Storytelling at MIC [Henry Everett and Hannah Sneyd]",
@@ -4310,6 +4305,42 @@
       "latlon": [
         53.1792422,
         -3.1368143
+      ]
+    },
+    "aberystwyth-arts-centre": {
+      "id": "aberystwyth-arts-centre",
+      "name": "Aberystwyth Arts Centre — Canolfan y Celfyddydau",
+      "city": "Aberystwyth",
+      "postcode": "SY23 3DE",
+      "full_address": "Aberystwyth Arts Centre, Aberystwyth University, Aberystwyth, SY23 3DE",
+      "url": "https://aberystwythartscentre.co.uk/",
+      "latlon": [
+        52.41521,
+        -4.06336
+      ]
+    },
+    "pontardawe-arts-centre": {
+      "id": "pontardawe-arts-centre",
+      "name": "Pontardawe Arts Centre",
+      "city": "Pontardawe",
+      "postcode": "SA8 4ED",
+      "full_address": "Pontardawe Arts Centre, Herbert Street, Pontardawe, SA8 4ED",
+      "url": "https://pontardaweartscentre.com/",
+      "latlon": [
+        51.71933,
+        -3.84988
+      ]
+    },
+    "royal-welsh-college-music-drama": {
+      "id": "royal-welsh-college-music-drama",
+      "name": "Royal Welsh College of Music & Drama - Coleg Brenhinol Cerdd a Drama Cymru",
+      "city": "Cardiff",
+      "postcode": "CF10 3ER",
+      "full_address": "Royal Welsh College of Music & Drama, Castle Grounds, Cathays Park, Cardiff, CF10 3ER",
+      "url": "https://www.rwcmd.ac.uk/",
+      "latlon": [
+        51.48591,
+        -3.18395
       ]
     },
     "lyric-theatre-bridport": {
