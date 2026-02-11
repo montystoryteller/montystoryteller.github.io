@@ -102,10 +102,9 @@
         }
 
         .tour-date-item:hover {
+            transform: none !important;
             background-color: #f0f0f0;
             border-left-color: #2e7d32;
-            transform: translateX(5px);
-            transition: all 0.2s ease;
         }
 
         .tour-date-item.music:hover {
@@ -223,6 +222,32 @@
         .btn-reset:hover {
             background-color: #e2e2e2;
             border-color: #999;
+        }
+
+        /* Fix link readability: high contrast blue, NO underline */
+        .tour-date-item .event-location a,
+        .tour-date-item .event-tickets a {
+            color: #0056b3 !important;
+            text-decoration: none !important;
+            /* Underline removed */
+            font-weight: bold !important;
+        }
+
+        /* Optional: Add the underline back only when hovering so users know it's a link */
+        .tour-date-item .event-location a:hover,
+        .tour-date-item .event-tickets a:hover {
+            color: #003d80 !important;
+            text-decoration: underline !important;
+        }
+
+        /* Ensure links stay white and clean on Music/Folk cards */
+        .tour-date-item.music .event-location a,
+        .tour-date-item.music .event-tickets a,
+        .tour-date-item.folk .event-location a,
+        .tour-date-item.folk .event-tickets a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>

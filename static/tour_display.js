@@ -318,7 +318,7 @@ function createTourDateElement(tourDate, tour) {
     if (tourDate.venue_id && venuesLookup[tourDate.venue_id]) {
       const venue = venuesLookup[tourDate.venue_id];
       if (venue.latlon) {
-        map.flyTo(venue.latlon, 14, { duration: 1.5 });
+        map.flyTo(venue.latlon, 14);
         markers.forEach((m) => {
           if (m.getLatLng().lat === venue.latlon[0]) m.openPopup();
         });
@@ -339,24 +339,53 @@ function createTourDateElement(tourDate, tour) {
 
   // Venue Location
   if (tourDate.venue_id && venuesLookup[tourDate.venue_id]) {
-    const locDiv = document.createElement("div");
-    locDiv.className = "event-location";
-    locDiv.textContent =
-      venuesLookup[tourDate.venue_id].full_address ||
-      venuesLookup[tourDate.venue_id].name;
-    div.appendChild(locDiv);
+    const venue = venuesLookup[tourDate.venue_id];
+    const venueDiv = document.createElement("div");
+    venueDiv.className = "event-location"; // Use class from events-styles.css
+
+    if (venue.url) {
+      const safeUrl = sanitizeUrl(venue.url);
+      if (safeUrl) {
+        const venueLink = document.createElement("a");
+        venueLink.href = safeUrl;
+        venueLink.target = "_blank";
+        venueLink.textContent = venue.full_address || venue.name;
+
+        // ADD THIS: Prevent the map from zooming when the link is clicked
+        venueLink.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+
+        venueDiv.appendChild(venueLink);
+      } else {
+        venueDiv.textContent = venue.full_address || venue.name;
+      }
+    } else {
+      venueDiv.textContent = venue.full_address || venue.name;
+    }
+    div.appendChild(venueDiv);
   }
 
   // Tickets
   if (tourDate.ticket_url) {
-    const ticketDiv = document.createElement("div");
-    ticketDiv.className = "event-tickets";
-    const a = document.createElement("a");
-    a.href = sanitizeUrl(tourDate.ticket_url);
-    a.target = "_blank";
-    a.textContent = "Tickets available here";
-    ticketDiv.appendChild(a);
-    div.appendChild(ticketDiv);
+    const safeTicketUrl = sanitizeUrl(tourDate.ticket_url);
+    if (safeTicketUrl) {
+      const ticketDiv = document.createElement("div");
+      ticketDiv.className = "event-tickets"; // Use class from events-styles.css
+
+      const ticketLink = document.createElement("a");
+      ticketLink.href = safeTicketUrl;
+      ticketLink.target = "_blank";
+      ticketLink.textContent = "Get tickets";
+
+      // ADD THIS: Prevent map zoom on ticket click
+      ticketLink.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+
+      ticketDiv.appendChild(ticketLink);
+      div.appendChild(ticketDiv);
+    }
   }
 
   // --- Advice Button ---
