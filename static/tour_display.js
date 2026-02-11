@@ -330,7 +330,7 @@ function createTourDateElement(tourDate, tour) {
     const a = document.createElement("a");
     a.href = sanitizeUrl(tourDate.ticket_url);
     a.target = "_blank";
-    a.textContent = "Get Tickets";
+    a.textContent = "Tickets available here";
     ticketDiv.appendChild(a);
     div.appendChild(ticketDiv);
   }
