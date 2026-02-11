@@ -4,6 +4,7 @@ let eventsData = null;
 let venuesLookup = {};
 let performersLookup = {};
 let toursLookup = {};
+let currentTour = null; // Store current tour for map filtering
 
 const UK_IRELAND_BOUNDS = L.latLngBounds([49.5, -11.0], [61.0, 2.5]);
 
@@ -46,6 +47,9 @@ function initMap() {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap contributors",
   }).addTo(map);
+
+  // Add event listener for map zoom/pan to filter tour dates
+  map.on("moveend", updateMapView);
 }
 
 async function loadEventsData(cacheBuster) {
@@ -249,6 +253,9 @@ function displayTour(tourId) {
     console.error("Tour not found:", tourId);
     return;
   }
+
+  // Store current tour for map filtering
+  currentTour = tour;
 
   // Show tour content
   document.getElementById("tourContent").style.display = "block";
@@ -556,7 +563,55 @@ function resetMapZoom() {
   const tourId = document.getElementById("tourSelect").value;
   if (tourId && toursLookup[tourId]) {
     addTourMarkersToMap(toursLookup[tourId]);
+    // Reset to show all dates
+    displayTourDates(toursLookup[tourId]);
   }
+}
+
+function updateMapView() {
+  // Filter tour dates by map bounds
+  if (!currentTour) return;
+
+  const bounds = map.getBounds();
+  const visibleTourDates = currentTour.tour_dates.filter((tourDate) => {
+    if (tourDate.venue_id && venuesLookup[tourDate.venue_id]) {
+      const venue = venuesLookup[tourDate.venue_id];
+      if (
+        venue.latlon &&
+        Array.isArray(venue.latlon) &&
+        venue.latlon.length === 2
+      ) {
+        return bounds.contains([venue.latlon[0], venue.latlon[1]]);
+      }
+    }
+    return false;
+  });
+
+  console.log(
+    `Tour dates in map view: ${visibleTourDates.length} of ${currentTour.tour_dates.length}`,
+  );
+
+  // Re-render the tour dates list with filtered dates
+  const datesContainer = document.getElementById("tourDatesList");
+  datesContainer.innerHTML = "";
+
+  if (visibleTourDates.length === 0) {
+    datesContainer.innerHTML =
+      "<p>No tour dates visible in current map view. Zoom out or pan to see more dates.</p>";
+    return;
+  }
+
+  // Sort dates chronologically
+  const sortedDates = [...visibleTourDates].sort((a, b) => {
+    const dateA = parseDateString(a.date);
+    const dateB = parseDateString(b.date);
+    return dateA - dateB;
+  });
+
+  sortedDates.forEach((tourDate) => {
+    const dateItem = createTourDateElement(tourDate, currentTour);
+    datesContainer.appendChild(dateItem);
+  });
 }
 
 function addTourMarkersToMap(tour) {
