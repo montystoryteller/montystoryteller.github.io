@@ -210,9 +210,34 @@ function displayTour(tourId) {
   document.getElementById("tourTitle").textContent = tour.name;
   document.getElementById("tourSubtitle").textContent = tour.tour_name || "";
 
-  // Display tour flyer if available
+  // Performer website
+  const performer = performersLookup[tour.performer_id];
   const flyerContainer = document.getElementById("tourFlyerContainer");
   const flyerImage = document.getElementById("tourFlyerImage");
+
+  // Display tour flyer if available
+  const existingLinks = flyerContainer.querySelectorAll(".performer-link");
+  existingLinks.forEach((link) => link.remove());
+
+  if (performer && performer.url) {
+    const safeUrl = sanitizeUrl(performer.url);
+
+    // Create Top Link
+    const topLink = document.createElement("a");
+    topLink.href = safeUrl;
+    topLink.target = "_blank";
+    topLink.className = "performer-link site-link-header";
+    topLink.textContent = `Visit ${performer.name}'s Website`;
+    flyerContainer.insertBefore(topLink, flyerImage);
+
+    // Create Bottom Link
+    const bottomLink = document.createElement("a");
+    bottomLink.href = safeUrl;
+    bottomLink.target = "_blank";
+    bottomLink.className = "performer-link site-link-footer";
+    bottomLink.textContent = `Official Website: ${performer.name}`;
+    flyerContainer.appendChild(bottomLink);
+  }
 
   if (tour.tour_flyer) {
     const flyerPath = tour.tour_flyer.replace(/[^a-zA-Z0-9._-]/g, "");
