@@ -61,19 +61,43 @@ async function loadEventsData(cacheBuster) {
 }
 
 function shareTourLink() {
-  const tourId = document.getElementById("tourSelect").value;
-  if (!tourId) return;
+  const tourSelect = document.getElementById("tourSelect");
+  const performerSelect = document.getElementById("performerSelect");
 
-  // Use existing updateURL logic to get current address
-  const url = window.location.href;
+  const tourId = tourSelect.value;
+  const performerId = performerSelect.value;
+
+  if (!tourId) {
+    alert("Please select a tour first");
+    return;
+  }
+
+  // Create the correct URL manually based on current selections
+  const params = new URLSearchParams();
+  params.set("tour", tourId);
+  if (performerId) {
+    params.set("performer", performerId);
+  }
+
+  const shareableUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 
   navigator.clipboard
-    .writeText(url)
+    .writeText(shareableUrl)
     .then(() => {
-      alert("Link copied to clipboard!");
+      // Feedback UI
+      const btn = document.querySelector("button[onclick='shareTourLink()']");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "✅ Link Copied!";
+
+      // Also update the browser's address bar so it matches what was copied
+      window.history.pushState({ tourId }, "", shareableUrl);
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
     })
     .catch((err) => {
-      console.error("Could not copy text: ", err);
+      console.error("Failed to copy link:", err);
     });
 }
 
