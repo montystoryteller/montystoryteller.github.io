@@ -143,7 +143,11 @@ function handlePerformerChange() {
   // Clear tour dropdown
   tourSelect.innerHTML = '<option value="">Select a tour...</option>';
 
-  if (!performerId) return;
+  if (!performerId) {
+    // Optional: Clear the map/content if no performer is selected
+    document.getElementById("tourContent").style.display = "none";
+    return;
+  }
 
   // Find tours for this performer
   const performerTours = Object.entries(toursLookup)
@@ -158,9 +162,18 @@ function handlePerformerChange() {
     tourSelect.appendChild(option);
   });
 
-  // If only one tour, select it automatically
+  // If there are tours available, handle the display logic
   if (performerTours.length === 1) {
-    tourSelect.value = performerTours[0].id;
+    // If only one tour, select and display it automatically
+    const soleTourId = performerTours[0].id;
+    tourSelect.value = soleTourId;
+    displayTour(soleTourId);
+    updateURL(soleTourId);
+  } else if (performerTours.length > 1) {
+    // Optional: If there are multiple tours, you might want to clear
+    // the previous tour's view until they pick one from the new list
+    document.getElementById("tourContent").style.display = "none";
+    markers.forEach((marker) => map.removeLayer(marker));
   }
 }
 
