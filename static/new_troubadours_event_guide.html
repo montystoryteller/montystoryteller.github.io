@@ -774,7 +774,8 @@
                 isSpecial: eventType === 'special',
                 isMusic: eventType === 'music',
                 isFolk: eventType === 'folk',
-                isSession: eventType === 'session'
+                isSession: eventType === 'session',
+                isTouringShow: !!baseEvent.isTouringShow
             };
 
             // Add type-specific fields
@@ -859,7 +860,8 @@
                             event_flyer: showDate.event_flyer || null,
                             touring_event_flyer: show.touring_event_flyer || null,
                             fb_event: showDate.fb_event || null,
-                            ticket_url: showDate.ticket_url || null
+                            ticket_url: showDate.ticket_url || null,
+                            isTouringShow: true
                         };
 
                         const eventData = createEventData(mergedEvent, eventDate, eventType);
@@ -1053,7 +1055,7 @@
             // Add tour dates
             await processTourEvents(startDate, endDate);
 
-            // Add touring show dates (NEW LINE)
+            // Add touring show dates
             await processTouringShows(startDate, endDate);
 
             allEventsData.sort((a, b) => a.date - b.date);
@@ -1308,6 +1310,11 @@
             if (event.isFolk && event.byInvitation) {
                 header.appendChild(document.createTextNode(' '));
                 header.appendChild(createBadge('By Invitation'));
+            }
+
+            if (event.isTouringShow) {
+                header.appendChild(document.createTextNode(' '));
+                header.appendChild(createBadge('🎭 Touring Show'));
             }
 
             // Add icons
@@ -1919,8 +1926,7 @@
                 }
             }
 
-            // Search tour events (music tours)
-            // Search tour events (music tours)
+            // Search tour events (special and music tours)
             const tours = eventsData.tours || {};
             for (const tourKey in tours) {
                 const tour = tours[tourKey];
@@ -1983,7 +1989,6 @@
                             const eventData = createEventData(mergedEvent, eventDate, eventType);
                             allEventsData.push(eventData);
                             await addMarkerForEvent(eventData);
-                            // REMOVED: break; // <-- This was stopping after first match
                         }
                     }
                 }
