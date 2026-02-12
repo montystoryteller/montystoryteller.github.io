@@ -1,12 +1,13 @@
 {
-  "touring_shows": {
-
+  "touring_shows":{},
+  "TESTtouring_shows": {
     "sally-pomme-clayton-mighty-goddess": {
       "name": "The Mighty Goddess [Sally Pomme Clayton]",
       "showname": "The Mighty Goddess",
       "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
       "touring_event_flyer": "",
       "isSpecial": true,
+      "isTouringShow": true,
       "performer_id": "sally-pomme-clayton",
       "show_dates": [
         {
