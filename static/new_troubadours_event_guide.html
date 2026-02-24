@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- TO DO - need to handle touring show search, remove pomme base touring dates -->
 
 <head>
     <meta charset="UTF-8">
@@ -1984,6 +1985,66 @@
                                 tour_flyer: tour.tour_flyer || null,
                                 fb_event: tourDate.fb_event || null,
                                 ticket_url: tourDate.ticket_url || null
+                            };
+
+                            const eventData = createEventData(mergedEvent, eventDate, eventType);
+                            allEventsData.push(eventData);
+                            await addMarkerForEvent(eventData);
+                        }
+                    }
+                }
+            }
+
+            const touringShows = eventsData.touring_shows || {};
+            for (const showKey in touringShows) {
+                const show = touringShows[showKey];
+                const eventType = show.isSpecial ? 'special' : 'storyclub';
+
+                // Get performer name if available
+                let performerName = '';
+                if (show.performer_id && performersLookup[show.performer_id]) {
+                    performerName = performersLookup[show.performer_id].name;
+                }
+
+                const showSearchText = `${show.name} ${show.showname || ''} ${performerName} ${show.description || ''}`.toLowerCase();
+
+                for (const showDate of show.show_dates || []) {
+                    if (!showDate.date) continue;
+
+                    const dateParts = showDate.date.split('/');
+                    if (dateParts.length !== 3) continue;
+
+                    const [day, month, year] = dateParts.map(Number);
+                    const eventDate = new Date(year, month - 1, day);
+
+                    if (eventDate >= today && eventDate <= futureDate) {
+                        const venue_id = showDate.venue_id;
+                        let venueName = '';
+                        let venueLocation = '';
+                        if (venue_id && venuesLookup[venue_id]) {
+                            venueName = venuesLookup[venue_id].name || '';
+                            venueLocation = venuesLookup[venue_id].full_address || '';
+                        }
+
+                        const fullSearchText = `${showSearchText} ${venueName} ${venueLocation} ${showDate.time || ''} ${showDate.price || ''}`.toLowerCase();
+
+                        if (fullSearchText.includes(searchTerm)) {
+                            const mergedEvent = {
+                                name: show.name,
+                                showname: show.showname,
+                                touring_show_id: showKey,
+                                performer_id: show.performer_id,
+                                date: showDate.date,
+                                time: showDate.time || show.time || null,
+                                price: showDate.price || show.price || null,
+                                venue_id: showDate.venue_id,
+                                club: showDate.club || show.club || null,
+                                description: show.description || null,
+                                event_flyer: showDate.event_flyer || null,
+                                touring_event_flyer: show.touring_event_flyer || null,
+                                fb_event: showDate.fb_event || null,
+                                ticket_url: showDate.ticket_url || null,
+                                isTouringShow: true
                             };
 
                             const eventData = createEventData(mergedEvent, eventDate, eventType);
