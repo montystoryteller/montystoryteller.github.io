@@ -1,6 +1,50 @@
 {
-  "touring_shows":{},
-  "TESTtouring_shows": {
+  "touring_shows":{
+    "tim-ralphs-goddess-spreadsheets": {
+      "name": "The Goddess of Spreadsheets [Tim Ralphs]",
+      "showname": "The Goddess of Spreadsheets",
+      "description": "A position has just opened in our More-than-Human Resources Department! As the heroic head of the hiring committee for the divine pantheon, it's up to you to put together a team of sacred scribes, astral accountants and celestial problem-solvers. Tim has got the candidates for you to consider. With the right team of Godly governors in place, this incorporeal corporation is going places.",
+      "isSpecial": true,
+      "performer_id": "tim-ralphs",
+      "show_dates": [{
+        "date": "05/12/2025",
+        "time": "7.30-10pm",
+        "club": "matlockSCafe",
+        "price": "£8 [£6.50]",
+        "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/1922225",
+        "online": "hybrid",
+        "fb_event": 3200801733411778,
+        "venue_id": "imperial-rooms-matlock"
+        },
+        {
+        "date": "11/03/2026",
+        "time": "7.30pm",
+        "club": "torrianostorynight",
+        "price": "£10",
+        "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/1922225",
+        "venue_id": "torriano-meeting-house-london"
+        }
+      ]
+    },
+    "sarah-liisa-wilkinson-strange-girls": {
+      "name": "Strange Girls. Beautiful Monsters. [Sarah Liisa Wilkinson]",
+      "showname": "Strange Girls. Beautiful Monsters.",
+      "description": "A girl enters the woods clutching a skull with burning eyes \n\n\n\nAnother tumbles out of a barrel and falls in love \n\n\n\n A third erupts into the world riding a goat \n\n\n\n One more opens a forbidden door... \n\n\n\nSarah Liisa Wilkinson invites you to meet some very strange girls and some very beguiling monsters from the fairytale forest. This is a world of Baba Yagas and bloodstained dolls, wide-eyed girls and spoon wielding sisters, lovestruck trolls, and lovers who hide monstrous secrets behind their charms.\n\n\n\n Dark, funny and enchanted - these are stories with iron teeth. \n\n\n\n RUNNING TIME | approx 75 minutes\n\n\n\n AGE GUIDANCE | 14+",
+      "touring_event_flyer": "",
+      "isSpecial": true,
+      "isTouringShow": true,
+      "performer_id": "sarah-liisa-wilkinson",
+      "show_dates": [{
+          "date": "17/03/2026",
+          "time": "7.30-10pm",
+          "club": "sheffieldstoryforge",
+          "price": "Suggested donation £8-10",
+          "fb_event": 885078434138083,
+          "event_flyer": "",
+          "ticket_url": "https://www.eventbrite.co.uk/e/strange-girls-beautiful-monsters-sarah-lisa-wilkinson-tickets-1983296728905",
+          "venue_id": "alder-sheffield"
+        }]},
+
     "sally-pomme-clayton-mighty-goddess": {
       "name": "The Mighty Goddess [Sally Pomme Clayton]",
       "showname": "The Mighty Goddess",
@@ -83,6 +127,7 @@
       "name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill [Ben Haggarty & Steph Brittain]",
       "tour_name": "The Bodies on the Beach: The epic Irish myth of Fionn MacCumhaill",
       "performer_id": "ben-haggarty-steph-brittain",
+      "performer_ids": ["ben-haggarty", "steph-brittain"],
       "tour_description": "A fatherless son,\n\n\n\n A daughter's lament,\n\n\n\n A pig stolen from its spit,\n\n\n\n Fires burning out at sea,\n\n\n\n And a dream.\n\n\n\n  On the westernmost tip of Ireland, a beach of crystal white sand once ran crimson with the blood of a never- ending magical battle — the last battle fought by the epic hero, Fionn MacCumhaill. \n\n\n\n Ben Haggarty and Steph Brittain share a work -in -progress, picking through and piecing together fragments of voices, medieval manuscript, and song that tell a story of love and loss.\n\n\n\n Raw, lyrical, and unforgettable. This is not just a wild myth retold. It's an exploration of what it means to live, to regret, to sacrifice, and to endure in a relentless world.\n\n\n\n What will survive the tide? \n\n\n\n This performance is followed by an opportunity for post-show discussion and is part of a Research and Development project funded by the Arts Council of England.\n\n\n\n Two halves 60 mins. Age recommendation 16 +\n\n\n\n  Content advice: This show contains references to threat, violence and mutilation, incest, death in childbirth, and suicide, all contextualised within a paradigm of mythic narrative, archetype and metaphor.",
       "isMusic": false,
       "isSpecial": true,
@@ -231,7 +276,7 @@
           "price": "£15+",
           "ticket_url": "https://www.theatrclwyd.com/event/stars-and-their-consolations",
           "venue_id": "theatr-clwyd-mold",
-          "fbevent": 779536088375149
+          "fb_event": 779536088375149
         },
         {
           "date": "31/03/2026",
@@ -239,7 +284,7 @@
           "price": "£10-£17 (+£1.50)",
           "ticket_url": "https://aberystwythartscentre.ticketsolve.com/ticketbooth/shows/1173671328",
           "venue_id": "aberystwyth-arts-centre",
-          "fbevent": 2122318315183564
+          "fb_event": 2122318315183564
         },
         {
           "date": "01/04/2026",
@@ -247,7 +292,7 @@
           "price": "£14.50 (£12.50)",
           "ticket_url": "https://pontardaweartscentre.com/shows/stars-and-their-consolations/",
           "venue_id": "pontardawe-arts-centre",
-          "fbevent": 1125644786220403
+          "fb_event": 1125644786220403
         },
         {
           "date": "02/04/2026",
@@ -255,7 +300,7 @@
           "price": "£9-£18",
           "ticket_url": "https://www.rwcmd.ac.uk/events/stars-and-their-consolations",
           "venue_id": "royal-welsh-college-music-drama",
-          "fbevent": 1200748131902541
+          "fb_event": 1200748131902541
         }
       ]
     },
@@ -1585,20 +1630,6 @@
       "performer_id": "trevor-valentine"
     },
     {
-      "name": "The Mighty Goddess [Sally Pomme Clayton]",
-      "showname": "The Mighty Goddess",
-      "date": "04/12/2025",
-      "time": "7pm",
-      "club": "abitcrack",
-      "price": "£10 / £5 / £3",
-      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
-      "event_flyer": "2025_12_04_abitcrack_pomme_goddess.jpg",
-      "ticket_url": "https://www.alphabettitheatre.co.uk/themightygoddess",
-      "isSpecial": true,
-      "venue_id": "alphabetti-theatre-newcastle",
-      "performer_id": "sally-pomme-clayton"
-    },
-    {
       "name": "Protest Days, Rebellion Nights: songs and stories of the Luddites [Monty + The AnyWhens]",
       "showname": "Protest Days, Rebellion Nights: songs and stories of the Luddites",
       "date": "04/12/2025",
@@ -1610,22 +1641,6 @@
       "isSpecial": true,
       "venue_id": "october-books-southampton",
       "performer_id": "monty-the-anywhens"
-    },
-    {
-      "name": "The Goddess of Spreadsheets [Tim Ralphs]",
-      "showname": "The Goddess of Spreadsheets",
-      "date": "05/12/2025",
-      "time": "7.30-10pm",
-      "club": "matlockSCafe",
-      "price": "£8 [£6.50]",
-      "description": "A position has just opened in our More-than-Human Resources Department! As the heroic head of the hiring committee for the divine pantheon, it's up to you to put together a team of sacred scribes, astral accountants and celestial problem-solvers. Tim has got the candidates for you to consider. With the right team of Godly governors in place, this incorporeal corporation is going places.",
-      "event_flyer": "",
-      "ticket_url": "https://www.tickettailor.com/events/matlockstorytellingcafe/1922225",
-      "online": "hybrid",
-      "isSpecial": true,
-      "fb_event": 3200801733411778,
-      "venue_id": "imperial-rooms-matlock",
-      "performer_id": "tim-ralphs"
     },
     {
       "name": "Welsh Whisperers: Story Circle",
@@ -2400,7 +2415,7 @@
       "performer_id": "p-d-brown",
       "date": "12/02/2026",
       "price": "£5",
-      "description": "Bitter sweet love stories with a twist: a Valentine’s Day Special!\n\n\n\n Hear five tales straight from the heart :- n\n\n\nValkyrie's only love oncen\n\n\nThe seal maidenn\n\n\nThe lovers' coven\n\n\n Tristan & Isolden\n\n\nDeirdru of the Sorrowsn\n\n\nAll told by master storyteller P.D.Brown",
+      "description": "Bitter sweet love stories with a twist: a Valentine's Day Special!\n\n\n\n Hear five tales straight from the heart :- n\n\n\nValkyrie's only love oncen\n\n\nThe seal maidenn\n\n\nThe lovers' coven\n\n\n Tristan & Isolden\n\n\nDeirdru of the Sorrowsn\n\n\nAll told by master storyteller P.D.Brown",
       "venue_id": "angels-cut-darlington",
       "ticket_url": "https://stephen-gill.sumupstore.com/product/tales-and-ales-valentine-special-12th-feb",
       "event_flyer": "2026_02_12_tales_ales_valentine.png",
@@ -2448,20 +2463,6 @@
       "isSpecial": true,
       "venue_id": "coelbren-welfare-hall",
       "performer_id": "owen-staton"
-    },
-    {
-      "name": "The Mighty Goddess [Sally Pomme Clayton]",
-      "showname": "The Mighty Goddess",
-      "date": "20/02/2026",
-      "time": "7.30 pm",
-      "club": "",
-      "price": "Pay what you decide (min. £5)",
-      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
-      "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/frontroomwsm/the-mighty-goddess/e-bblzao?ref=montystoryteller.org",
-      "isSpecial": true,
-      "venue_id": "the-front-room-theatre-weston",
-      "performer_id": "sally-pomme-clayton"
     },
     {
       "name": "The Girl Who Married a Dog [Nell Phoenix]",
@@ -2530,20 +2531,6 @@
       "performer_id": "iris-pibworth-colin-rowan"
     },
     {
-      "name": "The Mighty Goddess [Sally Pomme Clayton]",
-      "showname": "The Mighty Goddess",
-      "date": "08/03/2026",
-      "time": "8pm",
-      "club": "",
-      "price": "£20 (£18 conc; SfS discount code: GODDESS15)",
-      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
-      "event_flyer": "",
-      "ticket_url": "https://www.omnibus-clapham.org/mighty-goddess/",
-      "isSpecial": true,
-      "venue_id": "omnibus-theatre-clapham",
-      "performer_id": "sally-pomme-clayton"
-    },
-    {
       "name": "Sacred Herbs of Britain [Ropetackle Storytellers]",
       "showname": "Sacred Herbs of Britain",
       "date": "09/02/2026",
@@ -2601,6 +2588,20 @@
       "performer_id": "tony-monty-hirst"
     },
     {
+      "name": "World's Weirdest Folk Tales [Tis Tales, feat. Holly Medland, Sue Bailey and Merl Fluin]",
+      "showname": "World's Weirdest Folk Tales",
+      "date": "14/03/2025",
+      "time": "7-9pm",
+      "price": "£10",
+      "description": "Mirror, mirror on the wall, who's the weirdest of them all?\n\n\n\n Once upon a time there were three storytellers who never stopped squabbling. All three of them loved weird folktales, but they couldn't agree which one had the weirdest, whackiest folktales in the world. They bragged and boasted, they beefed and brawled, they blew their own trumpets and tooted their horns... \n\n\n\nUntil finally they decided to settle things once and for all. They decided to have a Weird Tales contest.\n\n\n\nSo come and join us for a battle of the bizarre, a folktale fracas, a funny-peculiar feud — a contest to see which storyteller really has the world's weirdest folktale. Hear the stories, weigh up the evidence, and vote to choose the tale you think is weirdest. It may not quite be a battle to the death, but you'll certainly see some folklore feathers fly.\n\n\n\nStories told by Sue Bailey, Merl Fluin and Holly Medland \n\n\n\nRefreshments provided or BYOB \n\n\n\nSuitable for age 16+",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/merlfluin/2066889",
+      "isSpecial": true,
+      "fb_event": 1196997405555935,
+      "venue_id": "ventnor-library",
+      "performer_id": "tis-tales-hms"
+    },
+    {
       "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
       "showname": "A Dance with the Minotaur's Sister",
       "date": "26/02/2026",
@@ -2613,6 +2614,21 @@
       "isSpecial": true,
       "venue_id": "the-story-museum-oxford",
       "performer_id": "steph-brittain"
+    },
+    {
+      "name": "Troubled Waters [Steph Brittain]",
+      "showname": "Troubled Waters",
+      "date": "18/03/2026",
+      "time": "7.30-10pm",
+      "club": "beestontales",
+      "price": "£9 [£7.50 advance / online]",
+      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland's rivers are in ruin. This vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. Leaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow.\n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n Experienced storyteller Corinne Harragin is touring the UK with her brand new piece of spoken-word storytelling performance, based on her extensive research into lesser known folklore and mythology of rivers and springs. This show promises to transport audiences into a world where ancient folklore intertwines with contemporary themes, celebrating female agency and queerness whilst igniting new connections with waterway and wetland restoration.",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/beestontales/2056455",
+      "isSpecial": true,
+      "online": "hybrid",
+      "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
+      "performer_id": "corinne-harragin"
     },
     {
       "name": "Uncanny [Nell Phoenix]",
@@ -2628,20 +2644,6 @@
       "isSpecial": true,
       "venue_id": "the-cube-kingsdown",
       "performer_id": "nell-phoenix"
-    },
-    {
-      "name": "The Mighty Goddess [Sally Pomme Clayton]",
-      "showname": "The Mighty Goddess",
-      "date": "26/03/2026",
-      "time": "7.30pm",
-      "club": "",
-      "price": "£12",
-      "description": "The Goddess is coming.... Enter the pine forest. Meet: Creator; Mother; Lover; Virgin; Crone. Bring a burning question and get an answer from the goddess's oracle! Be prepared for X_rated stories! Adults only.",
-      "event_flyer": "",
-      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-the-mighty-goddess",
-      "isSpecial": true,
-      "venue_id": "the-story-museum-oxford",
-      "performer_id": "sally-pomme-clayton"
     },
     {
       "name": "The Petal Demon [Shonaleigh]",
@@ -2670,6 +2672,47 @@
       "isSpecial": true,
       "venue_id": "butser-ancient-farm-hampshire",
       "performer_id": "bernadette-russell"
+    },
+    {
+      "name": "Lamentable Tales, Merry Gestes and Pleasant Histories [Dave Tonge]",
+      "showname": "Lamentable Tales, Merry Gestes and Pleasant Histories",
+      "description": "Join storyteller and historian Dave Tonge and hear the tales that filled Johnson's London, from ballads and chapbooks to legends shared in coffee houses and market places.\n\n\n\nIn his Dictionary of the English Language, Dr Samuel Johnson defines a story as 'A petty fiction', and 'An idle, or trifling tale'. But whatever the definition there was an explosion of stories finding their way into print in his life time. \n\n\n\n While some printers were producing learned works like Dr Johnson's Dictionary, many a back street press was knocking out broadside ballads, almanacs, chapbooks and other crudely produced cheap print. \n\n\n\n Reworking's of much older tales like Jack the Giant Killer, Aesops Fables and all new versions of the Merry Gestes of Robin Hood, to tales focused on England's capital city. Stories like A Pleasant History of Taffy's  Progress to London and The Blind Beggar of Bethnal Green. Stories that were popular among polite society and the common folk alike, and shared in the coffee houses, market places, the back street alehouses, and wherever 18th-century people gathered together. \n\n\n\n Dave Tonge is a storyteller and historian. He is the author of three books, Tudor Folk Tales, Norfolk Folk Tales for Children, and Medieval Tales for Children which is a fusion of medieval folktales and horrible history style anecdotes. He has been storytelling for 25 years and conducted sessions for the Ashmolean and British Museum, as well as for English Heritage, National Trust and the Shakespeare's Birthplace Trust",
+      "date": "12/07/2026",
+      "time": "12-4pm",
+      "ticket_url": "https://www.drjohnsonshouse.org/post/lamentable-tales-merry-gestes-and-pleasant-histories-chapbook-stories-from-the-eighteenth-century",
+      "isSpecial": true,
+      "venue_id": "drjohnsonshouse",
+      "performer_id": "dave-tonge"
+    },
+    {
+      "name": "STOOPID [Alys Torrance]",
+      "showname": "STOOPID",
+      "date": "15/04/2026",
+      "time": "7.30-10pm",
+      "club": "beestontales",
+      "price": "£9 [£7.50 advance / online]",
+      "description": "Folktales are full of duffers, twits and fools. We invite you to embrace your inner idiot, learn how to wear trousers, and finally understand why the chicken crossed the road. Most importantly we will unravel the riddle: Who else is Else?\n\n\n\nThe world is full of women, men and chickens who won't behave as they're supposed to. Maybe they're fools, or maybe they're onto something. And just maybe, we should join them. Plunging into the Grimm Brothers' folktales, the European Wild Men tradition, foolery and the state of the world, Alys explores how we try to control of the uncontrollable, when maybe we should just climb a tree.\n\n\n\n Alys Torrance (storyteller, clown and panicky optimist) brings you a madcap mixture of misadventures with a big heart.",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/beestontales/2056456",
+      "isSpecial": true,
+      "online": "hybrid",
+      "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
+      "performer_id": "alys-torrance"
+    },
+    {
+      "name": "Fox Skin: A Dionysus Story [Amelia Ace Armande]",
+      "showname": "Fox Skin:  A Dionysus Story",
+      "date": "20/05/2026",
+      "time": "7.30-10pm",
+      "club": "beestontales",
+      "price": "£9 [£7.50 advance / online]",
+      "description": "On the side of a mountain called Meros a young girl is dancing. She is a sacred dancer to the Olympian gods, and life on the mountain is all she has ever known. But her story will take her far from the mountain she grew up on, and across the seas, in a dreaming, unwinding myth of the birth (and birth, and birth) of a brand new Olympian god...\n\n\n\nAmelia Ace Armande unstoppers the origin story of Dionysus - the Greek god of wine, queer love and divine madness - with tales that are as dark, wild and heady as a sacred vintage.",
+      "event_flyer": "",
+      "ticket_url": "https://www.tickettailor.com/events/beestontales/2085664",
+      "isSpecial": true,
+      "online": "hybrid",
+      "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
+      "performer_id": "amelia-ace-armande"
     }
   ],
   "musicEvents": [
@@ -3907,6 +3950,18 @@
       "latlon": [
         50.5954845,
         -1.2035461
+      ]
+    },
+    "ventnor-library": {
+      "id": "ventnor-library",
+      "name": "Ventnor Library",
+      "city": "Ventnor",
+      "postcode": "PO38 1LZ",
+      "full_address": "Ventnor Library, Ventnor, PO38 1LZ",
+      "url": "https://www.ventnortowncouncil.gov.uk/ventnor-life/ventnor-library/",
+      "latlon": [
+        50.59686,
+        -1.19987
       ]
     },
     "the-folk-preservation-society-teignmouth": {
@@ -5542,6 +5597,15 @@
       "full_address": "Sixpenny Handley Village Hall, Salisbury, SP5 5NJ",
       "url": "https://sixpennyhandley.info/venues/sixpenny-handley-village-hall",
       "latlon": [50.95474,-2.01061]
+    },
+    "drjohnsonshouse": {
+      "id": "drjohnsonshouse",
+      "name": "Dr Johnson's House",
+      "city": "London",
+      "postcode": "EC4A 3DE",
+      "full_address": "Dr Johnson's House, 17 Gough Square, London, EC4A 3DE",
+      "url": "https://www.drjohnsonshouse.org/",
+      "latlon": [51.51504,-0.10818]
     }
   },
   "performers": {
@@ -5557,6 +5621,12 @@
       "url": "https://thetravellingtalesman.co.uk/",
       "bio": "Cliff Eastabrook, aka 'The Travelling Talesmand', is spoken word narrative performer of myths, legends, folktales and the occasional poem, a storyteller! His energetic and engaging performance is adapted on a per gig basis for a wide variety of adult and family audiences. He has over twenty years professional experience, is a member of Equity and can provide risk assessments on request.\n\n\n\n He has toured the country from Penzance to York, for feasts, festivals and fun since the early nineties with tales of Norse Gods, Celtic mysteries, clever girls and dragon Slayers, medieval mayhem, giants, goblins and halloween horrors. He originally specialised in Northern European tales but stories are now drawn from all over the world. He is constantly expanding his repertoire, reading myths from various cultures, chasing down unusual variations on folk tales and researching, learning or creating new adventures for special theme or site specific events."
     },
+    "alys-torrance": {
+      "id": "alys-torrance",
+      "name": "Alys Torrance",
+      "url": "https://alystorrance.com/",
+      "bio": "Alys is a writer, storyteller and actor.\n\n\n\nAlys also runs workshops and courses from time to time.\n\n\n\nShe's most often found doing comedy, clowning, and improvising, appearing on, and writing for, the stage, TV, and the radio. She tells stories in clubs, schools, at festivals and in theatres. She also runs Story Jam, a monthly storytelling night. Sometimes she is serious."
+    },
     "nell-phoenix": {
       "id": "nell-phoenix",
       "name": "Nell Phoenix",
@@ -5567,7 +5637,7 @@
       "id": "nick-hennessey",
       "name": "Nick Hennessey",
       "url": "https://nickhennessey.co.uk/",
-      "bio": "Nick Hennessey is an internationally acclaimed storyteller, playwright, folk singer, song writer and musician. He has told stories for more than 20 years, performing at venues such as the South Bank Centre and Royal Albert Hall. He is particularly drawn to North European cultural traditions and has been awarded high honours in Finland for his work on their National Epic, Kalevala.\n\n\n\n He is a sought after artistic collaborator, working with top of the field musicians and storytellers. He has broadcast documentaries for BBC Radio 4 and his musical work has featured on BBC Radio 3’s Late Junction. With a deep appreciation for the key role that stories play in how we learn about and express ourselves and the world, whether in businesses or schools, he works extensively in helping draw out our natural storytelling skills."
+      "bio": "Nick Hennessey is an internationally acclaimed storyteller, playwright, folk singer, song writer and musician. He has told stories for more than 20 years, performing at venues such as the South Bank Centre and Royal Albert Hall. He is particularly drawn to North European cultural traditions and has been awarded high honours in Finland for his work on their National Epic, Kalevala.\n\n\n\n He is a sought after artistic collaborator, working with top of the field musicians and storytellers. He has broadcast documentaries for BBC Radio 4 and his musical work has featured on BBC Radio 3's Late Junction. With a deep appreciation for the key role that stories play in how we learn about and express ourselves and the world, whether in businesses or schools, he works extensively in helping draw out our natural storytelling skills."
     },
     "sarah-dovey": {
       "id": "sarah-dovey",
@@ -5633,7 +5703,7 @@
       "id": "sally-pomme-clayton",
       "name": "Sally Pomme Clayton",
       "url": "https://sallypommeclayton.com/",
-      "bio": "'One of the country’s most highly regarded storytellers…she awakens the imagination of the audience.'  The Independent\n\n\n\n'Virtuoso storyteller Sally Pomme Clayton has that rare gift of being able to transport the listener to other worlds, by completely inhabiting those worlds herself. Her stories are authentic and full of colour, she uses language like a painter. Her telling goes right through the skin and settles deep in the marrow of the listening bones — a wondrous experience.' Venue magazine, Bristol"
+      "bio": "'One of the country's most highly regarded storytellers…she awakens the imagination of the audience.'  The Independent\n\n\n\n'Virtuoso storyteller Sally Pomme Clayton has that rare gift of being able to transport the listener to other worlds, by completely inhabiting those worlds herself. Her stories are authentic and full of colour, she uses language like a painter. Her telling goes right through the skin and settles deep in the marrow of the listening bones — a wondrous experience.' Venue magazine, Bristol"
     },
     "monty-the-anywhens": {
       "id": "monty-the-anywhens",
@@ -5645,7 +5715,7 @@
       "id": "tim-ralphs",
       "name": "Tim Ralphs",
       "url": "https://timralphs.com/",
-      "bio": "Tim Ralphs is a storyteller and active exponent of narrative in art. He also works as a public engagement consultant where he focuses on connecting academic researchers with non-specialists.\n\n\n\nHis storytelling is rooted in the oral tradition: The craft of a speaker weaving language and gesture to entrance an audience and bring a tale to life.\n\n\n\n His stories are drawn from a rich medley of myth and folk tale, but also include live adaptations of absurd texts and wondrous reimaginings of classic fairytale material in evocative urban settings. As an ambassador and advocate for storytelling, Tim’s repertoire reflects the need for the craft to appeal to today’s listeners and tomorrow’s tellers."
+      "bio": "Tim Ralphs is a storyteller and active exponent of narrative in art. He also works as a public engagement consultant where he focuses on connecting academic researchers with non-specialists.\n\n\n\nHis storytelling is rooted in the oral tradition: The craft of a speaker weaving language and gesture to entrance an audience and bring a tale to life.\n\n\n\n His stories are drawn from a rich medley of myth and folk tale, but also include live adaptations of absurd texts and wondrous reimaginings of classic fairytale material in evocative urban settings. As an ambassador and advocate for storytelling, Tim's repertoire reflects the need for the craft to appeal to today's listeners and tomorrow's tellers."
     },
     "welsh-whisperers": {
       "id": "welsh-whisperers",
@@ -5713,6 +5783,13 @@
       "url": "https://www.facebook.com/halfmanhalfmyth/",
       "bio": "Since 1985, David Brown has been telling stories in theatres, art centres, libraries, city farms and schools, in woods and fields, at camp sites and festivals from Orkney to Land's End.\n\n\n\n David specialises in epics, myths and legends from the so-called “Dark Ages” or early mediaeval period including the Welsh Four Branches of the Mabinogion, the Norse mythological cycle, Beowulf, Wayland the Smith and historical tales of sixth century northern British kings, from Gwynedd to Edinburgh.\n\n\n\n He is keen to promote storytelling for the enjoyment of adults as well as children. Ghost and horror stories are his second favourite genre which he has collected from trips to Cornwall and Iceland as well as his native Cumbria.\n\n\n\nDavid first started telling stories after hearing a cassette of Robin Williamson's tales.  He learnt a couple of the stories on the cassette, commenced learning the Norse mythological cycle and has not stopped since then. To more fully recreate the voice of the bards, David's translations of appropriate poems are interspersed in the narrative of such stories, as well as his own poems composed according to the rules of Anglo-Saxon and Norse verse. The lyre — the storyteller's instrument up until the early Middle Ages —  accompanies some of these tales."
     },
+    "ben-haggarty":{
+      "id": "ben-haggarty",
+      "name": "Ben Haggart",
+      "url": "https://benhaggarty.com/",
+      "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK's most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word."
+    },
+
     "steph-brittain": {
       "id": "steph-brittain",
       "name": "Steph Brittain",
@@ -5763,9 +5840,17 @@
     },
     "merl-fluin-holly-medland": {
       "id": "merl-fluin-holly-medland",
+      "ids": ["merl-fluin", "holly-medland"],
       "name": "Merl Fluin | Holly Medland",
       "url": "",
-      "bio": "__Chilling tales for the Festive Season.__\n\n\n\n Step in from the cold and enjoy the fine tradition of ghost stories for the festive season. Storytellers Merl Fluin and Holly Medland will take you on a journey to the places where wraiths walk at night.\n\n\n\n The cafe will be open from 6: 30pm, serving hot food, drinks and delicious cakes to help keep the chill at bay. Storytelling starts at 7:15pm."
+      "bio": ""
+    },
+    "tis-tales-hms":{
+      "id": "tis-tales-hms",
+      "ids": ["holly-medland", "sue-bailey", "merl-fluin"],
+      "name": "'Tis Tales, feat. Holly Medland, Sue Bailey, Merl Fluin",
+      "url": "https://tistales.org.uk/",
+      "bio": "'Tis Tales is a storytelling troupe telling tales to adult audience on the Isle of Wight [Holly Medland, Sue Bailey, Tony 'Monty' Hirst, Merl Fluin]. \n\n\n\n Performing in various combinations, this performance features tales from Holly Medland, Sue Bailey and Merl Fluin."
     },
     "ronnie-conboy": {
       "id": "ronnie-conboy",
@@ -5783,7 +5868,7 @@
       "id": "ben-haggarty-steph-brittain",
       "name": "Ben Haggarty & Steph Brittain",
       "url": "",
-      "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK’s most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word.\n\n\n\nSteph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme"
+      "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK's most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word.\n\n\n\nSteph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme"
     },
     "gillian-brownson": {
       "id": "gillian-brownson",
@@ -5849,7 +5934,7 @@
       "id": "mike-payton",
       "name": "Mike Payton",
       "url": "https://www.mikepayton.org/",
-      "bio": "Mike Payton has been telling tall tales all his life, and decided to turn this into a career in 2008. He was Lancastrian born, but is now based in Nottingham, drawing his tales from Britain's rich heritage and also from the four corners of the earth. His delivery is  warm and engaging, and he has a penchant for the strange and unexplainable.\n\n\n\n For the past 10 years, Mike has co-run the ever popular Beeston Tales with ace storyteller Tim Ralphs, a monthly storytelling club that brings the best of contemporary storytelling to an adult audience. As well as his work in schools, he has performed at museums, galleries, festivals, castles, pubs, clubs and cafes throughout the land. Early in his career he was the winner of The Black Country Story Slam, and was invited by The Society for Storytelling to perform at their annual gathering. He performed at The Wellcome Trust’s Day of the Dead celebrations on a day when the gallery had its busiest ever day: He has visited over 250 schools across the UK and Europe, performing and running workshops to all ages."
+      "bio": "Mike Payton has been telling tall tales all his life, and decided to turn this into a career in 2008. He was Lancastrian born, but is now based in Nottingham, drawing his tales from Britain's rich heritage and also from the four corners of the earth. His delivery is  warm and engaging, and he has a penchant for the strange and unexplainable.\n\n\n\n For the past 10 years, Mike has co-run the ever popular Beeston Tales with ace storyteller Tim Ralphs, a monthly storytelling club that brings the best of contemporary storytelling to an adult audience. As well as his work in schools, he has performed at museums, galleries, festivals, castles, pubs, clubs and cafes throughout the land. Early in his career he was the winner of The Black Country Story Slam, and was invited by The Society for Storytelling to perform at their annual gathering. He performed at The Wellcome Trust's Day of the Dead celebrations on a day when the gallery had its busiest ever day: He has visited over 250 schools across the UK and Europe, performing and running workshops to all ages."
     },
     "shane-ibbs": {
       "id": "shane-ibbs",
@@ -5868,6 +5953,18 @@
       "name": "Merl Fluin",
       "url": "",
       "bio": ""
+    },
+    "holly-medland": {
+      "id": "holly-medland",
+      "name": "Holly Medland",
+      "url": "https://www.hollythestoryteller.com/",
+      "bio": "Holly is a storyteller who lives on the beautiful Isle of Wight.\n\n\n\n She tells all sorts of stories - from favourite childhood fairytales to strange local legends - and has brought these stories to adults and children in all sorts of places including museums, pubs, bookshops, festivals, schools and forests."
+    },
+    "sue-bailey": {
+      "id": "sue-bailey",
+      "name": "Sue Bailey",
+      "url": "https://thatsanotherstory.co.uk/",
+      "bio": "Sue has been telling tales for hundreds of years (Well, that's a tall tale if ever there was one!) She lives on the Isle of Wight and has told tales sheltering from storms in caves, sandblasted by beach debris, on the top deck of buses and ferries, and in many other strange ( and not so strange) places. She has helped countless children create their own stories inspired by local treasures ( both human and artefact) and is one of the organisers of the Somewhen Storytelling Festival.\n\n\n\nShe loves passing on the story gems that have come her way, intent on keeping alive the oral tradition. Folk tales, nursery tales, tales of wonder and tales to inspire or scare the pants off you – she will share them all. Just make sure you pass them on too.\n\n\n\nFounder of the Island Storytellers, and member of 'Tis Tales, Sue's has a story for every occasion, entertaining families, schools groups and adults alike, in workshops, on story walks, and in performance settings."
     },
     "lynette-hill-stephen-hobbs-rebecca-lachance-peter-boyce-2026-bard-of-stony-stratford-gill-and-patrick-larley": {
       "id": "lynette-hill-stephen-hobbs-rebecca-lachance-peter-boyce-2026-bard-of-stony-stratford-gill-and-patrick-larley",
@@ -5891,7 +5988,7 @@
       "id": "shonaleigh",
       "name": "Shonaleigh",
       "url": "https://shonaleigh.uk/",
-      "bio": "Word weaver, tradition bearer and educator\n\n\n\n Shonaleigh is a dedicated and committed storyteller actively working to expand and share the Drut’syla tradition. Brought up in the Drut’syla tradition by her Bubbe (grandmother) she has a repertoire of over three thousand stories which can be adapted as appropriate for the theme and audience with whom she is working."
+      "bio": "Word weaver, tradition bearer and educator\n\n\n\n Shonaleigh is a dedicated and committed storyteller actively working to expand and share the Drut'syla tradition. Brought up in the Drut'syla tradition by her Bubbe (grandmother) she has a repertoire of over three thousand stories which can be adapted as appropriate for the theme and audience with whom she is working."
     },
     "maria-credali": {
       "id": "maria-credali",
@@ -5901,9 +5998,22 @@
     },
     "lucy-lill-sarah-liisa-wilkinson": {
       "id": "lucy-lill-sarah-liisa-wilkinson",
+      "ids": ["lucy-lill", "sarah-liisa-wilkinson"],
       "name": "Lucy Lill & Sarah-Liisa Wilkinson",
       "url": "",
       "bio": ""
+    },
+    "lucy-lill": {
+      "id": "lucy-lill",
+      "name": "Lucy Lill",
+      "url": "https://lucylill.com/",
+      "bio": "Performance storyteller based in London, Lucy Lill tells stories to all sorts of people in all sorts of places: theatres, arts centres, festivals, museums and schools. She create a shows on her own and also as part of Story Jam, with Alys Torrance. She also runs workshops and produces events."
+    },
+    "sarah-liisa-wilkinson":{
+      "id": "sarah-liisa-wilkinson",
+      "name":  "Sarah-Liisa Wilkinson",
+      "url": "https://sarahliisawilkinson.com/",
+      "bio": "A renowned teller of folktales, myths and wonder tales, Sarah Liisa has been delighting audiences for years with her juicy and arresting innovations on stories both familiar and obscure, drawing material from all over the world but most especially from Finnish and Nordic folklore.\n\n\n\n Her tales bring you beasts and gods dreaming in the deep green of the Finnish forest, girls wrestling many-headed trolls in the mountains, pure-hearted fools chasing magic apples in a land of wonder, and dancing devils causing chaos and joy.\n\n\n\n She has told stories to people in the UK and internationally in theatres, festivals, clubs, pubs, churches, boats, front rooms and all-night sleepovers. She regularly works and performs with performance-storytelling pioneers, The Crick Crack Club, and is part of multi-disciplined storytelling and music group, The Embers Collective."
     },
     "ropetackle-storytellers": {
       "id": "ropetackle-storytellers",
@@ -5939,11 +6049,11 @@
       "id": "daniel-morden-hugh-lupton-sarah-lianne-lewis",
       "name": "Daniel Morden | Hugh Lupton | Sarah Lianne Lewis",
       "url": "",
-      "bio": "A majestic, intimate and hypnotic re-imagining of Greek myths and legends weaving ancient stories, cosmic projections and a spine-tingling electro-acoustic soundscape."
+      "bio": "Two of Britain's leading storytellers — Hugh Lupton and Daniel Morden — performing in combination with composer Sarah Lianne Lewis."
     },
     "corinne-harragin": {
       "id": "corinne-harragin",
-      "name": "orinne Harragin",
+      "name": "Corinne Harragin",
       "url": "https://www.corinneharragin.co.uk/",
       "bio": "Corinne Harragin is a Bristol-based Storyteller, Performance Maker and Trainer whose style draws out the physicality, humour and shared experience of storytelling, recentring marginalised voices in myth and folklore with her own brand of oral performance."
     },
