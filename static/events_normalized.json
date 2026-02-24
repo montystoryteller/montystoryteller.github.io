@@ -1063,7 +1063,10 @@
       "link": "https://dovestreetinn.co.uk/",
       "facebook": "https://www.facebook.com/groups/378838935541646",
       "club": "bardsaloud",
-      "venue_id": "the-dove-st-inn-ipswich"
+      "venue_id": "the-dove-st-inn-ipswich",
+      "exceptions": [
+        "24/02/2026"
+      ]
     },
     {
       "name": "Haworth storytelling circle",
@@ -1132,6 +1135,15 @@
       "time": "11.30am-12.30pm",
       "club": "glasgowevenbettercrack",
       "geocode_missing": true
+    },
+    {
+      "name": "Ropetackle Storytellers",
+      "schedule": "",
+      "time": "",
+      "link": "https://tistales.org.uk/island-storytellers/",
+      "facebook": "https://www.facebook.com/RopetackleStorytellers",
+      "club": "ropetackle-storytellers",
+      "venue_id": "ropetackle-arts-centre-shoreham"
     },
     {
       "name": "Island Storytellers, Isle of Wight",
@@ -1875,7 +1887,7 @@
       "time": "7-9pm",
       "club": "",
       "price": "£10 / £8",
-      "description": "Prepare to be led astray into the medieval tales of Kent's beloved trickster, mischievous Faerie, Robin Goodfellow.\n\n\n\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan… Both beings are untethered and unruly, wild spirits of the land.",
+      "description": "Prepare to be led astray into the medieval tales of Kent's beloved trickster, mischievous Faerie, Robin Goodfellow.\n\n\n\n Next we will travel to the furthest reaches of Ancient Greece to quake in the stories of the Great God Pan... Both beings are untethered and unruly, wild spirits of the land.",
       "event_flyer": "2025_12_17_everett_madsprits.jpg",
       "ticket_url": "https://app.workshop-angel.com/form.php?h=1&t=0&e=91ce8f87219586ef",
       "isSpecial": true,
@@ -2132,7 +2144,7 @@
       "time": "7.30-10pm",
       "club": "forgingfantastical",
       "price": "£10.84",
-      "description": "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road…",
+      "description": "Three strangers gather in the corner of an inn, leaving the darkness of the road. As the windows rattle and the optics glow, their memories grow hazy but they cling to the stories that have nourished them on their journeys. But why are they there? And who is calling for them from the upstairs bar, ever more insistently? Inspired by The Canterbury Tales, the Cohen Brothers and quite a few lost nights in the pub, Mike Payton reflects on the stories that make us and keep us tethered to the world. One more for the road...",
       "event_flyer": "2026_01_30_forgingfantastical_payton_lastorders.jpg",
       "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/last-orders-a-storytelling-show-by-mike-payton/e-leomog?ref=montystoryteller.org",
       "isSpecial": true,
@@ -2227,7 +2239,7 @@
       "time": "7pm",
       "club": "",
       "price": "£20",
-      "description": "Join us for an intimate, captivating night of traditional storytelling at Everflyht vineyard.\n\n\n\n Step back, or sideways, or deeper into a Sussex filled with story… This county is crammed full of fascinating folktales, from the Weald to the Downs, from the fields to the towns: smugglers' tunnels, fairies beneath the earth, witches becoming hares, ghostly black dogs. Wherever you go, there is a story to tell you the hopes, dreams and fears of people just like you. Come and join professional storyteller and local folklorist Jon for a night of tales, told live in person, to bring the magic and history of the place alive. You may never see the spaces we live in the same way again!\n\n\n\n The evening will feature two 40-minute sets with a relaxing interval, allowing time to chat and enjoy the vineyard atmosphere.\n\n\n\n Your ticket price includes the full storytelling performance and a glass of Everflyht wine.",
+      "description": "Join us for an intimate, captivating night of traditional storytelling at Everflyht vineyard.\n\n\n\n Step back, or sideways, or deeper into a Sussex filled with story... This county is crammed full of fascinating folktales, from the Weald to the Downs, from the fields to the towns: smugglers' tunnels, fairies beneath the earth, witches becoming hares, ghostly black dogs. Wherever you go, there is a story to tell you the hopes, dreams and fears of people just like you. Come and join professional storyteller and local folklorist Jon for a night of tales, told live in person, to bring the magic and history of the place alive. You may never see the spaces we live in the same way again!\n\n\n\n The evening will feature two 40-minute sets with a relaxing interval, allowing time to chat and enjoy the vineyard atmosphere.\n\n\n\n Your ticket price includes the full storytelling performance and a glass of Everflyht wine.",
       "ticket_url": "https://www.everflyht.com/product/an-evening-of-sussex-folklore-wine-with-jon-norman-mason/",
       "isSpecial": true,
       "venue_id": "everflyht-vineyard-ditchling",
@@ -2313,7 +2325,7 @@
       "time": "7-9pm",
       "club": "",
       "price": "£10",
-      "description": "Performance storytellers Merl Fluin and Holly Medland present two popular Ventnor Fringe shows in one unmissable night:\n\n\n\n TALES THAT TOPPLE TYRANTS Once upon a time there was a very bad king. He lied, bullied, stole, cheated, and always got his own way… until he didn't. Merl Fluin tells weird and wonderful fairy tales about dastardly despots and how to defy them. \n\n\n\n WHAT DO WOMEN WANT? When a hapless knight insults the Queen, she gives him a year to find the answer to a seemingly impossible question. If he fails, he'll lose his head. Cue magic, madness and medieval mayhem as he sets out on his quest. Holly Medland's hit show sold out fast at Ventnor Fringe.\n\n\n\n Storytelling starts 7pm. Total runtime 90 mins plus interval. Home-cooked meals available in the bar downstairs before the show. Stories suitable for age 16+.",
+      "description": "Performance storytellers Merl Fluin and Holly Medland present two popular Ventnor Fringe shows in one unmissable night:\n\n\n\n TALES THAT TOPPLE TYRANTS Once upon a time there was a very bad king. He lied, bullied, stole, cheated, and always got his own way... until he didn't. Merl Fluin tells weird and wonderful fairy tales about dastardly despots and how to defy them. \n\n\n\n WHAT DO WOMEN WANT? When a hapless knight insults the Queen, she gives him a year to find the answer to a seemingly impossible question. If he fails, he'll lose his head. Cue magic, madness and medieval mayhem as he sets out on his quest. Holly Medland's hit show sold out fast at Ventnor Fringe.\n\n\n\n Storytelling starts 7pm. Total runtime 90 mins plus interval. Home-cooked meals available in the bar downstairs before the show. Stories suitable for age 16+.",
       "event_flyer": "2026_02_26_holly_merl_double_newport.jpg",
       "ticket_url": "https://www.tickettailor.com/events/merlfluin/2016716",
       "isSpecial": true,
@@ -2328,7 +2340,7 @@
       "time": "7pm",
       "club": "artemisStorytelling",
       "price": "£15.40 / £13.20",
-      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're… stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
+      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're... stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
       "promoter_link": "https://www.artemis-storytelling.co.uk/performances",
       "event_flyer": "",
       "ticket_url": "https://wegottickets.com/af/671/event/680745",
@@ -2357,7 +2369,7 @@
       "time": "",
       "club": "",
       "price": "",
-      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're… stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
+      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're... stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
       "promoter_link": "https://www.artemis-storytelling.co.uk/performances",
       "event_flyer": "",
       "ticket_url": "",
@@ -2370,7 +2382,7 @@
       "showname": "Deliver Us From Evil",
       "date": "09/02/2026",
       "time": "7.30-9.30pm",
-      "club": "",
+      "club": "ropetackle-storytellers",
       "price": "£10",
       "description": "Storyteller Aaron Oliver shares the forgotten story of the first recorded case of Tourette's Syndrome — a 15th Century priest who believed he was possessed by a demon. With two vicars for parents and his own Tourette's diagnosis, Aaron dives into the mind of a religious leader at war with his own body and asks: how do the stories we tell ourselves change us? \n\n\n\n Ropetackle Storytellers regulars Amelia Ace Armande and Joshua Crisp will be sharing short stories of hauntings and possessions.",
       "promoter_link": "",
@@ -2378,7 +2390,7 @@
       "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-deliver-us-from-evil/",
       "isSpecial": true,
       "venue_id": "ropetackle-arts-centre-shoreham",
-      "performer_id": "ropetackle-storytellers"
+      "performer_id": "aaron-oliver"
     },
     {
       "name": "A Harvest of Tales [Storytelling Ambassadors]",
@@ -2533,9 +2545,9 @@
     {
       "name": "Sacred Herbs of Britain [Ropetackle Storytellers]",
       "showname": "Sacred Herbs of Britain",
-      "date": "09/02/2026",
+      "date": "09/03/2026",
       "time": "7.30-9.30pm",
-      "club": "",
+      "club": "ropetackle-storytellers",
       "price": "£10",
       "description": "Olwen, the daughter of a giant, has hair yellower than the broom and cheeks pinker than the foxglove. Everywhere she walks, she leaves a trail of white clover, and she lives in the mythic Welsh landscape of the Mabinogion — Wales's oldest collection of written stories.\n\n\n\nBilingual storyteller Claire Mace blends herb lore with the folk tales of Wales as she walks us through Olwen's territory — a land where every tree and plant has their own story to tell, and their own place in myth and history.\n\n\n\n This traditional storytelling performance has been developed thanks to the 'Gwobr Esyllt' Prize from Chwedl, the network of women storytellers in Wales.",
       "promoter_link": "",
@@ -2622,7 +2634,7 @@
       "time": "7.30-10pm",
       "club": "beestontales",
       "price": "£9 [£7.50 advance / online]",
-      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland's rivers are in ruin. This vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. Leaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow.\n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n Experienced storyteller Corinne Harragin is touring the UK with her brand new piece of spoken-word storytelling performance, based on her extensive research into lesser known folklore and mythology of rivers and springs. This show promises to transport audiences into a world where ancient folklore intertwines with contemporary themes, celebrating female agency and queerness whilst igniting new connections with waterway and wetland restoration.",
+      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland's rivers are in ruin. This vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. Leaping salmon, fishtail women, mythical raves & sacred springs... These enchanting and surprising tales present characters who question what is set in stone and find their own flow.\n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n Experienced storyteller Corinne Harragin is touring the UK with her brand new piece of spoken-word storytelling performance, based on her extensive research into lesser known folklore and mythology of rivers and springs. This show promises to transport audiences into a world where ancient folklore intertwines with contemporary themes, celebrating female agency and queerness whilst igniting new connections with waterway and wetland restoration.",
       "event_flyer": "",
       "ticket_url": "https://www.tickettailor.com/events/beestontales/2056455",
       "isSpecial": true,
@@ -2661,6 +2673,20 @@
       "performer_id": "shonaleigh"
     },
     {
+      "name": "Hammer and Havoc (Legends of Loki and Thor) [Maria Credali]",
+      "showname": "Hammer and Havoc (Legends of Loki and Thor)",
+      "date": "02/04/2026",
+      "time": "7-8pm",
+      "club": "",
+      "price": "£10",
+      "description": "Join us for an evening of Norse legends, as the Vikings would have heard them — from a traditional Skald, an oral storyteller. Hear of mighty Thor, wielder of Mjölnir, as thunder shakes the heavens. Marvel at the cunning tricks of Loki, the silver-tongued shapeshifter whose mischief forever alters the fate of gods and giants alike. From epic battles to whispered prophecies of Ragnarök, these timeless tales brim with adventure, humour, and mythic wonder.\n\n\n\nTraditional storyteller Maria Credali brings you an evening filled with Viking imagery, magic and mayhem!",
+      "ticket_url": "https://www.trybooking.com/uk/events/landing/105746",
+      "isSpecial": true,
+      "fb_event": 26809258625343223,
+      "venue_id": "erasmus-darwin-house-lichfield",
+      "performer_id": "maria-credali"
+    },
+    {
       "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
       "showname": "Under a Hill, a King Lays Sleeping",
       "description": "Come join local author and storyteller Bernadette Russell for a wild and magical evening of Hampshire myth and folklore - featuring the tales of the King asleep beneath a hill which is perhaps a slumbering dragon, the giant Ascapart and his battles with Bevis of Hampton, an enchanted stone circle and a ghostly horse, our local witches and their spells, incantations and potions, the Otherworld and the Bentworth Thorn, and the grampus that lives in a Yew Tree. With stories, songs, poetry and even a spell from a Hampshire Grimoire - this will be a night to remember - guaranteed fun and packed full of ancient wisdom too!\n\n\n\n Come and let yourself be re-enchanted by this beautiful region full of chalk downlands, heathland, forest and coastline, bustling with rich legends and fairytales. With stories, songs, and poetry this will be a night to remember- guaranteed fun and packed full of ancient wisdom too!",
@@ -2674,15 +2700,19 @@
       "performer_id": "bernadette-russell"
     },
     {
-      "name": "Lamentable Tales, Merry Gestes and Pleasant Histories [Dave Tonge]",
-      "showname": "Lamentable Tales, Merry Gestes and Pleasant Histories",
-      "description": "Join storyteller and historian Dave Tonge and hear the tales that filled Johnson's London, from ballads and chapbooks to legends shared in coffee houses and market places.\n\n\n\nIn his Dictionary of the English Language, Dr Samuel Johnson defines a story as 'A petty fiction', and 'An idle, or trifling tale'. But whatever the definition there was an explosion of stories finding their way into print in his life time. \n\n\n\n While some printers were producing learned works like Dr Johnson's Dictionary, many a back street press was knocking out broadside ballads, almanacs, chapbooks and other crudely produced cheap print. \n\n\n\n Reworking's of much older tales like Jack the Giant Killer, Aesops Fables and all new versions of the Merry Gestes of Robin Hood, to tales focused on England's capital city. Stories like A Pleasant History of Taffy's  Progress to London and The Blind Beggar of Bethnal Green. Stories that were popular among polite society and the common folk alike, and shared in the coffee houses, market places, the back street alehouses, and wherever 18th-century people gathered together. \n\n\n\n Dave Tonge is a storyteller and historian. He is the author of three books, Tudor Folk Tales, Norfolk Folk Tales for Children, and Medieval Tales for Children which is a fusion of medieval folktales and horrible history style anecdotes. He has been storytelling for 25 years and conducted sessions for the Ashmolean and British Museum, as well as for English Heritage, National Trust and the Shakespeare's Birthplace Trust",
-      "date": "12/07/2026",
-      "time": "12-4pm",
-      "ticket_url": "https://www.drjohnsonshouse.org/post/lamentable-tales-merry-gestes-and-pleasant-histories-chapbook-stories-from-the-eighteenth-century",
+      "name": "Rebel Folk Tales [Ropetackle Storytellers]",
+      "showname": "Rebel Folk Tales",
+      "date": "13/04/2026",
+      "time": "7.30-9.30pm",
+      "club": "ropetackle-storytellers",
+      "price": "£10",
+      "description": "Author, journalist and storyteller Anna Maria Vilhelmina Hellberg Moberg takes you on a boot-stomping trip across her native Sweden, with tales of courage, community, cunning, and a hearty dose of rebellion plucked from the country's folklore. A perfect collection of stories to fire up the drums in your heart as you meet the rebels and rabble-rousers of Sweden's history and folk tales. \n\n\n\nJoining Anna, Ropetackle regulars Joshua Crisp and Amelia Ace Armande will be sharing their own short stories of rebellion, from closer to home and further afield.",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-the-forest-of-chance-encounters/",
       "isSpecial": true,
-      "venue_id": "drjohnsonshouse",
-      "performer_id": "dave-tonge"
+      "venue_id": "ropetackle-arts-centre-shoreham",
+      "performer_id": "am-hellberg-moberg"
     },
     {
       "name": "STOOPID [Alys Torrance]",
@@ -2700,6 +2730,21 @@
       "performer_id": "alys-torrance"
     },
     {
+      "name": "The Green Knight (But it's Gay) [Ropetackle Storytellers]",
+      "showname": "The Green Knight (But it's Gay)",
+      "date": "11/05/2026",
+      "time": "7.30-9.30pm",
+      "club": "ropetackle-storytellers",
+      "price": "£10",
+      "description": "Ropetackle Storytellers hosts Niall Moorjani in an award-winning and fantastically funny retelling of the medieval classic The Green Knight, with the subtext made text! (Spoiler alert: it's gay).\n\n\n\n A classic Christmas game ends in Sir Gawain being peer-pressured into chopping off the Green Knight's head. Now he has to let the miraculously still-alive Green Knight return the favour. Disaster! King Arthur reckons Gawain needs to be more masculine and there's nothing manlier than a good head chopping off... so there's really no way out. Created by critically acclaimed and award-winning storyteller Niall Moorjani and co-directed with Cecily Nash. Fresh from a packed 5 star run at the Edinburgh Fringe Festival, this adaptation fabulously queers and modernizes an Arthurian classic.",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-the-green-knight-but-its-gay/",
+      "isSpecial": true,
+      "venue_id": "ropetackle-arts-centre-shoreham",
+      "performer_id": "niall-moorjani"
+    },
+    {
       "name": "Fox Skin: A Dionysus Story [Amelia Ace Armande]",
       "showname": "Fox Skin:  A Dionysus Story",
       "date": "20/05/2026",
@@ -2713,6 +2758,32 @@
       "online": "hybrid",
       "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
       "performer_id": "amelia-ace-armande"
+    },
+    {
+      "name": "The Forest of Chance Encounters [Ropetackle Storytellers]",
+      "showname": "The Forest of Chance Encounters",
+      "date": "15/06/2026",
+      "time": "7.30-9.30pm",
+      "club": "ropetackle-storytellers",
+      "price": "£10",
+      "description": "'She gave me pizza with murder in her heart.'\n\n\n\n Four boys go into a wood, but not all of them come out again. One lad chases a hare into the forest and stumbles upon a mysterious palace with a silent, occasionally naked, heavily veiled chatelaine. The next, a cattleman, turns out to have a secret past. A third man loses his wife whilst chasing his wedding ring. And the fourth story? Well, that's a chance for the women to answer back.\n\n\n\n Not all the stories have happy endings: prison, pistols, poison, and skulls will feature.\n\n\n\n There are five narrators, two of them dead, and not every handsome hero gets his just deserts.\n\n\n\n The Forest of Chance Encounters is one long tale melded together from four stories in Italo Calvino's collection of Italian Folktales, masterfully told by performer storyteller Sarah Rundle.\n\n\n\n There are Lurve Stories and there are Anti-Lurve Stories. This show cunningly combines successful love, unsuccessful love, and Run-for-the-Hills-they're-a-Psycho love. \n\n\n\n Sarah Rundle got locked in a laboratory but tunnelled her way to freedom. She ran away to drama school, and has been a storyteller for nineteen years. She has performed for the British Council, Wellcome Foundation, Geffrye Museum, Kew Gardens, the National Trust, Stockholm's Fabula Story Café, the Nivesh Festival in Delhi, Festival at the Edge, and Beyond The Border.",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-the-forest-of-chance-encounters/",
+      "isSpecial": true,
+      "venue_id": "ropetackle-arts-centre-shoreham",
+      "performer_id": "sarah-rundle"
+    },
+    {
+      "name": "Lamentable Tales, Merry Gestes and Pleasant Histories [Dave Tonge]",
+      "showname": "Lamentable Tales, Merry Gestes and Pleasant Histories",
+      "description": "Join storyteller and historian Dave Tonge and hear the tales that filled Johnson's London, from ballads and chapbooks to legends shared in coffee houses and market places.\n\n\n\nIn his Dictionary of the English Language, Dr Samuel Johnson defines a story as 'A petty fiction', and 'An idle, or trifling tale'. But whatever the definition there was an explosion of stories finding their way into print in his life time. \n\n\n\n While some printers were producing learned works like Dr Johnson's Dictionary, many a back street press was knocking out broadside ballads, almanacs, chapbooks and other crudely produced cheap print. \n\n\n\n Reworking's of much older tales like Jack the Giant Killer, Aesops Fables and all new versions of the Merry Gestes of Robin Hood, to tales focused on England's capital city. Stories like A Pleasant History of Taffy's  Progress to London and The Blind Beggar of Bethnal Green. Stories that were popular among polite society and the common folk alike, and shared in the coffee houses, market places, the back street alehouses, and wherever 18th-century people gathered together. \n\n\n\n Dave Tonge is a storyteller and historian. He is the author of three books, Tudor Folk Tales, Norfolk Folk Tales for Children, and Medieval Tales for Children which is a fusion of medieval folktales and horrible history style anecdotes. He has been storytelling for 25 years and conducted sessions for the Ashmolean and British Museum, as well as for English Heritage, National Trust and the Shakespeare's Birthplace Trust",
+      "date": "12/07/2026",
+      "time": "12-4pm",
+      "ticket_url": "https://www.drjohnsonshouse.org/post/lamentable-tales-merry-gestes-and-pleasant-histories-chapbook-stories-from-the-eighteenth-century",
+      "isSpecial": true,
+      "venue_id": "drjohnsonshouse",
+      "performer_id": "dave-tonge"
     }
   ],
   "musicEvents": [
@@ -5669,6 +5740,18 @@
       "url": "",
       "bio": "Husband and wife team, Nick and Emily Hennessey are both acclaimed storytellers in their own right.\n\n\n\nNick Hennessey is an internationally acclaimed storyteller, playwright, folk singer, song writer and musician. He has told stories for more than 20 years, performing at venues such as the South Bank Centre and Royal Albert Hall. He is particularly drawn to North European cultural traditions and has been awarded high honours in Finland for his work on their National Epic, Kalevala.\n\n\n\nEmily Hennessey is a playful and dynamic performance storyteller with a great love of Hindu mythology. She has travelled over 10,000 miles across India and Nepal by train, bus, rattling rickshaw and bicycle. Emily has toured in India, Iceland and Japan and performed at venues and festivals across Europe. She spent many months at the Kattaikkuttu School in Tamil Nadu, learning from the children who perform stories from the Mahabharata through music, dance and song."
     },
+    "am-hellberg-moberg": {
+      "id": "am-hellberg-moberg",
+      "name": "Anna Maria Vilhelmina Hellberg Moberg",
+      "url": "https://amhellbergmoberg.co.uk/",
+      "bio": "UK-based, Swedish author, journalist and storyteller Anna Maria Vilhelmina Hellberg Moberg (formerly Anna Maria Espsäter). She is the author of 25+ books, including five works of fiction, numerous travel books, three books about cats and, most recently, a book of Swedish folk tales (published October 2024 by the History Press).\n\n\n\n In recent years, as Vilhelmina Hellberg Moberg, she has branched out into live storytelling for adults. She is multilingual, both as a writer and speaker/storyteller, and a keen photographer who's had several solo exhibitions in the UK and Sweden."
+    },
+    "niall-moorjani": {
+      "id": "niall-moorjani",
+      "name": "Niall Moorjani",
+      "url": "https://www.niallmoorjanistoryteller.com/",
+      "bio": "Niall Moorjani is an award winning and critically acclaimed Scottish-Indian, non-binary and neurodiverse writer, storyteller and theatre maker based between  Edinburgh and London. They have perfomed all over the world, from Delhi to New York to old York. They create for both children and adults, dealing with themes queerness, anti-colonialism, myth and legend. At the core of all their work is hope, joy and kindness."
+    },
     "sarah-rundle": {
       "id": "sarah-rundle",
       "name": "Sarah Rundle",
@@ -5693,6 +5776,12 @@
       "url": "https://www.sharonjackstories.co.uk/",
       "bio": "Sharon Jacksties tells stories to audiences of adults, young people and families.\n\n\n\n Her dynamic and versatile performances draw on stories from all over the world.\n\n\n\n Interpreting the wisdom of traditional material for contemporary audiences, her repertoire includes tales that have rarely been heard in this country."
     },
+      "aaron-oliver": {
+      "id": "aaron-oliver",
+      "name": "Aaron Oliver",
+      "url": "https://aaronjamesoliver.wixsite.com/storiesandprops",
+      "bio": "Prop Maker and Storyteller based in London, passionate about creating stories."
+    },
     "trevor-valentine": {
       "id": "trevor-valentine",
       "name": "Trevor Valentine",
@@ -5703,7 +5792,7 @@
       "id": "sally-pomme-clayton",
       "name": "Sally Pomme Clayton",
       "url": "https://sallypommeclayton.com/",
-      "bio": "'One of the country's most highly regarded storytellers…she awakens the imagination of the audience.'  The Independent\n\n\n\n'Virtuoso storyteller Sally Pomme Clayton has that rare gift of being able to transport the listener to other worlds, by completely inhabiting those worlds herself. Her stories are authentic and full of colour, she uses language like a painter. Her telling goes right through the skin and settles deep in the marrow of the listening bones — a wondrous experience.' Venue magazine, Bristol"
+      "bio": "'One of the country's most highly regarded storytellers...she awakens the imagination of the audience.'  The Independent\n\n\n\n'Virtuoso storyteller Sally Pomme Clayton has that rare gift of being able to transport the listener to other worlds, by completely inhabiting those worlds herself. Her stories are authentic and full of colour, she uses language like a painter. Her telling goes right through the skin and settles deep in the marrow of the listening bones — a wondrous experience.' Venue magazine, Bristol"
     },
     "monty-the-anywhens": {
       "id": "monty-the-anywhens",
