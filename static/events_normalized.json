@@ -2720,7 +2720,7 @@
       "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
       "showname": "A Dance with the Minotaur's Sister",
       "date": "26/02/2026",
-      "time": "7.30",
+      "time": "7.30pm",
       "club": "crickcrack",
       "price": "£12",
       "description": "Join storyteller Steph Brittain as she follows Ariadne's journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.",
@@ -2787,6 +2787,21 @@
       "fb_event": 26809258625343223,
       "venue_id": "erasmus-darwin-house-lichfield",
       "performer_id": "maria-credali"
+    },
+    {
+      "name": "Walk By Night & Storymaking [Giles Abbott]",
+      "showname": "Walk By Night & Storymaking",
+      "date": "18/03/2026",
+      "time": "7.15-10pm",
+      "club": "stinginthetale",
+      "price": "£6.50-8.57",
+      "description": "Join Giles as he walks us from London through Japan, Ireland and Denmark in a series of interlinked stories, and then a session of co-curation - Giles will be creating a story on the night from audience suggestions and performing it for us.\n\n\n\n You get to be in charge of Quest, Monsters, Fortunes and direct the elements - this night will therefore, be on-of-a-kind and unrepeatable! ",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/manchester/lock-91/giles-abbott-walk-by-night-and-storymaking/2026-03-18/19:30/t-oejxegq",
+      "isSpecial": true,
+      "fb_event": 1396577011690188,
+      "venue_id": "lock-91-bar-manchester",
+      "performer_id": "giles-abbott"
     },
     {
       "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
@@ -6284,6 +6299,12 @@
       "name": "Lynette Hill, Stephen Hobbs, Rebecca LaChance, Peter Boyce, 2026 Bard of Stony Stratford, Gill and Patrick Larley",
       "url": "",
       "bio": ""
+    },
+    "giles-abbott": {
+      "id": "giles-abbott",
+      "name": "Giles Abbott",
+      "url": "https://gilesabbott.com/",
+      "bio": "Giles Abbott is an award winning storyteller and an experienced vocal coach. He tells stories for all ages at club nights, festivals and schools. He provides storytelling workshops for children to increase literacy, promote team working and to inspire imagination. For adults his workshops give confidence and to remind us how to create and tell compelling story, helping anyone to lose themselves, find themselves, in the worlds evoked by our words. He has worked with major companies such as ITV and Red Bull using vocal skills to enhance presentations and speechwriting as well as teaching voice at drama schools. He is also available for voiceover work."
     },
     "jon-mason": {
       "id": "jon-mason",
