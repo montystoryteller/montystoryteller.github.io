@@ -2634,6 +2634,21 @@
       "performer_id": "hannah-sneyd"
     },
     {
+      "name": "Fur and Folds [James Canvin]",
+      "showname": "Fur and Folds",
+      "date": "27/02/2026",
+      "time": "7.30-10pm",
+      "club": "threeheadsinawell",
+      "price": "£10 [£7; £6 online]",
+      "description": "Join James as he follows two wanderers down winding paths, accompanied by folded figures that slip between our world and theirs. These are tales of enchantment and skulduggery, of frogs and dragons, and of one simple, world-altering truth: always listen to your dog.",
+      "event_flyer": "",
+      "ticket_url": "https://surreystorytellers.co.uk/booking/",
+      "online": "hybrid",
+      "isSpecial": true,
+      "venue_id": "st-johns-church-hall-worcester",
+      "performer_id": "james-canvin"
+    },
+    {
       "name": "The Steed o' Bells [Iris Pibworth & Colin Rowan]",
       "showname": "The Steed o' Bells",
       "date": "21/02/2026",
@@ -5952,6 +5967,12 @@
     "sarah-dovey": {
       "id": "sarah-dovey",
       "name": "Sarah Dovey",
+      "url": "",
+      "bio": ""
+    },
+    "james-canvin": {
+      "id": "james-canvin",
+      "name": "James Canvin",
       "url": "",
       "bio": ""
     },
