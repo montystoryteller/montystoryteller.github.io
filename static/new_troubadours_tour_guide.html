@@ -357,6 +357,29 @@
         .event.music .event-website:hover svg {
             fill: #ffffff;
         }
+
+        .tour-date-item.date-past {
+            opacity: 0.55;
+            filter: grayscale(40%);
+            border-left-color: #aaa !important;
+            background: #f0f0f0 !important;
+            color: #888 !important;
+        }
+
+        .tour-date-item.music.date-past {
+            background: linear-gradient(135deg, #777 0%, #aaa 100%) !important;
+            border-color: #999 !important;
+            filter: grayscale(60%);
+            opacity: 0.6;
+        }
+
+        .tour-date-item.date-past .event-name::after {
+            content: " — past";
+            font-size: 0.8em;
+            color: #aaa;
+            font-weight: normal;
+            font-style: italic;
+        }
     </style>
 </head>
 

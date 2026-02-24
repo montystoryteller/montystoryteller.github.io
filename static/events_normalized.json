@@ -89,6 +89,55 @@
     }
   },
   "tours": {
+    "corinne-harrigan-troubled-waters-winter-2025": {
+      "tour_name": "Troubled Waters (Winter 2025 Tour) [Corinne Harrigan]",
+      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland’s rivers are in ruin.\n\n\n\nThis vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. \n\n\n\nLeaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow. \n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n ​Created & performed by Corinne Harrigan\n\n\n\nArtwork by Rhona Oughton\n\n\n\n Photography by Henry Kenyon \n\n\n\n Trailer by Ruby Ingleheart\n\n\n\n Music for trailer by Emily Magpie",
+      "touring_event_flyer": "",
+      "isSpecial": true,
+      "performer_id": "corinne-harrigan",
+      "tour_dates": [
+        {
+          "date": "15/10/2025",
+          "venue_id": "theatre-shop-clevedon",
+          "ticket_url": "https://www.ticketsource.co.uk/whats-on/clevedon/the-theatre-shop/troubled-waters/e-bebvdx"
+        },
+        {
+          "date": "16/10/2025",
+          "venue_id": "ustinov-theatre-royal",
+          "ticket_url": "https://www.theatreroyal.org.uk/events/troubled-waters/"
+        },
+        {
+          "date": "17/10/2025",
+          "venue_id": "ustinov-theatre-royal",
+          "ticket_url": "https://www.theatreroyal.org.uk/events/troubled-waters/"
+        },
+        {
+          "date": "29/10/2025",
+          "venue_id": "capstone-theatre",
+          "ticket_url": "https://capstone.hope.ac.uk/whatson/troubled-waters.html"
+        },
+        {
+          "date": "30/10/2025",
+          "venue_id": "gregson-community-arts-centre",
+          "ticket_url": "https://gregson.co.uk/event/troubled-waters/"
+        },
+        {
+          "date": "01/11/2025",
+          "venue_id": "wardrobe-theatre-bristol",
+          "ticket_url": "https://thewardrobetheatre.com/shows/troubled-waters"
+        },
+        {
+          "date": "02/11/2025",
+          "venue": "Old Crown Pub",
+          "city": "Kelston",
+          "ticket_url": "https://oldcrownkelston.com/fieldfayre"
+        },
+        {
+          "date": "06/12/2025",
+          "venue_id": "bureau-centre-for-the-arts-blackburn",
+          "ticket_url": "https://www.ticketsource.co.uk/whats-on/blackburn/the-bureau-centre-for-the-arts/troubled-waters-contemporary-retellings-of-ancient-river-legend-folklore-myth-corrine-harrigan/e-qmldgb"
+        }]
+    },
     "corinne-harrigan-troubled-waters-spring-2026": {
       "tour_name": "Troubled Waters (Spring 2026 Tour) [Corinne Harrigan]",
       "description": "With over 4,000 miles of polluted waterways, Britain and Ireland’s rivers are in ruin.\n\n\n\nThis vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. \n\n\n\nLeaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow. \n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n ​Created & performed by Corinne Harrigin\n\n\n\nArtwork by Rhona Oughton\n\n\n\n Photography by Henry Kenyon \n\n\n\n Trailer by Ruby Ingleheart\n\n\n\n Music for trailer by Emily Magpie",
@@ -5754,6 +5803,33 @@
       "url": "https://www.stlawrencevillagehall.uk",
       "latlon": [50.58703,-1.24373]
     },
+    "ustinov-theatre-royal": {
+          "id": "ustinov-theatre-royal",
+          "name": "Theatre Royal Ustinov Studio, Bath",
+          "city": "Bath",
+          "postcode": "BA1 1ET",
+          "full_address": "Theatre Royal Ustinov Studio, Sawclose, Bath, BA1 1ET",
+          "url": "https://www.theatreroyal.org.uk/your-visit/ustinov/",
+          "latlon": [51.38197,-2.36276]
+        },
+    "capstone-theatre": {
+          "id": "capstone-theatre",
+          "name": "Capstone Theatre, Liverpool",
+          "city": "Liverpool",
+          "postcode": "L6 1HP",
+          "full_address": "Capstone Theatre, Liverpool Hope University Creative Campus, 17 Shaw Street, Liverpool, L6 1HP",
+          "url": "https://capstone.hope.ac.uk/",
+          "latlon": [53.41343,-2.96885]
+        },
+    "gregson-community-arts-centre": {
+          "id": "gregson-community-arts-centre",
+          "name": "Gregson Community & Arts Centre",
+          "city": "Lancaster",
+          "postcode": "LA1 3PY",
+          "full_address": "Gregson Community & Arts Centre, 33-35 Moorgate, Lancaster, LA1 3PY",
+          "url": "https://gregson.co.uk/",
+          "latlon": [54.0484,-2.7918]
+        },
     "drjohnsonshouse": {
       "id": "drjohnsonshouse",
       "name": "Dr Johnson's House",

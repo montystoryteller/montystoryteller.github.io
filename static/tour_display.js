@@ -18,6 +18,27 @@ const ICON_SVG = {
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
 };
 
+function getTodayMidnight() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today;
+}
+
+function getTourStatus(tour) {
+  if (!tour.tour_dates || tour.tour_dates.length === 0) return "unknown";
+  const today = getTodayMidnight();
+  const dates = tour.tour_dates.map((d) => parseDateString(d.date));
+  const allPast = dates.every((d) => d < today);
+  const allFuture = dates.every((d) => d >= today);
+  if (allPast) return "past";
+  if (allFuture) return "future";
+  return "current"; // straddles today
+}
+
+function isDatePast(dateStr) {
+  return parseDateString(dateStr) < getTodayMidnight();
+}
+
 function sanitizeUrl(url) {
   if (!url) return null;
   url = url.trim();
@@ -334,14 +355,40 @@ function displayTour(tourId) {
     descContainer.style.display = "none";
   }
 
-  // Display tour dates
-  displayTourDates(tour);
+  // Determine and show tour status banner
+  const status = getTourStatus(tour);
+  let existingBanner = document.getElementById("tourStatusBanner");
+  if (existingBanner) existingBanner.remove();
+
+  const banner = document.createElement("div");
+  banner.id = "tourStatusBanner";
+  banner.style.cssText =
+    "padding:8px 14px;border-radius:4px;margin-bottom:12px;font-size:0.9em;font-weight:600;";
+
+  if (status === "past") {
+    banner.style.background = "#f0f0f0";
+    banner.style.color = "#666";
+    banner.textContent = "📅 This tour has ended — showing all dates.";
+  } else if (status === "future") {
+    banner.style.background = "#e8f5e9";
+    banner.style.color = "#2e7d32";
+    banner.textContent = "🗓 Upcoming tour — all dates still to come.";
+  } else {
+    banner.style.background = "#fff8e1";
+    banner.style.color = "#f57f17";
+    banner.textContent = "🎭 Tour in progress — past dates shown in grey.";
+  }
+
+  const datesSection = document.getElementById("tourDatesList").parentElement;
+  datesSection.insertBefore(banner, document.getElementById("tourDatesList"));
+
+  displayTourDates(tour, status);
 
   // Add markers to map
   addTourMarkersToMap(tour);
 }
 
-function displayTourDates(tour) {
+function displayTourDates(tour, status) {
   const datesContainer = document.getElementById("tourDatesList");
   datesContainer.innerHTML = "";
 
@@ -350,17 +397,33 @@ function displayTourDates(tour) {
     return;
   }
 
-  // Sort dates chronologically
-  const sortedDates = [...tour.tour_dates].sort((a, b) => {
-    const dateA = parseDateString(a.date);
-    const dateB = parseDateString(b.date);
-    return dateA - dateB;
-  });
+  const sortedDates = [...tour.tour_dates].sort(
+    (a, b) => parseDateString(a.date) - parseDateString(b.date),
+  );
+
+  let firstUpcomingEl = null;
 
   sortedDates.forEach((tourDate) => {
-    const dateItem = createTourDateElement(tourDate, tour);
+    const past = isDatePast(tourDate.date);
+    const dateItem = createTourDateElement(tourDate, tour, past);
+
+    if (past) {
+      dateItem.classList.add("date-past");
+    }
+
     datesContainer.appendChild(dateItem);
+
+    if (!past && !firstUpcomingEl) {
+      firstUpcomingEl = dateItem;
+    }
   });
+
+  // For current tours, scroll to next upcoming date after a brief delay
+  if (status === "current" && firstUpcomingEl) {
+    setTimeout(() => {
+      firstUpcomingEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 400);
+  }
 }
 
 function parseDateString(dateStr) {
@@ -417,11 +480,12 @@ function createIcon(container, type, url) {
   }
 }
 
-function createTourDateElement(tourDate, tour) {
+function createTourDateElement(tourDate, tour, past = false) {
   const div = document.createElement("div");
   // Use the standard event classes for gradients and borders
   div.className = "event tour-date-item";
   if (tour.isMusic) div.classList.add("music");
+  if (past) div.classList.add("date-past");
 
   // Map Interaction: Zoom to venue on click
   div.addEventListener("click", () => {
@@ -453,25 +517,30 @@ function createTourDateElement(tourDate, tour) {
     const venueDiv = document.createElement("div");
     venueDiv.className = "event-location"; // Use class from events-styles.css
 
+    const fullAddress = venue.full_address || venue.name;
+    const parts = fullAddress.split(",");
+    const linkText = parts[0].trim();
+    const remainder = parts.length > 1 ? ", " + parts.slice(1).join(",") : "";
+
     if (venue.url) {
       const safeUrl = sanitizeUrl(venue.url);
       if (safeUrl) {
         const venueLink = document.createElement("a");
         venueLink.href = safeUrl;
         venueLink.target = "_blank";
-        venueLink.textContent = venue.full_address || venue.name;
-
-        // ADD THIS: Prevent the map from zooming when the link is clicked
+        venueLink.textContent = linkText;
         venueLink.addEventListener("click", (e) => {
           e.stopPropagation();
         });
-
         venueDiv.appendChild(venueLink);
+        if (remainder) {
+          venueDiv.appendChild(document.createTextNode(remainder));
+        }
       } else {
-        venueDiv.textContent = venue.full_address || venue.name;
+        venueDiv.textContent = fullAddress;
       }
     } else {
-      venueDiv.textContent = venue.full_address || venue.name;
+      venueDiv.textContent = fullAddress;
     }
 
     // Add venue icons (email, website, facebook)
@@ -509,7 +578,9 @@ function createTourDateElement(tourDate, tour) {
         const ticketLink = document.createElement("a");
         ticketLink.href = safeTicketUrl;
         ticketLink.target = "_blank";
-        ticketLink.textContent = "Tickets available here";
+        ticketLink.textContent = past
+          ? "Tickets were available here"
+          : "Tickets available here";
 
         // Prevent map zoom on ticket click
         ticketLink.addEventListener("click", (e) => {
@@ -569,8 +640,8 @@ function resetMapZoom() {
 }
 
 function updateMapView() {
-  // Filter tour dates by map bounds
   if (!currentTour) return;
+  if (!currentTour.tour_dates || currentTour.tour_dates.length === 0) return;
 
   const bounds = map.getBounds();
   const visibleTourDates = currentTour.tour_dates.filter((tourDate) => {
@@ -609,7 +680,8 @@ function updateMapView() {
   });
 
   sortedDates.forEach((tourDate) => {
-    const dateItem = createTourDateElement(tourDate, currentTour);
+    const past = isDatePast(tourDate.date);
+    const dateItem = createTourDateElement(tourDate, currentTour, past);
     datesContainer.appendChild(dateItem);
   });
 }
@@ -618,6 +690,11 @@ function addTourMarkersToMap(tour) {
   // Clear existing markers
   markers.forEach((marker) => map.removeLayer(marker));
   markers = [];
+
+  if (!tour.tour_dates || tour.tour_dates.length === 0) {
+    console.warn("No tour dates found for tour:", tour.name || tour);
+    return;
+  }
 
   const bounds = [];
 
@@ -632,15 +709,21 @@ function addTourMarkersToMap(tour) {
       ) {
         const [lat, lon] = venue.latlon;
 
-        const markerColor = tour.isMusic ? "#443cd7" : "#4CAF50";
+        const past = isDatePast(tourDate.date);
+        const markerColor = past
+          ? "#aaaaaa"
+          : tour.isMusic
+            ? "#443cd7"
+            : "#4CAF50";
+        const markerOpacity = past ? 0.5 : 0.8;
 
         const marker = L.circleMarker([lat, lon], {
-          radius: 8,
+          radius: past ? 6 : 8,
           fillColor: markerColor,
-          color: "#fff",
+          color: past ? "#999" : "#fff",
           weight: 2,
           opacity: 1,
-          fillOpacity: 0.8,
+          fillOpacity: markerOpacity,
         }).addTo(map);
 
         marker.venue_id = tourDate.venue_id;
