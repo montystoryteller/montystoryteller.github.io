@@ -1,5 +1,5 @@
 {
-  "touring_shows":{
+  "touring_shows": {
     "tim-ralphs-goddess-spreadsheets": {
       "name": "The Goddess of Spreadsheets [Tim Ralphs]",
       "showname": "The Goddess of Spreadsheets",
@@ -89,6 +89,60 @@
     }
   },
   "tours": {
+    "corinne-harrigan-troubled-waters-spring-2026": {
+      "tour_name": "Troubled Waters (Spring 2026 Tour) [Corinne Harrigan]",
+      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland’s rivers are in ruin.\n\n\n\nThis vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. \n\n\n\nLeaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow. \n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n ​Created & performed by Corinne Harrigin\n\n\n\nArtwork by Rhona Oughton\n\n\n\n Photography by Henry Kenyon \n\n\n\n Trailer by Ruby Ingleheart\n\n\n\n Music for trailer by Emily Magpie",
+      "touring_event_flyer": "",
+      "isSpecial": true,
+      "performer_id": "corinne-harrigan",
+      "tour_dates": [
+        {
+          "date": "12/03/2026",
+          "venue_id": "blackwood-miners-institute",
+          "ticket_url": "https://www.blackwoodminersinstitute.com/en/whats-on/troubled-waters/"
+        },
+        {
+          "date": "13/03/2026",
+          "venue_id": "the-front-room-theatre-weston",
+          "ticket_url": "https://frontroomwsm.com/event/troubled-water"
+        },
+        {
+          "date": "14/03/2026",
+          "venue_id": "alma-tavern-theatre",
+          "ticket_url": "https://www.tickettailor.com/events/almatheatrecompany/1962375"
+        },
+        {
+          "date": "18/03/2026",
+          "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
+          "ticket_url": "https://www.tickettailor.com/events/beestontales/2056455"
+        },
+        {
+          "date": "20/03/2026",
+          "venue_id": "ruskin-mill-gallery",
+          "ticket_url": "https://www.tickettailor.com/events/ruskinmilltrust/1948037"
+        },
+        {
+          "date": "27/03/2026",
+          "venue_id": "pound-arts-corsham",
+          "ticket_url": "https://poundarts.org.uk/whats-on/corrine-harragin-troubled-waters/"
+        },
+        {
+          "date": "01/05/2026",
+          "venue_id": "cotswold-playhouse",
+          "ticket_url": "https://www.ticketsource.co.uk/whats-on/stroud/cotswold-playhouse/troubled-waters/e-dlkgby"
+        },
+        {
+          "date": "20/05/2026",
+          "venue_id": "lock-91-bar-manchester",
+          "ticket_url": "https://www.ticketsource.co.uk/whats-on/manchester/lock-91/troubled-waters-corrine-harragin/e-pdyzop"
+        },
+        {
+          "date": "12/06/2026",
+          "venue_id": "cygnet-theatre-exeter",
+          "ticket_url": "https://wegottickets.com/event/682807/"
+        }
+      ]
+    }, 
     "nick-hennessey-dreaming-great-bear-2025": {
       "name": "Dreaming the Great Bear [Nick Hennessey]",
       "tour_name": "Dreaming the Great Bear",
@@ -2626,21 +2680,6 @@
       "isSpecial": true,
       "venue_id": "the-story-museum-oxford",
       "performer_id": "steph-brittain"
-    },
-    {
-      "name": "Troubled Waters [Steph Brittain]",
-      "showname": "Troubled Waters",
-      "date": "18/03/2026",
-      "time": "7.30-10pm",
-      "club": "beestontales",
-      "price": "£9 [£7.50 advance / online]",
-      "description": "With over 4,000 miles of polluted waterways, Britain and Ireland's rivers are in ruin. This vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. Leaping salmon, fishtail women, mythical raves & sacred springs... These enchanting and surprising tales present characters who question what is set in stone and find their own flow.\n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n Experienced storyteller Corinne Harragin is touring the UK with her brand new piece of spoken-word storytelling performance, based on her extensive research into lesser known folklore and mythology of rivers and springs. This show promises to transport audiences into a world where ancient folklore intertwines with contemporary themes, celebrating female agency and queerness whilst igniting new connections with waterway and wetland restoration.",
-      "event_flyer": "",
-      "ticket_url": "https://www.tickettailor.com/events/beestontales/2056455",
-      "isSpecial": true,
-      "online": "hybrid",
-      "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
-      "performer_id": "corinne-harragin"
     },
     {
       "name": "Fairy Tale Blues [Monty + The AnyWhens]",
@@ -5723,6 +5762,69 @@
       "full_address": "Dr Johnson's House, 17 Gough Square, London, EC4A 3DE",
       "url": "https://www.drjohnsonshouse.org/",
       "latlon": [51.51504,-0.10818]
+    },
+        "blackwood-miners-institute": {
+      "id": "blackwood-miners-institute",
+      "name": "Blackwood Miner's Institute",
+      "city": "Caerphilly",
+      "postcode": "NP12 1BB",
+      "full_address": "Blackwood Miner's Institute, High Street, Blackwood, NP12 1BB",
+      "url": "https://www.blackwoodminersinstitute.com/en/",
+      "latlon": [51.6695,-3.1957]
+    },
+    "wardrobe-theatre-bristol": {
+      "id": "wardrobe-theatre-bristol",
+      "name": "Wardrobe Theatre, Bristol",
+      "city": "Bristol",
+      "postcode": "BS2 0DF",
+      "full_address": "The Wardrobe Theatre, The Old Market Assembly, 25 West Street, Old Market, Bristol, BS2 0DF",
+      "url": "https://thewardrobetheatre.com/",
+      "latlon": [51.45679,-2.57905]
+    },
+    "theatre-shop-clevedon": {
+      "id": "theatre-shop-clevedon",
+      "name": "Theatre Shop, Clevedon",
+      "city": "Bristol",
+      "postcode": "BS21 6HX",
+      "full_address": "Theatre Shop, Unit 5, Queens Square, Clevedon, BS21 6HX",
+      "url": "https://www.theatreshop.org.uk/",
+      "latlon": [51.43541,-2.85237]
+    },
+    "ruskin-mill-gallery": {
+      "id": "ruskin-mill-gallery",
+      "name": "Ruskin Mill Gallery",
+      "city": "Stroud",
+      "postcode": "GL6 0LA",
+      "full_address": "Ruskin Mill Gallery, Ruskin Mill Millbottom, Old Bristol Road, Nailsworth, Stroud, GL6 0LA",
+      "url": "https://rmlt.org.uk/category/ruskin-mill-gallery/",
+      "latlon": [51.68997,-2.22324]
+    },
+    "alma-tavern-theatre": {
+      "id": "alma-tavern-theatre",
+      "name": "Alma Tavern Theatre, Bristol",
+      "city": "Bristol",
+      "postcode": "BS8 2HY",
+      "full_address": "Alma Tavern Theatre, 18-20 Alma Vale Road, Bristol, BS8 2HY",
+      "url": "https://www.almatavernandtheatre.co.uk/",
+      "latlon": [51.46189,-2.61637]
+    },
+    "pound-arts-corsham": {
+      "id": "pound-arts-corsham",
+      "name": "Pound Arts, Corsham",
+      "city": "Corsham",
+      "postcode": "SN13 9HX",
+      "full_address": "Pound Arts, The Pound, Pound Pill, Corsham, SN13 9HX",
+      "url": "https://poundarts.org.uk/",
+      "latlon": [51.42864,-2.18385]
+    },
+    "cotswold-playhouse": {
+      "id": "cotswold-playhouse",
+      "name": "Cotswold Playhouse, Stroud",
+      "city": "Stroud",
+      "postcode": "GL5 1LW",
+      "full_address": "The Cotswold Playhouse, Parliament Street, Stroud, GL5 1LW",
+      "url": "https://www.cotswoldplayhouse.co.uk/",
+      "latlon": [51.74517,-2.20843]
     }
   },
   "performers": {
@@ -6186,8 +6288,8 @@
       "url": "",
       "bio": "Two of Britain's leading storytellers — Hugh Lupton and Daniel Morden — performing in combination with composer Sarah Lianne Lewis."
     },
-    "corinne-harragin": {
-      "id": "corinne-harragin",
+    "corinne-harrigan": {
+      "id": "corinne-harrigan",
       "name": "Corinne Harragin",
       "url": "https://www.corinneharragin.co.uk/",
       "bio": "Corinne Harragin is a Bristol-based Storyteller, Performance Maker and Trainer whose style draws out the physicality, humour and shared experience of storytelling, recentring marginalised voices in myth and folklore with her own brand of oral performance."
