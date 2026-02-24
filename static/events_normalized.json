@@ -2643,6 +2643,20 @@
       "performer_id": "corinne-harragin"
     },
     {
+      "name": "Fairy Tale Blues [Monty + The AnyWhens]",
+      "showname": "Fairy Tale Blues ",
+      "date": "14/03/2026",
+      "time": "3-5.45pm",
+      "club": "",
+      "price": "£10 music / £16 music + tapas",
+      "description": "Story and songs from storyteller Tony 'Monty' Hirst and folk'n'blues duo Glenn Koppany and Sue Cain.",
+      "event_flyer": "",
+      "ticket_url": "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/",
+      "isSpecial": true,
+      "venue_id": "brading-roman-villa",
+      "performer_id": "monty-the-anywhens"
+    },
+    {
       "name": "Uncanny [Nell Phoenix]",
       "showname": "Uncanny",
       "promoter_link": "http://nellphoenix.co.uk/",
@@ -2728,6 +2742,20 @@
       "online": "hybrid",
       "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
       "performer_id": "alys-torrance"
+    },
+    {
+      "name": "Faery Tale Blues [Monty + The AnyWhens]",
+      "showname": "Faery Tale Blues ",
+      "date": "18/04/2026",
+      "time": "7-9.30pm",
+      "club": "",
+      "price": "£8",
+      "description": "Story and songs from storyteller Tony 'Monty' Hirst and folk'n'blues duo Glenn Koppany and Sue Cain.",
+      "event_flyer": "2026_04_18_Faery_Tale_Blues.png",
+      "ticket_url": "https://www.stlawrencevillagehall.uk/events/faery-tale-blues",
+      "isSpecial": true,
+      "venue_id": "st-lawrence-village-hall",
+      "performer_id": "monty-the-anywhens"
     },
     {
       "name": "The Green Knight (But it's Gay) [Ropetackle Storytellers]",
@@ -5669,6 +5697,24 @@
       "url": "https://sixpennyhandley.info/venues/sixpenny-handley-village-hall",
       "latlon": [50.95474,-2.01061]
     },
+    "brading-roman-villa": {
+      "id": "brading-roman-villa",
+      "name": "Brading Roman Villa",
+      "city": "Brading, Sandown",
+      "postcode": "PO36 0PH",
+      "full_address": "Brading Roman Villa, Morton Old Road, Brading, Isle of Wight, PO36 0PH",
+      "url": "https://bradingromanvilla.org.uk/",
+      "latlon": [50.67148,-1.148]
+    },
+    "st-lawrence-village-hall": {
+      "id": "st-lawrence-village-hall",
+      "name": "St Lawrence Village Hall",
+      "city": "Ventnor",
+      "postcode": "PO38 1UW",
+      "full_address": "St Lawrence Village Hall, Seven Sisters Road, St Lawrence, Ventnor, Isle of Wight, PO38 1UW",
+      "url": "https://www.stlawrencevillagehall.uk",
+      "latlon": [50.58703,-1.24373]
+    },
     "drjohnsonshouse": {
       "id": "drjohnsonshouse",
       "name": "Dr Johnson's House",
@@ -5858,7 +5904,7 @@
       "id": "tony-monty-hirst",
       "name": "Tony \"Monty\" Hirst",
       "url": "https://montystoryteller.org/",
-      "bio": "Isle of Wight based traditional stroyteller, Tony 'Monty' Hirst has been a listener of tales for over thirty years and a teller for five. Coming up through the ranks of folk nights and open mics, he regularly performs his own shows, as well as telling pop up tales in teas tents at music festivals around the country. A keen collaborator, he peforms with folk and blues duo The AnyWhens, and folk punk fiddle player Sophie Kate."
+      "bio": "Isle of Wight based traditional storyteller, Tony 'Monty' Hirst has been a listener of tales for over thirty years and a teller for five. Coming up through the ranks of folk nights and open mics, he regularly performs his own shows, as well as telling pop up tales in teas tents at music festivals around the country. A keen collaborator, he peforms with folk and blues duo The AnyWhens, and folk punk fiddle player Sophie Kate."
     },
     "amelia-ace-armande": {
       "id": "amelia-ace-armande",
