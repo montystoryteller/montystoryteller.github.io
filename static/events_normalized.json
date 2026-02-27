@@ -2775,7 +2775,7 @@
     },
     {
       "name": "Fairy Tale Blues [Monty + The AnyWhens]",
-      "showname": "Fairy Tale Blues ",
+      "showname": "Fairy Tale Blues",
       "date": "14/03/2026",
       "time": "3-5.45pm",
       "club": "",
@@ -2787,6 +2787,21 @@
       "venue_id": "brading-roman-villa",
       "performer_id": "monty-the-anywhens"
     },
+    {
+      "name": "Mare's Tale Woman & Other Folk Tales [Caravan of Storytellers]",
+      "showname": "Mare's Tale Woman & Other Folk Tales",
+      "date": "20/03/2026",
+      "time": "Doors 6.30pm",
+      "club": "",
+      "price": "£10/£8 advance / £12 cash on the door",
+      "description": "A wonderful new weaving of folktales, music and folksong.  Save the date Friday 20th March Doors Open 6.30pm for a 7pm start.  Ticket price includes Tea/Coffee biscuits (there will be an interval)/\n\n\n\n Come join us in the beautiful garden room at Newport Memorial Hall for an evening of weaving of voice, sound and heart in this intimate venue...\n\n\n\n Advance Bookings Early Bird: sonia@soniasophia.co.uk",
+      "event_flyer": "2026-03-20-carvan-storytellers-mares-tale.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "newport-memorial-hall",
+      "performer_id": "caravan-of-storytellers"
+    },
+    
     {
       "name": "Uncanny [Nell Phoenix]",
       "showname": "Uncanny",
@@ -2838,7 +2853,7 @@
       "time": "7.15-10pm",
       "club": "stinginthetale",
       "price": "£6.50-8.57",
-      "description": "Join Giles as he walks us from London through Japan, Ireland and Denmark in a series of interlinked stories, and then a session of co-curation - Giles will be creating a story on the night from audience suggestions and performing it for us.\n\n\n\n You get to be in charge of Quest, Monsters, Fortunes and direct the elements - this night will therefore, be on-of-a-kind and unrepeatable! ",
+      "description": "Join Giles as he walks us from London through Japan, Ireland and Denmark in a series of interlinked stories, and then a session of co-curation - Giles will be creating a story on the night from audience suggestions and performing it for us.\n\n\n\n You get to be in charge of Quest, Monsters, Fortunes and direct the elements - this night will therefore, be on-of-a-kind and unrepeatable!",
       "event_flyer": "",
       "ticket_url": "https://www.ticketsource.co.uk/whats-on/manchester/lock-91/giles-abbott-walk-by-night-and-storymaking/2026-03-18/19:30/t-oejxegq",
       "isSpecial": true,
@@ -3617,7 +3632,7 @@
       "name": "Kings Head Pub",
       "city": "Lichfield",
       "postcode": "WS13 6PW",
-      "full_address": "Kings Head Pub, Lichfield, WS13 6PW",
+      "full_address": "Kings Head, Lichfield, WS13 6PW",
       "url": "https://www.kingsheadlichfield.com/",
       "latlon": [
         52.68292,
@@ -5858,15 +5873,6 @@
         "url": "https://newportmemorialhall.co.uk/",
         "latlon": [52.01568,-4.83751]
       },
-    "kings-head-lichfield": {
-        "id": "kings-head-lichfield",
-        "name": "King's Head, Lichfield",
-        "city": "Lichfield",
-        "postcode": "SA42 0TF",
-        "full_address": "King's Head, ",
-        "url": "https://www.kingsheadlichfield.com/",
-        "latlon": [52.01568,-4.83751]
-      },
     "ustinov-theatre-royal": {
           "id": "ustinov-theatre-royal",
           "name": "Theatre Royal Ustinov Studio, Bath",
@@ -6063,6 +6069,12 @@
       "name": "Sarah Mooney",
       "url": "https://sarahmooney.co.uk/",
       "bio": "Stories that transform, ceremonies that reconnect, wisdom that remembers \n\n\n\n For twenty-five years, Sarah has been walking a ceremonial path — unwinding old tales so their original wisdom can flow through again, creating spaces where stories become medicine.\n\n\n\n Sarah trained with Clarissa Pinkola Estés (author of Women Who Run With The Wolves) and actors from the legendary Peter Brook Company, learning that the deepest stories aren't just told — they are lived, embodied, remembered. For the last fifteen years, She has supported initiation rites and vision quests, working with and learning from shamans in Mexico and Ecuador, discovering how the old ways of storytelling can guide transformation."
+    },
+    "caravan-of-storytellers": {
+      "id": "caravan-of-storytellers",
+      "name": "Caravan of Storytellers",
+      "url": "https://www.facebook.com/caravanof.storytellers",
+      "bio": ""
     },
     "dave-tonge": {
       "id": "dave-tonge",
