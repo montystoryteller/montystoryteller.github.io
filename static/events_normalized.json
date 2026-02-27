@@ -1328,7 +1328,7 @@
       "facebook": "https://www.facebook.com/lichfieldstorytellers",
       "email": "lichfieldstorytellers@gmail.com",
       "club": "lichfieldST",
-      "venue_id": "kings-head-pub-lichfield"
+      "venue_id": "kings-head-lichfield"
     },
     {
       "name": "Wirral Quirky Tales",
@@ -1731,7 +1731,7 @@
       "performer_id": "sharon-jacksties"
     },
     {
-      "name": "Finding Light in the Dark [Trevor Valentine tells 'The Firefly Man']",
+      "name": "Finding Light in the Dark [Trevor Valentine]",
       "showname": "The Firefly Man",
       "date": "04/12/2025",
       "time": "",
@@ -2551,6 +2551,20 @@
       "performer_id": "the-travelling-talesman-cliff-eastabrook"
     },
     {
+      "name": "Stories of Morgan le Fay [Cath Little]",
+      "showname": "Cath Little",
+      "date": "05/03/2026",
+      "time": "7pm",
+      "club": "gloucesterSCafe",
+      "price": "",
+      "description": "The old Welsh myth of the nine sacred sisters who live on the magical island of apples, Ynys Afallon, still weaves a spell of fascination through time.\n\n\n\n The name of the eldest sister is Morgan.\n\n\n\n There are other references to Morgan in early medieval legends, when Morgan is known for her knowledge and power as a healer, as Morgan the Wise.\n\n\n\n But in later accounts Morgan is vilified as a spiteful sister and a wicked witch. \n\n\n\n How and why did Morgan's story change? How can Morgan’s story help us understand our own stories?\n\n\n\n In this masterful weaving together of ancient myths from Wales, Cath Little breathes the stories of Morgan Le Fay back to life.",
+      "event_flyer": "2026-03-05-cath-little-gloucester.jpg",
+      "openslots": true,
+      "isSpecial": true,
+      "venue_id": "the-folk-of-gloucester",
+      "performer_id": "cath-little"
+    },
+    {
       "name": "Storytelling Night with Laura Sampson and Stacey Blythe",
       "showname": "Storytelling Night with ...",
       "date": "12/03/2026",
@@ -2744,6 +2758,20 @@
       "isSpecial": true,
       "venue_id": "the-story-museum-oxford",
       "performer_id": "steph-brittain"
+    },
+    {
+      "name": "Tales of the Middle Sea [Sef Townsend]",
+      "showname": "Tales of the Middle Sea",
+      "date": "10/04/2026",
+      "time": "7-10pm",
+      "club": "lichfieldST",
+      "price": "£7.70",
+      "description": "Phoenicians, Greeks, Romans and even earlier civilizations brought trade, migration and cultural exchange across the vast inland sea of the Mediterranean. A myriad of stories have landed on these shores making these 'Tales of the Middle Sea some of the quirkiest and most unexpected you might ever hear.\n\n\n\n Told by the amazing Sef Townsend who has been telling, sharing and listening to stories for more than 30 years. Sef has travelled the world telling stories and working for projects of peace and reconciliation.",
+      "ticket_url": "https://wegottickets.com/af/671/event/694668",
+      "isSpecial": true,
+      "fb_event": 860334747024364,
+      "venue_id": "kings-head-lichfield",
+      "performer_id": "sef-townsend"
     },
     {
       "name": "Fairy Tale Blues [Monty + The AnyWhens]",
@@ -3584,8 +3612,8 @@
         -4.465947
       ]
     },
-    "kings-head-pub-lichfield": {
-      "id": "kings-head-pub-lichfield",
+    "kings-head-lichfield": {
+      "id": "kings-head-lichfield",
       "name": "Kings Head Pub",
       "city": "Lichfield",
       "postcode": "WS13 6PW",
@@ -4071,18 +4099,6 @@
       "latlon": [
         50.9214,
         -1.92039
-      ]
-    },
-    "kings-head-lichfield": {
-      "id": "kings-head-lichfield",
-      "name": "Kings Head",
-      "city": "Lichfield",
-      "postcode": "WS13 6PW",
-      "full_address": "Kings Head, Lichfield, WS13 6PW",
-      "url": "https://www.kingsheadlichfield.com/",
-      "latlon": [
-        52.68286,
-        -1.8304028
       ]
     },
     "central-library-leicester": {
@@ -5833,6 +5849,24 @@
       "url": "https://www.stlawrencevillagehall.uk",
       "latlon": [50.58703,-1.24373]
     },
+    "newport-memorial-hall": {
+        "id": "newport-memorial-hall",
+        "name": "Newport Memorial Hall, Pembs",
+        "city": "Newport, Pembrokeshire",
+        "postcode": "SA42 0TF",
+        "full_address": "Newport Memorial Hall, Newport, Pembrokeshire, SA42 0TF",
+        "url": "https://newportmemorialhall.co.uk/",
+        "latlon": [52.01568,-4.83751]
+      },
+    "kings-head-lichfield": {
+        "id": "kings-head-lichfield",
+        "name": "King's Head, Lichfield",
+        "city": "Lichfield",
+        "postcode": "SA42 0TF",
+        "full_address": "King's Head, ",
+        "url": "https://www.kingsheadlichfield.com/",
+        "latlon": [52.01568,-4.83751]
+      },
     "ustinov-theatre-royal": {
           "id": "ustinov-theatre-royal",
           "name": "Theatre Royal Ustinov Studio, Bath",
@@ -5981,6 +6015,12 @@
       "name": "Cath Little",
       "url": "https://cathlittle.co.uk/",
       "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\n She tells traditional stories from her Irish English heritage and her Welsh homeland. Cath enjoys re-imagining and retelling stories from The Mabinogion.\n\n\n\n Cath helps run the Cardiff Storytelling Circle and curates their seasonal concerts, Tales for the Turning Year. She tells and listens to stories at Oasis, a Cardiff Charity which offers a warm Welsh welcome to refugees and asylum seekers."
+    },
+    "sef-townsend": {
+      "id": "sef-townsend",
+      "name": "Sef Townsend",
+      "url": "https://www.facebook.com/sef.townsend",
+      "bio": "Sef Townsend draws on his personal experience of living and working on all five continents; and on reminiscence and language support work in immigrant and refugee communities to inform his workshops in participatory storytelling and music.\n\n\n\n He has been running Arts projects with people in exile and immigrant communities since 1995. Through storytelling, song and 'join-in' music games he emphasises the use of traditional material from the participants' original backgrounds, and promote work that enables other cultures to be seen as an invaluable resource contributing to a shared diversity in the wider community."
     },
     "bronia-evers": {
       "id": "bronia-evers",
