@@ -1107,7 +1107,7 @@
       "link": "https://elephanttaleslondo.wixsite.com/elephant-tales",
       "instagram": "https://www.instagram.com/elephant.tales.london/",
       "club": "elephanttales",
-      "venue_id": "the-pullens-centre-184"
+      "venue_id": "pullens-centre"
     },
     {
       "name": "Gloucester Storytelling Cafe",
@@ -1770,7 +1770,7 @@
       "event_flyer": "2025_12_05_welshwhisperers_sc.jpg",
       "ticket_url": "https://dragontheatre.littleboxoffice.com/events/141010",
       "isSpecial": true,
-      "venue_id": "the-dragon-theatre-barmouth",
+      "venue_id": "dragon-theatre-barmouth",
       "performer_id": "welsh-whisperers"
     },
     {
@@ -1795,7 +1795,7 @@
       "time": "7pm",
       "club": "forgingfantastical",
       "price": "",
-      "description": "",
+      "description": "An uplifting one-woman storytelling show.\n\n\n\n An exploration and celebration of female power through the mythological character of Lilith. Shocking, seductive and entertaining.\n\n\n\n Lilith, the first wife of Adam, was not prepared to lie down and accept what was given to her. Thrown out of Eden, she slithered back in to take her  revenge and wake Eve up to what her body could do. \n\n\n\n Viewed as a demon, worshipped as a goddess, adored as the Queen of   Sheba, Lilith slips out of the Bible, reclaims the narrative and is dancing with us still, forever free.\n\n\n\n Katy Cawkwell mixes myth from Arabia, Ethiopia, Mesopotamia and Jewish tradition, with a dash of feminist flavouring and a large dollop of her own wild dreaming.",
       "event_flyer": "2025_12_06_cawkwell_lilith.jpg",
       "ticket_url": "https://www.ticketsource.co.uk/forging-fantastical/?ref=montystoryteller.org",
       "isSpecial": true,
@@ -2108,7 +2108,7 @@
       "event_flyer": "2026_01_17_welshwhisperers_brownson.jpg",
       "ticket_url": "https://dragontheatre.littleboxoffice.com/events/142714",
       "isSpecial": true,
-      "venue_id": "the-dragon-theatre-barmouth",
+      "venue_id": "dragon-theatre-barmouth",
       "performer_id": "gillian-brownson-dragon-storytellers"
     },
     {
@@ -2539,6 +2539,35 @@
       "isSpecial": true
     },
     {
+      "name": "Queen of Between [Lucy Lill & Sarah-Liisa Wilkinson]",
+      "showname": "Queen of Between",
+      "date": "05/03/2026",
+      "time": "6.30-8.30pm",
+      "club": "crickcrack",
+      "price": "£20 / £17 concessions",
+      "description": "What happens...\n\n\n\nWhen the goddess of childbirth crosses her legs?\n\n\n\nWhen you're bound above chaos with golden threads?\n\n\n\nWhen the weight of your grief means you can't walk on?\n\n\n\nWhen you're neither living or dead so you don't fit in?\n\n\n\nWhen you're... stuck?\n\n\n\nThat's when you need Hecate: Queen of Between, many-shaped and multi-tasking goddess of birth, death, witches, weasels, hellhounds, crossroads, thresholds and ghosts.\n\n\n\nBarking at her heels, Lucy Lill and Sarah Liisa Wilkinson take up their torches, jangle their keys and bring you stories of letting go, squeezing through and moving on.\n\n\n\nFor ages 16+\n\n\n\n75 mins, short interval, informal Q&A (optional!)",
+      "promoter_link": "https://crickcrackclub.com/",
+      "event_flyer": "",
+      "ticket_url": "https://www.chelseaphysicgarden.co.uk/event/queen-of-between-live-performance/",
+      "isSpecial": true,
+      "venue_id": "chelsea-physic-garden",
+      "performer_id": "lucy-lill-sarah-liisa-wilkinson"
+    },
+    {
+      "name": "Lilith: The Other Side of the Story [Katy Cawkwell]",
+      "showname": "Lilith: The Other Side of the Story",
+      "date": "07/03/2026",
+      "time": "1.15pm",
+      "club": "",
+      "price": "",
+      "description": "An uplifting one-woman storytelling show.\n\n\n\n An exploration and celebration of female power through the mythological character of Lilith. Shocking, seductive and entertaining.\n\n\n\n Lilith, the first wife of Adam, was not prepared to lie down and accept what was given to her. Thrown out of Eden, she slithered back in to take her  revenge and wake Eve up to what her body could do. \n\n\n\n Viewed as a demon, worshipped as a goddess, adored as the Queen of   Sheba, Lilith slips out of the Bible, reclaims the narrative and is dancing with us still, forever free.\n\n\n\n Katy Cawkwell mixes myth from Arabia, Ethiopia, Mesopotamia and Jewish tradition, with a dash of feminist flavouring and a large dollop of her own wild dreaming.",
+      "event_flyer": "",
+      "ticket_url": "https://blandfordliteraryfestival.co.uk/",
+      "isSpecial": true,
+      "venue_id": "blandford-forum-corn-exchange",
+      "performer_id": "katy-cawkwell"
+    },
+    {
       "name": "In the time of GIANTS [The Travelling Talesman]",
       "showname": "In the time of GIANTS",
       "date": "15/03/2026",
@@ -2703,8 +2732,22 @@
       "event_flyer": "",
       "ticket_url": "https://dragontheatre.littleboxoffice.com/events/145169",
       "isSpecial": true,
-      "venue_id": "the-dragon-theatre-barmouth",
+      "venue_id": "dragon-theatre-barmouth",
       "performer_id": "ffion-phillips-dragon-storytellers"
+    },
+    {
+      "name": "She's Electric (Elaphant Tales) [Vanessa Woolf]",
+      "showname": "She's Electric (Elaphant Tales)",
+      "date": "01/03/2026",
+      "time": "3-5pm",
+      "club": "elephanttales",
+      "price": "Cost: Free/£8 suggested donation towards event expenses",
+      "description": "Monthly open mic storytelling event for grown ups in Elephant and Castle\n\n\n\n Elephant Tales is a free, monthly storytelling event for grown ups.\n\n\n\n Come and tell a 5 minute story, or just listen.\n\n\n\n  This month we are delighted to welcome Vanessa Woolf who will be performing her new show 'She's Electric'. Here's a little bit about it...\n\n\n\n 'For ten years I was the only woman working successfully as an electrician in the UK film industry. I powered up, I turned on, I lit some of Hollywood's biggest stars. This is my true story.'\n\n\n\n",
+      "event_flyer": "",
+      "ticket_url": "https://www.eventbrite.co.uk/e/elephant-tales-march-shes-electric-by-vanessa-woolf-tickets-1982364853641",
+      "isSpecial": true,
+      "venue_id": "pullens-centre",
+      "performer_id": "vanessa-woolf"
     },
     {
       "name": "Tales of Travellers and Fools [Ian Douglas]",
@@ -3371,16 +3414,16 @@
         -1.55226
       ]
     },
-    "leicester-central-library": {
-      "id": "leicester-central-library",
-      "name": "Leicester Central Library",
-      "city": "Leicester",
-      "postcode": "LE1 6AA",
-      "full_address": "Leicester Central Library, Leicester, LE1 6AA",
-      "url": "http://www.leicesterstorytelling.com/story-tree.html",
+    "blandford-forum-corn-exchange": {
+      "id": "blandford-forum-corn-exchange",
+      "name": "Corn Exchange, Blandford Forum",
+      "city": "Blandford Forum",
+      "postcode": "DT11 7AF",
+      "full_address": "Corn Exchange, Market Place, Blandford Forum, Dorset, DT11 7AF",
+      "url": "https://www.facebook.com/p/Corn-Exchange-Blandford-Forum-100063471883213",
       "latlon": [
-        52.633022,
-        -1.1322806
+        50.85636,
+        -2.16446
       ]
     },
     "rougemont-room-exeter": {
@@ -3407,8 +3450,8 @@
         -1.8937292
       ]
     },
-    "the-pullens-centre-184": {
-      "id": "the-pullens-centre-184",
+    "pullens-centre": {
+      "id": "pullens-centre",
       "name": "The Pullens Centre",
       "city": "184 Crampton Street",
       "postcode": "London",
@@ -4070,8 +4113,20 @@
         -1.55519
       ]
     },
-    "the-dragon-theatre-barmouth": {
-      "id": "the-dragon-theatre-barmouth",
+    "chelsea-physic-garden": {
+      "id": "chelsea-physic-garden",
+      "name": "Chelsea Physic Garden",
+      "city": "London",
+      "postcode": "SW3 4HS",
+      "full_address": "Chelsea Physic Garden, 66 Royal Hospital Road. Chelsea, London SW3 4HS",
+      "url": "https://www.theatryddraig.cymru/",
+      "latlon": [
+        51.48493,
+        -0.1627
+      ]
+    },
+    "dragon-theatre-barmouth": {
+      "id": "dragon-theatre-barmouth",
       "name": "The Dragon Theatre",
       "city": "Barmouth",
       "postcode": "LL42 1EF",
