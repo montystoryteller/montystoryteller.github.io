@@ -3,7 +3,7 @@ title: "'Tis Tales presents Tall Tales and Tiny Truths"
 meta_title: "The original Isle of Wight storytelling trio, 'Tis Tales, (Tony 'Monty' Hirst, Holly Medland and Sue Bailey) get back together for a one off show 'Tall Tales and Tiny Truths' at Department, Ryde."
 description: "Getting the old gang back together after a year or more, 'Tis Tales tellers Tony 'Monty' Hirst, Holly Medland and Sue Bailey take a trip to the Department, Ryde, for the first time for a new set of Tall Tales and Tiny Truths."
 date: 2026-01-13T23:07:53
-image: "/images/tis-tales_SMH-768x589.png"
+image: "/images/tis-tales_SMH-768x589.jpg"
 categories: ["events"]
 collaborator: ["'Tis Tales"]
 tags: [ "Department, Ryde", "'Tis Tales"]
