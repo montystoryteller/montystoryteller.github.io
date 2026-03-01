@@ -1251,6 +1251,24 @@
       "venue_id": "ropetackle-arts-centre-shoreham"
     },
     {
+      "name": "Tell Tales Club, Cardigan",
+      "schedule": "",
+      "time": "",
+      "link": "",
+      "facebook": "https://www.instagram.com/jessie_wild_storyteller",
+      "club": "tell-tales-club",
+      "venue_id": ""
+    },
+    {
+      "name": "Pembrokeshire Storytelling, Fishguard",
+      "schedule": "",
+      "time": "",
+      "link": "",
+      "facebook": "https://www.facebook.com/DebWinterStories",
+      "club": "pembrokeshirestorytelling",
+      "venue_id": "peppers-hub-fishguard"
+    },
+    {
       "name": "Island Storytellers, Isle of Wight",
       "schedule": "2nd thursday",
       "time": "7-9pm",
@@ -1612,7 +1630,7 @@
       "time": "7.30pm",
       "club": "guesthouseST",
       "price": "£12/£10/£8",
-      "description": "",
+      "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.",
       "event_flyer": "2025_11_11_guesthouseST_phoenix_uncanny.jpg",
       "ticket_url": "",
       "isSpecial": true,
@@ -2791,6 +2809,21 @@
       "performer_id": "tis-tales-hms"
     },
     {
+      "name": "Uncanny [Nell Phoenix]",
+      "showname": "Uncanny",
+      "promoter_link": "http://nellphoenix.co.uk/",
+      "date": "25/02/2026",
+      "time": "7-9pm",
+      "club": "pembrokeshirestorytelling",
+      "price": "£7.50/6.00 ",
+      "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.\n\n\n\nReserve tickets: debwinterstories@gmail.com",
+      "event_flyer": "2026_02_25-pembrokeshire-nell-phoenix-uncanny.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "peppers-hub-fishguard",
+      "performer_id": "nell-phoenix"
+    },
+    {
       "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
       "showname": "A Dance with the Minotaur's Sister",
       "date": "26/02/2026",
@@ -2962,6 +2995,21 @@
       "isSpecial": true,
       "venue_id": "st-lawrence-village-hall",
       "performer_id": "monty-the-anywhens"
+    },
+    {
+      "name": "Tell Tales Club: Tropsyn / Morgan le Fay [Jessie Wild / Cath Little]",
+      "showname": "Tell Tale Club: Tropsyn / Morgan le Fay ",
+      "date": "28/05/2026",
+      "time": "7-9pm",
+      "club": "tell-tales-club",
+      "price": "£10",
+      "description": "Join local storyteller Jessie Wild as she tells a beloved Romany tale from Eastern Europe - Tropsyn. Expect adventure, jeopardy and magical transformation in the most surprising way.\n\n\n\n We are also excited to be welcoming the wonderful storyteller Cath Little from Cardiff who will be enchanting us with tales of Morgan Le Fey - In this masterful weaving together of ancient myths from Wales, Cath Little breathes the stories of Morgan Le Fay back to life.\n\n\n\n This is the first time the Tell Tales will be in the barn at The Castle Inn so Jessie thinks it is wise you bring warm clothing if it's a chilly evening and maybe a cusion for extra comfort!",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ticketlab.app/event/37887#/",
+      "isSpecial": true,
+      "venue_id": "castle-inn-aberteifi",
+      "performer_id": "jessie-wild-cath-little"
     },
     {
       "name": "The Green Knight (But it's Gay) [Ropetackle Storytellers]",
@@ -4749,6 +4797,18 @@
         -3.18395
       ]
     },
+    "castle-inn-aberteifi": {
+      "id":"castle-inn-aberteifi",
+      "name": "Castle Inn, Aberteifi",
+      "city": "Cardigan",
+      "postcode": "SA43 3AB",
+      "full_address": "Castle Inn, Castle Street, Cardigan, SA43 3AB",
+      "url": "https://www.castle.pub/",
+      "latlon": [
+        52.07981,
+        -4.66002
+      ]
+    },
     "lyric-theatre-bridport": {
       "id":"lyric-theatre-bridport",
       "name": "Lyric Theatre",
@@ -6077,7 +6137,7 @@
       "id": "cath-little",
       "name": "Cath Little",
       "url": "https://cathlittle.co.uk/",
-      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\n She tells traditional stories from her Irish English heritage and her Welsh homeland. Cath enjoys re-imagining and retelling stories from The Mabinogion.\n\n\n\n Cath helps run the Cardiff Storytelling Circle and curates their seasonal concerts, Tales for the Turning Year. She tells and listens to stories at Oasis, a Cardiff Charity which offers a warm Welsh welcome to refugees and asylum seekers."
+      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words 'the gift of the story comes through.' She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\n She tells traditional stories from her Irish English heritage and her Welsh homeland. Cath enjoys re-imagining and retelling stories from The Mabinogion.\n\n\n\n Cath helps run the Cardiff Storytelling Circle and curates their seasonal concerts, Tales for the Turning Year. She tells and listens to stories at Oasis, a Cardiff Charity which offers a warm Welsh welcome to refugees and asylum seekers."
     },
     "sef-townsend": {
       "id": "sef-townsend",
@@ -6095,7 +6155,7 @@
       "id": "cath-little-bronia-evers",
       "name": "Cath Little | Bronia Evers",
       "url": "",
-      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words “the gift of the story comes through.” She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
+      "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words 'the gift of the story comes through.' She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
     },
     "nick-hennessey-emily-hennessey": {
       "id": "nick-hennessey-emily-hennessey",
@@ -6322,8 +6382,21 @@
       "url": "https://londondreamtime.com/",
       "bio": "Vanessa Woolf tells stories for adults and kids. Vanessa is a founder of Elephant Tales (ex Story Co Op) London's beautiful free Sunday open-mic storytelling club, and lead storyteller of Connection With Wonder, who provide storytellers, programme festivals and offer year-round training."
     },
+    "jessie-wild":{
+      "id": "jessie-wild",
+      "name": "Jessie Wild",
+      "url": "https://www.instagram.com/jessie_wild_storyteller",
+      "bio": "Jessie Wild is a performance Storyteller/ Creative Educator. Runs The Tell Tales Club, Cardigan / Aberteifi."
+    },
+    "jessie-wild-cath-little": {
+      "id": "jessie-wild-cath-little",
+      "ids": ["jessie-wild", "cath-little"],
+      "name": "Jessie Wild / Cath Little",
+      "bio": "Jessie Wild is a performance Storyteller/ Creative Educator. Runs The Tell Tales Club, Cardigan / Aberteifi.\n\n\n\n Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words 'the gift of the story comes through.' She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here."
+    },
     "ben-haggarty-steph-brittain": {
       "id": "ben-haggarty-steph-brittain",
+      "ids": ["ben-haggarty", "steph-brittain"],
       "name": "Ben Haggarty & Steph Brittain",
       "url": "",
       "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK's most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word.\n\n\n\nSteph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme"
