@@ -856,7 +856,7 @@
           "date": "09/05/2026",
           "time": "7pm",
           "ticket_url": "https://wegottickets.com/af/671/event/673321",
-          "venue_id": "south-petherton-the-david-hall"
+          "venue_id": "south-petherton-david-hall"
         },
         {
           "date": "19/05/2026",
@@ -1082,7 +1082,8 @@
       "facebook": "https://www.facebook.com/profile.php?id=100086273211826",
       "email": "leicesterstorytelling@gmail.com",
       "club": "leicesterstorytree",
-      "venue_id": "leicester-central-library"
+      "club_flyer": "leicester-story-tree-club.jpg",
+      "venue_id": "central-library-leicester"
     },
     {
       "name": "Exeter Story Club",

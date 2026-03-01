@@ -787,6 +787,7 @@
                 eventData.schedule = baseEvent.schedule || null;
                 eventData.alternate_locations = baseEvent.alternate_locations || null;
                 eventData.exceptions = baseEvent.exceptions || null;
+                eventData.club_flyer = baseEvent.club_flyer || null;
 
                 if (eventType === 'folk') {
                     eventData.storiesWelcome = baseEvent.storiesWelcome || false;
@@ -1522,11 +1523,21 @@
 
             const flyers = [];
 
-            // Add event flyer if available
+            // event flyer
             if (event.event_flyer && event.event_flyer.trim()) {
                 flyers.push({
                     path: event.event_flyer,
+                    basePath: './storyclub_assets/event_flyers/',
                     altSuffix: 'event flyer'
+                });
+            }
+
+            // club flyer
+            if (event.club_flyer && event.club_flyer.trim()) {
+                flyers.push({
+                    path: event.club_flyer,
+                    basePath: './storyclub_assets/club_flyers/',
+                    altSuffix: 'club flyer'
                 });
             }
 
@@ -1536,9 +1547,11 @@
                 tourFlyer = toursLookup[event.tour_id].tour_flyer;
             }
 
+            // tour flyer
             if (tourFlyer && tourFlyer.trim()) {
                 flyers.push({
                     path: tourFlyer,
+                    basePath: './storyclub_assets/event_flyers/',
                     altSuffix: 'tour flyer'
                 });
             }
@@ -1697,7 +1710,7 @@
                         const img = document.createElement('img');
                         img.alt = `${event.name} ${flyer.altSuffix}`;
                         const flyerPath = flyer.path.replace(/[^a-zA-Z0-9._-]/g, '');
-                        img.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+                        img.src = `${flyer.basePath}${flyerPath}`;
                         img.className = 'event-flyer-image';
                         if (index > 0) {
                             img.style.marginTop = '15px';
