@@ -2597,6 +2597,7 @@
       "event_flyer": "",
       "ticket_url": "https://theacornpenzance.ticketsolve.com/ticketbooth/shows/1173664705",
       "isSpecial": true,
+      "isCancelled": true,
       "venue_id": "the-acorn-penzance",
       "performer_id": "the-travelling-talesman-cliff-eastabrook"
     },

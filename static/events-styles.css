@@ -401,3 +401,20 @@ select {
         font-size: 11px;
     }
 }
+
+/* Cancelled events */
+.event.event-cancelled {
+    opacity: 0.72;
+    border-left: 4px solid #c62828 !important;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 8px,
+        rgba(198, 40, 40, 0.04) 8px, rgba(198, 40, 40, 0.04) 16px
+    );
+}
+
+.event-badge-cancelled {
+    background-color: #c62828 !important;
+    color: white !important;
+    font-weight: bold;
+}

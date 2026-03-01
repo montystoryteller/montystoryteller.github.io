@@ -775,7 +775,8 @@
                 isMusic: eventType === 'music',
                 isFolk: eventType === 'folk',
                 isSession: eventType === 'session',
-                isTouringShow: !!baseEvent.isTouringShow
+                isTouringShow: !!baseEvent.isTouringShow,
+                isCancelled: !!baseEvent.isCancelled 
             };
 
             // Add type-specific fields
@@ -918,7 +919,8 @@
                             event_flyer: tourDate.event_flyer || null,
                             tour_flyer: tour.tour_flyer || null,
                             fb_event: tourDate.fb_event || null,
-                            ticket_url: tourDate.ticket_url || null
+                            ticket_url: tourDate.ticket_url || null,
+                            isCancelled: !!tourDate.isCancelled
                         };
 
                         const eventData = createEventData(mergedEvent, eventDate, eventType);
@@ -1260,6 +1262,9 @@
             const eventDiv = document.createElement('div');
             eventDiv.className = 'event';
             addEventTypeClasses(eventDiv, event);
+            if (event.isCancelled) {
+                eventDiv.classList.add('event-cancelled');
+            }
 
             // Add type classes
             addEventTypeClasses(eventDiv, event);
@@ -1303,6 +1308,13 @@
             header.appendChild(document.createTextNode(event.name));
 
             // Add badges
+            if (event.isCancelled) {
+                header.appendChild(document.createTextNode(' '));
+                const cancelBadge = createBadge('❌ CANCELLED');
+                cancelBadge.className = 'event-badge event-badge-cancelled';
+                header.appendChild(cancelBadge);
+            }
+
             if (event.isFolk && event.storiesWelcome) {
                 header.appendChild(document.createTextNode(' '));
                 header.appendChild(createBadge('📖 Stories Welcome'));
@@ -2056,7 +2068,8 @@
                                 touring_event_flyer: show.touring_event_flyer || null,
                                 fb_event: showDate.fb_event || null,
                                 ticket_url: showDate.ticket_url || null,
-                                isTouringShow: true
+                                isTouringShow: true,
+                                isCancelled: !!showDate.isCancelled
                             };
 
                             const eventData = createEventData(mergedEvent, eventDate, eventType);
