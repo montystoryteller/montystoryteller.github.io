@@ -404,17 +404,25 @@ select {
 
 /* Cancelled events */
 .event.event-cancelled {
-    opacity: 0.72;
     border-left: 4px solid #c62828 !important;
     background: repeating-linear-gradient(
         -45deg,
-        transparent, transparent 8px,
-        rgba(198, 40, 40, 0.04) 8px, rgba(198, 40, 40, 0.04) 16px
+        #e8ede8, #e8ede8 8px,
+        #dfe6df 8px, #dfe6df 16px
     );
+    color: #555;
 }
-
 .event-badge-cancelled {
     background-color: #c62828 !important;
     color: white !important;
     font-weight: bold;
+}
+
+.special .event-date-cancelled {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.special .event-location, .music .event-location .event-date-cancelled {
+    color: #649f66;
 }
