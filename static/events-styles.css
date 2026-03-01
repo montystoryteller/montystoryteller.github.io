@@ -423,6 +423,6 @@ select {
     color: #888;
 }
 
-.special .event-location, .music .event-location .event-date-cancelled {
+.special .event-location .event-date-cancelled, .music .event-location .event-date-cancelled {
     color: #649f66;
 }
