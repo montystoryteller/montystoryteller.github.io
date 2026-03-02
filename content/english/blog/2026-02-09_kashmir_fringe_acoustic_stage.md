@@ -15,4 +15,4 @@ I'm really excited to have been invited to a do a slot on the acoustic stage at 
 With three stages dedicated to music, it's a real honour to be able to take some stories along. I have a 40 minute slot, so the plan is to (probably...) do four stories, with a couple of special guests adding some musical accompaniment to a couple of the tales: Sophie Kate, ace fiddler with Island based folk punk band, Feck, and Glenn Koppany, guitar, from folk duo The AnyWhens.
 
 
-{{< image-row "/images/2026_02_07_solo_festival_kashmir_fringe_highlighted.png" "/images/2026_02_07_kashmir_fringe_stage_times.png"> }}
+{{< image-row "/images/2026_02_07_solo_festival_kashmir_fringe_highlighted.png" "/images/2026_02_07_kashmir_fringe_stage_times.png">}}
