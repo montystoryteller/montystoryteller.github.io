@@ -18,4 +18,4 @@ And I made one of my goals for 2026 — *name on t-shirt not designed or printed
 
 Thanks to Del and all the team at the Quay Arts... and hopefully a beneficial weekend for them...
 
-{{< image-row "/images/kashmir_fringe_2026_door" "/images/kashmir_fringe_2026_tshirt.png" >}}
+{{< image-row "/images/kashmir_fringe_2026_door.png" "/images/kashmir_fringe_2026_tshirt.png" >}}
