@@ -7,7 +7,7 @@ image: "/images/tis-tales_SMH-768x589.jpg"
 categories: ["events"]
 collaborator: ["'Tis Tales"]
 tags: [ "Department, Ryde", "'Tis Tales"]
-draft: false
+draft: true
 ---
 
 Getting the old gang back together for a new show at [Department, Ryde](https://department-ryde.org/), I'm looking forward to getting back to tellin' a few tales alongside Holly Medland and Sue Bailey in our guise as the original Isle of Wight storytelling trio, *'Tis Tales* for a set of *tall Tales and Tiny Truths*.
