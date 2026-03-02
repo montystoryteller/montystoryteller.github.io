@@ -1,6 +1,6 @@
 ---
 title: "Tunes, Tales and Tapas"
-meta_title: "Bringing stories and songs to a tapas catered matinee performance, Month + The AnyWhens at Brading Roman Villa, "
+meta_title: "Bringing stories and songs to a tapas catered matinee performance, Monty + The AnyWhens at Brading Roman Villa, Saturday, March 14th, 2026."
 description: "Stories and songs from storyteller Tony 'Monty' Hirst and folk duo Glenn Koppany and Sue Cain, aka Monty + The AnyWhens, alongside optional (pay extra) tapas plates, at Brading Roman Villa, Saturday, March 14th, 2026, 3.30-5.45pm."
 date: 2026-02-27T13:01:25
 image: "/images/manywhens-trio.jpg"
