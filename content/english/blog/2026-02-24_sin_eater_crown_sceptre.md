@@ -10,7 +10,7 @@ tags: [ "Crown & Sceptre, Ross-on-Wye"]
 draft: false
 ---
 
-Whenever we're in Ross (-on-Wye), I tend to have a pint or two in the Crown & Sceptre in the Market Place, tellin' a tale at the open acoustic Sunday or Thursday sessions if I get a chance. (I also try to make the [Forest Folk Club](https://forestfolkclub.com/) sessions - first anf third Sunday, 7.30pm, [Orepool Inn](https://www.orepoolinn.co.uk/)),
+Whenever we're in Ross (-on-Wye), I tend to have a pint or two in the Crown & Sceptre in the Market Place, tellin' a tale at the open acoustic Sunday or Thursday sessions if I get a chance. (I also try to make the [Forest Folk Club](https://forestfolkclub.com/) sessions - first and third Sunday, 7.30pm, [Orepool Inn](https://www.orepoolinn.co.uk/)),
 
 So when I spotted (how did I not think of it before?!) that the pool room at the back was the perfect size for a storytelling show, it felt silly not to chance my arm and ask current landlord Nigel if there was any chance of doing a set there.
 
