@@ -10,9 +10,7 @@ tags: [ "Kashmir Fringe", "Quay Arts"]
 draft: false
 ---
 
-What a fantastic weekend — Kashmir Fringe at [Quay Arts](https://www.quayarts.org/).
-
-A fabulous free weekend of music from island (and mainland) bands, good beer (until it ran out!), and the perfect room for tellin' some tales in — The Rope Store Gallery acoustic stage.
+What a fantastic weekend — Kashmir Fringe at [Quay Arts](https://www.quayarts.org/), a fabulous free weekend of music from island (and mainland) bands, good beer (until it ran out!), and the perfect room for tellin' some tales in — The Rope Store Gallery acoustic stage.
 
 I left the story selection right till the last minute, but with quite a few new faces in, thought I could get away with opening with *The Wish Ring*; then an accompanied tale — *The Puca / Pooka and the Washerwomen* — with Sophie Kate on fiddle (Irish tunes, not least, *The Irish Washerwoman*...), *The Persimmon Tree* with a formula opening ("once upon a time, when..."), and *England's Dreaming* to finish, with Glenn providing some lovely bluesy imagining open chords.
 
