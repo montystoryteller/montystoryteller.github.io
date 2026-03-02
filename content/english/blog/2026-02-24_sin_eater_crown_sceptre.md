@@ -1,5 +1,5 @@
 ---
-title: "'Monty Storyteller at the Crown & Sceptre, Ross-on-Wye"
+title: "Monty Storyteller at the Crown & Sceptre, Ross-on-Wye"
 meta_title: "Monty Storyteller at the Crown & Sceptre, Market Place, Ross-on-Wye, on Tuesday March 10th, 2026, 7.15pm — The Sin-Eater of Ross and other traditional tales."
 description: "Performing his first full set in Ross-on-Wye, Isle of Wight based storyteller Tony 'Monty' Hirst will be bringing The Sin-Eater of Ross and Other Traditional tales to the Crown & Sceptre, Ross-on-Wye, on Tuesday March 10th, 2026. First story at 7.15pm. Price: £5"
 date: 2026-02-24T09:56:11
