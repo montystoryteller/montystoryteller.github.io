@@ -1,8 +1,8 @@
 ---
 title: "Appearing at Kashmir Fringe, 2026"
-meta_title: "Monty Stortyeller @ Kashmir Fringe, 2026"
-description: "Monty traditional storyteller tellin' tales on the acoustic stage at Kashmir Fringe, 2026, Quay arts, Saurday Feb. 2, 2026."
-date: 2026-02-09T10:23:42
+meta_title: "Monty Storyteller @ Kashmir Fringe, 2026"
+description: "Monty traditional storyteller tellin' tales on the acoustic stage at Kashmir Fringe, 2026, Quay arts, Saturday Feb. 7th, 2026."
+date: 2026-01-19T10:23:42
 image: "/images/kashmir_fringe_2026_tshirt.png"
 categories: ["events"]
 collaborator: []
