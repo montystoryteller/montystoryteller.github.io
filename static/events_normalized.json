@@ -565,6 +565,7 @@
           "date": "02/05/2026",
           "time": "7-10.30pm",
           "price": "£15",
+          "event_flyer": "2026_05_02_sorrel_nation_barnoldswick.jpg",
           "ticket_url": "https://www.barnoldswickmusicandartscentre.com/sorrel-nation",
           "venue_id": "barnoldswick-music-arts-centre"
         },
