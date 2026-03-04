@@ -1271,6 +1271,15 @@
       "venue_id": "peppers-hub-fishguard"
     },
     {
+      "name": "Orcadian Storytelling Trust",
+      "schedule": "",
+      "time": "",
+      "link": "https://orkneystorytellingfestival.co.uk/main/",
+      "facebook": "",
+      "club": "orcadiantrust",
+      "venue_id": ""
+    },
+    {
       "name": "Island Storytellers, Isle of Wight",
       "schedule": "2nd thursday",
       "time": "7-9pm",
@@ -2335,7 +2344,7 @@
     },
     {
       "name": "Storytelling at the Kashmir Fringe [Tony 'Monty' Hirst]",
-      "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
+      "showname": "Traditional Tales",
       "date": "07/02/2026",
       "time": "5.15pm",
       "price": "Free",
@@ -2787,12 +2796,13 @@
       "performer_id": "ian-douglas"
     },
     {
-      "name": "The Sin-eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
-      "showname": "The Sin-eater of Ross & Other Tradtitional Tales",
+      "name": "The Sin-Eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
+      "showname": "The Sin-Eater of Ross & Other Tradtitional Tales",
       "date": "10/03/2026",
       "time": "7.30pm",
       "price": "£5",
-      "description": "An evening of traditional storytelling with storyteller Tony 'Monty' Hirst, featuring legends of Ross-on-Wye (who is, or was, the sin-eater of Ross? How did Old Maid's Walk get its name?), tales of the Forest, and a traditional tale or two from the time of once...\n\n\n Age: grown-ups. Because stories aren't just for children..,.",
+      "ticket_url": "https://www.tickettailor.com/events/montystoryteller/2023546",
+      "description": "An evening of traditional storytelling with storyteller Tony 'Monty' Hirst, featuring legends of Ross-on-Wye (who is, or was, the sin-eater of Ross? How did Old Maid's Walk get its name?), tales of the Forest, and a traditional tale or two from the time of once...\n\n\n Age: grown-ups. Because stories aren't just for children...",
       "event_flyer": "2026_03_10_sineater_crown.png",
       "venue_id": "crown-sceptre-ross",
       "performer_id": "tony-monty-hirst"
@@ -2954,6 +2964,19 @@
       "isSpecial": true,
       "venue_id": "butser-ancient-farm-hampshire",
       "performer_id": "bernadette-russell"
+    },
+    {
+      "name": "Of Stars, Bears And The Beginning Of Time [Riika Polonen]",
+      "showname": "Of Stars, Bears And The Beginning Of Time",
+      "date": "10/03/2026",
+      "time": "3pm",
+      "price": "£10",
+      "description": "Celestial origin myths from the Fenno Baltic Tradition. Told by Riika Polonen, musical accompaniment from Richard Clarke.",
+      "event_flyer": "2026-03-22-stromness.jpg",
+      "venue_id": "stromness-town-hall",
+      "performer_id": "riika-polonen",
+      "ticket_url": "https://buy.stripe.com/aFa7sL8EidPF8R62NgeIw03",
+      "club": "orcadiantrust"
     },
     {
       "name": "Rebel Folk Tales [Ropetackle Storytellers]",
@@ -3201,6 +3224,19 @@
       "venue_id": "summerhill-bowling-club-newcastle"
     },
     {
+      "name": "Gaz Brookfield + support (Josh Oldfield)",
+      "date": "05/07/2026",
+      "time": "7.30pm",
+      "club": "gazbrookfield",
+      "price": "£15",
+      "description": "",
+      "event_flyer": "2026-07-05-gaz-brookfield-devizes.jpg",
+      "ticket_url": "https://www.alttickets.com/gaz-brookfield-tickets",
+      "isMusic": true,
+      "venue_id": "fold-lamb-devizes",
+      "performer_id": "gaz-brookfield"
+    },
+    {
       "fb_event": 1338473741103128,
       "name": "Jess Silk",
       "date": "26/09/2026",
@@ -3357,6 +3393,30 @@
     }
   ],
   "venues": {
+    "stromness-town-hall": {
+      "id": "stromness-town-hall",
+      "name": "Stromness Town Hall, Orkney",
+      "city": "Stromness, Orkney",
+      "postcode": "KW16 3BA",
+      "full_address": "Stromness Community Centre and Town Hall, Church Road, Stromness, Orkney, KW16 3BA",
+      "url": "https://www.orkney.gov.uk/our-services/leisure-and-culture/sport-and-leisure/community-centres/stromness-community-centre/",
+      "latlon": [
+        58.96262,
+        -3.30028
+      ]
+    },
+    "fold-lamb-devizes": {
+      "id": "fold-lamb-devizes",
+      "name": "The Fold, upstairs at the Lamb",
+      "city": "Devizes",
+      "postcode": "SN10 1BT",
+      "full_address": "The Fold, upstairs at the Lamb Inn, 20 St Johns Street, Devizes, SN10 1BT",
+      "url": "https://www.wadworth.co.uk/find-a-pub/lamb-inn-devizes/",
+      "latlon": [
+        51.35094,
+        -1.99447
+      ]
+    },
     "the-fat-cat-sheffield": {
       "id": "the-fat-cat-sheffield",
       "name": "The Fat Cat",
@@ -6171,6 +6231,12 @@
       "name": "Anna Maria Vilhelmina Hellberg Moberg",
       "url": "https://amhellbergmoberg.co.uk/",
       "bio": "UK-based, Swedish author, journalist and storyteller Anna Maria Vilhelmina Hellberg Moberg (formerly Anna Maria Espsäter). She is the author of 25+ books, including five works of fiction, numerous travel books, three books about cats and, most recently, a book of Swedish folk tales (published October 2024 by the History Press).\n\n\n\n In recent years, as Vilhelmina Hellberg Moberg, she has branched out into live storytelling for adults. She is multilingual, both as a writer and speaker/storyteller, and a keen photographer who's had several solo exhibitions in the UK and Sweden."
+    },
+    "riika-polonen": {
+      "id": "riika-polonen",
+      "name": "Riika Polonen",
+      "url": "https://riikkapalonen.com/",
+      "bio": "As a child Riika discovered that storybooks could transport her to other worlds of fairytale, myth and magic. To this day she still enjoys visiting those faraway places, and as a storyteller she is able to take others with her on that journey.\n\n\n\nFor over 15 years Riika has been performing as a storyteller in Finland and in recent years in venues across the UK from Oxford to Orkney, and internationally from Morocco to Lapland. \n\n\n\nRiika also works in collaberation with her husband, folk musician Richard Clarke to create their very popular song and story performances."
     },
     "niall-moorjani": {
       "id": "niall-moorjani",
