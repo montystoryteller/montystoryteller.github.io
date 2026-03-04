@@ -2764,6 +2764,34 @@
       "isSpecial": true,
       "venue_id": "dragon-theatre-barmouth",
       "performer_id": "ffion-phillips-dragon-storytellers"
+    },{
+      "name": "Uncanny [Nell Phoenix]",
+      "showname": "Uncanny",
+      "promoter_link": "http://nellphoenix.co.uk/",
+      "date": "25/02/2026",
+      "time": "7-9pm",
+      "club": "pembrokeshirestorytelling",
+      "price": "£7.50/6.00 ",
+      "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.\n\n\n\nReserve tickets: debwinterstories@gmail.com",
+      "event_flyer": "2026_02_25-pembrokeshire-nell-phoenix-uncanny.jpg",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "peppers-hub-fishguard",
+      "performer_id": "nell-phoenix"
+    },
+    {
+      "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
+      "showname": "A Dance with the Minotaur's Sister",
+      "date": "26/02/2026",
+      "time": "7.30pm",
+      "club": "crickcrack",
+      "price": "£12",
+      "description": "Join storyteller Steph Brittain as she follows Ariadne's journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.",
+      "event_flyer": "",
+      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-a-dance-with-the-minotaurs-sister",
+      "isSpecial": true,
+      "venue_id": "the-story-museum-oxford",
+      "performer_id": "steph-brittain"
     },
     {
       "name": "She's Electric (Elaphant Tales) [Vanessa Woolf]",
@@ -2796,6 +2824,19 @@
       "performer_id": "ian-douglas"
     },
     {
+      "name": "Of Stars, Bears And The Beginning Of Time [Riika Polonen]",
+      "showname": "Of Stars, Bears And The Beginning Of Time",
+      "date": "10/03/2026",
+      "time": "3pm",
+      "price": "£10",
+      "description": "Celestial origin myths from the Fenno Baltic Tradition. Told by Riika Polonen, musical accompaniment from Richard Clarke.",
+      "event_flyer": "2026-03-22-stromness.jpg",
+      "venue_id": "stromness-town-hall",
+      "performer_id": "riika-polonen",
+      "ticket_url": "https://buy.stripe.com/aFa7sL8EidPF8R62NgeIw03",
+      "club": "orcadiantrust"
+    },
+    {
       "name": "The Sin-Eater of Ross & Other Tradtitional Tales [Tony 'Monty' Hirst]",
       "showname": "The Sin-Eater of Ross & Other Tradtitional Tales",
       "date": "10/03/2026",
@@ -2806,63 +2847,6 @@
       "event_flyer": "2026_03_10_sineater_crown.png",
       "venue_id": "crown-sceptre-ross",
       "performer_id": "tony-monty-hirst"
-    },
-    {
-      "name": "World's Weirdest Folk Tales [Tis Tales, feat. Holly Medland, Sue Bailey and Merl Fluin]",
-      "showname": "World's Weirdest Folk Tales",
-      "date": "14/03/2026",
-      "time": "7-9pm",
-      "price": "£10",
-      "description": "Mirror, mirror on the wall, who's the weirdest of them all?\n\n\n\n Once upon a time there were three storytellers who never stopped squabbling. All three of them loved weird folktales, but they couldn't agree which one had the weirdest, whackiest folktales in the world. They bragged and boasted, they beefed and brawled, they blew their own trumpets and tooted their horns... \n\n\n\nUntil finally they decided to settle things once and for all. They decided to have a Weird Tales contest.\n\n\n\nSo come and join us for a battle of the bizarre, a folktale fracas, a funny-peculiar feud — a contest to see which storyteller really has the world's weirdest folktale. Hear the stories, weigh up the evidence, and vote to choose the tale you think is weirdest. It may not quite be a battle to the death, but you'll certainly see some folklore feathers fly.\n\n\n\nStories told by Sue Bailey, Merl Fluin and Holly Medland \n\n\n\nRefreshments provided or BYOB \n\n\n\nSuitable for age 16+",
-      "event_flyer": "2026-03-14-tis-weird-ventnor.jpg",
-      "ticket_url": "https://www.tickettailor.com/events/merlfluin/2066889",
-      "isSpecial": true,
-      "fb_event": 1196997405555935,
-      "venue_id": "ventnor-library",
-      "performer_id": "tis-tales-hms"
-    },
-    {
-      "name": "Uncanny [Nell Phoenix]",
-      "showname": "Uncanny",
-      "promoter_link": "http://nellphoenix.co.uk/",
-      "date": "25/02/2026",
-      "time": "7-9pm",
-      "club": "pembrokeshirestorytelling",
-      "price": "£7.50/6.00 ",
-      "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.\n\n\n\nReserve tickets: debwinterstories@gmail.com",
-      "event_flyer": "2026_02_25-pembrokeshire-nell-phoenix-uncanny.jpg",
-      "ticket_url": "",
-      "isSpecial": true,
-      "venue_id": "peppers-hub-fishguard",
-      "performer_id": "nell-phoenix"
-    },
-    {
-      "name": "A Dance with the Minotaur's Sister [Steph Brittain]",
-      "showname": "A Dance with the Minotaur's Sister",
-      "date": "26/02/2026",
-      "time": "7.30pm",
-      "club": "crickcrack",
-      "price": "£12",
-      "description": "Join storyteller Steph Brittain as she follows Ariadne's journey as it unravels through the maze of love, betrayal, loss, joy and the bulls and the bees. Before the thread and before the tangled and twisted maze, there was Ariadne full of life and rhythm. From a dance floor in the forest and the labyrinth's twisting and tangled passages to the starry skies of the Island of Naxos, Steph Brittain weaves an intricate tapestry of love, strength and courage.",
-      "event_flyer": "",
-      "ticket_url": "https://www.storymuseum.org.uk/whats-on/crick-crack-a-dance-with-the-minotaurs-sister",
-      "isSpecial": true,
-      "venue_id": "the-story-museum-oxford",
-      "performer_id": "steph-brittain"
-    },
-    {
-      "name": "Tales of the Middle Sea [Sef Townsend]",
-      "showname": "Tales of the Middle Sea",
-      "date": "10/04/2026",
-      "time": "7-10pm",
-      "club": "lichfieldST",
-      "price": "£7.70",
-      "description": "Phoenicians, Greeks, Romans and even earlier civilizations brought trade, migration and cultural exchange across the vast inland sea of the Mediterranean. A myriad of stories have landed on these shores making these 'Tales of the Middle Sea some of the quirkiest and most unexpected you might ever hear.\n\n\n\n Told by the amazing Sef Townsend who has been telling, sharing and listening to stories for more than 30 years. Sef has travelled the world telling stories and working for projects of peace and reconciliation.",
-      "ticket_url": "https://wegottickets.com/af/671/event/694668",
-      "isSpecial": true,
-      "fb_event": 860334747024364,
-      "venue_id": "kings-head-lichfield",
-      "performer_id": "sef-townsend"
     },
     {
       "name": "Fairy Tale Blues [Monty + The AnyWhens]",
@@ -2879,6 +2863,35 @@
       "performer_id": "monty-the-anywhens"
     },
     {
+      "name": "World's Weirdest Folk Tales [Tis Tales, feat. Holly Medland, Sue Bailey and Merl Fluin]",
+      "showname": "World's Weirdest Folk Tales",
+      "date": "14/03/2026",
+      "time": "7-9pm",
+      "price": "£10",
+      "description": "Mirror, mirror on the wall, who's the weirdest of them all?\n\n\n\n Once upon a time there were three storytellers who never stopped squabbling. All three of them loved weird folktales, but they couldn't agree which one had the weirdest, whackiest folktales in the world. They bragged and boasted, they beefed and brawled, they blew their own trumpets and tooted their horns... \n\n\n\nUntil finally they decided to settle things once and for all. They decided to have a Weird Tales contest.\n\n\n\nSo come and join us for a battle of the bizarre, a folktale fracas, a funny-peculiar feud — a contest to see which storyteller really has the world's weirdest folktale. Hear the stories, weigh up the evidence, and vote to choose the tale you think is weirdest. It may not quite be a battle to the death, but you'll certainly see some folklore feathers fly.\n\n\n\nStories told by Sue Bailey, Merl Fluin and Holly Medland \n\n\n\nRefreshments provided or BYOB \n\n\n\nSuitable for age 16+",
+      "event_flyer": "2026-03-14-tis-weird-ventnor.jpg",
+      "ticket_url": "https://www.tickettailor.com/events/merlfluin/2066889",
+      "isSpecial": true,
+      "fb_event": 1196997405555935,
+      "venue_id": "ventnor-library",
+      "performer_id": "tis-tales-hms"
+    },
+    {
+      "name": "Walk By Night & Storymaking [Giles Abbott]",
+      "showname": "Walk By Night & Storymaking",
+      "date": "18/03/2026",
+      "time": "7.15-10pm",
+      "club": "stinginthetale",
+      "price": "£6.50-8.57",
+      "description": "Join Giles as he walks us from London through Japan, Ireland and Denmark in a series of interlinked stories, and then a session of co-curation - Giles will be creating a story on the night from audience suggestions and performing it for us.\n\n\n\n You get to be in charge of Quest, Monsters, Fortunes and direct the elements - this night will therefore, be on-of-a-kind and unrepeatable!",
+      "event_flyer": "",
+      "ticket_url": "https://www.ticketsource.co.uk/whats-on/manchester/lock-91/giles-abbott-walk-by-night-and-storymaking/2026-03-18/19:30/t-oejxegq",
+      "isSpecial": true,
+      "fb_event": 1396577011690188,
+      "venue_id": "lock-91-bar-manchester",
+      "performer_id": "giles-abbott"
+    },
+    {
       "name": "Mare's Tale Woman & Other Folk Tales [Caravan of Storytellers]",
       "showname": "Mare's Tale Woman & Other Folk Tales",
       "date": "20/03/2026",
@@ -2892,7 +2905,6 @@
       "venue_id": "newport-memorial-hall",
       "performer_id": "caravan-of-storytellers"
     },
-    
     {
       "name": "Uncanny [Nell Phoenix]",
       "showname": "Uncanny",
@@ -2938,45 +2950,18 @@
       "performer_id": "maria-credali"
     },
     {
-      "name": "Walk By Night & Storymaking [Giles Abbott]",
-      "showname": "Walk By Night & Storymaking",
-      "date": "18/03/2026",
-      "time": "7.15-10pm",
-      "club": "stinginthetale",
-      "price": "£6.50-8.57",
-      "description": "Join Giles as he walks us from London through Japan, Ireland and Denmark in a series of interlinked stories, and then a session of co-curation - Giles will be creating a story on the night from audience suggestions and performing it for us.\n\n\n\n You get to be in charge of Quest, Monsters, Fortunes and direct the elements - this night will therefore, be on-of-a-kind and unrepeatable!",
-      "event_flyer": "",
-      "ticket_url": "https://www.ticketsource.co.uk/whats-on/manchester/lock-91/giles-abbott-walk-by-night-and-storymaking/2026-03-18/19:30/t-oejxegq",
+      "name": "Tales of the Middle Sea [Sef Townsend]",
+      "showname": "Tales of the Middle Sea",
+      "date": "10/04/2026",
+      "time": "7-10pm",
+      "club": "lichfieldST",
+      "price": "£7.70",
+      "description": "Phoenicians, Greeks, Romans and even earlier civilizations brought trade, migration and cultural exchange across the vast inland sea of the Mediterranean. A myriad of stories have landed on these shores making these 'Tales of the Middle Sea some of the quirkiest and most unexpected you might ever hear.\n\n\n\n Told by the amazing Sef Townsend who has been telling, sharing and listening to stories for more than 30 years. Sef has travelled the world telling stories and working for projects of peace and reconciliation.",
+      "ticket_url": "https://wegottickets.com/af/671/event/694668",
       "isSpecial": true,
-      "fb_event": 1396577011690188,
-      "venue_id": "lock-91-bar-manchester",
-      "performer_id": "giles-abbott"
-    },
-    {
-      "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
-      "showname": "Under a Hill, a King Lays Sleeping",
-      "description": "Come join local author and storyteller Bernadette Russell for a wild and magical evening of Hampshire myth and folklore - featuring the tales of the King asleep beneath a hill which is perhaps a slumbering dragon, the giant Ascapart and his battles with Bevis of Hampton, an enchanted stone circle and a ghostly horse, our local witches and their spells, incantations and potions, the Otherworld and the Bentworth Thorn, and the grampus that lives in a Yew Tree. With stories, songs, poetry and even a spell from a Hampshire Grimoire - this will be a night to remember - guaranteed fun and packed full of ancient wisdom too!\n\n\n\n Come and let yourself be re-enchanted by this beautiful region full of chalk downlands, heathland, forest and coastline, bustling with rich legends and fairytales. With stories, songs, and poetry this will be a night to remember- guaranteed fun and packed full of ancient wisdom too!",
-      "date": "22/05/2026",
-      "time": "7-9pm",
-      "price": "£20.50",
-      "fb_event": 1402520921214581,
-      "ticket_url": "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell",
-      "isSpecial": true,
-      "venue_id": "butser-ancient-farm-hampshire",
-      "performer_id": "bernadette-russell"
-    },
-    {
-      "name": "Of Stars, Bears And The Beginning Of Time [Riika Polonen]",
-      "showname": "Of Stars, Bears And The Beginning Of Time",
-      "date": "10/03/2026",
-      "time": "3pm",
-      "price": "£10",
-      "description": "Celestial origin myths from the Fenno Baltic Tradition. Told by Riika Polonen, musical accompaniment from Richard Clarke.",
-      "event_flyer": "2026-03-22-stromness.jpg",
-      "venue_id": "stromness-town-hall",
-      "performer_id": "riika-polonen",
-      "ticket_url": "https://buy.stripe.com/aFa7sL8EidPF8R62NgeIw03",
-      "club": "orcadiantrust"
+      "fb_event": 860334747024364,
+      "venue_id": "kings-head-lichfield",
+      "performer_id": "sef-townsend"
     },
     {
       "name": "Rebel Folk Tales [Ropetackle Storytellers]",
@@ -3021,6 +3006,19 @@
       "isSpecial": true,
       "venue_id": "st-lawrence-village-hall",
       "performer_id": "monty-the-anywhens"
+    },
+    {
+      "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
+      "showname": "Under a Hill, a King Lays Sleeping",
+      "description": "Come join local author and storyteller Bernadette Russell for a wild and magical evening of Hampshire myth and folklore - featuring the tales of the King asleep beneath a hill which is perhaps a slumbering dragon, the giant Ascapart and his battles with Bevis of Hampton, an enchanted stone circle and a ghostly horse, our local witches and their spells, incantations and potions, the Otherworld and the Bentworth Thorn, and the grampus that lives in a Yew Tree. With stories, songs, poetry and even a spell from a Hampshire Grimoire - this will be a night to remember - guaranteed fun and packed full of ancient wisdom too!\n\n\n\n Come and let yourself be re-enchanted by this beautiful region full of chalk downlands, heathland, forest and coastline, bustling with rich legends and fairytales. With stories, songs, and poetry this will be a night to remember- guaranteed fun and packed full of ancient wisdom too!",
+      "date": "22/05/2026",
+      "time": "7-9pm",
+      "price": "£20.50",
+      "fb_event": 1402520921214581,
+      "ticket_url": "https://www.butserancientfarm.co.uk/whats-on/calendar/storytelling-under-hill-king-lays-sleeping-bernadette-russell",
+      "isSpecial": true,
+      "venue_id": "butser-ancient-farm-hampshire",
+      "performer_id": "bernadette-russell"
     },
     {
       "name": "Tell Tales Club: Tropsyn / Morgan le Fay [Jessie Wild / Cath Little]",
