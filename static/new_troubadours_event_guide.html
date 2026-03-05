@@ -226,19 +226,19 @@
     <div class="info-banner-tabs">
         <div class="info-banner-tabs-header">
             <span class="header-label">What is/are:</span>
-            <button class="header-tab-button" onclick="toggleTabContent('storytelling')">storytelling?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('storytelling', event)">storytelling?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('circles')">story circles / clubs?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('circles', event)">story circles / clubs?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('performance')">performance
+            <button class="header-tab-button" onclick="toggleTabContent('performance', event)">performance
                 storytelling?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('storytellingshows')">storytelling
+            <button class="header-tab-button" onclick="toggleTabContent('storytellingshows', event)">storytelling
                 shows?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('folknopenmic')">folk club etiquette?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('folknopenmic', event)">folk club etiquette?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('musicpolicy')">music policy?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('musicpolicy', event)">music policy?</button>
         </div>
 
         <div class="tab-content-area" id="storytelling" style="display: none;">
@@ -478,7 +478,7 @@
                 while (current <= extendedEnd) {
                     const year = current.getFullYear();
                     const month = current.getMonth();
-                    const lastDay = new Date(year, month + 1, 0);
+                    //const lastDay = new Date(year, month + 1, 0);
 
                     // Find both occurrences
                     const occurrences = [occurrence1, occurrence2];
@@ -2093,7 +2093,7 @@
                 const folk = params.get('folk') === '1';
                 const sessions = params.get('sessions') === '1';
                 const pinmap = params.get('pinmap') === '1';
-                const zoom = params.get('zoom') ? parseInt(params.get('zoom'), 10) : 6;;
+                const zoom = params.get('zoom') ? parseInt(params.get('zoom'), 10) : 6;
                 const lat = params.get('lat') ? parseFloat(params.get('lat')) : 53.0;
                 const lng = params.get('lng') ? parseFloat(params.get('lng')) : 0.0;
                 // If none are selected, default storyclubs and special to true
@@ -2120,7 +2120,7 @@
         }
 
 
-        function toggleTabContent(tabId) {
+        function toggleTabContent(tabId, event) {
             const allTabs = document.querySelectorAll('.tab-content-area');
             const clickedTab = document.getElementById(tabId);
             const allButtons = document.querySelectorAll('.header-tab-button');

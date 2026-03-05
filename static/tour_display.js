@@ -21,9 +21,7 @@ function getTourStatus(tour) {
   return "current"; // straddles today
 }
 
-function isDatePast(dateStr) {
-  return parseDateString(dateStr) < getTodayMidnight();
-}
+// isDatePast(dateStr) — defined in shared_utils.js
 
 // sanitizeUrl() — defined in shared_utils.js
 
@@ -136,6 +134,7 @@ function handlePerformerChange() {
     // the previous tour's view until they pick one from the new list
     document.getElementById("tourContent").style.display = "none";
     markers.forEach((marker) => map.removeLayer(marker));
+    markers = [];
   }
 }
 
@@ -456,9 +455,10 @@ function createTourDateElement(tourDate, tour, past = false) {
 function resetMapZoom() {
   const tourId = document.getElementById("tourSelect").value;
   if (tourId && toursLookup[tourId]) {
-    addTourMarkersToMap(toursLookup[tourId]);
+    const tour = toursLookup[tourId];
+    addTourMarkersToMap(tour);
     // Reset to show all dates
-    displayTourDates(toursLookup[tourId]);
+    displayTourDates(tour, getTourStatus(tour));
   }
 }
 
@@ -559,13 +559,12 @@ function addTourMarkersToMap(tour) {
         });
 
         const popupContent = `
-                    <div class="popup-content">
-                        <h3>${venue.name}</h3>
-                        <p><strong>${dateStr}</strong></p>
-                        <p>${venue.full_address || ""}</p>
-                    </div>
-                `;
-
+          <div class="popup-content">
+            <h3>${escapeHtml(venue.name)}</h3>
+            <p><strong>${escapeHtml(dateStr)}</strong></p>
+            <p>${escapeHtml(venue.full_address || "")}</p>
+          </div>
+        `;
         marker.bindPopup(popupContent);
         markers.push(marker);
         bounds.push([lat, lon]);
