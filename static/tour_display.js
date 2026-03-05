@@ -296,24 +296,25 @@ function displayTour(tourId) {
   let existingBanner = document.getElementById("tourStatusBanner");
   if (existingBanner) existingBanner.remove();
 
+  const STATUS_BANNER = {
+    past: {
+      cls: "tour-banner-past",
+      text: "📅 This tour has ended — showing all dates.",
+    },
+    future: {
+      cls: "tour-banner-future",
+      text: "🗓 Upcoming tour — all dates still to come.",
+    },
+    current: {
+      cls: "tour-banner-current",
+      text: "🎭 Tour in progress — past dates shown in grey.",
+    },
+  };
+
   const banner = document.createElement("div");
   banner.id = "tourStatusBanner";
-  banner.style.cssText =
-    "padding:8px 14px;border-radius:4px;margin-bottom:12px;font-size:0.9em;font-weight:600;";
-
-  if (status === "past") {
-    banner.style.background = "#f0f0f0";
-    banner.style.color = "#666";
-    banner.textContent = "📅 This tour has ended — showing all dates.";
-  } else if (status === "future") {
-    banner.style.background = "#e8f5e9";
-    banner.style.color = "#2e7d32";
-    banner.textContent = "🗓 Upcoming tour — all dates still to come.";
-  } else {
-    banner.style.background = "#fff8e1";
-    banner.style.color = "#f57f17";
-    banner.textContent = "🎭 Tour in progress — past dates shown in grey.";
-  }
+  banner.className = `tour-banner ${STATUS_BANNER[status]?.cls ?? "tour-banner-current"}`;
+  banner.textContent = STATUS_BANNER[status]?.text ?? "";
 
   const datesSection = document.getElementById("tourDatesList").parentElement;
   datesSection.insertBefore(banner, document.getElementById("tourDatesList"));
@@ -342,10 +343,6 @@ function displayTourDates(tour, status) {
   sortedDates.forEach((tourDate) => {
     const past = isDatePast(tourDate.date);
     const dateItem = createTourDateElement(tourDate, tour, past);
-
-    if (past) {
-      dateItem.classList.add("date-past");
-    }
 
     datesContainer.appendChild(dateItem);
 
@@ -413,7 +410,7 @@ function createTourDateElement(tourDate, tour, past = false) {
       if (venue.latlon) {
         map.flyTo(venue.latlon, 14);
         markers.forEach((m) => {
-          if (m.getLatLng().lat === venue.latlon[0]) m.openPopup();
+          if (m.venue_id === tourDate.venue_id) m.openPopup();
         });
       }
     }
@@ -421,6 +418,10 @@ function createTourDateElement(tourDate, tour, past = false) {
 
   // Date Header
   const date = parseDateString(tourDate.date);
+  if (!date) {
+    console.warn("Invalid or missing date for tour date:", tourDate);
+    return div;
+  }
   const nameDiv = document.createElement("div");
   nameDiv.className = "event-name";
   nameDiv.textContent = date.toLocaleDateString("en-GB", {
