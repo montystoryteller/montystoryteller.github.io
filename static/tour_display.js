@@ -13,7 +13,10 @@ let currentTour = null; // Store current tour for map filtering
 function getTourStatus(tour) {
   if (!tour.tour_dates || tour.tour_dates.length === 0) return "unknown";
   const today = getTodayMidnight();
-  const dates = tour.tour_dates.map((d) => parseDateString(d.date));
+  const dates = tour.tour_dates
+    .map((d) => parseDateString(d.date))
+    .filter(Boolean); // exclude entries with missing/malformed dates
+  if (dates.length === 0) return "unknown";
   const allPast = dates.every((d) => d < today);
   const allFuture = dates.every((d) => d >= today);
   if (allPast) return "past";
@@ -496,10 +499,13 @@ function updateMapView() {
     return;
   }
 
-  // Sort dates chronologically
+  // Sort dates chronologically; entries with missing/malformed dates sort to the end
   const sortedDates = [...visibleTourDates].sort((a, b) => {
     const dateA = parseDateString(a.date);
     const dateB = parseDateString(b.date);
+    if (!dateA && !dateB) return 0;
+    if (!dateA) return 1;
+    if (!dateB) return -1;
     return dateA - dateB;
   });
 

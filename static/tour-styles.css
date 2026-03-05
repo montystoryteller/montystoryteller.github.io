@@ -228,10 +228,6 @@ select {
 }
 
 .tour-date-item:hover {
-    /* NOTE: original file had two conflicting :hover blocks.
-       First block had transform: none !important; second had transform: translateX(5px).
-       The second block won due to cascade order — both are preserved here faithfully. */
-    transform: none !important;
     transform: translateX(5px);
     box-shadow: -4px 0 0 #2e7d32;
     background-color: #f0f0f0;
