@@ -238,9 +238,13 @@ function displayTour(tourId) {
 
   const flyerContainer = document.getElementById("tourFlyerContainer");
   const flyerImage = document.getElementById("tourFlyerImage");
-  flyerContainer
-    .querySelectorAll(".performer-link")
-    .forEach((link) => link.remove());
+
+  // Rebuild container children in explicit order: top links → image → bottom links.
+  // This avoids positional insertBefore/appendChild drift across repeated displayTour calls.
+  flyerContainer.innerHTML = "";
+
+  const topLinks = [];
+  const bottomLinks = [];
 
   performerIds.forEach((id) => {
     const perf = performersLookup[id];
@@ -248,23 +252,26 @@ function displayTour(tourId) {
       const safeUrl = sanitizeUrl(perf.url);
       if (!safeUrl) return;
 
-      // Create Top Link
       const topLink = document.createElement("a");
       topLink.href = safeUrl;
       topLink.target = "_blank";
       topLink.className = "performer-link site-link-header";
       topLink.textContent = `Visit ${perf.name}'s Website`;
-      flyerContainer.insertBefore(topLink, flyerImage); // Before the image
+      topLinks.push(topLink);
 
-      // Create Bottom Link
       const bottomLink = document.createElement("a");
       bottomLink.href = safeUrl;
       bottomLink.target = "_blank";
       bottomLink.className = "performer-link site-link-footer";
       bottomLink.textContent = `Official Website: ${perf.name}`;
-      flyerContainer.appendChild(bottomLink); // After the image
+      bottomLinks.push(bottomLink);
     }
   });
+
+  topLinks.forEach((l) => flyerContainer.appendChild(l));
+  flyerContainer.appendChild(flyerImage); // always re-attach image in the middle
+  bottomLinks.forEach((l) => flyerContainer.appendChild(l));
+
   if (tour.tour_flyer) {
     const flyerPath = tour.tour_flyer.replace(/[^a-zA-Z0-9._-]/g, "");
     flyerImage.src = `./storyclub_assets/event_flyers/${flyerPath}`;
