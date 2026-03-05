@@ -423,6 +423,24 @@ select {
     color: #888;
 }
 
+.event.event-cancelled .event-location {
+    color: #178232;
+}
+
+.event.event-cancelled .event-tickets a {
+    color: #e65100;
+    border-bottom-color: #e65100;
+}
+
 .special .event-location .event-date-cancelled, .music .event-location .event-date-cancelled {
     color: #649f66;
+}
+
+.event.event-cancelled .event-expand-btn {
+    background: #2e7d32;
+    color: white;
+}
+
+.event.event-cancelled .event-expand-btn:hover {
+    background: #1b5e20;
 }

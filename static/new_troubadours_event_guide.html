@@ -330,6 +330,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="shared_utils.js"></script>
     <script>
         let map;
         let markers = [];
@@ -344,10 +345,7 @@
         let mapViewPinned = false;
         let pinnedMapView = null;
 
-        const UK_IRELAND_BOUNDS = L.latLngBounds(
-            [49.5, -11.0],  // SW corner (Atlantic)
-            [61.0, 2.5]     // NE corner (North Sea)
-        );
+        // UK_IRELAND_BOUNDS — defined in shared_utils.js
 
         const EVENT_TYPES = {
             SESSION: 'session',
@@ -359,96 +357,12 @@
 
 
 
-        /**
-         * Sanitize HTML to prevent XSS attacks
-         * @param {string} text - The text to sanitize
-         * @returns {string} - Sanitized text
-         */
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
+        // escapeHtml() — defined in shared_utils.js
 
-        /**
-         * Validate and sanitize URL
-         * @param {string} url - The URL to validate
-         * @returns {string|null} - Sanitized URL or null if invalid
-         */
-        function sanitizeUrl(url) {
-            if (!url) return null;
-
-            // Remove any whitespace
-            url = url.trim();
-
-            // Only allow http, https, and mailto protocols
-            const allowedProtocols = ['http:', 'https:', 'mailto:'];
-
-            try {
-                const urlObj = new URL(url, window.location.origin);
-
-                if (!allowedProtocols.includes(urlObj.protocol)) {
-                    console.warn('Blocked potentially dangerous URL:', url);
-                    return null;
-                }
-
-                return urlObj.href;
-            } catch (e) {
-                console.warn('Invalid URL:', url);
-                return null;
-            }
-        }
+        // sanitizeUrl() — defined in shared_utils.js
 
 
-        // Load events from JSON file
-        async function loadEventsData() {
-            try {
-                const cacheBuster = new Date().getTime();
-                const response = await fetch(`events_normalized.json?v=${cacheBuster}`);
-                if (response.ok) {
-                    eventsData = await response.json();
-                    toursLookup = eventsData.tours || {};
-
-                    console.log(`✓ Loaded events from JSON:`);
-                    if (eventsData.venues) {
-                        venuesLookup = eventsData.venues;
-                        console.log(`  - ${Object.keys(venuesLookup).length} venues`);
-                    }
-                    if (eventsData.performers) {
-                        performersLookup = eventsData.performers;
-                        console.log(`  - ${Object.keys(performersLookup).length} performers`);
-                    }
-                    console.log(`  - ${eventsData.events?.length || 0} recurring events`);
-                    console.log(`  - ${eventsData.specificEvents?.length || 0} specific events`);
-                    console.log(`  - ${eventsData.musicEvents?.length || 0} music events`);
-                    console.log(`  - ${eventsData.folkNights?.length || 0} folk nights`);
-                    console.log(`  - ${eventsData.irishSessions?.length || 0} Irish sessions`);
-                    console.log(`  - ${Object.keys(eventsData.touring_shows || {}).length} touring shows`);
-
-                    // Flag events with missing geocode
-                    const checkMissing = (eventsList, label) => {
-                        const missing = eventsList?.filter(e => e.geocode_missing) || [];
-                        if (missing.length > 0) {
-                            console.warn(`⚠ ${missing.length} ${label} missing geocode data:`);
-                            missing.forEach(e => console.warn(`  - ${e.name}: ${e.location}`));
-                        }
-                    };
-
-                    checkMissing(eventsData.events, 'recurring events');
-                    checkMissing(eventsData.specificEvents, 'specific events');
-                    checkMissing(eventsData.musicEvents, 'music events');
-
-                    return eventsData;
-                } else {
-                    console.error('Failed to load events_combined.json');
-                    return null;
-                }
-            } catch (error) {
-                console.error('Error loading events:', error);
-                return null;
-            }
-        }
+        // loadEventsData() — defined in shared_utils.js
 
         function extractPostcodeArea(location) {
             if (!location) return '';
@@ -458,19 +372,7 @@
             return postcodeMatch ? postcodeMatch[1] : '';
         }
 
-        function initMap() {
-            map = L.map('map', {
-                maxBounds: UK_IRELAND_BOUNDS,
-                maxBoundsViscosity: 1.0, minZoom: 5,
-                maxZoom: 16
-            }).setView([53.0, -2.0], 6); // Center on UK
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            map.on('moveend', updateMapView);
-        }
+        // initMap() — defined in shared_utils.js
 
         function findNthDayInMonth(year, month, targetDay, occurrence) {
             const lastDay = new Date(year, month + 1, 0);
@@ -776,7 +678,7 @@
                 isFolk: eventType === 'folk',
                 isSession: eventType === 'session',
                 isTouringShow: !!baseEvent.isTouringShow,
-                isCancelled: !!baseEvent.isCancelled 
+                isCancelled: !!baseEvent.isCancelled
             };
 
             // Add type-specific fields
@@ -834,18 +736,12 @@
                         console.warn(`Missing date for touring show in ${show.name}:`, showDate);
                         continue;
                     }
-
-                    const dateParts = showDate.date.split('/');
-                    if (dateParts.length !== 3) {
+                    // parseDateString() defined in shared_utils.js
+                    const eventDate = parseDateString(showDate.date);
+                    if (!eventDate) {
                         console.warn(`Invalid date format for touring show in ${show.name}:`, showDate);
                         continue;
                     }
-
-                    const day = parseInt(dateParts[0], 10);
-                    const month = parseInt(dateParts[1], 10);
-                    const year = parseInt(dateParts[2], 10);
-
-                    const eventDate = new Date(year, month - 1, day);
                     if (eventDate >= startDate && eventDate <= endDate) {
                         // Merge show-level and date-level properties
                         const mergedEvent = {
@@ -893,18 +789,12 @@
                         console.warn(`Missing date for tour event in ${tour.name}:`, tourDate);
                         continue;
                     }
-
-                    const dateParts = tourDate.date.split('/');
-                    if (dateParts.length !== 3) {
+                    // parseDateString() defined in shared_utils.js
+                    const eventDate = parseDateString(tourDate.date);
+                    if (!eventDate) {
                         console.warn(`Invalid date format for tour event in ${tour.name}:`, tourDate);
                         continue;
                     }
-
-                    const day = parseInt(dateParts[0], 10);
-                    const month = parseInt(dateParts[1], 10);
-                    const year = parseInt(dateParts[2], 10);
-
-                    const eventDate = new Date(year, month - 1, day);
                     if (eventDate >= startDate && eventDate <= endDate) {
                         // Merge tour-level and date-level properties
                         const mergedEvent = {
@@ -937,18 +827,12 @@
                     console.warn(`Missing date for ${typ} event:`, event);
                     continue;
                 }
-
-                const dateParts = event.date.split('/');
-                if (dateParts.length !== 3) {
+                // parseDateString() defined in shared_utils.js
+                const eventDate = parseDateString(event.date);
+                if (!eventDate) {
                     console.warn(`Invalid date format for ${typ} event:`, event);
                     continue;
                 }
-
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10);
-                const year = parseInt(dateParts[2], 10);
-
-                const eventDate = new Date(year, month - 1, day);
                 if (eventDate >= startDate && eventDate <= endDate) {
                     const eventData = createEventData(event, eventDate, typ);
                     allEventsData.push(eventData);
@@ -1235,28 +1119,9 @@
             }
         }
 
-        const ICON_SVG = {
-            website: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>',
-            email: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
-            facebook: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>'
-        }
+        // ICON_SVG — defined in shared_utils.js
 
-        function createIcon(iconsContainer, typ, url) {
-            if (url) {
-                const safeurl = sanitizeUrl(url);
-
-                if (safeurl) {
-                    const link = document.createElement('a');
-                    link.href = safeurl;
-                    link.target = '_blank';
-                    link.className = `event-${typ}`;
-                    link.title = String(typ).charAt(0).toUpperCase() + String(typ).slice(1);;
-                    link.onclick = (e) => e.stopPropagation();
-                    link.innerHTML = ICON_SVG[typ];
-                    iconsContainer.appendChild(link);
-                }
-            }
-        }
+        // createIcon() — defined in shared_utils.js
 
         function createEventElement(event) {
             const eventDiv = document.createElement('div');
@@ -1265,9 +1130,6 @@
             if (event.isCancelled) {
                 eventDiv.classList.add('event-cancelled');
             }
-
-            // Add type classes
-            addEventTypeClasses(eventDiv, event);
 
             // Add click handler
             if (event.coords?.lat && event.coords?.lon) {
@@ -1355,10 +1217,7 @@
             }
 
             if (event.facebook) {
-                const fbUrl = event.facebook.startsWith('http')
-                    ? event.facebook
-                    : `https://facebook.com/${event.facebook}`;
-                createIcon(container, 'facebook', fbUrl);
+                createIcon(container, 'facebook', normaliseFacebookUrl(event.facebook));
             }
 
             return container;
@@ -1394,35 +1253,13 @@
         }
 
         function createLocationSection(event) {
-            const locationDiv = document.createElement('div');
-            locationDiv.className = 'event-location';
-
-            if (event.venue_url) {
-                const safeVenueUrl = sanitizeUrl(event.venue_url);
-                if (safeVenueUrl) {
-                    const commaIndex = event.location.indexOf(',');
-                    const venueName = commaIndex > 0 ? event.location.substring(0, commaIndex) : event.location;
-                    const restOfLocation = commaIndex > 0 ? event.location.substring(commaIndex) : '';
-
-                    const venueLink = document.createElement('a');
-                    venueLink.href = safeVenueUrl;
-                    venueLink.target = '_blank';
-                    venueLink.className = 'venue-link';
-
-                    const venueStrong = document.createElement('strong');
-                    venueStrong.textContent = venueName;
-                    venueLink.appendChild(venueStrong);
-
-                    locationDiv.appendChild(venueLink);
-                    locationDiv.appendChild(document.createTextNode(restOfLocation));
-                } else {
-                    locationDiv.textContent = event.location;
-                }
-            } else {
-                locationDiv.textContent = event.location;
-            }
-
-            return locationDiv;
+            // createVenueElement() defined in shared_utils.js
+            // Build a compatible venue-like object from event fields
+            return createVenueElement({
+                url: event.venue_url || null,
+                full_address: event.location || '',
+                name: event.location || ''
+            });
         }
 
         function createDateSection(event) {
@@ -1478,55 +1315,9 @@
         }
 
         function createTicketsSection(event) {
-            if (!event.isSpecial && !event.isMusic) {
-                return null;
-            }
-
-            const ticketsDiv = document.createElement('div');
-            ticketsDiv.className = 'event-tickets';
-
-            if (event.ticket_url) {
-                const safeTicketUrl = sanitizeUrl(event.ticket_url);
-                if (safeTicketUrl) {
-                    const ticketLink = document.createElement('a');
-                    ticketLink.href = safeTicketUrl;
-                    ticketLink.target = '_blank';
-                    ticketLink.textContent = 'Tickets available here';
-                    ticketsDiv.appendChild(ticketLink);
-                }
-            }
-
-            if (event.tour_id) {
-                const tourLink = document.createElement('a');
-                tourLink.href = `new_troubadours_tour_guide.html?tour=${event.tour_id}`;
-                tourLink.target = '_blank';
-                tourLink.textContent = 'VIEW TOUR';
-                tourLink.style.marginRight = '15px';
-                ticketsDiv.appendChild(tourLink);
-            }
-
-            if (event.fb_event) {
-                if (event.ticket_url) {
-                    const separator = document.createElement('span');
-                    separator.className = 'separator';
-                    separator.textContent = '|';
-                    ticketsDiv.appendChild(separator);
-                }
-
-                const fbEventUrl = sanitizeUrl(`https://www.facebook.com/events/${event.fb_event}`);
-                if (fbEventUrl) {
-                    const fbLink = document.createElement('a');
-                    fbLink.href = fbEventUrl;
-                    fbLink.target = '_blank';
-                    fbLink.className = 'event-facebook-inline';
-                    fbLink.title = 'Facebook Event';
-                    fbLink.onclick = (e) => e.stopPropagation();
-                    fbLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
-                    ticketsDiv.appendChild(fbLink);
-                }
-            }
-
-            return ticketsDiv.children.length > 0 ? ticketsDiv : null;
+            if (!event.isSpecial && !event.isMusic) return null;
+            // createTicketsElement() defined in shared_utils.js
+            return createTicketsElement(event, event.isCancelled);
         }
 
         function getExpandableContent(event) {
@@ -1771,11 +1562,14 @@
             }
         }
 
+        // formatDate() uses shared days/months arrays; defined here as it uses local formatting
         function formatDate(date) {
             const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
         }
+
+        // formatDateForInput() — defined in shared_utils.js
 
         function shouldShowEvent(eventData, filters) {
             const { storyclubsOn, specialOn, showMusic, showFolk, showSessions } = filters;
@@ -1874,8 +1668,8 @@
                 return;
             }
 
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
+            // getTodayMidnight() defined in shared_utils.js
+            const today = getTodayMidnight();
 
             // Search 2 years into the future
             const futureDate = new Date(today);
@@ -1908,18 +1702,11 @@
             // Search specific events (story shows)
             for (const event of eventsData.specificEvents || []) {
                 if (!event.date) continue;
-
-                const dateParts = event.date.split('/');
-                if (dateParts.length !== 3) continue;
-
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10);
-                const year = parseInt(dateParts[2], 10);
-
-                const eventDate = new Date(year, month - 1, day);
+                // parseDateString() defined in shared_utils.js
+                const eventDate = parseDateString(event.date);
+                if (!eventDate) continue;
                 if (eventDate >= today && eventDate <= futureDate) {
                     const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
-
                     if (searchableText.includes(searchTerm)) {
                         const eventData = createEventData(event, eventDate, 'special');
                         allEventsData.push(eventData);
@@ -1931,18 +1718,11 @@
             // Search music events
             for (const event of eventsData.musicEvents || []) {
                 if (!event.date) continue;
-
-                const dateParts = event.date.split('/');
-                if (dateParts.length !== 3) continue;
-
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10);
-                const year = parseInt(dateParts[2], 10);
-
-                const eventDate = new Date(year, month - 1, day);
+                // parseDateString() defined in shared_utils.js
+                const eventDate = parseDateString(event.date);
+                if (!eventDate) continue;
                 if (eventDate >= today && eventDate <= futureDate) {
                     const searchableText = `${event.name} ${event.location} ${event.performer || ''}`.toLowerCase();
-
                     if (searchableText.includes(searchTerm)) {
                         const eventData = createEventData(event, eventDate, 'music');
                         allEventsData.push(eventData);
@@ -1973,15 +1753,9 @@
 
                 for (const tourDate of tour.tour_dates || []) {
                     if (!tourDate.date) continue;
-
-                    const dateParts = tourDate.date.split('/');
-                    if (dateParts.length !== 3) continue;
-
-                    const day = parseInt(dateParts[0], 10);
-                    const month = parseInt(dateParts[1], 10);
-                    const year = parseInt(dateParts[2], 10);
-
-                    const eventDate = new Date(year, month - 1, day);
+                    // parseDateString() defined in shared_utils.js
+                    const eventDate = parseDateString(tourDate.date);
+                    if (!eventDate) continue;
                     if (eventDate >= today && eventDate <= futureDate) {
                         // Get venue info for this specific date
                         const venue_id = tourDate.venue_id;
@@ -2034,13 +1808,9 @@
 
                 for (const showDate of show.show_dates || []) {
                     if (!showDate.date) continue;
-
-                    const dateParts = showDate.date.split('/');
-                    if (dateParts.length !== 3) continue;
-
-                    const [day, month, year] = dateParts.map(Number);
-                    const eventDate = new Date(year, month - 1, day);
-
+                    // parseDateString() defined in shared_utils.js
+                    const eventDate = parseDateString(showDate.date);
+                    if (!eventDate) continue;
                     if (eventDate >= today && eventDate <= futureDate) {
                         const venue_id = showDate.venue_id;
                         let venueName = '';
@@ -2149,16 +1919,9 @@
         }
 
         function updateDateInputs(startDate, endDate) {
-            // Format dates as YYYY-MM-DD for the date inputs
-            const formatForInput = (date) => {
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                return `${year}-${month}-${day}`;
-            };
-
-            document.getElementById('startDate').value = formatForInput(startDate);
-            document.getElementById('endDate').value = formatForInput(endDate);
+            // formatDateForInput() defined in shared_utils.js
+            document.getElementById('startDate').value = formatDateForInput(startDate);
+            document.getElementById('endDate').value = formatDateForInput(endDate);
         }
 
         function showThisWeek() {
@@ -2202,12 +1965,7 @@
         let lastStartDate = '';
         let lastEndDate = '';
 
-        function formatDateForInput(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
+        // formatDateForInput() — defined in shared_utils.js
 
         function handleStartDateChange() {
             const startInput = document.getElementById('startDate').value;
@@ -2256,16 +2014,10 @@
         }
 
         function generateShareableURL(startDate, endDate) {
-            const formatForInput = (date) => {
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                return `${year}-${month}-${day}`;
-            };
-
+            // formatDateForInput() defined in shared_utils.js
             const params = new URLSearchParams();
-            params.set('start', formatForInput(startDate));
-            params.set('end', formatForInput(endDate));
+            params.set('start', formatDateForInput(startDate));
+            params.set('end', formatDateForInput(endDate));
 
             // Add filter states
             params.set('storyclubs', document.getElementById('storyclubsOn').checked ? '1' : '0');
@@ -2390,8 +2142,37 @@
 
         // Initialize
         window.addEventListener('load', async () => {
-            await loadEventsData();
-            initMap();
+            const result = await loadEventsData();
+            if (!result) {
+                console.error('Failed to load events data');
+                return;
+            }
+            eventsData = result.eventsData;
+            toursLookup = result.toursLookup;
+            venuesLookup = result.venuesLookup;
+            performersLookup = result.performersLookup;
+
+            // Log event-guide-specific counts
+            console.log(`  - ${eventsData.events?.length || 0} recurring events`);
+            console.log(`  - ${eventsData.specificEvents?.length || 0} specific events`);
+            console.log(`  - ${eventsData.musicEvents?.length || 0} music events`);
+            console.log(`  - ${eventsData.folkNights?.length || 0} folk nights`);
+            console.log(`  - ${eventsData.irishSessions?.length || 0} Irish sessions`);
+            console.log(`  - ${Object.keys(eventsData.touring_shows || {}).length} touring shows`);
+
+            // Flag events with missing geocode
+            const checkMissing = (eventsList, label) => {
+                const missing = eventsList?.filter(e => e.geocode_missing) || [];
+                if (missing.length > 0) {
+                    console.warn(`⚠ ${missing.length} ${label} missing geocode data:`);
+                    missing.forEach(e => console.warn(`  - ${e.name}: ${e.location}`));
+                }
+            };
+            checkMissing(eventsData.events, 'recurring events');
+            checkMissing(eventsData.specificEvents, 'specific events');
+            checkMissing(eventsData.musicEvents, 'music events');
+
+            map = initMap('map', updateMapView);
 
             // Check for URL parameters first
             const urlParams = getURLParams();
