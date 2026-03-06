@@ -119,9 +119,13 @@ select {
 }
 
 .share-container {
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     gap: 10px;
+}
+
+.btn-primary {
+    background-color: #2e7d32;
 }
 
 .btn-secondary {
@@ -162,7 +166,7 @@ select {
    different rules (grid-based) for the events page.
    ============================================================= */
 
-.layout-container {
+.page-tour .layout-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -193,7 +197,7 @@ select {
 }
 
 @media (min-width: 1024px) {
-    .layout-container {
+    .page-tour .layout-container {
         flex-direction: row;
     }
 
@@ -338,7 +342,7 @@ select {
 /* Facebook inline icon — full base rules live here because shared-styles.css
    only sets fill:#ffffff for this class (used as a base that this block overrides).
    Loaded after shared-styles.css so these take precedence on the tour page. */
-.event-facebook-inline {
+.page-tour .event-facebook-inline {
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
@@ -347,20 +351,20 @@ select {
     border-bottom: none !important;
 }
 
-.event-facebook-inline svg {
+.page-tour .event-facebook-inline svg {
     width: 20px;
     height: 20px;
     fill: #1877f2;
     transition: fill 0.3s;
 }
 
-.event-facebook-inline svg path {
+.page-tour .event-facebook-inline svg path {
     stroke: #1877f2;
     stroke-width: 2px;
     stroke-linejoin: round;
 }
 
-.event-facebook-inline:hover svg {
+.page-tour .event-facebook-inline:hover svg {
     fill: #145dbf;
 }
 

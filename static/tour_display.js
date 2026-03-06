@@ -150,7 +150,7 @@ function handleTourChange() {
   }
 }
 
-function getURLParams() {
+function getTourURLParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     tourId: params.get("tour"),
@@ -450,7 +450,7 @@ function createTourDateElement(tourDate, tour, past = false) {
   const ticketsEl = createTicketsElement(tourDate, past);
   if (ticketsEl) div.appendChild(ticketsEl);
 
-  // --- Advice Button ---
+  // --- More Info Button ---
   if (tourDate.description) {
     createExpandableSection(div, "More Info", tourDate.description, "text");
   }
@@ -566,11 +566,13 @@ function addTourMarkersToMap(tour) {
         marker.venue_id = tourDate.venue_id;
 
         const date = parseDateString(tourDate.date);
-        const dateStr = date.toLocaleDateString("en-GB", {
-          weekday: "short",
-          day: "numeric",
-          month: "short",
-        });
+        const dateStr = date
+          ? date.toLocaleDateString("en-GB", {
+              weekday: "short",
+              day: "numeric",
+              month: "short",
+            })
+          : tourDate.date || "Date unknown";
 
         const popupContent = `
           <div class="popup-content">
@@ -600,7 +602,7 @@ function addTourMarkersToMap(tour) {
 window.addEventListener("load", async () => {
   console.log("Page loaded, initializing...");
 
-  const urlParams = getURLParams();
+  const urlParams = getTourURLParams();
   console.log("URL params:", urlParams);
 
   const result = await loadEventsData(urlParams.cacheBuster);
