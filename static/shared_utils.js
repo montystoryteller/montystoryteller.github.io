@@ -8,6 +8,8 @@
 // Constants
 // ---------------------------------------------------------------------------
 
+const PARAGRAPH_SEPARATOR = "\n\n\n\n";
+
 const UK_IRELAND_BOUNDS = L.latLngBounds(
   [49.5, -11.0], // SW corner (Atlantic)
   [61.0, 2.5], // NE corner (North Sea)
@@ -340,4 +342,19 @@ async function loadEventsData(cacheBuster) {
     console.error("Error loading events:", error);
     return null;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Text formatting
+// ---------------------------------------------------------------------------
+
+function appendParagraphs(container, text){
+  const paragraphs = text.split(PARAGRAPH_SEPARATOR);
+  paragraphs.forEach((p) => {
+    if (p.trim()) {
+      const pElem = document.createElement("p");
+      pElem.textContent = p.replace(/\n\n/g, "\n");
+      container.appendChild(pElem);
+    }
+  });
 }

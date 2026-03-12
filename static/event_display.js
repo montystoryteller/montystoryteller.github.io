@@ -21,6 +21,43 @@ const EVENT_TYPES = {
   STORYCLUB: "storyclub",
 };
 
+const DAYS_OF_WEEK = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+const MONTHS_SHORT = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const DAY_MAP = {
+  sunday: 0,
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+  thursday: 4,
+  friday: 5,
+  saturday: 6,
+};
+
+const OCCURRENCE_MAP = { "1st": 1, "2nd": 2, "3rd": 3, "4th": 4, last: "last" };
+
 // escapeHtml() — defined in shared_utils.js
 
 // sanitizeUrl() — defined in shared_utils.js
@@ -94,16 +131,7 @@ function parseSchedule(schedule, startDate, endDate) {
   // Handle "every [dayname]" schedules
   if (schedule.toLowerCase().startsWith("every ")) {
     const dayName = schedule.toLowerCase().replace("every ", "").trim();
-    const dayMap = {
-      sunday: 0,
-      monday: 1,
-      tuesday: 2,
-      wednesday: 3,
-      thursday: 4,
-      friday: 5,
-      saturday: 6,
-    };
-    const targetDay = dayMap[dayName];
+    const targetDay = DAY_MAP[dayName];
 
     if (targetDay === undefined) {
       console.warn(`Invalid day name in schedule: ${schedule}`);
@@ -137,26 +165,10 @@ function parseSchedule(schedule, startDate, endDate) {
     const occurrence2Str = parts[0];
     const dayName = parts[1];
 
-    const dayMap = {
-      sunday: 0,
-      monday: 1,
-      tuesday: 2,
-      wednesday: 3,
-      thursday: 4,
-      friday: 5,
-      saturday: 6,
-    };
-    const targetDay = dayMap[dayName];
+    const targetDay = DAY_MAP[dayName];
 
-    const occurrenceMap = {
-      "1st": 1,
-      "2nd": 2,
-      "3rd": 3,
-      "4th": 4,
-      last: "last",
-    };
-    const occurrence1 = occurrenceMap[occurrence1Str.trim()];
-    const occurrence2 = occurrenceMap[occurrence2Str.trim()];
+    const occurrence1 = OCCURRENCE_MAP[occurrence1Str.trim()];
+    const occurrence2 = OCCURRENCE_MAP[occurrence2Str.trim()];
 
     const current = new Date(
       normalizedStart.getFullYear(),
@@ -209,16 +221,7 @@ function parseSchedule(schedule, startDate, endDate) {
 
       // Parse the base pattern
       const [occurrence, dayName] = pattern.toLowerCase().split(/\s+/);
-      const dayMap = {
-        sunday: 0,
-        monday: 1,
-        tuesday: 2,
-        wednesday: 3,
-        thursday: 4,
-        friday: 5,
-        saturday: 6,
-      };
-      const targetDay = dayMap[dayName];
+      const targetDay = DAY_MAP[dayName];
 
       const current = new Date(
         normalizedStart.getFullYear(),
@@ -247,16 +250,7 @@ function parseSchedule(schedule, startDate, endDate) {
           continue;
         }
 
-        const occurrenceNum =
-          occurrence === "last"
-            ? "last"
-            : occurrence === "1st"
-              ? 1
-              : occurrence === "2nd"
-                ? 2
-                : occurrence === "3rd"
-                  ? 3
-                  : 4;
+        const occurrenceNum = OCCURRENCE_MAP[occurrence.trim()];
 
         const eventDate = findNthDayInMonth(
           year,
@@ -282,16 +276,7 @@ function parseSchedule(schedule, startDate, endDate) {
 
   // Handle standard recurring schedules (existing code)
   const [occurrence, dayName] = schedule.toLowerCase().split(/\s+/);
-  const dayMap = {
-    sunday: 0,
-    monday: 1,
-    tuesday: 2,
-    wednesday: 3,
-    thursday: 4,
-    friday: 5,
-    saturday: 6,
-  };
-  const targetDay = dayMap[dayName];
+  const targetDay = DAY_MAP[dayName];
 
   const current = new Date(
     normalizedStart.getFullYear(),
@@ -308,16 +293,7 @@ function parseSchedule(schedule, startDate, endDate) {
     const year = current.getFullYear();
     const month = current.getMonth();
 
-    const occurrenceNum =
-      occurrence === "last"
-        ? "last"
-        : occurrence === "1st"
-          ? 1
-          : occurrence === "2nd"
-            ? 2
-            : occurrence === "3rd"
-              ? 3
-              : 4;
+    const occurrenceNum = OCCURRENCE_MAP[occurrence.trim()];
 
     const eventDate = findNthDayInMonth(year, month, targetDay, occurrenceNum);
 
@@ -1138,36 +1114,13 @@ function createLocationSection(event) {
 }
 
 function createDateSection(event) {
-  const daysOfWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
+  // DAYS_OF_WEEK, MONTHS_SHORT — module-level constants above
   const dateDiv = document.createElement("div");
   dateDiv.className = "event-date";
 
-  const dayName = daysOfWeek[event.date.getDay()];
+  const dayName = DAYS_OF_WEEK[event.date.getDay()];
   const day = event.date.getDate();
-  const month = months[event.date.getMonth()];
+  const month = MONTHS_SHORT[event.date.getMonth()];
   const year = event.date.getFullYear();
   const scheduleText = event.schedule ? ` (${event.schedule})` : "";
 
@@ -1199,7 +1152,6 @@ function createDateSection(event) {
     }
   }
 
-  // Add time and price
   if (event.time) {
     dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
   }
@@ -1360,14 +1312,7 @@ function createExpandableSection(event) {
     bioDiv.className = "event-description";
 
     const bio = performersLookup[performer_id].bio;
-    const paragraphs = bio.split("\n\n\n\n");
-    paragraphs.forEach((p) => {
-      if (p.trim()) {
-        const pElem = document.createElement("p");
-        pElem.textContent = p.replace(/\n\n/g, "\n");
-        bioDiv.appendChild(pElem);
-      }
-    });
+    appendParagraphs(bioDiv, bio);
 
     bioExpandableDiv.appendChild(bioDiv);
     container.appendChild(bioExpandableDiv);
@@ -1383,14 +1328,7 @@ function createExpandableSection(event) {
     const descDiv = document.createElement("div");
     descDiv.className = "event-description";
 
-    const paragraphs = description.split("\n\n\n\n");
-    paragraphs.forEach((p) => {
-      if (p.trim()) {
-        const pElem = document.createElement("p");
-        pElem.textContent = p.replace(/\n\n/g, "\n");
-        descDiv.appendChild(pElem);
-      }
-    });
+    appendParagraphs(descDiv, description);
 
     expandableDiv.appendChild(descDiv);
     container.appendChild(expandableDiv);
@@ -1460,32 +1398,9 @@ function highlightEvent(eventData) {
   }
 }
 
-// formatDate() uses shared days/months arrays; defined here as it uses local formatting
 function formatDate(date) {
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  // DAYS_OF_WEEK, MONTHS_SHORT — module-level constants above
+  return `${DAYS_OF_WEEK[date.getDay()]}, ${date.getDate()} ${MONTHS_SHORT[date.getMonth()]} ${date.getFullYear()}`;
 }
 
 // formatDateForInput() — defined in shared_utils.js

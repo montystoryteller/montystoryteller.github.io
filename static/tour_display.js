@@ -287,14 +287,7 @@ function displayTour(tourId) {
   const descContainer = document.getElementById("tourDescriptionContainer");
   if (tour.tour_description) {
     descContainer.innerHTML = "";
-    const paragraphs = tour.tour_description.split("\n\n\n\n");
-    paragraphs.forEach((p) => {
-      if (p.trim()) {
-        const pElem = document.createElement("p");
-        pElem.textContent = p.replace(/\n\n/g, "\n");
-        descContainer.appendChild(pElem);
-      }
-    });
+    appendParagraphs(descContainer, tour.tour_description);
     descContainer.style.display = "block";
   } else {
     descContainer.style.display = "none";
