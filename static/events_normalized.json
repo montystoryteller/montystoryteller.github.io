@@ -41,7 +41,7 @@
           "price": "Suggested donation £8-10",
           "fb_event": 885078434138083,
           "event_flyer": "",
-          "ticket_url": "https://www.eventbrite.co.uk/e/strange-girls-beautiful-monsters-sarah-lisa-wilkinson-tickets-1983296728905",
+          "ticket_url": "https://www.eventbrite.co.uk/e/strange-girls-beautiful-monsters-sarah-lisa-wilkinson-tickets-1983296728905?aff=montystoryteller.org",
           "venue_id": "alder-sheffield"
         }]},
 
@@ -433,21 +433,21 @@
           "date": "20/01/2026",
           "time": "7-9.30pm",
           "price": "£16.50 (£12.50) + booking fee",
-          "ticket_url": "https://www.eventbrite.co.uk/e/stories-temperance-slaine-the-horned-god-jason-buck-tickets-1905874745669",
+          "ticket_url": "https://www.eventbrite.co.uk/e/stories-temperance-slaine-the-horned-god-jason-buck-tickets-1905874745669?aff=montystoryteller.org",
           "venue_id": "temperance-caf-bar-royal"
         },
         {
           "date": "22/01/2026",
           "time": "7.30pm",
           "price": "£10-15.50",
-          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-glastonbury-tickets-1862956165039",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-glastonbury-tickets-1862956165039?aff=montystoryteller.org",
           "venue_id": "the-assembly-rooms-glastonbury"
         },
         {
           "date": "09/02/2026",
           "time": "19:30",
           "price": "£11.50+",
-          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-sussex-tickets-1914208241379?aff=montystoryteller.org",
           "fb_event": 1466394704450623,
           "venue_id": "the-hop-sun-tap-microbrewery-haywards"
         },
@@ -484,7 +484,7 @@
           "date": "05/03/2026",
           "time": "7.30-9.30pm",
           "price": "£11.50-15.50",
-          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-birmingham-tickets-1806505248829",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-birmingham-tickets-1806505248829?aff=montystoryteller.org",
           "fb_event": 668659776297645,
           "venue_id": "merlins-cafe-bar-birmingham"
         },
@@ -1174,6 +1174,16 @@
       "exceptions": [
         "24/02/2026"
       ]
+    },
+    {
+      "name": "Settle Stories",
+      "schedule": "",
+      "location": "",
+      "link": "https://settlestories.org.uk/",
+      "facebook": "https://www.facebook.com/SettleStories",
+      "time": "",
+      "club": "settle-stories",
+      "geocode_missing": true
     },
     {
       "name": "Haworth storytelling circle",
@@ -2150,7 +2160,7 @@
       "price": "Suggested donation: £8-10",
       "description": "",
       "event_flyer": "",
-      "ticket_url": "https://www.eventbrite.co.uk/e/nell-phoenix-with-the-girl-who-married-a-dog-20th-january-tickets-1977171782024",
+      "ticket_url": "https://www.eventbrite.co.uk/e/nell-phoenix-with-the-girl-who-married-a-dog-20th-january-tickets-1977171782024?aff=montystoryteller.org",
       "isSpecial": true,
       "fb_event": 1195054529223664,
       "venue_id": "alder-sheffield",
@@ -2179,7 +2189,7 @@
       "club": "",
       "price": "£15",
       "description": "Ghost and horror stories for grown ups. Strange things lurk in the shadows — these are tales of held breath, hearts thumping and the relief of shutting the door on the dark.\n\n\n\n Join Amy Douglas and Jason Buck in a storytelling celebration for National Storytelling Week, and hear tales of dark myths from the wilds of the British countryside, to the eerie legends of what hides beneath the streets of old London town!\n\n\n\n Enjoy a drink included with your ticket, and make a night of it by adding our £25 dinner option, available before the show, from 5pm.\n\n\n\n Ages: Adults and teens (12+)",
-      "ticket_url": "https://www.eventbrite.co.uk/e/national-storytelling-week-dark-tales-for-dark-nights-tickets-1978835018810",
+      "ticket_url": "https://www.eventbrite.co.uk/e/national-storytelling-week-dark-tales-for-dark-nights-tickets-1978835018810?aff=montystoryteller.org",
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
@@ -2193,7 +2203,7 @@
       "club": "",
       "price": "£7.50 each or £25 family ticket (2 adults and 2 children)",
       "description": "It's National Storytelling Week! If you're in the London area, it's a great opportunity to hear SGK regular storytellers, Amy Douglas and Jason Buck, in a storytelling celebration of the Isle of Britain.\n\n\n\n This land is layered in legend, full of stories of magic and mystery, boggarts and bogles, dragons and worms. Every mountain, field and river has a story to tell.\n\n\n\n 45 minute storytelling sessions for children and families (age 5+).  Traditional myths, legends and folk tales of England, Scotland and Wales.\n\n\n\n Amy Douglas is a word-hoarder, a word-storer, a word-catcher and a word explorer. After winning 'Young Storyteller of the Year' at 16, Amy apprenticed to world-renowned traditional Scots Traveller and storyteller Duncan Williamson, and now holds many of his stories in trust. She's been a storyteller, performer and author for over three decades, with her three folk tales collections winning Storytelling World Awards.\n\n\n\n Jason Buck has been a performer most of his life including comedy and sword-swallowing — but his passion lies in telling stories. Jason makes an astonishing array of amazing vocal sound effects — but beware, many of stories end with 'pockets of poo!'",
-      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826",
+      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826?aff=montystoryteller.org",
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
@@ -2207,7 +2217,7 @@
       "club": "",
       "price": "£7.50 each or £25 family ticket (2 adults and 2 children)",
       "description": "It's National Storytelling Week! If you're in the London area, it's a great opportunity to hear SGK regular storytellers, Amy Douglas and Jason Buck, in a storytelling celebration of the Isle of Britain.\n\n\n\n This land is layered in legend, full of stories of magic and mystery, boggarts and bogles, dragons and worms. Every mountain, field and river has a story to tell.\n\n\n\n 45 minute storytelling sessions for children and families (age 5+).  Traditional myths, legends and folk tales of England, Scotland and Wales.\n\n\n\n Amy Douglas is a word-hoarder, a word-storer, a word-catcher and a word explorer. After winning 'Young Storyteller of the Year' at 16, Amy apprenticed to world-renowned traditional Scots Traveller and storyteller Duncan Williamson, and now holds many of his stories in trust. She's been a storyteller, performer and author for over three decades, with her three folk tales collections winning Storytelling World Awards.\n\n\n\n Jason Buck has been a performer most of his life including comedy and sword-swallowing — but his passion lies in telling stories. Jason makes an astonishing array of amazing vocal sound effects — but beware, many of stories end with 'pockets of poo!'",
-      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826",
+      "ticket_url": "https://www.eventbrite.co.uk/e/myth-magic-and-mischief-national-storytelling-week-for-children-tickets-1978834689826?aff=montystoryteller.org",
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
@@ -2323,7 +2333,7 @@
       "price": "Free",
       "description": "A Wild Norse Epic retold by Storyteller Marcus Pibworth\n\n\n\n A kingdom shivers beneath the shadow of a winged terror.\n\n\n\n Kings rise, kings fall and betrayal coils in every hall.\n\n\n\n Warriors hunger for the clash of steel. Whispers of old sorcery stir in the dark places of the world.\n\n\n\n Old wounds demand their due. Revenge begets revenge.\n\n\n\n Can Bodvar Bjarki—bear-strong, battle-scarred—rally the king's champions and lead them across the frozen breadth of the Northlands, outwitting gods and men, toward a destiny where only the bravest may stand against the gathering doom?\n\n\n\n Born of the same ancient narrative root that gave rise to the Old English epic Beowulf, but treading a path into strange and mysterious realms of its own, Marcus Pibworth's darkly comic retelling of an Old Norse saga leads you deep into the uncharted wilds of myth and legend.",
       "event_flyer": "2026_02_04_berserker_pibworth.jpg",
-      "ticket_url": "https://www.eventbrite.co.uk/e/work-in-progress-beserker-tickets-1976741024617",
+      "ticket_url": "https://www.eventbrite.co.uk/e/work-in-progress-beserker-tickets-1976741024617?aff=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "university-of-south-wales-cardiff",
       "performer_id": "marcus-pibworth"
@@ -2771,7 +2781,7 @@
       "date": "25/02/2026",
       "time": "7-9pm",
       "club": "pembrokeshirestorytelling",
-      "price": "£7.50/6.00 ",
+      "price": "£7.50/6.00",
       "description": "Nell Phoenix paces a path from dusty Mesopotamia, to Ancient Egypt, through London's Bloomsbury, along a dingy road in Guatemala at dawn, and back to her own kitchen table — gathering up disturbing, unsettling, baffling, bewildering, sinister, UNCANNY stories.\n\n\n\nReserve tickets: debwinterstories@gmail.com",
       "event_flyer": "2026_02_25-pembrokeshire-nell-phoenix-uncanny.jpg",
       "ticket_url": "",
@@ -2802,7 +2812,7 @@
       "price": "Cost: Free/£8 suggested donation towards event expenses",
       "description": "Monthly open mic storytelling event for grown ups in Elephant and Castle\n\n\n\n Elephant Tales is a free, monthly storytelling event for grown ups.\n\n\n\n Come and tell a 5 minute story, or just listen.\n\n\n\n  This month we are delighted to welcome Vanessa Woolf who will be performing her new show 'She's Electric'. Here's a little bit about it...\n\n\n\n 'For ten years I was the only woman working successfully as an electrician in the UK film industry. I powered up, I turned on, I lit some of Hollywood's biggest stars. This is my true story.'\n\n\n\n",
       "event_flyer": "",
-      "ticket_url": "https://www.eventbrite.co.uk/e/elephant-tales-march-shes-electric-by-vanessa-woolf-tickets-1982364853641",
+      "ticket_url": "https://www.eventbrite.co.uk/e/elephant-tales-march-shes-electric-by-vanessa-woolf-tickets-1982364853641?aff=montystoryteller.org",
       "isSpecial": true,
       "venue_id": "pullens-centre",
       "performer_id": "vanessa-woolf"
@@ -2921,6 +2931,36 @@
       "performer_id": "nell-phoenix"
     },
     {
+      "name": "Myths and Mysteries of the Maltese Islands [Janet Crouch]",
+      "showname": "Myths and Mysteries of the Maltese Islands",
+      "date": "21/03/2026",
+      "time": "7pm",
+      "club": "talestattledtold",
+      "price": "£7.70 advance, £8 on the door",
+      "description": "Join Tales Tattled & Told for another night of wild and wonderful words!\n\n\n\nThe evening's headline storyteller is Lichfield's amazing Janet Crouch, who brings us 'Myths and Mysteries of the Maltese Islands.'\n\n\n\nWith the wonderful music of the a capella choir Gracenotes!\n\n\n\nStephen Eames hosts another joyous evening of storytelling and acoustic music at the historic Rectory Cottages at 49 Church Green Rd, Bletchley, MK3 6BJ.\n\n\n\nWith more stories by Lynette Hill, Stephen Hobbs and Lou Tribus.",
+      "ticket_url": "https://wegottickets.com/af/671/event/694668",
+      "isSpecial": true,
+      "ticket_url": "https://wegottickets.com/event/662621/",
+      "fb_event": 1236436004929176,
+      "venue_id": "rectory-cottages-bletchley",
+      "performer_id": "janet-crouch"
+    },
+    {
+      "name": "Kukolka [Ronnie Conboy]",
+      "showname": "Kulkolka",
+      "time": "7.30-10pm",
+      "date": "27/03/2026",
+      "club": "threeheadsinawell",
+      "price": "£10 [£7; £6 online]",
+      "description": "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone.",
+      "event_flyer": "2026-03-27-conboy-kukolka-three-heads.jpg",
+      "isSpecial": true,
+      "online": "hybrid",
+      "ticket_url": "https://surreystorytellers.co.uk/booking/",
+      "venue_id": "st-johns-church-hall-worcester",
+      "performer_id": "ronnie-conboy"
+    },
+    {
       "name": "The Petal Demon [Shonaleigh]",
       "showname": "The Petal Demon",
       "description": "The Petal Demon follows the story of a woman who is pursued by a mage, and how she's helped by Lilith to create a maze of flowers, that traps the mage and becomes a sanctuary for her. This woman becomes known as the Petal Demon, and through her wanderings she leaves legends behind her.",
@@ -2950,6 +2990,20 @@
       "performer_id": "maria-credali"
     },
     {
+      "name": "Beguiling for Beginners: An evening of trickster tales [Dave Tonge]",
+      "showname": "Beguiling for Beginners: An evening of trickster tales",
+      "date": "09/04/2026",
+      "time": "7-10pm",
+      "club": "lichfieldST",
+      "price": "£7.70",
+      "description": "A celebration of cunning men, cunning women, coney catching, and all manner of artful deceit.\n\n\n\nThere's a figure on the road. Sometimes in robes, sometimes in rags. Selling pots one day, pardons the next. Potions to pins, prayers to promises.\n\n\n\nEverything for sale. Nothing quite true.\n\n\n\nJoin us for an evening of delicious deceit with Dave Tonge, the Yarnsmith of Norwich, as he conjures the tricksters, rogues, and cunning folk who walked England's roads and worked their craft upon the foolish, the greedy, and the gullible.\n\n\n\nThese aren’t gentle stories. They're sharp-edged and irreverent. The kind of tales that got whispered in alehouses and shared on market days, stories the common folk told about those who lived by their wits when the world offered nothing else.\n\n\n\nThis is storytelling as it was meant to be: profane, philosophical, and utterly compelling.",
+      "ticket_url": "https://wegottickets.com/af/671/event/694668",
+      "isSpecial": true,
+      "online": "hybrid",
+      "venue_id": "the-joinery-settle",
+      "performer_id": "dave-tonge"
+    },
+    {
       "name": "Tales of the Middle Sea [Sef Townsend]",
       "showname": "Tales of the Middle Sea",
       "date": "10/04/2026",
@@ -2962,6 +3016,20 @@
       "fb_event": 860334747024364,
       "venue_id": "kings-head-lichfield",
       "performer_id": "sef-townsend"
+    },
+    {
+      "name": "Queens of Albion - Contemporary Storytelling [Stephe Harrop]",
+      "showname": "Queens of Albion - Contemporary Storytelling",
+      "date": "10/04/2026",
+      "time": "8-9.30pm",
+      "club": "",
+      "price": "£13.70",
+      "description": "In the days before Britain had been named, they were the first to set foot on the island. Sisters. Refugees. Shipwrecked and storm-weary. On the hunt for a home of their own. A land where they could live free. So how come we’ve forgotten the story of our first (and fiercest) mythic mothers?\n\n\n\nQueens of Albion aims to set the record straight — as well spilling the beans on how a giant made Stephe miss her ninth birthday party. Intelligent, irreverent spoken-word from contemporary storyteller Stephe Harrop.\n\n\n\n(60 minutes, suitable for audiences 14+)",
+      "event_flyer": "2026-04-11-harrop-albion-rise-bluebird-york.jpg",
+      "ticket_url": "https://www.eventbrite.com/e/queens-of-albion-contemporary-storytelling-from-stephe-harrop-tickets-1980395815194?aff=montystoryteller.org",
+      "isSpecial": true,
+      "venue_id": "rise-bluebird-bakery-york",
+      "performer_id": "stephe-harrop"
     },
     {
       "name": "Rebel Folk Tales [Ropetackle Storytellers]",
@@ -2995,7 +3063,7 @@
     },
     {
       "name": "Faery Tale Blues [Monty + The AnyWhens]",
-      "showname": "Faery Tale Blues ",
+      "showname": "Faery Tale Blues",
       "date": "18/04/2026",
       "time": "7-9.30pm",
       "club": "",
@@ -3022,7 +3090,7 @@
     },
     {
       "name": "Tell Tales Club: Tropsyn / Morgan le Fay [Jessie Wild / Cath Little]",
-      "showname": "Tell Tale Club: Tropsyn / Morgan le Fay ",
+      "showname": "Tell Tale Club: Tropsyn / Morgan le Fay",
       "date": "28/05/2026",
       "time": "7-9pm",
       "club": "tell-tales-club",
@@ -3064,6 +3132,20 @@
       "online": "hybrid",
       "venue_id": "our-lady-of-the-assumption-church-hall-beeston",
       "performer_id": "amelia-ace-armande"
+    },
+    {
+      "name": "Another Stranger: Cressida's Tale [Stephe Harrop]",
+      "showname": "Another Stranger: Cressida's Tale",
+      "date": "18/04/2026",
+      "time": "5.45-8pm",
+      "club": "",
+      "price": "£14.25 (concesssions £8.83",
+      "description": "In a world where the lives of strangers & survivors are weighed & traded for political gain, this Cressida is determined to define her value.\n\n\n\nThe wind whips her hair, as she watches the soldiers go by. And a bright face is lifted towards her, full of longing. He swears she's fair and rare as a pearl. But he doesn’t know the grit within her. For Troy must fall, and Cressida — alone; among strangers - must learn the arts of survival and transformation.\n\n\n\nTo the medieval poets who shaped her legend, changeful Cressida was fickle, false, and heartless. But Cressida's Tale follows this anti-heroine's journeys from mythic Troy to England's royal court, the bitter cold of the Scottish coast, and an Elizabethan London seething with anti-migrant rage. In the process, it discovers a Cressida for our own times: a girl with a gift for resilience and reinvention.\n\n\n\nIn a world where the lives of strangers and survivors are weighed and traded for political gain, this Cressida is determined to define her own value.",
+      "event_flyer": "2026_04_18_Faery_Tale_Blues.png",
+      "ticket_url": "https://www.eventbrite.co.uk/e/another-stranger-cressidas-tale-tickets-1975572679064?aff=montystoryteller.org",
+      "isSpecial": true,
+      "venue_id": "portico-library-manchester",
+      "performer_id": "stephe-harrop"
     },
     {
       "name": "The Forest of Chance Encounters [Ropetackle Storytellers]",
@@ -3144,7 +3226,7 @@
       "price": "£16.50",
       "description": "",
       "event_flyer": "gaz_brookfield_xmas25.jpeg",
-      "ticket_url": "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479",
+      "ticket_url": "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479?aff=montystoryteller.org",
       "isMusic": true,
       "venue_id": "the-fleece-bristol",
       "performer_id": "gaz-brookfield"
@@ -3581,6 +3663,18 @@
       "latlon": [
         51.8671663,
         -2.250251
+      ]
+    },
+    "the-joinery-settle": {
+      "id": "the-joinery-settle",
+      "name": "The Joinery, Gloucester",
+      "city": "Settle",
+      "postcode": "BD24 9ED",
+      "full_address": "The Joinery, Dawsons Court, Market Place, Settle, BD24 9ED",
+      "url": "https://www.gloucestercivictrust.org/the-folk-home/",
+      "latlon": [
+        54.06875,
+        -2.27744
       ]
     },
     "our-lady-of-the-assumption-church-hall-beeston": {
@@ -4270,6 +4364,18 @@
         -1.7844856
       ]
     },
+    "portico-library-manchester": {
+      "id": "portico-library-manchester",
+      "name": "Portico Library.Manchester",
+      "city": "Manchester",
+      "postcode": "M2 3HY",
+      "full_address": "The Portico Library, 57, Mosley Street, Manchester, M2 3HY",
+      "url": "https://earthouse.org.uk/",
+      "latlon": [
+        53.47978,
+        -2.24048
+      ]
+    },
     "cranborne-earthouse": {
       "id": "cranborne-earthouse",
       "name": "Cranborne Earthhouse",
@@ -4376,6 +4482,18 @@
       "latlon": [
         50.59686,
         -1.19987
+      ]
+    },
+    "rise-bluebird-bakery-york": {
+      "id": "rise-bluebird-bakery-york",
+      "name": "Rise @ Bluebird Bakery, York",
+      "city": "York",
+      "postcode": "YO24 4HD",
+      "full_address": "Rise @ Bluebird Bakery, 201 Acomb Rd, Acomb, York, YO24 4HD",
+      "url": "https://bluebirdbakery.co.uk/rise",
+      "latlon": [
+        53.95601,
+        -1.11947
       ]
     },
     "the-folk-preservation-society-teignmouth": {
@@ -5914,7 +6032,7 @@
     "south-petherton-david-hall": {
       "id": "south-petherton-david-hall",
       "name": "The David Hall",
-      "city": "South Petherton ",
+      "city": "South Petherton",
       "postcode": "TA13 5AA",
       "full_address": "The David Hall, Roundwell St, South Petherton, TA13 5AA",
       "url": "https://www.thedavidhall.com/",
@@ -6248,6 +6366,12 @@
       "url": "https://www.sarahrundle.co.uk/",
       "bio": "Sarah Rundle is a professional storyteller based in west London. She trained in community storytelling in South Cheshire, and in acting at Drama Studio London. Over the last nineeen years, Sarah has performed at a diverse range of venues, from museums and theatres, to pubs, cafés, and a Saxon longhouse."
     },
+    "janet-crouch": {
+      "id": "janet-crouch",
+      "name": "Janet Crouch",
+      "url": "https://www.facebook.com/janet.crouch.9849",
+      "bio": "Janet has been telling stories from the 1970's, promoting story for adults in a variety of organisations such as luncheon clubs, dementia groups, the U3A, the WI, and folk clubs.\n\n\n\nShe was privileged to tell stories at the First International Storytelling Festival in Marrakech with tellers from the UK, Morocco, Canada, USA, Finland, Ireland, and Colombia too.\n\n\n\nThis event is intended for ages 16 and older."
+    },
     "sarah-mooney": {
       "id": "sarah-mooney",
       "name": "Sarah Mooney",
@@ -6441,7 +6565,7 @@
       "id": "ronnie-conboy",
       "name": "Ronnie Conboy",
       "url": "https://www.ronnieconboy.co.uk/performances",
-      "bio": "Kukolka is a weaving of traditional Slavic wondertales with 20th century wartime narrative. At the heart of it all, the wisdom of Baba Yaga questions what choices are made, when all good choices are gone."
+      "bio": "Storytelling has been with us since the dawn of humankind, of course. Ronnie Conboy encountered storytelling as an art some 15 years ago, and was blown away by the simplicity and power of a well told story - by its ability to connect. Inspired to started telling, she practised, collaborated, got some training, and as she have developed she has found stories in every corner of my life.\n\n\n\nFor 35 years Ronnie worked in healthcare, and in recent years has used stories and storytelling techniques in her interactions with service users and colleagues, in workshops for education, for communication skills and for wellbeing."
     },
     "vanessa-woolf": {
       "id": "vanessa-woolf",
@@ -6660,6 +6784,12 @@
       "name": "Corinne Harragin",
       "url": "https://www.corinneharragin.co.uk/",
       "bio": "Corinne Harragin is a Bristol-based Storyteller, Performance Maker and Trainer whose style draws out the physicality, humour and shared experience of storytelling, recentring marginalised voices in myth and folklore with her own brand of oral performance."
+    },
+    "stephe-harrop": {
+      "id": "stephe-harrop",
+      "name": "Stephe Harrop",
+      "url": "https://www.stepheharrop.co.uk/",
+      "bio": "Stephe Harrop is a contemporary storyteller, creating and sharing intelligent, irreverent spoken-word shows with audiences across the UK, and beyond. She also researches and writes about contemporary storytellers, as well as training and mentoring students to develop their own storytelling practices.\n\n\n\nStephe is fascinated by the challenge of using storytelling to help promote a positive sense of belonging, and a spirit of creative citizenship, across a range of communities and contexts."
     },
     "owen-staton": {
       "id": "owen-staton",
