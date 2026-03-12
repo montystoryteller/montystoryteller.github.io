@@ -89,13 +89,13 @@
     }
   },
   "tours": {
-    "corinne-harrigan-troubled-waters-winter-2025": {
+    "corinne-harragin-troubled-waters-winter-2025": {
       "tour_name": "Troubled Waters (Winter 2025 Tour) [Corinne Harragin]",
       "name": "Troubled Waters",
       "description": "With over 4,000 miles of polluted waterways, Britain and Ireland’s rivers are in ruin.\n\n\n\nThis vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. \n\n\n\nLeaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow. \n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n ​Created & performed by Corinne Harragin\n\n\n\nArtwork by Rhona Oughton\n\n\n\n Photography by Henry Kenyon \n\n\n\n Trailer by Ruby Ingleheart\n\n\n\n Music for trailer by Emily Magpie",
       "touring_event_flyer": "",
       "isSpecial": true,
-      "performer_id": "corinne-harrigan",
+      "performer_id": "corinne-harragin",
       "tour_dates": [
         {
           "date": "15/10/2025",
@@ -139,13 +139,13 @@
           "ticket_url": "https://www.ticketsource.co.uk/whats-on/blackburn/the-bureau-centre-for-the-arts/troubled-waters-contemporary-retellings-of-ancient-river-legend-folklore-myth-corrine-harrigan/e-qmldgb"
         }]
     },
-    "corinne-harrigan-troubled-waters-spring-2026": {
+    "corinne-harragin-troubled-waters-spring-2026": {
       "tour_name": "Troubled Waters (Spring 2026 Tour) [Corinne Harragin]",
       "name": "Troubled Waters",
       "description": "With over 4,000 miles of polluted waterways, Britain and Ireland’s rivers are in ruin.\n\n\n\nThis vibrant new tapestry of transporting tales winds through stories that have shaped our relationship with rivers, the lifeblood of our landscape. \n\n\n\nLeaping salmon, fishtail women, mythical raves & sacred springs… These enchanting and surprising tales present characters who question what is set in stone and find their own flow. \n\n\n\nWith each meandering stream and rushing river, we dip our toes into vital waters and ask what new connections are found when we look with fresh eyes beneath the surface?\n\n\n\n ​Created & performed by Corinne Harrigin\n\n\n\nArtwork by Rhona Oughton\n\n\n\n Photography by Henry Kenyon \n\n\n\n Trailer by Ruby Ingleheart\n\n\n\n Music for trailer by Emily Magpie",
       "touring_event_flyer": "",
       "isSpecial": true,
-      "performer_id": "corinne-harrigan",
+      "performer_id": "corinne-harragin",
       "tour_dates": [
         {
           "date": "12/03/2026",
@@ -6779,8 +6779,8 @@
       "url": "",
       "bio": "Two of Britain's leading storytellers — Hugh Lupton and Daniel Morden — performing in combination with composer Sarah Lianne Lewis."
     },
-    "corinne-harrigan": {
-      "id": "corinne-harrigan",
+    "corinne-harragin": {
+      "id": "corinne-harragin",
       "name": "Corinne Harragin",
       "url": "https://www.corinneharragin.co.uk/",
       "bio": "Corinne Harragin is a Bristol-based Storyteller, Performance Maker and Trainer whose style draws out the physicality, humour and shared experience of storytelling, recentring marginalised voices in myth and folklore with her own brand of oral performance."
