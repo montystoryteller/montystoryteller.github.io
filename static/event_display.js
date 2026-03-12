@@ -699,7 +699,6 @@ async function processRecurringEvents(events, eventType, startDate, endDate) {
     const dates = parseSchedule(event.schedule, startDate, endDate);
 
     for (const date of dates) {
-      const { location, latlon, venue_url } = resolveEventVenue(event, date);
       const eventData = createEventData(event, date, eventType);
 
       // Check if THIS specific date was cancelled
@@ -724,10 +723,6 @@ async function processRecurringEvents(events, eventType, startDate, endDate) {
     // Add rescheduled dates that fall within the current range
     for (const excDate of exceptionDates) {
       if (excDate >= startDate && excDate <= endDate) {
-        const { location, latlon, venue_url } = resolveEventVenue(
-          event,
-          excDate,
-        );
         const eventData = createEventData(event, excDate, eventType);
         eventData.isRescheduled = true;
 
@@ -1467,28 +1462,73 @@ function filterEvents() {
   console.log(`Visible events after filtering: ${visibleCount}`);
 }
 
+function clearActiveButtons() {
+  document
+    .querySelectorAll(".button-group button")
+    .forEach((btn) => btn.classList.remove("active"));
+}
+
+/**
+ * Read the current date inputs and return a resolved { startDate, endDate }
+ * pair, using end-of-start's-week as the endDate fallback.
+ * Returns null if startDate input is empty.
+ */
+function getActiveDateRange() {
+  const startInput = document.getElementById("startDate").value;
+  const endInput   = document.getElementById("endDate").value;
+  if (!startInput) return null;
+
+  const startDate = new Date(startInput);
+  const endDate   = endInput
+    ? new Date(endInput)
+    : getWeekEnd(getWeekStart(startDate));
+  return { startDate, endDate };
+}
+
 function clearSearch() {
   document.getElementById("searchInput").value = "";
-
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
-
-  if (startInput) {
-    const startDate = new Date(startInput);
-    const endDate = endInput
-      ? new Date(endInput)
-      : getWeekEnd(getWeekStart(startDate));
-
-    // Re-run date-based display
-    displayEvents(startDate, endDate);
-
-    // Clear active week buttons (optional UX choice)
-    document
-      .querySelectorAll(".button-group button")
-      .forEach((btn) => btn.classList.remove("active"));
+  const range = getActiveDateRange();
+  if (range) {
+    displayEvents(range.startDate, range.endDate);
+    clearActiveButtons();
   } else {
-    // Fallback (should rarely happen)
     filterEvents();
+  }
+}
+
+/**
+ * Search recurring events (storyclubs, folk nights, Irish sessions) for
+ * searchAllUpcoming(). Finds the first upcoming occurrence of any event
+ * whose name/location/club matches searchTerm, then adds it to allEventsData.
+ *
+ * Note: the resolveEventVenue() call that previously appeared inline here
+ * was dead code — createEventData() calls it internally and the
+ * destructured variables were never used.
+ *
+ * @param {object[]} list       - Array of recurring event objects.
+ * @param {string}   eventType  - e.g. "storyclub", "folk", "session".
+ * @param {string}   searchTerm - Lower-cased search string.
+ * @param {Date}     today      - Range start.
+ * @param {Date}     futureDate - Range end.
+ */
+async function searchRecurringEvents(
+  list,
+  eventType,
+  searchTerm,
+  today,
+  futureDate,
+) {
+  for (const event of list || []) {
+    const searchableText =
+      `${event.name} ${event.location} ${event.club || ""}`.toLowerCase();
+    if (searchableText.includes(searchTerm)) {
+      const dates = parseSchedule(event.schedule, today, futureDate);
+      if (dates.length > 0) {
+        const eventData = createEventData(event, dates[0], eventType);
+        allEventsData.push(eventData);
+        await addMarkerForEvent(eventData);
+      }
+    }
   }
 }
 
@@ -1522,26 +1562,28 @@ async function searchAllUpcoming() {
 
   // The checkboxes will filter visibility after loading
 
-  // Search recurring story club events (load regardless of checkbox)
-  for (const event of eventsData.events || []) {
-    const searchableText =
-      `${event.name} ${event.location} ${event.club || ""}`.toLowerCase();
-    if (searchableText.includes(searchTerm)) {
-      // Find the next occurrence of this recurring event
-      const dates = parseSchedule(event.schedule, today, futureDate);
-      if (dates.length > 0) {
-        // Just show the first (next) occurrence
-        const nextDate = dates[0];
-        const { location, latlon, venue_url } = resolveEventVenue(
-          event,
-          nextDate,
-        );
-        const eventData = createEventData(event, nextDate, "storyclub");
-        allEventsData.push(eventData);
-        await addMarkerForEvent(eventData);
-      }
-    }
-  }
+  // Search recurring events by type
+  await searchRecurringEvents(
+    eventsData.events,
+    "storyclub",
+    searchTerm,
+    today,
+    futureDate,
+  );
+  await searchRecurringEvents(
+    eventsData.folkNights,
+    "folk",
+    searchTerm,
+    today,
+    futureDate,
+  );
+  await searchRecurringEvents(
+    eventsData.irishSessions,
+    "session",
+    searchTerm,
+    today,
+    futureDate,
+  );
 
   // Search specific events (story shows)
   for (const event of eventsData.specificEvents || []) {
@@ -1621,53 +1663,13 @@ async function searchAllUpcoming() {
     }
   }
 
-  // Search folk nights
-  for (const event of eventsData.folkNights || []) {
-    const searchableText =
-      `${event.name} ${event.location} ${event.club || ""}`.toLowerCase();
-    if (searchableText.includes(searchTerm)) {
-      const dates = parseSchedule(event.schedule, today, futureDate);
-      if (dates.length > 0) {
-        const nextDate = dates[0];
-        const { location, latlon, venue_url } = resolveEventVenue(
-          event,
-          nextDate,
-        );
-        const eventData = createEventData(event, nextDate, "folk");
-        allEventsData.push(eventData);
-        await addMarkerForEvent(eventData);
-      }
-    }
-  }
-
-  // Search Irish sessions
-  for (const event of eventsData.irishSessions || []) {
-    const searchableText =
-      `${event.name} ${event.location} ${event.club || ""}`.toLowerCase();
-    if (searchableText.includes(searchTerm)) {
-      const dates = parseSchedule(event.schedule, today, futureDate);
-      if (dates.length > 0) {
-        const nextDate = dates[0];
-        const { location, latlon, venue_url } = resolveEventVenue(
-          event,
-          nextDate,
-        );
-        const eventData = createEventData(event, nextDate, "session");
-        allEventsData.push(eventData);
-        await addMarkerForEvent(eventData);
-      }
-    }
-  }
-
   allEventsData.sort((a, b) => a.date - b.date);
 
   // Update the date inputs to reflect the search range
   updateDateInputs(today, futureDate);
 
   // Clear any active week button
-  document
-    .querySelectorAll(".button-group button")
-    .forEach((btn) => btn.classList.remove("active"));
+  clearActiveButtons();
 
   renderEventsList(allEventsData);
   fitMapToEvents();
@@ -1691,9 +1693,7 @@ function getWeekEnd(weekStart) {
 }
 
 function setActiveMode(mode) {
-  document
-    .querySelectorAll(".button-group button")
-    .forEach((btn) => btn.classList.remove("active"));
+  clearActiveButtons();
   if (mode === "thisWeek")
     document.getElementById("thisWeekBtn").classList.add("active");
   else if (mode === "nextWeek1")
@@ -1737,77 +1737,60 @@ function showWeek(weeksAhead = 1) {
 }
 
 function showDateRange(clearActiveButton = true) {
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
-
-  if (!startInput) {
+  const range = getActiveDateRange();
+  if (!range) {
     alert("Please select at least a start date");
     return;
   }
-
-  const startDate = new Date(startInput);
-  const endDate = endInput
-    ? new Date(endInput)
-    : getWeekEnd(getWeekStart(startDate));
-  displayEvents(startDate, endDate);
-
-  // Only clear active button styling when manually using custom date range
+  displayEvents(range.startDate, range.endDate);
   if (clearActiveButton) {
-    document
-      .querySelectorAll(".button-group button")
-      .forEach((btn) => btn.classList.remove("active"));
+    clearActiveButtons();
   }
 }
+
 let lastStartDate = "";
 let lastEndDate = "";
 
 // formatDateForInput() — defined in shared_utils.js
+/**
+ * Parse the current start/end date inputs into Date objects.
+ * Returns { startDate, endDate } — endDate is null if the field is empty.
+ */
+function parseDateInputs() {
+  const startInput = document.getElementById("startDate").value;
+  const endInput   = document.getElementById("endDate").value;
+  if (!startInput) return null;
+
+  const [sy, sm, sd] = startInput.split("-").map(Number);
+  const startDate = new Date(sy, sm - 1, sd);
+  const endDate   = endInput
+    ? (() => { const [ey, em, ed] = endInput.split("-").map(Number); return new Date(ey, em - 1, ed); })()
+    : null;
+  return { startDate, endDate };
+}
 
 function handleStartDateChange() {
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
+  const parsed = parseDateInputs();
+  if (!parsed) return;
+  const { startDate, endDate } = parsed;
 
-  if (startInput && endInput) {
-    const [startYear, startMonth, startDay] = startInput.split("-").map(Number);
-    const [endYear, endMonth, endDay] = endInput.split("-").map(Number);
-
-    const startDate = new Date(startYear, startMonth - 1, startDay);
-    const endDate = new Date(endYear, endMonth - 1, endDay);
-
-    // Start date changed - if it's now after end date, adjust end to end of start's week
-    if (startDate > endDate) {
-      const weekEnd = getWeekEnd(getWeekStart(startDate));
-      document.getElementById("endDate").value = formatDateForInput(weekEnd);
-    }
+  if (endDate && startDate > endDate) {
+    document.getElementById("endDate").value =
+      formatDateForInput(getWeekEnd(getWeekStart(startDate)));
   }
-
-  if (startInput) {
-    showDateRange(true);
-  }
+  showDateRange(true);
 }
 
 function handleEndDateChange() {
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
+  const parsed = parseDateInputs();
+  if (!parsed) return;
+  const { startDate, endDate } = parsed;
 
-  if (startInput && endInput) {
-    const [startYear, startMonth, startDay] = startInput.split("-").map(Number);
-    const [endYear, endMonth, endDay] = endInput.split("-").map(Number);
-
-    const startDate = new Date(startYear, startMonth - 1, startDay);
-    const endDate = new Date(endYear, endMonth - 1, endDay);
-
-    // End date changed - if it's now before start date, adjust start to beginning of end's week
-    if (endDate < startDate) {
-      const weekStart = getWeekStart(endDate);
-      document.getElementById("startDate").value =
-        formatDateForInput(weekStart);
-    }
+  if (endDate && endDate < startDate) {
+    document.getElementById("startDate").value =
+      formatDateForInput(getWeekStart(endDate));
   }
-
-  if (startInput) {
-    showDateRange(true);
-  }
+  showDateRange(true);
 }
 
 function generateShareableURL(startDate, endDate) {
@@ -1853,20 +1836,13 @@ function generateShareableURL(startDate, endDate) {
 }
 
 async function copyShareableLink() {
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
-
-  if (!startInput) {
+  const range = getActiveDateRange();
+  if (!range) {
     alert("Please select a date range first");
     return;
   }
-
-  const startDate = new Date(startInput);
-  const endDate = endInput
-    ? new Date(endInput)
-    : getWeekEnd(getWeekStart(startDate));
-
-  const shareableURL = generateShareableURL(startDate, endDate);
+  
+  const shareableURL = generateShareableURL(range.startDate, range.endDate);
 
   try {
     await navigator.clipboard.writeText(shareableURL);
