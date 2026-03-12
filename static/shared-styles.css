@@ -282,6 +282,10 @@ select {
     fill: #1eb868;
 }
 
+.event.special .event-website svg {
+    fill: #d9d5d5;
+}
+
 /* Music variant icon overrides */
 .event.music .event-email svg {
     fill: #77ee77;
