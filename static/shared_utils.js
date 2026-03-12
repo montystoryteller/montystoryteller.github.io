@@ -348,7 +348,7 @@ async function loadEventsData(cacheBuster) {
 // Text formatting
 // ---------------------------------------------------------------------------
 
-function appendParagraphs(container, text){
+function appendParagraphs(container, text) {
   const paragraphs = text.split(PARAGRAPH_SEPARATOR);
   paragraphs.forEach((p) => {
     if (p.trim()) {
@@ -357,4 +357,77 @@ function appendParagraphs(container, text){
       container.appendChild(pElem);
     }
   });
+}
+
+// ---------------------------------------------------------------------------
+// Date-range iteration
+// ---------------------------------------------------------------------------
+
+/**
+ * Iterate a collection of objects that each have a `.date` string (DD/MM/YYYY),
+ * calling `callback(item, parsedDate)` for each item whose date falls within
+ * [startDate, endDate] inclusive. Items with a missing or malformed date are
+ * skipped with a console.warn.
+ *
+ * The callback may be async; iteration is sequential (each callback is awaited
+ * before moving to the next item), preserving the same ordering behaviour as
+ * the original for-loops this replaces.
+ *
+ * Usage — display path (no search filter):
+ *
+ *   await forEachDateInRange(
+ *     tour.tour_dates, startDate, endDate,
+ *     `tour event in ${tour.name}`,
+ *     async (tourDate, eventDate) => {
+ *       const merged = buildTourMergedEvent(tour, tourKey, tourDate);
+ *       const eventData = createEventData(merged, eventDate, eventType);
+ *       allEventsData.push(eventData);
+ *       await addMarkerForEvent(eventData);
+ *     }
+ *   );
+ *
+ * Usage — search path (guard inside callback, silent skip on no-match):
+ *
+ *   await forEachDateInRange(
+ *     eventsData.specificEvents, today, futureDate,
+ *     "specific event",
+ *     async (event, eventDate) => {
+ *       if (!buildEventSearchText(event).includes(searchTerm)) return;
+ *       const eventData = createEventData(event, eventDate, "special");
+ *       allEventsData.push(eventData);
+ *       await addMarkerForEvent(eventData);
+ *     }
+ *   );
+ *
+ * NOTE — known limitation of searchRecurringEvents (not introduced here):
+ * That function matches recurring events on event.name, event.location, and
+ * event.club. However, recurring events store their venue via venue_id rather
+ * than a flat .location field, so venue-name searches will only hit events
+ * that happen to have a raw .location value in the data. This pre-dates
+ * forEachDateInRange and is unchanged by it; fixing it requires resolving the
+ * venue name from venuesLookup inside the search text builder, which is a
+ * broader refactor of searchRecurringEvents.
+ *
+ * @param {object[]|null|undefined} items     - Array of objects with a .date string.
+ * @param {Date}                    startDate - Range start (inclusive).
+ * @param {Date}                    endDate   - Range end (inclusive).
+ * @param {string}                  label     - Used in warning messages, e.g. "tour event in My Tour".
+ * @param {Function}                callback  - Called as callback(item, parsedDate). May be async.
+ * @returns {Promise<void>}
+ */
+async function forEachDateInRange(items, startDate, endDate, label, callback) {
+  for (const item of items ?? []) {
+    if (!item.date) {
+      console.warn(`Missing date for ${label}:`, item);
+      continue;
+    }
+    const parsed = parseDateString(item.date);
+    if (!parsed) {
+      console.warn(`Invalid date format for ${label}:`, item);
+      continue;
+    }
+    if (parsed >= startDate && parsed <= endDate) {
+      await callback(item, parsed);
+    }
+  }
 }

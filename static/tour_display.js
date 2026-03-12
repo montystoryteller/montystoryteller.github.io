@@ -272,8 +272,7 @@ function displayTour(tourId) {
   bottomLinks.forEach((l) => flyerContainer.appendChild(l));
 
   if (tour.tour_flyer) {
-    const flyerPath = tour.tour_flyer.replace(/[^a-zA-Z0-9._-]/g, "");
-    flyerImage.src = `./storyclub_assets/event_flyers/${flyerPath}`;
+    flyerImage.src = `./storyclub_assets/event_flyers/${sanitizeFlyerPath(tour.tour_flyer)}`;
     flyerImage.alt = `${tour.name} tour flyer`;
     flyerImage.style.display = "block";
     flyerContainer.style.display = "block";
@@ -374,7 +373,7 @@ function createExpandableSection(parent, label, content, type) {
 
   if (type === "image") {
     const img = document.createElement("img");
-    img.src = `./storyclub_assets/event_flyers/${content.replace(/[^a-zA-Z0-9._-]/g, "")}`;
+    img.src = `./storyclub_assets/event_flyers/${sanitizeFlyerPath(content)}`;
     img.className = "event-flyer-image";
     expandable.appendChild(img);
   } else {

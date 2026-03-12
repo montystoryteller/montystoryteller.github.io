@@ -554,6 +554,29 @@ function buildEventSearchText(event) {
   return `${event.name} ${performerName} ${venueName} ${venueLocation} ${event.time || ""} ${event.price || ""}`.toLowerCase();
 }
 
+/**
+ * Search text for a recurring event (storyclub, folk night, Irish session).
+ * Used only by searchRecurringEvents().
+ *
+ * Recurring events store their venue via venue_id rather than a flat .location
+ * field, so we dereference through venuesLookup here. Events with
+ * alternate_locations (e.g. rotating between two venues on odd/even months)
+ * include all alternate venue names so a search for either venue finds the event.
+ */
+function buildRecurringEventSearchText(event) {
+  const { venueName, venueLocation } = resolveVenue(event.venue_id);
+
+  // Collect any alternate venue names so searches for either venue hit this event
+  const alternateVenueText = Object.values(event.alternate_locations || {})
+    .map((alt) => {
+      const { venueName: n, venueLocation: a } = resolveVenue(alt.venue_id);
+      return `${n} ${a}`;
+    })
+    .join(" ");
+
+  return `${event.name} ${event.club || ""} ${venueName} ${venueLocation} ${alternateVenueText} ${event.time || ""} ${event.price || ""}`.toLowerCase();
+}
+
 async function processTouringShows(startDate, endDate) {
   const touringShows = eventsData.touring_shows || {};
 
@@ -1475,11 +1498,11 @@ function clearActiveButtons() {
  */
 function getActiveDateRange() {
   const startInput = document.getElementById("startDate").value;
-  const endInput   = document.getElementById("endDate").value;
+  const endInput = document.getElementById("endDate").value;
   if (!startInput) return null;
 
   const startDate = new Date(startInput);
-  const endDate   = endInput
+  const endDate = endInput
     ? new Date(endInput)
     : getWeekEnd(getWeekStart(startDate));
   return { startDate, endDate };
@@ -1519,8 +1542,7 @@ async function searchRecurringEvents(
   futureDate,
 ) {
   for (const event of list || []) {
-    const searchableText =
-      `${event.name} ${event.location} ${event.club || ""}`.toLowerCase();
+    const searchableText = buildRecurringEventSearchText(event);
     if (searchableText.includes(searchTerm)) {
       const dates = parseSchedule(event.schedule, today, futureDate);
       if (dates.length > 0) {
@@ -1758,13 +1780,16 @@ let lastEndDate = "";
  */
 function parseDateInputs() {
   const startInput = document.getElementById("startDate").value;
-  const endInput   = document.getElementById("endDate").value;
+  const endInput = document.getElementById("endDate").value;
   if (!startInput) return null;
 
   const [sy, sm, sd] = startInput.split("-").map(Number);
   const startDate = new Date(sy, sm - 1, sd);
-  const endDate   = endInput
-    ? (() => { const [ey, em, ed] = endInput.split("-").map(Number); return new Date(ey, em - 1, ed); })()
+  const endDate = endInput
+    ? (() => {
+        const [ey, em, ed] = endInput.split("-").map(Number);
+        return new Date(ey, em - 1, ed);
+      })()
     : null;
   return { startDate, endDate };
 }
@@ -1775,8 +1800,9 @@ function handleStartDateChange() {
   const { startDate, endDate } = parsed;
 
   if (endDate && startDate > endDate) {
-    document.getElementById("endDate").value =
-      formatDateForInput(getWeekEnd(getWeekStart(startDate)));
+    document.getElementById("endDate").value = formatDateForInput(
+      getWeekEnd(getWeekStart(startDate)),
+    );
   }
   showDateRange(true);
 }
@@ -1787,8 +1813,9 @@ function handleEndDateChange() {
   const { startDate, endDate } = parsed;
 
   if (endDate && endDate < startDate) {
-    document.getElementById("startDate").value =
-      formatDateForInput(getWeekStart(endDate));
+    document.getElementById("startDate").value = formatDateForInput(
+      getWeekStart(endDate),
+    );
   }
   showDateRange(true);
 }
@@ -1841,7 +1868,7 @@ async function copyShareableLink() {
     alert("Please select a date range first");
     return;
   }
-  
+
   const shareableURL = generateShareableURL(range.startDate, range.endDate);
 
   try {
