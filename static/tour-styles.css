@@ -391,6 +391,22 @@ select {
 
 
 /* =============================================================
+   7. TOUR DISPLAY UTILITIES
+   Classes that replace inline styles set by tour_display.js
+   ============================================================= */
+
+/* Performer name when no URL is available (plain span, not a link) */
+.performer-name-plain {
+    color: #333;
+}
+
+/* Extra top margin on the expand button inside tour date cards */
+.expand-btn-spaced {
+    margin-top: 8px;
+}
+
+
+/* =============================================================
    6. TOUR STATUS BANNERS
    Shown at top of tour date list to indicate past / current / future
    ============================================================= */

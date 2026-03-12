@@ -37,7 +37,7 @@
             <div class="search-row">
                 <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterEvents()">
                 <button onclick="clearSearch()">Clear</button>
-                <button onclick="searchAllUpcoming()" style="background-color: #2e7d32;">Search All Upcoming</button>
+                <button onclick="searchAllUpcoming()" class="btn-search-upcoming">Search All Upcoming</button>
             </div>
             <div class="filter-row">
                 <label>
@@ -64,14 +64,13 @@
         </div>
     </div>
 
-    <div
-        style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-        <label style="display: flex; align-items: center; gap: 10px;">
+    <div class="share-bar">
+        <label class="share-bar-pin-label">
             <input type="checkbox" id="pinMapView" onchange="togglePinMapView()">
             <span>Pin current map view (don't auto-zoom when changing dates)</span>
         </label>
-        <div style="display: flex; gap: 10px; align-items: center;">
-            <button onclick="copyShareableLink()" style="background-color: #2196F3;">
+        <div class="share-bar-actions">
+            <button onclick="copyShareableLink()" class="btn-copy-link">
                 📋 Copy Shareable Link
             </button>
             <span id="copyFeedback" style="color: #4CAF50; font-size: 14px; display: none;">✓ Link copied!</span>
@@ -90,7 +89,8 @@
             <span class="header-label">What is/are:</span>
             <button class="header-tab-button" onclick="toggleTabContent('storytelling', event)">storytelling?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('circles', event)">story circles / clubs?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('circles', event)">story circles /
+                clubs?</button>
             <span class="separator">|</span>
             <button class="header-tab-button" onclick="toggleTabContent('performance', event)">performance
                 storytelling?</button>
@@ -98,7 +98,8 @@
             <button class="header-tab-button" onclick="toggleTabContent('storytellingshows', event)">storytelling
                 shows?</button>
             <span class="separator">|</span>
-            <button class="header-tab-button" onclick="toggleTabContent('folknopenmic', event)">folk club etiquette?</button>
+            <button class="header-tab-button" onclick="toggleTabContent('folknopenmic', event)">folk club
+                etiquette?</button>
             <span class="separator">|</span>
             <button class="header-tab-button" onclick="toggleTabContent('musicpolicy', event)">music policy?</button>
         </div>

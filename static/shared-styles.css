@@ -485,6 +485,16 @@ select {
    11. UTILITIES
    ============================================================= */
 
+/* Spacing for the icons span appended to a venue line */
+.venue-icons {
+    margin-left: 8px;
+}
+
+/* Spacing for the VIEW TOUR link in the tickets row */
+.tour-link {
+    margin-right: 15px;
+}
+
 .event.hidden {
     display: none;
 }

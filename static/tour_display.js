@@ -200,8 +200,7 @@ function createPerformerLinkElement(performer, isHeader = true) {
   } else {
     // Return a plain span if no URL exists
     const span = document.createElement("span");
-    span.className = `performer-link ${isHeader ? "site-link-header" : "site-link-footer"}`;
-    span.style.color = "#333"; // Darker color for non-links
+    span.className = `performer-link performer-name-plain ${isHeader ? "site-link-header" : "site-link-footer"}`;
     span.textContent = performer.name;
     return span;
   }
@@ -373,9 +372,8 @@ function displayTourDates(tour, status) {
 
 function createExpandableSection(parent, label, content, type) {
   const btn = document.createElement("div");
-  btn.className = "event-expand-btn";
+  btn.className = "event-expand-btn expand-btn-spaced";
   btn.textContent = label;
-  btn.style.marginTop = "8px";
 
   const expandable = document.createElement("div");
   expandable.className = "event-expandable";

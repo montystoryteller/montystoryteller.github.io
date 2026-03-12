@@ -152,7 +152,73 @@
 
 
 /* =============================================================
-   6. RESPONSIVE
+   6. EVENT DISPLAY UTILITIES
+   Classes that replace inline styles set by event_display.js
+   ============================================================= */
+
+/* Flex row of expand buttons (More info / Flyer / Bio) */
+.expand-button-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Performer name line */
+.event-performer {
+    font-style: italic;
+}
+
+/* Performer link inside the performer line */
+.event-performer-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Top margin on 2nd, 3rd… flyer images in the flyer expandable */
+.event-flyer-subsequent {
+    margin-top: 15px;
+}
+
+
+/* =============================================================
+   7. SHARE BAR
+   The pin-map / copy-link bar below the main controls
+   ============================================================= */
+
+.share-bar {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.share-bar-pin-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.share-bar-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Colour overrides for specific buttons in the event guide */
+.btn-search-upcoming {
+    background-color: #2e7d32;
+}
+
+.btn-copy-link {
+    background-color: #2196F3;
+}
+
+
+/* =============================================================
+   8. RESPONSIVE
    ============================================================= */
 
 @media (max-width: 768px) {

@@ -207,7 +207,7 @@ function createVenueElement(venue) {
   }
 
   const iconsContainer = document.createElement("span");
-  iconsContainer.style.marginLeft = "8px";
+  iconsContainer.className = "venue-icons";
   appendContactIcons(iconsContainer, venue);
   if (iconsContainer.hasChildNodes()) {
     venueDiv.appendChild(iconsContainer);
@@ -235,7 +235,7 @@ function createTicketsElement(eventData, past = false) {
     tourLink.href = `new_troubadours_tour_guide.html?tour=${tour_id}`;
     tourLink.target = "_blank";
     tourLink.textContent = "VIEW TOUR";
-    tourLink.style.marginRight = "15px";
+    tourLink.className = "tour-link";
     ticketsDiv.appendChild(tourLink);
   }
 

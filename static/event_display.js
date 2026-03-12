@@ -1035,7 +1035,7 @@ function createIconsContainer(event) {
 
 function createPerformerSection(event) {
   const performerDiv = document.createElement("div");
-  performerDiv.style.fontStyle = "italic";
+  performerDiv.className = "event-performer";
 
   if (event.performer_url) {
     const safePerformerUrl = sanitizeUrl(event.performer_url);
@@ -1043,8 +1043,7 @@ function createPerformerSection(event) {
       const performerLink = document.createElement("a");
       performerLink.href = safePerformerUrl;
       performerLink.target = "_blank";
-      performerLink.style.color = "inherit";
-      performerLink.style.textDecoration = "none";
+      performerLink.className = "event-performer-link";
       performerLink.onclick = (e) => e.stopPropagation();
 
       const performerStrong = document.createElement("strong");
@@ -1244,9 +1243,7 @@ function createExpandableSection(event) {
 
   // Create button container
   const buttonContainer = document.createElement("div");
-  buttonContainer.style.display = "flex";
-  buttonContainer.style.gap = "10px";
-  buttonContainer.style.marginTop = "12px";
+  buttonContainer.className = "expand-button-row";
 
   // More info button (only if description exists)
   if (hasDescription) {
@@ -1348,7 +1345,7 @@ function createExpandableSection(event) {
         img.src = `${flyer.basePath}${flyerPath}`;
         img.className = "event-flyer-image";
         if (index > 0) {
-          img.style.marginTop = "15px";
+          img.classList.add("event-flyer-subsequent");
         }
         flyersExpandableDiv.appendChild(img);
       }
