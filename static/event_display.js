@@ -480,6 +480,104 @@ function createEventData(baseEvent, date, eventType) {
   return eventData;
 }
 
+// ---------------------------------------------------------------------------
+// Merged-event builders
+// These extract the object-construction logic that was previously duplicated
+// between the process* functions and searchAllUpcoming.
+// ---------------------------------------------------------------------------
+
+/**
+ * Build the merged event object for a single tour date.
+ * Used by both processTourEvents() and searchAllUpcoming().
+ *
+ * @param {object} tour     - The tour record from toursLookup.
+ * @param {string} tourKey  - The tour's key (used as tour_id).
+ * @param {object} tourDate - One entry from tour.tour_dates[].
+ * @returns {object}
+ */
+function buildTourMergedEvent(tour, tourKey, tourDate) {
+  return {
+    name: tour.name,
+    tour_id: tourKey,
+    performer_id: tour.performer_id,
+    date: tourDate.date,
+    time: tourDate.time || tour.time || null,
+    price: tourDate.price || tour.price || null,
+    venue_id: tourDate.venue_id,
+    description: tour.tour_description || null,
+    event_flyer: tourDate.event_flyer || null,
+    tour_flyer: tour.tour_flyer || null,
+    fb_event: tourDate.fb_event || null,
+    ticket_url: tourDate.ticket_url || null,
+    isCancelled: !!tourDate.isCancelled,
+  };
+}
+
+/**
+ * Build the merged event object for a single touring-show date.
+ * Used by both processTouringShows() and searchAllUpcoming().
+ *
+ * @param {object} show     - The show record from touring_shows.
+ * @param {string} showKey  - The show's key.
+ * @param {object} showDate - One entry from show.show_dates[].
+ * @returns {object}
+ */
+function buildShowMergedEvent(show, showKey, showDate) {
+  return {
+    name: show.name,
+    showname: show.showname,
+    touring_show_id: showKey,
+    performer_id: show.performer_id,
+    date: showDate.date,
+    time: showDate.time || show.time || null,
+    price: showDate.price || show.price || null,
+    venue_id: showDate.venue_id,
+    club: showDate.club || show.club || null,
+    description: show.description || null,
+    event_flyer: showDate.event_flyer || null,
+    touring_event_flyer: show.touring_event_flyer || null,
+    fb_event: showDate.fb_event || null,
+    ticket_url: showDate.ticket_url || null,
+    isTouringShow: true,
+    isCancelled: !!showDate.isCancelled,
+  };
+}
+
+/** @returns {string} Performer display name, or "" if not found. */
+function resolvePerformerName(performer_id) {
+  return (performer_id && performersLookup[performer_id]?.name) || "";
+}
+
+/** @returns {{venueName: string, venueLocation: string}} */
+function resolveVenue(venue_id) {
+  const venue = venue_id && venuesLookup[venue_id];
+  return {
+    venueName: venue?.name || "",
+    venueLocation: venue?.full_address || "",
+  };
+}
+
+/** Search text for a tour date. Used only by searchAllUpcoming(). */
+function buildTourSearchText(tour, tourDate) {
+  const performerName = resolvePerformerName(tour.performer_id);
+  const { venueName, venueLocation } = resolveVenue(tourDate.venue_id);
+  return `${tour.name} ${tour.tour_name || ""} ${performerName} ${tour.tour_description || ""} ${venueName} ${venueLocation} ${tourDate.time || ""} ${tourDate.price || ""}`.toLowerCase();
+}
+
+/** Search text for a touring show date. Used only by searchAllUpcoming(). */
+function buildShowSearchText(show, showDate) {
+  const performerName = resolvePerformerName(show.performer_id);
+  const { venueName, venueLocation } = resolveVenue(showDate.venue_id);
+  return `${show.name} ${show.showname || ""} ${performerName} ${show.description || ""} ${venueName} ${venueLocation} ${showDate.time || ""} ${showDate.price || ""}`.toLowerCase();
+}
+
+/** Search text for a flat specificEvent or musicEvent. Used only by searchAllUpcoming(). */
+function buildEventSearchText(event) {
+  const performerName = resolvePerformerName(event.performer_id);
+  const { venueName, venueLocation } = resolveVenue(event.venue_id);
+  return `${event.name} ${performerName} ${venueName} ${venueLocation} ${event.time || ""} ${event.price || ""}`.toLowerCase();
+}
+
 async function processTouringShows(startDate, endDate) {
   const touringShows = eventsData.touring_shows || {};
 
@@ -508,24 +606,7 @@ async function processTouringShows(startDate, endDate) {
         continue;
       }
       if (eventDate >= startDate && eventDate <= endDate) {
-        // Merge show-level and date-level properties
-        const mergedEvent = {
-          name: show.name,
-          showname: show.showname,
-          touring_show_id: showKey,
-          performer_id: show.performer_id,
-          date: showDate.date,
-          time: showDate.time || show.time || null,
-          price: showDate.price || show.price || null,
-          venue_id: showDate.venue_id,
-          club: showDate.club || show.club || null,
-          description: show.description || null,
-          event_flyer: showDate.event_flyer || null,
-          touring_event_flyer: show.touring_event_flyer || null,
-          fb_event: showDate.fb_event || null,
-          ticket_url: showDate.ticket_url || null,
-          isTouringShow: true,
-        };
+        const mergedEvent = buildShowMergedEvent(show, showKey, showDate);
 
         const eventData = createEventData(mergedEvent, eventDate, eventType);
         allEventsData.push(eventData);
@@ -564,22 +645,7 @@ async function processTourEvents(startDate, endDate) {
         continue;
       }
       if (eventDate >= startDate && eventDate <= endDate) {
-        // Merge tour-level and date-level properties
-        const mergedEvent = {
-          name: tour.name,
-          tour_id: tourKey,
-          performer_id: tour.performer_id,
-          date: tourDate.date,
-          time: tourDate.time || tour.time || null,
-          price: tourDate.price || tour.price || null,
-          venue_id: tourDate.venue_id,
-          description: tour.tour_description || null,
-          event_flyer: tourDate.event_flyer || null,
-          tour_flyer: tour.tour_flyer || null,
-          fb_event: tourDate.fb_event || null,
-          ticket_url: tourDate.ticket_url || null,
-          isCancelled: !!tourDate.isCancelled,
-        };
+        const mergedEvent = buildTourMergedEvent(tour, tourKey, tourDate);
 
         const eventData = createEventData(mergedEvent, eventDate, eventType);
         allEventsData.push(eventData);
@@ -1569,9 +1635,7 @@ async function searchAllUpcoming() {
     const eventDate = parseDateString(event.date);
     if (!eventDate) continue;
     if (eventDate >= today && eventDate <= futureDate) {
-      const searchableText =
-        `${event.name} ${event.location} ${event.performer || ""}`.toLowerCase();
-      if (searchableText.includes(searchTerm)) {
+      if (buildEventSearchText(event).includes(searchTerm)) {
         const eventData = createEventData(event, eventDate, "special");
         allEventsData.push(eventData);
         await addMarkerForEvent(eventData);
@@ -1586,9 +1650,7 @@ async function searchAllUpcoming() {
     const eventDate = parseDateString(event.date);
     if (!eventDate) continue;
     if (eventDate >= today && eventDate <= futureDate) {
-      const searchableText =
-        `${event.name} ${event.location} ${event.performer || ""}`.toLowerCase();
-      if (searchableText.includes(searchTerm)) {
+      if (buildEventSearchText(event).includes(searchTerm)) {
         const eventData = createEventData(event, eventDate, "music");
         allEventsData.push(eventData);
         await addMarkerForEvent(eventData);
@@ -1607,51 +1669,14 @@ async function searchAllUpcoming() {
     // Determine event type (same as processTourEvents)
     const eventType = tour.isMusic ? "music" : "special";
 
-    // Get performer name if available
-    let performerName = "";
-    if (tour.performer_id && performersLookup[tour.performer_id]) {
-      performerName = performersLookup[tour.performer_id].name;
-    }
-
-    // Build tour-level searchable text
-    const tourSearchText =
-      `${tour.name} ${tour.tour_name || ""} ${performerName} ${tour.tour_description || ""}`.toLowerCase();
-
     for (const tourDate of tour.tour_dates || []) {
       if (!tourDate.date) continue;
       // parseDateString() defined in shared_utils.js
       const eventDate = parseDateString(tourDate.date);
       if (!eventDate) continue;
       if (eventDate >= today && eventDate <= futureDate) {
-        // Get venue info for this specific date
-        const venue_id = tourDate.venue_id;
-        let venueName = "";
-        let venueLocation = "";
-        if (venue_id && venuesLookup[venue_id]) {
-          venueName = venuesLookup[venue_id].name || "";
-          venueLocation = venuesLookup[venue_id].full_address || "";
-        }
-
-        // Build complete searchable text
-        const fullSearchText =
-          `${tourSearchText} ${venueName} ${venueLocation} ${tourDate.time || ""} ${tourDate.price || ""}`.toLowerCase();
-
-        if (fullSearchText.includes(searchTerm)) {
-          const mergedEvent = {
-            name: tour.name,
-            tour_id: tourKey,
-            performer_id: tour.performer_id,
-            date: tourDate.date,
-            time: tourDate.time || tour.time || null,
-            price: tourDate.price || tour.price || null,
-            venue_id: tourDate.venue_id,
-            description: tour.tour_description || null,
-            event_flyer: tourDate.event_flyer || null,
-            tour_flyer: tour.tour_flyer || null,
-            fb_event: tourDate.fb_event || null,
-            ticket_url: tourDate.ticket_url || null,
-          };
-
+        if (buildTourSearchText(tour, tourDate).includes(searchTerm)) {
+          const mergedEvent = buildTourMergedEvent(tour, tourKey, tourDate);
           const eventData = createEventData(mergedEvent, eventDate, eventType);
           allEventsData.push(eventData);
           await addMarkerForEvent(eventData);
@@ -1665,52 +1690,14 @@ async function searchAllUpcoming() {
     const show = touringShows[showKey];
     const eventType = show.isSpecial ? "special" : "storyclub";
 
-    // Get performer name if available
-    let performerName = "";
-    if (show.performer_id && performersLookup[show.performer_id]) {
-      performerName = performersLookup[show.performer_id].name;
-    }
-
-    const showSearchText =
-      `${show.name} ${show.showname || ""} ${performerName} ${show.description || ""}`.toLowerCase();
-
     for (const showDate of show.show_dates || []) {
       if (!showDate.date) continue;
       // parseDateString() defined in shared_utils.js
       const eventDate = parseDateString(showDate.date);
       if (!eventDate) continue;
       if (eventDate >= today && eventDate <= futureDate) {
-        const venue_id = showDate.venue_id;
-        let venueName = "";
-        let venueLocation = "";
-        if (venue_id && venuesLookup[venue_id]) {
-          venueName = venuesLookup[venue_id].name || "";
-          venueLocation = venuesLookup[venue_id].full_address || "";
-        }
-
-        const fullSearchText =
-          `${showSearchText} ${venueName} ${venueLocation} ${showDate.time || ""} ${showDate.price || ""}`.toLowerCase();
-
-        if (fullSearchText.includes(searchTerm)) {
-          const mergedEvent = {
-            name: show.name,
-            showname: show.showname,
-            touring_show_id: showKey,
-            performer_id: show.performer_id,
-            date: showDate.date,
-            time: showDate.time || show.time || null,
-            price: showDate.price || show.price || null,
-            venue_id: showDate.venue_id,
-            club: showDate.club || show.club || null,
-            description: show.description || null,
-            event_flyer: showDate.event_flyer || null,
-            touring_event_flyer: show.touring_event_flyer || null,
-            fb_event: showDate.fb_event || null,
-            ticket_url: showDate.ticket_url || null,
-            isTouringShow: true,
-            isCancelled: !!showDate.isCancelled,
-          };
-
+        if (buildShowSearchText(show, showDate).includes(searchTerm)) {
+          const mergedEvent = buildShowMergedEvent(show, showKey, showDate);
           const eventData = createEventData(mergedEvent, eventDate, eventType);
           allEventsData.push(eventData);
           await addMarkerForEvent(eventData);
