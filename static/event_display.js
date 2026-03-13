@@ -582,36 +582,20 @@ async function processTouringShows(startDate, endDate) {
 
   for (const showKey in touringShows) {
     const show = touringShows[showKey];
-
-    // Determine event type - default to 'special' if isSpecial is true
     const eventType = show.isSpecial ? "special" : "storyclub";
 
-    // Process each show date
-    for (const showDate of show.show_dates || []) {
-      if (!showDate.date) {
-        console.warn(
-          `Missing date for touring show in ${show.name}:`,
-          showDate,
-        );
-        continue;
-      }
-      // parseDateString() defined in shared_utils.js
-      const eventDate = parseDateString(showDate.date);
-      if (!eventDate) {
-        console.warn(
-          `Invalid date format for touring show in ${show.name}:`,
-          showDate,
-        );
-        continue;
-      }
-      if (eventDate >= startDate && eventDate <= endDate) {
+    await forEachDateInRange(
+      show.show_dates,
+      startDate,
+      endDate,
+      `touring show in ${show.name}`,
+      async (showDate, eventDate) => {
         const mergedEvent = buildShowMergedEvent(show, showKey, showDate);
-
         const eventData = createEventData(mergedEvent, eventDate, eventType);
         allEventsData.push(eventData);
         await addMarkerForEvent(eventData);
-      }
-    }
+      },
+    );
   }
 }
 
@@ -621,36 +605,21 @@ async function processTourEvents(startDate, endDate) {
   for (const tourKey in tours) {
     const tour = tours[tourKey];
 
-    // Process both music and special event tours
-    // Skip tours that are neither music nor special
     if (!tour.isMusic && !tour.isSpecial) continue;
-
-    // Determine event type
     const eventType = tour.isMusic ? "music" : "special";
 
-    // Process each tour date
-    for (const tourDate of tour.tour_dates || []) {
-      if (!tourDate.date) {
-        console.warn(`Missing date for tour event in ${tour.name}:`, tourDate);
-        continue;
-      }
-      // parseDateString() defined in shared_utils.js
-      const eventDate = parseDateString(tourDate.date);
-      if (!eventDate) {
-        console.warn(
-          `Invalid date format for tour event in ${tour.name}:`,
-          tourDate,
-        );
-        continue;
-      }
-      if (eventDate >= startDate && eventDate <= endDate) {
+    await forEachDateInRange(
+      tour.tour_dates,
+      startDate,
+      endDate,
+      `tour event in ${tour.name}`,
+      async (tourDate, eventDate) => {
         const mergedEvent = buildTourMergedEvent(tour, tourKey, tourDate);
-
         const eventData = createEventData(mergedEvent, eventDate, eventType);
         allEventsData.push(eventData);
         await addMarkerForEvent(eventData);
-      }
-    }
+      },
+    );
   }
 }
 
