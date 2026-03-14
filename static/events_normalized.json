@@ -3181,6 +3181,22 @@
       "isSpecial": true,
       "venue_id": "drjohnsonshouse",
       "performer_id": "dave-tonge"
+    },
+    {
+      "name": "Tales of Robin Hood [Ropetackle Storytellers]",
+      "showname": "Tales of Robin Hood",
+      "date": "13/07/2026",
+      "time": "7.30-9.30pm",
+      "club": "ropetackle-storytellers",
+      "price": "£10",
+      "description": "There's singing in the Greenwood, news of an archery competition, and someone keeps foiling the Sheriff of Nottingham's plans – it can only be Robin Hood! Ropetackle Storytellers gathers their own band of Merry Men to share some of Robin's best tales, through songs and stories. Hear how Robin first became an outlaw, how he met the likes of Friar Tuck, Will Scarlet and Little John, and exactly what happened in that infamous archery competition!\n\n\n\nThese tub-thumping tales of rebellion and raucous adventure are brought to you by Ace & Joshua, the Ropetackle Storytellers club founders, along with Heidi McNie (Sing a Song of Sussex), Marina Evans (To Shame the Devil), Jon Norman-Mason (You're Dead to Me, Beowulf), Sophie Gibson (The Wasteland Wanderer), Abbie Simmonds (Strange Times Storytelling) and Joanna Gilar (Storycommons CIC)",
+      "promoter_link": "",
+      "event_flyer": "",
+      "ticket_url": "https://ropetacklecentre.co.uk/events/ropetackle-storytellers-tales-of-robin-hood/",
+      "isSpecial": true,
+      "fb_event": 3167137180125156,
+      "venue_id": "ropetackle-arts-centre-shoreham",
+      "performer_id": ""
     }
   ],
   "musicEvents": [
