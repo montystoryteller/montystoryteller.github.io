@@ -178,6 +178,14 @@
           "ticket_url": "https://poundarts.org.uk/whats-on/corrine-harragin-troubled-waters/"
         },
         {
+          "date": "23/04/2026",
+          "time": "7-9pm",
+          "venue_id": "cilgerran-village-hall",
+          "price": "£12",
+          "club": "tell-tales-club",
+          "ticket_url": "https://ticketlab.app/event/38031#/"
+        },
+        {
           "date": "01/05/2026",
           "venue_id": "cotswold-playhouse",
           "ticket_url": "https://www.ticketsource.co.uk/whats-on/stroud/cotswold-playhouse/troubled-waters/e-dlkgby"
@@ -298,7 +306,8 @@
       "fb_event": 1197885285708477,
       "venue_id": "cranborne-earthouse",
       "performer_id": "ben-haggarty-steph-brittain"
-    },{
+    },
+    {
       "date": "23/04/2026",
       "time": "8-10.15pm",
       "club": "crickcrack",
@@ -3747,6 +3756,18 @@
       "latlon": [
         51.5512794,
         -0.1332178
+      ]
+    },
+    "cilgerran-village-hall": {
+      "id": "cilgerran-village-hall",
+      "name": "cilgerran Village Hall",
+      "city": "Cilgerran, Pembrokeshire",
+      "postcode": "SA43 2SQ",
+      "full_address": "Cilgerran Village Hall, High Street, Cilgerran, Pembrokeshire, SA43 2SQ",
+      "url": "https://cilgerran.org/village-hall/",
+      "latlon": [
+        52.0555,
+        -4.63357
       ]
     },
     "storyhouse-hunter": {
