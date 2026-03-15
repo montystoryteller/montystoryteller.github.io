@@ -89,6 +89,385 @@
     }
   },
   "tours": {
+
+    "greg-chapman-discovery-witchcraft": {
+      "tour_name": "Discovery of Witchcraft (2026) [Greg Chapman]",
+      "name": "Discovery of Witchcraft",
+      "tour_description": "A show of Magic, Storytelling, History, Comedy and Thought.\n\n\n\nIn 1584, Reginald Scott released his book 'The Discoverie of Witchcraft'.\n\n\n\nThe book aimed to expose the truth behind what was believed to be 'witchcraft' at the time, including a section detailing the methods used by magicians to create their effects.\n\n\n\nHe hoped this book would put an end to innocent people being tried, imprisoned, and hanged for Witchcraft.\n\n\n\nIt would not.\n\n\n\nGreg Chapman's new show combines magic, storytelling, history, comedy and more to talk about Witchtrials from the 15th Century through to the 20th Century, and does so in a way that is entertaining, informative, and thought-provoking!",
+      "touring_event_flyer": "",
+      "isSpecial": true,
+      "performer_id": "greg-chapman",
+      "tour_dates": [
+        {
+          "date": "08/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FMFEFIE",
+          "isSpecial": true,
+          "venue_id": "steventon-village-hall"
+        },
+        {
+          "date": "13/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "kingsley-hall"
+        },
+        {
+          "date": "14/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FJJJKJH",
+          "isSpecial": true,
+          "venue_id": "woodbury-village-hall"
+        },
+        {
+          "date": "15/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "barrow-gurney-village-hall"
+        },
+        {
+          "date": "19/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "haslemere-museum"
+        },
+        {
+          "date": "20/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "taddington-village-hall-bramwell-memorial-institute"
+        },
+        {
+          "date": "21/03/2026",
+          "time": "3.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "stamford-bridge-village-hall"
+        },
+        {
+          "date": "21/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "stamford-bridge-village-hall"
+        },
+        {
+          "date": "22/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "almeley-village-hall"
+        },
+        {
+          "date": "26/03/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/vxrmglkdajex",
+          "isSpecial": true,
+          "venue_id": "whitbourne-village-hall"
+        },
+        {
+          "date": "27/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "rampton-village-hall"
+        },
+        {
+          "date": "28/03/2026",
+          "time": "2.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/pgozrdzblbxz",
+          "isSpecial": true,
+          "venue_id": "the-magazine-theatre-and-exhibition-space-bembridge-fort"
+        },
+        {
+          "date": "28/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "the-magazine-theatre-and-exhibition-space-bembridge-fort"
+        },
+        {
+          "date": "29/03/2026",
+          "time": "2.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/zywllklynbel",
+          "isSpecial": true,
+          "venue_id": "the-magazine-theatre-and-exhibition-space-bembridge-fort"
+        },
+        {
+          "date": "29/03/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "the-magazine-theatre-and-exhibition-space-bembridge-fort"
+        },
+        {
+          "date": "10/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "goathland-village-hall"
+        },
+        {
+          "date": "11/04/2026",
+          "time": "3.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "knott-memorial-hall"
+        },
+        {
+          "date": "11/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "knott-memorial-hall"
+        },
+        {
+          "date": "12/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "thornhill-community-hall"
+        },
+        {
+          "date": "17/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "archiestown-village-hall"
+        },
+        {
+          "date": "18/04/2026",
+          "time": "2.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/GDDFLGK",
+          "isSpecial": true,
+          "venue_id": "kirkhill-community-centre"
+        },
+        {
+          "date": "18/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "kirkhill-community-centre"
+        },
+        {
+          "date": "19/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "new-pitsligo-public-hall"
+        },
+        {
+          "date": "24/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FKHJJGI",
+          "isSpecial": true,
+          "venue_id": "three-villages-hall-arrochar"
+        },
+        {
+          "date": "25/04/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "lowther-parish-hall-penrith"
+        },
+        {
+          "date": "26/04/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/witchcraft/gladstone-village-hall-neston-greg-chapman-s-discovery-of-witchcraft/e-ogavpd",
+          "isSpecial": true,
+          "venue_id": "gladstone-village-hall"
+        },
+        {
+          "date": "02/05/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "wellingore-memorial-hall-lincoln"
+        },
+        {
+          "date": "03/05/2026",
+          "time": "2.00pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLHGGDH",
+          "isSpecial": true,
+          "venue_id": "st-peters-church-horninghold"
+        },
+        {
+          "date": "03/05/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLHGGDG",
+          "isSpecial": true,
+          "venue_id": "st-peters-church-horninghold"
+        },
+        {
+          "date": "09/05/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FKHJELE",
+          "isSpecial": true,
+          "venue_id": "spencers-wood-village-hall"
+        },
+        {
+          "date": "16/05/2026",
+          "time": "2.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLLGEMD",
+          "isSpecial": true,
+          "venue_id": "bethersden-village-hall"
+        },
+        {
+          "date": "16/05/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLLGELJ",
+          "isSpecial": true,
+          "venue_id": "bethersden-village-hall"
+        },
+        {
+          "date": "17/05/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLMJDHI",
+          "isSpecial": true,
+          "venue_id": "woodgreen-village-hall"
+        },
+        {
+          "date": "05/06/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FKIJFJH",
+          "isSpecial": true,
+          "venue_id": "llangrove-village-hall"
+        },
+        {
+          "date": "12/06/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/ylbwrnmokzwo",
+          "isSpecial": true,
+          "venue_id": "wilstone-village-hall-tring"
+        },
+        {
+          "date": "13/06/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLMMJDH",
+          "isSpecial": true,
+          "venue_id": "brockham-village-hall"
+        },
+        {
+          "date": "14/06/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/init/GDDEJFG",
+          "isSpecial": true,
+          "venue_id": "mcgrigor-hall-frinton"
+        },
+        {
+          "date": "19/06/2026",
+          "time": "7.30pm",
+          "price": "£16.25",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/garkojaqyzax",
+          "isSpecial": true,
+          "venue_id": "the-alexander-centre-faversham"
+        },
+        {
+          "date": "20/06/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "isSpecial": true,
+          "venue_id": "doddinghurst-village-hall"
+        },
+        {
+          "date": "17/09/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/mnrrlnzgblpl",
+          "isSpecial": true,
+          "venue_id": "halstead-village-hall-sevenoaks"
+        },
+        {
+          "date": "18/09/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/wgdvkorvgkqy",
+          "isSpecial": true,
+          "venue_id": "ravensden-village-hall-bedford"
+        },
+        {
+          "date": "19/09/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/dpjxzenbjbop",
+          "isSpecial": true,
+          "venue_id": "ferring-village-hall"
+        },
+        {
+          "date": "20/09/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/rjyqdaobnwoe",
+          "isSpecial": true,
+          "venue_id": "capel-le-ferne-village-hall"
+        },
+        {
+          "date": "20/09/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/rjyqdaobnwoe",
+          "isSpecial": true,
+          "venue_id": "capel-le-ferne-village-hall"
+        },
+        {
+          "date": "01/10/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/opbwlvzpyyzg",
+          "isSpecial": true,
+          "venue_id": "haslemere-museum"
+        },
+        {
+          "date": "03/10/2026",
+          "time": "7.30pm",
+          "price": "£14",
+          "ticket_url": "https://www.ticketsource.co.uk/booking/select/rneklzkwvzkb",
+          "isSpecial": true,
+          "venue_id": "preston-village-hall-weymouth"
+        }
+      ]
+    },
     "corinne-harragin-troubled-waters-winter-2025": {
       "tour_name": "Troubled Waters (Winter 2025 Tour) [Corinne Harragin]",
       "name": "Troubled Waters",
@@ -6304,6 +6683,412 @@
       "full_address": "The Cotswold Playhouse, Parliament Street, Stroud, GL5 1LW",
       "url": "https://www.cotswoldplayhouse.co.uk/",
       "latlon": [51.74517,-2.20843]
+    },
+
+    "gladstone-village-hall": {
+      "id": "gladstone-village-hall",
+      "name": "Gladstone Village Hall",
+      "city": "Burton, Chester",
+      "postcode": "CH64 5TH",
+      "full_address": "Gladstone Village Hall, Burton, Chester, CH64 5TH",
+      "url": "https://gladstonevillagehall.org/",
+      "latlon": [53.26164,-3.02352]
+    },
+    "reydon-village-hall": {
+      "id": "reydon-village-hall",
+      "name": "Reydon Village Hall",
+      "city": "Southwold",
+      "postcode": "IP18 6RF",
+      "full_address": "Reydon Village Hall, Lowestoft Road, Southwold, IP18 6RF",
+      "url": "https://reydonvillage.org/about-reydon/amenities/",
+      "latlon": [52.3366,1.67266]
+    },
+    "stannington-village-hall": {
+      "id": "stannington-village-hall",
+      "name": "Stannington Village Hall",
+      "city": "Morpeth",
+      "postcode": "NE61 6EL",
+      "full_address": "Stannington Village Hall, Main Street, Stannington, Morpeth, NE61 6EL",
+      "url": "https://northumberlandvillagehalls.org.uk/stannington-village-hall",
+      "latlon": [55.1092,-1.66575
+      ]
+    },
+    "clapham-village-hall-bedford": {
+      "id": "clapham-village-hall-bedford",
+      "name": "Clapham Village Hall",
+      "city": "Bedford",
+      "postcode": "MK41 6BP",
+      "full_address": "Clapham Village Hall, 118, High Street, Clapham, Bedford, MK41 6BP",
+      "url": "https://claphamvillagehall.com/",
+      "email": "villagehall@clapham-pc.gov.uk",
+      "latlon": [52.16096,-0.49577
+      ]
+    },
+    "clarke-foley-community-centre": {
+      "id": "clarke-foley-community-centre",
+      "name": "Clarke Foley Community Centre",
+      "city": "Ilkley",
+      "postcode": "LS29 9DZ",
+      "full_address": "Clarke Foley Community Centre, Cunliffe Rd, Ilkley, LS29 9DZ",
+      "url": "https://clarkefoley.org.uk/",
+      "latlon": [53.9261,-1.82667
+      ]
+    },
+    "hawkesbury-upton-village-hall": {
+      "id": "hawkesbury-upton-village-hall",
+      "name": "Hawkesbury Upton Village Hall",
+      "city": "Hawkesbury Upton",
+      "postcode": "GL9 1AU",
+      "full_address": "Hawkesbury Upton Village Hall, High Street, Hawkesbury Upton, GL9 1AU",
+      "url": "https://www.village-hall.org/",
+      "email": "bookings@village-hall.org",
+      "latlon": [51.58147,-2.3223
+      ]
+    },
+
+    "wellingore-memorial-hall-lincoln": {
+      "id": "wellingore-memorial-hall-lincoln",
+      "name": "Wellingore Memorial Hall, Lincoln",
+      "city": "Lincoln",
+      "postcode": "LN5 0BD",
+      "full_address": "Wellingore Memorial Hall, Memorial Hall Drive, Wellingore, Lincoln, LN5 0BD",
+      "url": "https://www.wellingorememorialhall.com/",
+      "latlon": [53.09935,-0.53646
+      ]
+    },
+    "st-peters-church-horninghold": {
+      "id": "st-peters-church-horninghold",
+      "name": "St Peters Church, Horninghold",
+      "city": "Market Harborough",
+      "postcode": "LE16 8DH",
+      "full_address": "St Peters Church, Hallaton Road, Horninghold, Market Harborough, LE16 8DH",
+      "url": "http://www.horninghold.org.uk/",
+      "latlon": [52.56657,-0.80951
+      ]
+    },
+    "spencers-wood-village-hall": {
+      "id": "spencers-wood-village-hall",
+      "name": "Spencers Wood Village Hall",
+      "city": "Reading",
+      "postcode": "RG7 1AP",
+      "full_address": "Spencers Wood Village Hall, Basingstoke Road, Spencers Wood,Reading, RG7 1AP",
+      "url": "https://spencerswoodvillagehall.co.uk/",
+      "email": "admin@swvh.org.uk",
+      "latlon": [51.39992,-0.97288
+      ]
+    },
+    "the-alexander-centre-faversham": {
+      "id": "the-alexander-centre-faversham",
+      "name": "The Alexander Centre",
+      "city": "Faversham",
+      "postcode": "ME13 8NZ",
+      "full_address": "The Alexander Centre, 15—17 Preston St, Faversham, ME13 8NZ",
+      "url": "https://thealex.org.uk/",
+      "latlon": [51.31407,0.89159
+      ]
+    },
+    "bethersden-village-hall": {
+      "id": "bethersden-village-hall",
+      "name": "Bethersden Village Hall",
+      "city": "Ashford",
+      "postcode": "TN26 3AF",
+      "full_address": "Bethersden Village Hall, Forge Hill, Bethersden, TN26 3AF",
+      "url": "https://www.bethersdenvillagehall.com/",
+      "latlon": [51.12773,0.75828
+      ]
+    },
+    "woodgreen-village-hall": {
+      "id": "woodgreen-village-hall",
+      "name": "Woodgreen Village Hall",
+      "city": "Fordingbridge",
+      "postcode": "SP6 2AQ",
+      "full_address": "Woodgreen Village Hall, Woodgreen, Fordingbridge, SP6 2AQ",
+      "url": "http://www.woodgreenvillagehall.uk/",
+      "email": "info@woodgreenvillagehall.org.uk",
+      "latlon": [50.95957,-1.7583
+      ]
+    },
+    "llangrove-village-hall": {
+      "id": "llangrove-village-hall",
+      "name": "Llangrove Village Hall",
+      "city": "Ross-on-Wye",
+      "postcode": "HR9 6EX",
+      "full_address": "Llangrove Village Hall, Ross-on-Wye, HR9 6EX",
+      "url": "http://www.llangrove.org.uk/",
+      "latlon": [51.86909,-2.68858
+      ]
+    },
+    "brockham-village-hall": {
+      "id": "brockham-village-hall",
+      "name": "Brockham Village Hall",
+      "city": "Betchworth",
+      "postcode": "RH3 7JJ",
+      "full_address": "Brockham Village Hall, Betchworth, RH3 7JJ",
+      "url": "https://www.brockham.org/village-hall",
+      "latlon": [51.23222,-0.28667
+      ]
+    },
+    "mcgrigor-hall-frinton": {
+      "id": "mcgrigor-hall-frinton",
+      "name": "McGrigor Hall",
+      "city": "Frinton-on-Sea",
+      "postcode": "CO13 9EB",
+      "full_address": "McGrigor Hall, 85, Fourth Avenue, Frinton-on-Sea, CO13 9EB",
+      "url": "https://www.mcgrigorhallfrinton.co.uk/",
+      "latlon": [51.83348,1.24245
+      ]
+    },
+    "the-magazine-theatre-and-exhibition-space-bembridge-fort": {
+      "id": "the-magazine-theatre-and-exhibition-space-bembridge-fort",
+      "name": "The Magazine Theatre and Exhibition Space, Bembridge Fort",
+      "city": "Bembridge",
+      "postcode": "PO36 8QY",
+      "full_address": "The Magazine Theatre and Exhibition Space, Bembridge Fort, Culver Down, Bembridge, Isle of Wight, PO36 8QY",
+      "url": "https://www.bembridgefort.org/",
+      "latlon": [50.67772,-1.10257
+      ]
+    },
+    "goathland-village-hall": {
+      "id": "goathland-village-hall",
+      "name": "Goathland Village Hall",
+      "city": "Whitby",
+      "postcode": "YO22 5JR",
+      "full_address": "Goathland Village Hall, Whitby, YO22 5JR",
+      "url": "https://goathlandvillagehall.org/",
+      "latlon": [54.4008,-0.7218
+      ]
+    },
+    "knott-memorial-hall": {
+      "id": "knott-memorial-hall",
+      "name": "Knott Memorial Hall",
+      "city": "Newcastle upon Tyne",
+      "postcode": "NE15 0BH",
+      "full_address": "Knott Memorial Hall, Towne Gate, Heddon on the Wall, Newcastle upon Tyne, NE15 0BH",
+      "url": "https://northumberlandvillagehalls.org.uk/heddon-village-knott-memorial-hall",
+      "latlon": [54.99652,-1.79339
+      ]
+    },
+    "thornhill-community-hall": {
+      "id": "thornhill-community-hall",
+      "name": "Thornhill Community Hall",
+      "city": "Stirling",
+      "postcode": "FK8 3QB",
+      "full_address": "Thornhill Community Hall, Back Loan, Thornhill, Stirling, FK8 3QB",
+      "url": "https://www.thornhillcommunityhall.org.uk/",
+      "latlon": [56.17295, -4.15122
+      ]
+    },
+    "archiestown-village-hall": {
+      "id": "archiestown-village-hall",
+      "name": "Archiestown Village Hall",
+      "city": "Aberlour",
+      "postcode": "AB38 7QX",
+      "full_address": "Archiestown Village Hall, High Street, Archiestown, Aberlour, AB38 7QX",
+      "url": "https://www.archiestown.com/",
+      "latlon": [57.4811,-3.28303
+      ]
+    },
+    "kirkhill-community-centre": {
+      "id": "kirkhill-community-centre",
+      "name": "Kirkhill Community Centre",
+      "city": "Inverness",
+      "postcode": "IV5 7NX",
+      "full_address": "Kirkhill Community Centre, 1, St Mary's Road, Kirkhill, Inverness, IV5 7NX",
+      "url": "https://www.kirkhillandbunchrew.org.uk/kirkhill-community-centre/",
+      "latlon": [57.47669,-4.41301
+      ]
+    },
+    "new-pitsligo-public-hall": {
+      "id": "new-pitsligo-public-hall",
+      "name": "New Pitsligo Public Hall",
+      "city": "Fraserburgh",
+      "postcode": "AB43 6NF",
+      "full_address": "New Pitsligo Public Hall, 63a, High Street, Fraserburgh, AB43 6NF",
+      "url": "https://www.facebook.com/NewPitsligoPublicHall/",
+      "latlon": [57.59267,-2.19797
+      ]
+    },
+    "three-villages-hall-arrochar": {
+      "id": "three-villages-hall-arrochar",
+      "name": "Three Villages Hall",
+      "city": "Arrochar",
+      "postcode": "G83 7AB",
+      "full_address": "Three Villages Hall, Shore Road, Arrochar, Argyll and Bute, G83 7AB",
+      "url": "https://threevillageshall.scot/",
+      "email": "admin@threevillageshall.scot",
+      "latlon": [56.19648,-4.74509
+      ]
+    },
+    "lowther-parish-hall-penrith": {
+      "id": "lowther-parish-hall-penrith",
+      "name": "Lowther Parish Hall",
+      "city": "Penrith",
+      "postcode": "CA10 2HT",
+      "full_address": "Lowther Parish Hall, Hackthorpe, Penrith, CA10 2HT",
+      "url": "https://www.lowtherparishhall.org.uk/",
+      "latlon": [54.60341,-2.71491
+      ]
+    },
+    "steventon-village-hall": {
+      "id": "steventon-village-hall",
+      "name": "Steventon Village Hall",
+      "city": "Abingdon",
+      "postcode": "OX13 6RR",
+      "full_address": "Steventon Village Hall, The Green, Steventon, Abingdon, OX13 6RR",
+      "url": "https://steventonparishcouncil.gov.uk/the-village/amenities/village-hall/",
+      "latlon": [51.62549,-1.32101
+      ]
+    },
+    "kingsley-hall": {
+      "id": "kingsley-hall",
+      "name": "Kingsley Hall",
+      "city": "Bideford",
+      "postcode": "EX39 1HX",
+      "full_address": "Kingsley Hall, 17 Atlantic Way,Westward Ho, Bideford, EX39 1HX",
+      "url": "https://thekingsleyhall-co-uk.stackstaging.com/",
+      "latlon": [51.03941,-4.23681
+      ]
+    },
+    "woodbury-village-hall": {
+      "id": "woodbury-village-hall",
+      "name": "Woodbury Village Hall",
+      "city": "Exeter",
+      "postcode": "EX5 1LX",
+      "full_address": "Woodbury Village Hall, Flower Street, Woodbury, Exeter, EX5 1LX",
+      "url": "https://www.woodburyvillagehall.org/",
+      "latlon": [50.67593,-3.40038
+      ]
+    },
+    "barrow-gurney-village-hall": {
+      "id": "barrow-gurney-village-hall",
+      "name": "Barrow Gurney Village Hall",
+      "city": "Bristol",
+      "postcode": "BS48 3SD",
+      "full_address": "Barrow Gurney Village Hall, Barrow Street, Barrow Gurney, Bristol, BS48 3SD",
+      "url": "https://barrowgurneyvillagehall.com/",
+      "latlon": [51.40878,-2.67763
+      ]
+    },
+    "haslemere-museum": {
+      "id": "haslemere-museum",
+      "name": "Haslemere Museum",
+      "city": "Haslemere",
+      "postcode": "GU27 2LA",
+      "full_address": "Haslemere Museum, 78 High Street, Haslemere, GU27 2LA",
+      "url": "https://www.haslemeremuseum.co.uk/",
+      "latlon": [51.08792,-0.70967
+      ]
+    },
+    "taddington-village-hall-bramwell-memorial-institute": {
+      "id": "taddington-village-hall-bramwell-memorial-institute",
+      "name": "Taddington Village Hall (Bramwell Memorial Institute )",
+      "city": "Taddington, Buxton",
+      "postcode": "SK17 9UD",
+      "full_address": "Taddington Village Hall (Bramwell Memorial Institute ), Main Road, Taddington, Buxton, SK17 9UD",
+      "url": "https://taddington.org.uk/taddington-village-hall-about-us/",
+      "latlon": [53.2361,-1.78279
+      ]
+    },
+    "stamford-bridge-village-hall": {
+      "id": "stamford-bridge-village-hall",
+      "name": "Stamford Bridge Village Hall",
+      "city": "York",
+      "postcode": "YO41 1DY",
+      "full_address": "Stamford Bridge Village Hall, 4 Low Catton Road, Stamford Bridge, York, YO41 1DY",
+      "url": "https://stamfordbridgevillagehall.weebly.com/",
+      "latlon": [53.98723,-0.91716
+      ]
+    },
+    "almeley-village-hall": {
+      "id": "almeley-village-hall",
+      "name": "Almeley Village Hall",
+      "city": "Hereford",
+      "postcode": "HR3 6LH",
+      "full_address": "Almeley Village Hall, Hereford, HR3 6LH",
+      "url": "https://almeleyparishcouncil.gov.uk/the-parish/business-directory/almeley-village-hall/",
+      "latlon": [52.15819,-2.97345
+      ]
+    },
+    "rampton-village-hall": {
+      "id": "rampton-village-hall",
+      "name": "Rampton Village Hall",
+      "city": "Cambridge",
+      "postcode": "CB24 8QA",
+      "full_address": "Rampton Village Hall, 4 Church End, Rampton, Cambridge, CB24 8QA",
+      "url": "https://www.ramptonvillagehall.co.uk/",
+      "latlon": [52.29124,0.09193]
+    },
+    "doddinghurst-village-hall": {
+      "id": "doddinghurst-village-hall",
+      "name": "Doddinghurst Village Hall",
+      "city": "Brentwood",
+      "postcode": "CM15 0NJ",
+      "full_address": "Doddinghurst Village Hall, Church Lane, Brentwood, Doddinghurst, CM15 0NJ",
+      "url": "https://www.doddinghurstvillagehall.com/",
+      "latlon": [51.66668,0.29522]
+    },
+    "whitbourne-village-hall": {
+      "id": "whitbourne-village-hall",
+      "name": "Whitbourne Village Hall",
+      "city": "Worcester",
+      "postcode": "WR6 5RN",
+      "full_address": "Whitbourne Village Hall, Whitbourne, WR6 5RN",
+      "url": "https://www.whitbournevillagehall.co.uk/",
+      "latlon": [52.20858,-2.41266]
+    },
+    "wilstone-village-hall-tring": {
+      "id": "wilstone-village-hall-tring",
+      "name": "Wilstone Village Hall, Tring",
+      "city": "Tring",
+      "postcode": "HP23 4PE",
+      "full_address": "Wilstone Village Hall, 35, Tring Road, Wilstone, Tring, HP23 4PE",
+      "url": "https://wilstonevillagehall.org.uk/",
+      "latlon": [51.81943,-0.69017]
+    },
+    "halstead-village-hall-sevenoaks": {
+      "id": "halstead-village-hall-sevenoaks",
+      "name": "Halstead Village Hall, Sevenoaks",
+      "city": "Sevenoaks",
+      "postcode": "TN14 7EX",
+      "full_address": "Halstead Village Hall, Knockholt Road, Halstead, TN14 7EX",
+      "url": "https://halsteadparishcouncil.gov.uk/local-information/hall-hire/halstead-village-hall",
+      "latlon": [51.32845,0.13288]
+    },
+    "ravensden-village-hall-bedford": {
+      "id": "ravensden-village-hall-bedford",
+      "name": "Ravensden Village Hall, Bedford",
+      "city": "Bedford",
+      "postcode": "MK44 2RL",
+      "full_address": "Ravensden Village Hall, Church Hill, Ravensden, Bedford, MK44 2RL",
+      "url": "https://ravensdenvillagehall.co.uk/index.html",
+      "latlon": [52.17284,-0.43007]
+    },
+    "capel-le-ferne-village-hall": {
+      "id": "capel-le-ferne-village-hall",
+      "name": "Capel le Ferne Village Hall",
+      "city": "Folkestone",
+      "postcode": "CT18 7LX",
+      "full_address": "Capel le Ferne Village Hall, Lancaster Avenue, Capel-le-Ferne, Folkestone, CT18 7LX",
+      "url": "https://www.capelvillagehall.com/",
+      "latlon": [51.10496,1.21186]
+    },
+   "ferring-village-hall": {
+      "id": "ferring-village-hall",
+      "name": "Ferring Village Hall, Worthing",
+      "city": "Worthing",
+      "postcode": "BN12 5JP",
+      "full_address": "90, Ferring Street, Ferring, West Sussex, BN12 5JP",
+      "url": "https://www.ferringvillagehall.org.uk/",
+      "latlon": [50.81561,-0.44674]
+    },
+   "preston-village-hall-weymouth": {
+      "id": "preston-village-hall-weymouth",
+      "name": "Preston Village Hall, Weymouth",
+      "city": "Weymouth",
+      "postcode": "DT3 6BH",
+      "full_address": "Preston Village Hall, Preston Road, Weymouth, DT3 6BH",
+      "url": "https://www.prestonvillagehallweymouth.co.uk/",
+      "latlon": [50.64486,-2.42704]
     }
   },
   "performers": {
@@ -6851,6 +7636,12 @@
       "name": "Claire Mace",
       "url": "https://www.facebook.com/claire.mace/",
       "bio": ""
+    },
+    "greg-chapman": {
+      "id": "greg-chapman",
+      "name": "Greg Chapman",
+      "url": "https://www.gregandfelicityadventures.com/stage-shows",
+      "bio": "Greg has been a professional entertainer, comedy performer, magician and stroyteller for over two decades, and has been an entertainer all his life - he was first placed on a stage at just three weeks old!\n\n\n\nWhen not working on our documentaries, we can be found touring the country with our shows. Throughout 2026 our main tour consists of two shows, 'Greg Chapman's Discovery of Witchcraft' after a few years of touring 'The Non-Psychic 'Psychic' Show', 'The Legend of Houdini', and 'The Non-Psychic Seance'."
     },
     "ffion-phillips-dragon-storytellers": {
       "id": "ffion-phillips-dragon-storytellers",
