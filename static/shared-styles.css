@@ -352,6 +352,7 @@ select {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .event-tickets a {
@@ -492,7 +493,7 @@ select {
 
 /* Spacing for the VIEW TOUR link in the tickets row */
 .tour-link {
-    margin-right: 15px;
+    margin-right: 0;
 }
 
 .event.hidden {

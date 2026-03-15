@@ -725,6 +725,31 @@ async function processRecurringEvents(events, eventType, startDate, endDate) {
   }
 }
 
+/**
+ * Merge duplicate tour dates in allEventsData.
+ * When the same performer appears on the same date in multiple tours,
+ * collapse them into one event with all tour_ids collected into an array.
+ * Non-tour events are always kept as-is.
+ */
+function mergeDuplicateTourDates() {
+  const mergeMap = new Map();
+  for (const evt of allEventsData) {
+    if (!evt.tour_id) {
+      mergeMap.set(Symbol(), evt); // non-tour events: always keep as-is
+      continue;
+    }
+    const key = `${evt.performer_id || evt.name}|${evt.date.toISOString()}`;
+    if (mergeMap.has(key)) {
+      const existing = mergeMap.get(key);
+      existing.tour_ids.push(evt.tour_id);
+    } else {
+      evt.tour_ids = [evt.tour_id];
+      mergeMap.set(key, evt);
+    }
+  }
+  allEventsData = Array.from(mergeMap.values());
+}
+
 async function displayEvents(startDate, endDate) {
   if (!eventsData) {
     console.error("Events data not loaded");
@@ -775,7 +800,9 @@ async function displayEvents(startDate, endDate) {
   // Add touring show dates
   await processTouringShows(startDate, endDate);
 
+  mergeDuplicateTourDates();
   allEventsData.sort((a, b) => a.date - b.date);
+
   renderEventsList(allEventsData);
   fitMapToEvents();
 }
@@ -1654,6 +1681,7 @@ async function searchAllUpcoming() {
     }
   }
 
+  mergeDuplicateTourDates();
   allEventsData.sort((a, b) => a.date - b.date);
 
   // Update the date inputs to reflect the search range

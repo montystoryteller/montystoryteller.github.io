@@ -232,13 +232,32 @@ function createTicketsElement(eventData, past = false) {
   const ticketsDiv = document.createElement("div");
   ticketsDiv.className = "event-tickets";
 
-  if (tour_id) {
+  const tourIdList = eventData.tour_ids || (tour_id ? [tour_id] : []);
+  for (let i = 0; i < tourIdList.length; i++) {
+    const tid = tourIdList[i];
+    if (i > 0) {
+      const sep = document.createElement("span");
+      sep.className = "separator";
+      sep.textContent = " | ";
+      ticketsDiv.appendChild(sep);
+    }
+    const tourName =
+      typeof toursLookup !== "undefined" && toursLookup[tid]?.tour_name
+        ? toursLookup[tid].tour_name
+        : "TOUR";
     const tourLink = document.createElement("a");
-    tourLink.href = `new_troubadours_tour_guide.html?tour=${tour_id}`;
+    tourLink.href = `new_troubadours_tour_guide.html?tour=${tid}`;
     tourLink.target = "_blank";
-    tourLink.textContent = "VIEW TOUR";
+    tourLink.textContent = `VIEW: ${tourName}`;
     tourLink.className = "tour-link";
+    tourLink.addEventListener("click", (e) => e.stopPropagation());
     ticketsDiv.appendChild(tourLink);
+  }
+  if (tourIdList.length > 0 && ticket_url) {
+    const sep = document.createElement("span");
+    sep.className = "separator";
+    sep.textContent = " | ";
+    ticketsDiv.appendChild(sep);
   }
 
   if (ticket_url) {

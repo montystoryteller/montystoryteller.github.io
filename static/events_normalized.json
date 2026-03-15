@@ -1267,7 +1267,76 @@
           "ticket_url": "https://wegottickets.com/af/671/event/684298",
           "venue_id": "bramshaw-village-hall"
         },
-         {
+        {
+          "date": "01/07/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684299",
+          "venue_id": "minety-village-hall"
+        },
+        {
+          "date": "22/07/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684301",
+          "venue_id": "shaw-village-hall"
+        },
+        {
+          "date": "04/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684302",
+          "venue_id": "wellington-heath-memorial-hall"
+        },
+        {
+          "date": "19/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684303",
+          "venue_id": "tretower-village-hall"
+        },
+        {
+          "date": "26/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684307",
+          "venue_id": "grafton-underwood-village-hall"
+        },
+        {
+          "date": "27/08/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684308",
+          "venue_id": "condover-village-hall"
+        },
+        {
+          "date": "02/09/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684309",
+          "venue_id": "sixpenny-handley-village-hall"
+        }
+      ]
+    },
+    "gaz-brookfield-operation_piggyback-2026": {
+      "name": "Gaz Brookfield — Operation Piggyback Tour",
+      "tour_name": "Operation Piggyback Tour",
+      "performer_id": "gaz-brookfield",
+      "tour_description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
+      "tour_flyer": "tour_gaz_brookfield_operation_piggyback.jpg",
+      "time": "7.30pm",
+      "price": "£15 (+£1.50)",
+      "tags": [
+        "music",
+        "tour",
+        "folk",
+        "2026"
+      ],
+      "isMusic": true,
+      "tour_dates": [
+        {
+          "date": "19/05/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684295",
+          "isMusic": true,
+          "venue_id": "edingale-village-hall"
+        },
+        {
+          "date": "17/06/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684297",
+          "venue_id": "bitterley-village-hall"
+        },
+        {
+          "date": "30/06/2026",
+          "ticket_url": "https://wegottickets.com/af/671/event/684298",
+          "venue_id": "bramshaw-village-hall"
+        },
+        {
           "date": "01/07/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/684299",
           "venue_id": "minety-village-hall"
