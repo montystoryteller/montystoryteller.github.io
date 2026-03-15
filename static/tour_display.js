@@ -715,9 +715,9 @@ function renderNowTouringPanel() {
   buildRow(storyTours, "📖 Stories & Spoken Word", "label-stories");
   buildRow(musicTours, "🎵 Music", "label-music");
 
-  const controls = document.querySelector(".tour-controls");
-  if (controls) {
-    controls.parentNode.insertBefore(panel, controls);
+  const container = document.getElementById("nowTouringPanel");
+  if (container) {
+    container.appendChild(panel);
   } else {
     document.body.appendChild(panel);
   }
