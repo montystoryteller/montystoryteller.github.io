@@ -23,6 +23,9 @@ banner:
     - enable: true
       label: "Buy Tickets for Monty + The AnyWhens — St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
+    - enable: true
+      label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
+      link: "https://threeriversfest.uk/tickets/"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
@@ -50,7 +53,7 @@ features:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
         link: "https://www.instagram.com/carvellanecoffee/"
-      - enable: true
+      - enable: false
         label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2023546"
 
