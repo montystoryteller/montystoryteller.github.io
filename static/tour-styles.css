@@ -407,6 +407,154 @@ select {
 
 
 /* =============================================================
+   8. NOW TOURING PANEL
+   Panel of clickable cards shown above the tour selector controls.
+   Story tours and music tours are rendered in separate labelled rows.
+   Story cards use the site's green theme; music cards use blue.
+   The panel accent colour is warm brown.
+   ============================================================= */
+
+.now-touring-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #6d4c2a;
+}
+
+.now-touring-heading {
+    margin: 0 0 16px 0;
+    font-size: 1.05em;
+    color: #6d4c2a;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Row wrapper — one per category (stories / music) */
+.now-touring-row {
+    margin-bottom: 16px;
+}
+
+.now-touring-row:last-child {
+    margin-bottom: 0;
+}
+
+.now-touring-row-label {
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    padding-left: 2px;
+}
+
+.now-touring-row-label.label-stories {
+    color: #2e7d32;
+}
+
+.now-touring-row-label.label-music {
+    color: #443cd7;
+}
+
+.now-touring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+/* --- Story card (green theme) --- */
+.now-touring-card {
+    padding: 14px 16px;
+    border-radius: 6px;
+    background: #f1f8f1;
+    border: 1px solid #a5d6a7;
+    border-left: 4px solid #4CAF50;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.now-touring-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+    background: #e8f5e9;
+}
+
+/* --- Music card (blue gradient) --- */
+.now-touring-card.music {
+    background: linear-gradient(135deg, #443cd7 0%, #8e9df3 100%);
+    border: 1px solid #1006c6;
+    border-left: 4px solid #fff176;
+    color: white;
+}
+
+.now-touring-card.music:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 4px 12px rgba(68, 60, 215, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Show name */
+.now-touring-show-name {
+    font-weight: 700;
+    font-size: 0.95em;
+    margin-bottom: 3px;
+    color: #1b5e20;
+}
+
+.now-touring-card.music .now-touring-show-name {
+    color: #fff;
+}
+
+/* Performer */
+.now-touring-performer {
+    font-size: 0.85em;
+    color: #4a7c4a;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.now-touring-card.music .now-touring-performer {
+    color: #c8e6c9;
+}
+
+/* Date range */
+.now-touring-dates {
+    font-size: 0.8em;
+    color: #6a9e6a;
+    margin-bottom: 8px;
+}
+
+.now-touring-card.music .now-touring-dates {
+    color: #b3c9ff;
+}
+
+/* Remaining-dates badge */
+.now-touring-badge {
+    display: inline-block;
+    background: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+    border: 1px solid rgba(76, 175, 80, 0.35);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.now-touring-card.music .now-touring-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+    .now-touring-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =============================================================
    6. TOUR STATUS BANNERS
    Shown at top of tour date list to indicate past / current / future
    ============================================================= */

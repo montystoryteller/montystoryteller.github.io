@@ -588,6 +588,141 @@ function addTourMarkersToMap(tour) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Now Touring Panel
+// ---------------------------------------------------------------------------
+
+/**
+ * Build and insert a "Now Touring" panel above .tour-controls.
+ * Shows tours whose date range straddles today (status === "current").
+ * Story tours and music tours appear in separate labelled rows.
+ * Each card sets both dropdowns and calls displayTour() on click.
+ */
+function renderNowTouringPanel() {
+  const currentTours = Object.entries(toursLookup).filter(
+    ([_, tour]) => getTourStatus(tour) === "current",
+  );
+
+  if (currentTours.length === 0) return;
+
+  const today = getTodayMidnight();
+
+  const storyTours = currentTours.filter(([_, t]) => !t.isMusic);
+  const musicTours = currentTours.filter(([_, t]) => t.isMusic);
+
+  const panel = document.createElement("div");
+  panel.className = "now-touring-panel";
+
+  const heading = document.createElement("h3");
+  heading.className = "now-touring-heading";
+  heading.textContent = "🎭 Now Touring";
+  panel.appendChild(heading);
+
+  /**
+   * Build one labelled row of cards.
+   * @param {Array} tours  - [[tourId, tour], ...]
+   * @param {string} label - display label
+   * @param {string} labelClass - CSS modifier class for colour
+   */
+  function buildRow(tours, label, labelClass) {
+    if (tours.length === 0) return;
+
+    const row = document.createElement("div");
+    row.className = "now-touring-row";
+
+    const rowLabel = document.createElement("div");
+    rowLabel.className = `now-touring-row-label ${labelClass}`;
+    rowLabel.textContent = label;
+    row.appendChild(rowLabel);
+
+    const grid = document.createElement("div");
+    grid.className = "now-touring-grid";
+
+    tours.forEach(([tourId, tour]) => {
+      const performer = performersLookup[tour.performer_id];
+
+      const allDates = (tour.tour_dates || [])
+        .map((d) => parseDateString(d.date))
+        .filter(Boolean)
+        .sort((a, b) => a - b);
+
+      const firstDate = allDates[0];
+      const lastDate = allDates[allDates.length - 1];
+      const remainingDates = allDates.filter((d) => d >= today).length;
+
+      const fmtShort = (d) =>
+        d
+          ? d.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })
+          : "?";
+
+      const card = document.createElement("div");
+      card.className = "now-touring-card";
+      if (tour.isMusic) card.classList.add("music");
+
+      const showName = document.createElement("div");
+      showName.className = "now-touring-show-name";
+      showName.textContent = tour.showname || tour.name;
+      card.appendChild(showName);
+
+      if (performer) {
+        const perfName = document.createElement("div");
+        perfName.className = "now-touring-performer";
+        perfName.textContent = performer.name;
+        card.appendChild(perfName);
+      }
+
+      const dateRange = document.createElement("div");
+      dateRange.className = "now-touring-dates";
+      dateRange.textContent = `${fmtShort(firstDate)} → ${fmtShort(lastDate)}`;
+      card.appendChild(dateRange);
+
+      const badge = document.createElement("div");
+      badge.className = "now-touring-badge";
+      badge.textContent =
+        remainingDates === 1
+          ? "1 date remaining"
+          : `${remainingDates} dates remaining`;
+      card.appendChild(badge);
+
+      card.addEventListener("click", () => {
+        const performerSelect = document.getElementById("performerSelect");
+        const tourSelect = document.getElementById("tourSelect");
+
+        if (tour.performer_id) {
+          performerSelect.value = tour.performer_id;
+          handlePerformerChange();
+        }
+        tourSelect.value = tourId;
+        displayTour(tourId);
+        updateURL(tourId);
+
+        document
+          .getElementById("tourContent")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      grid.appendChild(card);
+    });
+
+    row.appendChild(grid);
+    panel.appendChild(row);
+  }
+
+  buildRow(storyTours, "📖 Stories & Spoken Word", "label-stories");
+  buildRow(musicTours, "🎵 Music", "label-music");
+
+  const controls = document.querySelector(".tour-controls");
+  if (controls) {
+    controls.parentNode.insertBefore(panel, controls);
+  } else {
+    document.body.appendChild(panel);
+  }
+}
+
 // Initialize on page load
 window.addEventListener("load", async () => {
   console.log("Page loaded, initializing...");
@@ -618,16 +753,30 @@ window.addEventListener("load", async () => {
   populatePerformerDropdown();
   console.log("Performer dropdown populated");
 
-  // If URL has tour/performer params, load them
-  if (urlParams.performerId) {
-    console.log("Setting performer from URL:", urlParams.performerId);
-    document.getElementById("performerSelect").value = urlParams.performerId;
-    handlePerformerChange();
-  }
+  renderNowTouringPanel();
+  console.log("Now Touring panel rendered");
 
+  // If URL has tour/performer params, load them.
+  // When only ?tour= is supplied (no performer=), derive the performer from
+  // the tour data so both dropdowns are correctly populated.
   if (urlParams.tourId) {
+    const tour = toursLookup[urlParams.tourId];
+    const performerId =
+      urlParams.performerId || (tour && tour.performer_id) || null;
+
+    if (performerId) {
+      console.log("Setting performer from URL (or tour lookup):", performerId);
+      document.getElementById("performerSelect").value = performerId;
+      handlePerformerChange(); // populates tourSelect for this performer
+    }
+
     console.log("Loading tour from URL:", urlParams.tourId);
     document.getElementById("tourSelect").value = urlParams.tourId;
     displayTour(urlParams.tourId);
+  } else if (urlParams.performerId) {
+    // performer= present but no tour= — just seed the performer dropdown
+    console.log("Setting performer from URL:", urlParams.performerId);
+    document.getElementById("performerSelect").value = urlParams.performerId;
+    handlePerformerChange();
   }
 });
