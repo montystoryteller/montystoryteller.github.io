@@ -11,13 +11,13 @@ banner:
     - enable: false
       label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
       link: "https://www.facebook.com/profile.php?id=61583286699008"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
       link: "https://www.tickettailor.com/events/montystoryteller/2023546"
     - enable: false
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
       link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
     - enable: true
@@ -119,5 +119,8 @@ features:
       - enable: true
         label: "Dark Tales series booklets on Amazon.co.uk"
         link: "https://www.amazon.co.uk/dp/B0FW286JLD"
+      - enable: true
+        label: "Wydean Tales series booklets on Amazon.co.uk"
+        link: "https://www.amazon.co.uk/dp/B0GQCS5P87"
 
 ---
