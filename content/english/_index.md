@@ -69,7 +69,7 @@ features:
       - enable: false
         label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
         link: "https://octoberbooks.lemonbooking.com/events/116/details"
-      - enable: true
+      - enable: false
         label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
         link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
       - enable: true
