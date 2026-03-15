@@ -44,8 +44,8 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
-      - "NEXT FESTIVAL SET: Quay Arts Kashmir Fringe, Saturday Febr. 7th, 2026, Acoustic stage" 
-      - "NEXT SOLO SHOW: 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
+      - "NEXT FESTIVAL SET: THree Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate), Community Stage (+ The AnyWhens)" 
+      - "NEXT SOLO SHOW: TBC"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
@@ -58,7 +58,7 @@ features:
     image: "/images/monty_anywhens_vf25.jpg"
     content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
     bulletpoints:
-      - "__Coming soon:__ Faery Tale Blues: stories'n'songs revisiting fairy tales and the fae folk__"
+      - "__Now booking:__ Faery Tale Blues: songs and stories__"
       - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales (20-200mins)"
       - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"

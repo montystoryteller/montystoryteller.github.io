@@ -6,6 +6,16 @@ description: ""
 # Outings
 outings:
 
+  - name: "Roman Villa, Brading IW"
+    designation: "Faery Tale Blues, + The AnyWhens, March 2026"
+    avatar: "/images/brading_roman_villa_mosaic_logo.png"
+    content: ""
+
+  - name: "Crown & Sceptre, Ross-on-Wye"
+    designation: "The Sin-Eater of ROss & other tales, March, 2026"
+    avatar: "/images/crown_sceptre_sign.png"
+    content: ""
+
   - name: "Kashmir Fringe, Quay Arts, Newport IW"
     designation: "Four Tales + music from Sophie and Glenn, Feb. 2026"
     avatar: "/images/Kashmir_Fringe_2026.jpg"
