@@ -3417,6 +3417,24 @@
       "performer_id": "ronnie-conboy"
     },
     {
+      "name": "The Liar King [Clare Murphy]",
+      "showname": "The Liar King",
+      "date": "",
+      "time": "",
+      "datetimes": ["01/04/2026 : 7.30pm", "02/04/2026 : 7.30pm",
+      "03/04/2026 : 7.30pm",
+      "04/04/2026 : 2.00pm",
+      "04/04/2026 : 7.30pm"],
+      "club": "",
+      "price": "£14",
+      "description": "Set in Syria, phenomenal Storyteller Clare Murphy weaves a witty satire on the nature of power and stupid kings.\n\n\n\nThe Liar King is an adaptation of the novel Damascus Nights by exiled Syrian writer Rafik Schami.\n\n\n\nClare blends contemporary reporting and folklore with her playful wit to unmask who has the real power in the world.In Damascus a king is desperate to keep his throne, a citizen is determined to win a life and Syria is at the mercy of a lie-obsessed king.\n\n\n\nGirls face monsters, beggars face kings, and no one knows which liar will win.",
+      "event_flyer": "generic_stabi_hairygirl.jpg",
+      "ticket_url": "https://thewardrobetheatre.com/shows/clare-murphy-the-liar-king/",
+      "isSpecial": true,
+      "venue_id": "wardrobe-theatre-bristol",
+      "performer_id": "clare-murphy"
+    },
+    {
       "name": "The Petal Demon [Shonaleigh]",
       "showname": "The Petal Demon",
       "description": "The Petal Demon follows the story of a woman who is pursued by a mage, and how she's helped by Lilith to create a maze of flowers, that traps the mage and becomes a sanctuary for her. This woman becomes known as the Petal Demon, and through her wanderings she leaves legends behind her.",
@@ -7607,6 +7625,12 @@
       "name": "Shonaleigh",
       "url": "https://shonaleigh.uk/",
       "bio": "Word weaver, tradition bearer and educator\n\n\n\n Shonaleigh is a dedicated and committed storyteller actively working to expand and share the Drut'syla tradition. Brought up in the Drut'syla tradition by her Bubbe (grandmother) she has a repertoire of over three thousand stories which can be adapted as appropriate for the theme and audience with whom she is working."
+    },
+    "clare-murphy": {
+      "id": "clare-murphy",
+      "name": "Clare Murphy",
+      "url": "https://claremurphy.org/",
+      "bio": "Storytelling since 2006, Clare brings the ancient art of story firmly into the contemporary world where it belongs. \n\n\n\nPerforming on stages around the world, Clare has told stories to audiences as varied as the All-Blacks coaches, Mission Critical Teams, scientists, schoolchildren and Irish President Mary Robinson.\n\n\n\nClare is sought after to teach storytelling skills to communities worldwide, including asylum seekers, social entrepreneurs, climate change scientists, firefighters and limbless veterans."
     },
     "maria-credali": {
       "id": "maria-credali",

@@ -58,6 +58,61 @@ const DAY_MAP = {
 
 const OCCURRENCE_MAP = { "1st": 1, "2nd": 2, "3rd": 3, "4th": 4, last: "last" };
 
+/**
+ * Parse a single "DD/MM/YYYY : H.MMpm" datetime string into { date, time }.
+ * Returns null if the string is malformed.
+ * @param {string} str
+ * @returns {{ date: Date, time: string }|null}
+ */
+function parseDatetimeString(str) {
+  if (!str) return null;
+  const sep = str.indexOf(" : ");
+  if (sep === -1) return null;
+  const datePart = str.slice(0, sep).trim();
+  const timePart = str.slice(sep + 3).trim();
+  const date = parseDateString(datePart);
+  if (!date) return null;
+  return { date, time: timePart };
+}
+
+/**
+ * Expand an event's `datetimes` array into an array of { event, date, time }
+ * objects, one per entry.  Each returned object is a shallow clone of the
+ * base event with `date` and `time` overridden so it can be handed straight
+ * to createEventData() / buildEventSearchText().
+ *
+ * If the event has no `datetimes` array (or it is empty), returns a single
+ * object using the event's existing `date` / `time` fields — so callers can
+ * always iterate the result without special-casing.
+ *
+ * @param {object} event - Raw event record from the JSON.
+ * @returns {{ flatEvent: object, date: Date }[]}
+ */
+function expandDatetimes(event) {
+  if (Array.isArray(event.datetimes) && event.datetimes.length > 0) {
+    const results = [];
+    for (const dtStr of event.datetimes) {
+      const parsed = parseDatetimeString(dtStr);
+      if (!parsed) {
+        console.warn(
+          `Could not parse datetime string: "${dtStr}" in event: ${event.name}`,
+        );
+        continue;
+      }
+      // Shallow clone with date/time overridden
+      results.push({
+        flatEvent: { ...event, date: undefined, time: parsed.time },
+        date: parsed.date,
+      });
+    }
+    return results;
+  }
+  // Fallback: single entry using the existing date field
+  const date = parseDateString(event.date);
+  if (!date) return [];
+  return [{ flatEvent: event, date }];
+}
+
 // escapeHtml() — defined in shared_utils.js
 
 // sanitizeUrl() — defined in shared_utils.js
@@ -625,20 +680,25 @@ async function processTourEvents(startDate, endDate) {
 
 async function processSpecialEvents(events, typ, startDate, endDate) {
   for (const event of events || []) {
-    if (!event.date) {
+    // If datetimes array is present, expand it; otherwise fall back to single date
+    const hasDatetimes =
+      Array.isArray(event.datetimes) && event.datetimes.length > 0;
+    if (!hasDatetimes && !event.date) {
       console.warn(`Missing date for ${typ} event:`, event);
       continue;
     }
-    // parseDateString() defined in shared_utils.js
-    const eventDate = parseDateString(event.date);
-    if (!eventDate) {
-      console.warn(`Invalid date format for ${typ} event:`, event);
-      continue;
-    }
-    if (eventDate >= startDate && eventDate <= endDate) {
-      const eventData = createEventData(event, eventDate, typ);
-      allEventsData.push(eventData);
-      await addMarkerForEvent(eventData);
+
+    const expanded = expandDatetimes(event);
+    for (const { flatEvent, date: eventDate } of expanded) {
+      if (!eventDate) {
+        console.warn(`Invalid date format for ${typ} event:`, event);
+        continue;
+      }
+      if (eventDate >= startDate && eventDate <= endDate) {
+        const eventData = createEventData(flatEvent, eventDate, typ);
+        allEventsData.push(eventData);
+        await addMarkerForEvent(eventData);
+      }
     }
   }
 }
@@ -1605,15 +1665,19 @@ async function searchAllUpcoming() {
 
   // Search specific events (story shows)
   for (const event of eventsData.specificEvents || []) {
-    if (!event.date) continue;
-    // parseDateString() defined in shared_utils.js
-    const eventDate = parseDateString(event.date);
-    if (!eventDate) continue;
-    if (eventDate >= today && eventDate <= futureDate) {
-      if (buildEventSearchText(event).includes(searchTerm)) {
-        const eventData = createEventData(event, eventDate, "special");
-        allEventsData.push(eventData);
-        await addMarkerForEvent(eventData);
+    const hasDatetimes =
+      Array.isArray(event.datetimes) && event.datetimes.length > 0;
+    if (!hasDatetimes && !event.date) continue;
+
+    if (buildEventSearchText(event).includes(searchTerm)) {
+      const expanded = expandDatetimes(event);
+      for (const { flatEvent, date: eventDate } of expanded) {
+        if (!eventDate) continue;
+        if (eventDate >= today && eventDate <= futureDate) {
+          const eventData = createEventData(flatEvent, eventDate, "special");
+          allEventsData.push(eventData);
+          await addMarkerForEvent(eventData);
+        }
       }
     }
   }
