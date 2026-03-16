@@ -19,6 +19,7 @@ const EVENT_TYPES = {
   MUSIC: "music",
   SPECIAL: "special",
   STORYCLUB: "storyclub",
+  FESTIVAL: "festival",
 };
 
 const DAYS_OF_WEEK = [
@@ -810,6 +811,63 @@ function mergeDuplicateTourDates() {
   allEventsData = Array.from(mergeMap.values());
 }
 
+async function processFestivals(startDate, endDate) {
+  const festivals = eventsData.festivals || {};
+
+  for (const [festKey, fest] of Object.entries(festivals)) {
+    const festStart = parseDateString(fest.start_date);
+    const festEnd = parseDateString(fest.end_date);
+
+    if (!festStart || !festEnd) {
+      console.warn(`Festival ${festKey} missing valid start/end date`);
+      continue;
+    }
+
+    // Show whenever the festival overlaps with the current view window at all
+    if (festStart > endDate || festEnd < startDate) continue;
+
+    // Resolve venue
+    const venue = venuesLookup[fest.venue_id] || {};
+    const location = venue.full_address || venue.name || "";
+    const latlon = venue.latlon || null;
+
+    // Build performer display string
+    const performerNames = (fest.performers || [])
+      .map((p) => {
+        const perf = performersLookup[p.performer_id];
+        return perf ? perf.name : null;
+      })
+      .filter(Boolean);
+    const performerStr = performerNames.length
+      ? performerNames.join(", ") + (fest.performers_tbc ? " + more TBA" : "")
+      : null;
+
+    const festData = {
+      isFestival: true,
+      primary_type: fest.primary_type || "storytelling",
+      name: fest.name,
+      festival_id: festKey,
+      start_date: festStart,
+      end_date: festEnd,
+      date: festStart, // used for sort order
+      location: location,
+      latlon: latlon,
+      venue_url: venue.url || null,
+      performer: performerStr,
+      ticket_url: fest.ticket_url || null,
+      facebook: fest.facebook || null,
+      website: fest.website || null,
+      description: fest.description || null,
+      event_flyer: fest.event_flyer || null,
+      schedule_populated:
+        Array.isArray(fest.schedule) && fest.schedule.length > 0,
+    };
+
+    allEventsData.push(festData);
+    await addMarkerForEvent(festData);
+  }
+}
+
 async function displayEvents(startDate, endDate) {
   if (!eventsData) {
     console.error("Events data not loaded");
@@ -859,6 +917,9 @@ async function displayEvents(startDate, endDate) {
 
   // Add touring show dates
   await processTouringShows(startDate, endDate);
+
+  // Add festival entries (show if date range overlaps at all)
+  await processFestivals(startDate, endDate);
 
   mergeDuplicateTourDates();
   allEventsData.sort((a, b) => a.date - b.date);
@@ -922,6 +983,7 @@ const EVENT_COLORS = {
   music: "#443cd7",
   special: "#4CAF50",
   storyclub: "#808080",
+  festival: "#1b5e20",
   default: "#808080",
 };
 
@@ -931,11 +993,13 @@ const EVENT_MARKER_CONFIG = {
   music: { radius: 8, fillOpacity: 0.8 },
   special: { radius: 8, fillOpacity: 0.8 },
   storyclub: { radius: 8, fillOpacity: 0.7 },
+  festival: { radius: 11, fillOpacity: 0.9 },
   default: { radius: 5, fillOpacity: 0.8 },
 };
 
 // Helper function to get event type
 function getEventType(eventData) {
+  if (eventData.isFestival) return EVENT_TYPES.FESTIVAL;
   if (eventData.isSession) return EVENT_TYPES.SESSION;
   if (eventData.isFolk) return EVENT_TYPES.FOLK;
   if (eventData.isMusic) return EVENT_TYPES.MUSIC;
@@ -1012,6 +1076,9 @@ function updateMapView() {
   // Filter events by map bounds
   const bounds = map.getBounds();
   const visibleEvents = allEventsData.filter((event) => {
+    // Always show festivals — they span multiple days/locations and
+    // shouldn't be hidden just because the map isn't centred on them
+    if (event.isFestival) return true;
     // Always show events with "Various" location and no coords
     if (
       !event.coords &&
@@ -1435,6 +1502,101 @@ function createExpandableSection(event) {
   return container;
 }
 
+function createFestivalElement(fest) {
+  const div = document.createElement("div");
+  // CSS class "festival" drives styling; no "special" class so filter logic stays clean
+  div.className = "event festival";
+  if (fest.primary_type === "music") div.classList.add("festival-music");
+  div.setAttribute("data-event-id", `festival-${fest.festival_id}`);
+
+  if (fest.coords?.lat && fest.coords?.lon) {
+    div.onclick = () => zoomToEvent(fest.coords.lat, fest.coords.lon);
+  }
+
+  // --- Name line + badge + icons ---
+  const nameDiv = document.createElement("div");
+  nameDiv.className = "event-name";
+
+  const nameText = document.createTextNode(fest.name);
+  nameDiv.appendChild(nameText);
+
+  const badge = document.createElement("span");
+  badge.className = "event-badge festival-badge";
+  badge.textContent = "🎪 Festival";
+  nameDiv.appendChild(badge);
+
+  // Website / facebook icons
+  const icons = document.createElement("span");
+  if (fest.website) createIcon(icons, "website", fest.website);
+  if (fest.facebook)
+    createIcon(icons, "facebook", normaliseFacebookUrl(fest.facebook));
+  nameDiv.appendChild(icons);
+  div.appendChild(nameDiv);
+
+  // --- Performers ---
+  if (fest.performer) {
+    const perfDiv = document.createElement("div");
+    perfDiv.className = "event-performer festival-performers";
+    perfDiv.textContent = fest.performer;
+    div.appendChild(perfDiv);
+  }
+
+  // --- Venue ---
+  if (fest.location) {
+    div.appendChild(createLocationSection(fest));
+  }
+
+  // --- Date range ---
+  const dateDiv = document.createElement("div");
+  dateDiv.className = "event-date festival-date-range";
+  const s = fest.start_date;
+  const e = fest.end_date;
+  const sameMonth =
+    s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear();
+  const dayCount = Math.round((e - s) / 86400000) + 1;
+  const rangeStr = sameMonth
+    ? `${s.getDate()}–${e.getDate()} ${MONTHS_SHORT[e.getMonth()]} ${e.getFullYear()}`
+    : `${s.getDate()} ${MONTHS_SHORT[s.getMonth()]} – ${e.getDate()} ${MONTHS_SHORT[e.getMonth()]} ${e.getFullYear()}`;
+  dateDiv.appendChild(document.createTextNode(rangeStr));
+  const daySpan = document.createElement("span");
+  daySpan.className = "festival-day-count";
+  daySpan.textContent = ` · ${dayCount} day${dayCount !== 1 ? "s" : ""}`;
+  dateDiv.appendChild(daySpan);
+  div.appendChild(dateDiv);
+
+  // --- Tickets + programme link ---
+  const ticketDiv = document.createElement("div");
+  ticketDiv.className = "event-tickets";
+
+  if (fest.ticket_url) {
+    const safeUrl = sanitizeUrl(fest.ticket_url);
+    if (safeUrl) {
+      const a = document.createElement("a");
+      a.href = safeUrl;
+      a.target = "_blank";
+      a.textContent = "🎟 Tickets";
+      a.onclick = (ev) => ev.stopPropagation();
+      ticketDiv.appendChild(a);
+      const sep = document.createElement("span");
+      sep.className = "separator";
+      sep.textContent = "·";
+      ticketDiv.appendChild(sep);
+    }
+  }
+
+  const progLink = document.createElement("a");
+  progLink.href = `new_troubadours_festival.html?festival=${fest.festival_id}`;
+  progLink.className = "festival-programme-link";
+  progLink.textContent = fest.schedule_populated
+    ? "📋 Full programme →"
+    : "📋 Programme TBA →";
+  progLink.onclick = (ev) => ev.stopPropagation();
+  ticketDiv.appendChild(progLink);
+  div.appendChild(ticketDiv);
+
+  return div;
+}
+
 function renderEventsList(eventsToShow) {
   const eventsList = document.getElementById("eventsList");
 
@@ -1448,7 +1610,10 @@ function renderEventsList(eventsToShow) {
   eventsList.innerHTML = "";
 
   eventsToShow.forEach((event) => {
-    eventsList.appendChild(createEventElement(event));
+    const el = event.isFestival
+      ? createFestivalElement(event)
+      : createEventElement(event);
+    eventsList.appendChild(el);
   });
 
   filterEvents();
@@ -1483,6 +1648,7 @@ function shouldShowEvent(eventData, filters) {
   const { storyclubsOn, specialOn, showMusic, showFolk, showSessions } =
     filters;
 
+  if (eventData.isFestival && specialOn) return true;
   if (storyclubsOn && eventData.isStoryclub) return true;
   if (specialOn && eventData.isSpecial) return true;
   if (showMusic && eventData.isMusic) return true;
@@ -1506,11 +1672,19 @@ function filterEvents() {
   document.querySelectorAll(".event").forEach((event) => {
     const isStoryclub = event.classList.contains("storyclub");
     const isSpecial = event.classList.contains("special");
+    const isFestival = event.classList.contains("festival");
     const isMusic = event.classList.contains("music");
     const isFolk = event.classList.contains("folk");
     const isSession = event.classList.contains("session");
 
-    const eventData = { isStoryclub, isSpecial, isMusic, isFolk, isSession };
+    const eventData = {
+      isStoryclub,
+      isSpecial,
+      isFestival,
+      isMusic,
+      isFolk,
+      isSession,
+    };
     let visible = shouldShowEvent(eventData, filters);
 
     if (visible && searchTerm) {
@@ -1742,6 +1916,55 @@ async function searchAllUpcoming() {
           await addMarkerForEvent(eventData);
         }
       }
+    }
+  }
+
+  // Search festivals
+  const festivals = eventsData.festivals || {};
+  for (const [festKey, fest] of Object.entries(festivals)) {
+    const festStart = parseDateString(fest.start_date);
+    const festEnd = parseDateString(fest.end_date);
+    if (!festStart || !festEnd) continue;
+    if (festStart > futureDate || festEnd < today) continue;
+
+    // Build searchable text from name, performers, venue
+    const venue = venuesLookup[fest.venue_id] || {};
+    const performerNames = (fest.performers || [])
+      .map((p) => performersLookup[p.performer_id]?.name || "")
+      .join(" ");
+    const festSearchText =
+      `${fest.name} ${fest.short_name || ""} ${performerNames} ${venue.name || ""} ${venue.full_address || ""}`.toLowerCase();
+
+    if (festSearchText.includes(searchTerm)) {
+      const location = venue.full_address || venue.name || "";
+      const performerStr =
+        (fest.performers || [])
+          .map((p) => performersLookup[p.performer_id]?.name || null)
+          .filter(Boolean)
+          .join(", ") + (fest.performers_tbc ? " + more TBA" : "");
+
+      const festData = {
+        isFestival: true,
+        primary_type: fest.primary_type || "storytelling",
+        name: fest.name,
+        festival_id: festKey,
+        start_date: festStart,
+        end_date: festEnd,
+        date: festStart,
+        location: location,
+        latlon: venue.latlon || null,
+        venue_url: venue.url || null,
+        performer: performerStr || null,
+        ticket_url: fest.ticket_url || null,
+        facebook: fest.facebook || null,
+        website: fest.website || null,
+        description: fest.description || null,
+        event_flyer: fest.event_flyer || null,
+        schedule_populated:
+          Array.isArray(fest.schedule) && fest.schedule.length > 0,
+      };
+      allEventsData.push(festData);
+      await addMarkerForEvent(festData);
     }
   }
 
@@ -2035,6 +2258,9 @@ window.addEventListener("load", async () => {
   console.log(`  - ${eventsData.irishSessions?.length || 0} Irish sessions`);
   console.log(
     `  - ${Object.keys(eventsData.touring_shows || {}).length} touring shows`,
+  );
+  console.log(
+    `  - ${Object.keys(eventsData.festivals || {}).length} festivals`,
   );
 
   // Flag events with missing geocode

@@ -1,4 +1,46 @@
 {
+  "festivals": {
+    "east-anglian-storytelling-festival-2026": {
+      "name": "East Anglian Storytelling Festival",
+      "short_name": "EASF 2026",
+      "start_date": "19/06/2026",
+      "end_date": "21/06/2026",
+      "primary_type": "storytelling",
+      "venue_id": "food-museum-stowmarket",
+      "ticket_url": "https://online1.venpos.net/VenPosJourneyUI/WebSaleItems?id=8c555c64-bf7b-4558-a234-be88ccafb5c8&type=WebPage&locationId=437&mainWebPageId=8c555c64-bf7b-4558-a234-be88ccafb5c8&startId=8c555c64-bf7b-4558-a234-be88ccafb5c8",
+      "website": "https://www.eastanglianstorytellingfestival.co.uk/",
+      "facebook": "",
+      "description": "",
+      "event_flyer": "",
+      "performers": [
+        { "performer_id": "nell-phoenix", "role": "headliner" },
+        { "performer_id": "michael-harvey", "role": "headliner" }
+      ],
+      "performers_tbc": true,
+      "stages": [],
+      "schedule": []
+    },
+    "FATE-2026": {
+      "name": "Festival at the Edge",
+      "short_name": "FATE 2026",
+      "start_date": "17/07/2026",
+      "end_date": "19/07/2026",
+      "primary_type": "storytelling",
+      "venue_id": "bromyard-folk-festival-site",
+      "ticket_url": "https://www.festivalattheedge.org/tickets-festival-at-the-edge-2026/",
+      "website": "https://www.festivalattheedge.org/",
+      "facebook": "",
+      "description": "",
+      "event_flyer": "",
+      "performers": [
+        { "performer_id": "xanthe-gresham-knight", "role": "" },
+        { "performer_id": "phil-okwedy", "role": "" }
+      ],
+      "performers_tbc": true,
+      "stages": [],
+      "schedule": []
+    }
+  }, 
   "touring_shows": {
     "tim-ralphs-goddess-spreadsheets": {
       "name": "The Goddess of Spreadsheets [Tim Ralphs]",
@@ -4035,6 +4077,18 @@
         -0.0572027
       ]
     },
+    "food-museum-stowmarket": {
+      "id": "food-museum-stowmarket",
+      "name": "Food Museum, Stowmarket",
+      "city": "Stowmarket",
+      "postcode": "IP14 1DL",
+      "full_address": "The Food Museum, Stowmarket, IP14 1DL",
+      "url": "https://foodmuseum.org.uk/",
+      "latlon": [
+        52.18721,
+        0.9946
+      ]
+    },
     "ship-inn-exeter": {
       "id": "ship-inn-exeter",
       "name": "Ship Inn",
@@ -7619,6 +7673,18 @@
       "name": "TUUP",
       "url": "https://tuup-storyteller.wixsite.com/tuup",
       "bio": "TuuP was born in London of Guyanese parents.\n\n\n\n In the early 80s, Tuup was recognised by a small guyanese publishing house, run by Jessica & Eric Huntley, called Bogle L'Ouverture Press.\n\n\n\n Tuup joined the famous West London Storytelling Unit, run by artistic-director, Ben Haggarty and assistant-director, Georgiana Kebbel, a challenging innovative arts group looking at performance storytelling for adults.\n\n\n\nIn the mid 80s, Tuup formed a storytelling group with Flora Devi called 'Tellers of Time' (indian dance & folk tales coupled alongside african-caribbean tales & rhythms)."
+    },
+    "xanthe-gresham-knight": {
+      "id": "xanthe-gresham-knight",
+      "name": "Xanthe Gresham Knight",
+      "url": "https://xanthegresham.co.uk/",
+      "bio": "Xanthe Gresham Knight is a writer and international performance storyteller with a wide repertoire. Author of 'Goddesses and Heroines' with Thames and Hudson, she has created a variety of shows celebrating the feminine divine including 'Cassandra' for Radio 4 (listen to the BBC podcast here) and The Online Goddess Lounge, funded by The Arts Council of England.\n\n\n\n Xanthe has been Storyteller in Residence for Harvard University, The Blanton Museum Texas, Psychologies Magazine, The Chelsea Physic Garden, Stoke and Staffordshire Libraries and 18 Hours Hastings. She worked as a Senior Lecturer in Drama and Storytelling for the University of East London for 17 years. As well as touring and working locally in Seaford, Sussex, Xanthe is Artistic Director of GuestHouse storytellers, Newhaven, East Sussex."
+    },
+    "phil-okwedy": {
+      "id": "phil-okwedy",
+      "name": "Phil Okwedy",
+      "url": "https://www.philokwedystoryteller.co.uk/",
+      "bio": "Before film, books, newspapers, or even writing itself, there was oral story. Phil Okwedy is a storyteller who stands in that ancient tradition. He has been telling stories in schools and libraries, pubs and clubs, theatres and festivals for 10 years. Phil tells tales that are deep and direct, playful and poignant, gleeful and grave. He tells them to entertain. He tells them to stir and awaken feelings of mutual understanding. He tells them because story is how we connect."
     },
     "shonaleigh": {
       "id": "shonaleigh",

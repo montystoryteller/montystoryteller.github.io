@@ -521,3 +521,145 @@ select {
         font-size: 11px;
     }
 }
+
+/* =============================================================
+   13. FESTIVAL CARDS
+   White-background card with bold green left border.
+   primary_type="music" gets a blue variant via .festival-music.
+   The .festival class must NOT also carry .special so that
+   filterEvents() DOM-based detection stays unambiguous.
+   ============================================================= */
+
+.event.festival {
+    background: #daf3d8;
+    border-left: 6px solid #2e7d32;
+    border-top: 1px solid #c8e6c9;
+    border-right: 1px solid #c8e6c9;
+    border-bottom: 1px solid #c8e6c9;
+    border-radius: 4px;
+}
+
+.event.festival:hover {
+    background: #f1f8f1;
+}
+
+/* Music-primary festival — blue border variant */
+.event.festival.festival-music {
+    background: #dbe4f1;
+    border-left-color: #1006c6;
+    border-top-color: #c5caf5;
+    border-right-color: #c5caf5;
+    border-bottom-color: #c5caf5;
+}
+
+.event.festival.festival-music:hover {
+    background: #f0f1fc;
+}
+
+/* Event name — dark green for storytelling, dark blue for music */
+.event.festival .event-name {
+    color: #1b5e20;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.event.festival.festival-music .event-name {
+    color: #0d0671;
+}
+
+/* Performer list */
+.event.festival .festival-performers {
+    font-style: italic;
+    color: #444;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Venue */
+.event.festival .event-location {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Date range */
+.event.festival .festival-date-range {
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.event.festival.festival-music .festival-date-range {
+    color: #1006c6;
+}
+
+.festival-day-count {
+    color: #555;
+    font-weight: normal;
+}
+
+/* Festival badge — sits inline after the event name */
+.event-badge.festival-badge {
+    background: #e8f5e9;
+    color: #2e7d32 !important;
+    border: 1px solid #a5d6a7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.event.festival.festival-music .event-badge.festival-badge {
+    background: #e8eaf6;
+    color: #1a237e !important;
+    border-color: #9fa8da;
+}
+
+/* Ticket / programme link row */
+.event.festival .event-tickets a {
+    color: #2e7d32;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #4caf50;
+}
+
+.event.festival.festival-music .event-tickets a {
+    color: #1006c6;
+    border-bottom-color: #443cd7;
+}
+
+.event.festival .event-tickets a:hover {
+    border-bottom-color: #1b5e20;
+}
+
+/* Programme TBA / Full programme link — pill-style button */
+a.festival-programme-link {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 10px;
+    background: #e8f5e9;
+    color: #2e7d32 !important;
+    border: 1px solid #a5d6a7;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+a.festival-programme-link:hover {
+    background: #c8e6c9;
+    color: #1b5e20 !important;
+}
+
+.event.festival.festival-music a.festival-programme-link {
+    background: #e8eaf6;
+    color: #1a237e !important;
+    border-color: #9fa8da;
+}
+
+.event.festival.festival-music a.festival-programme-link:hover {
+    background: #c5caf5;
+}
