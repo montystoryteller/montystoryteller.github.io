@@ -65,6 +65,34 @@
             align-items: center;
         }
 
+        /* ── Tonight / tomorrow alert ────────────────────────── */
+        .meeting-alert {
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meeting-alert.tonight {
+            background: #1b5e20;
+            color: white;
+            box-shadow: 0 2px 8px rgba(27, 94, 32, 0.35);
+        }
+
+        .meeting-alert.tomorrow {
+            background: #e8f5e9;
+            color: #1b5e20;
+            border: 2px solid #4CAF50;
+        }
+
+        .meeting-alert .alert-icon {
+            font-size: 22px;
+        }
+
         /* ── Section headers ─────────────────────────────────── */
         .section-heading {
             font-size: 18px;
@@ -353,6 +381,123 @@
             const pastEvents = allSpecific.filter(e => e._date < today);
             const upcomingEvents = allSpecific.filter(e => e._date >= today);
 
+            // ── Schedule helpers (ported from event_display.js) ───────────────
+            const DAY_MAP = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+            const OCC_MAP = { '1st': 1, '2nd': 2, '3rd': 3, '4th': 4, 'last': 'last' };
+
+            function findNthDayInMonth(year, month, targetDay, occurrence) {
+                const lastDay = new Date(year, month + 1, 0);
+                if (occurrence === 'last') {
+                    for (let d = lastDay.getDate(); d >= 1; d--) {
+                        const t = new Date(year, month, d); t.setHours(0, 0, 0, 0);
+                        if (t.getDay() === targetDay) return t;
+                    }
+                } else {
+                    let count = 0;
+                    for (let d = 1; d <= lastDay.getDate(); d++) {
+                        const t = new Date(year, month, d); t.setHours(0, 0, 0, 0);
+                        if (t.getDay() === targetDay && ++count === occurrence) return t;
+                    }
+                }
+                return null;
+            }
+
+            // Returns all scheduled dates in [from, to] respecting exceptions
+            function scheduledDatesInRange(schedule, from, to, exceptions) {
+                if (!schedule) return [];
+                const exSet = new Set((exceptions || []).map(s => {
+                    const d = parseDateString(s.split('/').length === 3 ? s : null) ||
+                        (() => { // handle D/M/YYYY too
+                            const [d, m, y] = s.split('/').map(Number);
+                            return new Date(y, m - 1, d);
+                        })();
+                    if (!d) return null;
+                    d.setHours(0, 0, 0, 0);
+                    return d.getTime();
+                }).filter(Boolean));
+
+                const results = [];
+
+                function addIfInRange(dt) {
+                    if (!dt) return;
+                    if (dt >= from && dt <= to && !exSet.has(dt.getTime())) results.push(dt);
+                }
+
+                // Pipe-separated alternating months: "1st wed (even months) | 1st thu (odd months)"
+                if (schedule.includes('|')) {
+                    for (const part of schedule.split('|').map(s => s.trim())) {
+                        const m = part.match(/^(.+?)\s*\((\w+)\s+months\)$/i);
+                        if (!m) continue;
+                        const [occ, day] = m[1].trim().toLowerCase().split(/\s+/);
+                        const cond = m[2].toLowerCase();
+                        const tDay = DAY_MAP[day]; const occNum = OCC_MAP[occ];
+                        const cur = new Date(from.getFullYear(), from.getMonth() - 1, 1);
+                        const end = new Date(to.getFullYear(), to.getMonth() + 1, 0);
+                        while (cur <= end) {
+                            const mo = cur.getMonth() + 1;
+                            const ok = (cond === 'even' && mo % 2 === 0) || (cond === 'odd' && mo % 2 !== 0);
+                            if (ok) addIfInRange(findNthDayInMonth(cur.getFullYear(), cur.getMonth(), tDay, occNum));
+                            cur.setMonth(cur.getMonth() + 1);
+                        }
+                    }
+                    return results.sort((a, b) => a - b);
+                }
+
+                // "X and Y dayname"
+                if (schedule.toLowerCase().includes(' and ')) {
+                    const [occ1str, rest] = schedule.toLowerCase().split(' and ');
+                    const [occ2str, dayName] = rest.trim().split(/\s+/);
+                    const tDay = DAY_MAP[dayName];
+                    const occ1 = OCC_MAP[occ1str.trim()], occ2 = OCC_MAP[occ2str.trim()];
+                    const cur = new Date(from.getFullYear(), from.getMonth() - 1, 1);
+                    const end = new Date(to.getFullYear(), to.getMonth() + 1, 0);
+                    while (cur <= end) {
+                        addIfInRange(findNthDayInMonth(cur.getFullYear(), cur.getMonth(), tDay, occ1));
+                        addIfInRange(findNthDayInMonth(cur.getFullYear(), cur.getMonth(), tDay, occ2));
+                        cur.setMonth(cur.getMonth() + 1);
+                    }
+                    return results.sort((a, b) => a - b);
+                }
+
+                // "every dayname"
+                if (schedule.toLowerCase().startsWith('every ')) {
+                    const tDay = DAY_MAP[schedule.toLowerCase().replace('every ', '').trim()];
+                    const cur = new Date(from);
+                    while (cur.getDay() !== tDay) cur.setDate(cur.getDate() + 1);
+                    while (cur <= to) { addIfInRange(new Date(cur)); cur.setDate(cur.getDate() + 7); }
+                    return results;
+                }
+
+                // Standard "Nth dayname"
+                const [occ, dayName] = schedule.toLowerCase().split(/\s+/);
+                const tDay = DAY_MAP[dayName]; const occNum = OCC_MAP[occ];
+                if (tDay === undefined || !occNum) return results;
+                const cur = new Date(from.getFullYear(), from.getMonth() - 1, 1);
+                const end = new Date(to.getFullYear(), to.getMonth() + 1, 0);
+                while (cur <= end) {
+                    addIfInRange(findNthDayInMonth(cur.getFullYear(), cur.getMonth(), tDay, occNum));
+                    cur.setMonth(cur.getMonth() + 1);
+                }
+                return results.sort((a, b) => a - b);
+            }
+
+            // Compute next and previous scheduled dates
+            function nextScheduledDate(schedule, exceptions) {
+                if (!schedule) return null;
+                const from = new Date(today);
+                const to = new Date(today); to.setMonth(to.getMonth() + 6);
+                const dates = scheduledDatesInRange(schedule, from, to, exceptions);
+                return dates.find(d => d >= today) || null;
+            }
+
+            function prevScheduledDate(schedule, exceptions) {
+                if (!schedule) return null;
+                const to = new Date(today); to.setDate(to.getDate() - 1);
+                const from = new Date(to); from.setMonth(from.getMonth() - 3);
+                const dates = scheduledDatesInRange(schedule, from, to, exceptions);
+                return dates.length ? dates[dates.length - 1] : null;
+            }
+
             // Venue lookup
             const venue = data.venues[clubRecord.venue_id] || null;
 
@@ -432,7 +577,7 @@
 
             if (clubRecord.club_flyer) {
                 const img = document.createElement('img');
-                img.src = clubRecord.club_flyer;
+                img.src = `./storyclub_assets/club_flyers/${clubRecord.club_flyer}`;
                 img.className = 'club-flyer';
                 img.alt = clubRecord.name;
                 header.appendChild(img);
@@ -440,9 +585,55 @@
 
             root.appendChild(header);
 
-            // Map (only if we have a lat/lon)
+            // ── Tonight / tomorrow alert ───────────────────────────────────────
+            // Check both next scheduled meeting AND specific upcoming events
+            function makeAlert(date, label) {
+                const div = document.createElement('div');
+                div.className = `meeting-alert ${label === 'tonight' ? 'tonight' : 'tomorrow'}`;
+                div.innerHTML = `<span class="alert-icon">${label === 'tonight' ? '🎉' : '📅'}</span>`
+                    + `<span>${label === 'tonight' ? 'Meeting <strong>tonight</strong>' : 'Meeting <strong>tomorrow</strong>'}`
+                    + (clubRecord.time ? ` at ${clubRecord.time}` : '')
+                    + ` — ${formatDate(date)}</span>`;
+                return div;
+            }
+
+            function dayDiff(a, b) {
+                // Days between two midnight-normalised dates
+                return Math.round((a - b) / 86400000);
+            }
+
+            const todayMidnight = new Date(today); todayMidnight.setHours(0, 0, 0, 0);
+            const tomorrow = new Date(todayMidnight); tomorrow.setDate(tomorrow.getDate() + 1);
+
+            // Check next scheduled recurring date first
+            let alertDate = null;
+            if (clubRecord.schedule) {
+                const next = nextScheduledDate(clubRecord.schedule, clubRecord.exceptions || []);
+                if (next) {
+                    const diff = dayDiff(next, todayMidnight);
+                    if (diff === 0 || diff === 1) alertDate = { date: next, diff };
+                }
+            }
+            // Also check if any specific upcoming event is tonight or tomorrow
+            for (const ev of upcomingEvents) {
+                const diff = dayDiff(ev._date, todayMidnight);
+                if (diff === 0 || diff === 1) {
+                    // Specific event takes priority over generic schedule alert
+                    alertDate = { date: ev._date, diff };
+                    break;
+                }
+            }
+
+            if (alertDate) {
+                root.appendChild(makeAlert(alertDate.date, alertDate.diff === 0 ? 'tonight' : 'tomorrow'));
+            }
+
+            // ── Upcoming specific events ───────────────────────────────────────
+
+            // Map rendered after upcoming events
             const latlon = venue && venue.latlon;
-            if (latlon) {
+            function renderMap() {
+                if (!latlon) return;
                 const mapWrap = document.createElement('div');
                 mapWrap.id = 'map-container';
                 root.appendChild(mapWrap);
@@ -450,8 +641,6 @@
                 mapDiv.id = 'map';
                 mapDiv.style.height = '100%';
                 mapWrap.appendChild(mapDiv);
-
-                // Defer map init so the div is in the DOM
                 setTimeout(() => {
                     const map = L.map('map').setView(latlon, 14);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -577,15 +766,61 @@
             if (upcomingEvents.length) {
                 root.appendChild(sectionHeading('Upcoming events', 'upcoming'));
                 upcomingEvents.forEach(e => root.appendChild(renderSpecificEvent(e, false)));
+
+                // Also show next regular meeting date as a reference
+                if (clubRecord.schedule) {
+                    const next = nextScheduledDate(clubRecord.schedule, clubRecord.exceptions || []);
+                    if (next) {
+                        const note = document.createElement('p');
+                        note.style.cssText = 'margin:10px 0 0;color:#888;font-size:13px;font-style:italic;';
+                        note.textContent = `Next regular meeting date: ${formatDate(next)}`;
+                        root.appendChild(note);
+                    }
+                }
             } else {
                 root.appendChild(sectionHeading('Upcoming events', 'upcoming'));
-                const none = document.createElement('p');
-                none.className = 'no-events';
-                none.textContent = 'No specific upcoming events listed — check the schedule above for regular meeting dates.';
-                root.appendChild(none);
+
+                const schedDiv = document.createElement('div');
+                schedDiv.style.cssText = 'padding:14px 0 6px;';
+
+                const schedule = clubRecord.schedule;
+                const exceptions = clubRecord.exceptions || [];
+
+                if (schedule) {
+                    const next = nextScheduledDate(schedule, exceptions);
+                    const prev = prevScheduledDate(schedule, exceptions);
+
+                    if (next) {
+                        const p = document.createElement('p');
+                        p.style.cssText = 'margin:0 0 6px;color:#2e7d32;font-weight:bold;';
+                        p.textContent = `Next regular meeting: ${formatDate(next)}`;
+                        schedDiv.appendChild(p);
+                    }
+                    if (prev) {
+                        const p = document.createElement('p');
+                        p.style.cssText = 'margin:0 0 6px;color:#888;font-size:14px;';
+                        p.textContent = `Previous regular meeting: ${formatDate(prev)}`;
+                        schedDiv.appendChild(p);
+                    }
+                    if (!next && !prev) {
+                        const p = document.createElement('p');
+                        p.className = 'no-events';
+                        p.textContent = 'No scheduled dates found in the near future.';
+                        schedDiv.appendChild(p);
+                    }
+                } else {
+                    const p = document.createElement('p');
+                    p.className = 'no-events';
+                    p.textContent = 'No specific upcoming events listed.';
+                    schedDiv.appendChild(p);
+                }
+
+                root.appendChild(schedDiv);
             }
 
             // Past specific events (most recent first)
+            renderMap();
+
             if (pastEvents.length) {
                 root.appendChild(sectionHeading('Past events', 'past'));
                 [...pastEvents].reverse().forEach(e => root.appendChild(renderSpecificEvent(e, true)));
