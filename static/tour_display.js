@@ -314,6 +314,15 @@ function displayTourDates(tour, status) {
   hidePastCheckbox.checked = false;
   hidePastLabel.style.display = status === "current" ? "" : "none";
 
+  // Set subtitle: show name + performer
+  const subtitle = document.getElementById("tourDatesSubtitle");
+  if (subtitle) {
+    const performer = performersLookup[tour.performer_id];
+    const parts = [tour.tour_name || tour.name];
+    if (performer) parts.push(performer.name);
+    subtitle.textContent = parts.join(" · ");
+  }
+
   if (!tour.tour_dates || tour.tour_dates.length === 0) {
     datesContainer.innerHTML = "<p>No dates scheduled yet.</p>";
     return;
