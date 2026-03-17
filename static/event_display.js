@@ -1206,7 +1206,36 @@ function createEventElement(event) {
 function createEventHeader(event) {
   const header = document.createElement("div");
   header.className = "event-name";
-  header.appendChild(document.createTextNode(event.name));
+
+  // Club name: link to their own website if they have one, else plain text
+  if (event.isStoryclub && event.link) {
+    const nameLink = document.createElement("a");
+    nameLink.href = sanitizeUrl(event.link);
+    nameLink.target = "_blank";
+    nameLink.rel = "noopener noreferrer";
+    nameLink.textContent = event.name;
+    nameLink.style.cssText =
+      "color:inherit;text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.3);";
+    nameLink.addEventListener("click", (e) => e.stopPropagation());
+    header.appendChild(nameLink);
+  } else {
+    header.appendChild(document.createTextNode(event.name));
+  }
+
+  // Info icon → club page (for any story club with an id)
+  if (event.isStoryclub && event.club) {
+    const infoLink = document.createElement("a");
+    infoLink.href = `new_troubadours_storyclub.html?club=${encodeURIComponent(event.club)}`;
+    infoLink.title = `More about ${event.name}`;
+    infoLink.style.cssText =
+      "display:inline-block;margin-left:7px;vertical-align:middle;text-decoration:none;";
+    infoLink.addEventListener("click", (e) => e.stopPropagation());
+    infoLink.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width:17px;height:17px;vertical-align:middle;">
+      <circle cx="10" cy="10" r="10" fill="#1976d2"/>
+      <text x="10" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="white">i</text>
+    </svg>`;
+    header.appendChild(infoLink);
+  }
 
   // Add badges
   if (event.isCancelled) {

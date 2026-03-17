@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Club — New Troubadours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="shared-styles.css">
+    <style>
+        /* ── Page layout ─────────────────────────────────────── */
+        .club-header {
+            background: white;
+            border-radius: 8px;
+            padding: 24px 28px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid #4CAF50;
+        }
+
+        .club-header h1 {
+            text-align: left;
+            margin: 0 0 6px 0;
+            font-size: 26px;
+            color: #1b5e20;
+        }
+
+        .club-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .club-meta a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .club-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .club-schedule {
+            font-style: italic;
+            color: #2e7d32;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .club-venue {
+            font-size: 15px;
+            color: #555;
+            margin-top: 2px;
+        }
+
+        .club-icons {
+            margin-top: 8px;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        /* ── Section headers ─────────────────────────────────── */
+        .section-heading {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 28px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #c8e6c9;
+        }
+
+        .section-heading.past {
+            border-bottom-color: #ddd;
+            color: #888;
+        }
+
+        .section-heading.upcoming {
+            border-bottom-color: #4CAF50;
+            color: #1b5e20;
+        }
+
+        /* ── Regular (recurring) event card ─────────────────── */
+        /* Re-uses .event styles from shared-styles.css */
+
+        /* ── Specific event cards ────────────────────────────── */
+        .specific-event {
+            background: white;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+        }
+
+        .specific-event.is-special {
+            background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+            border: 2px solid #2e7d32;
+            color: white;
+        }
+
+        .specific-event.is-past {
+            opacity: 0.6;
+            filter: grayscale(30%);
+        }
+
+        .specific-event .showname {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .specific-event.is-special .showname {
+            color: white;
+        }
+
+        .specific-event .performer {
+            font-style: italic;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        .specific-event.is-special .performer {
+            color: white;
+        }
+
+        .specific-event .event-date {
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        .specific-event.is-special .event-date {
+            color: #e8f5e9;
+        }
+
+        .specific-event .event-location {
+            color: #777;
+            font-style: italic;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .specific-event.is-special .event-location {
+            color: #c8e6c9;
+        }
+
+        .specific-event .event-description {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .specific-event.is-special .event-description {
+            color: #e8f5e9;
+        }
+
+        .specific-event .event-tickets {
+            margin-top: 8px;
+        }
+
+        .specific-event.is-special .event-tickets a {
+            color: #ffeb3b;
+            border-bottom-color: #fff59d;
+        }
+
+        /* Expand/collapse for description */
+        .expand-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        .specific-event.is-special .expand-btn {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .expand-btn:hover {
+            background: #388e3c;
+        }
+
+        .specific-event.is-special .expand-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .expandable {
+            display: none;
+            margin-top: 10px;
+            animation: slideDown 0.25s ease-out;
+        }
+
+        .expandable.open {
+            display: block;
+        }
+
+        /* ── Map ─────────────────────────────────────────────── */
+        #map-container {
+            height: 280px;
+            margin-bottom: 20px;
+        }
+
+        /* ── Back link ───────────────────────────────────────── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #2e7d32;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Error / not found ───────────────────────────────── */
+        .not-found {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        /* ── Flyer image ─────────────────────────────────────── */
+        .club-flyer {
+            max-width: 260px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            margin-top: 10px;
+        }
+
+        /* ── Responsive ──────────────────────────────────────── */
+        @media (max-width: 600px) {
+            .club-header {
+                padding: 16px;
+            }
+
+            .club-header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="back-link" href="new_troubadours_event_guide.html">← Back to all events</a>
+
+    <div id="page-content">
+        <p style="text-align:center;color:#999;padding:40px 0">Loading…</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script>
+        // ── Constants (mirrors event_display.js) ─────────────────────────────────
+        const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const FACEBOOK_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M16.5 8H14c-.3 0-.5.2-.5.5V10H16l-.3 2.5H13.5V19h-2.5v-6.5H9V10h2V8.5C11 6.6 12.3 5.5 14 5.5c.8 0 2.5.1 2.5.1V8z" fill="#ffffff"/></svg>';
+        const GLOBE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
+        const EMAIL_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>';
+
+        // ── Helpers ───────────────────────────────────────────────────────────────
+        function parseDateString(s) {
+            if (!s) return null;
+            const [d, m, y] = s.split("/").map(Number);
+            if (!d || !m || !y) return null;
+            return new Date(y, m - 1, d);
+        }
+
+        function formatDate(date) {
+            return `${DAYS_OF_WEEK[date.getDay()]}, ${date.getDate()} ${MONTHS_SHORT[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        function capitalise(s) {
+            return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+        }
+
+        function scheduleLabel(schedule) {
+            if (!schedule) return null;
+            return 'Meets ' + capitalise(schedule);
+        }
+
+        function icon(svg, href, cls, title) {
+            const a = document.createElement('a');
+            a.href = href;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = cls;
+            a.title = title;
+            a.innerHTML = svg;
+            a.style.cssText = 'display:inline-block;margin-left:6px;vertical-align:middle;text-decoration:none;';
+            a.querySelector('svg').style.cssText = 'width:20px;height:20px;';
+            return a;
+        }
+
+        function normaliseFacebook(fb) {
+            if (!fb) return null;
+            return fb.startsWith('http') ? fb : `https://facebook.com/${fb}`;
+        }
+
+        // ── Main ──────────────────────────────────────────────────────────────────
+        (async function () {
+            const params = new URLSearchParams(location.search);
+            const clubId = params.get('club');
+
+            // Load data
+            let data;
+            try {
+                const r = await fetch('events_normalized.json');
+                data = await r.json();
+            } catch (e) {
+                document.getElementById('page-content').innerHTML =
+                    '<p class="not-found">Could not load events data.</p>';
+                return;
+            }
+
+            // Find the recurring club record (events[])
+            const clubRecord = data.events.find(e => e.club === clubId) || null;
+
+            if (!clubRecord && !clubId) {
+                // No club param — show a directory of all clubs
+                renderDirectory(data);
+                return;
+            }
+
+            if (!clubRecord) {
+                document.getElementById('page-content').innerHTML =
+                    `<div class="not-found"><h2>Club not found</h2><p>No club with id <tt>${clubId}</tt>.</p></div>`;
+                return;
+            }
+
+            // Find all specific events for this club
+            const today = new Date(); today.setHours(0, 0, 0, 0);
+
+            const allSpecific = data.specificEvents
+                .filter(e => e.club === clubId)
+                .map(e => ({ ...e, _date: parseDateString(e.date) }))
+                .filter(e => e._date)
+                .sort((a, b) => a._date - b._date);
+
+            const pastEvents = allSpecific.filter(e => e._date < today);
+            const upcomingEvents = allSpecific.filter(e => e._date >= today);
+
+            // Venue lookup
+            const venue = data.venues[clubRecord.venue_id] || null;
+
+            // Performer lookup helper
+            const performers = data.performers || {};
+            function performerName(id) {
+                return id && performers[id] ? performers[id].name : null;
+            }
+            function performerUrl(id) {
+                return id && performers[id] ? performers[id].url || null : null;
+            }
+
+            // ── Render ─────────────────────────────────────────────────────────
+            document.title = `${clubRecord.name} — New Troubadours`;
+
+            const root = document.getElementById('page-content');
+            root.innerHTML = '';
+
+            // Header card
+            const header = document.createElement('div');
+            header.className = 'club-header';
+
+            const h1 = document.createElement('h1');
+            h1.textContent = clubRecord.name;
+            header.appendChild(h1);
+
+            if (clubRecord.schedule) {
+                const sched = document.createElement('div');
+                sched.className = 'club-schedule';
+                sched.textContent = scheduleLabel(clubRecord.schedule)
+                    + (clubRecord.time ? ` • ${clubRecord.time}` : '');
+                header.appendChild(sched);
+            }
+
+            if (venue) {
+                const vdiv = document.createElement('div');
+                vdiv.className = 'club-venue';
+                if (venue.url) {
+                    const a = document.createElement('a');
+                    a.href = venue.url; a.target = '_blank';
+                    a.textContent = venue.name;
+                    vdiv.appendChild(a);
+                } else {
+                    vdiv.textContent = venue.name;
+                }
+                if (venue.city) {
+                    vdiv.appendChild(document.createTextNode(`, ${venue.city}`));
+                }
+                if (venue.postcode) {
+                    vdiv.appendChild(document.createTextNode(` ${venue.postcode}`));
+                }
+                header.appendChild(vdiv);
+            }
+
+            if (clubRecord.price) {
+                const p = document.createElement('div');
+                p.style.cssText = 'margin-top:4px;font-size:14px;color:#555;';
+                p.textContent = clubRecord.price;
+                header.appendChild(p);
+            }
+
+            // Icons row
+            const iconsRow = document.createElement('div');
+            iconsRow.className = 'club-icons';
+            if (clubRecord.link) {
+                const g = icon(GLOBE_SVG, clubRecord.link, 'event-website', 'Website');
+                g.querySelector('svg').style.fill = '#555';
+                iconsRow.appendChild(g);
+            }
+            if (clubRecord.email) {
+                iconsRow.appendChild(icon(EMAIL_SVG, `mailto:${clubRecord.email}`, 'event-email', 'Email'));
+            }
+            if (clubRecord.facebook) {
+                iconsRow.appendChild(icon(FACEBOOK_SVG, normaliseFacebook(clubRecord.facebook), 'event-facebook', 'Facebook'));
+            }
+            if (iconsRow.children.length) header.appendChild(iconsRow);
+
+            if (clubRecord.club_flyer) {
+                const img = document.createElement('img');
+                img.src = clubRecord.club_flyer;
+                img.className = 'club-flyer';
+                img.alt = clubRecord.name;
+                header.appendChild(img);
+            }
+
+            root.appendChild(header);
+
+            // Map (only if we have a lat/lon)
+            const latlon = venue && venue.latlon;
+            if (latlon) {
+                const mapWrap = document.createElement('div');
+                mapWrap.id = 'map-container';
+                root.appendChild(mapWrap);
+                const mapDiv = document.createElement('div');
+                mapDiv.id = 'map';
+                mapDiv.style.height = '100%';
+                mapWrap.appendChild(mapDiv);
+
+                // Defer map init so the div is in the DOM
+                setTimeout(() => {
+                    const map = L.map('map').setView(latlon, 14);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+                    const popupHtml = `<strong>${venue.name}</strong><br>${venue.full_address || venue.city || ''}`;
+                    L.marker(latlon).addTo(map).bindPopup(popupHtml).openPopup();
+                }, 0);
+            }
+
+            // ── Sections ──────────────────────────────────────────────────────
+            function sectionHeading(text, cls) {
+                const h = document.createElement('h2');
+                h.className = `section-heading ${cls}`;
+                h.textContent = text;
+                return h;
+            }
+
+            function renderSpecificEvent(ev, isPast) {
+                const card = document.createElement('div');
+                card.className = 'specific-event' + (ev.isSpecial ? ' is-special' : '') + (isPast ? ' is-past' : '');
+
+                // Show name
+                const showname = document.createElement('div');
+                showname.className = 'showname';
+                showname.textContent = ev.showname || ev.name;
+                card.appendChild(showname);
+
+                // Performer
+                const pName = performerName(ev.performer_id) || ev.performer || null;
+                if (pName) {
+                    const pDiv = document.createElement('div');
+                    pDiv.className = 'performer';
+                    const pUrl = performerUrl(ev.performer_id);
+                    if (pUrl) {
+                        const a = document.createElement('a');
+                        a.href = pUrl; a.target = '_blank';
+                        a.style.color = 'inherit';
+                        a.textContent = pName;
+                        pDiv.appendChild(a);
+                    } else {
+                        pDiv.textContent = pName;
+                    }
+                    card.appendChild(pDiv);
+                }
+
+                // Venue (if different from club's home venue)
+                const evVenue = data.venues[ev.venue_id] || null;
+                if (evVenue) {
+                    const locDiv = document.createElement('div');
+                    locDiv.className = 'event-location';
+                    locDiv.textContent = evVenue.name + (evVenue.city ? `, ${evVenue.city}` : '') + (evVenue.postcode ? ` ${evVenue.postcode}` : '');
+                    card.appendChild(locDiv);
+                }
+
+                // Date + time
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'event-date';
+                dateDiv.textContent = formatDate(ev._date) + (ev.time ? ` • ${ev.time}` : '') + (ev.price ? ` • ${ev.price}` : '');
+                card.appendChild(dateDiv);
+
+                // Expandable: description + tickets
+                const hasDesc = ev.description && ev.description.trim();
+                const hasTickets = ev.ticket_url;
+                const hasFbEvent = ev.fb_event;
+
+                if (hasTickets || hasFbEvent) {
+                    const tickets = document.createElement('div');
+                    tickets.className = 'event-tickets';
+                    if (hasTickets) {
+                        const a = document.createElement('a');
+                        a.href = ev.ticket_url; a.target = '_blank';
+                        a.textContent = 'Tickets available here';
+                        tickets.appendChild(a);
+                    }
+                    if (hasFbEvent) {
+                        if (hasTickets) {
+                            const sep = document.createElement('span');
+                            sep.className = 'separator'; sep.textContent = ' | ';
+                            tickets.appendChild(sep);
+                        }
+                        const fbUrl = `https://www.facebook.com/events/${ev.fb_event}`;
+                        const fbA = document.createElement('a');
+                        fbA.href = fbUrl; fbA.target = '_blank';
+                        fbA.innerHTML = FACEBOOK_SVG;
+                        fbA.querySelector('svg').style.cssText = 'width:20px;height:20px;vertical-align:middle;';
+                        tickets.appendChild(fbA);
+                    }
+                    card.appendChild(tickets);
+                }
+
+                if (hasDesc) {
+                    const btn = document.createElement('button');
+                    btn.className = 'expand-btn';
+                    btn.textContent = 'More info…';
+
+                    const expandable = document.createElement('div');
+                    expandable.className = 'expandable';
+
+                    const desc = document.createElement('div');
+                    desc.className = 'event-description';
+                    desc.innerHTML = ev.description
+                        .split('\n\n\n\n')
+                        .map(p => p.trim())
+                        .filter(Boolean)
+                        .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+                        .join('');
+                    expandable.appendChild(desc);
+
+                    btn.addEventListener('click', () => {
+                        const open = expandable.classList.toggle('open');
+                        btn.textContent = open ? 'Less info' : 'More info…';
+                    });
+
+                    card.appendChild(btn);
+                    card.appendChild(expandable);
+                }
+
+                return card;
+            }
+
+            // Upcoming specific events
+            if (upcomingEvents.length) {
+                root.appendChild(sectionHeading('Upcoming events', 'upcoming'));
+                upcomingEvents.forEach(e => root.appendChild(renderSpecificEvent(e, false)));
+            } else {
+                root.appendChild(sectionHeading('Upcoming events', 'upcoming'));
+                const none = document.createElement('p');
+                none.className = 'no-events';
+                none.textContent = 'No specific upcoming events listed — check the schedule above for regular meeting dates.';
+                root.appendChild(none);
+            }
+
+            // Past specific events (most recent first)
+            if (pastEvents.length) {
+                root.appendChild(sectionHeading('Past events', 'past'));
+                [...pastEvents].reverse().forEach(e => root.appendChild(renderSpecificEvent(e, true)));
+            }
+
+        })();
+
+        // ── Directory (no club= param) ────────────────────────────────────────────
+        async function renderDirectory(data) {
+            document.title = 'Story Clubs — New Troubadours';
+            const root = document.getElementById('page-content');
+            root.innerHTML = '';
+
+            const h1 = document.createElement('h1');
+            h1.textContent = 'Story Clubs';
+            root.appendChild(h1);
+
+            const clubs = data.events.filter(e => e.club);
+            clubs.sort((a, b) => a.name.localeCompare(b.name));
+
+            const list = document.createElement('div');
+            clubs.forEach(c => {
+                const venue = data.venues[c.venue_id];
+                const card = document.createElement('div');
+                card.className = 'event';
+                card.style.cursor = 'pointer';
+                card.onclick = () => location.href = `club.html?club=${c.club}`;
+
+                const name = document.createElement('div');
+                name.className = 'event-name';
+                name.textContent = c.name;
+                card.appendChild(name);
+
+                if (c.schedule) {
+                    const s = document.createElement('div');
+                    s.className = 'event-date';
+                    s.textContent = `Meets ${c.schedule}` + (c.time ? ` • ${c.time}` : '');
+                    card.appendChild(s);
+                }
+
+                if (venue) {
+                    const loc = document.createElement('div');
+                    loc.className = 'event-location';
+                    loc.textContent = venue.name + (venue.city ? `, ${venue.city}` : '');
+                    card.appendChild(loc);
+                }
+
+                list.appendChild(card);
+            });
+
+            root.appendChild(list);
+        }
+    </script>
+</body>
+
+</html>
