@@ -184,28 +184,6 @@ function loadTour() {
   updateURL(tourId);
 }
 
-function createPerformerLinkElement(performer, isHeader = true) {
-  if (!performer) return null;
-
-  if (performer.url) {
-    const safeUrl = sanitizeUrl(performer.url);
-    const link = document.createElement("a");
-    link.href = safeUrl;
-    link.target = "_blank";
-    link.className = `performer-link ${isHeader ? "site-link-header" : "site-link-footer"}`;
-    link.textContent = isHeader
-      ? `Visit ${performer.name}'s Website`
-      : `Official Website: ${performer.name}`;
-    return link;
-  } else {
-    // Return a plain span if no URL exists
-    const span = document.createElement("span");
-    span.className = `performer-link performer-name-plain ${isHeader ? "site-link-header" : "site-link-footer"}`;
-    span.textContent = performer.name;
-    return span;
-  }
-}
-
 function displayTour(tourId) {
   const tour = toursLookup[tourId];
   if (!tour) {
@@ -330,14 +308,25 @@ function displayTourDates(tour, status) {
   const datesContainer = document.getElementById("tourDatesList");
   datesContainer.innerHTML = "";
 
+  // Show the hide-past checkbox only for current tours; reset it on each load
+  const hidePastLabel = document.getElementById("hidePastLabel");
+  const hidePastCheckbox = document.getElementById("hidePastDates");
+  hidePastCheckbox.checked = false;
+  hidePastLabel.style.display = status === "current" ? "" : "none";
+
   if (!tour.tour_dates || tour.tour_dates.length === 0) {
     datesContainer.innerHTML = "<p>No dates scheduled yet.</p>";
     return;
   }
 
-  const sortedDates = [...tour.tour_dates].sort(
-    (a, b) => parseDateString(a.date) - parseDateString(b.date),
-  );
+  const sortedDates = [...tour.tour_dates].sort((a, b) => {
+    const dateA = parseDateString(a.date);
+    const dateB = parseDateString(b.date);
+    if (!dateA && !dateB) return 0;
+    if (!dateA) return 1;
+    if (!dateB) return -1;
+    return dateA - dateB;
+  });
 
   let firstUpcomingEl = null;
 
@@ -451,6 +440,12 @@ function createTourDateElement(tourDate, tour, past = false) {
   }
 
   return div;
+}
+
+function togglePastDates(hide) {
+  document.querySelectorAll("#tourDatesList .date-past").forEach((el) => {
+    el.style.display = hide ? "none" : "";
+  });
 }
 
 function resetMapZoom() {
@@ -589,26 +584,130 @@ function addTourMarkersToMap(tour) {
 }
 
 // ---------------------------------------------------------------------------
+// Touring Panels — shared helpers
+// ---------------------------------------------------------------------------
+
+function fmtShort(d) {
+  return d
+    ? d.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+    : "?";
+}
+
+function tourAllDates(tour) {
+  return (tour.tour_dates || [])
+    .map((d) => parseDateString(d.date))
+    .filter(Boolean)
+    .sort((a, b) => a - b);
+}
+
+/**
+ * Build a single tour card and return it.
+ * @param {string}   tourId
+ * @param {object}   tour
+ * @param {Date[]}   allDates   pre-computed sorted dates (from buildTouringRow)
+ * @param {string}   badgeText  e.g. "3 dates remaining" or "4 dates"
+ */
+function buildTouringCard(tourId, tour, allDates, badgeText) {
+  const performer = performersLookup[tour.performer_id];
+
+  const card = document.createElement("div");
+  card.className = "now-touring-card";
+  if (tour.isMusic) card.classList.add("music");
+
+  const showName = document.createElement("div");
+  showName.className = "now-touring-show-name";
+  showName.textContent = tour.showname || tour.name;
+  card.appendChild(showName);
+
+  if (performer) {
+    const perfName = document.createElement("div");
+    perfName.className = "now-touring-performer";
+    perfName.textContent = performer.name;
+    card.appendChild(perfName);
+  }
+
+  const dateRange = document.createElement("div");
+  dateRange.className = "now-touring-dates";
+  dateRange.textContent = `${fmtShort(allDates[0])} → ${fmtShort(allDates[allDates.length - 1])}`;
+  card.appendChild(dateRange);
+
+  const badge = document.createElement("div");
+  badge.className = "now-touring-badge";
+  badge.textContent = badgeText;
+  card.appendChild(badge);
+
+  card.addEventListener("click", () => {
+    const performerSelect = document.getElementById("performerSelect");
+    const tourSelect = document.getElementById("tourSelect");
+
+    if (tour.performer_id) {
+      performerSelect.value = tour.performer_id;
+      handlePerformerChange();
+    }
+    tourSelect.value = tourId;
+    displayTour(tourId);
+    updateURL(tourId);
+
+    document
+      .getElementById("tourContent")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  return card;
+}
+
+/**
+ * Build a labelled row of tour cards and append it to container.
+ * @param {Array}    tours      [[tourId, tour], ...]
+ * @param {string}   label      display label
+ * @param {string}   labelClass CSS modifier class for colour
+ * @param {Element}  container  DOM node to append the row to
+ * @param {Function} badgeFn    (tour, allDates) => string
+ */
+function buildTouringRow(tours, label, labelClass, container, badgeFn) {
+  if (tours.length === 0) return;
+
+  const row = document.createElement("div");
+  row.className = "now-touring-row";
+
+  const rowLabel = document.createElement("div");
+  rowLabel.className = `now-touring-row-label ${labelClass}`;
+  rowLabel.textContent = label;
+  row.appendChild(rowLabel);
+
+  const grid = document.createElement("div");
+  grid.className = "now-touring-grid";
+
+  tours.forEach(([tourId, tour]) => {
+    const allDates = tourAllDates(tour);
+    grid.appendChild(
+      buildTouringCard(tourId, tour, allDates, badgeFn(tour, allDates)),
+    );
+  });
+
+  row.appendChild(grid);
+  container.appendChild(row);
+}
+
+// ---------------------------------------------------------------------------
 // Now Touring Panel
 // ---------------------------------------------------------------------------
 
 /**
- * Build and insert a "Now Touring" panel above .tour-controls.
- * Shows tours whose date range straddles today (status === "current").
- * Story tours and music tours appear in separate labelled rows.
- * Each card sets both dropdowns and calls displayTour() on click.
+ * Populates #nowTouringPanel with tours currently in progress (status === "current").
+ * Badge shows remaining dates.
  */
 function renderNowTouringPanel() {
   const currentTours = Object.entries(toursLookup).filter(
     ([_, tour]) => getTourStatus(tour) === "current",
   );
-
   if (currentTours.length === 0) return;
 
   const today = getTodayMidnight();
-
-  const storyTours = currentTours.filter(([_, t]) => !t.isMusic);
-  const musicTours = currentTours.filter(([_, t]) => t.isMusic);
 
   const panel = document.createElement("div");
   panel.className = "now-touring-panel";
@@ -618,109 +717,112 @@ function renderNowTouringPanel() {
   heading.textContent = "🎭 Now Touring";
   panel.appendChild(heading);
 
-  /**
-   * Build one labelled row of cards.
-   * @param {Array} tours  - [[tourId, tour], ...]
-   * @param {string} label - display label
-   * @param {string} labelClass - CSS modifier class for colour
-   */
-  function buildRow(tours, label, labelClass) {
-    if (tours.length === 0) return;
+  const badgeFn = (tour, allDates) => {
+    const remaining = allDates.filter((d) => d >= today).length;
+    return remaining === 1
+      ? "1 date remaining"
+      : `${remaining} dates remaining`;
+  };
 
-    const row = document.createElement("div");
-    row.className = "now-touring-row";
-
-    const rowLabel = document.createElement("div");
-    rowLabel.className = `now-touring-row-label ${labelClass}`;
-    rowLabel.textContent = label;
-    row.appendChild(rowLabel);
-
-    const grid = document.createElement("div");
-    grid.className = "now-touring-grid";
-
-    tours.forEach(([tourId, tour]) => {
-      const performer = performersLookup[tour.performer_id];
-
-      const allDates = (tour.tour_dates || [])
-        .map((d) => parseDateString(d.date))
-        .filter(Boolean)
-        .sort((a, b) => a - b);
-
-      const firstDate = allDates[0];
-      const lastDate = allDates[allDates.length - 1];
-      const remainingDates = allDates.filter((d) => d >= today).length;
-
-      const fmtShort = (d) =>
-        d
-          ? d.toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })
-          : "?";
-
-      const card = document.createElement("div");
-      card.className = "now-touring-card";
-      if (tour.isMusic) card.classList.add("music");
-
-      const showName = document.createElement("div");
-      showName.className = "now-touring-show-name";
-      showName.textContent = tour.showname || tour.name;
-      card.appendChild(showName);
-
-      if (performer) {
-        const perfName = document.createElement("div");
-        perfName.className = "now-touring-performer";
-        perfName.textContent = performer.name;
-        card.appendChild(perfName);
-      }
-
-      const dateRange = document.createElement("div");
-      dateRange.className = "now-touring-dates";
-      dateRange.textContent = `${fmtShort(firstDate)} → ${fmtShort(lastDate)}`;
-      card.appendChild(dateRange);
-
-      const badge = document.createElement("div");
-      badge.className = "now-touring-badge";
-      badge.textContent =
-        remainingDates === 1
-          ? "1 date remaining"
-          : `${remainingDates} dates remaining`;
-      card.appendChild(badge);
-
-      card.addEventListener("click", () => {
-        const performerSelect = document.getElementById("performerSelect");
-        const tourSelect = document.getElementById("tourSelect");
-
-        if (tour.performer_id) {
-          performerSelect.value = tour.performer_id;
-          handlePerformerChange();
-        }
-        tourSelect.value = tourId;
-        displayTour(tourId);
-        updateURL(tourId);
-
-        document
-          .getElementById("tourContent")
-          .scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-
-      grid.appendChild(card);
-    });
-
-    row.appendChild(grid);
-    panel.appendChild(row);
-  }
-
-  buildRow(storyTours, "📖 Stories & Spoken Word", "label-stories");
-  buildRow(musicTours, "🎵 Music", "label-music");
+  buildTouringRow(
+    currentTours.filter(([_, t]) => !t.isMusic),
+    "📖 Stories & Spoken Word",
+    "label-stories",
+    panel,
+    badgeFn,
+  );
+  buildTouringRow(
+    currentTours.filter(([_, t]) => t.isMusic),
+    "🎵 Music",
+    "label-music",
+    panel,
+    badgeFn,
+  );
 
   const container = document.getElementById("nowTouringPanel");
-  if (container) {
-    container.appendChild(panel);
-  } else {
-    document.body.appendChild(panel);
+  (container || document.body).appendChild(panel);
+}
+
+// ---------------------------------------------------------------------------
+// Upcoming Tours Panel
+// ---------------------------------------------------------------------------
+
+/**
+ * Populates #upcomingToursBody with future tours (status === "future").
+ * Badge shows total date count. Hides wrapper if nothing to show.
+ */
+function renderUpcomingToursPanel() {
+  const container = document.getElementById("upcomingToursBody");
+  const wrapper = document.getElementById("upcomingToursPanel");
+  if (!container || !wrapper) return;
+
+  const upcomingTours = Object.entries(toursLookup).filter(
+    ([_, tour]) => getTourStatus(tour) === "future",
+  );
+
+  if (upcomingTours.length === 0) {
+    wrapper.classList.add("no-upcoming");
+    return;
   }
+
+  const badgeFn = (_, allDates) =>
+    allDates.length === 1 ? "1 date" : `${allDates.length} dates`;
+
+  buildTouringRow(
+    upcomingTours.filter(([_, t]) => !t.isMusic),
+    "📖 Stories & Spoken Word",
+    "label-stories",
+    container,
+    badgeFn,
+  );
+  buildTouringRow(
+    upcomingTours.filter(([_, t]) => t.isMusic),
+    "🎵 Music",
+    "label-music",
+    container,
+    badgeFn,
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Past Tours Panel
+// ---------------------------------------------------------------------------
+
+/**
+ * Populates #pastToursBody with completed tours (status === "past").
+ * Badge shows total date count. Hides wrapper if nothing to show.
+ */
+function renderPastToursPanel() {
+  const container = document.getElementById("pastToursBody");
+  const wrapper = document.getElementById("pastToursPanel");
+  if (!container || !wrapper) return;
+
+  const pastTours = Object.entries(toursLookup).filter(
+    ([_, tour]) => getTourStatus(tour) === "past",
+  );
+
+  if (pastTours.length === 0) {
+    wrapper.classList.add("no-past");
+    return;
+  }
+
+  const badgeFn = (_, allDates) =>
+    allDates.length === 1 ? "1 date" : `${allDates.length} dates`;
+
+  buildTouringRow(
+    pastTours.filter(([_, t]) => !t.isMusic),
+    "📖 Stories & Spoken Word",
+    "label-stories",
+    container,
+    badgeFn,
+  );
+  buildTouringRow(
+    pastTours.filter(([_, t]) => t.isMusic),
+    "🎵 Music",
+    "label-music",
+    container,
+    badgeFn,
+  );
 }
 
 // Initialize on page load
@@ -755,6 +857,12 @@ window.addEventListener("load", async () => {
 
   renderNowTouringPanel();
   console.log("Now Touring panel rendered");
+
+  renderUpcomingToursPanel();
+  console.log("Upcoming Tours panel rendered");
+
+  renderPastToursPanel();
+  console.log("Past Tours panel rendered");
 
   // If URL has tour/performer params, load them.
   // When only ?tour= is supplied (no performer=), derive the performer from

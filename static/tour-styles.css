@@ -198,6 +198,27 @@ select {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.tour-dates-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.tour-dates-header h3 {
+    margin: 0;
+}
+
+.hide-past-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85em;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+}
+
 @media (min-width: 1024px) {
     .page-tour .layout-container {
         flex-direction: row;
@@ -249,21 +270,6 @@ select {
 .tour-date-item.music:hover {
     filter: brightness(1.1);
     transform: translateX(5px);
-}
-
-.date-header {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.date-details {
-    color: #666;
-    font-size: 14px;
-}
-
-.tour-date-item.music .date-details {
-    color: #c8e6c9;
 }
 
 /* Past date styling */
@@ -582,4 +588,75 @@ select {
 .tour-banner-current {
     background: #fff8e1;
     color: #f57f17;
+}
+
+
+/* =============================================================
+   9. UPCOMING TOURS PANEL
+   Collapsible <details> wrapper. Card content reuses all the
+   .now-touring-* classes from section 8 — only the chrome and
+   the slate accent colour are new here.
+   ============================================================= */
+
+#upcomingToursPanel.no-upcoming {
+    display: none;
+}
+
+#pastToursPanel.no-past {
+    display: none;
+}
+
+/* margin-bottom on both panels comes from .upcoming-tours-details / .past-tours-details below */
+.upcoming-tours-details,
+.past-tours-details {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3a5f8a;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.upcoming-tours-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.upcoming-tours-summary::-webkit-details-marker { display: none; }
+.upcoming-tours-summary:hover { background: #f5f8fb; }
+
+.upcoming-tours-summary-label {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #3a5f8a;
+    letter-spacing: 0.02em;
+}
+
+.upcoming-tours-summary-label::before {
+    content: "▸ ";
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.upcoming-tours-details[open] .upcoming-tours-summary-label::before {
+    transform: rotate(90deg);
+}
+
+.upcoming-tours-summary-hint {
+    font-size: 0.8em;
+    color: #888;
+    font-style: italic;
+    transition: opacity 0.2s;
+}
+
+.upcoming-tours-details[open] .upcoming-tours-summary-hint { opacity: 0; }
+
+.upcoming-tours-body {
+    padding: 0 20px 20px;
+    animation: slideDown 0.25s ease-out;
 }

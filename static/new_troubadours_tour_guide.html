@@ -15,7 +15,31 @@
 
     <a href="new_troubadours_event_guide.html" class="back-link">View Complete Events Calendar Map</a>
 
+    <div id="pastToursPanel">
+        <details class="past-tours-details">
+            <summary class="upcoming-tours-summary">
+                <span class="upcoming-tours-summary-label">📜 Previous Tours</span>
+                <span class="upcoming-tours-summary-hint">click to expand</span>
+            </summary>
+            <div class="upcoming-tours-body" id="pastToursBody">
+                <!-- Populated by renderPastToursPanel() in tour_display.js -->
+            </div>
+        </details>
+    </div>
+
     <div id="nowTouringPanel"></div>
+
+    <div id="upcomingToursPanel">
+        <details class="upcoming-tours-details">
+            <summary class="upcoming-tours-summary">
+                <span class="upcoming-tours-summary-label">🗓️ Upcoming Tours</span>
+                <span class="upcoming-tours-summary-hint">click to expand</span>
+            </summary>
+            <div class="upcoming-tours-body" id="upcomingToursBody">
+                <!-- Populated by renderUpcomingToursPanel() in tour_display.js -->
+            </div>
+        </details>
+    </div>
 
     <a href="new_troubadours_event_guide.html" class="back-link">View Complete Events Calendar Map</a>
 
@@ -62,7 +86,13 @@
                 <div id="map"></div>
             </div>
             <div class="tour-dates-list">
-                <h3>Tour Dates</h3>
+                <div class="tour-dates-header">
+                    <h3>Tour Dates</h3>
+                    <label class="hide-past-label" id="hidePastLabel" style="display:none;">
+                        <input type="checkbox" id="hidePastDates" onchange="togglePastDates(this.checked)">
+                        Hide past dates
+                    </label>
+                </div>
                 <div id="tourDatesList"></div>
             </div>
         </div>
