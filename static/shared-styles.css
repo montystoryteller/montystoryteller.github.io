@@ -258,13 +258,7 @@ select {
 }
 
 /* Default icon colours */
-.event-facebook svg {
-    fill: #1877f2;
-}
-
-.event-facebook:hover svg {
-    fill: #145dbf;
-}
+/* Facebook colours are baked into the SVG itself */
 
 .event-email svg {
     fill: #ffffff;
@@ -287,6 +281,11 @@ select {
 }
 
 /* Music variant icon overrides */
+/* Invert facebook on blue background so it reads as white circle / blue f */
+.event.music .event-facebook svg {
+    filter: invert(1);
+}
+
 .event.music .event-email svg {
     fill: #77ee77;
 }
@@ -325,21 +324,6 @@ select {
     fill: #1a5c1a;
 }
 
-/* Facebook inline icon — fill/stroke base.
-   Note: .event-facebook-inline layout rules (display, dimensions, hover) live in
-   tour-styles.css, which loads after this file on the tour page.
-   On the event guide page only this fill rule applies; on the tour page
-   tour-styles.css overrides fill back to #1877f2 (blue). */
-.folk svg {
-    fill: #ffffff;
-}
-
-.folk svg path,
-.event-facebook-inline svg path {
-    stroke: #1877f2;
-    stroke-width: 2px;
-    stroke-linejoin: round;
-}
 
 
 /* =============================================================
