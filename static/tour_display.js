@@ -697,130 +697,87 @@ function buildTouringRow(tours, label, labelClass, container, badgeFn) {
 // Now Touring Panel
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Touring Panels — renderers
+// ---------------------------------------------------------------------------
+
 /**
- * Populates #nowTouringPanel with tours currently in progress (status === "current").
- * Badge shows remaining dates.
+ * Generic panel renderer. Filters toursLookup by status, builds rows into
+ * the named body element, and hides the wrapper if there's nothing to show.
+ *
+ * @param {string} status      "current" | "future" | "past"
+ * @param {string} bodyId      id of the <div> to populate
+ * @param {string} wrapperId   id of the outer wrapper to hide when empty
+ * @param {string} hideClass   CSS class to add when empty
+ * @param {Function} badgeFn   (tour, allDates) => string
  */
-function renderNowTouringPanel() {
-  const currentTours = Object.entries(toursLookup).filter(
-    ([_, tour]) => getTourStatus(tour) === "current",
+function renderTouringPanel(status, bodyId, wrapperId, hideClass, badgeFn) {
+  const container = document.getElementById(bodyId);
+  const wrapper = document.getElementById(wrapperId);
+  if (!container || !wrapper) return;
+
+  const tours = Object.entries(toursLookup).filter(
+    ([_, tour]) => getTourStatus(tour) === status,
   );
-  if (currentTours.length === 0) return;
 
+  if (tours.length === 0) {
+    wrapper.classList.add(hideClass);
+    return;
+  }
+
+  buildTouringRow(
+    tours.filter(([_, t]) => !t.isMusic),
+    "📖 Stories & Spoken Word",
+    "label-stories",
+    container,
+    badgeFn,
+  );
+  buildTouringRow(
+    tours.filter(([_, t]) => t.isMusic),
+    "🎵 Music",
+    "label-music",
+    container,
+    badgeFn,
+  );
+}
+
+function renderNowTouringPanel() {
   const today = getTodayMidnight();
-
-  const panel = document.createElement("div");
-  panel.className = "now-touring-panel";
-
-  const heading = document.createElement("h3");
-  heading.className = "now-touring-heading";
-  heading.textContent = "🎭 Now Touring";
-  panel.appendChild(heading);
-
   const badgeFn = (tour, allDates) => {
     const remaining = allDates.filter((d) => d >= today).length;
     return remaining === 1
       ? "1 date remaining"
       : `${remaining} dates remaining`;
   };
-
-  buildTouringRow(
-    currentTours.filter(([_, t]) => !t.isMusic),
-    "📖 Stories & Spoken Word",
-    "label-stories",
-    panel,
+  renderTouringPanel(
+    "current",
+    "nowTouringBody",
+    "nowTouringPanel",
+    "no-now-touring",
     badgeFn,
   );
-  buildTouringRow(
-    currentTours.filter(([_, t]) => t.isMusic),
-    "🎵 Music",
-    "label-music",
-    panel,
-    badgeFn,
-  );
-
-  const container = document.getElementById("nowTouringPanel");
-  (container || document.body).appendChild(panel);
 }
 
-// ---------------------------------------------------------------------------
-// Upcoming Tours Panel
-// ---------------------------------------------------------------------------
-
-/**
- * Populates #upcomingToursBody with future tours (status === "future").
- * Badge shows total date count. Hides wrapper if nothing to show.
- */
 function renderUpcomingToursPanel() {
-  const container = document.getElementById("upcomingToursBody");
-  const wrapper = document.getElementById("upcomingToursPanel");
-  if (!container || !wrapper) return;
-
-  const upcomingTours = Object.entries(toursLookup).filter(
-    ([_, tour]) => getTourStatus(tour) === "future",
-  );
-
-  if (upcomingTours.length === 0) {
-    wrapper.classList.add("no-upcoming");
-    return;
-  }
-
   const badgeFn = (_, allDates) =>
     allDates.length === 1 ? "1 date" : `${allDates.length} dates`;
-
-  buildTouringRow(
-    upcomingTours.filter(([_, t]) => !t.isMusic),
-    "📖 Stories & Spoken Word",
-    "label-stories",
-    container,
-    badgeFn,
-  );
-  buildTouringRow(
-    upcomingTours.filter(([_, t]) => t.isMusic),
-    "🎵 Music",
-    "label-music",
-    container,
+  renderTouringPanel(
+    "future",
+    "upcomingToursBody",
+    "upcomingToursPanel",
+    "no-upcoming",
     badgeFn,
   );
 }
 
-// ---------------------------------------------------------------------------
-// Past Tours Panel
-// ---------------------------------------------------------------------------
-
-/**
- * Populates #pastToursBody with completed tours (status === "past").
- * Badge shows total date count. Hides wrapper if nothing to show.
- */
 function renderPastToursPanel() {
-  const container = document.getElementById("pastToursBody");
-  const wrapper = document.getElementById("pastToursPanel");
-  if (!container || !wrapper) return;
-
-  const pastTours = Object.entries(toursLookup).filter(
-    ([_, tour]) => getTourStatus(tour) === "past",
-  );
-
-  if (pastTours.length === 0) {
-    wrapper.classList.add("no-past");
-    return;
-  }
-
   const badgeFn = (_, allDates) =>
     allDates.length === 1 ? "1 date" : `${allDates.length} dates`;
-
-  buildTouringRow(
-    pastTours.filter(([_, t]) => !t.isMusic),
-    "📖 Stories & Spoken Word",
-    "label-stories",
-    container,
-    badgeFn,
-  );
-  buildTouringRow(
-    pastTours.filter(([_, t]) => t.isMusic),
-    "🎵 Music",
-    "label-music",
-    container,
+  renderTouringPanel(
+    "past",
+    "pastToursBody",
+    "pastToursPanel",
+    "no-past",
     badgeFn,
   );
 }

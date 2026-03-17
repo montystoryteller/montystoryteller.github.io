@@ -27,7 +27,17 @@
         </details>
     </div>
 
-    <div id="nowTouringPanel"></div>
+    <div id="nowTouringPanel">
+        <details class="now-touring-details" open>
+            <summary class="upcoming-tours-summary">
+                <span class="upcoming-tours-summary-label">🎭 Now Touring</span>
+                <span class="upcoming-tours-summary-hint">click to collapse</span>
+            </summary>
+            <div class="upcoming-tours-body" id="nowTouringBody">
+                <!-- Populated by renderNowTouringPanel() in tour_display.js -->
+            </div>
+        </details>
+    </div>
 
     <div id="upcomingToursPanel">
         <details class="upcoming-tours-details">

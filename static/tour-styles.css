@@ -415,29 +415,9 @@ select {
 
 
 /* =============================================================
-   8. NOW TOURING PANEL
-   Panel of clickable cards shown above the tour selector controls.
-   Story tours and music tours are rendered in separate labelled rows.
-   Story cards use the site's green theme; music cards use blue.
-   The panel accent colour is warm brown.
+   8. NOW TOURING / UPCOMING / PAST PANELS
+   Shared card grid styles. The <details> chrome lives in section 9.
    ============================================================= */
-
-.now-touring-panel {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #6d4c2a;
-}
-
-.now-touring-heading {
-    margin: 0 0 16px 0;
-    font-size: 1.05em;
-    color: #6d4c2a;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
 
 /* Row wrapper — one per category (stories / music) */
 .now-touring-row {
@@ -606,15 +586,36 @@ select {
     display: none;
 }
 
+#nowTouringPanel.no-now-touring {
+    display: none;
+}
+
 /* margin-bottom on both panels comes from .upcoming-tours-details / .past-tours-details below */
 .upcoming-tours-details,
-.past-tours-details {
+.past-tours-details,
+.now-touring-details {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #3a5f8a;
     overflow: hidden;
     margin-bottom: 20px;
+}
+
+.upcoming-tours-details,
+.past-tours-details {
+    border-top: 4px solid #3a5f8a;
+}
+
+.now-touring-details {
+    border-top: 4px solid #6d4c2a;
+}
+
+.now-touring-details .upcoming-tours-summary-label {
+    color: #6d4c2a;
+}
+
+.now-touring-details .upcoming-tours-summary:hover {
+    background: #fdf6f0;
 }
 
 .upcoming-tours-summary {
@@ -643,7 +644,9 @@ select {
     transition: transform 0.2s ease;
 }
 
-.upcoming-tours-details[open] .upcoming-tours-summary-label::before {
+.upcoming-tours-details[open] .upcoming-tours-summary-label::before,
+.past-tours-details[open] .upcoming-tours-summary-label::before,
+.now-touring-details[open] .upcoming-tours-summary-label::before {
     transform: rotate(90deg);
 }
 
@@ -654,7 +657,9 @@ select {
     transition: opacity 0.2s;
 }
 
-.upcoming-tours-details[open] .upcoming-tours-summary-hint { opacity: 0; }
+.upcoming-tours-details[open] .upcoming-tours-summary-hint,
+.past-tours-details[open] .upcoming-tours-summary-hint,
+.now-touring-details[open] .upcoming-tours-summary-hint { opacity: 0; }
 
 .upcoming-tours-body {
     padding: 0 20px 20px;
