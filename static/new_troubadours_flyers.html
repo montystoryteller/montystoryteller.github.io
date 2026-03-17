@@ -144,7 +144,6 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
         }
 
         .flyer-card:hover {
@@ -454,6 +453,60 @@
             right: 10px;
         }
 
+        /* ── Context menu ────────────────────────────────────── */
+        #ctx-menu {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+            padding: 6px 0;
+            min-width: 210px;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        #ctx-menu.open {
+            display: block;
+        }
+
+        .ctx-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .ctx-item:hover {
+            background: #f1f8f1;
+            color: #1b5e20;
+        }
+
+        .ctx-item .ctx-icon {
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .ctx-divider {
+            height: 1px;
+            background: #eee;
+            margin: 4px 0;
+        }
+
+        .ctx-label {
+            padding: 5px 16px 3px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         /* ── Back link ───────────────────────────────────────── */
         .back-link {
             display: inline-block;
@@ -519,6 +572,9 @@
         <button class="lb-nav" id="lb-next" aria-label="Next">&#8250;</button>
     </div>
 
+    <!-- Context menu -->
+    <div id="ctx-menu" role="menu" aria-label="Flyer options"></div>
+
     <script>
         // ── Constants ─────────────────────────────────────────────────────────────
         const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -526,7 +582,160 @@
         const BASE_EVENT = "./storyclub_assets/event_flyers/";
         const BASE_CLUB = "./storyclub_assets/club_flyers/";
 
-        // ── State ─────────────────────────────────────────────────────────────────
+        const CALENDAR = "new_troubadours_event_guide.html";
+
+        // ── Calendar link builder ─────────────────────────────────────────────────
+        // Constructs a URL back to the events calendar, pre-filtered to the event's
+        // date window and pre-searched for the show name.
+        function calendarLink(item) {
+            const p = new URLSearchParams();
+
+            if (item.isClubGeneric) {
+                // No specific date — just search by club name
+                p.set("q", item.name);
+                p.set("storyclubs", "1");
+                p.set("special", "1");
+            } else {
+                // Use the event date as both start and end, with a ±3-day window
+                const d = new Date(item.date);
+                const from = new Date(d); from.setDate(from.getDate() - 3);
+                const to = new Date(d); to.setDate(to.getDate() + 3);
+                p.set("start", fmtDate(from));
+                p.set("end", fmtDate(to));
+                // Search term: show name stripped of [bracketed performer] suffix
+                const search = (item.name || "").replace(/\s*\[.*?\]\s*$/, "").trim();
+                if (search) p.set("q", search);
+                p.set("storyclubs", "1");
+                p.set("special", "1");
+                if (item.type === "music") p.set("music", "1");
+                if (item.type === "tour") { p.set("special", "1"); }
+            }
+
+            return `${CALENDAR}?${p.toString()}`;
+        }
+
+        function fmtDate(d) {
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+        }
+
+        // ── Context menu ──────────────────────────────────────────────────────────
+        const ctxMenu = document.getElementById("ctx-menu");
+        let ctxItem = null;      // the flyer item the menu was opened for
+        let longPressTimer = null;
+
+        function openCtxMenu(item, x, y) {
+            ctxItem = item;
+            ctxMenu.innerHTML = "";
+
+            // Header label
+            const lbl = document.createElement("div");
+            lbl.className = "ctx-label";
+            lbl.textContent = item.name.length > 30 ? item.name.slice(0, 28) + "…" : item.name;
+            ctxMenu.appendChild(lbl);
+
+            const div1 = document.createElement("div");
+            div1.className = "ctx-divider";
+            ctxMenu.appendChild(div1);
+
+            // Build menu items based on what links are available
+            const dest = resolveLink(item);
+            const cal = calendarLink(item);
+
+            function menuItem(icon, label, href) {
+                const a = document.createElement("a");
+                a.className = "ctx-item";
+                a.href = href;
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.innerHTML = `<span class="ctx-icon">${icon}</span><span>${label}</span>`;
+                a.addEventListener("click", () => closeCtxMenu());
+                ctxMenu.appendChild(a);
+            }
+
+            if (item.ticketUrl?.trim()) menuItem("🎟", "Buy tickets", item.ticketUrl.trim());
+            if (item.performerUrl?.trim()) menuItem("🎤", "Performer website", item.performerUrl.trim());
+            if (item.clubLink?.trim() && item.type !== "story")
+                menuItem("🏠", "Club website", item.clubLink.trim());
+            if (item.festWebsite?.trim()) menuItem("🎪", "Festival website", item.festWebsite.trim());
+
+            // Internal pages
+            if (item.type === "tour" && item.tourKey) {
+                let tourUrl = `new_troubadours_tour_guide.html?tour=${encodeURIComponent(item.tourKey)}`;
+                if (item.performerId) tourUrl += `&performer=${encodeURIComponent(item.performerId)}`;
+                menuItem("🗺", "Tour dates & map", tourUrl);
+            }
+            if ((item.type === "story" || item.type === "club") && item.clubId) {
+                menuItem("ℹ️", "Club page", `new_troubadours_storyclub.html?club=${encodeURIComponent(item.clubId)}`);
+            }
+
+            // Always show calendar link
+            const div2 = document.createElement("div");
+            div2.className = "ctx-divider";
+            ctxMenu.appendChild(div2);
+            menuItem("📅", "Find on events calendar", cal);
+
+            // Lightbox
+            menuItem("🔍", "View full flyer", "__lightbox__");
+            // Fix up the lightbox item — it's not a real URL
+            const lbItem = ctxMenu.lastElementChild;
+            lbItem.removeAttribute("href");
+            lbItem.removeAttribute("target");
+            lbItem.addEventListener("click", e => {
+                e.preventDefault();
+                closeCtxMenu();
+                // find this item in allItems
+                const idx = allItems.filter(i => activeTypes.has(i.type)).indexOf(item);
+                if (idx >= 0) openLightbox(allItems.filter(i => activeTypes.has(i.type)), idx);
+            });
+
+            // Facebook last — only if it's the only option or explicitly present
+            if (item.fbEvent?.trim() && !dest) menuItem("📘", "Facebook event", item.fbEvent.trim());
+            else if (item.fbEvent?.trim()) menuItem("📘", "Facebook event", item.fbEvent.trim());
+            if (item.clubFacebook?.trim() && item.type === "club")
+                menuItem("📘", "Club Facebook", item.clubFacebook.trim());
+
+            // Position — keep within viewport
+            ctxMenu.classList.add("open");
+            const mw = ctxMenu.offsetWidth || 220;
+            const mh = ctxMenu.offsetHeight || 200;
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            ctxMenu.style.left = Math.min(x, vw - mw - 8) + "px";
+            ctxMenu.style.top = Math.min(y, vh - mh - 8) + "px";
+        }
+
+        function closeCtxMenu() {
+            ctxMenu.classList.remove("open");
+            ctxItem = null;
+        }
+
+        // Close on outside click or Escape
+        document.addEventListener("click", e => { if (!ctxMenu.contains(e.target)) closeCtxMenu(); });
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeCtxMenu(); });
+        document.addEventListener("scroll", () => closeCtxMenu(), { passive: true });
+
+        // ── Attach context menu + long-press to a card ────────────────────────────
+        function attachContextMenu(card, item) {
+            // Right-click
+            card.addEventListener("contextmenu", e => {
+                e.preventDefault();
+                openCtxMenu(item, e.clientX, e.clientY);
+            });
+
+            // Long-press (touch)
+            card.addEventListener("touchstart", e => {
+                const touch = e.touches[0];
+                longPressTimer = setTimeout(() => {
+                    longPressTimer = null;
+                    openCtxMenu(item, touch.clientX, touch.clientY);
+                }, 500);
+            }, { passive: true });
+
+            card.addEventListener("touchend", () => { clearTimeout(longPressTimer); longPressTimer = null; });
+            card.addEventListener("touchmove", () => { clearTimeout(longPressTimer); longPressTimer = null; });
+        }
+
+
         const activeTypes = new Set(["story", "club", "tour", "music", "festival"]);
         let allItems = [];
         let lbItems = [];
@@ -631,6 +840,7 @@
             const seen = new Set();
 
             function perf(id) { return id && performers[id] ? performers[id].name : null; }
+            function perfUrl(id) { return id && performers[id] ? performers[id].url || "" : ""; }
             function ven(id) { return venues[id] || {}; }
 
             function push(flyer, flyerBase, dateStr, type, name, performerId, venueId, ticketUrl, extra) {
@@ -649,6 +859,8 @@
                     type,
                     name,
                     performer: perf(performerId),
+                    performerId: performerId || "",
+                    performerUrl: perfUrl(performerId),
                     venue: v.name || "",
                     city: v.city || "",
                     ticketUrl: ticketUrl || "",
@@ -661,19 +873,26 @@
             for (const e of data.specificEvents || []) {
                 if (!e.event_flyer?.trim()) continue;
                 const type = e.isMusic ? "music" : "story";
+                const clubRec = e.club ? (data.events || []).find(c => c.club === e.club) : null;
                 push(e.event_flyer, "event", e.date, type,
-                    e.showname || e.name, e.performer_id, e.venue_id, e.ticket_url, { clubId: e.club || "" });
+                    e.showname || e.name, e.performer_id, e.venue_id, e.ticket_url, {
+                    clubId: e.club || "",
+                    fbEvent: e.fb_event ? `https://www.facebook.com/events/${e.fb_event}` : "",
+                    clubLink: clubRec?.link || "",
+                });
             }
 
             // musicEvents
             for (const e of data.musicEvents || []) {
                 if (!e.event_flyer?.trim()) continue;
                 push(e.event_flyer, "event", e.date, "music",
-                    e.showname || e.name, e.performer_id, e.venue_id, e.ticket_url, {});
+                    e.showname || e.name, e.performer_id, e.venue_id, e.ticket_url, {
+                    fbEvent: e.fb_event ? `https://www.facebook.com/events/${e.fb_event}` : "",
+                });
             }
 
             // tours — one card per tour keyed on earliest date in window
-            for (const [, tour] of Object.entries(data.tours || {})) {
+            for (const [tourKey, tour] of Object.entries(data.tours || {})) {
                 const flyer = tour.tour_flyer;
                 if (!flyer?.trim()) continue;
                 const datesInWindow = (tour.tour_dates || [])
@@ -685,10 +904,12 @@
                 const last = datesInWindow[datesInWindow.length - 1];
                 push(flyer, "event", rep.date, "tour",
                     tour.tour_name || tour.name, tour.performer_id, rep.venue_id, rep.ticket_url, {
+                    tourKey: tourKey,
                     tourDateRange: datesInWindow.length > 1
                         ? `${formatDateShort(datesInWindow[0]._dt)} – ${formatDateShort(last._dt)}`
                         : null,
                     tourDateCount: datesInWindow.length,
+                    fbEvent: rep.fb_event ? `https://www.facebook.com/events/${rep.fb_event}` : "",
                 });
             }
 
@@ -709,6 +930,8 @@
                 push(flyer, "event", fest.start_date, "festival",
                     fest.name, null, fest.venue_id, fest.ticket_url, {
                     festEnd: fest.end_date ? parseDate(fest.end_date) : null,
+                    festWebsite: fest.website || "",
+                    festFacebook: fest.facebook || "",
                 });
             }
 
@@ -727,14 +950,17 @@
                 items.push({
                     flyer,
                     flyerBase: "club",
-                    date: now, // pin to today so it lands in "upcoming"
+                    date: now,
                     dateStr: null,
                     type: "club",
                     name: e.name,
                     performer: null,
+                    performerUrl: "",
                     venue: v.name || "",
                     city: v.city || "",
                     ticketUrl: e.tickets_url || "",
+                    clubLink: e.link || "",
+                    clubFacebook: e.facebook || "",
                     isPast: false,
                     isClubGeneric: true,
                     schedule: e.schedule || "",
@@ -771,12 +997,22 @@
             else if (item.tourDateRange) dateLine = `${item.tourDateRange} (${item.tourDateCount} dates)`;
             else dateLine = formatDate(item.date);
 
+            const dest = resolveLink(item);
+            const cal = calendarLink(item);
+            const destLabel = item.ticketUrl?.trim() ? "Tickets →"
+                : item.type === "club" && item.clubLink?.trim() ? "Club website →"
+                    : item.performerUrl?.trim() && dest === item.performerUrl?.trim() ? "Performer website →"
+                        : dest ? "More info →" : "";
+
             document.getElementById("lightbox-caption").innerHTML = `
         <div class="lb-title">${item.name}</div>
         ${item.performer ? `<div class="lb-performer">${item.performer}</div>` : ""}
         ${item.venue ? `<div class="lb-meta">${item.venue}${item.city ? ", " + item.city : ""}</div>` : ""}
         <div class="lb-meta">${dateLine}</div>
-        ${item.ticketUrl ? `<div style="margin-top:8px"><a href="${item.ticketUrl}" target="_blank" style="color:#90ee90;font-size:13px;font-weight:bold;">Tickets →</a></div>` : ""}
+        <div style="margin-top:10px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            ${dest ? `<a href="${dest}" target="_blank" rel="noopener noreferrer" style="color:#90ee90;font-size:14px;font-weight:bold;">${destLabel}</a>` : ""}
+            <a href="${cal}" target="_blank" rel="noopener noreferrer" style="color:#aed9ae;font-size:13px;">📅 Events calendar</a>
+        </div>
     `;
             document.getElementById("lb-prev").disabled = lbIndex <= 0;
             document.getElementById("lb-next").disabled = lbIndex >= lbItems.length - 1;
@@ -795,7 +1031,36 @@
         document.getElementById("lb-prev").onclick = () => { if (lbIndex > 0) { lbIndex--; showLbSlide(); } };
         document.getElementById("lb-next").onclick = () => { if (lbIndex < lbItems.length - 1) { lbIndex++; showLbSlide(); } };
 
-        // ── Card builder ──────────────────────────────────────────────────────────
+        // ── Link resolution — priority order by type ─────────────────────────────
+        // story/music: ticket → performer site → club site → fb event
+        // tour:        ticket → performer site → fb event
+        // club:        club site → performer site → club facebook
+        // festival:    ticket → festival website → festival facebook
+        function resolveLink(item) {
+            const t = item.ticketUrl?.trim();
+            const p = item.performerUrl?.trim();
+            const c = item.clubLink?.trim();
+            const fb = item.fbEvent?.trim();
+            const cf = item.clubFacebook?.trim();
+            const fw = item.festWebsite?.trim();
+            const ff = item.festFacebook?.trim();
+
+            if (item.type === "story" || item.type === "music") {
+                return t || p || c || fb || "";
+            }
+            if (item.type === "tour") {
+                return t || p || fb || "";
+            }
+            if (item.type === "club") {
+                return c || p || cf || "";
+            }
+            if (item.type === "festival") {
+                return t || fw || ff || "";
+            }
+            return t || p || "";
+        }
+
+
         const TYPE_LABELS = { story: "Story show", club: "Club", tour: "Tour", music: "Music", festival: "Festival" };
 
         function makeCard(item, visibleItems, indexInVisible) {
@@ -852,21 +1117,42 @@
                 cap.appendChild(v);
             }
 
-            if (item.ticketUrl) {
+            const cardDest = resolveLink(item);
+            if (cardDest) {
                 const actions = document.createElement("div");
                 actions.className = "flyer-actions";
                 const a = document.createElement("a");
-                a.href = item.ticketUrl;
+                a.href = cardDest;
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
-                a.textContent = "Tickets →";
+                a.textContent = item.ticketUrl?.trim() ? "Tickets →"
+                    : item.type === "club" && item.clubLink?.trim() ? "Club website →"
+                        : item.performerUrl?.trim() && cardDest === item.performerUrl.trim() ? "Performer →"
+                            : "More info →";
                 a.addEventListener("click", e => e.stopPropagation());
                 actions.appendChild(a);
                 cap.appendChild(actions);
             }
 
             card.appendChild(cap);
-            card.addEventListener("click", () => openLightbox(visibleItems, indexInVisible));
+
+            // Image click → best link, or calendar as fallback, lightbox only if truly nothing
+            const dest = resolveLink(item);
+            const cal = calendarLink(item);
+            wrap.style.cursor = "pointer";
+            wrap.addEventListener("click", e => {
+                e.stopPropagation();
+                window.open(dest || cal, "_blank", "noopener,noreferrer");
+            });
+
+            // Caption / title area always opens lightbox for full flyer view
+            cap.style.cursor = "zoom-in";
+            cap.addEventListener("click", e => {
+                e.stopPropagation();
+                openLightbox(visibleItems, indexInVisible);
+            });
+
+            attachContextMenu(card, item);
             return card;
         }
 
@@ -913,8 +1199,9 @@
             try {
                 allItems = await loadFlyers();
             } catch (e) {
+                console.error("flyers.html boot error:", e);
                 document.getElementById("page-content").innerHTML =
-                    `<p style="text-align:center;color:#c00;padding:40px">Could not load events data.</p>`;
+                    `<p style="text-align:center;color:#c00;padding:40px">Could not load events data.<br><small>${e.message}</small></p>`;
                 return;
             }
             renderAll();
