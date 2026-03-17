@@ -27,6 +27,22 @@ const ICON_SVG = {
 };
 
 // ---------------------------------------------------------------------------
+// Presentation Helper
+// ---------------------------------------------------------------------------
+
+/**
+ * Append a pipe separator span to a container element.
+ * Used wherever ticket/tour links are separated by " | ".
+ * @param {HTMLElement} container
+ */
+function appendSeparator(container) {
+  const sep = document.createElement("span");
+  sep.className = "separator";
+  sep.textContent = " | ";
+  container.appendChild(sep);
+}
+
+// ---------------------------------------------------------------------------
 // Date utilities
 // ---------------------------------------------------------------------------
 
@@ -236,10 +252,7 @@ function createTicketsElement(eventData, past = false) {
   for (let i = 0; i < tourIdList.length; i++) {
     const tid = tourIdList[i];
     if (i > 0) {
-      const sep = document.createElement("span");
-      sep.className = "separator";
-      sep.textContent = " | ";
-      ticketsDiv.appendChild(sep);
+      appendSeparator(ticketsDiv);
     }
     const tourName =
       typeof toursLookup !== "undefined" && toursLookup[tid]?.tour_name
@@ -254,10 +267,7 @@ function createTicketsElement(eventData, past = false) {
     ticketsDiv.appendChild(tourLink);
   }
   if (tourIdList.length > 0 && ticket_url) {
-    const sep = document.createElement("span");
-    sep.className = "separator";
-    sep.textContent = " | ";
-    ticketsDiv.appendChild(sep);
+    appendSeparator(ticketsDiv);
   }
 
   if (ticket_url) {
@@ -275,16 +285,13 @@ function createTicketsElement(eventData, past = false) {
   }
 
   if (fb_event) {
-    if (ticket_url) {
-      const separator = document.createElement("span");
-      separator.className = "separator";
-      separator.textContent = " | ";
-      ticketsDiv.appendChild(separator);
-    }
     const fbEventUrl = sanitizeUrl(
       `https://www.facebook.com/events/${fb_event}`,
     );
     if (fbEventUrl) {
+      if (ticket_url || tourIdList.length > 0) {
+        appendSeparator(ticketsDiv);
+      }
       const fbLink = document.createElement("a");
       fbLink.href = fbEventUrl;
       fbLink.target = "_blank";

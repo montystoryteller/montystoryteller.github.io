@@ -330,8 +330,7 @@ select {
    tour-styles.css, which loads after this file on the tour page.
    On the event guide page only this fill rule applies; on the tour page
    tour-styles.css overrides fill back to #1877f2 (blue). */
-.folk svg,
-.event-facebook-inline svg {
+.folk svg {
     fill: #ffffff;
 }
 

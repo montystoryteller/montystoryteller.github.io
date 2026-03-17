@@ -360,7 +360,7 @@ function displayTourDates(tour, status) {
 
 // parseDateString() — defined in shared_utils.js
 
-function createExpandableSection(parent, label, content, type) {
+function createTourExpandable(parent, label, content, type) {
   const btn = document.createElement("div");
   btn.className = "event-expand-btn expand-btn-spaced";
   btn.textContent = label;
@@ -440,12 +440,12 @@ function createTourDateElement(tourDate, tour, past = false) {
 
   // --- More Info Button ---
   if (tourDate.description) {
-    createExpandableSection(div, "More Info", tourDate.description, "text");
+    createTourExpandable(div, "More Info", tourDate.description, "text");
   }
 
   // --- Event Flyer Button (Only if it exists for this specific date) ---
   if (tourDate.event_flyer) {
-    createExpandableSection(div, "Event Flyer", tourDate.event_flyer, "image");
+    createTourExpandable(div, "Event Flyer", tourDate.event_flyer, "image");
   }
 
   return div;

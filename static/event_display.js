@@ -633,6 +633,49 @@ function buildRecurringEventSearchText(event) {
   return `${event.name} ${event.club || ""} ${venueName} ${venueLocation} ${alternateVenueText} ${event.time || ""} ${event.price || ""}`.toLowerCase();
 }
 
+/**
+ * Build a festival data object from raw festival data and a resolved venue.
+ * Used by both processFestivals() and searchAllUpcoming() to avoid duplication.
+ *
+ * @param {string} festKey   - The festival's key in eventsData.festivals.
+ * @param {object} fest      - The raw festival record.
+ * @param {object} venue     - The resolved venue object (may be empty {}).
+ * @param {Date}   festStart - Pre-parsed start date.
+ * @param {Date}   festEnd   - Pre-parsed end date.
+ * @returns {object}
+ */
+function buildFestivalData(festKey, fest, venue, festStart, festEnd) {
+  const location = venue.full_address || venue.name || "";
+
+  const performerNames = (fest.performers || [])
+    .map((p) => performersLookup[p.performer_id]?.name || null)
+    .filter(Boolean);
+  const performerStr = performerNames.length
+    ? performerNames.join(", ") + (fest.performers_tbc ? " + more TBA" : "")
+    : null;
+
+  return {
+    isFestival: true,
+    primary_type: fest.primary_type || "storytelling",
+    name: fest.name,
+    festival_id: festKey,
+    start_date: festStart,
+    end_date: festEnd,
+    date: festStart, // used for sort order
+    location: location,
+    latlon: venue.latlon || null,
+    venue_url: venue.url || null,
+    performer: performerStr,
+    ticket_url: fest.ticket_url || null,
+    facebook: fest.facebook || null,
+    website: fest.website || null,
+    description: fest.description || null,
+    event_flyer: fest.event_flyer || null,
+    schedule_populated:
+      Array.isArray(fest.schedule) && fest.schedule.length > 0,
+  };
+}
+
 async function processTouringShows(startDate, endDate) {
   const touringShows = eventsData.touring_shows || {};
 
@@ -857,42 +900,14 @@ async function processFestivals(startDate, endDate) {
     // Show whenever the festival overlaps with the current view window at all
     if (festStart > endDate || festEnd < startDate) continue;
 
-    // Resolve venue
     const venue = venuesLookup[fest.venue_id] || {};
-    const location = venue.full_address || venue.name || "";
-    const latlon = venue.latlon || null;
-
-    // Build performer display string
-    const performerNames = (fest.performers || [])
-      .map((p) => {
-        const perf = performersLookup[p.performer_id];
-        return perf ? perf.name : null;
-      })
-      .filter(Boolean);
-    const performerStr = performerNames.length
-      ? performerNames.join(", ") + (fest.performers_tbc ? " + more TBA" : "")
-      : null;
-
-    const festData = {
-      isFestival: true,
-      primary_type: fest.primary_type || "storytelling",
-      name: fest.name,
-      festival_id: festKey,
-      start_date: festStart,
-      end_date: festEnd,
-      date: festStart, // used for sort order
-      location: location,
-      latlon: latlon,
-      venue_url: venue.url || null,
-      performer: performerStr,
-      ticket_url: fest.ticket_url || null,
-      facebook: fest.facebook || null,
-      website: fest.website || null,
-      description: fest.description || null,
-      event_flyer: fest.event_flyer || null,
-      schedule_populated:
-        Array.isArray(fest.schedule) && fest.schedule.length > 0,
-    };
+    const festData = buildFestivalData(
+      festKey,
+      fest,
+      venue,
+      festStart,
+      festEnd,
+    );
 
     allEventsData.push(festData);
     await addMarkerForEvent(festData);
@@ -1366,10 +1381,7 @@ function createTicketsSection(event) {
     const uniqueTourIds = [...new Set(tourIdList)];
     for (let i = 0; i < uniqueTourIds.length; i++) {
       if (i > 0) {
-        const sep = document.createElement("span");
-        sep.className = "separator";
-        sep.textContent = " | ";
-        ticketsDiv.appendChild(sep);
+        appendSeparator(ticketsDiv);
       }
       const tid = uniqueTourIds[i];
       const tourName =
@@ -1392,19 +1404,13 @@ function createTicketsSection(event) {
     if (showsWithTickets.length > 0) {
       // Separator after tour links if any
       if (uniqueTourIds.length > 0) {
-        const sep = document.createElement("span");
-        sep.className = "separator";
-        sep.textContent = " | ";
-        ticketsDiv.appendChild(sep);
+        appendSeparator(ticketsDiv);
       }
       // Label row: "Tickets:" then per-show links
       ticketsDiv.appendChild(document.createTextNode("Tickets: "));
       showsWithTickets.forEach((st, i) => {
         if (i > 0) {
-          const sep = document.createElement("span");
-          sep.className = "separator";
-          sep.textContent = " | ";
-          ticketsDiv.appendChild(sep);
+          appendSeparator(ticketsDiv);
         }
         const safeUrl = sanitizeUrl(st.ticket_url);
         const a = document.createElement("a");
@@ -2051,33 +2057,13 @@ async function searchAllUpcoming() {
       `${fest.name} ${fest.short_name || ""} ${performerNames} ${venue.name || ""} ${venue.full_address || ""}`.toLowerCase();
 
     if (festSearchText.includes(searchTerm)) {
-      const location = venue.full_address || venue.name || "";
-      const performerStr =
-        (fest.performers || [])
-          .map((p) => performersLookup[p.performer_id]?.name || null)
-          .filter(Boolean)
-          .join(", ") + (fest.performers_tbc ? " + more TBA" : "");
-
-      const festData = {
-        isFestival: true,
-        primary_type: fest.primary_type || "storytelling",
-        name: fest.name,
-        festival_id: festKey,
-        start_date: festStart,
-        end_date: festEnd,
-        date: festStart,
-        location: location,
-        latlon: venue.latlon || null,
-        venue_url: venue.url || null,
-        performer: performerStr || null,
-        ticket_url: fest.ticket_url || null,
-        facebook: fest.facebook || null,
-        website: fest.website || null,
-        description: fest.description || null,
-        event_flyer: fest.event_flyer || null,
-        schedule_populated:
-          Array.isArray(fest.schedule) && fest.schedule.length > 0,
-      };
+      const festData = buildFestivalData(
+        festKey,
+        fest,
+        venue,
+        festStart,
+        festEnd,
+      );
       allEventsData.push(festData);
       await addMarkerForEvent(festData);
     }
