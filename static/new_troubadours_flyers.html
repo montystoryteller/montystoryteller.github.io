@@ -161,6 +161,74 @@
             filter: grayscale(10%);
         }
 
+        /* ── Tonight / tomorrow highlights ──────────────────── */
+        @keyframes tonightPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.0), 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(211, 47, 47, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .flyer-card.tonight {
+            animation: tonightPulse 2s ease-in-out infinite;
+        }
+
+        .flyer-card.tonight::before {
+            background: #d32f2f;
+        }
+
+        .flyer-card.tonight .flyer-date {
+            color: #d32f2f;
+            font-size: 12px;
+        }
+
+        .flyer-card.tomorrow::before {
+            background: #f57c00;
+        }
+
+        .flyer-card.tomorrow .flyer-date {
+            color: #e65100;
+        }
+
+        /* urgency label sits above the date */
+        .urgency-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1px;
+        }
+
+        .tonight .urgency-label {
+            color: #d32f2f;
+        }
+
+        .tomorrow .urgency-label {
+            color: #e65100;
+        }
+
+        .urgency-detail {
+            font-size: 12px;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 1px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .tonight .urgency-detail {
+            color: #b71c1c;
+        }
+
+        .tomorrow .urgency-detail {
+            color: #bf360c;
+        }
+
         /* colour accent strip */
         .flyer-card::before {
             content: "";
@@ -545,6 +613,12 @@
     <h1>The New Troubadours — Event Flyers</h1>
     <h2>Upcoming shows, tours and story nights</h2>
 
+    <div id="date-override-banner"
+        style="display:none;background:#fff3e0;border-left:4px solid #f57c00;border-radius:6px;padding:10px 16px;margin-bottom:16px;font-size:14px;color:#e65100;">
+        🗓 <strong>Test mode:</strong> viewing flyers as if today were <strong id="date-override-label"></strong>
+        — <a href="?" style="color:#e65100;font-weight:bold;">back to real today</a>
+    </div>
+
     <div class="filter-bar" id="filterBar">
         <span class="filter-bar-label">Show:</span>
         <button class="filter-btn active" data-type="story" onclick="toggleFilter('story')">📖 Story shows</button>
@@ -749,6 +823,24 @@
                 activeTypes.clear();
                 requested.forEach(t => activeTypes.add(t));
             }
+            if (p.has("date")) {
+                const raw = p.get("date"); // expects YYYY-MM-DD
+                const parsed = new Date(raw + "T00:00:00");
+                if (!isNaN(parsed)) {
+                    _todayOverride = parsed;
+                    const banner = document.getElementById("date-override-banner");
+                    const label = document.getElementById("date-override-label");
+                    const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    label.textContent = `${DAYS[parsed.getDay()]} ${parsed.getDate()} ${MONTHS[parsed.getMonth()]} ${parsed.getFullYear()}`;
+                    // Preserve other params on the "back to real today" link
+                    const back = new URLSearchParams(p);
+                    back.delete("date");
+                    const backHref = back.toString() ? `?${back}` : "?";
+                    banner.querySelector("a").href = backHref;
+                    banner.style.display = "block";
+                }
+            }
         }
 
         function writeUrlParams() {
@@ -792,7 +884,12 @@
             return new Date(y, m - 1, d);
         }
 
+        // ── Date override (for testing) ───────────────────────────────────────
+        // Set via ?date=YYYY-MM-DD in the URL.
+        let _todayOverride = null;
+
         function today() {
+            if (_todayOverride) return new Date(_todayOverride);
             const d = new Date(); d.setHours(0, 0, 0, 0); return d;
         }
 
@@ -826,11 +923,97 @@
         }, { rootMargin: "250px 0px" }); // preload 250px before entering viewport
 
         // ── Data loading ──────────────────────────────────────────────────────────
+        // ── Schedule matcher ──────────────────────────────────────────────────────
+        // Lightweight check: does a recurring schedule string fire on a given date?
+        // Handles: "Nth dayname", "last dayname", "every dayname", "Nth and Mth dayname",
+        // "Nth dayname (even|odd months)", pipe-separated alternating patterns.
+        const DAY_MAP = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+        const OCC_MAP = { "1st": 1, "2nd": 2, "3rd": 3, "4th": 4, "last": "last" };
+
+        function findNthDay(year, month, targetDay, occurrence) {
+            const lastDay = new Date(year, month + 1, 0).getDate();
+            if (occurrence === "last") {
+                for (let d = lastDay; d >= 1; d--) {
+                    const t = new Date(year, month, d);
+                    if (t.getDay() === targetDay) return t;
+                }
+            } else {
+                let count = 0;
+                for (let d = 1; d <= lastDay; d++) {
+                    const t = new Date(year, month, d);
+                    if (t.getDay() === targetDay && ++count === occurrence) return t;
+                }
+            }
+            return null;
+        }
+
+        function scheduleMatchesDate(schedule, date) {
+            if (!schedule || !date) return false;
+            const s = schedule.toLowerCase().trim();
+            const y = date.getFullYear(), m = date.getMonth();
+            const ds = date.toDateString();
+
+            // Specific date DD/MM/YYYY
+            if (s.includes("/")) {
+                const [d, mo, yr] = s.split("/").map(Number);
+                return new Date(yr, mo - 1, d).toDateString() === ds;
+            }
+
+            // Pipe-separated alternating: "1st wed (even months) | 1st thu (odd months)"
+            if (s.includes("|")) {
+                return s.split("|").some(part => scheduleMatchesDate(part.trim(), date));
+            }
+
+            // Strip parenthetical month parity constraint: "1st wednesday (even months)"
+            const parityMatch = s.match(/^(.+?)\s*\((even|odd)\s+months\)$/);
+            if (parityMatch) {
+                const monthNum = m + 1;
+                const isEven = monthNum % 2 === 0;
+                const condition = parityMatch[2];
+                if (condition === "even" && !isEven) return false;
+                if (condition === "odd" && isEven) return false;
+                return scheduleMatchesDate(parityMatch[1].trim(), date);
+            }
+
+            // "every dayname"
+            if (s.startsWith("every ")) {
+                const dayName = s.replace("every ", "").trim();
+                const targetDay = DAY_MAP[dayName];
+                return targetDay !== undefined && date.getDay() === targetDay;
+            }
+
+            // "Nth and Mth dayname"
+            if (s.includes(" and ")) {
+                const [occ1str, rest] = s.split(" and ");
+                const parts = rest.trim().split(/\s+/);
+                const occ2str = parts[0], dayName = parts[1];
+                const targetDay = DAY_MAP[dayName];
+                if (targetDay === undefined) return false;
+                const occ1 = OCC_MAP[occ1str.trim()], occ2 = OCC_MAP[occ2str.trim()];
+                const d1 = findNthDay(y, m, targetDay, occ1);
+                const d2 = findNthDay(y, m, targetDay, occ2);
+                return (d1 && d1.toDateString() === ds) || (d2 && d2.toDateString() === ds);
+            }
+
+            // Standard "Nth dayname" or "last dayname"
+            const parts = s.split(/\s+/);
+            if (parts.length >= 2) {
+                const occ = OCC_MAP[parts[0]], targetDay = DAY_MAP[parts[1]];
+                if (occ !== undefined && targetDay !== undefined) {
+                    const d = findNthDay(y, m, targetDay, occ);
+                    return d && d.toDateString() === ds;
+                }
+            }
+
+            return false;
+        }
+
         async function loadFlyers() {
             const r = await fetch("events_normalized.json");
             const data = await r.json();
 
             const now = today();
+            const tomorrow = new Date(now); tomorrow.setDate(tomorrow.getDate() + 1);
             const cutoff = new Date(now);
             cutoff.setMonth(cutoff.getMonth() - 3);
 
@@ -865,6 +1048,8 @@
                     city: v.city || "",
                     ticketUrl: ticketUrl || "",
                     isPast: dt < now,
+                    isTonight: dt.toDateString() === now.toDateString(),
+                    isTomorrow: dt.toDateString() === tomorrow.toDateString(),
                     ...extra,
                 });
             }
@@ -902,6 +1087,16 @@
                 if (!datesInWindow.length) continue;
                 const rep = datesInWindow.find(d => d._dt >= now) || datesInWindow[0];
                 const last = datesInWindow[datesInWindow.length - 1];
+
+                // Find any tonight/tomorrow specific date and resolve its venue
+                function resolveSpotlight(d) {
+                    if (!d) return null;
+                    const v = ven(d.venue_id);
+                    return { time: d.time || "", venue: v.name || "", city: v.city || "", postcode: v.postcode || "", ticketUrl: d.ticket_url || "" };
+                }
+                const tonightDate = datesInWindow.find(d => d._dt.toDateString() === now.toDateString());
+                const tomorrowDate = datesInWindow.find(d => d._dt.toDateString() === tomorrow.toDateString());
+
                 push(flyer, "event", rep.date, "tour",
                     tour.tour_name || tour.name, tour.performer_id, rep.venue_id, rep.ticket_url, {
                     tourKey: tourKey,
@@ -910,6 +1105,8 @@
                         : null,
                     tourDateCount: datesInWindow.length,
                     fbEvent: rep.fb_event ? `https://www.facebook.com/events/${rep.fb_event}` : "",
+                    tonightSpotlight: resolveSpotlight(tonightDate),
+                    tomorrowSpotlight: resolveSpotlight(tomorrowDate),
                 });
             }
 
@@ -947,6 +1144,8 @@
                 if (seen.has(key)) continue;
                 seen.add(key);
                 const v = ven(e.venue_id);
+                const clubTonight = scheduleMatchesDate(e.schedule, now);
+                const clubTomorrow = scheduleMatchesDate(e.schedule, tomorrow);
                 items.push({
                     flyer,
                     flyerBase: "club",
@@ -955,6 +1154,7 @@
                     type: "club",
                     name: e.name,
                     performer: null,
+                    performerId: "",
                     performerUrl: "",
                     venue: v.name || "",
                     city: v.city || "",
@@ -963,6 +1163,8 @@
                     clubFacebook: e.facebook || "",
                     isPast: false,
                     isClubGeneric: true,
+                    isTonight: clubTonight,
+                    isTomorrow: clubTomorrow,
                     schedule: e.schedule || "",
                     clubId: e.club,
                 });
@@ -1065,7 +1267,11 @@
 
         function makeCard(item, visibleItems, indexInVisible) {
             const card = document.createElement("div");
-            card.className = "flyer-card" + (item.isPast && !item.isClubGeneric ? " past" : "");
+            let cls = "flyer-card";
+            if (item.isPast && !item.isClubGeneric) cls += " past";
+            if (item.isTonight) cls += " tonight";
+            if (item.isTomorrow) cls += " tomorrow";
+            card.className = cls;
             card.dataset.type = item.type;
 
             // Image wrapper with lazy image
@@ -1093,9 +1299,34 @@
 
             const dateEl = document.createElement("div");
             dateEl.className = "flyer-date";
-            if (item.isClubGeneric) dateEl.textContent = item.schedule ? `Meets ${item.schedule}` : "Regular club";
-            else if (item.tourDateRange) dateEl.textContent = `${item.tourDateRange} · ${item.tourDateCount} dates`;
-            else dateEl.textContent = formatDate(item.date);
+            if (item.isTonight || item.isTomorrow) {
+                const urgency = document.createElement("div");
+                urgency.className = "urgency-label";
+                urgency.textContent = item.isTonight ? "🔴 Tonight!" : "🟠 Tomorrow";
+                dateEl.appendChild(urgency);
+
+                // For tour flyers add the specific date's venue + time;
+                // for club generics the card venue is already the right one
+                const spotlight = item.isTonight ? item.tonightSpotlight : item.tomorrowSpotlight;
+                if (item.type === "tour" && spotlight) {
+                    const detail = document.createElement("div");
+                    detail.className = "urgency-detail";
+                    const parts = [spotlight.venue, spotlight.city].filter(Boolean).join(", ");
+                    detail.textContent = parts + (spotlight.time ? " · " + spotlight.time : "");
+                    dateEl.appendChild(detail);
+                } else if (item.type === "club" && (item.venue || item.city)) {
+                    const detail = document.createElement("div");
+                    detail.className = "urgency-detail";
+                    detail.textContent = [item.venue, item.city].filter(Boolean).join(", ")
+                        + (item.schedule ? " · " + item.schedule : "");
+                    dateEl.appendChild(detail);
+                }
+            }
+            const dateText = document.createElement("span");
+            if (item.isClubGeneric) dateText.textContent = item.schedule ? `Meets ${item.schedule}` : "Regular club";
+            else if (item.tourDateRange) dateText.textContent = `${item.tourDateRange} · ${item.tourDateCount} dates`;
+            else dateText.textContent = formatDate(item.date);
+            dateEl.appendChild(dateText);
             cap.appendChild(dateEl);
 
             const title = document.createElement("div");
@@ -1165,8 +1396,8 @@
 
             if (!visible.length) {
                 root.innerHTML = `<p class="no-flyers">${activeTypes.size === 0
-                        ? "No types selected — use the filters above."
-                        : "No flyers to show for the selected types."
+                    ? "No types selected — use the filters above."
+                    : "No flyers to show for the selected types."
                     }</p>`;
                 return;
             }
