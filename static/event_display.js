@@ -799,10 +799,41 @@ function mergeDuplicateTourDates() {
       mergeMap.set(Symbol(), evt); // non-tour events: always keep as-is
       continue;
     }
-    const key = `${evt.performer_id || evt.name}|${evt.date.toISOString()}`;
+    // Include venue_id in key: same performer on same day at different venues
+    // are separate events; same performer on same day at the SAME venue are
+    // multiple show-times that should be collapsed into one card.
+    const key = `${evt.performer_id || evt.name}|${evt.date.toISOString()}|${evt.venue_id || ""}`;
     if (mergeMap.has(key)) {
       const existing = mergeMap.get(key);
-      existing.tour_ids.push(evt.tour_id);
+      // Only push tour_id if not already present (avoid duplicates)
+      if (!existing.tour_ids.includes(evt.tour_id)) {
+        existing.tour_ids.push(evt.tour_id);
+      }
+      // Collect the additional show time alongside its ticket URL and price.
+      // Only build show_times when we have at least one real time value.
+      if (evt.time || existing.time) {
+        if (!existing.show_times) {
+          existing.show_times = [];
+          if (existing.time) {
+            existing.show_times.push({
+              time: existing.time,
+              ticket_url: existing.ticket_url,
+              price: existing.price,
+            });
+          }
+        }
+        if (evt.time) {
+          existing.show_times.push({
+            time: evt.time,
+            ticket_url: evt.ticket_url,
+            price: evt.price,
+          });
+        }
+        // Clear the top-level fields — they are now in show_times
+        existing.time = null;
+        existing.ticket_url = null;
+        existing.price = null;
+      }
     } else {
       evt.tour_ids = [evt.tour_id];
       mergeMap.set(key, evt);
@@ -1293,11 +1324,30 @@ function createDateSection(event) {
     }
   }
 
-  if (event.time) {
-    dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
-  }
-  if (event.price) {
-    dateDiv.appendChild(document.createTextNode(` • ${event.price}`));
+  if (Array.isArray(event.show_times) && event.show_times.length > 0) {
+    // Multiple show-times on same day/venue — render as "• 3.30pm / 7.30pm"
+    // with per-show price appended if it differs between shows.
+    const allSamePrice = event.show_times.every(
+      (st) => (st.price || "") === (event.show_times[0].price || ""),
+    );
+    const timeParts = event.show_times.map((st) => {
+      let part = st.time || "";
+      if (!allSamePrice && st.price) part += ` (${st.price})`;
+      return part;
+    });
+    dateDiv.appendChild(document.createTextNode(` • ${timeParts.join(" / ")}`));
+    if (allSamePrice && event.show_times[0].price) {
+      dateDiv.appendChild(
+        document.createTextNode(` • ${event.show_times[0].price}`),
+      );
+    }
+  } else {
+    if (event.time) {
+      dateDiv.appendChild(document.createTextNode(` • ${event.time}`));
+    }
+    if (event.price) {
+      dateDiv.appendChild(document.createTextNode(` • ${event.price}`));
+    }
   }
 
   return dateDiv;
@@ -1305,6 +1355,71 @@ function createDateSection(event) {
 
 function createTicketsSection(event) {
   if (!event.isSpecial && !event.isMusic) return null;
+
+  // Multi-show case: show_times holds [{time, ticket_url, price}, ...]
+  if (Array.isArray(event.show_times) && event.show_times.length > 0) {
+    const ticketsDiv = document.createElement("div");
+    ticketsDiv.className = "event-tickets";
+
+    // Tour VIEW link(s) first — same for all shows
+    const tourIdList = event.tour_ids || (event.tour_id ? [event.tour_id] : []);
+    const uniqueTourIds = [...new Set(tourIdList)];
+    for (let i = 0; i < uniqueTourIds.length; i++) {
+      if (i > 0) {
+        const sep = document.createElement("span");
+        sep.className = "separator";
+        sep.textContent = " | ";
+        ticketsDiv.appendChild(sep);
+      }
+      const tid = uniqueTourIds[i];
+      const tourName =
+        typeof toursLookup !== "undefined" && toursLookup[tid]?.tour_name
+          ? toursLookup[tid].tour_name
+          : "TOUR";
+      const tourLink = document.createElement("a");
+      tourLink.href = `new_troubadours_tour_guide.html?tour=${tid}`;
+      tourLink.target = "_blank";
+      tourLink.textContent = `VIEW: ${tourName}`;
+      tourLink.className = "tour-link";
+      tourLink.addEventListener("click", (e) => e.stopPropagation());
+      ticketsDiv.appendChild(tourLink);
+    }
+
+    // Per-show ticket links
+    const showsWithTickets = event.show_times.filter(
+      (st) => st.ticket_url && sanitizeUrl(st.ticket_url),
+    );
+    if (showsWithTickets.length > 0) {
+      // Separator after tour links if any
+      if (uniqueTourIds.length > 0) {
+        const sep = document.createElement("span");
+        sep.className = "separator";
+        sep.textContent = " | ";
+        ticketsDiv.appendChild(sep);
+      }
+      // Label row: "Tickets:" then per-show links
+      ticketsDiv.appendChild(document.createTextNode("Tickets: "));
+      showsWithTickets.forEach((st, i) => {
+        if (i > 0) {
+          const sep = document.createElement("span");
+          sep.className = "separator";
+          sep.textContent = " | ";
+          ticketsDiv.appendChild(sep);
+        }
+        const safeUrl = sanitizeUrl(st.ticket_url);
+        const a = document.createElement("a");
+        a.href = safeUrl;
+        a.target = "_blank";
+        a.textContent = st.time ? `${st.time} show` : `Show ${i + 1}`;
+        a.addEventListener("click", (e) => e.stopPropagation());
+        ticketsDiv.appendChild(a);
+      });
+    }
+
+    return ticketsDiv.children.length > 0 ? ticketsDiv : null;
+  }
+
+  // Single-show fallback
   // createTicketsElement() defined in shared_utils.js
   return createTicketsElement(event, event.isCancelled);
 }
