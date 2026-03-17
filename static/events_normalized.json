@@ -1467,6 +1467,7 @@
           "date": "15/03/2026",
           "time": "7.30pm",
           "price": "£12 + £1.20 booking fee",
+          "event_flyer": "2026_03_15_nick_parker_grove.jpg",
           "ticket_url": "https://wegottickets.com/af/671/event/689386/",
           "venue_id": "the-grove-nottingham"
         },
@@ -1489,7 +1490,8 @@
           "time": "7.30pm",
           "price": "£10 + £1.00 booking fee",
           "ticket_url": "https://wegottickets.com/location/26434",
-          "venue_id": "cwrw-carmarthen"
+          "venue_id": "cwrw-carmarthen",
+          "event_flyer": "2026_03_28_nick_parker_carmarthen.jpg"
         },
         {
           "date": "29/03/2026",
@@ -3708,6 +3710,45 @@
   ],
   "musicEvents": [
     {
+      "name": "Nick Parker",
+      "date": "19/09/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "event_flyer": "2025_09_19_nick_parker_reeth.jpg",
+      "ticket_url": "",
+      "isMusic": true,
+      "venue_id": "reeth-memorial-hall-richmond",
+      "performer_id": "nick-parker"
+    },
+    {
+      "name": "Nick Parker",
+      "date": "10/10/2025",
+      "time": "",
+      "club": "",
+      "price": "",
+      "description": "",
+      "event_flyer": "2025_10_10-nick-parker-doncaster.jpg",
+      "ticket_url": "",
+      "isMusic": true,
+      "venue_id": "doncaster-brewery-tap",
+      "performer_id": "nick-parker"
+    },
+    {
+      "name": "Nick Parker (+ Maddie Jane Warren)",
+      "date": "15/11/2025",
+      "time": "7pm",
+      "club": "",
+      "price": "£10 + £1.55",
+      "description": "",
+      "event_flyer": "2026_11_15_nick_parker_molton.jpg",
+      "ticket_url": "https://www.eventbrite.com/e/nick-parker-south-molton-assembly-rooms-tickets-1548074946839",
+      "isMusic": true,
+      "venue_id": "assembly-rooms-south-molton",
+      "performer_id": "nick-parker"
+    },
+    {
       "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
       "showname": "Waiting For Wisdom tour",
       "date": "12/12/2025",
@@ -5530,6 +5571,30 @@
       "latlon": [
         51.48591,
         -3.18395
+      ]
+    },
+    "doncaster-brewery-tap": {
+      "id":"doncaster-brewery-tap",
+      "name": "Doncaster Brewery & Tap",
+      "city": "Doncaster",
+      "postcode": "DN1 3EL",
+      "full_address": "Doncaster Brewery & Tap, 7 Young Street, Doncaster, DN1 3EL",
+      "url": "https://doncasterbrewery.co.uk/",
+      "latlon": [
+        53.52161,
+        -1.13301
+      ]
+    },
+    "assembly-rooms-south-molton": {
+      "id":"assembly-rooms-south-molton",
+      "name": "Assembly Rooms, South Molton",
+      "city": "Molton",
+      "postcode": "EX36 3AB",
+      "full_address": "Assembly Rooms, Town Hall, South Molton, EX36 3AB",
+      "url": "https://southmoltontowncouncil.co.uk/the-town-hall/",
+      "latlon": [
+        51.01739,
+        -3.83438
       ]
     },
     "castle-inn-aberteifi": {

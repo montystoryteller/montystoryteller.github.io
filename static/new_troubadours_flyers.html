@@ -1142,8 +1142,6 @@
 
             // tours — one card per tour keyed on earliest date in window
             for (const [tourKey, tour] of Object.entries(data.tours || {})) {
-                const flyer = tour.tour_flyer;
-                if (!flyer?.trim()) continue;
                 const datesInWindow = (tour.tour_dates || [])
                     .map(d => ({ ...d, _dt: parseDate(d.date) }))
                     .filter(d => d._dt && d._dt >= cutoff)
@@ -1155,8 +1153,7 @@
                 const tonightDate = datesInWindow.find(d => d._dt.toDateString() === now.toDateString());
                 const tomorrowDate = datesInWindow.find(d => d._dt.toDateString() === tomorrow.toDateString());
 
-                push(flyer, "event", rep.date, "tour",
-                    tour.tour_name || tour.name, tour.performer_id, rep.venue_id, rep.ticket_url, {
+                const tourExtra = {
                     isMusic: tour.isMusic === true,
                     tourKey: tourKey,
                     tourDateRange: datesInWindow.length > 1
@@ -1166,7 +1163,27 @@
                     fbEvent: rep.fb_event ? `https://www.facebook.com/events/${rep.fb_event}` : "",
                     tonightSpotlight: resolveSpotlight(tonightDate),
                     tomorrowSpotlight: resolveSpotlight(tomorrowDate),
-                });
+                };
+
+                // tour-level flyer — one card representing the whole tour
+                if (tour.tour_flyer?.trim()) {
+                    push(tour.tour_flyer, "event", rep.date, "tour",
+                        tour.tour_name || tour.name, tour.performer_id, rep.venue_id, rep.ticket_url, tourExtra);
+                }
+
+                // per-date event flyers — one card each for individual dates that have their own flyer
+                for (const d of datesInWindow) {
+                    if (!d.event_flyer?.trim()) continue;
+                    push(d.event_flyer, "event", d.date, "tour",
+                        tour.tour_name || tour.name, tour.performer_id, d.venue_id, d.ticket_url, {
+                        ...tourExtra,
+                        tourDateRange: null,   // single-date card — no range label
+                        tourDateCount: 1,
+                        fbEvent: d.fb_event ? `https://www.facebook.com/events/${d.fb_event}` : "",
+                        tonightSpotlight: resolveSpotlight(d._dt.toDateString() === now.toDateString() ? d : null),
+                        tomorrowSpotlight: resolveSpotlight(d._dt.toDateString() === tomorrow.toDateString() ? d : null),
+                    });
+                }
             }
 
             // touring_shows — per show_date individual flyers (show-level touring_event_flyer not populated in data)
