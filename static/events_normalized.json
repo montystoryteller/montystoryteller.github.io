@@ -1003,28 +1003,32 @@
           "time": "7pm",
           "price": "£15 (+£1.50 booking fee)",
           "ticket_url": "https://wegottickets.com/af/671/event/685018",
-          "venue_id": "knutsford-little-theatre"
+          "venue_id": "knutsford-little-theatre",
+          "event_flyer": "2026_05_03_sorrel_nation_knutsford.jpg"
         },
         {
           "date": "07/05/2026",
           "time": "7.30pm",
           "price": "£13.50 (£+1.35) Adv / £16 Doors",
           "ticket_url": "https://tickets.halfmoon.co.uk/events/4f089017-40a1-4194-847e-dcc617e47bd5",
-          "venue_id": "the-half-moon-putney"
+          "venue_id": "the-half-moon-putney",
+          "event_flyer": "2026_05_07_sorrel_nation_half_moon_putney.jpg"
         },
         {
           "date": "08/05/2026",
           "time": "7pm",
           "price": "£16.00 + £0.95 booking fee",
           "ticket_url": "https://www.the-bear.club/whats-on/sorrel-nation-26-wx8nt",
-          "venue_id": "the-bear-club-luton"
+          "venue_id": "the-bear-club-luton",
+          "event_flyer": "2026_05_08_sorrel_nation_bear_club_luton.jpg"
         },
         {
           "date": "09/05/2026",
           "time": "7pm",
           "price": "£16-£18, + booking fee; U25 £10 (+£1)",
           "ticket_url": "https://wegottickets.com/af/671/event/683298",
-          "venue_id": "village-hall-great"
+          "venue_id": "village-hall-great-easton",
+          "event_flyer": "2026_05_09_sorrel_nation_great_easton.jpg"
         },
         {
           "date": "10/05/2026",
@@ -6408,8 +6412,8 @@
         -0.41835
       ]
     },
-    "village-hall-great": {
-      "id": "village-hall-great",
+    "village-hall-great-easton": {
+      "id": "village-hall-great-easton",
       "name": "Village Hall",
       "city": "Great Easton",
       "postcode": "LE16 8ST",
