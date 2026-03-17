@@ -178,9 +178,12 @@ select {
     font-size: 14px;
 }
 
-.special .event-location,
-.music .event-location {
+.special .event-location {
     color: #c8e6c9;
+}
+
+.music .event-location {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .folk .event-location {
@@ -295,11 +298,11 @@ select {
 }
 
 .event.music .event-website svg {
-    fill: #1eb868;
+    fill: rgba(255, 255, 255, 0.85);
 }
 
 .event.music .event-website:hover svg {
-    fill: #555555;
+    fill: #ffffff;
 }
 
 /* Folk variant icon overrides */
