@@ -588,6 +588,66 @@
             text-decoration: underline;
         }
 
+        /* ── Date override banner ────────────────────────────── */
+        #date-override-banner {
+            background: #fff3e0;
+            border-left: 4px solid #f57c00;
+            border-radius: 6px;
+            padding: 10px 16px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #e65100;
+        }
+
+        #date-override-banner a {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        /* ── Filter bar compact buttons (All / None) ─────────── */
+        .filter-btn-compact {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        /* ── Status messages (loading, error) ────────────────── */
+        .status-message {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .status-message--loading {
+            color: #999;
+        }
+
+        .status-message--error {
+            color: #c00;
+        }
+
+        /* ── Lightbox caption actions ─────────────────────────── */
+        .lb-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lb-actions a {
+            text-decoration: none;
+        }
+
+        .lb-actions-primary {
+            color: #90ee90;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .lb-actions-secondary {
+            color: #aed9ae;
+            font-size: 13px;
+        }
+
         /* ── Responsive ──────────────────────────────────────── */
         @media (max-width: 600px) {
             .flyer-grid {
@@ -613,10 +673,9 @@
     <h1>The New Troubadours — Event Flyers</h1>
     <h2>Upcoming shows, tours and story nights</h2>
 
-    <div id="date-override-banner"
-        style="display:none;background:#fff3e0;border-left:4px solid #f57c00;border-radius:6px;padding:10px 16px;margin-bottom:16px;font-size:14px;color:#e65100;">
+    <div id="date-override-banner" style="display:none;">
         🗓 <strong>Test mode:</strong> viewing flyers as if today were <strong id="date-override-label"></strong>
-        — <a href="?" style="color:#e65100;font-weight:bold;">back to real today</a>
+        — <a href="?">back to real today</a>
     </div>
 
     <div class="filter-bar" id="filterBar">
@@ -627,12 +686,12 @@
         <button class="filter-btn active" data-type="music" onclick="toggleFilter('music')">🎵 Music</button>
         <button class="filter-btn active" data-type="festival" onclick="toggleFilter('festival')">🎪 Festivals</button>
         <div class="filter-divider"></div>
-        <button class="filter-btn" style="font-size:12px;padding:5px 10px;" onclick="selectAll()">All</button>
-        <button class="filter-btn" style="font-size:12px;padding:5px 10px;" onclick="selectNone()">None</button>
+        <button class="filter-btn filter-btn-compact" onclick="selectAll()">All</button>
+        <button class="filter-btn filter-btn-compact" onclick="selectNone()">None</button>
     </div>
 
     <div id="page-content">
-        <p style="text-align:center;color:#999;padding:40px">Loading…</p>
+        <p class="status-message status-message--loading">Loading…</p>
     </div>
 
     <!-- Lightbox -->
@@ -830,8 +889,6 @@
                     _todayOverride = parsed;
                     const banner = document.getElementById("date-override-banner");
                     const label = document.getElementById("date-override-label");
-                    const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                     label.textContent = `${DAYS[parsed.getDay()]} ${parsed.getDate()} ${MONTHS[parsed.getMonth()]} ${parsed.getFullYear()}`;
                     // Preserve other params on the "back to real today" link
                     const back = new URLSearchParams(p);
@@ -1054,6 +1111,13 @@
                 });
             }
 
+            // Find any tonight/tomorrow specific date and resolve its venue
+            function resolveSpotlight(d) {
+                if (!d) return null;
+                const v = ven(d.venue_id);
+                return { time: d.time || "", venue: v.name || "", city: v.city || "", postcode: v.postcode || "", ticketUrl: d.ticket_url || "" };
+            }
+
             // specificEvents — story shows and any marked as music
             for (const e of data.specificEvents || []) {
                 if (!e.event_flyer?.trim()) continue;
@@ -1088,17 +1152,12 @@
                 const rep = datesInWindow.find(d => d._dt >= now) || datesInWindow[0];
                 const last = datesInWindow[datesInWindow.length - 1];
 
-                // Find any tonight/tomorrow specific date and resolve its venue
-                function resolveSpotlight(d) {
-                    if (!d) return null;
-                    const v = ven(d.venue_id);
-                    return { time: d.time || "", venue: v.name || "", city: v.city || "", postcode: v.postcode || "", ticketUrl: d.ticket_url || "" };
-                }
                 const tonightDate = datesInWindow.find(d => d._dt.toDateString() === now.toDateString());
                 const tomorrowDate = datesInWindow.find(d => d._dt.toDateString() === tomorrow.toDateString());
 
                 push(flyer, "event", rep.date, "tour",
                     tour.tour_name || tour.name, tour.performer_id, rep.venue_id, rep.ticket_url, {
+                    isMusic: tour.isMusic === true,
                     tourKey: tourKey,
                     tourDateRange: datesInWindow.length > 1
                         ? `${formatDateShort(datesInWindow[0]._dt)} – ${formatDateShort(last._dt)}`
@@ -1211,9 +1270,9 @@
         ${item.performer ? `<div class="lb-performer">${item.performer}</div>` : ""}
         ${item.venue ? `<div class="lb-meta">${item.venue}${item.city ? ", " + item.city : ""}</div>` : ""}
         <div class="lb-meta">${dateLine}</div>
-        <div style="margin-top:10px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-            ${dest ? `<a href="${dest}" target="_blank" rel="noopener noreferrer" style="color:#90ee90;font-size:14px;font-weight:bold;">${destLabel}</a>` : ""}
-            <a href="${cal}" target="_blank" rel="noopener noreferrer" style="color:#aed9ae;font-size:13px;">📅 Events calendar</a>
+        <div class="lb-actions">
+            ${dest ? `<a href="${dest}" target="_blank" rel="noopener noreferrer" class="lb-actions-primary">${destLabel}</a>` : ""}
+            <a href="${cal}" target="_blank" rel="noopener noreferrer" class="lb-actions-secondary">📅 Events calendar</a>
         </div>
     `;
             document.getElementById("lb-prev").disabled = lbIndex <= 0;
@@ -1368,12 +1427,11 @@
             card.appendChild(cap);
 
             // Image click → best link, or calendar as fallback, lightbox only if truly nothing
-            const dest = resolveLink(item);
             const cal = calendarLink(item);
             wrap.style.cursor = "pointer";
             wrap.addEventListener("click", e => {
                 e.stopPropagation();
-                window.open(dest || cal, "_blank", "noopener,noreferrer");
+                window.open(cardDest || cal, "_blank", "noopener,noreferrer");
             });
 
             // Caption / title area always opens lightbox for full flyer view
@@ -1390,7 +1448,10 @@
         // ── Render ────────────────────────────────────────────────────────────────
         function renderAll() {
             const root = document.getElementById("page-content");
-            const visible = allItems.filter(i => activeTypes.has(i.type));
+            const visible = allItems.filter(i =>
+                activeTypes.has(i.type) ||
+                (i.type === "tour" && i.isMusic && activeTypes.has("music"))
+            );
 
             root.innerHTML = "";
 
@@ -1432,7 +1493,7 @@
             } catch (e) {
                 console.error("flyers.html boot error:", e);
                 document.getElementById("page-content").innerHTML =
-                    `<p style="text-align:center;color:#c00;padding:40px">Could not load events data.<br><small>${e.message}</small></p>`;
+                    `<p class="status-message status-message--error">Could not load events data.<br><small>${e.message}</small></p>`;
                 return;
             }
             renderAll();

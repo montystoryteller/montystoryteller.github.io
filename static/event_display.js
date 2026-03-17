@@ -2184,9 +2184,6 @@ function showDateRange(clearActiveButton = true) {
   }
 }
 
-let lastStartDate = "";
-let lastEndDate = "";
-
 // formatDateForInput() — defined in shared_utils.js
 /**
  * Parse the current start/end date inputs into Date objects.

@@ -277,6 +277,20 @@
                 font-size: 20px;
             }
         }
+
+        /* ── Status messages (loading, error) ────────────────── */
+        .status-message {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .status-message--loading {
+            color: #999;
+        }
+
+        .status-message--error {
+            color: #c00;
+        }
     </style>
 </head>
 
@@ -285,7 +299,7 @@
     <a class="back-link" href="new_troubadours_event_guide.html">← Back to all events</a>
 
     <div id="page-content">
-        <p style="text-align:center;color:#999;padding:40px 0">Loading…</p>
+        <p class="status-message status-message--loading">Loading…</p>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
@@ -602,21 +616,20 @@
                 return Math.round((a - b) / 86400000);
             }
 
-            const todayMidnight = new Date(today); todayMidnight.setHours(0, 0, 0, 0);
-            const tomorrow = new Date(todayMidnight); tomorrow.setDate(tomorrow.getDate() + 1);
+            const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
 
             // Check next scheduled recurring date first
             let alertDate = null;
             if (clubRecord.schedule) {
                 const next = nextScheduledDate(clubRecord.schedule, clubRecord.exceptions || []);
                 if (next) {
-                    const diff = dayDiff(next, todayMidnight);
+                    const diff = dayDiff(next, today);
                     if (diff === 0 || diff === 1) alertDate = { date: next, diff };
                 }
             }
             // Also check if any specific upcoming event is tonight or tomorrow
             for (const ev of upcomingEvents) {
-                const diff = dayDiff(ev._date, todayMidnight);
+                const diff = dayDiff(ev._date, today);
                 if (diff === 0 || diff === 1) {
                     // Specific event takes priority over generic schedule alert
                     alertDate = { date: ev._date, diff };
