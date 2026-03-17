@@ -1277,9 +1277,9 @@
 
             const dest = resolveLink(item);
             const cal = calendarLink(item);
-            const destLabel = item.ticketUrl?.trim() ? "Tickets →"
+            const destLabel = dest === item.ticketUrl?.trim() ? "Tickets →"
                 : item.type === "club" && item.clubLink?.trim() ? "Club website →"
-                    : item.performerUrl?.trim() && dest === item.performerUrl?.trim() ? "Performer website →"
+                    : dest === item.performerUrl?.trim() ? "Performer website →"
                         : dest ? "More info →" : "";
 
             document.getElementById("lightbox-caption").innerHTML = `
@@ -1327,6 +1327,12 @@
                 return t || p || c || fb || "";
             }
             if (item.type === "tour") {
+                // For a tour-level flyer (multiple dates), the performer site is the
+                // best primary link; tickets belong to individual dates, not the tour.
+                // For a single-date tour card, ticket is fine as primary.
+                if (item.tourDateCount > 1) {
+                    return p || fw || t || fb || "";
+                }
                 return t || p || fb || "";
             }
             if (item.type === "club") {
@@ -1432,9 +1438,9 @@
                 a.href = cardDest;
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
-                a.textContent = item.ticketUrl?.trim() ? "Tickets →"
+                a.textContent = cardDest === item.ticketUrl?.trim() ? "Tickets →"
                     : item.type === "club" && item.clubLink?.trim() ? "Club website →"
-                        : item.performerUrl?.trim() && cardDest === item.performerUrl.trim() ? "Performer →"
+                        : cardDest === item.performerUrl?.trim() ? "Performer →"
                             : "More info →";
                 a.addEventListener("click", e => e.stopPropagation());
                 actions.appendChild(a);
