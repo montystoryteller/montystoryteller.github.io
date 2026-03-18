@@ -47,7 +47,7 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
-      - "NEXT FESTIVAL SET: THree Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate), Community Stage (+ The AnyWhens)" 
+      - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)" 
       - "NEXT SOLO SHOW: TBC"
     buttons:
       - enable: false
