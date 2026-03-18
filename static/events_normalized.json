@@ -1067,6 +1067,7 @@
       "name": "Jess Silk + Matt Johnson — The Dashboard Jesus Tour",
       "tour_name": "Dashboard Jesus Tour",
       "performer_id": "jess-silk-matt-johnson",
+      "performer_ids": ["jess-silk", "matt-johnson"],
       "tour_description": "",
       "tour_flyer": "tour_jess_silk_2026_dashboard_jesus.jpg",
       "tags": [
@@ -6740,7 +6741,7 @@
       "url": "https://tretowervillagehall.org.uk/",
       "latlon": [51.88445,-3.1856]
     },
-       "grafton-underwood-village-hall": {
+    "grafton-underwood-village-hall": {
       "id": "grafton-underwood-village-hall",
       "name": "Grafton Underwood Village Hall",
       "city": "Kettering",
@@ -6749,7 +6750,7 @@
       "url": "https://www.facebook.com/graftonunderwoodvillagehall/?locale=en_GB",
       "latlon": [52.41267,-0.64358]
     },
-     "condover-village-hall": {
+    "condover-village-hall": {
       "id": "condover-village-hall",
       "name": "Condover Village Hall",
       "city": "Shrewsbury",
@@ -7353,6 +7354,7 @@
       "id": "sef-townsend",
       "name": "Sef Townsend",
       "url": "https://www.facebook.com/sef.townsend",
+      "facebook": "sef.townsend",
       "bio": "Sef Townsend draws on his personal experience of living and working on all five continents; and on reminiscence and language support work in immigrant and refugee communities to inform his workshops in participatory storytelling and music.\n\n\n\n He has been running Arts projects with people in exile and immigrant communities since 1995. Through storytelling, song and 'join-in' music games he emphasises the use of traditional material from the participants' original backgrounds, and promote work that enables other cultures to be seen as an invaluable resource contributing to a shared diversity in the wider community."
     },
     "bronia-evers": {
@@ -7401,6 +7403,7 @@
       "id": "janet-crouch",
       "name": "Janet Crouch",
       "url": "https://www.facebook.com/janet.crouch.9849",
+      "facebook": "janet.crouch.9849",
       "bio": "Janet has been telling stories from the 1970's, promoting story for adults in a variety of organisations such as luncheon clubs, dementia groups, the U3A, the WI, and folk clubs.\n\n\n\nShe was privileged to tell stories at the First International Storytelling Festival in Marrakech with tellers from the UK, Morocco, Canada, USA, Finland, Ireland, and Colombia too.\n\n\n\nThis event is intended for ages 16 and older."
     },
     "sarah-mooney": {
@@ -7521,6 +7524,7 @@
       "id": "p-d-brown",
       "name": "P. D. Brown",
       "url": "https://www.facebook.com/halfmanhalfmyth/",
+      "facebook": "halfmanhalfmyth",
       "bio": "Since 1985, David Brown has been telling stories in theatres, art centres, libraries, city farms and schools, in woods and fields, at camp sites and festivals from Orkney to Land's End.\n\n\n\n David specialises in epics, myths and legends from the so-called “Dark Ages” or early mediaeval period including the Welsh Four Branches of the Mabinogion, the Norse mythological cycle, Beowulf, Wayland the Smith and historical tales of sixth century northern British kings, from Gwynedd to Edinburgh.\n\n\n\n He is keen to promote storytelling for the enjoyment of adults as well as children. Ghost and horror stories are his second favourite genre which he has collected from trips to Cornwall and Iceland as well as his native Cumbria.\n\n\n\nDavid first started telling stories after hearing a cassette of Robin Williamson's tales.  He learnt a couple of the stories on the cassette, commenced learning the Norse mythological cycle and has not stopped since then. To more fully recreate the voice of the bards, David's translations of appropriate poems are interspersed in the narrative of such stories, as well as his own poems composed according to the rules of Anglo-Saxon and Norse verse. The lyre — the storyteller's instrument up until the early Middle Ages —  accompanies some of these tales."
     },
     "ben-haggarty":{
@@ -7534,6 +7538,7 @@
       "id": "steph-brittain",
       "name": "Steph Brittain",
       "url": "",
+      "facebook": "stephanie.brittain.752",
       "bio": "Steph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme."
     },
     "mark-fraser": {
@@ -7558,6 +7563,7 @@
       "id": "henry-everett",
       "name": "Henry Everett",
       "url": "https://www.henryeverett.com/",
+      "instagram": "henryeverettstoryteller",
       "bio": "Henry Everett is a storyteller, telling tales in the oral storytelling tradition, passed down through the generations. He tells traditional tales inspired by our connection to the land, of spirits of place and our human relationship with the magical landscape."
     },
     "hannah-sneyd": {
@@ -7651,6 +7657,7 @@
       "id": "jason-buck",
       "name": "Jason Buck",
       "url": "https://www.facebook.com/JasonBuckStoryteller/",
+      "facebook": "JasonBuckStoryteller",
       "bio": "Award-winning performance storyteller, author and illustrator."
     },
     "amy-douglas-and-jason-buck": {
@@ -7772,12 +7779,14 @@
       "id": "colin-rowan",
       "name": "Colin Rowan",
       "url": "https://www.facebook.com/astinginthetaleclub",
+      "facebook": "astinginthetaleclub",
       "bio": "Storyteller."
     },
     "iris-skipworth": {
       "id": "iris-skipworth",
       "name": "Iris Skipworth",
       "url": "https://www.facebook.com/astinginthetaleclub",
+      "facebook": "astinginthetaleclub",
       "bio": "Professional storyteller."
     },
     "stacey-blythe": {
@@ -7796,6 +7805,7 @@
       "id": "jordan-price-williams",
       "name": "Jordan Price Williams",
       "url": "https://www.facebook.com/WilliamsPriceJordan/",
+      "facebook": "WilliamsPriceJordan",
       "bio": "Jordan Price Williams is an award-winning traditional musician from Cwmafan, South Wales (cello, double bass)."
     },
     "tamar-eluned-williams": {
@@ -7803,6 +7813,13 @@
       "name": "Tamar Eluned Williams",
       "url": "https://www.tamarelunedwilliams.com/",
       "bio": "Tamar Eluned Williams is a professional storyteller working in the Welsh oral tradition. Tamar tells stories in Welsh and English, working with a wide repertoire of Celtic mythology, legends, and folktales, alongside stories from all over the world. She works with story in lots of different ways: telling them from memory in schools, festivals, museums and theatres, creating new shows for adult and family audiences, running storytelling workshops, and writing and directing for theatre."
+    },
+    "matt-johnson": {
+      "id": "matt-johnson",
+      "name": "Matt Johnson",
+      "url": "https://mattjohnsonmusic.co.uk/",
+      "musician": true,
+      "bio": "Matt Johnson is a Midlands based Singer / songwriter who really wears his heart on his sleeve at the same times as completely captivating his audience.\n\n\n\nHis subjects range from his family and the love of his life through to his view of the world now and his opinion on the plight of the oceans and our wildlife.\n\n\n\nHe has a fantastic ear for melodyand bulids a hook into every song that has his audience singing back at him by the second chorus.\n\n\n\nEqually at home alone on stage with his acoustic guitar and trusty onion or supported by his super tight band, The Reprobates."
     },
     "shonaleigh": {
       "id": "shonaleigh",
@@ -7921,6 +7938,7 @@
       "id": "claire-mace",
       "name": "Claire Mace",
       "url": "https://www.facebook.com/claire.mace/",
+      "facebook": "claire.mace",
       "bio": ""
     },
     "greg-chapman": {
@@ -7946,24 +7964,35 @@
       "performer_ids": ["gaz-brookfield"],
       "name": "Gaz Brookfield and The Company of Thieves",
       "url": "https://gazbrookfield.com/",
+      "musician": true,
       "bio": "West country based Gaz Brookfield is an award winning solo acoustic musician, with two number one albums to his name.\n\n\n\n He has spent the last fifteen years tirelessly touring all over the UK and beyond, building a strong and loyal following wherever he goes.\n\n\n\n Brookfield was the first independent musician to sell out Bristol's The Fleece (450 cap) and The Bierkeller (750 cap) and more recently SWX (1000 cap). \n\n\n\n Gaz has an impressive ten album strong back catalogue. In the autumn of 2023, Gaz's ninth album, 'Morning Walking Club', saw him achieve his first number one in the Official UK Folk Albums Chart.\n\n\n\n Brookfield got his second number one album in September 2025, when 'Waiting for Wisdom' topped the Official UK Download Charts.\n\n\n\n Not a bad result for this fiercely independent musician, with no record label, no manager, no agent - just a guitar, a van, and a steadfastly belligerent refusal to give in."
     },
     "gaz-brookfield": {
       "id": "gaz-brookfield",
       "name": "Gaz Brookfield",
       "url": "https://gazbrookfield.com/",
+      "instagram": "gazbrookfield",
+      "facebook": "gazbrookfieldmusic",
+      "facebook_group": "1438746349768477",
+      "musician": true,
       "bio": "West country based Gaz Brookfield is an award winning solo acoustic musician, with two number one albums to his name.\n\n\n\n He has spent the last fifteen years tirelessly touring all over the UK and beyond, building a strong and loyal following wherever he goes.\n\n\n\n Brookfield was the first independent musician to sell out Bristol's The Fleece (450 cap) and The Bierkeller (750 cap) and more recently SWX (1000 cap). \n\n\n\n Gaz has an impressive ten album strong back catalogue. In the autumn of 2023, Gaz's ninth album, 'Morning Walking Club', saw him achieve his first number one in the Official UK Folk Albums Chart.\n\n\n\n Brookfield got his second number one album in September 2025, when 'Waiting for Wisdom' topped the Official UK Download Charts.\n\n\n\n Not a bad result for this fiercely independent musician, with no record label, no manager, no agent - just a guitar, a van, and a steadfastly belligerent refusal to give in."
     },
     "jess-silk": {
       "id": "jess-silk",
       "name": "Jess Silk",
       "url": "https://jesssilk.co.uk/",
+      "facebook": "JessSilkMusic",
+      "instagram": "jess_silk",
+      "musician": true,
       "bio": "Jess Silk is a guitarist, singer and songwriter from the Black Country. Her passionate and  melodic brand of folk/punk music gets people sitting up and listening. Armed only with an increasingly sticker-covered acoustic guitar, lyrics right from the heart and a distinctive, powerful voice that many don't expect, Jess plays to audiences up and down the UK and has shared stages with many well known names among the folk/punk scene."
     },
     "nick-parker": {
       "id": "nick-parker",
       "name": "Nick Parker",
       "url": "https://nick-parker.co.uk/",
+      "facebook": "nickparkertheperson",
+      "instagram": "nick_parker_music",
+      "musician": true,
       "bio": "Glastonbury based Nick Parker started gigging in his early teens playing mandolin and singing in folk/rock/skiffle band 'Why?', and spent the next 10 years bouncing around on stages at hundreds of venues and festivals around the UK and Europe. In 2010 Nick embarked on a solo career and has since enjoyed over 30 tours around the UK and Europe, releasing five full-length albums along the way, many songs from which have been featured on BBC6 Music among many other radio stations.\n\n\n\n Although primarily a solo effort Nick often plays with his band 'Nick Parker and the False Alarms' which is a folky/rocky/country affair using guitars, fiddle, pedal steel, banjo, mandolin, cornet, accordion, keys, whistles, pipes, bass and drums, often with various members switching instruments when space permits. At a recent gig the band were described as 'A British Arcade Fire', something that Nick was very pleased about. Nick also often gigs as a duo with fiddle player Ben Wain."
     },
     "jess-silk-matt-johnson": {
@@ -7976,6 +8005,9 @@
       "id": "sorrel-nation",
       "name": "Sorrel Nation",
       "url": "https://www.sorrelnationmusic.com/",
+      "musician": true,
+      "facebook": "SorrelNation",
+      "instagram": "sorrelnation",
       "bio": "Travelling troubadour Sorrel Nation brings a soulful mix of folk-rock to country and beyond and possesses one of those voices that makes you immediately stop what you're doing to give her your full attention. She engages audiences with emotive lyrics, 70s inspired style and a voice full of soul, which further increases the seductive power of her songs. Known for penning songs that can truly open the heart to grief and like all valued songwriters possess a giving presence...she heralds gorgeous ballads that could become Sorrel Nation's trademark sound."
     }
   }
