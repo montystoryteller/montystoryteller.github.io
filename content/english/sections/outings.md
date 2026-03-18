@@ -12,7 +12,7 @@ outings:
     content: ""
 
   - name: "Crown & Sceptre, Ross-on-Wye"
-    designation: "The Sin-Eater of ROss & other tales, March, 2026"
+    designation: "The Sin-Eater of Ross & other tales, March, 2026"
     avatar: "/images/crown_sceptre_sign.png"
     content: ""
 
