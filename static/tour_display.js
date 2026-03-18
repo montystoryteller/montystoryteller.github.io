@@ -225,24 +225,34 @@ function displayTour(tourId) {
 
   performerIds.forEach((id) => {
     const perf = performersLookup[id];
-    if (perf && perf.url) {
+    if (!perf) return;
+
+    // Primary links: performer's own website (unchanged behaviour)
+    if (perf.url) {
       const safeUrl = sanitizeUrl(perf.url);
-      if (!safeUrl) return;
+      if (safeUrl) {
+        const topLink = document.createElement("a");
+        topLink.href = safeUrl;
+        topLink.target = "_blank";
+        topLink.className = "performer-link site-link-header";
+        topLink.textContent = `Visit ${perf.name}'s Website`;
+        topLinks.push(topLink);
 
-      const topLink = document.createElement("a");
-      topLink.href = safeUrl;
-      topLink.target = "_blank";
-      topLink.className = "performer-link site-link-header";
-      topLink.textContent = `Visit ${perf.name}'s Website`;
-      topLinks.push(topLink);
-
-      const bottomLink = document.createElement("a");
-      bottomLink.href = safeUrl;
-      bottomLink.target = "_blank";
-      bottomLink.className = "performer-link site-link-footer";
-      bottomLink.textContent = `Official Website: ${perf.name}`;
-      bottomLinks.push(bottomLink);
+        const bottomLink = document.createElement("a");
+        bottomLink.href = safeUrl;
+        bottomLink.target = "_blank";
+        bottomLink.className = "performer-link site-link-footer";
+        bottomLink.textContent = `Official Website: ${perf.name}`;
+        bottomLinks.push(bottomLink);
+      }
     }
+
+    // Secondary link: performer profile page (below the website link)
+    const perfPageLink = document.createElement("a");
+    perfPageLink.href = `new_troubadours_performers.html?performer=${encodeURIComponent(id)}`;
+    perfPageLink.className = "performer-link site-link-header";
+    perfPageLink.textContent = `${perf.name} — Performer Profile`;
+    topLinks.push(perfPageLink);
   });
 
   topLinks.forEach((l) => flyerContainer.appendChild(l));
@@ -431,7 +441,15 @@ function createTourDateElement(tourDate, tour, past = false) {
 
   // Venue Location with icons — createVenueElement() defined in shared_utils.js
   if (tourDate.venue_id && venuesLookup[tourDate.venue_id]) {
-    div.appendChild(createVenueElement(venuesLookup[tourDate.venue_id]));
+    const venueEl = createVenueElement(venuesLookup[tourDate.venue_id]);
+    const venuePageLink = document.createElement("a");
+    venuePageLink.href = `new_troubadours_venues.html?venue=${encodeURIComponent(tourDate.venue_id)}`;
+    venuePageLink.className = "venue-page-link";
+    venuePageLink.title = "View venue page";
+    venuePageLink.textContent = "i";
+    venuePageLink.onclick = (e) => e.stopPropagation();
+    venueEl.appendChild(venuePageLink);
+    div.appendChild(venueEl);
   }
 
   // Tickets and Facebook Event — createTicketsElement() defined in shared_utils.js

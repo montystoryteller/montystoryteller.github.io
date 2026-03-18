@@ -406,7 +406,7 @@ function resolveEventVenue(event, date) {
     venue_url = venue.url || null;
   }
 
-  return { location, latlon, venue_url };
+  return { location, latlon, venue_url, venue_id };
 }
 
 function parseExceptionDate(str) {
@@ -449,7 +449,10 @@ function createSafePopup(eventData) {
 }
 
 function createEventData(baseEvent, date, eventType) {
-  const { location, latlon, venue_url } = resolveEventVenue(baseEvent, date);
+  const { location, latlon, venue_url, venue_id } = resolveEventVenue(
+    baseEvent,
+    date,
+  );
 
   const eventData = {
     name: baseEvent.name,
@@ -458,6 +461,7 @@ function createEventData(baseEvent, date, eventType) {
     location: location,
     latlon: latlon,
     venue_url: venue_url,
+    venue_id: venue_id,
     price: baseEvent.price || null,
     isStoryclub: eventType === "storyclub",
     isSpecial: eventType === "special",
@@ -1295,6 +1299,7 @@ function createPerformerSection(event) {
   const performerDiv = document.createElement("div");
   performerDiv.className = "event-performer";
 
+  // Primary link: performer's own website (unchanged behaviour)
   if (event.performer_url) {
     const safePerformerUrl = sanitizeUrl(event.performer_url);
     if (safePerformerUrl) {
@@ -1303,11 +1308,9 @@ function createPerformerSection(event) {
       performerLink.target = "_blank";
       performerLink.className = "event-performer-link";
       performerLink.onclick = (e) => e.stopPropagation();
-
       const performerStrong = document.createElement("strong");
       performerStrong.textContent = event.performer;
       performerLink.appendChild(performerStrong);
-
       performerDiv.appendChild(performerLink);
     } else {
       performerDiv.textContent = event.performer;
@@ -1316,17 +1319,39 @@ function createPerformerSection(event) {
     performerDiv.textContent = event.performer;
   }
 
+  // Secondary link: performer profile page (small icon, only if we have a performer_id)
+  if (event.performer_id) {
+    const perfPageLink = document.createElement("a");
+    perfPageLink.href = `new_troubadours_performers.html?performer=${encodeURIComponent(event.performer_id)}`;
+    perfPageLink.className = "venue-page-link";
+    perfPageLink.title = "View performer profile";
+    perfPageLink.textContent = "i";
+    perfPageLink.onclick = (e) => e.stopPropagation();
+    performerDiv.appendChild(perfPageLink);
+  }
+
   return performerDiv;
 }
 
 function createLocationSection(event) {
   // createVenueElement() defined in shared_utils.js
   // Build a compatible venue-like object from event fields
-  return createVenueElement({
+  // Also append a venue page link if we have a venue_id
+  const venueEl = createVenueElement({
     url: event.venue_url || null,
     full_address: event.location || "",
     name: event.location || "",
   });
+  if (event.venue_id) {
+    const venuePageLink = document.createElement("a");
+    venuePageLink.href = `new_troubadours_venues.html?venue=${encodeURIComponent(event.venue_id)}`;
+    venuePageLink.className = "venue-page-link";
+    venuePageLink.title = "View venue page";
+    venuePageLink.textContent = "i";
+    venuePageLink.onclick = (e) => e.stopPropagation();
+    venueEl.appendChild(venuePageLink);
+  }
+  return venueEl;
 }
 
 function createDateSection(event) {

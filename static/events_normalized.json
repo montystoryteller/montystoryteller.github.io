@@ -2862,7 +2862,7 @@
       "date": "07/02/2026",
       "time": "5.15pm",
       "price": "Free",
-      "description": "A stroytelling slot in a local music festival.",
+      "description": "A storytelling slot in a local music festival.",
       "event_flyer": "2026_02_07_kashmir_slot.png",
       "venue_id": "quay-arts-newport",
       "performer_id": "tony-monty-hirst"
@@ -3238,7 +3238,7 @@
       "performer_id": "james-canvin"
     },
     {
-      "name": "The Steed o' Bells [Iris Pibworth & Colin Rowan]",
+      "name": "The Steed o' Bells [Iris Skipworth & Colin Rowan]",
       "showname": "The Steed o' Bells",
       "date": "21/02/2026",
       "time": "Doors 6.30pm, show 7.30pm",
@@ -3247,7 +3247,7 @@
       "description": "A life for a story - A story for a life.\n\n\n\n This father and daughter duo bring to life a tale of thievery, giants, ghosts; and many a close brush with death. How much is a story worth? A reworking of a tale found across the British Isles in the 1800's, Colin and Iris bring a contemporary edge to these traditional tales with their unique style.",
       "event_flyer": "2026_02_21_pibworth.jpg",
       "venue_id": "bureau-centre-for-the-arts-blackburn",
-      "performer_id": "iris-pibworth-colin-rowan"
+      "performer_id": "iris-skipworth-colin-rowan"
     },
     {
       "name": "Sacred Herbs of Britain [Ropetackle Storytellers]",
@@ -7525,7 +7525,7 @@
     },
     "ben-haggarty":{
       "id": "ben-haggarty",
-      "name": "Ben Haggart",
+      "name": "Ben Haggarty",
       "url": "https://benhaggarty.com/",
       "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK's most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word."
     },
@@ -7580,14 +7580,14 @@
     },
     "merl-fluin-holly-medland": {
       "id": "merl-fluin-holly-medland",
-      "ids": ["merl-fluin", "holly-medland"],
+      "performer_ids": ["merl-fluin", "holly-medland"],
       "name": "Merl Fluin | Holly Medland",
       "url": "",
       "bio": ""
     },
     "tis-tales-hms":{
       "id": "tis-tales-hms",
-      "ids": ["holly-medland", "sue-bailey", "merl-fluin"],
+      "performer_ids": ["holly-medland", "sue-bailey", "merl-fluin"],
       "name": "'Tis Tales, feat. Holly Medland, Sue Bailey, Merl Fluin",
       "url": "https://tistales.org.uk/",
       "bio": "'Tis Tales is a storytelling troupe telling tales to adult audience on the Isle of Wight [Holly Medland, Sue Bailey, Tony 'Monty' Hirst, Merl Fluin]. \n\n\n\n Performing in various combinations, this performance features tales from Holly Medland, Sue Bailey and Merl Fluin."
@@ -7612,13 +7612,13 @@
     },
     "jessie-wild-cath-little": {
       "id": "jessie-wild-cath-little",
-      "ids": ["jessie-wild", "cath-little"],
+      "performer_ids": ["jessie-wild", "cath-little"],
       "name": "Jessie Wild / Cath Little",
       "bio": "Jessie Wild is a performance Storyteller/ Creative Educator. Runs The Tell Tales Club, Cardigan / Aberteifi.\n\n\n\n Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words 'the gift of the story comes through.' She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here."
     },
     "ben-haggarty-steph-brittain": {
       "id": "ben-haggarty-steph-brittain",
-      "ids": ["ben-haggarty", "steph-brittain"],
+      "performer_ids": ["ben-haggarty", "steph-brittain"],
       "name": "Ben Haggarty & Steph Brittain",
       "url": "",
       "bio": "Ben Haggarty is Artistic Director of the Crick Crack Club and one of the UK's most popular contemporary performance storytellers. Renowned for his playful, physical and often challenging performances, his repertoire spans Indo-European fairytales for grown-ups, Greek and Irish mythology, the epic of Gilgamesh and contemporary myths of Frankenstein and The Sandman, which won him a Fringe First award for best spoken word.\n\n\n\nSteph Brittain's love for storytelling developed whilst studying Kathak dance in Paris and Delhi and it continued to grow during her MA in Drama and Movement therapy. She trained in performance at Acting International in Paris and Drama Centre London and has performed at Royal Exchange Theatre Manchester, Arcola Theatre London and for the BBC. A new voice storyteller, Steph Brittain joined Pandvani108 in 2022 as part of their artist development programme"
@@ -7655,6 +7655,7 @@
     },
     "amy-douglas-and-jason-buck": {
       "id": "amy-douglas-and-jason-buck",
+      "performer_ids": ["amy-douglas", "jason-buck"],
       "name": "Amy Douglas and Jason Buck",
       "url": "",
       "bio": "Amy Douglas is a vibrant professional storyteller with a passion for traditional stories and riddles. Over the past twenty years she has delved deep into the folklore of Britain, reveling in tales of the strange and macabre; memories of magic and otherworlds; proud recollections of folk history; stories to make you smile, sigh or shiver; stories that have been moulded by the land, weather and generations of tongues wagging.\n\n\n\nJason Buck is an award-winning performance storyteller, author and illustrator."
@@ -7767,6 +7768,42 @@
       "url": "https://www.michaelharvey.org/",
       "bio": "Michal harvey tells stories, in both Welsh and English, from the world's oral traditions to all ages. His repertoire is based in Wales and the other Celtic countries but he can't resist a good story, wherever it's from.\n\n\n\nMichael works in community settings, in schools, in theatres, festivals, libraries, village halls, pubs, museums and galleries. He sometimes works solo and sometimes in collaboration with other artists and production companies. He trains storytellers and those who want to become storytellers and trains teachers to use storytelling as a powerful tool for literacy and second language acquisition."
     },
+    "colin-rowan": {
+      "id": "colin-rowan",
+      "name": "Colin Rowan",
+      "url": "https://www.facebook.com/astinginthetaleclub",
+      "bio": "Storyteller."
+    },
+    "iris-skipworth": {
+      "id": "iris-skipworth",
+      "name": "Iris Skipworth",
+      "url": "https://www.facebook.com/astinginthetaleclub",
+      "bio": "Professional storyteller."
+    },
+    "stacey-blythe": {
+      "id": "stacey-blythe",
+      "name": "Stacey Blythe",
+      "url": "https://www.staceyblythe.com/about/",
+      "bio": "Composer, performer, and multi instrumentalist, Stacey Blythe has performed all over the UK and America."
+    },
+    "laura-sampson": {
+      "id": "laura-sampson",
+      "name": "Laura Sampson",
+      "url": "https://www.laurasampson.com/",
+      "bio": "Storyteller, sound artist and promoter based in London."
+    },
+    "jordan-price-williams": {
+      "id": "jordan-price-williams",
+      "name": "Jordan Price Williams",
+      "url": "https://www.facebook.com/WilliamsPriceJordan/",
+      "bio": "Jordan Price Williams is an award-winning traditional musician from Cwmafan, South Wales (cello, double bass)."
+    },
+    "tamar-eluned-williams": {
+      "id": "tamar-eluned-williams",
+      "name": "Tamar Eluned Williams",
+      "url": "https://www.tamarelunedwilliams.com/",
+      "bio": "Tamar Eluned Williams is a professional storyteller working in the Welsh oral tradition. Tamar tells stories in Welsh and English, working with a wide repertoire of Celtic mythology, legends, and folktales, alongside stories from all over the world. She works with story in lots of different ways: telling them from memory in schools, festivals, museums and theatres, creating new shows for adult and family audiences, running storytelling workshops, and writing and directing for theatre."
+    },
     "shonaleigh": {
       "id": "shonaleigh",
       "name": "Shonaleigh",
@@ -7793,7 +7830,7 @@
     },
     "lucy-lill-sarah-liisa-wilkinson": {
       "id": "lucy-lill-sarah-liisa-wilkinson",
-      "ids": ["lucy-lill", "sarah-liisa-wilkinson"],
+      "performer_ids": ["lucy-lill", "sarah-liisa-wilkinson"],
       "name": "Lucy Lill & Sarah-Liisa Wilkinson",
       "url": "",
       "bio": ""
@@ -7824,12 +7861,14 @@
     },
     "tamar-eluned-williams-jordan-price-williams": {
       "id": "tamar-eluned-williams-jordan-price-williams",
+      "performer_ids": ["tamar-eluned-williams", "jordan-price-williams"],
       "name": "Tamar Eluned Williams & Jordan Price Williams",
       "url": "",
       "bio": ""
     },
     "laura-sampson-and-stacey-blythe": {
       "id": "laura-sampson-and-stacey-blythe",
+      "performer_ids": ["laura-sampson", "stacey-blythe"],
       "name": "Laura Sampson and Stacey Blythe",
       "url": "",
       "bio": ""
@@ -7866,13 +7905,15 @@
     },
     "henry-everett-and-hannah-sneyd": {
       "id": "henry-everett-and-hannah-sneyd",
+      "performer_ids": ["henry-everett", "hannah-sneyd"],
       "name": "Henry Everett and Hannah Sneyd",
       "url": "",
       "bio": "The days are lengthening, and green shoots are nudging their way through the soil. As winter loosens its icy grip on the world, it is time to celebrate Imbolc, the Celtic festival of early spring, whose name means 'in the belly.'\n\n\n\n Join us for Stirring Stories, a series of uplifting tales to stoke the fire within and rouse us from our winter slumber. Forget the to-do list, gather together and and allow your imagination to unfurl into the realm of myth and magic.\n\n\n\n This special event with Dartmoor storytellers Henry Everett and Hannah Sneyd promises a vivid array of stories formed through deep communion with the landscape. Blending traditional tales from around the world with original stories, games and song, we curate our events to closely match the energy of the season.\n\n\n\n Things to note: This is a family-friendly event, with a 20-minute interval and food and drink available from The Lounge Cafe - please see the MIC website for further details."
     },
-    "iris-pibworth-colin-rowan": {
-      "id": "iris-pibworth-colin-rowan",
-      "name": "Iris Pibworth & Colin Rowan",
+    "iris-skipworth-colin-rowan": {
+      "id": "iris-skipworth-colin-rowan",
+      "performer_ids": ["iris-skipworth", "colin-rowan"],
+      "name": "Iris Skipworth & Colin Rowan",
       "url": "",
       "bio": "A life for a story - A story for a life.\n\n\n\n This father and daughter duo bring to life a tale of thievery, giants, ghosts; and many a close brush with death. How much is a story worth? A reworking of a tale found across the British Isles in the 1800's, Colin and Iris bring a contemporary edge to these traditional tales with their unique style. "
     },
@@ -7886,7 +7927,7 @@
       "id": "greg-chapman",
       "name": "Greg Chapman",
       "url": "https://www.gregandfelicityadventures.com/stage-shows",
-      "bio": "Greg has been a professional entertainer, comedy performer, magician and stroyteller for over two decades, and has been an entertainer all his life - he was first placed on a stage at just three weeks old!\n\n\n\nWhen not working on our documentaries, we can be found touring the country with our shows. Throughout 2026 our main tour consists of two shows, 'Greg Chapman's Discovery of Witchcraft' after a few years of touring 'The Non-Psychic 'Psychic' Show', 'The Legend of Houdini', and 'The Non-Psychic Seance'."
+      "bio": "Greg has been a professional entertainer, comedy performer, magician and storyteller for over two decades, and has been an entertainer all his life - he was first placed on a stage at just three weeks old!\n\n\n\nWhen not working on our documentaries, we can be found touring the country with our shows. Throughout 2026 our main tour consists of two shows, 'Greg Chapman's Discovery of Witchcraft' after a few years of touring 'The Non-Psychic 'Psychic' Show', 'The Legend of Houdini', and 'The Non-Psychic Seance'."
     },
     "ffion-phillips-dragon-storytellers": {
       "id": "ffion-phillips-dragon-storytellers",
@@ -7902,6 +7943,7 @@
     },
     "gaz-brookfield-and-the-company-of-thieves": {
       "id": "gaz-brookfield-and-the-company-of-thieves",
+      "performer_ids": ["gaz-brookfield"],
       "name": "Gaz Brookfield and The Company of Thieves",
       "url": "https://gazbrookfield.com/",
       "bio": "West country based Gaz Brookfield is an award winning solo acoustic musician, with two number one albums to his name.\n\n\n\n He has spent the last fifteen years tirelessly touring all over the UK and beyond, building a strong and loyal following wherever he goes.\n\n\n\n Brookfield was the first independent musician to sell out Bristol's The Fleece (450 cap) and The Bierkeller (750 cap) and more recently SWX (1000 cap). \n\n\n\n Gaz has an impressive ten album strong back catalogue. In the autumn of 2023, Gaz's ninth album, 'Morning Walking Club', saw him achieve his first number one in the Official UK Folk Albums Chart.\n\n\n\n Brookfield got his second number one album in September 2025, when 'Waiting for Wisdom' topped the Official UK Download Charts.\n\n\n\n Not a bad result for this fiercely independent musician, with no record label, no manager, no agent - just a guitar, a van, and a steadfastly belligerent refusal to give in."

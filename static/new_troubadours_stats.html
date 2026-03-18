@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data &amp; Stats — New Troubadours</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f7f4ef;
+            color: #2a2a2a;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        /* ---- NAV ---- */
+        .page-header {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            background: #45a049;
+        }
+
+        /* ---- PAGE TITLE ---- */
+        h1 {
+            font-size: 32px;
+            font-weight: normal;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        /* ---- LOADING ---- */
+        #loadingState {
+            text-align: center;
+            padding: 60px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* ---- SUMMARY TILES ---- */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .summary-tile {
+            background: white;
+            border-radius: 6px;
+            padding: 18px 16px;
+            border-top: 3px solid #4CAF50;
+        }
+
+        .summary-tile.blue {
+            border-top-color: #443cd7;
+        }
+
+        .summary-tile.amber {
+            border-top-color: #e8a020;
+        }
+
+        .summary-tile.brown {
+            border-top-color: #795548;
+        }
+
+        .summary-tile.teal {
+            border-top-color: #00796b;
+        }
+
+        .summary-tile.slate {
+            border-top-color: #546e7a;
+        }
+
+        .tile-n {
+            font-size: 36px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+
+        .tile-l {
+            font-size: 12px;
+            color: #888;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-top: 6px;
+        }
+
+        /* ---- SECTION HEADINGS ---- */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: -0.3px;
+            border-bottom: 1px solid #d8d2c8;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        /* ---- BAR CHART ---- */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 48px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bar-label {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bar-label a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .bar-label a:hover {
+            text-decoration: underline;
+        }
+
+        .bar-track {
+            background: #ede9e2;
+            border-radius: 2px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: #4CAF50;
+            transition: width 0.4s ease;
+        }
+
+        .bar-fill.blue {
+            background: #443cd7;
+        }
+
+        .bar-fill.amber {
+            background: #e8a020;
+        }
+
+        .bar-fill.brown {
+            background: #795548;
+        }
+
+        .bar-fill.teal {
+            background: #00796b;
+        }
+
+        .bar-fill.slate {
+            background: #546e7a;
+        }
+
+        .bar-fill.red {
+            background: #c62828;
+        }
+
+        .bar-fill.multi {
+            background: linear-gradient(90deg, #4CAF50 0%, #443cd7 100%);
+        }
+
+        .bar-n {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            color: #555;
+            text-align: right;
+        }
+
+        /* ---- TICKETING SERVICE STACKED BARS ---- */
+        .stacked-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stacked-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 48px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stacked-track {
+            display: flex;
+            height: 20px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .stacked-seg {
+            height: 100%;
+            transition: width 0.4s ease;
+        }
+
+        .seg-story {
+            background: #4CAF50;
+        }
+
+        .seg-tour {
+            background: #2e7d32;
+        }
+
+        .seg-music {
+            background: #443cd7;
+        }
+
+        .seg-show {
+            background: #795548;
+        }
+
+        .seg-other {
+            background: #aaa;
+        }
+
+        .seg-festival {
+            background: #e8a020;
+        }
+
+        /* ---- LEGEND ---- */
+        .legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            color: #555;
+        }
+
+        .legend-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ---- TWO COLUMN ---- */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 700px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .bar-row {
+                grid-template-columns: 140px 1fr 40px;
+            }
+
+            .stacked-row {
+                grid-template-columns: 120px 1fr 40px;
+            }
+        }
+
+        /* ---- TABLE ---- */
+        .stat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .stat-table th {
+            text-align: left;
+            padding: 6px 10px;
+            background: #ede9e2;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #555;
+        }
+
+        .stat-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #ede9e2;
+            color: #333;
+        }
+
+        .stat-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .stat-table tr:hover td {
+            background: #faf8f4;
+        }
+
+        .stat-table td a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .stat-table td a:hover {
+            text-decoration: underline;
+        }
+
+        .stat-table .n {
+            text-align: right;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .stat-table .pct {
+            text-align: right;
+            color: #888;
+        }
+
+        /* ---- CLICKABLE TILES ---- */
+        .summary-tile.clickable {
+            cursor: pointer;
+            transition: box-shadow 0.15s, transform 0.15s;
+        }
+
+        .summary-tile.clickable:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .summary-tile.clickable.active {
+            outline: 2px solid #4CAF50;
+        }
+
+        .summary-tile.clickable.active .tile-n {
+            color: #2e7d32;
+        }
+
+        .tile-hint {
+            font-size: 10px;
+            color: #bbb;
+            font-family: Arial, sans-serif;
+            margin-top: 3px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ---- DRILLDOWN PANEL ---- */
+        .drilldown-panel {
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #4CAF50;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            animation: slideIn 0.2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .drilldown-title {
+            font-size: 13px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .drilldown-close {
+            float: right;
+            font-size: 12px;
+            color: #aaa;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .drilldown-close:hover {
+            color: #333;
+        }
+
+        /* ---- COLOPHON ---- */
+        .about {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #d8d2c8;
+            font-size: 12px;
+            color: #aaa;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="new_troubadours_event_guide.html" class="back-link">← Events Calendar</a>
+        <a href="new_troubadours_tour_guide.html" class="back-link">Tour Guide →</a>
+    </div>
+
+    <h1>Data &amp; Statistics</h1>
+    <p class="page-subtitle">The New Troubadours — computed live from events_normalized.json</p>
+
+    <div id="loadingState">Loading data…</div>
+    <div id="statsContent" style="display:none;"></div>
+
+    <div class="about" id="colophon">
+        <p>Hacked together by Tony Hirst in conversation with Claude.ai. For corrections: <tt>montystoryteller AT gmail
+                DOT com</tt></p>
+    </div>
+
+    <script>
+
+        // ---------------------------------------------------------------------------
+        // Ticketing service classifier
+        // ---------------------------------------------------------------------------
+
+        function classifyTicketUrl(url) {
+            if (!url) return null;
+            try {
+                const d = new URL(url).hostname.replace('www.', '');
+                if (d.includes('wegottickets')) return 'WeGotTickets';
+                if (d.includes('ticketsource')) return 'TicketSource';
+                if (d.includes('tickettailor')) return 'TicketTailor';
+                if (d.includes('eventbrite')) return 'Eventbrite';
+                if (d.includes('ticketsolve')) return 'TicketSolve';
+                if (d.includes('seetickets')) return 'SeeTickets';
+                if (d.includes('skiddle')) return 'Skiddle';
+                if (d.includes('alttickets')) return 'AltTickets';
+                if (d.includes('ticketlab')) return 'TicketLab';
+                if (d.includes('trybooking')) return 'TryBooking';
+                if (d.includes('workshop-angel')) return 'Workshop Angel';
+                if (d.includes('headfirstbristol')) return 'Headfirst';
+                if (d.includes('stripe')) return 'Stripe';
+                if (d.includes('sumupstore')) return 'SumUp';
+                return 'Venue / Other';
+            } catch (e) { return null; }
+        }
+
+        // ---------------------------------------------------------------------------
+        // DOM helpers
+        // ---------------------------------------------------------------------------
+
+        function el(tag, cls, text) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (text !== undefined) e.textContent = text;
+            return e;
+        }
+
+        function section(title) {
+            const s = document.createElement('div');
+            s.className = 'section';
+            const h = el('h2', 'section-title', title);
+            s.appendChild(h);
+            return s;
+        }
+
+        function barChart(rows, maxVal, colourClass) {
+            // rows: [{label, labelHref, n}]
+            const chart = el('div', 'bar-chart');
+            rows.forEach(r => {
+                const row = el('div', 'bar-row');
+                const labelEl = el('div', 'bar-label');
+                if (r.labelHref) {
+                    const a = document.createElement('a');
+                    a.href = r.labelHref;
+                    a.textContent = r.label;
+                    labelEl.appendChild(a);
+                } else {
+                    labelEl.textContent = r.label;
+                }
+                const track = el('div', 'bar-track');
+                const fill = el('div', `bar-fill ${colourClass || ''}`);
+                fill.style.width = `${Math.round((r.n / maxVal) * 100)}%`;
+                track.appendChild(fill);
+                const nEl = el('div', 'bar-n', r.n);
+                row.appendChild(labelEl); row.appendChild(track); row.appendChild(nEl);
+                chart.appendChild(row);
+            });
+            return chart;
+        }
+
+        function stackedChart(rows, maxVal, segments) {
+            // rows: [{label, total, segs:{name:n}}]
+            // segments: [{key, label, cls}]
+            const chart = el('div', 'stacked-chart');
+            rows.forEach(r => {
+                const row = el('div', 'stacked-row');
+                const labelEl = el('div', 'bar-label', r.label);
+                const track = el('div', 'stacked-track');
+                segments.forEach(seg => {
+                    const n = r.segs[seg.key] || 0;
+                    if (n === 0) return;
+                    const s = el('div', `stacked-seg ${seg.cls}`);
+                    s.style.width = `${Math.round((n / maxVal) * 100)}%`;
+                    s.title = `${seg.label}: ${n}`;
+                    track.appendChild(s);
+                });
+                const nEl = el('div', 'bar-n', r.total);
+                row.appendChild(labelEl); row.appendChild(track); row.appendChild(nEl);
+                chart.appendChild(row);
+            });
+            return chart;
+        }
+
+        function tile(n, label, colourClass) {
+            const t = el('div', `summary-tile ${colourClass || ''}`);
+            t.appendChild(el('div', 'tile-n', n));
+            t.appendChild(el('div', 'tile-l', label));
+            return t;
+        }
+
+        function legend(segments) {
+            const l = el('div', 'legend');
+            segments.forEach(seg => {
+                const item = el('div', 'legend-item');
+                const sw = el('div', `legend-swatch ${seg.cls}`);
+                sw.style.background = seg.bg || '';
+                item.appendChild(sw);
+                item.appendChild(document.createTextNode(seg.label));
+                l.appendChild(item);
+            });
+            return l;
+        }
+
+        // ---------------------------------------------------------------------------
+        // Main
+        // ---------------------------------------------------------------------------
+
+        async function loadAndRender() {
+            const resp = await fetch(`events_normalized.json?v=${Date.now()}`);
+            const data = await resp.json();
+
+            const venues = data.venues || {};
+            const performers = data.performers || {};
+            const tours = data.tours || {};
+            const tourShows = data.touring_shows || {};
+            const specific = data.specificEvents || [];
+            const music = data.musicEvents || [];
+            const folkNights = data.folkNights || [];
+            const sessions = data.irishSessions || [];
+            const events = data.events || [];   // recurring story clubs
+            const festivals = data.festivals || {};
+
+            // ---- all tour dates flat ----
+            const allTourDates = [];
+            Object.entries(tours).forEach(([tid, t]) => {
+                (t.tour_dates || []).forEach(td => allTourDates.push({ ...td, tour_id: tid, performer_id: t.performer_id, performer_ids: t.performer_ids }));
+            });
+            const allShowDates = [];
+            Object.entries(tourShows).forEach(([tsid, ts]) => {
+                (ts.show_dates || []).forEach(sd => allShowDates.push({ ...sd, show_id: tsid, performer_id: ts.performer_id }));
+            });
+
+            // ---- ticketing analysis ----
+            const tickSegs = [
+                { key: 'Story show', label: 'Story show', cls: 'seg-story' },
+                { key: 'Tour date', label: 'Tour date', cls: 'seg-tour' },
+                { key: 'Music', label: 'Music', cls: 'seg-music' },
+                { key: 'Touring show', label: 'Touring show', cls: 'seg-show' },
+                { key: 'Festival', label: 'Festival', cls: 'seg-festival' },
+                { key: 'Other', label: 'Other', cls: 'seg-other' },
+            ];
+
+            const serviceMap = {};
+            function countTicket(url, type) {
+                const s = classifyTicketUrl(url);
+                if (!s) return;
+                if (!serviceMap[s]) serviceMap[s] = { total: 0, segs: {} };
+                serviceMap[s].total++;
+                serviceMap[s].segs[type] = (serviceMap[s].segs[type] || 0) + 1;
+            }
+            specific.forEach(e => { if (e.ticket_url) countTicket(e.ticket_url, 'Story show'); });
+            music.forEach(e => { if (e.ticket_url) countTicket(e.ticket_url, 'Music'); });
+            allTourDates.forEach(td => { if (td.ticket_url) countTicket(td.ticket_url, 'Tour date'); });
+            allShowDates.forEach(sd => { if (sd.ticket_url) countTicket(sd.ticket_url, 'Touring show'); });
+            Object.values(festivals).forEach(f => { if (f.ticket_url) countTicket(f.ticket_url, 'Festival'); });
+
+            const serviceRows = Object.entries(serviceMap)
+                .sort((a, b) => b[1].total - a[1].total)
+                .map(([label, v]) => ({ label, total: v.total, segs: v.segs }));
+            const serviceMax = serviceRows[0]?.total || 1;
+
+            // ticketed vs not
+            const totalTicketed = Object.values(serviceMap).reduce((s, v) => s + v.total, 0);
+            const totalSpecific = specific.length + music.length;
+            const totalTourDatesCount = allTourDates.length;
+
+            // ---- performer analysis ----
+            const perfTickets = {};
+            const perfEvents = {};
+            function addPerf(pid, ticketed) {
+                if (!pid) return;
+                perfEvents[pid] = (perfEvents[pid] || 0) + 1;
+                if (ticketed) perfTickets[pid] = (perfTickets[pid] || 0) + 1;
+            }
+            specific.forEach(e => addPerf(e.performer_id, !!e.ticket_url));
+            music.forEach(e => addPerf(e.performer_id, !!e.ticket_url));
+            allTourDates.forEach(td => {
+                const pids = td.performer_ids ? td.performer_ids : (td.performer_id ? [td.performer_id] : []);
+                pids.forEach(pid => addPerf(pid, !!td.ticket_url));
+            });
+            allShowDates.forEach(sd => addPerf(sd.performer_id, !!sd.ticket_url));
+
+            const topPerfByDates = Object.entries(perfEvents)
+                .sort((a, b) => b[1] - a[1]).slice(0, 12)
+                .map(([pid, n]) => ({
+                    label: performers[pid]?.name || pid,
+                    labelHref: `new_troubadours_performers.html?performer=${encodeURIComponent(pid)}`,
+                    n
+                }));
+            const topPerfByTickets = Object.entries(perfTickets)
+                .sort((a, b) => b[1] - a[1]).slice(0, 12)
+                .map(([pid, n]) => ({
+                    label: performers[pid]?.name || pid,
+                    labelHref: `new_troubadours_performers.html?performer=${encodeURIComponent(pid)}`,
+                    n
+                }));
+
+            // ---- venue analysis ----
+            const venueEvents = {};
+            function addVenue(vid) {
+                if (!vid) return;
+                venueEvents[vid] = (venueEvents[vid] || 0) + 1;
+            }
+            specific.forEach(e => addVenue(e.venue_id));
+            music.forEach(e => addVenue(e.venue_id));
+            allTourDates.forEach(td => addVenue(td.venue_id));
+            allShowDates.forEach(sd => addVenue(sd.venue_id));
+            Object.values(festivals).forEach(f => addVenue(f.venue_id));
+
+            const topVenues = Object.entries(venueEvents)
+                .sort((a, b) => b[1] - a[1]).slice(0, 15)
+                .map(([vid, n]) => ({
+                    label: venues[vid]?.name || vid,
+                    labelHref: `new_troubadours_venues.html?venue=${encodeURIComponent(vid)}`,
+                    n
+                }));
+
+            // venue geographic spread — count by city
+            const cityCount = {};
+            Object.entries(venueEvents).forEach(([vid, n]) => {
+                const city = venues[vid]?.city || 'Unknown';
+                cityCount[city] = (cityCount[city] || 0) + n;
+            });
+            const topCities = Object.entries(cityCount)
+                .sort((a, b) => b[1] - a[1]).slice(0, 15)
+                .map(([label, n]) => ({ label, n }));
+
+            // venues used once vs multiple times
+            const venueUsedOnce = Object.values(venueEvents).filter(n => n === 1).length;
+            const venueUsedMore = Object.values(venueEvents).filter(n => n > 1).length;
+
+            // ---- performer bios ----
+            const perfWithBio = Object.values(performers).filter(p => p.bio).length;
+            const perfWithoutBio = Object.values(performers).length - perfWithBio;
+            const compoundPerfs = Object.values(performers).filter(p => p.performer_ids || p.ids).length;
+
+            // ---- render ----
+            const content = document.getElementById('statsContent');
+            content.style.display = '';
+
+            // Summary tiles
+            const grid = el('div', 'summary-grid');
+            const tileData = [
+                { n: Object.keys(performers).length, l: 'Performers', cls: '' },
+                { n: Object.keys(venues).length, l: 'Venues', cls: 'teal' },
+                { n: Object.keys(tours).length, l: 'Tours', cls: '' },
+                { n: allTourDates.length, l: 'Tour dates', cls: '' },
+                { n: specific.length, l: 'Story shows', cls: '' },
+                { n: music.length, l: 'Music events', cls: 'blue' },
+                { n: events.length, l: 'Story clubs', cls: '' },
+                { n: folkNights.length, l: 'Folk nights', cls: 'brown' },
+                { n: sessions.length, l: 'Irish sessions', cls: 'slate' },
+                { n: Object.keys(festivals).length, l: 'Festivals', cls: 'amber' },
+                { n: totalTicketed, l: 'Ticketed dates', cls: '' },
+            ];
+            tileData.forEach(t => grid.appendChild(tile(t.n, t.l, t.cls)));
+
+            // Clickable "Ticket vendors" tile
+            const vendorCount = Object.keys(serviceMap).length;
+            const vendorTile = tile(vendorCount, 'Ticket vendors', 'amber clickable');
+            vendorTile.appendChild(el('div', 'tile-hint', 'click to expand'));
+            grid.appendChild(vendorTile);
+
+            content.appendChild(grid);
+
+            // Drilldown container — sits just below the summary grid
+            const drilldown = el('div', '');
+            drilldown.id = 'drilldown-container';
+            content.appendChild(drilldown);
+
+            // Vendor drilldown data — domain-level breakdown
+            const domainMap = {};
+            function countDomain(url, type) {
+                if (!url) return;
+                try {
+                    const d = new URL(url).hostname.replace('www.', '');
+                    if (!domainMap[d]) domainMap[d] = { total: 0, segs: {} };
+                    domainMap[d].total++;
+                    domainMap[d].segs[type] = (domainMap[d].segs[type] || 0) + 1;
+                } catch (e) { }
+            }
+            specific.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Story show'); });
+            music.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Music'); });
+            allTourDates.forEach(td => { if (td.ticket_url) countDomain(td.ticket_url, 'Tour date'); });
+            allShowDates.forEach(sd => { if (sd.ticket_url) countDomain(sd.ticket_url, 'Touring show'); });
+            Object.values(festivals).forEach(f => { if (f.ticket_url) countDomain(f.ticket_url, 'Festival'); });
+
+            const domainRows = Object.entries(domainMap)
+                .sort((a, b) => b[1].total - a[1].total)
+                .map(([label, v]) => ({ label, total: v.total, segs: v.segs }));
+            const domainMax = domainRows[0]?.total || 1;
+
+            vendorTile.addEventListener('click', () => {
+                const isOpen = vendorTile.classList.contains('active');
+                // Close any open drilldown
+                drilldown.innerHTML = '';
+                document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
+                if (isOpen) return;
+
+                vendorTile.classList.add('active');
+                const panel = el('div', 'drilldown-panel');
+
+                const titleRow = el('div', 'drilldown-title', `Ticket domains (${domainRows.length})`);
+                const closeBtn = el('button', 'drilldown-close', '✕ close');
+                closeBtn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    drilldown.innerHTML = '';
+                    vendorTile.classList.remove('active');
+                });
+                titleRow.appendChild(closeBtn);
+                panel.appendChild(titleRow);
+
+                const dLegend = legend([
+                    { label: 'Story show', cls: '', bg: '#4CAF50' },
+                    { label: 'Tour date', cls: '', bg: '#2e7d32' },
+                    { label: 'Music', cls: '', bg: '#443cd7' },
+                    { label: 'Touring show', cls: '', bg: '#795548' },
+                    { label: 'Festival', cls: '', bg: '#e8a020' },
+                ]);
+                panel.appendChild(dLegend);
+                panel.appendChild(stackedChart(domainRows, domainMax, tickSegs));
+                drilldown.appendChild(panel);
+            });
+
+            // ---- Ticketing services ----
+            const tickSec = section('Ticketing services');
+
+            const tickLegend = legend([
+                { label: 'Story show', cls: '', bg: '#4CAF50' },
+                { label: 'Tour date', cls: '', bg: '#2e7d32' },
+                { label: 'Music', cls: '', bg: '#443cd7' },
+                { label: 'Touring show', cls: '', bg: '#795548' },
+                { label: 'Festival', cls: '', bg: '#e8a020' },
+                { label: 'Other', cls: '', bg: '#aaa' },
+            ]);
+            tickSec.appendChild(tickLegend);
+            tickSec.appendChild(stackedChart(serviceRows, serviceMax, tickSegs));
+
+            // summary note
+            const tickNote = el('p', '', '');
+            tickNote.style.cssText = 'font-size:13px;color:#888;font-family:Arial,sans-serif;margin-top:12px;';
+            tickNote.textContent = `${totalTicketed} ticketed dates across ${Object.keys(serviceMap).length} services. WeGotTickets dominates tours; TicketTailor and Workshop Angel are used mainly for one-off story shows.`;
+            tickSec.appendChild(tickNote);
+            content.appendChild(tickSec);
+
+            // ---- Performers ----
+            const perfSec = section('Performers');
+            const perfCols = el('div', 'two-col');
+
+            const perfDatesSec = el('div');
+            perfDatesSec.appendChild(el('h3', 'section-title', 'By total dates'));
+            perfDatesSec.style.fontSize = '14px';
+            const perfMax = topPerfByDates[0]?.n || 1;
+            perfDatesSec.appendChild(barChart(topPerfByDates, perfMax, ''));
+            perfCols.appendChild(perfDatesSec);
+
+            const perfTickSec = el('div');
+            perfTickSec.appendChild(el('h3', 'section-title', 'By ticketed dates'));
+            perfTickSec.style.fontSize = '14px';
+            const perfTickMax = topPerfByTickets[0]?.n || 1;
+            perfTickSec.appendChild(barChart(topPerfByTickets, perfTickMax, ''));
+            perfCols.appendChild(perfTickSec);
+
+            perfSec.appendChild(perfCols);
+
+            // performer metadata table
+            const perfTable = document.createElement('table');
+            perfTable.className = 'stat-table';
+            perfTable.style.marginTop = '20px';
+            perfTable.innerHTML = `<thead><tr>
+        <th>Metric</th><th class="n">Count</th><th class="pct">%</th>
+    </tr></thead>`;
+            const tbody = document.createElement('tbody');
+            const totalPerfs = Object.keys(performers).length;
+            [
+                ['With bio', perfWithBio, totalPerfs],
+                ['Without bio', perfWithoutBio, totalPerfs],
+                ['Compound acts', compoundPerfs, totalPerfs],
+                ['With website', Object.values(performers).filter(p => p.url).length, totalPerfs],
+            ].forEach(([label, n, denom]) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${Math.round(n / denom * 100)}%</td>`;
+                tbody.appendChild(tr);
+            });
+            perfTable.appendChild(tbody);
+            perfSec.appendChild(perfTable);
+            content.appendChild(perfSec);
+
+            // ---- Venues ----
+            const venueSec = section('Venues');
+            const venueCols = el('div', 'two-col');
+
+            const venueTopSec = el('div');
+            venueTopSec.appendChild(el('h3', 'section-title', 'Most used venues'));
+            const venueMax = topVenues[0]?.n || 1;
+            venueTopSec.appendChild(barChart(topVenues, venueMax, 'teal'));
+            venueCols.appendChild(venueTopSec);
+
+            const citySec = el('div');
+            citySec.appendChild(el('h3', 'section-title', 'Events by city'));
+            const cityMax = topCities[0]?.n || 1;
+            citySec.appendChild(barChart(topCities, cityMax, 'teal'));
+            venueCols.appendChild(citySec);
+
+            venueSec.appendChild(venueCols);
+
+            // venue usage table
+            const venueTable = document.createElement('table');
+            venueTable.className = 'stat-table';
+            venueTable.style.marginTop = '20px';
+            venueTable.innerHTML = `<thead><tr>
+        <th>Metric</th><th class="n">Count</th><th class="pct">% of venues used</th>
+    </tr></thead>`;
+            const vtbody = document.createElement('tbody');
+            const totalVenuesUsed = Object.keys(venueEvents).length;
+            [
+                ['Total venues in database', Object.keys(venues).length, Object.keys(venues).length],
+                ['Venues with at least 1 event', totalVenuesUsed, Object.keys(venues).length],
+                ['Used once only', venueUsedOnce, totalVenuesUsed],
+                ['Used more than once', venueUsedMore, totalVenuesUsed],
+            ].forEach(([label, n, denom]) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${Math.round(n / denom * 100)}%</td>`;
+                vtbody.appendChild(tr);
+            });
+            venueTable.appendChild(vtbody);
+            venueSec.appendChild(venueTable);
+            content.appendChild(venueSec);
+
+            // ---- Event type breakdown ----
+            const typeSec = section('Event type breakdown');
+            const typeRows = [
+                { label: 'Tour dates', n: allTourDates.length, colour: '' },
+                { label: 'Story show dates', n: specific.length, colour: '' },
+                { label: 'Music events', n: music.length, colour: 'blue' },
+                { label: 'Touring show dates', n: allShowDates.length, colour: 'brown' },
+                { label: 'Recurring story clubs', n: events.length, colour: '' },
+                { label: 'Folk nights', n: folkNights.length, colour: 'brown' },
+                { label: 'Irish sessions', n: sessions.length, colour: 'slate' },
+                { label: 'Festival entries', n: Object.keys(festivals).length, colour: 'amber' },
+            ].sort((a, b) => b.n - a.n);
+            const typeMax = typeRows[0].n;
+            typeRows.forEach(r => {
+                const row = el('div', 'bar-row');
+                row.appendChild(el('div', 'bar-label', r.label));
+                const track = el('div', 'bar-track');
+                const fill = el('div', `bar-fill ${r.colour}`);
+                fill.style.width = `${Math.round((r.n / typeMax) * 100)}%`;
+                track.appendChild(fill);
+                row.appendChild(track);
+                row.appendChild(el('div', 'bar-n', r.n));
+                typeSec.appendChild(row);
+            });
+            content.appendChild(typeSec);
+
+            document.getElementById('loadingState').style.display = 'none';
+        }
+
+        loadAndRender().catch(err => {
+            document.getElementById('loadingState').textContent = `Error loading data: ${err.message}`;
+        });
+
+    </script>
+</body>
+
+</html>

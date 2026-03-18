@@ -649,3 +649,83 @@ a.festival-programme-link:hover {
 .event.festival.festival-music a.festival-programme-link:hover {
     background: #c5caf5;
 }
+
+/* =============================================================
+   14. VENUE & PERFORMER PAGE LINKS
+   Small profile/info link appended to venue and performer lines.
+   Uses a pill style so it reads clearly on any card colour.
+   ============================================================= */
+
+.venue-page-link {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    padding: 1px 5px;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 1.4;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.venue-page-link:hover {
+    background: rgba(0, 0, 0, 0.18);
+    color: #000;
+    text-decoration: none;
+}
+
+/* On coloured cards: white pill with dark text */
+.event.special .venue-page-link,
+.event.music .venue-page-link {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.event.special .venue-page-link:hover,
+.event.music .venue-page-link:hover {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
+
+.event.folk .venue-page-link {
+    color: #f5deb3;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.event.folk .venue-page-link:hover {
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+.event.session .venue-page-link {
+    color: #1a5c1a;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.event.session .venue-page-link:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.tour-date-item .venue-page-link {
+    color: #555;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.tour-date-item .venue-page-link:hover {
+    background: rgba(0, 0, 0, 0.14);
+    color: #000;
+}
+
+.tour-date-item.music .venue-page-link {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tour-date-item.music .venue-page-link:hover {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
