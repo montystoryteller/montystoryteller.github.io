@@ -2698,7 +2698,7 @@
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
-      "performer_id": "amy-douglas-and-jason-buck"
+      "performer_id": "amy-douglas-jason-buck"
     },
     {
       "name": "Myth, Magic and Mischief (age 5+) [Amy Douglas and Jason Buck]",
@@ -2712,7 +2712,7 @@
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
-      "performer_id": "amy-douglas-and-jason-buck"
+      "performer_id": "amy-douglas-jason-buck"
     },
     {
       "name": "Myth, Magic and Mischief (age 5+) [Amy Douglas and Jason Buck]",
@@ -2726,7 +2726,7 @@
       "event_flyer": "",
       "isSpecial": true,
       "venue_id": "hotel-indigo-clerkenwell-london",
-      "performer_id": "amy-douglas-and-jason-buck"
+      "performer_id": "amy-douglas-jason-buck"
     },
     {
       "name": "The Fire, The Flame, and the Light [Maria Buckley Whatton]",
@@ -7365,6 +7365,7 @@
     },
     "cath-little-bronia-evers": {
       "id": "cath-little-bronia-evers",
+      "performer_ids": ["cath-little", "bronia-evers"],
       "name": "Cath Little | Bronia Evers",
       "url": "",
       "bio": "Cardiff Storyteller and Singer Cath Little has 'rough magic' in her voice, and in her words 'the gift of the story comes through.' She has a strong belief in the power of stories to connect us to one another, to the land, and to the people who once lived here.\n\n\n\nBronia is a storyteller, designer, maker and puppeteer. Her practice combines spoken word storytelling with hand crafted performing objects, sets and puppets. Her current work focusses on creating moving panoramas - a pre-cinematic form of moving image (also known as crankies), and embedding these in live and digital performances."
@@ -7575,6 +7576,7 @@
     "henry-everett-hannah-sneyd": {
       "id": "henry-everett-hannah-sneyd",
       "name": "Henry Everett | Hannah Sneyd",
+      "performer_ids": ["henry-everett", "hannah-sneyd"],
       "url": "",
       "bio": "Henry Everett is a storyteller, telling tales in the oral storytelling tradition, passed down through the generations. He tells traditional tales inspired by our connection to the land, of spirits of place and our human relationship with the magical landscape.\n\n\n\n "
     },
@@ -7638,6 +7640,7 @@
     "gillian-brownson-dragon-storytellers": {
       "id": "gillian-brownson-dragon-storytellers",
       "name": "Gillian Brownson + Dragon Storytellers",
+      "performer_ids": ["gillian-brownson"],
       "url": "",
       "bio": "Gillian Brownson is as story artist, multi-disciplinary practitioner blending writing, storytelling, acting, singing & illustration."
     },
@@ -7660,8 +7663,8 @@
       "facebook": "JasonBuckStoryteller",
       "bio": "Award-winning performance storyteller, author and illustrator."
     },
-    "amy-douglas-and-jason-buck": {
-      "id": "amy-douglas-and-jason-buck",
+    "amy-douglas-jason-buck": {
+      "id": "amy-douglas-jason-buck",
       "performer_ids": ["amy-douglas", "jason-buck"],
       "name": "Amy Douglas and Jason Buck",
       "url": "",
