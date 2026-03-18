@@ -589,6 +589,14 @@
         // Main
         // ---------------------------------------------------------------------------
 
+        // ---------------------------------------------------------------------------
+        // Page URL constants — change filenames here, not scattered through the code
+        // ---------------------------------------------------------------------------
+        const URL_PERFORMER = 'new_troubadours_performer.html';
+        const URL_VENUE = 'new_troubadours_venue.html';
+        const URL_TOUR = 'new_troubadours_tour_guide.html';
+        const URL_EVENTS = 'new_troubadours_event_guide.html';
+
         async function loadAndRender() {
             const resp = await fetch(`events_normalized.json?v=${Date.now()}`);
             const data = await resp.json();
@@ -643,6 +651,28 @@
                 .map(([label, v]) => ({ label, total: v.total, segs: v.segs }));
             const serviceMax = serviceRows[0]?.total || 1;
 
+            // Domain-level breakdown (more granular than service groups)
+            const domainMap = {};
+            function countDomain(url, type) {
+                if (!url) return;
+                try {
+                    const d = new URL(url).hostname.replace('www.', '');
+                    if (!domainMap[d]) domainMap[d] = { total: 0, segs: {} };
+                    domainMap[d].total++;
+                    domainMap[d].segs[type] = (domainMap[d].segs[type] || 0) + 1;
+                } catch (e) { }
+            }
+            specific.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Story show'); });
+            music.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Music'); });
+            allTourDates.forEach(td => { if (td.ticket_url) countDomain(td.ticket_url, 'Tour date'); });
+            allShowDates.forEach(sd => { if (sd.ticket_url) countDomain(sd.ticket_url, 'Touring show'); });
+            Object.values(festivals).forEach(f => { if (f.ticket_url) countDomain(f.ticket_url, 'Festival'); });
+
+            const domainRows = Object.entries(domainMap)
+                .sort((a, b) => b[1].total - a[1].total)
+                .map(([label, v]) => ({ label, total: v.total, segs: v.segs }));
+            const domainMax = domainRows[0]?.total || 1;
+
             // ticketed vs not
             const totalTicketed = Object.values(serviceMap).reduce((s, v) => s + v.total, 0);
             const totalSpecific = specific.length + music.length;
@@ -668,14 +698,14 @@
                 .sort((a, b) => b[1] - a[1]).slice(0, 12)
                 .map(([pid, n]) => ({
                     label: performers[pid]?.name || pid,
-                    labelHref: `new_troubadours_performers.html?performer=${encodeURIComponent(pid)}`,
+                    labelHref: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}`,
                     n
                 }));
             const topPerfByTickets = Object.entries(perfTickets)
                 .sort((a, b) => b[1] - a[1]).slice(0, 12)
                 .map(([pid, n]) => ({
                     label: performers[pid]?.name || pid,
-                    labelHref: `new_troubadours_performers.html?performer=${encodeURIComponent(pid)}`,
+                    labelHref: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}`,
                     n
                 }));
 
@@ -695,7 +725,7 @@
                 .sort((a, b) => b[1] - a[1]).slice(0, 15)
                 .map(([vid, n]) => ({
                     label: venues[vid]?.name || vid,
-                    labelHref: `new_troubadours_venues.html?venue=${encodeURIComponent(vid)}`,
+                    labelHref: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
                     n
                 }));
 
@@ -718,97 +748,259 @@
             const perfWithoutBio = Object.values(performers).length - perfWithBio;
             const compoundPerfs = Object.values(performers).filter(p => p.performer_ids || p.ids).length;
 
+            // -----------------------------------------------------------------------
+            // Shared drilldown helper
+            // -----------------------------------------------------------------------
+            function openDrilldown(tileEl, title, buildFn) {
+                const isOpen = tileEl && tileEl.classList.contains('active');
+                drilldown.innerHTML = '';
+                document.querySelectorAll('.summary-tile.active, .stat-table tr.active-row')
+                    .forEach(t => { t.classList.remove('active'); t.classList.remove('active-row'); });
+                if (isOpen) return;
+
+                if (tileEl) tileEl.classList.add('active');
+
+                const panel = el('div', 'drilldown-panel');
+                const titleRow = el('div', 'drilldown-title', title);
+                const closeBtn = el('button', 'drilldown-close', '✕ close');
+                closeBtn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    drilldown.innerHTML = '';
+                    if (tileEl) tileEl.classList.remove('active');
+                });
+                titleRow.appendChild(closeBtn);
+                panel.appendChild(titleRow);
+                buildFn(panel);
+                drilldown.appendChild(panel);
+            }
+
+            function clickableTile(n, label, cls, title, buildFn) {
+                const t = tile(n, label, cls + ' clickable');
+                t.appendChild(el('div', 'tile-hint', 'click to expand'));
+                t.addEventListener('click', () => openDrilldown(t, title, buildFn));
+                return t;
+            }
+
+            function simpleList(panel, items) {
+                // items: [{label, href, meta}]
+                const list = el('div', '');
+                list.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 16px;margin-top:4px;';
+                items.forEach(item => {
+                    const row = el('div', '');
+                    row.style.cssText = 'font-family:Arial,sans-serif;font-size:13px;padding:4px 0;border-bottom:1px solid #f0ebe3;display:flex;justify-content:space-between;gap:8px;';
+                    const nameEl = el('span', '');
+                    if (item.href) {
+                        const a = document.createElement('a');
+                        a.href = item.href;
+                        a.textContent = item.label;
+                        a.style.cssText = 'color:#2e7d32;text-decoration:none;';
+                        a.onmouseover = () => a.style.textDecoration = 'underline';
+                        a.onmouseout = () => a.style.textDecoration = 'none';
+                        nameEl.appendChild(a);
+                    } else {
+                        nameEl.textContent = item.label;
+                    }
+                    row.appendChild(nameEl);
+                    if (item.meta !== undefined) {
+                        const m = el('span', '');
+                        m.style.cssText = 'color:#888;white-space:nowrap;';
+                        m.textContent = item.meta;
+                        row.appendChild(m);
+                    }
+                    list.appendChild(row);
+                });
+                panel.appendChild(list);
+            }
+
             // ---- render ----
             const content = document.getElementById('statsContent');
             content.style.display = '';
 
             // Summary tiles
             const grid = el('div', 'summary-grid');
-            const tileData = [
-                { n: Object.keys(performers).length, l: 'Performers', cls: '' },
-                { n: Object.keys(venues).length, l: 'Venues', cls: 'teal' },
-                { n: Object.keys(tours).length, l: 'Tours', cls: '' },
-                { n: allTourDates.length, l: 'Tour dates', cls: '' },
-                { n: specific.length, l: 'Story shows', cls: '' },
-                { n: music.length, l: 'Music events', cls: 'blue' },
-                { n: events.length, l: 'Story clubs', cls: '' },
-                { n: folkNights.length, l: 'Folk nights', cls: 'brown' },
-                { n: sessions.length, l: 'Irish sessions', cls: 'slate' },
-                { n: Object.keys(festivals).length, l: 'Festivals', cls: 'amber' },
-                { n: totalTicketed, l: 'Ticketed dates', cls: '' },
-            ];
-            tileData.forEach(t => grid.appendChild(tile(t.n, t.l, t.cls)));
 
-            // Clickable "Ticket vendors" tile
-            const vendorCount = Object.keys(serviceMap).length;
-            const vendorTile = tile(vendorCount, 'Ticket vendors', 'amber clickable');
-            vendorTile.appendChild(el('div', 'tile-hint', 'click to expand'));
+            // Performers tile → A-Z list
+            grid.appendChild(clickableTile(
+                Object.keys(performers).length, 'Performers', '', 'All performers',
+                panel => {
+                    const items = Object.entries(performers)
+                        .sort((a, b) => a[1].name.localeCompare(b[1].name))
+                        .map(([pid, p]) => ({
+                            label: p.name,
+                            href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}`,
+                            meta: perfEvents[pid] ? `${perfEvents[pid]} date${perfEvents[pid] !== 1 ? 's' : ''}` : ''
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Venues tile → ranked by events
+            grid.appendChild(clickableTile(
+                Object.keys(venues).length, 'Venues', 'teal', 'All venues with events',
+                panel => {
+                    const items = Object.entries(venueEvents)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([vid, n]) => ({
+                            label: venues[vid]?.name || vid,
+                            href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
+                            meta: `${n} event${n !== 1 ? 's' : ''}`
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Tours tile → list with performer + date count
+            grid.appendChild(clickableTile(
+                Object.keys(tours).length, 'Tours', '', 'All tours',
+                panel => {
+                    const items = Object.entries(tours)
+                        .sort((a, b) => (b[1].tour_dates || []).length - (a[1].tour_dates || []).length)
+                        .map(([tid, t]) => {
+                            const perf = performers[t.performer_id]?.name || '';
+                            const n = (t.tour_dates || []).length;
+                            return {
+                                label: `${t.tour_name || t.name}${perf ? ' — ' + perf : ''}`,
+                                href: `${URL_TOUR}?tour=${encodeURIComponent(tid)}`,
+                                meta: `${n} date${n !== 1 ? 's' : ''}`
+                            };
+                        });
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Tour dates tile — no drilldown, just a plain tile
+            grid.appendChild(tile(allTourDates.length, 'Tour dates', ''));
+
+            // Story shows tile → list by date
+            grid.appendChild(clickableTile(
+                specific.length, 'Story shows', '', 'All story show dates',
+                panel => {
+                    const items = [...specific]
+                        .sort((a, b) => {
+                            const da = a.date ? a.date.split('/').reverse().join('') : '';
+                            const db = b.date ? b.date.split('/').reverse().join('') : '';
+                            return da.localeCompare(db);
+                        })
+                        .map(e => {
+                            const perf = performers[e.performer_id]?.name || '';
+                            const venue = venues[e.venue_id]?.name || '';
+                            return {
+                                label: `${e.date || '?'} — ${e.showname || e.name}${perf ? ' [' + perf + ']' : ''}`,
+                                href: null,
+                                meta: venue
+                            };
+                        });
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Music events tile → list
+            grid.appendChild(clickableTile(
+                music.length, 'Music events', 'blue', 'All music events',
+                panel => {
+                    const items = [...music]
+                        .sort((a, b) => (a.date || '').localeCompare(b.date || ''))
+                        .map(e => {
+                            const perf = performers[e.performer_id]?.name || '';
+                            const venue = venues[e.venue_id]?.name || '';
+                            return {
+                                label: `${e.date || '?'} — ${perf || e.name}`,
+                                href: e.performer_id ? `${URL_PERFORMER}?performer=${encodeURIComponent(e.performer_id)}` : null,
+                                meta: venue
+                            };
+                        });
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Story clubs tile → list
+            grid.appendChild(clickableTile(
+                events.length, 'Story clubs', '', 'All recurring story clubs',
+                panel => {
+                    const items = [...events]
+                        .sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+                        .map(e => ({
+                            label: e.name,
+                            href: e.venue_id ? `${URL_VENUE}?venue=${encodeURIComponent(e.venue_id)}` : null,
+                            meta: e.schedule || ''
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Folk nights tile → list
+            grid.appendChild(clickableTile(
+                folkNights.length, 'Folk nights', 'brown', 'All folk nights',
+                panel => {
+                    const items = [...folkNights]
+                        .sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+                        .map(e => ({
+                            label: e.name,
+                            href: e.venue_id ? `${URL_VENUE}?venue=${encodeURIComponent(e.venue_id)}` : null,
+                            meta: e.schedule || ''
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Irish sessions tile
+            grid.appendChild(clickableTile(
+                sessions.length, 'Irish sessions', 'slate', 'All Irish sessions',
+                panel => {
+                    const items = [...sessions]
+                        .sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+                        .map(e => ({
+                            label: e.name,
+                            href: e.venue_id ? `${URL_VENUE}?venue=${encodeURIComponent(e.venue_id)}` : null,
+                            meta: e.schedule || ''
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Festivals tile
+            grid.appendChild(clickableTile(
+                Object.keys(festivals).length, 'Festivals', 'amber', 'All festivals',
+                panel => {
+                    const items = Object.entries(festivals)
+                        .map(([fid, f]) => ({
+                            label: f.name,
+                            href: f.venue_id ? `${URL_VENUE}?venue=${encodeURIComponent(f.venue_id)}` : null,
+                            meta: f.start_date || ''
+                        }));
+                    simpleList(panel, items);
+                }
+            ));
+
+            // Ticketed dates tile
+            grid.appendChild(tile(totalTicketed, 'Ticketed dates', ''));
+
+            // Ticket vendors tile
+            const vendorTile = clickableTile(
+                Object.keys(serviceMap).length, 'Ticket vendors', 'amber', `Ticket domains (${domainRows.length})`,
+                panel => {
+                    const dLegend = legend([
+                        { label: 'Story show', cls: '', bg: '#4CAF50' },
+                        { label: 'Tour date', cls: '', bg: '#2e7d32' },
+                        { label: 'Music', cls: '', bg: '#443cd7' },
+                        { label: 'Touring show', cls: '', bg: '#795548' },
+                        { label: 'Festival', cls: '', bg: '#e8a020' },
+                    ]);
+                    panel.appendChild(dLegend);
+                    panel.appendChild(stackedChart(domainRows, domainMax, tickSegs));
+                }
+            );
             grid.appendChild(vendorTile);
 
             content.appendChild(grid);
 
-            // Drilldown container — sits just below the summary grid
+            // Drilldown container
             const drilldown = el('div', '');
             drilldown.id = 'drilldown-container';
             content.appendChild(drilldown);
 
-            // Vendor drilldown data — domain-level breakdown
-            const domainMap = {};
-            function countDomain(url, type) {
-                if (!url) return;
-                try {
-                    const d = new URL(url).hostname.replace('www.', '');
-                    if (!domainMap[d]) domainMap[d] = { total: 0, segs: {} };
-                    domainMap[d].total++;
-                    domainMap[d].segs[type] = (domainMap[d].segs[type] || 0) + 1;
-                } catch (e) { }
-            }
-            specific.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Story show'); });
-            music.forEach(e => { if (e.ticket_url) countDomain(e.ticket_url, 'Music'); });
-            allTourDates.forEach(td => { if (td.ticket_url) countDomain(td.ticket_url, 'Tour date'); });
-            allShowDates.forEach(sd => { if (sd.ticket_url) countDomain(sd.ticket_url, 'Touring show'); });
-            Object.values(festivals).forEach(f => { if (f.ticket_url) countDomain(f.ticket_url, 'Festival'); });
-
-            const domainRows = Object.entries(domainMap)
-                .sort((a, b) => b[1].total - a[1].total)
-                .map(([label, v]) => ({ label, total: v.total, segs: v.segs }));
-            const domainMax = domainRows[0]?.total || 1;
-
-            vendorTile.addEventListener('click', () => {
-                const isOpen = vendorTile.classList.contains('active');
-                // Close any open drilldown
-                drilldown.innerHTML = '';
-                document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
-                if (isOpen) return;
-
-                vendorTile.classList.add('active');
-                const panel = el('div', 'drilldown-panel');
-
-                const titleRow = el('div', 'drilldown-title', `Ticket domains (${domainRows.length})`);
-                const closeBtn = el('button', 'drilldown-close', '✕ close');
-                closeBtn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    drilldown.innerHTML = '';
-                    vendorTile.classList.remove('active');
-                });
-                titleRow.appendChild(closeBtn);
-                panel.appendChild(titleRow);
-
-                const dLegend = legend([
-                    { label: 'Story show', cls: '', bg: '#4CAF50' },
-                    { label: 'Tour date', cls: '', bg: '#2e7d32' },
-                    { label: 'Music', cls: '', bg: '#443cd7' },
-                    { label: 'Touring show', cls: '', bg: '#795548' },
-                    { label: 'Festival', cls: '', bg: '#e8a020' },
-                ]);
-                panel.appendChild(dLegend);
-                panel.appendChild(stackedChart(domainRows, domainMax, tickSegs));
-                drilldown.appendChild(panel);
-            });
-
             // ---- Ticketing services ----
             const tickSec = section('Ticketing services');
-
             const tickLegend = legend([
                 { label: 'Story show', cls: '', bg: '#4CAF50' },
                 { label: 'Tour date', cls: '', bg: '#2e7d32' },
@@ -819,11 +1011,9 @@
             ]);
             tickSec.appendChild(tickLegend);
             tickSec.appendChild(stackedChart(serviceRows, serviceMax, tickSegs));
-
-            // summary note
-            const tickNote = el('p', '', '');
+            const tickNote = el('p', '');
             tickNote.style.cssText = 'font-size:13px;color:#888;font-family:Arial,sans-serif;margin-top:12px;';
-            tickNote.textContent = `${totalTicketed} ticketed dates across ${Object.keys(serviceMap).length} services. WeGotTickets dominates tours; TicketTailor and Workshop Angel are used mainly for one-off story shows.`;
+            tickNote.textContent = `${totalTicketed} ticketed dates across ${Object.keys(serviceMap).length} services.`;
             tickSec.appendChild(tickNote);
             content.appendChild(tickSec);
 
@@ -833,39 +1023,75 @@
 
             const perfDatesSec = el('div');
             perfDatesSec.appendChild(el('h3', 'section-title', 'By total dates'));
-            perfDatesSec.style.fontSize = '14px';
             const perfMax = topPerfByDates[0]?.n || 1;
             perfDatesSec.appendChild(barChart(topPerfByDates, perfMax, ''));
             perfCols.appendChild(perfDatesSec);
 
             const perfTickSec = el('div');
             perfTickSec.appendChild(el('h3', 'section-title', 'By ticketed dates'));
-            perfTickSec.style.fontSize = '14px';
             const perfTickMax = topPerfByTickets[0]?.n || 1;
             perfTickSec.appendChild(barChart(topPerfByTickets, perfTickMax, ''));
             perfCols.appendChild(perfTickSec);
-
             perfSec.appendChild(perfCols);
 
-            // performer metadata table
+            // Performer metadata table — rows are clickable
             const perfTable = document.createElement('table');
             perfTable.className = 'stat-table';
             perfTable.style.marginTop = '20px';
             perfTable.innerHTML = `<thead><tr>
-        <th>Metric</th><th class="n">Count</th><th class="pct">%</th>
+        <th>Metric</th><th class="n">Count</th><th class="pct">%</th><th style="width:60px"></th>
     </tr></thead>`;
             const tbody = document.createElement('tbody');
             const totalPerfs = Object.keys(performers).length;
-            [
-                ['With bio', perfWithBio, totalPerfs],
-                ['Without bio', perfWithoutBio, totalPerfs],
-                ['Compound acts', compoundPerfs, totalPerfs],
-                ['With website', Object.values(performers).filter(p => p.url).length, totalPerfs],
-            ].forEach(([label, n, denom]) => {
+
+            function perfTableRow(label, n, denom, buildFn) {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${Math.round(n / denom * 100)}%</td>`;
-                tbody.appendChild(tr);
-            });
+                const pct = Math.round(n / denom * 100);
+                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${pct}%</td>`;
+                if (buildFn) {
+                    tr.style.cursor = 'pointer';
+                    const hintTd = document.createElement('td');
+                    hintTd.style.cssText = 'font-size:11px;color:#bbb;font-family:Arial,sans-serif;';
+                    hintTd.textContent = 'expand';
+                    tr.appendChild(hintTd);
+                    tr.addEventListener('click', () => {
+                        const isOpen = tr.classList.contains('active-row');
+                        drilldown.innerHTML = '';
+                        document.querySelectorAll('.active-row').forEach(r => r.classList.remove('active-row'));
+                        document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
+                        if (!isOpen) { tr.classList.add('active-row'); openDrilldown(null, label, buildFn); }
+                    });
+                } else {
+                    tr.innerHTML += '<td></td>';
+                }
+                return tr;
+            }
+
+            tbody.appendChild(perfTableRow('With bio', perfWithBio, totalPerfs, null));
+            tbody.appendChild(perfTableRow('Without bio', perfWithoutBio, totalPerfs, panel => {
+                const items = Object.entries(performers)
+                    .filter(([, p]) => !p.bio)
+                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
+                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
+                simpleList(panel, items);
+            }));
+            tbody.appendChild(perfTableRow('Compound acts', compoundPerfs, totalPerfs, panel => {
+                const items = Object.entries(performers)
+                    .filter(([, p]) => p.performer_ids || p.ids)
+                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
+                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
+                simpleList(panel, items);
+            }));
+            const withWebsite = Object.values(performers).filter(p => p.url).length;
+            tbody.appendChild(perfTableRow('With website', withWebsite, totalPerfs, null));
+            tbody.appendChild(perfTableRow('Without website', totalPerfs - withWebsite, totalPerfs, panel => {
+                const items = Object.entries(performers)
+                    .filter(([, p]) => !p.url)
+                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
+                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
+                simpleList(panel, items);
+            }));
+
             perfTable.appendChild(tbody);
             perfSec.appendChild(perfTable);
             content.appendChild(perfSec);
@@ -880,33 +1106,118 @@
             venueTopSec.appendChild(barChart(topVenues, venueMax, 'teal'));
             venueCols.appendChild(venueTopSec);
 
+            // City bars — clickable to show venues in that city
             const citySec = el('div');
-            citySec.appendChild(el('h3', 'section-title', 'Events by city'));
+            citySec.appendChild(el('h3', 'section-title', 'Events by city — click to see venues'));
             const cityMax = topCities[0]?.n || 1;
-            citySec.appendChild(barChart(topCities, cityMax, 'teal'));
+            const cityChart = el('div', 'bar-chart');
+            topCities.forEach(r => {
+                const row = el('div', 'bar-row');
+                row.style.cursor = 'pointer';
+                row.title = `Click to see venues in ${r.label}`;
+                const labelEl = el('div', 'bar-label', r.label);
+                const track = el('div', 'bar-track');
+                const fill = el('div', 'bar-fill teal');
+                fill.style.width = `${Math.round((r.n / cityMax) * 100)}%`;
+                track.appendChild(fill);
+                const nEl = el('div', 'bar-n', r.n);
+                row.appendChild(labelEl); row.appendChild(track); row.appendChild(nEl);
+                row.addEventListener('click', () => {
+                    const isOpen = row.classList.contains('active-row');
+                    drilldown.innerHTML = '';
+                    document.querySelectorAll('.active-row').forEach(x => x.classList.remove('active-row'));
+                    document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
+                    if (!isOpen) {
+                        row.classList.add('active-row');
+                        row.style.background = '#e8f5e9';
+                        openDrilldown(null, `Venues in ${r.label}`, panel => {
+                            const venuesInCity = Object.entries(venueEvents)
+                                .filter(([vid]) => (venues[vid]?.city || 'Unknown') === r.label)
+                                .sort((a, b) => b[1] - a[1])
+                                .map(([vid, n]) => ({
+                                    label: venues[vid]?.name || vid,
+                                    href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
+                                    meta: `${n} event${n !== 1 ? 's' : ''}`
+                                }));
+                            simpleList(panel, venuesInCity);
+                        });
+                    } else {
+                        row.style.background = '';
+                    }
+                });
+                cityChart.appendChild(row);
+            });
+            citySec.appendChild(cityChart);
             venueCols.appendChild(citySec);
-
             venueSec.appendChild(venueCols);
 
-            // venue usage table
+            // Venue usage table — clickable rows
             const venueTable = document.createElement('table');
             venueTable.className = 'stat-table';
             venueTable.style.marginTop = '20px';
             venueTable.innerHTML = `<thead><tr>
-        <th>Metric</th><th class="n">Count</th><th class="pct">% of venues used</th>
+        <th>Metric</th><th class="n">Count</th><th class="pct">% of venues used</th><th style="width:60px"></th>
     </tr></thead>`;
             const vtbody = document.createElement('tbody');
             const totalVenuesUsed = Object.keys(venueEvents).length;
-            [
-                ['Total venues in database', Object.keys(venues).length, Object.keys(venues).length],
-                ['Venues with at least 1 event', totalVenuesUsed, Object.keys(venues).length],
-                ['Used once only', venueUsedOnce, totalVenuesUsed],
-                ['Used more than once', venueUsedMore, totalVenuesUsed],
-            ].forEach(([label, n, denom]) => {
+
+            function venueTableRow(label, n, denom, buildFn) {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${Math.round(n / denom * 100)}%</td>`;
-                vtbody.appendChild(tr);
-            });
+                const pct = Math.round(n / denom * 100);
+                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${pct}%</td>`;
+                if (buildFn) {
+                    tr.style.cursor = 'pointer';
+                    const hintTd = document.createElement('td');
+                    hintTd.style.cssText = 'font-size:11px;color:#bbb;font-family:Arial,sans-serif;';
+                    hintTd.textContent = 'expand';
+                    tr.appendChild(hintTd);
+                    tr.addEventListener('click', () => {
+                        const isOpen = tr.classList.contains('active-row');
+                        drilldown.innerHTML = '';
+                        document.querySelectorAll('.active-row').forEach(r => r.classList.remove('active-row'));
+                        document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
+                        if (!isOpen) { tr.classList.add('active-row'); openDrilldown(null, label, buildFn); }
+                    });
+                } else {
+                    tr.innerHTML += '<td></td>';
+                }
+                return tr;
+            }
+
+            vtbody.appendChild(venueTableRow('Total venues in database', Object.keys(venues).length, Object.keys(venues).length, null));
+            vtbody.appendChild(venueTableRow('Venues with at least 1 event', totalVenuesUsed, Object.keys(venues).length, panel => {
+                const items = Object.entries(venueEvents)
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([vid, n]) => ({
+                        label: venues[vid]?.name || vid,
+                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
+                        meta: `${n} event${n !== 1 ? 's' : ''}`
+                    }));
+                simpleList(panel, items);
+            }));
+            vtbody.appendChild(venueTableRow('Used once only', venueUsedOnce, totalVenuesUsed, panel => {
+                const items = Object.entries(venueEvents)
+                    .filter(([, n]) => n === 1)
+                    .sort((a, b) => (venues[a[0]]?.name || '').localeCompare(venues[b[0]]?.name || ''))
+                    .map(([vid]) => ({
+                        label: venues[vid]?.name || vid,
+                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
+                        meta: venues[vid]?.city || ''
+                    }));
+                simpleList(panel, items);
+            }));
+            vtbody.appendChild(venueTableRow('Used more than once', venueUsedMore, totalVenuesUsed, panel => {
+                const items = Object.entries(venueEvents)
+                    .filter(([, n]) => n > 1)
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([vid, n]) => ({
+                        label: venues[vid]?.name || vid,
+                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
+                        meta: `${n} events · ${venues[vid]?.city || ''}`
+                    }));
+                simpleList(panel, items);
+            }));
+
             venueTable.appendChild(vtbody);
             venueSec.appendChild(venueTable);
             content.appendChild(venueSec);
