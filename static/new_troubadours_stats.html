@@ -679,12 +679,26 @@
             const totalTourDatesCount = allTourDates.length;
 
             // ---- performer analysis ----
+            // Build reverse lookup: compound performer_id -> individual performer ids
+            // e.g. "iris-pibworth-colin-rowan" -> ["iris-pibworth", "colin-rowan"]
+            const compoundMembers = {};
+            Object.entries(performers).forEach(([pid, p]) => {
+                const members = p.performer_ids || p.ids || [];
+                if (members.length > 0) compoundMembers[pid] = members;
+            });
+
             const perfTickets = {};
             const perfEvents = {};
             function addPerf(pid, ticketed) {
                 if (!pid) return;
+                // Credit the compound act itself
                 perfEvents[pid] = (perfEvents[pid] || 0) + 1;
                 if (ticketed) perfTickets[pid] = (perfTickets[pid] || 0) + 1;
+                // Also credit each individual member of a compound act
+                (compoundMembers[pid] || []).forEach(memberId => {
+                    perfEvents[memberId] = (perfEvents[memberId] || 0) + 1;
+                    if (ticketed) perfTickets[memberId] = (perfTickets[memberId] || 0) + 1;
+                });
             }
             specific.forEach(e => addPerf(e.performer_id, !!e.ticket_url));
             music.forEach(e => addPerf(e.performer_id, !!e.ticket_url));
