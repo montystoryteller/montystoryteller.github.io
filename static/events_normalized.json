@@ -2078,6 +2078,25 @@
       "geocode_missing": true
     }
   ],
+  "podcasts": [
+    {
+      "series_title": "Taking the Tradition On",
+      "presenter": "Amy Douglas",
+      "schedule": "",
+      "url": "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn"
+    }
+  ],
+  "workshops": [{
+      "title": "24 Story Seeds",
+      "leader": "Sally Pomme Clayton",
+      "date": "06/12/2025",
+      "cost": "£40",
+      "link": "https://www.facebook.com/ABitCrack",
+      "club": "abitcrack",
+      "course_flyer": "2025_12_06_abitcrack_pomme_24storyseeds.jpg",
+      "venue_id": "summerhill-bowling-club-newcastle"
+    }
+  ],
   "specificEvents": [
     {
       "name": "A Figure of Speech [Daniel Morden]",
@@ -3865,21 +3884,17 @@
       "performer_id": "jess-silk"
     },
     {
-      "series_title": "Taking the Tradition On",
-      "presenter": "Amy Douglas",
-      "schedule": "",
-      "url": "https://www.youtube.com/channel/UCpcvx1G7TUAbeZU80cJJX8ghttps://www.youtube.com/@TakingTheTraditionOn",
-      "geocode_missing": true
-    },
-    {
-      "title": "24 Story Seeds",
-      "leader": "Sally Pomme Clayton",
-      "date": "06/12/2025",
-      "cost": "£40",
-      "link": "https://www.facebook.com/ABitCrack",
-      "club": "abitcrack",
-      "course_flyer": "2025_12_06_abitcrack_pomme_24storyseeds.jpg",
-      "venue_id": "summerhill-bowling-club-newcastle"
+      "name": "Gaz Brookfield + supports",
+      "date": "04/04/2026",
+      "time": "8pm",
+      "club": "gazbrookfield",
+      "price": "£12.50",
+      "description": "VicFest Day 3...",
+      "event_flyer": "2026_04_04_gaz_brookfield_vicfest.jpg",
+      "ticket_url": "",
+      "isMusic": true,
+      "venue_id": "the-victoria-swindon",
+      "performer_id": "gaz-brookfield"
     },
     {
       "name": "Gaz Brookfield + support (Josh Oldfield)",
@@ -4832,6 +4847,18 @@
       "latlon": [
         52.1952318,
         0.1086743
+      ]
+    },
+    "the-victoria-swindon": {
+      "id": "the-victoria-swindon",
+      "name": "The Victoria, Swindon",
+      "city": "Swindon",
+      "postcode": "SN1 3BD",
+      "full_address": "The Victoria, 88, Victoria Rd, Swindon, SN1 3BD",
+      "url": "https://thevicswindon.com/",
+      "latlon": [
+        51.55371,
+        -1.77679
       ]
     },
     "peppers-hub-fishguard": {
