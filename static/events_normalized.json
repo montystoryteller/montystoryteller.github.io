@@ -602,6 +602,7 @@
           "time": "7-9pm",
           "venue_id": "cilgerran-village-hall",
           "price": "£12",
+          "event_flyer": "2026-04-23-harragin-troubled-waters-cilgerran.jpg",
           "club": "tell-tales-club",
           "ticket_url": "https://ticketlab.app/event/38031#/"
         },
@@ -863,7 +864,7 @@
           "time": "7-9.30pm",
           "price": "£16.50 (£12.50) + booking fee",
           "ticket_url": "https://www.eventbrite.co.uk/e/stories-temperance-slaine-the-horned-god-jason-buck-tickets-1905874745669?aff=montystoryteller.org",
-          "venue_id": "temperance-caf-bar-royal"
+          "venue_id": "temperance-leamington-spa"
         },
         {
           "date": "22/01/2026",
@@ -924,6 +925,39 @@
           "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-notts-tickets-1867486846429",
           "fb_event": 830908939589642,
           "venue_id": "the-pit-at-newstead-nottinghamshire"
+        },
+        {
+          "date": "30/03/2026",
+          "venue_id": "cafe-9-sheffield"
+        },
+        {
+          "date": "06/05/2026",
+          "time": "7.30pm",
+          "price": "£5-12.50",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-manchester-tickets-1985046631912",
+          "venue_id": "lock-91-bar-manchester"
+        },
+         {
+          "date": "23/05/2026",
+          "time": "7.30pm",
+          "price": "£5-12.50",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-coventry-tickets-1985799731453",
+          "venue_id": "ltbshowrooms-coventry"
+        },
+        {
+          "date": "15/10/2026",
+          "time": "7.30pm",
+          "price": "",
+          "ticket_url": "",
+          "fb_event": 947507117783005,
+          "venue_id": "quay-arts-newport"
+        },
+        {
+          "date": "17/11/2026",
+          "time": "7.30pm",
+          "price": "£12.50",
+          "ticket_url": "https://www.eventbrite.co.uk/e/slaine-the-horned-god-leamington-extra-night-tickets-1981514910438",
+          "venue_id": "temperance-leamington-spa"
         }
       ]
     },
@@ -5127,6 +5161,18 @@
         -1.19987
       ]
     },
+    "ltbshowrooms-coventry": {
+      "id": "ltbshowrooms-coventry",
+      "name": "LTB Showrooms, Coventry",
+      "city": "Coventry",
+      "postcode": "CV1 5EX",
+      "full_address": "LTB Showrooms, Priory Visitor Centre, 6 Priory Row, Coventry, CV1 5EX",
+      "url": "https://www.ltbshowrooms.com/",
+      "latlon": [
+        52.40912,
+        -1.50871
+      ]
+    },
     "rise-bluebird-bakery-york": {
       "id": "rise-bluebird-bakery-york",
       "name": "Rise @ Bluebird Bakery, York",
@@ -5739,8 +5785,8 @@
         -1.26097
       ]
     },
-    "temperance-caf-bar-royal": {
-      "id": "temperance-caf-bar-royal",
+    "temperance-leamington-spa": {
+      "id": "temperance-leamington-spa",
       "name": "Temperance Café Bar",
       "city": "Royal Leamington Spa",
       "postcode": "CV31 3AF",
