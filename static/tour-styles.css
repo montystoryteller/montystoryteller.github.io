@@ -97,6 +97,16 @@
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .tour-selector {
+        grid-template-columns: auto 1fr;
+    }
+
+    .tour-selector button {
+        grid-column: 1 / -1;
+    }
+}
+
 select {
     padding: 10px;
     border: 1px solid #ddd;
@@ -181,6 +191,7 @@ select {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 500px;
+    width: 100%;
     margin-bottom: 20px;
     position: relative;
 }
@@ -196,6 +207,7 @@ select {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .tour-dates-header {
