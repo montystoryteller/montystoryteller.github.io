@@ -1182,6 +1182,52 @@
         }
       ]
     },
+    "gaz-brookfield-waiting-for-wisdom-tour-2025": {
+      "name": "Gaz Brookfield and The Company of Thieves — Waiting For Wisdom tour",
+      "tour_name": "Waiting For Wisdom tour",
+      "performer_id": "gaz-brookfield-and-the-company-of-thieves",
+      "club": "gazbrookfield",
+      "tour_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
+      "tour_description": "Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now. Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n\n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts. Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.",
+      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "time": "7.30pm",
+      "price": "£15 (+£1.50)",
+      "tags": [
+        "music",
+        "tour",
+        "folk",
+        "2026"
+      ],
+      "isMusic": true,
+      "tour_dates": [
+      {
+        "date": "12/12/2025",
+        "time": "7.30pm",
+        "price": "£16.50 (+1.70)",
+        "ticket_url": "https://wegottickets.com/f/14466#location-28953",
+        "venue_id": "yes-manchester"
+      },
+      {
+        "date": "13/12/2025",
+        "time": "6.30pm",
+        "ticket_url": "https://www.alttickets.com/gaz-brookfield-tickets",
+        "venue_id": "bodega-nottingham"
+      },
+      {
+        "date": "19/12/2025",
+        "time": "7.30pm",
+        "price": "£16.00",
+        "ticket_url": "https://joiners.vticket.co.uk/product.php/2773/gaz-brookfield",
+        "venue_id": "joiners-southampton"
+      },
+      {
+        "date": "20/12/2025",
+        "time": "7.00pm",
+        "price": "£16.50",
+        "ticket_url": "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479?aff=montystoryteller.org",
+        "venue_id": "the-fleece-bristol"
+      }
+      ]},
     "gaz-brookfield-almost-all-village-halls-2026": {
       "name": "Gaz Brookfield — Almost All Village Halls Tour",
       "tour_name": "Almost All Village Halls Tour",
@@ -1284,12 +1330,14 @@
         {
           "date": "10/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673313",
-          "venue_id": "broome-village-hall-bungay"
+          "venue_id": "broome-village-hall-bungay",
+          "event_flyer": "2026_04_gaz_crunch_time.jpg"
         },
         {
           "date": "11/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673314",
-          "venue_id": "pitstone-memorial-hall"
+          "venue_id": "pitstone-memorial-hall",
+          "event_flyer": "2026_04_gaz_crunch_time.jpg"
         },
         {
           "date": "17/04/2026",
@@ -1304,12 +1352,14 @@
          {
           "date": "24/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673317",
-          "venue_id": "chartham-village-hall"
+          "venue_id": "chartham-village-hall",
+          "event_flyer": "2026_04_gaz_crunch_time.jpg"
         },
         {
           "date": "25/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673318",
-          "venue_id": "hassocks-adastra-hall"
+          "venue_id": "hassocks-adastra-hall",
+          "event_flyer": "2026_04_gaz_crunch_time.jpg"
         },
         {
           "date": "01/05/2026",
@@ -3575,6 +3625,7 @@
       "description": "Join us for an evening of Norse legends, as the Vikings would have heard them — from a traditional Skald, an oral storyteller. Hear of mighty Thor, wielder of Mjölnir, as thunder shakes the heavens. Marvel at the cunning tricks of Loki, the silver-tongued shapeshifter whose mischief forever alters the fate of gods and giants alike. From epic battles to whispered prophecies of Ragnarök, these timeless tales brim with adventure, humour, and mythic wonder.\n\n\n\nTraditional storyteller Maria Credali brings you an evening filled with Viking imagery, magic and mayhem!",
       "ticket_url": "https://www.trybooking.com/uk/events/landing/105746",
       "isSpecial": true,
+      "event_flyer": "2026-04-02-credali-loki-darwin-house.jpg",
       "fb_event": 26809258625343223,
       "venue_id": "erasmus-darwin-house-lichfield",
       "performer_id": "maria-credali"
@@ -3819,62 +3870,6 @@
       "isMusic": true,
       "venue_id": "assembly-rooms-south-molton",
       "performer_id": "nick-parker"
-    },
-    {
-      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
-      "showname": "Waiting For Wisdom tour",
-      "date": "12/12/2025",
-      "time": "7.30pm",
-      "club": "gazbrookfield",
-      "price": "£16.50 (+1.70)",
-      "description": "Following the release of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once more. Folk / Punk festival favourite, Brookfield has been at this for a while now. Since winning Acoustic Magazine Singer/ Songwriter of the year way back in 2010 he has continued to tirelessly tour the length and breadth of the country, building a strong and loyal following where he goes. \n\n\n\n His last album, Morning Walking Club, saw Gaz achieve his first top 40 record, and it even got number 1 in the UK Official Folk Charts. Not a bad result for this fiercely independent musician, with no record label, no manager, and no agent — just a guitar, a van, and a steadfastly belligerent refusal to give in.",
-      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
-      "ticket_url": "https://wegottickets.com/f/14466#location-28953",
-      "isMusic": true,
-      "venue_id": "yes-manchester",
-      "performer_id": "gaz-brookfield-and-the-company-of-thieves"
-    },
-    {
-      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
-      "showname": "Waiting For Wisdom tour",
-      "date": "13/12/2025",
-      "time": "6.30pm",
-      "club": "gazbrookfield",
-      "price": "",
-      "description": "",
-      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
-      "ticket_url": "https://www.alttickets.com/gaz-brookfield-tickets",
-      "isMusic": true,
-      "venue_id": "bodega-nottingham",
-      "performer_id": "gaz-brookfield-and-the-company-of-thieves"
-    },
-    {
-      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour)",
-      "showname": "Waiting For Wisdom tour",
-      "date": "19/12/2025",
-      "time": "7.30pm",
-      "club": "gazbrookfield",
-      "price": "£16.00",
-      "description": "",
-      "event_flyer": "tour_gazbrookfield_waitingForWisdom_2025.png",
-      "ticket_url": "https://joiners.vticket.co.uk/product.php/2773/gaz-brookfield",
-      "isMusic": true,
-      "venue_id": "joiners-southampton",
-      "performer_id": "gaz-brookfield"
-    },
-    {
-      "name": "Gaz Brookfield and The Company of Thieves, (Waiting For Wisdom tour, Xmas Show)",
-      "showname": "Waiting For Wisdom tour, Xmas Show",
-      "date": "20/12/2025",
-      "time": "7.00pm",
-      "club": "gazbrookfield",
-      "price": "£16.50",
-      "description": "",
-      "event_flyer": "gaz_brookfield_xmas25.jpeg",
-      "ticket_url": "https://www.eventbrite.co.uk/e/gaz-brookfield-the-company-of-thieves-xmas-show-tickets-1136139717479?aff=montystoryteller.org",
-      "isMusic": true,
-      "venue_id": "the-fleece-bristol",
-      "performer_id": "gaz-brookfield"
     },
     {
       "name": "Jess Silk",
