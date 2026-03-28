@@ -684,3 +684,184 @@ select {
     padding: 0 20px 20px;
     animation: slideDown 0.25s ease-out;
 }
+
+/* =============================================================
+   10. TOUR FLYER GALLERY
+   Horizontal scrolling strip of thumbnails shown on the tour
+   page when a tour has a tour_flyer and/or per-date event_flyers.
+   ============================================================= */
+
+.tour-flyer-gallery {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px 20px 20px;
+    margin-bottom: 20px;
+}
+
+.tour-flyer-gallery-heading {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tour-flyer-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tour-flyer-strip::-webkit-scrollbar {
+    height: 5px;
+}
+
+.tour-flyer-strip::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+
+.tour-flyer-strip::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.tour-flyer-thumb {
+    flex: 0 0 auto;
+    width: 130px;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.tour-flyer-thumb:hover {
+    transform: translateY(-2px);
+}
+
+.tour-flyer-thumb img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: block;
+    background: #eee;
+}
+
+.tour-flyer-thumb-label {
+    font-size: 11px;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =============================================================
+   11. TOUR FLYER LIGHTBOX
+   Simple overlay triggered when a thumbnail is clicked.
+   ============================================================= */
+
+.tf-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tf-lightbox.open {
+    display: flex;
+}
+
+.tf-lb-inner {
+    position: relative;
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tf-lb-inner img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    object-fit: contain;
+    display: block;
+}
+
+.tf-lb-caption {
+    color: #ccc;
+    font-size: 13px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.tf-lb-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 0;
+}
+
+.tf-lb-close:hover {
+    background: #eee;
+}
+
+.tf-lb-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    font-size: 48px;
+    line-height: 1;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    z-index: 10000;
+}
+
+.tf-lb-nav:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.tf-lb-nav:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.tf-lb-prev { left: 10px; }
+.tf-lb-next { right: 10px; }
+
+@media (max-width: 600px) {
+    .tf-lb-nav { display: none; }
+    .tour-flyer-thumb { width: 105px; }
+}

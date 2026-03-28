@@ -610,6 +610,70 @@
             padding: 5px 10px;
         }
 
+        /* ── Tour selector row ───────────────────────────────── */
+        .filter-tour-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding-top: 10px;
+            margin-top: 4px;
+            border-top: 1px solid #eee;
+        }
+
+        .filter-tour-row label {
+            font-size: 13px;
+            color: #666;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        #tourFilterSelect {
+            flex: 1;
+            min-width: 160px;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            background: white;
+            color: #555;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        #tourFilterSelect:focus,
+        #tourFilterSelect:hover {
+            border-color: #795548;
+            outline: none;
+        }
+
+        #tourFilterSelect.active {
+            border-color: #795548;
+            background: #efebe9;
+            color: #3e2723;
+            font-weight: bold;
+        }
+
+        .tour-filter-clear {
+            font-size: 12px;
+            padding: 5px 12px;
+            background: white;
+            color: #795548;
+            border: 2px solid #795548;
+            border-radius: 20px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .tour-filter-clear.visible {
+            display: inline-block;
+        }
+
+        .tour-filter-clear:hover {
+            background: #efebe9;
+        }
+
         /* ── Status messages (loading, error) ────────────────── */
         .status-message {
             text-align: center;
@@ -688,6 +752,16 @@
         <div class="filter-divider"></div>
         <button class="filter-btn filter-btn-compact" onclick="selectAll()">All</button>
         <button class="filter-btn filter-btn-compact" onclick="selectNone()">None</button>
+    </div>
+
+    <div class="filter-bar" id="tourFilterBar" style="display:none;">
+        <div class="filter-tour-row">
+            <label for="tourFilterSelect">🎭 Limit to tour:</label>
+            <select id="tourFilterSelect" onchange="handleTourFilterChange()">
+                <option value="">— All tours —</option>
+            </select>
+            <button class="tour-filter-clear" id="tourFilterClear" onclick="clearTourFilter()">✕ Clear</button>
+        </div>
     </div>
 
     <div id="page-content">
@@ -873,6 +947,7 @@
         let allItems = [];
         let lbItems = [];
         let lbIndex = 0;
+        let activeTourKey = "";   // "" = no filter; set to a tourKey to limit to that tour
 
         // ── URL param sync ────────────────────────────────────────────────────────
         function readUrlParams() {
@@ -881,6 +956,12 @@
                 const requested = p.get("types").split(",").map(s => s.trim()).filter(Boolean);
                 activeTypes.clear();
                 requested.forEach(t => activeTypes.add(t));
+            }
+            if (p.has("tour")) {
+                activeTourKey = p.get("tour").trim();
+                // Ensure the 'tour' type is active when filtering to a specific tour
+                activeTypes.add("tour");
+                activeTypes.add("music"); // music tours use type "tour" with isMusic flag
             }
             if (p.has("date")) {
                 const raw = p.get("date"); // expects YYYY-MM-DD
@@ -903,6 +984,8 @@
         function writeUrlParams() {
             const p = new URLSearchParams(location.search);
             p.set("types", [...activeTypes].sort().join(","));
+            if (activeTourKey) p.set("tour", activeTourKey);
+            else p.delete("tour");
             history.replaceState(null, "", `${location.pathname}?${p}`);
         }
 
@@ -1468,13 +1551,73 @@
             return card;
         }
 
+        // ── Tour filter ───────────────────────────────────────────────────────────
+        function populateTourDropdown() {
+            const sel = document.getElementById("tourFilterSelect");
+            // Collect tours that actually have flyers in allItems
+            const tourItems = allItems.filter(i => i.type === "tour" && i.tourKey);
+            if (!tourItems.length) return;
+
+            // Build map: tourKey → "Artist — Tour name"
+            const tourMap = new Map();
+            tourItems.forEach(i => {
+                if (!tourMap.has(i.tourKey)) {
+                    const label = i.performer ? `${i.performer} — ${i.name}` : i.name;
+                    tourMap.set(i.tourKey, label);
+                }
+            });
+
+            // Sort by display label
+            const sorted = [...tourMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+            sorted.forEach(([key, name]) => {
+                const opt = document.createElement("option");
+                opt.value = key;
+                opt.textContent = name;
+                sel.appendChild(opt);
+            });
+
+            // Show the tour filter bar and pre-select if URL had ?tour=
+            document.getElementById("tourFilterBar").style.display = "";
+            if (activeTourKey) {
+                sel.value = activeTourKey;
+                syncTourFilterUI();
+            }
+        }
+
+        function handleTourFilterChange() {
+            activeTourKey = document.getElementById("tourFilterSelect").value;
+            syncTourFilterUI();
+            writeUrlParams();
+            renderAll();
+        }
+
+        function clearTourFilter() {
+            activeTourKey = "";
+            document.getElementById("tourFilterSelect").value = "";
+            syncTourFilterUI();
+            writeUrlParams();
+            renderAll();
+        }
+
+        function syncTourFilterUI() {
+            const sel = document.getElementById("tourFilterSelect");
+            const clearBtn = document.getElementById("tourFilterClear");
+            sel.classList.toggle("active", !!activeTourKey);
+            clearBtn.classList.toggle("visible", !!activeTourKey);
+        }
+
         // ── Render ────────────────────────────────────────────────────────────────
         function renderAll() {
             const root = document.getElementById("page-content");
-            const visible = allItems.filter(i =>
+            let visible = allItems.filter(i =>
                 activeTypes.has(i.type) ||
                 (i.type === "tour" && i.isMusic && activeTypes.has("music"))
             );
+
+            // Apply tour key filter — only show flyers belonging to the selected tour
+            if (activeTourKey) {
+                visible = visible.filter(i => i.tourKey === activeTourKey);
+            }
 
             root.innerHTML = "";
 
@@ -1519,6 +1662,7 @@
                     `<p class="status-message status-message--error">Could not load events data.<br><small>${e.message}</small></p>`;
                 return;
             }
+            populateTourDropdown();
             renderAll();
         })();
     </script>

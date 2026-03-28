@@ -310,6 +310,9 @@ function displayTour(tourId) {
 
   displayTourDates(tour, status);
 
+  // Render flyer gallery (tour-level + per-date flyers)
+  renderTourFlyers(tour);
+
   // Add markers to map
   addTourMarkersToMap(tour);
 }
@@ -467,6 +470,151 @@ function createTourDateElement(tourDate, tour, past = false) {
   }
 
   return div;
+}
+
+function renderTourFlyers(tour) {
+  const BASE_EVENT = "./storyclub_assets/event_flyers/";
+
+  // Gather all flyers for this tour: tour-level + per-date
+  const flyers = [];
+  if (tour.tour_flyer?.trim()) {
+    flyers.push({
+      src: BASE_EVENT + sanitizeFlyerPath(tour.tour_flyer),
+      label: "Tour flyer",
+    });
+  }
+  (tour.tour_dates || []).forEach((d) => {
+    if (!d.event_flyer?.trim()) return;
+    const date = parseDateString(d.date);
+    const venue = d.venue_id && venuesLookup[d.venue_id];
+    const label = date
+      ? date.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) +
+        (venue ? " · " + venue.name : "")
+      : venue
+        ? venue.name
+        : "Event flyer";
+    flyers.push({ src: BASE_EVENT + sanitizeFlyerPath(d.event_flyer), label });
+  });
+
+  // Remove any existing gallery
+  const existing = document.getElementById("tourFlyerGallery");
+  if (existing) existing.remove();
+
+  if (flyers.length === 0) return;
+
+  // Build gallery container
+  const gallery = document.createElement("div");
+  gallery.id = "tourFlyerGallery";
+  gallery.className = "tour-flyer-gallery";
+
+  const heading = document.createElement("div");
+  heading.className = "tour-flyer-gallery-heading";
+  heading.textContent = `🖼 Flyers for this tour (${flyers.length})`;
+  gallery.appendChild(heading);
+
+  const strip = document.createElement("div");
+  strip.className = "tour-flyer-strip";
+
+  flyers.forEach((f, i) => {
+    const card = document.createElement("div");
+    card.className = "tour-flyer-thumb";
+
+    const img = document.createElement("img");
+    img.src = f.src;
+    img.alt = f.label;
+    img.loading = "lazy";
+    img.onclick = () => openTourFlyerLightbox(flyers, i);
+    card.appendChild(img);
+
+    const cap = document.createElement("div");
+    cap.className = "tour-flyer-thumb-label";
+    cap.textContent = f.label;
+    card.appendChild(cap);
+
+    strip.appendChild(card);
+  });
+
+  gallery.appendChild(strip);
+
+  // Insert after the tour header, before the layout container
+  const tourContent = document.getElementById("tourContent");
+  const layout = tourContent.querySelector(".layout-container");
+  tourContent.insertBefore(gallery, layout);
+}
+
+// ── Tour flyer lightbox (simple, self-contained) ──────────────────────────────
+let _tfLbItems = [];
+let _tfLbIndex = 0;
+
+function openTourFlyerLightbox(items, index) {
+  _tfLbItems = items;
+  _tfLbIndex = index;
+
+  let lb = document.getElementById("tourFlyerLightbox");
+  if (!lb) {
+    lb = document.createElement("div");
+    lb.id = "tourFlyerLightbox";
+    lb.className = "tf-lightbox";
+    lb.innerHTML = `
+      <button class="tf-lb-nav tf-lb-prev" id="tfLbPrev">&#8249;</button>
+      <div class="tf-lb-inner">
+        <button class="tf-lb-close" id="tfLbClose">×</button>
+        <img id="tfLbImg" src="" alt="">
+        <div id="tfLbCaption" class="tf-lb-caption"></div>
+      </div>
+      <button class="tf-lb-nav tf-lb-next" id="tfLbNext">&#8250;</button>`;
+    document.body.appendChild(lb);
+
+    document.getElementById("tfLbClose").onclick = closeTourFlyerLightbox;
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) closeTourFlyerLightbox();
+    });
+    document.getElementById("tfLbPrev").onclick = () => {
+      if (_tfLbIndex > 0) {
+        _tfLbIndex--;
+        showTfSlide();
+      }
+    };
+    document.getElementById("tfLbNext").onclick = () => {
+      if (_tfLbIndex < _tfLbItems.length - 1) {
+        _tfLbIndex++;
+        showTfSlide();
+      }
+    };
+    document.addEventListener("keydown", tfLbKey);
+  }
+
+  lb.classList.add("open");
+  showTfSlide();
+}
+
+function closeTourFlyerLightbox() {
+  const lb = document.getElementById("tourFlyerLightbox");
+  if (lb) lb.classList.remove("open");
+}
+
+function showTfSlide() {
+  const f = _tfLbItems[_tfLbIndex];
+  document.getElementById("tfLbImg").src = f.src;
+  document.getElementById("tfLbImg").alt = f.label;
+  document.getElementById("tfLbCaption").textContent = f.label;
+  document.getElementById("tfLbPrev").disabled = _tfLbIndex <= 0;
+  document.getElementById("tfLbNext").disabled =
+    _tfLbIndex >= _tfLbItems.length - 1;
+}
+
+function tfLbKey(e) {
+  const lb = document.getElementById("tourFlyerLightbox");
+  if (!lb?.classList.contains("open")) return;
+  if (e.key === "Escape") closeTourFlyerLightbox();
+  if (e.key === "ArrowLeft" && _tfLbIndex > 0) {
+    _tfLbIndex--;
+    showTfSlide();
+  }
+  if (e.key === "ArrowRight" && _tfLbIndex < _tfLbItems.length - 1) {
+    _tfLbIndex++;
+    showTfSlide();
+  }
 }
 
 function togglePastDates(hide) {
@@ -865,6 +1013,13 @@ window.addEventListener("load", async () => {
     console.log("Loading tour from URL:", urlParams.tourId);
     document.getElementById("tourSelect").value = urlParams.tourId;
     displayTour(urlParams.tourId);
+
+    // Scroll so the tour content is visible, not stranded below the panels
+    setTimeout(() => {
+      document
+        .getElementById("tourContent")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
   } else if (urlParams.performerId) {
     // performer= present but no tour= — just seed the performer dropdown
     console.log("Setting performer from URL:", urlParams.performerId);
