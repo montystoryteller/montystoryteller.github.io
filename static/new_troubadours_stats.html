@@ -122,19 +122,217 @@
             margin-top: 6px;
         }
 
-        /* ---- SECTION HEADINGS ---- */
+        /* ---- ACCORDION SECTIONS ---- */
         .section {
-            margin-bottom: 48px;
+            margin-bottom: 4px;
+            border: 1px solid #d8d2c8;
+            border-radius: 6px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            cursor: pointer;
+            user-select: none;
+            background: white;
+            transition: background 0.15s;
+        }
+
+        .section-header:hover {
+            background: #faf8f4;
+        }
+
+        .section-header.open {
+            border-bottom: 1px solid #ede9e2;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: normal;
             letter-spacing: -0.3px;
-            border-bottom: 1px solid #d8d2c8;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
             color: #1a1a1a;
+            margin: 0;
+        }
+
+        /* h3 sub-headings inside open body */
+        .section-body h3.section-title {
+            font-size: 15px;
+            border-bottom: 1px solid #ede9e2;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            margin-top: 0;
+        }
+
+        .section-chevron {
+            font-size: 13px;
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .section-header.open .section-chevron {
+            transform: rotate(180deg);
+        }
+
+        .section-body {
+            padding: 20px;
+            display: none;
+        }
+
+        .section-body.open {
+            display: block;
+            animation: fadeIn 0.15s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* share bar */
+        .stats-share-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .stats-share-bar button {
+            padding: 6px 14px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .stats-share-bar button:hover {
+            background: #45a049;
+        }
+
+        #statsCopyFeedback {
+            color: #4CAF50;
+            display: none;
+        }
+
+        /* ---- TWO-LEVEL TAB BUTTONS ---- */
+        .stats-tab-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .stats-tab-btn {
+            padding: 6px 14px;
+            background: white;
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .stats-tab-btn:hover {
+            border-color: #4CAF50;
+            color: #2e7d32;
+            background: #f1f8f1;
+        }
+
+        .stats-tab-btn.active {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: white;
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .stats-view-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .stats-view-btn {
+            padding: 4px 11px;
+            background: white;
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .stats-view-btn:hover {
+            border-color: #00796b;
+            color: #00796b;
+            background: #f1f8f5;
+        }
+
+        .stats-view-btn.active {
+            background: #00796b;
+            border-color: #00796b;
+            color: white;
+            box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.2);
+        }
+
+        .stats-pane {
+            display: none;
+        }
+
+        .stats-pane.active {
+            display: block;
+        }
+
+        /* ---- STAT NOTE ---- */
+        .stat-note {
+            font-size: 12px;
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ---- BAR ROW COLUMN VARIANTS ---- */
+        .bar-row.price-row {
+            grid-template-columns: 80px 1fr 48px;
+        }
+
+        .bar-row.narrow-row {
+            grid-template-columns: 150px 1fr 48px;
+        }
+
+        @media (max-width: 700px) {
+            .bar-row.price-row {
+                grid-template-columns: 68px 1fr 40px;
+            }
+
+            .bar-row.narrow-row {
+                grid-template-columns: 110px 1fr 40px;
+            }
         }
 
         /* ---- BAR CHART ---- */
@@ -463,6 +661,12 @@
     <p class="page-subtitle">The New Troubadours — computed live from events_normalized.json</p>
 
     <div id="loadingState">Loading data…</div>
+
+    <div class="stats-share-bar" id="statsShareBar" style="display:none">
+        <button onclick="copyStatsLink()">📋 Copy link to current view</button>
+        <span id="statsCopyFeedback">✓ Link copied!</span>
+    </div>
+
     <div id="statsContent" style="display:none;"></div>
 
     <div class="about" id="colophon">
@@ -509,12 +713,90 @@
             return e;
         }
 
-        function section(title) {
+        // ---------------------------------------------------------------------------
+        // Accordion infrastructure
+        // ---------------------------------------------------------------------------
+
+        // Registry: slug -> { header, body, built, buildFn }
+        const _accordions = {};
+
+        function section(title, slug, buildFn) {
             const s = document.createElement('div');
             s.className = 'section';
-            const h = el('h2', 'section-title', title);
-            s.appendChild(h);
+            if (slug) s.dataset.slug = slug;
+
+            const header = document.createElement('div');
+            header.className = 'section-header';
+            header.appendChild(el('h2', 'section-title', title));
+            header.appendChild(el('span', 'section-chevron', '\u25bc'));
+            s.appendChild(header);
+
+            const body = document.createElement('div');
+            body.className = 'section-body';
+            s.appendChild(body);
+
+            if (slug) {
+                _accordions[slug] = { header, body, built: false, buildFn: buildFn || null };
+                header.addEventListener('click', () => toggleAccordion(slug));
+            }
             return s;
+        }
+
+        function toggleAccordion(slug, forceOpen) {
+            const acc = _accordions[slug];
+            if (!acc) return;
+            const open = forceOpen !== undefined ? forceOpen : !acc.body.classList.contains('open');
+            if (open) {
+                if (!acc.built && acc.buildFn) { acc.buildFn(acc.body); acc.built = true; }
+                acc.header.classList.add('open');
+                acc.body.classList.add('open');
+            } else {
+                acc.header.classList.remove('open');
+                acc.body.classList.remove('open');
+            }
+        }
+
+        // ---------------------------------------------------------------------------
+        // URL state: read on load, written by "Copy link" (matches event_guide pattern)
+        // ---------------------------------------------------------------------------
+
+        function readStatsUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const open = params.get('open') ? params.get('open').split(',').filter(Boolean) : [];
+            const tabState = {};
+            for (const [k, v] of params.entries()) { if (k !== 'open') tabState[k] = v; }
+            return { open, tabState };
+        }
+
+        function generateStatsUrl() {
+            const params = new URLSearchParams();
+            const openSlugs = Object.entries(_accordions)
+                .filter(([, a]) => a.body.classList.contains('open'))
+                .map(([slug]) => slug);
+            if (openSlugs.length) params.set('open', openSlugs.join(','));
+            document.querySelectorAll('.section[data-slug]').forEach(sec => {
+                const slug = sec.dataset.slug;
+                const catBtn = sec.querySelector('.stats-tab-btn.active');
+                const viewBtn = sec.querySelector('.stats-view-btn.active');
+                if (catBtn) params.set(slug + '_cat', catBtn.dataset.cat);
+                if (viewBtn) params.set(slug + '_view', viewBtn.dataset.view);
+            });
+            return window.location.origin + window.location.pathname + '?' + params.toString();
+        }
+
+        function copyStatsLink() {
+            const url = generateStatsUrl();
+            const doFeedback = () => {
+                const fb = document.getElementById('statsCopyFeedback');
+                fb.style.display = 'inline';
+                setTimeout(() => { fb.style.display = 'none'; }, 2000);
+            };
+            navigator.clipboard.writeText(url).then(doFeedback).catch(() => {
+                const tmp = document.createElement('input');
+                tmp.value = url; document.body.appendChild(tmp); tmp.select();
+                document.execCommand('copy'); document.body.removeChild(tmp);
+                doFeedback();
+            });
         }
 
         function barChart(rows, maxVal, colourClass) {
@@ -828,7 +1110,10 @@
 
             // ---- render ----
             const content = document.getElementById('statsContent');
-            content.style.display = '';
+
+            // Read URL params early so buildFns can reference urlTabState via closure
+            const urlState = readStatsUrlParams();
+            const urlTabState = urlState.tabState;
 
             // Summary tiles
             const grid = el('div', 'summary-grid');
@@ -1008,260 +1293,456 @@
 
             content.appendChild(grid);
 
-            // Drilldown container
+            // Drilldown container (shared by tile drilldowns inside accordion bodies)
             const drilldown = el('div', '');
             drilldown.id = 'drilldown-container';
             content.appendChild(drilldown);
 
+            // ================================================================
+            // Helper: table row that opens a drilldown panel on click
+            // ================================================================
+            function makeTableRow(label, n, denom, drillFn) {
+                const tr = document.createElement('tr');
+                const pct = Math.round(n / denom * 100);
+                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${pct}%</td>`;
+                if (drillFn) {
+                    tr.style.cursor = 'pointer';
+                    const hintTd = el('td', '');
+                    hintTd.style.cssText = 'font-size:11px;color:#bbb;font-family:Arial,sans-serif;';
+                    hintTd.textContent = 'expand';
+                    tr.appendChild(hintTd);
+                    tr.addEventListener('click', () => {
+                        const isOpen = tr.classList.contains('active-row');
+                        drilldown.innerHTML = '';
+                        document.querySelectorAll('.active-row').forEach(r => r.classList.remove('active-row'));
+                        document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
+                        if (!isOpen) { tr.classList.add('active-row'); openDrilldown(null, label, drillFn); }
+                    });
+                } else {
+                    tr.innerHTML += '<td></td>';
+                }
+                return tr;
+            }
+
+            // ================================================================
+            // ACCORDION SECTIONS — all lazy, built on first open
+            // ================================================================
+
             // ---- Ticketing services ----
-            const tickSec = section('Ticketing services');
-            const tickLegend = legend([
-                { label: 'Story show', cls: '', bg: '#4CAF50' },
-                { label: 'Tour date', cls: '', bg: '#2e7d32' },
-                { label: 'Music', cls: '', bg: '#443cd7' },
-                { label: 'Touring show', cls: '', bg: '#795548' },
-                { label: 'Festival', cls: '', bg: '#e8a020' },
-                { label: 'Other', cls: '', bg: '#aaa' },
-            ]);
-            tickSec.appendChild(tickLegend);
-            tickSec.appendChild(stackedChart(serviceRows, serviceMax, tickSegs));
-            const tickNote = el('p', '');
-            tickNote.style.cssText = 'font-size:13px;color:#888;font-family:Arial,sans-serif;margin-top:12px;';
-            tickNote.textContent = `${totalTicketed} ticketed dates across ${Object.keys(serviceMap).length} services.`;
-            tickSec.appendChild(tickNote);
-            content.appendChild(tickSec);
+            content.appendChild(section('Ticketing services', 'ticketing', body => {
+                const tickLegend = legend([
+                    { label: 'Story show', cls: '', bg: '#4CAF50' },
+                    { label: 'Tour date', cls: '', bg: '#2e7d32' },
+                    { label: 'Music', cls: '', bg: '#443cd7' },
+                    { label: 'Touring show', cls: '', bg: '#795548' },
+                    { label: 'Festival', cls: '', bg: '#e8a020' },
+                    { label: 'Other', cls: '', bg: '#aaa' },
+                ]);
+                body.appendChild(tickLegend);
+                body.appendChild(stackedChart(serviceRows, serviceMax, tickSegs));
+                const tickNote = el('p', '');
+                tickNote.style.cssText = 'font-size:13px;color:#888;font-family:Arial,sans-serif;margin-top:12px;';
+                tickNote.textContent = `${totalTicketed} ticketed dates across ${Object.keys(serviceMap).length} services.`;
+                body.appendChild(tickNote);
+            }));
 
             // ---- Performers ----
-            const perfSec = section('Performers');
-            const perfCols = el('div', 'two-col');
+            content.appendChild(section('Performers', 'performers', body => {
+                const perfCols = el('div', 'two-col');
 
-            const perfDatesSec = el('div');
-            perfDatesSec.appendChild(el('h3', 'section-title', 'By total dates'));
-            const perfMax = topPerfByDates[0]?.n || 1;
-            perfDatesSec.appendChild(barChart(topPerfByDates, perfMax, ''));
-            perfCols.appendChild(perfDatesSec);
+                const perfDatesSec = el('div');
+                perfDatesSec.appendChild(el('h3', 'section-title', 'By total dates'));
+                perfDatesSec.appendChild(barChart(topPerfByDates, topPerfByDates[0]?.n || 1, ''));
+                perfCols.appendChild(perfDatesSec);
 
-            const perfTickSec = el('div');
-            perfTickSec.appendChild(el('h3', 'section-title', 'By ticketed dates'));
-            const perfTickMax = topPerfByTickets[0]?.n || 1;
-            perfTickSec.appendChild(barChart(topPerfByTickets, perfTickMax, ''));
-            perfCols.appendChild(perfTickSec);
-            perfSec.appendChild(perfCols);
+                const perfTickSec = el('div');
+                perfTickSec.appendChild(el('h3', 'section-title', 'By ticketed dates'));
+                perfTickSec.appendChild(barChart(topPerfByTickets, topPerfByTickets[0]?.n || 1, ''));
+                perfCols.appendChild(perfTickSec);
+                body.appendChild(perfCols);
 
-            // Performer metadata table — rows are clickable
-            const perfTable = document.createElement('table');
-            perfTable.className = 'stat-table';
-            perfTable.style.marginTop = '20px';
-            perfTable.innerHTML = `<thead><tr>
-        <th>Metric</th><th class="n">Count</th><th class="pct">%</th><th style="width:60px"></th>
-    </tr></thead>`;
-            const tbody = document.createElement('tbody');
-            const totalPerfs = Object.keys(performers).length;
+                const perfTable = document.createElement('table');
+                perfTable.className = 'stat-table';
+                perfTable.style.marginTop = '20px';
+                perfTable.innerHTML = `<thead><tr><th>Metric</th><th class="n">Count</th><th class="pct">%</th><th style="width:60px"></th></tr></thead>`;
+                const tbody = document.createElement('tbody');
+                const totalPerfs = Object.keys(performers).length;
+                const withWebsite = Object.values(performers).filter(p => p.url).length;
 
-            function perfTableRow(label, n, denom, buildFn) {
-                const tr = document.createElement('tr');
-                const pct = Math.round(n / denom * 100);
-                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${pct}%</td>`;
-                if (buildFn) {
-                    tr.style.cursor = 'pointer';
-                    const hintTd = document.createElement('td');
-                    hintTd.style.cssText = 'font-size:11px;color:#bbb;font-family:Arial,sans-serif;';
-                    hintTd.textContent = 'expand';
-                    tr.appendChild(hintTd);
-                    tr.addEventListener('click', () => {
-                        const isOpen = tr.classList.contains('active-row');
-                        drilldown.innerHTML = '';
-                        document.querySelectorAll('.active-row').forEach(r => r.classList.remove('active-row'));
-                        document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
-                        if (!isOpen) { tr.classList.add('active-row'); openDrilldown(null, label, buildFn); }
-                    });
-                } else {
-                    tr.innerHTML += '<td></td>';
-                }
-                return tr;
-            }
+                tbody.appendChild(makeTableRow('With bio', perfWithBio, totalPerfs, null));
+                tbody.appendChild(makeTableRow('Without bio', perfWithoutBio, totalPerfs, panel => {
+                    simpleList(panel, Object.entries(performers).filter(([, p]) => !p.bio).sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` })));
+                }));
+                tbody.appendChild(makeTableRow('Compound acts', compoundPerfs, totalPerfs, panel => {
+                    simpleList(panel, Object.entries(performers).filter(([, p]) => p.performer_ids || p.ids).sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` })));
+                }));
+                tbody.appendChild(makeTableRow('With website', withWebsite, totalPerfs, null));
+                tbody.appendChild(makeTableRow('Without website', totalPerfs - withWebsite, totalPerfs, panel => {
+                    simpleList(panel, Object.entries(performers).filter(([, p]) => !p.url).sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` })));
+                }));
 
-            tbody.appendChild(perfTableRow('With bio', perfWithBio, totalPerfs, null));
-            tbody.appendChild(perfTableRow('Without bio', perfWithoutBio, totalPerfs, panel => {
-                const items = Object.entries(performers)
-                    .filter(([, p]) => !p.bio)
-                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
-                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
-                simpleList(panel, items);
+                perfTable.appendChild(tbody);
+                body.appendChild(perfTable);
             }));
-            tbody.appendChild(perfTableRow('Compound acts', compoundPerfs, totalPerfs, panel => {
-                const items = Object.entries(performers)
-                    .filter(([, p]) => p.performer_ids || p.ids)
-                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
-                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
-                simpleList(panel, items);
-            }));
-            const withWebsite = Object.values(performers).filter(p => p.url).length;
-            tbody.appendChild(perfTableRow('With website', withWebsite, totalPerfs, null));
-            tbody.appendChild(perfTableRow('Without website', totalPerfs - withWebsite, totalPerfs, panel => {
-                const items = Object.entries(performers)
-                    .filter(([, p]) => !p.url)
-                    .sort((a, b) => a[1].name.localeCompare(b[1].name))
-                    .map(([pid, p]) => ({ label: p.name, href: `${URL_PERFORMER}?performer=${encodeURIComponent(pid)}` }));
-                simpleList(panel, items);
-            }));
-
-            perfTable.appendChild(tbody);
-            perfSec.appendChild(perfTable);
-            content.appendChild(perfSec);
 
             // ---- Venues ----
-            const venueSec = section('Venues');
-            const venueCols = el('div', 'two-col');
+            content.appendChild(section('Venues', 'venues', body => {
+                const venueCols = el('div', 'two-col');
 
-            const venueTopSec = el('div');
-            venueTopSec.appendChild(el('h3', 'section-title', 'Most used venues'));
-            const venueMax = topVenues[0]?.n || 1;
-            venueTopSec.appendChild(barChart(topVenues, venueMax, 'teal'));
-            venueCols.appendChild(venueTopSec);
+                const venueTopSec = el('div');
+                venueTopSec.appendChild(el('h3', 'section-title', 'Most used venues'));
+                venueTopSec.appendChild(barChart(topVenues, topVenues[0]?.n || 1, 'teal'));
+                venueCols.appendChild(venueTopSec);
 
-            // City bars — clickable to show venues in that city
-            const citySec = el('div');
-            citySec.appendChild(el('h3', 'section-title', 'Events by city — click to see venues'));
-            const cityMax = topCities[0]?.n || 1;
-            const cityChart = el('div', 'bar-chart');
-            topCities.forEach(r => {
-                const row = el('div', 'bar-row');
-                row.style.cursor = 'pointer';
-                row.title = `Click to see venues in ${r.label}`;
-                const labelEl = el('div', 'bar-label', r.label);
-                const track = el('div', 'bar-track');
-                const fill = el('div', 'bar-fill teal');
-                fill.style.width = `${Math.round((r.n / cityMax) * 100)}%`;
-                track.appendChild(fill);
-                const nEl = el('div', 'bar-n', r.n);
-                row.appendChild(labelEl); row.appendChild(track); row.appendChild(nEl);
-                row.addEventListener('click', () => {
-                    const isOpen = row.classList.contains('active-row');
-                    drilldown.innerHTML = '';
-                    document.querySelectorAll('.active-row').forEach(x => x.classList.remove('active-row'));
-                    document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
-                    if (!isOpen) {
-                        row.classList.add('active-row');
-                        row.style.background = '#e8f5e9';
-                        openDrilldown(null, `Venues in ${r.label}`, panel => {
-                            const venuesInCity = Object.entries(venueEvents)
-                                .filter(([vid]) => (venues[vid]?.city || 'Unknown') === r.label)
-                                .sort((a, b) => b[1] - a[1])
-                                .map(([vid, n]) => ({
-                                    label: venues[vid]?.name || vid,
-                                    href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
-                                    meta: `${n} event${n !== 1 ? 's' : ''}`
-                                }));
-                            simpleList(panel, venuesInCity);
-                        });
-                    } else {
-                        row.style.background = '';
-                    }
-                });
-                cityChart.appendChild(row);
-            });
-            citySec.appendChild(cityChart);
-            venueCols.appendChild(citySec);
-            venueSec.appendChild(venueCols);
-
-            // Venue usage table — clickable rows
-            const venueTable = document.createElement('table');
-            venueTable.className = 'stat-table';
-            venueTable.style.marginTop = '20px';
-            venueTable.innerHTML = `<thead><tr>
-        <th>Metric</th><th class="n">Count</th><th class="pct">% of venues used</th><th style="width:60px"></th>
-    </tr></thead>`;
-            const vtbody = document.createElement('tbody');
-            const totalVenuesUsed = Object.keys(venueEvents).length;
-
-            function venueTableRow(label, n, denom, buildFn) {
-                const tr = document.createElement('tr');
-                const pct = Math.round(n / denom * 100);
-                tr.innerHTML = `<td>${label}</td><td class="n">${n}</td><td class="pct">${pct}%</td>`;
-                if (buildFn) {
-                    tr.style.cursor = 'pointer';
-                    const hintTd = document.createElement('td');
-                    hintTd.style.cssText = 'font-size:11px;color:#bbb;font-family:Arial,sans-serif;';
-                    hintTd.textContent = 'expand';
-                    tr.appendChild(hintTd);
-                    tr.addEventListener('click', () => {
-                        const isOpen = tr.classList.contains('active-row');
+                const citySec = el('div');
+                citySec.appendChild(el('h3', 'section-title', 'Events by city — click to see venues'));
+                const cityMax = topCities[0]?.n || 1;
+                const cityChart = el('div', 'bar-chart');
+                topCities.forEach(r => {
+                    const row = el('div', 'bar-row');
+                    row.style.cursor = 'pointer';
+                    row.title = `Click to see venues in ${r.label}`;
+                    row.appendChild(el('div', 'bar-label', r.label));
+                    const track = el('div', 'bar-track');
+                    const fill = el('div', 'bar-fill teal');
+                    fill.style.width = `${Math.round((r.n / cityMax) * 100)}%`;
+                    track.appendChild(fill);
+                    row.appendChild(track);
+                    row.appendChild(el('div', 'bar-n', r.n));
+                    row.addEventListener('click', () => {
+                        const isOpen = row.classList.contains('active-row');
                         drilldown.innerHTML = '';
-                        document.querySelectorAll('.active-row').forEach(r => r.classList.remove('active-row'));
+                        document.querySelectorAll('.active-row').forEach(x => { x.classList.remove('active-row'); x.style.background = ''; });
                         document.querySelectorAll('.summary-tile.active').forEach(t => t.classList.remove('active'));
-                        if (!isOpen) { tr.classList.add('active-row'); openDrilldown(null, label, buildFn); }
+                        if (!isOpen) {
+                            row.classList.add('active-row');
+                            row.style.background = '#e8f5e9';
+                            openDrilldown(null, `Venues in ${r.label}`, panel => {
+                                simpleList(panel, Object.entries(venueEvents).filter(([vid]) => (venues[vid]?.city || 'Unknown') === r.label).sort((a, b) => b[1] - a[1]).map(([vid, n]) => ({ label: venues[vid]?.name || vid, href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`, meta: `${n} event${n !== 1 ? 's' : ''}` })));
+                            });
+                        }
                     });
-                } else {
-                    tr.innerHTML += '<td></td>';
-                }
-                return tr;
-            }
+                    cityChart.appendChild(row);
+                });
+                citySec.appendChild(cityChart);
+                venueCols.appendChild(citySec);
+                body.appendChild(venueCols);
 
-            vtbody.appendChild(venueTableRow('Total venues in database', Object.keys(venues).length, Object.keys(venues).length, null));
-            vtbody.appendChild(venueTableRow('Venues with at least 1 event', totalVenuesUsed, Object.keys(venues).length, panel => {
-                const items = Object.entries(venueEvents)
-                    .sort((a, b) => b[1] - a[1])
-                    .map(([vid, n]) => ({
-                        label: venues[vid]?.name || vid,
-                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
-                        meta: `${n} event${n !== 1 ? 's' : ''}`
-                    }));
-                simpleList(panel, items);
-            }));
-            vtbody.appendChild(venueTableRow('Used once only', venueUsedOnce, totalVenuesUsed, panel => {
-                const items = Object.entries(venueEvents)
-                    .filter(([, n]) => n === 1)
-                    .sort((a, b) => (venues[a[0]]?.name || '').localeCompare(venues[b[0]]?.name || ''))
-                    .map(([vid]) => ({
-                        label: venues[vid]?.name || vid,
-                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
-                        meta: venues[vid]?.city || ''
-                    }));
-                simpleList(panel, items);
-            }));
-            vtbody.appendChild(venueTableRow('Used more than once', venueUsedMore, totalVenuesUsed, panel => {
-                const items = Object.entries(venueEvents)
-                    .filter(([, n]) => n > 1)
-                    .sort((a, b) => b[1] - a[1])
-                    .map(([vid, n]) => ({
-                        label: venues[vid]?.name || vid,
-                        href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`,
-                        meta: `${n} events · ${venues[vid]?.city || ''}`
-                    }));
-                simpleList(panel, items);
+                const venueTable = document.createElement('table');
+                venueTable.className = 'stat-table';
+                venueTable.style.marginTop = '20px';
+                venueTable.innerHTML = `<thead><tr><th>Metric</th><th class="n">Count</th><th class="pct">% of venues used</th><th style="width:60px"></th></tr></thead>`;
+                const vtbody = document.createElement('tbody');
+                const totalVenuesUsed = Object.keys(venueEvents).length;
+
+                vtbody.appendChild(makeTableRow('Total venues in database', Object.keys(venues).length, Object.keys(venues).length, null));
+                vtbody.appendChild(makeTableRow('Venues with at least 1 event', totalVenuesUsed, Object.keys(venues).length, panel => {
+                    simpleList(panel, Object.entries(venueEvents).sort((a, b) => b[1] - a[1]).map(([vid, n]) => ({ label: venues[vid]?.name || vid, href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`, meta: `${n} event${n !== 1 ? 's' : ''}` })));
+                }));
+                vtbody.appendChild(makeTableRow('Used once only', venueUsedOnce, totalVenuesUsed, panel => {
+                    simpleList(panel, Object.entries(venueEvents).filter(([, n]) => n === 1).sort((a, b) => (venues[a[0]]?.name || '').localeCompare(venues[b[0]]?.name || '')).map(([vid]) => ({ label: venues[vid]?.name || vid, href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`, meta: venues[vid]?.city || '' })));
+                }));
+                vtbody.appendChild(makeTableRow('Used more than once', venueUsedMore, totalVenuesUsed, panel => {
+                    simpleList(panel, Object.entries(venueEvents).filter(([, n]) => n > 1).sort((a, b) => b[1] - a[1]).map(([vid, n]) => ({ label: venues[vid]?.name || vid, href: `${URL_VENUE}?venue=${encodeURIComponent(vid)}`, meta: `${n} events · ${venues[vid]?.city || ''}` })));
+                }));
+
+                venueTable.appendChild(vtbody);
+                body.appendChild(venueTable);
             }));
 
-            venueTable.appendChild(vtbody);
-            venueSec.appendChild(venueTable);
-            content.appendChild(venueSec);
+            // ---- Pricing analysis ----
+            content.appendChild(section('Pricing analysis', 'pricing', body => {
+                body.dataset.slug = 'pricing';
+                buildPricingSection(body);
+            }));
+
+            // ---- Venue type & when events happen ----
+            content.appendChild(section('Venue type & when events happen', 'venuetime', body => {
+                body.dataset.slug = 'venuetime';
+                buildVenueTimeSection(body);
+            }));
 
             // ---- Event type breakdown ----
-            const typeSec = section('Event type breakdown');
-            const typeRows = [
-                { label: 'Tour dates', n: allTourDates.length, colour: '' },
-                { label: 'Story show dates', n: specific.length, colour: '' },
-                { label: 'Music events', n: music.length, colour: 'blue' },
-                { label: 'Touring show dates', n: allShowDates.length, colour: 'brown' },
-                { label: 'Recurring story clubs', n: events.length, colour: '' },
-                { label: 'Folk nights', n: folkNights.length, colour: 'brown' },
-                { label: 'Irish sessions', n: sessions.length, colour: 'slate' },
-                { label: 'Festival entries', n: Object.keys(festivals).length, colour: 'amber' },
-            ].sort((a, b) => b.n - a.n);
-            const typeMax = typeRows[0].n;
-            typeRows.forEach(r => {
-                const row = el('div', 'bar-row');
-                row.appendChild(el('div', 'bar-label', r.label));
-                const track = el('div', 'bar-track');
-                const fill = el('div', `bar-fill ${r.colour}`);
-                fill.style.width = `${Math.round((r.n / typeMax) * 100)}%`;
-                track.appendChild(fill);
-                row.appendChild(track);
-                row.appendChild(el('div', 'bar-n', r.n));
-                typeSec.appendChild(row);
-            });
-            content.appendChild(typeSec);
+            content.appendChild(section('Event type breakdown', 'eventtypes', body => {
+                // Colours match shared-styles.css event card colours
+                const TYPE_COLOURS = {
+                    'Tour dates': '#43a047',  // special green
+                    'Story show dates': '#43a047',  // special green
+                    'Music events': '#443cd7',  // music blue
+                    'Touring show dates': '#4CAF50',  // storyclub green
+                    'Recurring story clubs': '#4CAF50',  // storyclub green (border)
+                    'Folk nights': '#8b4513',  // folk brown
+                    'Irish sessions': '#228b22',  // session dark green
+                    'Festival entries': '#2e7d32',  // festival dark green
+                };
+                const typeRows = [
+                    { label: 'Tour dates', n: allTourDates.length },
+                    { label: 'Story show dates', n: specific.length },
+                    { label: 'Music events', n: music.length },
+                    { label: 'Touring show dates', n: allShowDates.length },
+                    { label: 'Recurring story clubs', n: events.length },
+                    { label: 'Folk nights', n: folkNights.length },
+                    { label: 'Irish sessions', n: sessions.length },
+                    { label: 'Festival entries', n: Object.keys(festivals).length },
+                ].sort((a, b) => b.n - a.n);
+                const typeMax = typeRows[0].n;
+                typeRows.forEach(r => {
+                    const row = el('div', 'bar-row');
+                    row.appendChild(el('div', 'bar-label', r.label));
+                    const track = el('div', 'bar-track');
+                    const fill = el('div', 'bar-fill');
+                    fill.style.background = TYPE_COLOURS[r.label] || '#4CAF50';
+                    fill.style.width = `${Math.round((r.n / typeMax) * 100)}%`;
+                    track.appendChild(fill);
+                    row.appendChild(track);
+                    row.appendChild(el('div', 'bar-n', r.n));
+                    body.appendChild(row);
+                });
+            }));
 
+            // ================================================================
+            // PRICING + VENUETIME SECTION BUILDERS (two-level tabbed)
+            // ================================================================
+
+            const VTYPE_ORDER = ['Pub / bar / café', 'Village / community hall', 'Arts centre / venue', 'Theatre', 'Church / faith venue', 'Museum / historic', 'Barn / rural / outdoor', 'Online', 'Other / unknown'];
+            const VTYPE_COLOURS = { 'Pub / bar / café': '#795548', 'Village / community hall': '#00796b', 'Arts centre / venue': '#443cd7', 'Theatre': '#c62828', 'Church / faith venue': '#e8a020', 'Museum / historic': '#546e7a', 'Barn / rural / outdoor': '#2e7d32', 'Online': '#888', 'Other / unknown': '#bbb' };
+            const DAYS_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            function classifyVenueType(name) {
+                if (!name) return 'Other / unknown';
+                const n = name.toLowerCase();
+                if (/village hall|memorial hall|parish hall|community hall|town hall|assembly room|public hall|welfare hall|memorial institute|parish room|working men|community centre|community center|bowling club|institute|kingsley hall|lowther parish|mcgrigor hall|public rooms|pullens centre|imperial rooms|adastra hall|david hall|alexander centre|three villages hall|mushroom hall|torriano meeting|folk preservation|joinery|malt cross|liskeard|folk of gloucester|old customs house|ventnor british legion|bolton socialist|newstead|scout hut/.test(n)) return 'Village / community hall';
+                if (/church hall|church room|church|st\.\s|saint\s|\bpriory\b|\bchapel\b|quaker|salvation army|buddhist|assumption|our lady|st john|st peter|st mary|st nicholas|st anne|st lawrence|meeting house/.test(n)) return 'Church / faith venue';
+                if (/\btheatre\b|\btheater\b|playhouse|lyric\b|wardrobe|backyard theatre|front room theatre|omnibus|storyhouse|unicorn|dragon|torch|palace theatre|borough theatre|alphabetti|capstone|cygnet|knutsford little|lantern|georgian|\bcube\b|burton taylor|prohibition recording|palladium club/.test(n)) return 'Theatre';
+                if (/arts cent|art cent|arts centr|artcentre|centre for the arts|arts center|llanover|pontardawe|ropetackle|exeter phoenix|chapter arts|quay arts|pound arts|bureau|wycombe|barnoldswick|gregson|moor imagination|riverfront|cambridge junction|john peel centre|ruskin mill|ffwrnes|theatr clwyd|royal welsh college|university|making space|st anne.s arts|rougemont|corn exchange|yellow book|october books|riff factory|spin the black|portico|next door at|\bstudio\b/.test(n)) return 'Arts centre / venue';
+                if (/\bpub\b|tavern|\binn\b|\barms\b|\btap\b|brewery|\bbar\b|\bale house\b|the fleece|brunswick|britons|half moon|station pub|black swan|fountain inn|dove st|locks inn|three swans|stubbing|dairyman|portland arms|porter club|rat and ratchet|duke william|embankment|castle tap|castle inn|bodega|star coffee|temperance|chillingham|the hoops|the grove|the victoria|waverley|hop sun|ropemakers|bear club|hop inn|foxtails|bargeman|alder\b|hearth\b|the fold|the elm tree|katie fitzgerald|chagford inn|ship inn|the acorn|joiners|love shack|\byes\b|department\b|lock 91|cafe|coffee|kitchen garden|merlin|carvel lane|foremans|travellers joy|fat cat|nelly|angels cut|ltb showroom|stables at the bull|snapdragons|avalon|calverts|hotel indigo|swiss cottage|micklethwait|better days|b side|cwrw|\bsocial club\b|crown.*sceptre/.test(n)) return 'Pub / bar / café';
+                if (/museum|library|guildhall|roman villa|darwin house|physic garden|dr johnson|food museum|haslemere museum|story museum|the hold\b/.test(n)) return 'Museum / historic';
+                if (/\bbarn\b|farm|retreat|vineyard|earthhouse|ancient farm|harta|caddaford|circle barn|arty barn|old stables|rectory|plot 9|cranborne|wroot|the big retreat|dart music festival|gibraltar/.test(n)) return 'Barn / rural / outdoor';
+                if (/online/.test(n)) return 'Online';
+                return 'Other / unknown';
+            }
+
+            function parseEventPrice(raw) {
+                if (!raw) return null;
+                const s = raw.trim(), sl = s.toLowerCase();
+                if (/^\s*free/.test(sl) || sl === 'free (donations appreciated)' || sl.startsWith('cost: free')) return { isFree: true, face: null };
+                if (/pay what you (like|feel|can|decide)|pay what|suggested donation/.test(sl)) {
+                    const mm = sl.match(/min[^\d]*£(\d+(?:\.\d+)?)/); const m2 = s.match(/£(\d+(?:\.\d+)?)/);
+                    return { isPwyw: true, face: mm ? parseFloat(mm[1]) : (m2 ? parseFloat(m2[1]) : null) };
+                }
+                let s2 = s.replace(/\s*[\(]?\+\s*£\d+(?:\.\d+)?\s*(?:booking fee)?\)?/g, '');
+                const amounts = [...s2.matchAll(/£(\d+(?:\.\d+)?)/g)].map(m => parseFloat(m[1]));
+                if (!amounts.length) return null;
+                if (/family|children|child|singer|bursary|pay it forward|tapas/.test(sl)) return { face: amounts[0] };
+                const rm = s2.match(/£(\d+(?:\.\d+)?)\s*[-\u2013]\s*£?(\d+(?:\.\d+)?)/);
+                if (rm && amounts.length === 2) return { face: parseFloat(rm[1]) };
+                if (/adv|advance/.test(sl)) { const am = sl.match(/£(\d+(?:\.\d+)?)\s*(?:adv|advance)/); return { face: am ? parseFloat(am[1]) : Math.min(...amounts) }; }
+                if (/online/.test(sl) || /\[/.test(s2)) return { face: amounts[0] };
+                return { face: amounts[0] };
+            }
+
+            function parseStartHour(t) {
+                if (!t) return null;
+                t = t.toLowerCase().trim();
+                // "doors X, show Y" -> use show time
+                const sm = t.match(/show\s+(\d+)(?:[.:](\d+))?\s*(am|pm)/);
+                if (sm) { let h = parseInt(sm[1]), m = parseInt(sm[2] || 0); if (sm[3] === 'pm' && h !== 12) h += 12; return h + m / 60; }
+                t = t.split(' or ')[0];
+                // Match first time token; handles "7-9pm"->7, "7.30-10pm"->7.5
+                const tm = t.match(/(\d+)(?:[.:](\d+))?\s*(?:-\s*\d+(?:[.:]\d+)?\s*)?(am|pm)/);
+                if (!tm) return null;
+                let h = parseInt(tm[1]), m = parseInt(tm[2] || 0), mer = tm[3];
+                if (mer === 'pm' && h !== 12) h += 12; if (mer === 'am' && h === 12) h = 0;
+                return h + m / 60;
+            }
+
+            function startHourLabel(h) {
+                const hour = Math.floor(h), mins = Math.round((h % 1) * 60), suffix = hour < 12 ? 'am' : 'pm', h12 = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+                return mins ? `${h12}:${String(mins).padStart(2, '0')}${suffix}` : `${h12}${suffix}`;
+            }
+
+            function parseDayOfWeek(dateStr, schedStr) {
+                if (dateStr) { const p = dateStr.split('/'); if (p.length === 3) { const d = new Date(+p[2], +p[1] - 1, +p[0]); if (!isNaN(d)) return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()]; } }
+                if (schedStr) { for (const day of ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']) { if (schedStr.toLowerCase().includes(day)) return day[0].toUpperCase() + day.slice(1); } }
+                return null;
+            }
+
+            function buildAnalysisRows() {
+                const rows = [];
+                // Flat one-off events
+                [['specificEvents', 'storytelling'], ['spokenword', 'storytelling'], ['musicEvents', 'music'], ['folkNights', 'music'], ['events', 'clubs']].forEach(([key, cat]) => {
+                    (data[key] || []).forEach(e => {
+                        const p = parseEventPrice(e.price);
+                        rows.push({
+                            cat, vtype: classifyVenueType(venues[e.venue_id]?.name || ''),
+                            face: p && !p.isFree && !p.isPwyw ? p.face : null,
+                            isFree: !!(p && p.isFree), isPwyw: !!(p && p.isPwyw), hasPrice: !!(e.price && e.price.trim()),
+                            startH: parseStartHour(e.time || ''), day: parseDayOfWeek(e.date || '', e.schedule || '')
+                        });
+                    });
+                });
+                // Tour dates — priced individually per date; classified as 'storytelling'
+                // (tours can be music or special but the price field structure is the same)
+                Object.values(data.tours || {}).forEach(t => {
+                    (t.tour_dates || []).forEach(td => {
+                        const p = parseEventPrice(td.price);
+                        const cat = t.isMusic ? 'music' : 'storytelling';
+                        rows.push({
+                            cat, vtype: classifyVenueType(venues[td.venue_id]?.name || ''),
+                            face: p && !p.isFree && !p.isPwyw ? p.face : null,
+                            isFree: !!(p && p.isFree), isPwyw: !!(p && p.isPwyw), hasPrice: !!(td.price && td.price.trim()),
+                            startH: parseStartHour(td.time || t.time || ''), day: parseDayOfWeek(td.date || '', '')
+                        });
+                    });
+                });
+                return rows;
+            }
+
+            const analysisRows = buildAnalysisRows();
+            const CAT_DEFS_ANALYSIS = [
+                { id: 'all', label: 'All', rows: analysisRows },
+                { id: 'story', label: 'Story shows', rows: analysisRows.filter(r => r.cat === 'storytelling') },
+                { id: 'music', label: 'Music', rows: analysisRows.filter(r => r.cat === 'music') },
+                { id: 'clubs', label: 'Club nights', rows: analysisRows.filter(r => r.cat === 'clubs') },
+            ];
+
+            function colouredBarChart(rows, maxVal, rowClass) {
+                const chart = el('div', 'bar-chart');
+                rows.forEach(r => {
+                    const row = el('div', 'bar-row ' + (rowClass || ''));
+                    row.appendChild(el('div', 'bar-label', r.label));
+                    const track = el('div', 'bar-track');
+                    const fill = el('div', 'bar-fill'); fill.style.background = r.colour || '#4CAF50';
+                    fill.style.width = `${Math.max(2, Math.round((r.n / maxVal) * 100))}%`;
+                    track.appendChild(fill); row.appendChild(track); row.appendChild(el('div', 'bar-n', r.n));
+                    chart.appendChild(row);
+                });
+                return chart;
+            }
+
+            // Two-level tab UI builder
+            function twoLevelSection(container, sectionSlug, catDefs, viewDefs, urlTabState) {
+                container.dataset.slug = sectionSlug;
+
+                const catRow = el('div', 'stats-tab-row');
+                catDefs.forEach((c, ci) => {
+                    const initActive = urlTabState[sectionSlug + '_cat'] ? urlTabState[sectionSlug + '_cat'] === c.id : ci === 0;
+                    const btn = el('button', 'stats-tab-btn' + (initActive ? ' active' : ''), c.label);
+                    btn.dataset.cat = c.id; catRow.appendChild(btn);
+                });
+                container.appendChild(catRow);
+
+                const viewRow = el('div', 'stats-view-row');
+                viewDefs.forEach((v, vi) => {
+                    const initActive = urlTabState[sectionSlug + '_view'] ? urlTabState[sectionSlug + '_view'] === v.id : vi === 0;
+                    const btn = el('button', 'stats-view-btn' + (initActive ? ' active' : ''), v.label);
+                    btn.dataset.view = v.id; viewRow.appendChild(btn);
+                });
+                if (viewDefs.length <= 1) viewRow.style.display = 'none';
+                container.appendChild(viewRow);
+
+                const paneWrap = el('div', '');
+                catDefs.forEach((c, ci) => {
+                    viewDefs.forEach((v, vi) => {
+                        const activeCat = urlTabState[sectionSlug + '_cat'] || catDefs[0].id;
+                        const activeView = urlTabState[sectionSlug + '_view'] || viewDefs[0].id;
+                        const isActive = c.id === activeCat && v.id === activeView;
+                        const pane = el('div', 'stats-pane' + (isActive ? ' active' : ''));
+                        pane.id = `pane-${sectionSlug}-${c.id}-${v.id}`;
+                        v.build(pane, c.rows);
+                        paneWrap.appendChild(pane);
+                    });
+                });
+                container.appendChild(paneWrap);
+
+                catRow.addEventListener('click', e => {
+                    const btn = e.target.closest('.stats-tab-btn'); if (!btn) return;
+                    catRow.querySelectorAll('.stats-tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
+                    const activeCat = btn.dataset.cat, activeView = viewRow.querySelector('.stats-view-btn.active')?.dataset.view || viewDefs[0].id;
+                    paneWrap.querySelectorAll('.stats-pane').forEach(p => p.classList.remove('active'));
+                    paneWrap.querySelector(`#pane-${sectionSlug}-${activeCat}-${activeView}`)?.classList.add('active');
+                });
+                viewRow.addEventListener('click', e => {
+                    const btn = e.target.closest('.stats-view-btn'); if (!btn) return;
+                    viewRow.querySelectorAll('.stats-view-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
+                    const activeCat = catRow.querySelector('.stats-tab-btn.active')?.dataset.cat || catDefs[0].id, activeView = btn.dataset.view;
+                    paneWrap.querySelectorAll('.stats-pane').forEach(p => p.classList.remove('active'));
+                    paneWrap.querySelector(`#pane-${sectionSlug}-${activeCat}-${activeView}`)?.classList.add('active');
+                });
+            }
+
+            function buildPricingSection(container) {
+                twoLevelSection(container, 'pricing', CAT_DEFS_ANALYSIS, [{
+                    id: 'price', label: 'Price distribution', build: (pane, catRows) => {
+                        const paid = catRows.filter(r => r.face !== null), faces = paid.map(r => r.face);
+                        const free = catRows.filter(r => r.isFree).length, pwyw = catRows.filter(r => r.isPwyw).length, noPrice = catRows.length - catRows.filter(r => r.hasPrice).length;
+                        const sumEl = el('p', ''); sumEl.style.cssText = 'font-family:Arial,sans-serif;font-size:13px;color:#555;margin-bottom:14px;';
+                        const parts = [];
+                        if (faces.length) { const avg = (faces.reduce((a, b) => a + b, 0) / faces.length).toFixed(2), med = [...faces].sort((a, b) => a - b)[Math.floor(faces.length / 2)].toFixed(2); parts.push(`avg £${avg} · median £${med} (${paid.length} paid events)`); }
+                        if (free) parts.push(`${free} free`); if (pwyw) parts.push(`${pwyw} pay-what-you-can`); if (noPrice) parts.push(`${noPrice} no price listed`);
+                        sumEl.textContent = parts.join(' · ') || 'Insufficient data'; pane.appendChild(sumEl);
+                        if (!faces.length) return;
+                        const freq = {};
+                        faces.forEach(f => { const b = Math.round(f * 2) / 2, lbl = '£' + (Number.isInteger(b) ? b : b.toFixed(2)); freq[lbl] = (freq[lbl] || 0) + 1; });
+                        const freqRows = Object.entries(freq).sort((a, b) => parseFloat(a[0].slice(1)) - parseFloat(b[0].slice(1))).map(([label, n]) => ({ label, n, colour: '#4CAF50' }));
+                        const maxF = Math.max(...freqRows.map(r => r.n)); freqRows.forEach(r => { if (r.n === maxF) r.colour = '#2e7d32'; });
+                        pane.appendChild(colouredBarChart(freqRows, maxF, 'price-row'));
+                        const sorted = [...faces].sort((a, b) => a - b);
+                        const noteEl = el('p', 'stat-note', `Range £${sorted[0].toFixed(2)} – £${sorted[sorted.length - 1].toFixed(2)} · ${catRows.length} events total · modal bar highlighted`);
+                        pane.appendChild(noteEl);
+                    }
+                }], urlTabState);
+            }
+
+            function buildVenueTimeSection(container) {
+                twoLevelSection(container, 'venuetime', CAT_DEFS_ANALYSIS, [
+                    {
+                        id: 'venue', label: 'Venue type', build: (pane, catRows) => {
+                            const counts = {}; catRows.forEach(r => { counts[r.vtype] = (counts[r.vtype] || 0) + 1; });
+                            const rows = VTYPE_ORDER.filter(k => counts[k]).map(k => ({ label: k, n: counts[k], colour: VTYPE_COLOURS[k] || '#aaa' }));
+                            if (!rows.length) { pane.appendChild(el('p', 'stat-note', 'No data.')); return; }
+                            pane.appendChild(colouredBarChart(rows, Math.max(...rows.map(r => r.n)), 'narrow-row'));
+                            const leg = el('div', 'legend'); leg.style.marginTop = '12px';
+                            rows.forEach(r => { const item = el('div', 'legend-item'), sw = el('div', 'legend-swatch'); sw.style.background = r.colour; item.appendChild(sw); item.appendChild(document.createTextNode(r.label)); leg.appendChild(item); });
+                            pane.appendChild(leg);
+                            pane.appendChild(el('p', 'stat-note', `${catRows.length} events · venue type inferred from venue name`));
+                        }
+                    },
+                    {
+                        id: 'time', label: 'Start time', build: (pane, catRows) => {
+                            const withTime = catRows.filter(r => r.startH !== null); if (!withTime.length) { pane.appendChild(el('p', 'stat-note', 'No time data.')); return; }
+                            const buckets = {}; withTime.forEach(r => { const b = Math.round(r.startH * 2) / 2, lbl = startHourLabel(b); buckets[lbl] = (buckets[lbl] || 0) + 1; });
+                            const toH = s => { const m = s.match(/(\d+)(?::(\d+))?(am|pm)/); if (!m) return 0; let h = +m[1], mn = +(m[2] || 0), mer = m[3]; if (mer === 'pm' && h !== 12) h += 12; if (mer === 'am' && h === 12) h = 0; return h + mn / 60; };
+                            const rows = Object.entries(buckets).sort((a, b) => toH(a[0]) - toH(b[0])).map(([label, n]) => ({ label, n, colour: '#443cd7' }));
+                            const maxN = Math.max(...rows.map(r => r.n)); rows.forEach(r => { if (r.n === maxN) r.colour = '#1006c6'; });
+                            pane.appendChild(colouredBarChart(rows, maxN, 'price-row'));
+                            pane.appendChild(el('p', 'stat-note', `${withTime.length} of ${catRows.length} events have time data`));
+                        }
+                    },
+                    {
+                        id: 'day', label: 'Day of week', build: (pane, catRows) => {
+                            const withDay = catRows.filter(r => r.day !== null); if (!withDay.length) { pane.appendChild(el('p', 'stat-note', 'No day data.')); return; }
+                            const counts = {}; withDay.forEach(r => { counts[r.day] = (counts[r.day] || 0) + 1; });
+                            const rows = DAYS_ORDER.filter(d => counts[d]).map(d => ({ label: d, n: counts[d], colour: '#00796b' }));
+                            const maxN = Math.max(...rows.map(r => r.n)); rows.forEach(r => { if (r.n === maxN) r.colour = '#004d40'; });
+                            pane.appendChild(colouredBarChart(rows, maxN, 'narrow-row'));
+                            pane.appendChild(el('p', 'stat-note', `${withDay.length} of ${catRows.length} events have a date or schedule`));
+                        }
+                    },
+                ], urlTabState);
+            }
+
+            // ================================================================
+            // Restore URL state, show page, show share bar
+            // ================================================================
+
+            // Open sections specified in URL, else all closed
+            if (urlState.open.length) {
+                urlState.open.forEach(slug => toggleAccordion(slug, true));
+            }
+
+            document.getElementById('statsContent').style.display = '';
+            document.getElementById('statsShareBar').style.display = 'flex';
             document.getElementById('loadingState').style.display = 'none';
         }
 
