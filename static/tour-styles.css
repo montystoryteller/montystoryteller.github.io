@@ -699,13 +699,44 @@ select {
     margin-bottom: 20px;
 }
 
-.tour-flyer-gallery-heading {
+.tour-flyer-details {
+    /* no extra chrome — the gallery wrapper provides the card */
+}
+
+.tour-flyer-details > summary {
+    list-style: none;
+}
+
+.tour-flyer-details > summary::-webkit-details-marker { display: none; }
+
+.tour-flyer-summary {
     font-size: 0.9em;
     font-weight: 700;
     color: #555;
-    margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tour-flyer-summary::before {
+    content: "\25B8";   /* ▸ */
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 1em;
+    color: #888;
+}
+
+.tour-flyer-details[open] > .tour-flyer-summary::before {
+    transform: rotate(90deg);
+}
+
+.tour-flyer-summary:hover {
+    color: #333;
 }
 
 .tour-flyer-strip {
@@ -751,7 +782,8 @@ select {
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     display: block;
-    background: #eee;
+    /* placeholder colour shown before lazy image loads */
+    background: linear-gradient(135deg, #e8f5e9 0%, #f0f0f0 100%);
 }
 
 .tour-flyer-thumb-label {

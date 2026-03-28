@@ -384,9 +384,11 @@ function createTourExpandable(parent, label, content, type) {
 
   if (type === "image") {
     const img = document.createElement("img");
-    img.src = `./storyclub_assets/event_flyers/${sanitizeFlyerPath(content)}`;
+    img.dataset.src = `./storyclub_assets/event_flyers/${sanitizeFlyerPath(content)}`;
     img.className = "event-flyer-image";
     expandable.appendChild(img);
+    // Load the image lazily when the expandable comes into view (i.e. after btn click)
+    flyerImgObserver.observe(img);
   } else {
     const p = document.createElement("p");
     p.className = "event-description";
@@ -472,10 +474,28 @@ function createTourDateElement(tourDate, tour, past = false) {
   return div;
 }
 
+// ── Shared lazy-image observer for tour flyers ────────────────────────────────
+// Watches for data-src images entering the viewport and loads them on demand.
+// Used by both the gallery thumbnails and per-date expandable flyer images.
+const flyerImgObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      const src = img.dataset.src;
+      if (!src) return;
+      img.src = src;
+      img.removeAttribute("data-src");
+      flyerImgObserver.unobserve(img);
+    });
+  },
+  { rootMargin: "200px 0px" },
+);
+
 function renderTourFlyers(tour) {
   const BASE_EVENT = "./storyclub_assets/event_flyers/";
 
-  // Gather all flyers for this tour: tour-level + per-date
+  // Gather all flyers: tour-level + per-date
   const flyers = [];
   if (tour.tour_flyer?.trim()) {
     flyers.push({
@@ -502,16 +522,21 @@ function renderTourFlyers(tour) {
 
   if (flyers.length === 0) return;
 
-  // Build gallery container
+  // ── Outer wrapper ──────────────────────────────────────────────────────────
   const gallery = document.createElement("div");
   gallery.id = "tourFlyerGallery";
   gallery.className = "tour-flyer-gallery";
 
-  const heading = document.createElement("div");
-  heading.className = "tour-flyer-gallery-heading";
-  heading.textContent = `🖼 Flyers for this tour (${flyers.length})`;
-  gallery.appendChild(heading);
+  // ── <details> collapsible — closed by default ─────────────────────────────
+  const details = document.createElement("details");
+  details.className = "tour-flyer-details";
 
+  const summary = document.createElement("summary");
+  summary.className = "tour-flyer-summary";
+  summary.textContent = `\u{1F5BC} Flyers for this tour (${flyers.length})`;
+  details.appendChild(summary);
+
+  // ── Strip of thumbnails — images lazy-loaded when panel opens ─────────────
   const strip = document.createElement("div");
   strip.className = "tour-flyer-strip";
 
@@ -520,9 +545,8 @@ function renderTourFlyers(tour) {
     card.className = "tour-flyer-thumb";
 
     const img = document.createElement("img");
-    img.src = f.src;
+    img.dataset.src = f.src; // deferred — observer loads when visible
     img.alt = f.label;
-    img.loading = "lazy";
     img.onclick = () => openTourFlyerLightbox(flyers, i);
     card.appendChild(img);
 
@@ -534,7 +558,20 @@ function renderTourFlyers(tour) {
     strip.appendChild(card);
   });
 
-  gallery.appendChild(strip);
+  details.appendChild(strip);
+
+  // Start observing thumbnails only after the panel is opened for the first time
+  let observed = false;
+  details.addEventListener("toggle", () => {
+    if (details.open && !observed) {
+      observed = true;
+      strip
+        .querySelectorAll("img[data-src]")
+        .forEach((img) => flyerImgObserver.observe(img));
+    }
+  });
+
+  gallery.appendChild(details);
 
   // Insert after the tour header, before the layout container
   const tourContent = document.getElementById("tourContent");
