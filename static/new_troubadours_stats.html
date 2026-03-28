@@ -1569,7 +1569,7 @@
 
             function buildAnalysisRows() {
                 const rows = [];
-                // Flat one-off events
+                // Flat one-off events — groupKey is showname (or name) for deduplication
                 [['specificEvents', 'storytelling'], ['spokenword', 'storytelling'], ['musicEvents', 'music'], ['folkNights', 'music'], ['events', 'clubs']].forEach(([key, cat]) => {
                     (data[key] || []).forEach(e => {
                         const p = parseEventPrice(e.price);
@@ -1577,13 +1577,13 @@
                             cat, vtype: classifyVenueType(venues[e.venue_id]?.name || ''),
                             face: p && !p.isFree && !p.isPwyw ? p.face : null,
                             isFree: !!(p && p.isFree), isPwyw: !!(p && p.isPwyw), hasPrice: !!(e.price && e.price.trim()),
-                            startH: parseStartHour(e.time || ''), day: parseDayOfWeek(e.date || '', e.schedule || '')
+                            startH: parseStartHour(e.time || ''), day: parseDayOfWeek(e.date || '', e.schedule || ''),
+                            groupKey: (e.showname || e.name || '').trim() || null
                         });
                     });
                 });
-                // Tour dates — priced individually per date; classified as 'storytelling'
-                // (tours can be music or special but the price field structure is the same)
-                Object.values(data.tours || {}).forEach(t => {
+                // Tour dates — each tour is one "show"; group all dates under the tour name
+                Object.entries(data.tours || {}).forEach(([tid, t]) => {
                     (t.tour_dates || []).forEach(td => {
                         const p = parseEventPrice(td.price);
                         const cat = t.isMusic ? 'music' : 'storytelling';
@@ -1591,11 +1591,48 @@
                             cat, vtype: classifyVenueType(venues[td.venue_id]?.name || ''),
                             face: p && !p.isFree && !p.isPwyw ? p.face : null,
                             isFree: !!(p && p.isFree), isPwyw: !!(p && p.isPwyw), hasPrice: !!(td.price && td.price.trim()),
-                            startH: parseStartHour(td.time || t.time || ''), day: parseDayOfWeek(td.date || '', '')
+                            startH: parseStartHour(td.time || t.time || ''), day: parseDayOfWeek(td.date || '', ''),
+                            groupKey: 'tour:' + tid
                         });
                     });
                 });
                 return rows;
+            }
+
+            // Deduplicate rows by groupKey for "per show" view.
+            // For each unique groupKey: take median face price of priced dates;
+            // isFree/isPwyw if any date was free/pwyw and none were paid.
+            // Rows without a groupKey (e.g. clubs) are passed through unchanged.
+            function dedupeByShow(rows) {
+                const groups = new Map();
+                const ungrouped = [];
+                rows.forEach(r => {
+                    if (!r.groupKey) { ungrouped.push(r); return; }
+                    if (!groups.has(r.groupKey)) groups.set(r.groupKey, []);
+                    groups.get(r.groupKey).push(r);
+                });
+                const deduped = [];
+                groups.forEach((grpRows, key) => {
+                    // Representative row: use first (preserves cat, vtype, day, startH)
+                    const rep = Object.assign({}, grpRows[0]);
+                    const faces = grpRows.map(r => r.face).filter(f => f !== null);
+                    if (faces.length) {
+                        const sorted = [...faces].sort((a, b) => a - b);
+                        rep.face = sorted[Math.floor(sorted.length / 2)]; // median
+                        rep.isFree = false; rep.isPwyw = false;
+                        // Note the spread if min!=max
+                        rep.priceSpread = sorted[sorted.length - 1] - sorted[0];
+                        rep.dateCount = grpRows.length;
+                    } else {
+                        rep.face = null;
+                        rep.isFree = grpRows.some(r => r.isFree);
+                        rep.isPwyw = grpRows.some(r => r.isPwyw);
+                        rep.dateCount = grpRows.length;
+                    }
+                    rep.hasPrice = grpRows.some(r => r.hasPrice);
+                    deduped.push(rep);
+                });
+                return [...deduped, ...ungrouped];
             }
 
             const analysisRows = buildAnalysisRows();
@@ -1671,25 +1708,81 @@
                 });
             }
 
+            function renderPricingChart(pane, catRows, perShow) {
+                // Clear previous content
+                pane.innerHTML = '';
+                const rows = perShow ? dedupeByShow(catRows) : catRows;
+                const paid = rows.filter(r => r.face !== null);
+                const faces = paid.map(r => r.face);
+                const free = rows.filter(r => r.isFree).length;
+                const pwyw = rows.filter(r => r.isPwyw).length;
+                const noPrice = rows.length - rows.filter(r => r.hasPrice).length;
+
+                // Summary line
+                const sumEl = el('p', '');
+                sumEl.style.cssText = 'font-family:Arial,sans-serif;font-size:13px;color:#555;margin-bottom:14px;';
+                const parts = [];
+                if (faces.length) {
+                    const avg = (faces.reduce((a, b) => a + b, 0) / faces.length).toFixed(2);
+                    const med = [...faces].sort((a, b) => a - b)[Math.floor(faces.length / 2)].toFixed(2);
+                    const unit = perShow ? 'shows' : 'events';
+                    parts.push(`avg £${avg} · median £${med} (${paid.length} paid ${unit})`);
+                }
+                if (free) parts.push(`${free} free`);
+                if (pwyw) parts.push(`${pwyw} pay-what-you-can`);
+                if (noPrice) parts.push(`${noPrice} no price listed`);
+                sumEl.textContent = parts.join(' · ') || 'Insufficient data';
+                pane.appendChild(sumEl);
+
+                if (!faces.length) return;
+
+                // Frequency chart
+                const freq = {};
+                faces.forEach(f => {
+                    const b = Math.round(f * 2) / 2;
+                    const lbl = '£' + (Number.isInteger(b) ? b : b.toFixed(2));
+                    freq[lbl] = (freq[lbl] || 0) + 1;
+                });
+                const freqRows = Object.entries(freq)
+                    .sort((a, b) => parseFloat(a[0].slice(1)) - parseFloat(b[0].slice(1)))
+                    .map(([label, n]) => ({ label, n, colour: '#4CAF50' }));
+                const maxF = Math.max(...freqRows.map(r => r.n));
+                freqRows.forEach(r => { if (r.n === maxF) r.colour = '#2e7d32'; });
+                pane.appendChild(colouredBarChart(freqRows, maxF, 'price-row'));
+
+                const sorted = [...faces].sort((a, b) => a - b);
+                let noteText = `Range £${sorted[0].toFixed(2)} – £${sorted[sorted.length - 1].toFixed(2)} · modal bar highlighted`;
+                if (perShow) noteText += ' · tour prices: median of all dated prices for that tour';
+                pane.appendChild(el('p', 'stat-note', noteText));
+            }
+
             function buildPricingSection(container) {
                 twoLevelSection(container, 'pricing', CAT_DEFS_ANALYSIS, [{
                     id: 'price', label: 'Price distribution', build: (pane, catRows) => {
-                        const paid = catRows.filter(r => r.face !== null), faces = paid.map(r => r.face);
-                        const free = catRows.filter(r => r.isFree).length, pwyw = catRows.filter(r => r.isPwyw).length, noPrice = catRows.length - catRows.filter(r => r.hasPrice).length;
-                        const sumEl = el('p', ''); sumEl.style.cssText = 'font-family:Arial,sans-serif;font-size:13px;color:#555;margin-bottom:14px;';
-                        const parts = [];
-                        if (faces.length) { const avg = (faces.reduce((a, b) => a + b, 0) / faces.length).toFixed(2), med = [...faces].sort((a, b) => a - b)[Math.floor(faces.length / 2)].toFixed(2); parts.push(`avg £${avg} · median £${med} (${paid.length} paid events)`); }
-                        if (free) parts.push(`${free} free`); if (pwyw) parts.push(`${pwyw} pay-what-you-can`); if (noPrice) parts.push(`${noPrice} no price listed`);
-                        sumEl.textContent = parts.join(' · ') || 'Insufficient data'; pane.appendChild(sumEl);
-                        if (!faces.length) return;
-                        const freq = {};
-                        faces.forEach(f => { const b = Math.round(f * 2) / 2, lbl = '£' + (Number.isInteger(b) ? b : b.toFixed(2)); freq[lbl] = (freq[lbl] || 0) + 1; });
-                        const freqRows = Object.entries(freq).sort((a, b) => parseFloat(a[0].slice(1)) - parseFloat(b[0].slice(1))).map(([label, n]) => ({ label, n, colour: '#4CAF50' }));
-                        const maxF = Math.max(...freqRows.map(r => r.n)); freqRows.forEach(r => { if (r.n === maxF) r.colour = '#2e7d32'; });
-                        pane.appendChild(colouredBarChart(freqRows, maxF, 'price-row'));
-                        const sorted = [...faces].sort((a, b) => a - b);
-                        const noteEl = el('p', 'stat-note', `Range £${sorted[0].toFixed(2)} – £${sorted[sorted.length - 1].toFixed(2)} · ${catRows.length} events total · modal bar highlighted`);
-                        pane.appendChild(noteEl);
+                        // Per-date / per-show toggle
+                        const toggleRow = el('div', '');
+                        toggleRow.style.cssText = 'display:flex;gap:6px;margin-bottom:14px;';
+                        const btnDate = el('button', 'stats-view-btn active', 'Per date');
+                        const btnShow = el('button', 'stats-view-btn', 'Per show (deduplicated)');
+                        btnDate.title = 'Count every individual event date';
+                        btnShow.title = 'Count each unique show once, using median price for tours with multiple dates';
+                        toggleRow.appendChild(btnDate);
+                        toggleRow.appendChild(btnShow);
+                        pane.appendChild(toggleRow);
+
+                        // Chart area — rendered immediately and on toggle
+                        const chartArea = el('div', '');
+                        pane.appendChild(chartArea);
+                        renderPricingChart(chartArea, catRows, false);
+
+                        btnDate.addEventListener('click', () => {
+                            btnDate.classList.add('active'); btnShow.classList.remove('active');
+                            renderPricingChart(chartArea, catRows, false);
+                        });
+                        btnShow.addEventListener('click', () => {
+                            btnShow.classList.add('active'); btnDate.classList.remove('active');
+                            renderPricingChart(chartArea, catRows, true);
+                        });
                     }
                 }], urlTabState);
             }
