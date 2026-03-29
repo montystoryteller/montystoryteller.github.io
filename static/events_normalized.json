@@ -3573,6 +3573,19 @@
       "performer_id": "ronnie-conboy"
     },
     {
+      "name": "Tales from the 5 deep wells of Irish Stories [Maria Gillen]",
+      "showname": "Tales from the 5 deep wells of Irish Stories",
+      "date": "01/04/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "£10.05",
+      "description": "For our 11th birthday, on 1st April — what better date for the Feast of Fools?! — we are seriously delighted to welcome Maria Gillen from Cork City as our guest professional performer.\n\n\n\nStorytellers come to the art through many routes; Maria's may be unique, having spent 22 years in a Global Multinational environment, with her last 4.5 years as a European Operations Manager.  She became a Biodynamic Therapist in 2007 and has an MA in Dramatherapy since 2010.\n\n\n\nBut she wears this formidable CV very lightly when performing. What you get is a great enthusiasm for the art and value of storytelling, for its traditions and material, with spontaneous warmth, an infectious sense of humour, and a wonderful ability to convey emotional depth with just a few beautifully chosen words.\n\n\n\nShe comes from a family where stories are cherished and is very interested in what the wisdoms of yesteryear have to offer us in today’s world.\n\n\n\nAnd the Five Deep Wells of her title? Maria describes them as: myths & legends, stories of our stones, Diaspora Stories, Bean Feasa (Wise Woman) stories & co-created stories.\n\n\n\nAdd all this to the Feast of Fools' famously welcoming atmosphere, the possibly even more famous Janet's home made cakes, and the lovely surroundings of Northampton's Quaker Meeting House and we really can't think of anything better you could possibly want to spend your Wednesday evening doing!",
+      "ticket_url": "https://wegottickets.com/event/695348",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "maria-gillen"
+    },
+    {
       "name": "The Liar King [Clare Murphy]",
       "showname": "The Liar King",
       "date": "",
@@ -3721,6 +3734,18 @@
       "performer_id": "monty-the-anywhens"
     },
     {
+      "name": "Stories for a May Evening",
+      "showname": "Stories for a May Evening",
+      "date": "06/05/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "£10.05",
+      "description": "A series of 10 minute tales from our excellent team of tellers.",
+      "ticket_url": "https://wegottickets.com/event/697183",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton"
+    },
+    {
       "name": "Under a Hill, a King Lays Sleeping [Bernadette Russell]",
       "showname": "Under a Hill, a King Lays Sleeping",
       "description": "Come join local author and storyteller Bernadette Russell for a wild and magical evening of Hampshire myth and folklore - featuring the tales of the King asleep beneath a hill which is perhaps a slumbering dragon, the giant Ascapart and his battles with Bevis of Hampton, an enchanted stone circle and a ghostly horse, our local witches and their spells, incantations and potions, the Otherworld and the Bentworth Thorn, and the grampus that lives in a Yew Tree. With stories, songs, poetry and even a spell from a Hampshire Grimoire - this will be a night to remember - guaranteed fun and packed full of ancient wisdom too!\n\n\n\n Come and let yourself be re-enchanted by this beautiful region full of chalk downlands, heathland, forest and coastline, bustling with rich legends and fairytales. With stories, songs, and poetry this will be a night to remember- guaranteed fun and packed full of ancient wisdom too!",
@@ -3793,6 +3818,19 @@
       "performer_id": "stephe-harrop"
     },
     {
+      "name": "Psalms from the Horse's Mouth [Hugh Lupton]",
+      "showname": "Psalms from the Horse's Mouth",
+      "date": "03/06/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "hugh-lupton"
+    },
+    {
       "name": "The Forest of Chance Encounters [Ropetackle Storytellers]",
       "showname": "The Forest of Chance Encounters",
       "date": "15/06/2026",
@@ -3806,6 +3844,19 @@
       "isSpecial": true,
       "venue_id": "ropetackle-arts-centre-shoreham",
       "performer_id": "sarah-rundle"
+    },
+    {
+      "name": "Open Tellers' Special Night [feat. Steve Dimmer]",
+      "showname": "Open Tellers' Special Night [feat. Steve Dimmer]",
+      "date": "01/07/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": ""
     },
     {
       "name": "Lamentable Tales, Merry Gestes and Pleasant Histories [Dave Tonge]",
@@ -3833,6 +3884,58 @@
       "fb_event": 3167137180125156,
       "venue_id": "ropetackle-arts-centre-shoreham",
       "performer_id": ""
+    },
+    {
+      "name": "TBA [Tim Ralphs]",
+      "showname": "TBA",
+      "date": "02/09/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "tim-ralphs"
+    },
+    {
+      "name": "Open Tellers' Special Night [feat. Lynette Hill]",
+      "showname": "Open Tellers' Special Night [feat. Lynette Hill]",
+      "date": "07/10/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "lynette-hill"
+    },
+    {
+      "name": "TBA [Baden Prince]",
+      "showname": "TBA",
+      "date": "04/11/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "baden-prince"
+    },
+    {
+      "name": "Midwinter Open Tellers' Night [Feast of Fools]",
+      "showname": "Midwinter Open Tellers' Night [Feast of Fools]",
+      "date": "02/12/2026",
+      "time": "7pm",
+      "club": "feastoffools",
+      "price": "",
+      "description": "",
+      "ticket_url": "",
+      "isSpecial": true,
+      "venue_id": "quaker-meeting-house-northampton",
+      "performer_id": "tim-ralphs"
     }
   ],
   "musicEvents": [
@@ -7909,6 +8012,24 @@
       "url": "https://mattjohnsonmusic.co.uk/",
       "musician": true,
       "bio": "Matt Johnson is a Midlands based Singer / songwriter who really wears his heart on his sleeve at the same times as completely captivating his audience.\n\n\n\nHis subjects range from his family and the love of his life through to his view of the world now and his opinion on the plight of the oceans and our wildlife.\n\n\n\nHe has a fantastic ear for melodyand bulids a hook into every song that has his audience singing back at him by the second chorus.\n\n\n\nEqually at home alone on stage with his acoustic guitar and trusty onion or supported by his super tight band, The Reprobates."
+    },
+    "maria-gillen": {
+      "id": "maria-gillen",
+      "name": "Maria Gillen",
+      "url": "https://storyfromseeds.com/",
+      "bio": "Maria was the Irish Storyteller in Residence for Kerry Writers Museum from 2019 to 2022. She was the Artistic Director for the Listowel International Storytelling Festival 2020 to 2022. Maria is currently working as an archivist with Sheahan's Storytelling Cottage in Finuge — a 300 year old traditional Rambling House in Finuge, Co. Kerry.\n\n\n\nShe is a well-known popular storyteller on the storytelling circuit in Ireland and on the Cyberspace Platform. She is a well-known Bean An Tí (Irish Session Host) on the Irish Storytelling Circuit."
+    },
+    "baden-prince": {
+      "id": "baden-prince",
+      "name": "Baden Prince",
+      "url": "https://worldstorytellingcafe.com/baden-prince/",
+      "bio": "Baden Prince Baden is a writer, poet, storyteller and performer."
+    },
+    "lynette-hill": {
+      "id": "lynette-hil",
+      "name": "Lynette Hill",
+      "url": "https://www.facebook.com/lynettehilluk",
+      "bio": "Joyous creator and teller of tall tales and 2023 Bard of Stony Stratford"
     },
     "shonaleigh": {
       "id": "shonaleigh",
