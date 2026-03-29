@@ -3648,6 +3648,20 @@
       "performer_id": "maria-credali"
     },
     {
+      "name": "Living on the Ceiling: Storytelling with Sarah Rundle",
+      "showname": "Living on the Ceiling: Storytelling with Sarah Rundle",
+      "date": "09/04/2026",
+      "time": "2.30-3.45pm & 7:30PM - 8:45PM",
+      "club": "",
+      "price": "£3.25",
+      "description": "Lady Mary Reade had a problem.  She needed a new (rich) husband — fast.  How to attract one?  Build a Splendid Mansion, and entice prospective suitors to call.\n\n\n\nSo she hired Edward Stanyon to create a ceiling for her most ceremonial room — a ceiling full of allegory and symbol, metaphor and fable. This plasterwork is crammed with images — and each one carries a concealed meaning.\n\n\n\nIf we were to say 'My Precious!' or 'Wingardiam Leviosa' or 'May the odds be ever in your favour' you would know the stories to which we are referring — they are part of our shared cultural inheritance. In the same way, 17th Century society would have looked at the glorious ceiling in Boston Manor House, and spotted the references to their shared cultural context - to classical mythology, Biblical stories, fables and folklore.\n\n\n\nWe'll be hearing tales of saints and sinners, nymphs, Green Men, and fabulous beasts, all wrapped up in the story of the two people responsible for creating this work of art:  Mary Reade, newly widowed and needing a secure home, and Edward Stanyon, a master-craftsman from humble origins who rose to be the greatest plasterer of his day.\n\n\n\nA storytelling performance for adults and 14+",
+      "ticket_url": "https://www.ticketsource.com/boston-manor-house/living-on-the-ceiling-storytelling-with-sarah-rundle/e-adejlx",
+      "isSpecial": true,
+      "event_flyer": "",
+      "venue_id": "boston-manor-house-brentford",
+      "performer_id": "sarah-rundle"
+    },
+    {
       "name": "Beguiling for Beginners: An evening of trickster tales [Dave Tonge]",
       "showname": "Beguiling for Beginners: An evening of trickster tales",
       "date": "09/04/2026",
@@ -6734,13 +6748,25 @@
     "stocksmoor-village-hall": {
       "id": "stocksmoor-village-hall",
       "name": "Stocksmoor Village Hall",
-      "city": "Stocksmoor",
-      "postcode": "Huddersfield",
+      "city": "Huddersfield",
+      "postcode": "HD4 6XN",
       "full_address": "Stocksmoor Village Hall, Stocksmoor, Huddersfield, HD4 6XN",
       "url": "https://www.penninefolkclub.org.uk/",
       "latlon": [
         53.59386,
         -1.72396
+      ]
+    },
+    "boston-manor-house-brentford": {
+      "id": "boston-manor-house-brentford",
+      "name": "Boston Manor House, Brentford",
+      "city": "Stocksmoor",
+      "postcode": "TW8 9JX",
+      "full_address": "Boston Manor House, Boston Manor Rd, Brentford, TW8 9JX",
+      "url": "https://bostonmanorhouse.org/",
+      "latlon": [
+        51.49262,
+        -0.31824
       ]
     },
     "the-mushroom-hall-swadlincote": {
