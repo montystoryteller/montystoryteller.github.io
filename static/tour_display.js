@@ -437,11 +437,14 @@ function createTourDateElement(tourDate, tour, past = false) {
   }
   const nameDiv = document.createElement("div");
   nameDiv.className = "event-name";
-  nameDiv.textContent = date.toLocaleDateString("en-GB", {
+  const dateText = date.toLocaleDateString("en-GB", {
     weekday: "long",
     day: "numeric",
     month: "long",
   });
+  nameDiv.textContent = tourDate.time
+    ? `${dateText} • ${tourDate.time}`
+    : dateText;
   div.appendChild(nameDiv);
 
   // Venue Location with icons — createVenueElement() defined in shared_utils.js
