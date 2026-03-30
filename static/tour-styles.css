@@ -315,6 +315,16 @@ select {
     font-style: italic;
 }
 
+.tour-date-item.event.music.event-cancelled {
+    border-left: 4px solid #c62828 !important;
+    background: repeating-linear-gradient(
+        -45deg,
+        #e8ede8, #e8ede8 8px,
+        #dfe6df 8px, #dfe6df 16px
+    ) !important;
+    color: #555 !important;
+}
+
 
 /* =============================================================
    5. LINK & ICON COLOUR OVERRIDES
