@@ -228,7 +228,7 @@ select {
     margin-top: 2px;
 }
 
-.hide-past-label {
+.hide-past-label, .hide-cancelled-label, .hide-soldout-label {
     display: flex;
     align-items: center;
     gap: 6px;
