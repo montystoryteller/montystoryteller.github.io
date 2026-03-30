@@ -102,8 +102,16 @@
                         <div class="tour-dates-subtitle" id="tourDatesSubtitle"></div>
                     </div>
                     <label class="hide-past-label" id="hidePastLabel" style="display:none;">
-                        <input type="checkbox" id="hidePastDates" onchange="togglePastDates(this.checked)">
+                        <input type="checkbox" id="hidePastDates" onchange="updateEventDisplayFilters()">
                         Hide past dates
+                    </label>
+                    <label class="hide-cancelled-label" id="hideCancelledLabel">
+                        <input type="checkbox" id="hideCancelledDates" onchange="updateEventDisplayFilters()">
+                        Hide cancelled dates
+                    </label>
+                    <label class="hide-soldout-label" id="hideSoldOutLabel">
+                        <input type="checkbox" id="hideSoldOutDates" onchange="updateEventDisplayFilters()">
+                        Hide sold out dates
                     </label>
                 </div>
                 <div id="tourDatesList"></div>

@@ -447,6 +447,7 @@ function createTourDateElement(tourDate, tour, past = false) {
     : dateText;
 
   if (tourDate.isSoldOut) {
+    div.classList.add("event-sold-out");
     nameDiv.appendChild(document.createTextNode(" "));
     const soldOutBadge = createBadge("❌ SOLD OUT");
     soldOutBadge.className = "event-badge event-badge-sold-out";
@@ -673,9 +674,22 @@ function tfLbKey(e) {
   }
 }
 
-function togglePastDates(hide) {
-  document.querySelectorAll("#tourDatesList .date-past").forEach((el) => {
-    el.style.display = hide ? "none" : "";
+function updateEventDisplayFilters() {
+  const hidePast = document.getElementById("hidePastDates").checked;
+  const hideCancelled = document.getElementById("hideCancelledDates").checked;
+  const hideSoldOut = document.getElementById("hideSoldOutDates").checked;
+
+  document.querySelectorAll("#tourDatesList .tour-date-item").forEach((el) => {
+    const isPast = el.classList.contains("date-past");
+    const isCancelled = el.classList.contains("event-cancelled");
+    const isSoldOut = el.classList.contains("event-sold-out");
+
+    const shouldHide =
+      (hidePast && isPast) ||
+      (hideCancelled && isCancelled) ||
+      (hideSoldOut && isSoldOut);
+
+    el.style.display = shouldHide ? "none" : "";
   });
 }
 
