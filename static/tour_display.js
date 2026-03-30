@@ -321,10 +321,10 @@ function displayTourDates(tour, status) {
   const datesContainer = document.getElementById("tourDatesList");
   datesContainer.innerHTML = "";
 
-  // Show the hide-past checkbox only for current tours; reset it on each load
+  // Show the hide-past checkbox only for current tours
   const hidePastLabel = document.getElementById("hidePastLabel");
-  const hidePastCheckbox = document.getElementById("hidePastDates");
-  hidePastCheckbox.checked = false;
+  //const hidePastCheckbox = document.getElementById("hidePastDates");
+  //hidePastCheckbox.checked = false;
   hidePastLabel.style.display = status === "current" ? "" : "none";
 
   // Set subtitle: show name + performer
