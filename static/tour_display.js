@@ -369,6 +369,8 @@ function displayTourDates(tour, status) {
       firstUpcomingEl.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 400);
   }
+
+  updateEventDisplayFilters();
 }
 
 // parseDateString() — defined in shared_utils.js
@@ -751,6 +753,8 @@ function updateMapView() {
     const dateItem = createTourDateElement(tourDate, currentTour, past);
     datesContainer.appendChild(dateItem);
   });
+
+  updateEventDisplayFilters();
 }
 
 function addTourMarkersToMap(tour) {
