@@ -395,6 +395,12 @@ select {
     font-weight: bold;
 }
 
+.event-badge-sold-out {
+    background-color: #e65100 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
 
 /* =============================================================
    10. EXPANDABLE SECTIONS

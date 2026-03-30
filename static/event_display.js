@@ -470,6 +470,7 @@ function createEventData(baseEvent, date, eventType) {
     isSession: eventType === "session",
     isTouringShow: !!baseEvent.isTouringShow,
     isCancelled: !!baseEvent.isCancelled,
+    isSoldOut: !!baseEvent.isSoldOut,
   };
 
   // Add type-specific fields
@@ -546,6 +547,7 @@ function buildTourMergedEvent(tour, tourKey, tourDate) {
     fb_event: tourDate.fb_event || null,
     ticket_url: tourDate.ticket_url || null,
     isCancelled: !!tourDate.isCancelled,
+    isSoldOut: !!tourDate.isSoldOut,
   };
 }
 
@@ -576,6 +578,7 @@ function buildShowMergedEvent(show, showKey, showDate) {
     ticket_url: showDate.ticket_url || null,
     isTouringShow: true,
     isCancelled: !!showDate.isCancelled,
+    isSoldOut: !!showDate.isSoldOut,
   };
 }
 
@@ -1242,6 +1245,14 @@ function createEventHeader(event) {
   }
 
   // Add badges
+
+  if (event.isSoldOut) {
+    header.appendChild(document.createTextNode(" "));
+    const soldOutBadge = createBadge("❌ SOLD OUT");
+    soldOutBadge.className = "event-badge event-badge-sold-out";
+    header.appendChild(soldOutBadge);
+  }
+
   if (event.isCancelled) {
     header.appendChild(document.createTextNode(" "));
     const cancelBadge = createBadge("❌ CANCELLED");
@@ -1481,7 +1492,7 @@ function createTicketsSection(event) {
 
   // Single-show fallback
   // createTicketsElement() defined in shared_utils.js
-  return createTicketsElement(event, event.isCancelled);
+  return createTicketsElement(event, event.isCancelled, event.isSoldOut);
 }
 
 function getExpandableContent(event) {
@@ -1835,6 +1846,7 @@ function shouldShowEvent(eventData, filters) {
 
 function filterEvents() {
   const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+  const hideCancelled = document.getElementById("hideCancelled").checked;
   const filters = {
     storyclubsOn: document.getElementById("storyclubsOn").checked,
     specialOn: document.getElementById("specialOn").checked,
@@ -1851,6 +1863,7 @@ function filterEvents() {
     const isMusic = event.classList.contains("music");
     const isFolk = event.classList.contains("folk");
     const isSession = event.classList.contains("session");
+    const isCancelled = event.classList.contains("event-cancelled");
 
     const eventData = {
       isStoryclub,
@@ -1862,6 +1875,10 @@ function filterEvents() {
     };
     let visible = shouldShowEvent(eventData, filters);
 
+    if (visible && hideCancelled && isCancelled) {
+      visible = false;
+    }
+
     if (visible && searchTerm) {
       visible = event.textContent.toLowerCase().includes(searchTerm);
     }
@@ -1872,6 +1889,10 @@ function filterEvents() {
   // Filter map markers
   markers.forEach((marker) => {
     let visible = shouldShowEvent(marker.eventData, filters);
+
+    if (visible && hideCancelled && marker.eventData.isCancelled) {
+      visible = false;
+    }
 
     if (visible && searchTerm) {
       const searchableText =
@@ -2277,6 +2298,10 @@ function generateShareableURL(startDate, endDate) {
     "sessions",
     document.getElementById("showSessions").checked ? "1" : "0",
   );
+  params.set(
+    "hidecancelled",
+    document.getElementById("hideCancelled").checked ? "1" : "0",
+  );
 
   const center = map.getCenter();
   const lat = center.lat;
@@ -2343,6 +2368,10 @@ function getEventURLParams() {
     const folk = params.get("folk") === "1";
     const sessions = params.get("sessions") === "1";
     const pinmap = params.get("pinmap") === "1";
+    // hidecancelled defaults to true (checked) when absent from URL
+    const hidecancelledParam = params.get("hidecancelled");
+    const hidecancelled =
+      hidecancelledParam === null ? true : hidecancelledParam === "1";
     const zoom = params.get("zoom") ? parseInt(params.get("zoom"), 10) : 6;
     const lat = params.get("lat") ? parseFloat(params.get("lat")) : 53.0;
     const lng = params.get("lng") ? parseFloat(params.get("lng")) : 0.0;
@@ -2361,6 +2390,7 @@ function getEventURLParams() {
       sessions: noneSelected ? true : sessions,
       music: music,
       pinmap: pinmap,
+      hidecancelled: hidecancelled,
       lat: lat,
       lng: lng,
       zoom: zoom,
@@ -2444,6 +2474,7 @@ window.addEventListener("load", async () => {
     updateDateInputs(startDate, endDate);
 
     document.getElementById("pinMapView").checked = urlParams.pinmap;
+    document.getElementById("hideCancelled").checked = urlParams.hidecancelled;
     console.log("pinmap", urlParams, urlParams.pinmap);
     mapViewPinned = urlParams.pinmap;
 

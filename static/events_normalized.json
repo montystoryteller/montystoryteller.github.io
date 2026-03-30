@@ -265,7 +265,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "goathland-village-hall"
+          "venue_id": "goathland-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "11/04/2026",
@@ -273,7 +274,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "knott-memorial-hall"
+          "venue_id": "knott-memorial-hall",
+          "isSoldOut": true
         },
         {
           "date": "11/04/2026",
@@ -281,7 +283,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "knott-memorial-hall"
+          "venue_id": "knott-memorial-hall",
+          "isSoldOut": true
         },
         {
           "date": "12/04/2026",
@@ -289,7 +292,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "thornhill-community-hall"
+          "venue_id": "thornhill-community-hall",
+          "isSoldOut": true
         },
         {
           "date": "17/04/2026",
@@ -297,7 +301,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "archiestown-village-hall"
+          "venue_id": "archiestown-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "18/04/2026",
@@ -313,7 +318,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "kirkhill-community-centre"
+          "venue_id": "kirkhill-community-centre",
+          "isSoldOut": true
         },
         {
           "date": "19/04/2026",
@@ -321,7 +327,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "new-pitsligo-public-hall"
+          "venue_id": "new-pitsligo-public-hall",
+          "isSoldOut": true
         },
         {
           "date": "24/04/2026",
@@ -329,7 +336,8 @@
           "price": "",
           "ticket_url": "https://www.ticketsource.co.uk/booking/init/FKHJJGI",
           "isSpecial": true,
-          "venue_id": "three-villages-hall-arrochar"
+          "venue_id": "three-villages-hall-arrochar",
+          "isSoldOut": true
         },
         {
           "date": "25/04/2026",
@@ -337,7 +345,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "lowther-parish-hall-penrith"
+          "venue_id": "lowther-parish-hall-penrith",
+          "isSoldOut": true
         },
         {
           "date": "26/04/2026",
@@ -345,7 +354,8 @@
           "price": "£14",
           "ticket_url": "https://www.ticketsource.co.uk/witchcraft/gladstone-village-hall-neston-greg-chapman-s-discovery-of-witchcraft/e-ogavpd",
           "isSpecial": true,
-          "venue_id": "gladstone-village-hall"
+          "venue_id": "gladstone-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "02/05/2026",
@@ -353,7 +363,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "wellingore-memorial-hall-lincoln"
+          "venue_id": "wellingore-memorial-hall-lincoln",
+          "isSoldOut": true
         },
         {
           "date": "03/05/2026",
@@ -401,7 +412,8 @@
           "price": "",
           "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLMJDHI",
           "isSpecial": true,
-          "venue_id": "woodgreen-village-hall"
+          "venue_id": "woodgreen-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "05/06/2026",
@@ -409,7 +421,8 @@
           "price": "",
           "ticket_url": "https://www.ticketsource.co.uk/booking/init/FKIJFJH",
           "isSpecial": true,
-          "venue_id": "llangrove-village-hall"
+          "venue_id": "llangrove-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "12/06/2026",
@@ -425,7 +438,8 @@
           "price": "",
           "ticket_url": "https://www.ticketsource.co.uk/booking/init/FLMMJDH",
           "isSpecial": true,
-          "venue_id": "brockham-village-hall"
+          "venue_id": "brockham-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "14/06/2026",
@@ -449,7 +463,8 @@
           "price": "",
           "ticket_url": "",
           "isSpecial": true,
-          "venue_id": "doddinghurst-village-hall"
+          "venue_id": "doddinghurst-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "17/09/2026",
@@ -1236,7 +1251,7 @@
       "tour_name": "Almost All Village Halls Tour",
       "performer_id": "gaz-brookfield",
       "tour_description": "Following the success of his tenth studio album, Waiting For Wisdom, Gaz Brookfield takes to the road once again, bringing his chart topping blend of folk rock to the more rural parts of the country.",
-      "tour_flyer": "tour_gazbrookfield_2026q1-2.jpg",
+      "tour_flyer": "tour_gazbrookfield_2026q1-2_a.jpg",
       "time": "7.30pm",
       "price": "£15 (+£1.50)",
       "tags": [
@@ -1256,12 +1271,14 @@
         {
           "date": "07/02/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673294",
-          "venue_id": "tolpuddle-village-hall"
+          "venue_id": "tolpuddle-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "13/02/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673295",
-          "venue_id": "grantchester-village-hall"
+          "venue_id": "grantchester-village-hall",
+          "isCancelled": true
         },
         {
           "date": "14/02/2026",
@@ -1271,34 +1288,40 @@
         {
           "date": "20/01/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673297",
-          "venue_id": "packington-village-hall"
+          "venue_id": "packington-village-hall",
+          "isSoldOut": true
         },
         {
           "date": "21/02/2026",
           "time": "7pm",
           "price": "£15 (+£1.26)",
           "ticket_url": "https://www.ticketsource.co.uk/booking/select/xzyrmarrmdje?ref=montystoryteller.org",
-          "venue_id": "wroot-rocks"
+          "venue_id": "wroot-rocks",
+          "isCancelled": true
         },
         {
           "date": "27/02/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673299",
-          "venue_id": "chew-stoke-church-hall"
+          "venue_id": "chew-stoke-church-hall",
+          "isCancelled": true
         },
         {
           "date": "28/02/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673301",
-          "venue_id": "porthtowan-village-hall"
+          "venue_id": "porthtowan-village-hall",
+          "isCancelled": true
         },
         {
           "date": "06/03/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673302",
-          "venue_id": "the-chester-tavern-kidderminster"
+          "venue_id": "the-chester-tavern-kidderminster",
+          "isSoldOut": true
         },
         {
           "date": "07/03/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673303",
-          "venue_id": "kingswood-village-hall-wotton"
+          "venue_id": "kingswood-village-hall-wotton",
+          "isSoldOut": true
         },
         {
           "date": "13/03/2026",
@@ -1313,17 +1336,20 @@
         {
           "date": "20/03/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673307",
-          "venue_id": "silchester-village-hall-reading"
+          "venue_id": "silchester-village-hall-reading",
+          "isSoldOut": true
         },
         {
           "date": "21/03/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673308",
-          "venue_id": "west-lavington-village-hall-devizes"
+          "venue_id": "west-lavington-village-hall-devizes",
+          "isSoldOut": true
         },
         {
           "date": "27/03/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673309",
-          "venue_id": "hook-village-hall-royal"
+          "venue_id": "hook-village-hall-royal",
+          "isSoldOut": true
         },
         {
           "date": "28/03/2026",
@@ -1334,7 +1360,8 @@
           "date": "10/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673313",
           "venue_id": "broome-village-hall-bungay",
-          "event_flyer": "2026_04_gaz_crunch_time.jpg"
+          "event_flyer": "2026_04_gaz_crunch_time.jpg",
+          "isCancelled": true
         },
         {
           "date": "11/04/2026",
@@ -1345,7 +1372,8 @@
         {
           "date": "17/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673316",
-          "venue_id": "loppington-village-hall"
+          "venue_id": "loppington-village-hall",
+          "isCancelled": true
         },
         {
           "date": "18/04/2026",
@@ -1362,7 +1390,8 @@
           "date": "25/04/2026",
           "ticket_url": "https://wegottickets.com/af/671/event/673318",
           "venue_id": "hassocks-adastra-hall",
-          "event_flyer": "2026_04_gaz_crunch_time.jpg"
+          "event_flyer": "2026_04_gaz_crunch_time.jpg",
+          "isCancelled":true
         },
         {
           "date": "01/05/2026",

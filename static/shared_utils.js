@@ -239,9 +239,10 @@ function createVenueElement(venue) {
  * Returns null if there is nothing to show.
  * @param {{ ticket_url?: string, fb_event?: string, tour_id?: string }} eventData
  * @param {boolean} [past=false]  - If true, ticket link text uses past tense.
+ * @param {boolean} [soldOut=false] - If true, suppress the ticket link.
  * @returns {HTMLElement|null}
  */
-function createTicketsElement(eventData, past = false) {
+function createTicketsElement(eventData, past = false, soldOut = false) {
   const { ticket_url, fb_event, tour_id } = eventData;
   if (!ticket_url && !fb_event && !tour_id) return null;
 
@@ -266,11 +267,11 @@ function createTicketsElement(eventData, past = false) {
     tourLink.addEventListener("click", (e) => e.stopPropagation());
     ticketsDiv.appendChild(tourLink);
   }
-  if (tourIdList.length > 0 && ticket_url) {
+  if (tourIdList.length > 0 && ticket_url && !soldOut) {
     appendSeparator(ticketsDiv);
   }
 
-  if (ticket_url) {
+  if (ticket_url && !soldOut) {
     const safeUrl = sanitizeUrl(ticket_url);
     if (safeUrl) {
       const ticketLink = document.createElement("a");
