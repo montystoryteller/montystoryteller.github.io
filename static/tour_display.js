@@ -445,6 +445,12 @@ function createTourDateElement(tourDate, tour, past = false) {
   nameDiv.textContent = tourDate.time
     ? `${dateText} • ${tourDate.time}`
     : dateText;
+  if (tourDate.isSoldOut) {
+    nameDiv.appendChild(document.createTextNode(" "));
+    const soldOutBadge = createBadge("❌ SOLD OUT");
+    soldOutBadge.className = "event-badge event-badge-sold-out";
+    nameDiv.appendChild(soldOutBadge);
+  }
   div.appendChild(nameDiv);
 
   // Venue Location with icons — createVenueElement() defined in shared_utils.js

@@ -371,6 +371,18 @@ async function loadEventsData(cacheBuster) {
   }
 }
 
+
+// ---------------------------------------------------------------------------
+// Badge creation and formatting
+// ---------------------------------------------------------------------------
+
+function createBadge(text) {
+  const badge = document.createElement("span");
+  badge.className = "event-badge";
+  badge.textContent = text;
+  return badge;
+}
+
 // ---------------------------------------------------------------------------
 // Text formatting
 // ---------------------------------------------------------------------------

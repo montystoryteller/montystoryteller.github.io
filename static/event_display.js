@@ -1281,13 +1281,6 @@ function createEventHeader(event) {
   return header;
 }
 
-function createBadge(text) {
-  const badge = document.createElement("span");
-  badge.className = "event-badge";
-  badge.textContent = text;
-  return badge;
-}
-
 function createIconsContainer(event) {
   const container = document.createElement("span");
 
