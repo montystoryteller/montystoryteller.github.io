@@ -2104,7 +2104,10 @@
       "facebook": "https://www.facebook.com/brightontelltales",
       "club": "brightontelltales",
       "club_flyer": "brighton_telltales_flyer.jpg",
-      "venue_id": "the-yellow-book-brighton"
+      "venue_id": "the-yellow-book-brighton",
+      "exceptions": [
+        "08/04/2026"
+      ]
     },
     {
       "name": "Tales at the Tavern",
