@@ -26,6 +26,12 @@ url = "/booking"
 [[main]]
 weight = 3
 parent = "Shows"
+name = "Recent"
+url = "/recent_shows"
+
+[[main]]
+weight = 4
+parent = "Shows"
 name = "Previous"
 url = "/previous_shows"
 
