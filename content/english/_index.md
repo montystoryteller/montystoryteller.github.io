@@ -123,7 +123,7 @@ features:
         label: "Dark Tales series booklets on Amazon.co.uk"
         link: "https://www.amazon.co.uk/dp/B0FW286JLD"
       - enable: true
-        label: "Wydean Tales series booklets on Amazon.co.uk"
+        label: "Wyedean Tales series booklets on Amazon.co.uk"
         link: "https://www.amazon.co.uk/dp/B0GQCS5P87"
 
 ---
