@@ -24,6 +24,9 @@ banner:
       label: "Buy Tickets for Monty + The AnyWhens — St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
       link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
     - enable: true
+      label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
+      link: "https://www.tickettailor.com/events/montystoryteller/2145982"
+    - enable: true
       label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
       link: "https://threeriversfest.uk/tickets/"
     - enable: false
