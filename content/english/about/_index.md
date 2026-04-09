@@ -39,12 +39,12 @@ The stories I tell typically come to me in the following ways: stories I've hear
 
 #### Contact
 
-Email: __<tt>monty DOT storyteller AT gmail DOT com</tt>__
+Email: __<code>monty DOT storyteller AT gmail DOT com</code>__
 
 Facebook / <a target="_blank" aria-label="facebook" rel="nofollow noopener" href="https://www.facebook.com/monty.storyteller">
-                <i class="fab fa-facebook"> &nbsp;&nbsp;<strong><tt>monty.storyteller</tt></strong></i>
+                <i class="fab fa-facebook"> &nbsp;&nbsp;<strong><code>monty.storyteller</code></strong></i>
               </a>
 
 Instagram / <a target="_blank" aria-label="instagram" rel="nofollow noopener" href="https://www.instagram.com/montystoryteller/">
-                <i class="fab fa-instagram"> &nbsp;&nbsp;<strong><tt>montystoryteller</tt></strong></i>
+                <i class="fab fa-instagram"> &nbsp;&nbsp;<strong><code>montystoryteller</code></strong></i>
               </a>
