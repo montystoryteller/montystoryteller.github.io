@@ -51,7 +51,7 @@ features:
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
       - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)" 
-      - "NEXT SOLO SHOW: TBC"
+      - "NEXT SOLO SHOW: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, Tuesday, 19/05/26, doors at 7pm, £5 in advance or on the door"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
@@ -59,6 +59,9 @@ features:
       - enable: false
         label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2023546"
+      - enable: true
+        label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
+        link: "https://www.tickettailor.com/events/montystoryteller/2145982"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
