@@ -13,8 +13,9 @@ features:
     content: ""
     bulletpoints:
       - "Originally inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
-      - "Original version + my own retelling + historical and contextual notes"
-      - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*"
+      - "Original versions + my own retelling + historical and contextual notes"
+     -  "Other storynotes include Island based historical tales"
+      - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*, *The Story of the Pepperpot*"
     button:
       enable: true
       label: "Island Tales series booklets on Amazon.co.uk"
@@ -32,6 +33,18 @@ features:
       enable: true
       label: "Protest Tales series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
+
+  - title: "*Wyedean Tales* series"
+    image: "/images/flyers_gallery/2026_03_10_sineater_crown.png"
+    content: ""
+    bulletpoints:
+      - "Local tales from Ross-on-Wye, Forest of Dean, and surrounding areas."
+      - "Historical tales and events as recorded in the Ross Gazette, et al., from the 19th century."
+      - "__Series includes:__ *The Sin-Eater of Ross-on-Wye and Other Local Tales*"
+    button:
+      enable: true
+      label: "Wyedean Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0GQCS5P87"
 
   - title: "Online series"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
