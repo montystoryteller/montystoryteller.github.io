@@ -14,7 +14,7 @@ features:
     bulletpoints:
       - "Originally inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
       - "Original versions + my own retelling + historical and contextual notes"
-     -  "Other storynotes include Island based historical tales"
+      -  "Other storynotes include Island based historical tales"
       - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*, *The Story of the Pepperpot*"
     button:
       enable: true
