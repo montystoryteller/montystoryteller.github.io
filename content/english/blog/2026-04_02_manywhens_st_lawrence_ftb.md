@@ -1,5 +1,5 @@
 ---
-title: "Monty + THe AnyWhens — Faery Tale Blues — St Lawrence"
+title: "Monty + The AnyWhens — Faery Tale Blues — St Lawrence, April 2026"
 meta_title: "Folk'n'blues, stories'n'tales from Monty + The AnyWHens at St Lawrence VIllage Hall, Isle of Wight."
 description: "A magical turn taking set of stories and songs from Isle of Wight based traditional storyteller and folk duo Monty + The AnyWhens, St Lawrence Village Hall, Isle of Wight, Saturday, April 18th, 2026, 7pm."
 date: 2026-03-04T11:44:54
