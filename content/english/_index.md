@@ -51,7 +51,7 @@ features:
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
       - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)"
-      - "NEXT SOLO SHOWS: 'An Evening of Traditional Tales', Sôlt, Almondbury, Huddersfield, Friday, 24/04/26, doors at 7pm, £12 in advance from the venue"
+      - "NEXT SOLO SHOW: 'An Evening of Traditional Tales', Sôlt, Almondbury, Huddersfield, Friday, 24/04/26, doors at 7pm, £12 in advance from the venue"
       - "OTHER SOLO SHOWS: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, Tuesday, 19/05/26, doors at 7pm, £5 in advance or on the door"
     buttons:
       - enable: false
