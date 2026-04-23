@@ -8,6 +8,21 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Faery Tale Blues [Monty + The AnyWhens] — St Lawrence Village Hall — Saturday 18/04/26, bar from 7pm"
+    image: "/images/flyers_gallery/2026_04_18_Faery_Tale_Blues.png"
+    content: ""
+    bulletpoints:
+      - "Contemporary folk'n'blues tunes, playful lyrics and perfect harmonies"
+      - "Stories of the Other Crowd"
+      - "Tales from a time when fairy stories weren't just for children"
+      - "St Lawrence Village Hall"
+      - "Tickets: £8"
+    button:
+      enable: false
+      label: "Buy Tickets for St Lawrence Village Hall, 'Faery Tale Blues' show — 18/04/26"
+      link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
+
+
   - title: "Fairy Tale Blues [Monty + The AnyWhens] — Brading Roman Villa — Saturday 14/03/26, 3-5.45pm"
     image: "/images/flyers_gallery/2026_03_14_Fairy_Tale_Blues.png"
     content: ""
