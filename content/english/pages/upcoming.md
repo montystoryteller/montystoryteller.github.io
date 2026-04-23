@@ -49,7 +49,7 @@ features:
     button:
       enable: true
       label: "Buy Tickets for Ventnor Fringe"
-      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
 
 
 # save as draft
