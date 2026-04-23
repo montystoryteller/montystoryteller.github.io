@@ -46,6 +46,18 @@ features:
       label: "Wyedean Tales series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0GQCS5P87"
 
+  - title: "*Dark Tales* series"
+    image: "/images/flyers_gallery/2026_03_10_sineater_crown.png"
+    content: ""
+    bulletpoints:
+      - "Dark tales for dark nights..."
+      - "__Series includes:__ *The Tale of Mr Fox*"
+    button:
+      enable: true
+      label: "Dark Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0FW286JLD"
+
+
   - title: "Online series"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
     content: "Online collections of raw storynotes / work-in-progress"
