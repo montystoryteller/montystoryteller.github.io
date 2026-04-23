@@ -21,14 +21,17 @@ banner:
       label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
       link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
     - enable: true
-      label: "Buy Tickets for Monty + The AnyWhens — St Lawrence Village Hall — Faery Tale Blues — 18/04/26"
-      link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
+      label: "Reserve Tickets for 'An Evening of Traditional Tales', Sôlt, Almondbury, Huddersfield — 24/04/26"
+      link: "https://soltalmondbury.wordpress.com/"
     - enable: true
       label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
       link: "https://www.tickettailor.com/events/montystoryteller/2145982"
     - enable: true
       label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
       link: "https://threeriversfest.uk/tickets/"
+    - enable: true
+      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 22 & 23/07/26"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
@@ -83,8 +86,8 @@ features:
         label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
         link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
       - enable: true
-        label: "Buy Tickets for St Lawrence, 'Faery Tale Blues' show — 18/04/26"
-        link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
+        label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 22 & 23/07/26"
+        link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
 
 
   - title: "'Tis Tales"
