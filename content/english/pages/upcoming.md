@@ -8,20 +8,26 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
-  - title: "Faery Tale Blues [Monty + The AnyWhens] — St Lawrence Village Hall — Saturday 18/04/26, bar from 7pm"
-    image: "/images/flyers_gallery/2026_04_18_Faery_Tale_Blues.png"
+  - title: "Solo show — An Evening of Traditional Tales"
+    image: "/images/flyers_gallery/2026_04_24_solo_solt-traditional.png"
     content: ""
     bulletpoints:
-      - "Contemporary folk'n'blues tunes, playful lyrics and perfect harmonies"
-      - "Stories of the Other Crowd"
-      - "Tales from a time when fairy stories weren't just for children"
-      - "St Lawrence Village Hall"
-      - "Tickets: £8"
+      - "Sôlt, Almondbury, Huddersfield — Friday, April 24th, 2026"
+      - "Traditional tales in an intimate cafe/bar setting"
     button:
       enable: true
-      label: "Buy Tickets for St Lawrence Village Hall, 'Faery Tale Blues' show — 18/04/26"
-      link: "https://www.tickettailor.com/events/stlawrencevillagehall/2006902"
-
+      label: "Reserve tickets, priced £12, in advance from the venue"
+      link: "https://soltalmondbury.wordpress.com/"
+  - title: "Solo show — Cunning Folk of the Forest & Other Traditional Tales"
+    image: "/images/flyers_gallery/2026_05_19_solo_cunning_folk_ross.png"
+    content: ""
+    bulletpoints:
+      - "Crown & Sceptre, Ross-on-Wye — Tuesday, May 19th, 2026"
+      - "Traditional and local tales in a pub setting"
+    button:
+      enable: true
+      label: "Tickets, priced £5, available in advance on on the door"
+      link: "https://www.tickettailor.com/events/montystoryteller/2145982"
   - title: "Monty + The AnyWhens — Three Rivers Music Festival"
     image: "/images/flyers_gallery/2026_05_30_manywhens_three_rivers_highlight.png"
     content: ""
@@ -31,8 +37,20 @@ features:
       - "Monty + The AnyWhens: mixed set of songs and stories"
     button:
       enable: true
-      label: "Buy Tickets for Three Rivers Festival, Isle of Wight"
+      label: "Buy Tickets for Three Rivers Festival 2026, Isle of Wight"
       link: "https://threeriversfest.uk/"
+  - title: "Monty + The AnyWhens — Ventnor Fringe 2026, Isle of Wight"
+    image: "/images/manywhens-trio.jpg"
+    content: ""
+    bulletpoints:
+      - "'Faery Tale Blues' show — 22 & 23/07/26"
+      - "10 day fringe festival on the Isle of Wight"
+      - "Monty + The AnyWhens: mixed set of songs and stories"
+    button:
+      enable: true
+      label: "Buy Tickets for Ventnor Fringe"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001
+
 
 # save as draft
 draft: false
