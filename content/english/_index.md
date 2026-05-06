@@ -20,7 +20,7 @@ banner:
     - enable: false
       label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
       link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
-    - enable: true
+    - enable: false
       label: "Reserve Tickets for 'An Evening of Traditional Tales', Sôlt, Almondbury, Huddersfield — 24/04/26"
       link: "https://soltalmondbury.wordpress.com/"
     - enable: true
@@ -30,7 +30,10 @@ banner:
       label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
       link: "https://threeriversfest.uk/tickets/"
     - enable: true
-      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 22 & 23/07/26"
+      label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 21/07/26"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
+    - enable: true
+      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show with The AnyWhens — 23 & 24/07/26"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
@@ -66,6 +69,9 @@ features:
       - enable: true
         label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2145982"
+      - enable: true
+        label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
+        link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
@@ -86,7 +92,7 @@ features:
         label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
         link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
       - enable: true
-        label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 22 & 23/07/26"
+        label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
 
 
