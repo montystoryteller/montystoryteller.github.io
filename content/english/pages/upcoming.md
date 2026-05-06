@@ -24,7 +24,7 @@ features:
       - "Traditional and local tales in a pub setting"
     button:
       enable: true
-      label: "Tickets, priced £5, available in advance on on the door"
+      label: "Tickets, priced £5, available in advance or on the door"
       link: "https://www.tickettailor.com/events/montystoryteller/2145982"
   - title: "Monty + The AnyWhens — Three Rivers Music Festival"
     image: "/images/flyers_gallery/2026_05_30_manywhens_three_rivers_highlight.png"
