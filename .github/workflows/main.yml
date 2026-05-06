@@ -48,14 +48,14 @@ jobs:
           && sudo tar -C /usr/local -xzf ${{ runner.temp }}/go.deb
 
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Setup Project
         run: npm run project-setup
@@ -67,7 +67,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -81,7 +81,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v4
       - name: Ping WebSub Hub
         run: |
           curl -X POST https://pubsubhubbub.appspot.com/ \
