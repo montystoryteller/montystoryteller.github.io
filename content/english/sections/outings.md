@@ -11,6 +11,11 @@ outings:
     avatar: "/images/solt_logo.png"
     content: ""
 
+  - name: "St Lawrence Village Hall"
+    designation: "Monty + The Anywhens / Faery Tale Blues, March 2026 "
+    avatar: "/images/st_lawrence_vilage_hall.webp"
+    content: ""
+
   - name: "Roman Villa, Brading IW"
     designation: "Faery Tale Blues, + The AnyWhens, March 2026"
     avatar: "/images/brading_roman_villa_mosaic_logo.png"
@@ -26,22 +31,26 @@ outings:
     avatar: "/images/Kashmir_Fringe_2026.jpg"
     content: ""
 
+
+  - name: "Department, Ryde"
+    designation: "'Tis Tales / Tall Tales & Tiny Truths, Jan. 2026"
+    avatar: "/images/department_logo.webp"
+    content: ""
+
   - name: "October Books, Southampton"
-    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights"
+    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights, Dec. 2025"
     avatar: "/images/manywhens_octoberbooks_flag.png"
     content: ""
     
-
   - name: "Carvel Lane Coffee House, Cowes"
     designation: "Dark Tales / Winter Tales, Nov/Dec 2025"
     avatar: "/images/carvel_lane_logo.jpg"
     content: ""
 
   - name: "St Lawrence Village Hall"
-    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights "
+    designation: "Monty + The Anywhens / Protest Days, Rebellion Nights, Nov 2025 "
     avatar: "/images/st_lawrence_vilage_hall.webp"
     content: ""
-
 
   - name: "Bearded Theory Festival 2025"
     designation: "Something Else Tea Tent / Magic Teapot"
