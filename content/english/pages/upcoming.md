@@ -8,16 +8,14 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
-  - title: "Solo show — An Evening of Traditional Tales"
-    image: "/images/flyers_gallery/2026_04_24_solo_solt-traditional.png"
+  - title: "Solo show — Tales of Old Newport"
+    image: "/images/flyers_gallery/2026_05_11_old_newport.png"
     content: ""
     bulletpoints:
-      - "Sôlt, Almondbury, Huddersfield — Friday, April 24th, 2026"
-      - "Traditional tales in an intimate cafe/bar setting"
-    button:
-      enable: true
-      label: "Reserve tickets, priced £12, in advance from the venue"
-      link: "https://soltalmondbury.wordpress.com/"
+      - "Wheatsheaf Hotel, Newport, Isle of Wight — Monday, May 11th, 2026"
+      - "Local historical tales in a pub setting"
+      - "Free / pass the hat"
+
   - title: "Solo show — Cunning Folk of the Forest & Other Traditional Tales"
     image: "/images/flyers_gallery/2026_05_19_solo_cunning_folk_ross.png"
     content: ""

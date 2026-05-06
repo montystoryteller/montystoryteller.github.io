@@ -8,6 +8,17 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Solo show — An Evening of Traditional Tales"
+    image: "/images/flyers_gallery/2026_04_24_solo_solt-traditional.png"
+    content: ""
+    bulletpoints:
+      - "Sôlt, Almondbury, Huddersfield — Friday, April 24th, 2026"
+      - "Traditional tales in an intimate cafe/bar setting"
+    button:
+      enable: false
+      label: "Reserve tickets, priced £12, in advance from the venue"
+      link: "https://soltalmondbury.wordpress.com/"
+
   - title: "Faery Tale Blues [Monty + The AnyWhens] — St Lawrence Village Hall — Saturday 18/04/26, bar from 7pm"
     image: "/images/flyers_gallery/2026_04_18_Faery_Tale_Blues.png"
     content: ""
