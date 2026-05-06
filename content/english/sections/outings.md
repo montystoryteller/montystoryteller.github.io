@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Sôlt, Almondbury, Huddersfield"
+    designation: "An Evening of Traditional Tales, April, 2026"
+    avatar: "/images/solt_logo.png"
+    content: ""
+
   - name: "Roman Villa, Brading IW"
     designation: "Faery Tale Blues, + The AnyWhens, March 2026"
     avatar: "/images/brading_roman_villa_mosaic_logo.png"
