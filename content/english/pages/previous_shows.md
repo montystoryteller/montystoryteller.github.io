@@ -18,7 +18,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
-| Saturday, 18th March 2026 | Monty + The AnyWhens | Sr Lawrence Village Hall | Faery Tale Blues |
+| Friday, 24th April 2026 | Solo | Sôlt, almondbury (Huddersfied) | An Evening of Traditional Tales |
+| Saturday, 18th April 2026 | Monty + The AnyWhens | St Lawrence Village Hall | Faery Tale Blues |
 | Saturday, 14th March 2026 | Monty + The AnyWhens | Brading Roman Villa, Brading | Fairy Tale Blues |
 | Tuesday, 10th March 2026 | Solo | Crown & Sceptre, Ross-on-Wye | Sin-Eater of Ross & Other Traditional Tales |
 | Saturday, 7th February 2026 | Solo (+ Sophie Kate, + Glenn Koppany) | Kashmir Fringe, Quay Arts, Newport, IW | Four tales |
