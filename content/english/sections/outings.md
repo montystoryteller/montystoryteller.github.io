@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Wheatsheaf Hotel, Newport, IW"
+    designation: "Tales of Old Newport, May, 2026"
+    avatar: "/images/wheatsheaf_newport_logo.png"
+    content: ""
+
   - name: "Sôlt, Almondbury, Huddersfield"
     designation: "An Evening of Traditional Tales, April, 2026"
     avatar: "/images/solt_logo.png"

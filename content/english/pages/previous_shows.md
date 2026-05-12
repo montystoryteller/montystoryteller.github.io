@@ -18,7 +18,9 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
-| Friday, 24th April 2026 | Solo | Sôlt, almondbury (Huddersfied) | An Evening of Traditional Tales |
+| Monday, 11th May 2026 | Solo | Wheatsheaf, Newport, IW | Tales of Old Newport |
+| Sat/Sun, 19-19th May 2026 | Open mic | Ey Up Mi Duck| Open mic |
+| Friday, 24th April 2026 | Solo | Sôlt, Almondbury (Huddersfield) | An Evening of Traditional Tales |
 | Saturday, 18th April 2026 | Monty + The AnyWhens | St Lawrence Village Hall | Faery Tale Blues |
 | Saturday, 14th March 2026 | Monty + The AnyWhens | Brading Roman Villa, Brading | Fairy Tale Blues |
 | Tuesday, 10th March 2026 | Solo | Crown & Sceptre, Ross-on-Wye | Sin-Eater of Ross & Other Traditional Tales |
