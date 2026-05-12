@@ -55,10 +55,9 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "LAST POP-UP: Westons Cider Wassail, Much Marcle, Sat. January 10th, 2026, from 5.30pm"
+      - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
       - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)"
-      - "NEXT SOLO SHOW: 'Tales of Old Newport', Wheatsheaf Hotel, Newport, Isle of Wight, Monday, 11/05/26, 7.30-9, pass the hat"
-      - "OTHER SOLO SHOWS: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, Tuesday, 19/05/26, doors at 7pm, £5 in advance or on the door"
+      - "NEXT SOLO SHOW: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, Tuesday, 19/05/26, doors at 7pm, £5 in advance or on the door"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
