@@ -8,6 +8,14 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Solo show — Tales of Old Newport"
+    image: "/images/flyers_gallery/2026_05_11_old_newport.png"
+    content: ""
+    bulletpoints:
+      - "Wheatsheaf Hotel, Newport, Isle of Wight — Monday, May 11th, 2026"
+      - "Local historical tales in a pub setting"
+      - "Free / pass the hat"
+
   - title: "Solo show — An Evening of Traditional Tales"
     image: "/images/flyers_gallery/2026_04_24_solo_solt-traditional.png"
     content: ""
