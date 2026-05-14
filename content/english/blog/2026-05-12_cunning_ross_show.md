@@ -14,4 +14,4 @@ Having told the tale of the sin-eater of Ross, and the naming of Old Maid's Walk
 
 *Tickets, priced £5, in advance and on the door*. [Advance tickets available here](https://www.tickettailor.com/events/montystoryteller/2145982) — Crown & Sceptre, Ross-on-Wye, Tuesday, May 19th, 2026, first story 7.30pm.
 
-Copies of the *Sin Eater of Ross & Other Local Tales* storynote, featuring stories from the set in May, will also be available, priced £5.
+Copies of the *Sin Eater of Ross & Other Local Tales* storynote, featuring stories from the original set in March, will also be available, priced £5.
