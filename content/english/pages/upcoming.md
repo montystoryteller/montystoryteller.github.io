@@ -8,23 +8,14 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
-  - title: "Solo show — Cunning Folk of the Forest & Other Traditional Tales"
-    image: "/images/flyers_gallery/2026_05_19_solo_cunning_folk_ross.png"
-    content: ""
-    bulletpoints:
-      - "Crown & Sceptre, Ross-on-Wye — Tuesday, May 19th, 2026"
-      - "Traditional and local tales in a pub setting"
-    button:
-      enable: true
-      label: "Tickets, priced £5, available in advance or on the door"
-      link: "https://www.tickettailor.com/events/montystoryteller/2145982"
-  - title: "Monty + The AnyWhens — Three Rivers Music Festival"
-    image: "/images/flyers_gallery/2026_05_30_manywhens_three_rivers_highlight.png"
+  - title: "Three Rivers Music Festival"
+    image: "/images/threerivers26_times.png"
     content: ""
     bulletpoints:
       - "Family friendly festival, 29-31st May, 2026"
       - "Durrants Farm, Porchfield, Isle of Wight"
-      - "Monty + The AnyWhens: mixed set of songs and stories"
+      - "Monty + Sophie (fiddle), Woodland Stage, Sunday, May 31st, 11.45am-12.15pm"
+      - "Monty + The AnyWhens, Community Stage, Sunday, May 31st, 3.30-4.30pm"
     button:
       enable: true
       label: "Buy Tickets for Three Rivers Festival 2026, Isle of Wight"
