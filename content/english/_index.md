@@ -23,7 +23,7 @@ banner:
     - enable: false
       label: "Reserve Tickets for 'An Evening of Traditional Tales', Sôlt, Almondbury, Huddersfield — 24/04/26"
       link: "https://soltalmondbury.wordpress.com/"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
       link: "https://www.tickettailor.com/events/montystoryteller/2145982"
     - enable: true
@@ -56,8 +56,8 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)"
-      - "NEXT SOLO SHOW: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, Tuesday, 19/05/26, doors at 7pm, £5 in advance or on the door"
+      - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle, Sun, 11.45am), Community Stage (+ The AnyWhens, Sun, 3.30pm)"
+      - "LAST SOLO SHOW: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, 19/05/26"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
@@ -65,7 +65,7 @@ features:
       - enable: false
         label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2023546"
-      - enable: true
+      - enable: false
         label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2145982"
       - enable: true
@@ -80,6 +80,7 @@ features:
       - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales (20-200mins)"
       - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
+      - "__NEXT SHOW — Three Rivers Music Festival, Isle of Wight, May 31st, 2026, COmmunity Stage, 3.30-4.30pm__"
     buttons:
       - enable: false
         label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
