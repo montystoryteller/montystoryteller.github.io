@@ -9,5 +9,5 @@ social:
     link: https://facebook.com/sophie.vickers.794
 ---
 
-Isle of Wight based fiddle player in folk punk band *Feck*, and Devil's favourite instrument collaborator on various tales.*
+Isle of Wight based fiddle player in folk punk band *Feck*, and Devil's favourite instrument collaborator on various tales.
 

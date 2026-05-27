@@ -5,7 +5,7 @@ description: "Monty traditional storyteller tellin' tales on the acoustic stage 
 date: 2026-02-09T11:35:37
 image: "/images/quay_kashmir_acoustic_26.jpg"
 categories: ["events"]
-collaborator: ["Glenn Koppany", "Sophie Kate"]
+collaborator: ["Glenn Koppany", "Sophie Kate (Fiddle)"]
 tags: [ "Kashmir Fringe", "Quay Arts"]
 draft: false
 ---

@@ -5,7 +5,7 @@ description: ""
 date: 2026-02-12T18:12:33
 image: "/images/flyers_gallery/2026_05_30_manywhens_three_rivers_highlight.png"
 categories: ["events"]
-collaborator: ["The AnyWhens", "Sophie Kate"]
+collaborator: ["The AnyWhens", "Sophie Kate (Fiddle)"]
 tags: [ "Three Rivers Music Festival"]
 draft: false
 ---
