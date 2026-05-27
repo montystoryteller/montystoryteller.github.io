@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Crown & Sceptre, Ross-on-Wye"
+    designation: "Cunning folk of the Forest & other traditional tales, May, 2026"
+    avatar: "/images/crown_sceptre_sign.png"
+    content: ""
+
   - name: "Wheatsheaf Hotel, Newport, IW"
     designation: "Tales of Old Newport, May, 2026"
     avatar: "/images/wheatsheaf_newport_logo.png"
@@ -35,7 +40,6 @@ outings:
     designation: "Four Tales + music from Sophie and Glenn, Feb. 2026"
     avatar: "/images/Kashmir_Fringe_2026.jpg"
     content: ""
-
 
   - name: "Department, Ryde"
     designation: "'Tis Tales / Tall Tales & Tiny Truths, Jan. 2026"
