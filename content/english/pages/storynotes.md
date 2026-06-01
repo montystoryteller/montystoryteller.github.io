@@ -28,7 +28,7 @@ features:
       - "Research storynotes to support of protest tales"
       - "Collections of original newspaper reports"
       - "'Remembered' tales from within living memory"
-      - "__Series includes:__ *The Tale of Benjamin Topham*, *The March of the Blanketeers*, *Folly at Folly Hall*"
+      - "__Series includes:__ *The Tale of Benjamin Topham*, *The March of the Blanketeers*, *Folly at Folly Hall*, *Attack on Cartwright's Mill*"
     button:
       enable: true
       label: "Protest Tales series booklets on Amazon.co.uk"
