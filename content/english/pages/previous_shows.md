@@ -18,6 +18,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Sunday, 31st May 2026 | Monty + The AnyWhens | Three Rivers Music Festival, IW | Community Stage |
+| Sunday, 31st May 2026 | Monty + Sophie Kate (fiddle) | Three Rivers Music Festival, IW | Woodland Stage |
 | Tuesday, 19th May 2026 | Solo | Crown & Sceptre, Ross-on-Wye | Cunning Folk of the Forest & Other Traditional Tales |
 | Monday, 11th May 2026 | Solo | Wheatsheaf, Newport, IW | Tales of Old Newport |
 | Sat/Sun, 19-19th May 2026 | Open mic | Ey Up Mi Duck| Open mic |
