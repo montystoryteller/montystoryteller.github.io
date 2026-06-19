@@ -26,11 +26,11 @@ banner:
     - enable: false
       label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
       link: "https://www.tickettailor.com/events/montystoryteller/2145982"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
       link: "https://threeriversfest.uk/tickets/"
     - enable: true
-      label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 21/07/26"
+      label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
     - enable: true
       label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show with The AnyWhens — 23 & 24/07/26"
@@ -56,8 +56,8 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "NEXT FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle, Sun, 11.45am), Community Stage (+ The AnyWhens, Sun, 3.30pm)"
-      - "LAST SOLO SHOW: 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye, 19/05/26"
+      - "LAST FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)"
+      - "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"

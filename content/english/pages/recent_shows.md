@@ -8,6 +8,19 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Three Rivers Music Festival"
+    image: "/images/threerivers26_times.png"
+    content: ""
+    bulletpoints:
+      - "Family friendly festival, 29-31st May, 2026"
+      - "Durrants Farm, Porchfield, Isle of Wight"
+      - "Monty + Sophie (fiddle), Woodland Stage, Sunday, May 31st, 11.45am-12.15pm"
+      - "Monty + The AnyWhens, Community Stage, Sunday, May 31st, 3.30-4.30pm"
+    button:
+      enable: false
+      label: "Buy Tickets for Three Rivers Festival 2026, Isle of Wight"
+      link: "https://threeriversfest.uk/"
+
   - title: "Solo show — Cunning Folk of the Forest & Other Traditional Tales"
     image: "/images/flyers_gallery/2026_05_19_solo_cunning_folk_ross.png"
     content: ""
