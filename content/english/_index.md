@@ -72,7 +72,7 @@ features:
         label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
-- title: "Fiddle Me This — Monty'n'Sophie"
+  - title: "Fiddle Me This — Monty'n'Sophie"
     image: "/images/monty_sophie_solent_crop.png"
     content: "Stories and music, interwtined."
     bulletpoints:
