@@ -72,6 +72,19 @@ features:
         label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
+- title: "Fiddle Me This — Monty'n'Sophie"
+    image: "/images/monty_sophie_solent_crop.png"
+    content: "Stories and music, interwtined."
+    bulletpoints:
+      - "Short pop up sets"
+      - "Full storytelling shows"
+      - "Musical accompaniment (violin; recorder)"
+      - "LAST EVENT: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage"
+    buttons:
+      - enable: false
+        label: "Fiddle Me This"
+        link: "https://montystroyteller.org"
+
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
     content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
@@ -80,7 +93,8 @@ features:
       - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
       - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales (20-200mins)"
       - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
-      - "__NEXT SHOW — Three Rivers Music Festival, Isle of Wight, May 31st, 2026, COmmunity Stage, 3.30-4.30pm__"
+      - "__LAST VENUE SHOW — St Lawrence Village Hall, April 2026__"
+      - "__LAST FESTIVAL SHOW — Three Rivers Music Festival, Isle of Wight, May 31st, 2026, Community Stage__"
     buttons:
       - enable: false
         label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
