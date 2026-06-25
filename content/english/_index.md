@@ -72,19 +72,6 @@ features:
         label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
-  - title: "Fiddle Me This — Monty'n'Sophie"
-    image: "/images/monty_sophie_solent_crop.png"
-    content: "Stories and music, interwtined."
-    bulletpoints:
-      - "Short pop up sets"
-      - "Full storytelling shows"
-      - "Musical accompaniment (violin; recorder)"
-      - "LAST EVENT: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage"
-    buttons:
-      - enable: false
-        label: "Fiddle Me This"
-        link: "https://montystroyteller.org"
-
   - title: "Monty + The AnyWhens"
     image: "/images/monty_anywhens_vf25.jpg"
     content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
@@ -109,7 +96,19 @@ features:
         label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
 
-
+  - title: "Fiddle Me This — Monty'n'Sophie"
+    image: "/images/monty_sophie_solent_crop.png"
+    content: "Stories and music, interwtined."
+    bulletpoints:
+      - "Short pop up sets"
+      - "Full storytelling shows"
+      - "Musical accompaniment (violin; recorder)"
+      - "LAST EVENT: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage"
+    buttons:
+      - enable: false
+        label: "Fiddle Me This"
+        link: "https://montystroyteller.org"
+        
   - title: "'Tis Tales"
     image: "/images/tis_tales_jan_2026.jpg"
     content: "The Isle of Wight's original storytelling troupe..."
