@@ -21,7 +21,8 @@ theme_default = "system" # available options [light/dark/system]
 mainSections = ["blog"]
 
 # contact form action
-contact_form_action = "https://forms.un-static.com/forms/2af519492c83b354f930e7a358b2250e1b6f7d06" # contact form works with [https://airform.io/] or [https://formspree.io]
+# contact_form_action = "https://forms.un-static.com/forms/2af519492c83b354f930e7a358b2250e1b6f7d06" # contact form works with [https://airform.io/] or [https://formspree.io]
+contact_form_action = "https://formspree.io/f/mpqgdjaq"
 
 # google tag manager, see https://developers.google.com/tag-manager/
 google_tag_manager = "" # example: G-XXXXXXXXXX
