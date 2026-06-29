@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3-Channel Recorder — Live Waveform + Loop</title>
+<style>
+  :root {
+    --bg: #161616;
+    --panel: #1f1f1f;
+    --accent: #ff5a3c;
+    --text: #eee;
+    --text-dim: #999;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .page { width: 100%; max-width: 1040px; }
+  .layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .col { min-width: 0; }
+  .samples-col { flex: 0 0 420px; }
+  .sequencer-col {
+    flex: 1 1 480px;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+  .sequencer-col .section-title { margin-top: 0; padding-top: 0; border-top: none; }
+  @media (max-width: 920px) {
+    .layout { flex-direction: column; }
+    .samples-col, .sequencer-col { flex: 1 1 auto; width: 100%; }
+    .sequencer-col {
+      position: static;
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+  .session-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .session-bar button {
+    flex: 1;
+    background: #2a2a2a;
+    color: var(--text);
+    font-size: 12px;
+    padding: 12px 8px;
+  }
+  .session-status {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-bottom: 16px;
+    min-height: 14px;
+  }
+  .autosave-indicator {
+    font-size: 10px;
+    color: var(--text-dim);
+    opacity: 0.6;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 14px;
+    min-height: 12px;
+  }
+  .autosave-banner {
+    background: #2a2a1a;
+    border: 1px solid #6e5a2c;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text);
+    flex-wrap: wrap;
+  }
+  .autosave-banner-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  .autosave-banner-buttons button {
+    background: #3a3a2a;
+    color: var(--text);
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  .autosave-banner-buttons button#autosaveRestoreBtn {
+    background: var(--accent);
+    color: #fff;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 28px 0 12px;
+    padding-top: 18px;
+    border-top: 1px solid #2c2c2c;
+  }
+  .seq-panel {
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+  .transport {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  #seqPlayBtn { background: var(--accent); color: #fff; }
+  #seqPlayBtn.playing { background: #2c6e4f; }
+  #seqClearBtn { background: #3a2a2a; }
+  #panicBtn { background: #6e1a1a; color: #fff; }
+  #panicBtn:active { background: #ff2d2d; }
+  .seq-tempo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .seq-tempo input[type="range"] { width: 110px; accent-color: var(--accent); }
+  .seq-track {
+    display: grid;
+    grid-template-columns: 56px 1fr 56px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .seq-track-label-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .seq-track-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .seq-sample-dur {
+    font-size: 9px;
+    color: var(--text-dim);
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+  .seq-steps {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 3px;
+  }
+  .seq-step {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background: #2a2a2a;
+    cursor: pointer;
+    transition: background 0.1s ease, transform 0.06s ease;
+  }
+  .seq-step:nth-child(4n+1) { background: #333; }
+  .seq-step.covered { background: rgba(255,90,60,0.28); }
+  .seq-step.on { background: var(--accent) !important; }
+  .seq-step.current { box-shadow: 0 0 0 2px #fff inset; }
+  .seq-step:active { transform: scale(0.9); }
+  .seq-wave-select {
+    font-family: inherit;
+    font-size: 10px;
+    background: #2a2a2a;
+    color: var(--text);
+    border: none;
+    border-radius: 6px;
+    padding: 5px 3px;
+  }
+  .seq-meta {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .channel {
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+  .channel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .channel-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .status { font-size: 12px; color: var(--text-dim); }
+  .status.live { color: var(--accent); }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  button {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 4px;
+    cursor: pointer;
+    transition: transform 0.08s ease, opacity 0.15s ease, background 0.15s ease;
+  }
+  button:active { transform: scale(0.96); }
+  button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .recordBtn { background: var(--accent); color: #fff; }
+  .recordBtn.recording { background: #ff2d2d; animation: pulse 1s infinite; }
+  .playBtn { background: #333; color: var(--text); }
+  .playBtn.playing { background: #2c6e4f; }
+  .loopBtn { background: #333; color: var(--text-dim); }
+  .loopBtn.active { background: #3a4d6e; color: #fff; }
+  .quantizeBtn { background: #333; color: var(--text-dim); }
+  .quantizeBtn.active { background: #6e5a2c; color: #fff; }
+  .playBtn.queued { background: #6e5a2c; animation: pulse 1s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,45,45,0.5); }
+    50% { box-shadow: 0 0 0 8px rgba(255,45,45,0); }
+  }
+
+  canvas {
+    width: 100%;
+    height: 70px;
+    display: block;
+    border-radius: 6px;
+    background: #0d0d0d;
+    margin-bottom: 8px;
+  }
+
+  .range-row {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+
+  .fx {
+    border-top: 1px solid #2c2c2c;
+    padding-top: 12px;
+    margin-top: 6px;
+  }
+  .fx-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 36px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .fx-row:last-child { margin-bottom: 0; }
+  .fx-val { text-align: right; }
+  .resettable-label { cursor: pointer; text-decoration: underline dotted; text-decoration-color: #555; }
+  .resettable-label:hover { color: var(--accent); }
+  .reverseBtn {
+    background: #2a2a2a;
+    color: var(--text-dim);
+    font-size: 10px;
+    padding: 6px 4px;
+    width: 100%;
+  }
+  .reverseBtn.active { background: #6e2c3a; color: #fff; }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .crop-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    opacity: 0.85;
+  }
+  .snap-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .snapBtn {
+    background: #2a2a2a;
+    color: var(--text-dim);
+    font-size: 10px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+  .snapBtn:disabled { opacity: 0.3; }
+  .snap-info { font-size: 10px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <h1>3-Channel Recorder</h1>
+
+  <div class="session-bar">
+    <button id="saveSessionBtn">💾 Save Session</button>
+    <button id="loadSessionBtn">📂 Load Session</button>
+    <button id="clearLocalDataBtn" title="Removes the autosaved settings stored in this browser for this app">🗑️ Clear Local Data</button>
+    <input type="file" id="loadSessionFile" accept="application/json" style="display:none;">
+  </div>
+  <div class="session-status" id="sessionStatus"></div>
+  <div class="autosave-indicator" id="autosaveIndicator"></div>
+
+  <div class="autosave-banner" id="autosaveBanner" style="display:none;">
+    <span>Found an autosaved session from <span id="autosaveBannerTime"></span></span>
+    <div class="autosave-banner-buttons">
+      <button id="autosaveRestoreBtn">Restore</button>
+      <button id="autosaveDismissBtn">Dismiss</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="col samples-col">
+      <div id="channels"></div>
+    </div>
+    <div class="col sequencer-col">
+      <div class="section-title">Synth Step Sequencer</div>
+      <div class="seq-panel">
+        <div class="transport">
+          <button id="seqPlayBtn">Play</button>
+          <button id="seqClearBtn">Clear</button>
+          <button id="panicBtn" title="Immediately silences everything (also: Escape key)">⏹ Panic</button>
+          <div class="seq-tempo">
+            <span>Tempo</span>
+            <input type="range" id="seqTempoSlider" min="60" max="200" value="120">
+            <span id="seqTempoVal">120 BPM</span>
+          </div>
+        </div>
+        <div id="seqTracks"></div>
+        <div class="seq-meta">16 steps · 4 tracks · click a step to toggle, pick a waveform per track</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let seqBpm = 120; // declared early: channel setup below calls seqStepDuration() which needs this
+let sequencerReady = false; // guards against TDZ access to seqTrackStates from early redraws
+const CHANNEL_NAMES = ['Channel 1', 'Channel 2', 'Channel 3'];
+const channelsEl = document.getElementById('channels');
+const recorderStates = []; // populated below, used by the sequencer to trigger one-shots
+
+let audioCtx = null;
+let sharedImpulseResponse = null;
+let masterLimiter = null;
+
+function getCtx() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  // Browsers (especially mobile) auto-suspend the context when the tab is
+  // backgrounded; resume it on every trigger so playback doesn't silently fail
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
+// Also resume proactively the moment the tab regains focus/visibility,
+// rather than waiting for the next trigger — useful if you alt-tab away
+// mid-set and the context gets suspended in the background
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+});
+
+// A single shared limiter sits just before the speakers, so stacking
+// multiple loud one-shots/loops/sequencer hits can't clip the output
+function getMasterLimiter() {
+  const ctx = getCtx();
+  if (!masterLimiter) {
+    masterLimiter = ctx.createDynamicsCompressor();
+    masterLimiter.threshold.value = -6;
+    masterLimiter.knee.value = 6;
+    masterLimiter.ratio.value = 12;
+    masterLimiter.attack.value = 0.003;
+    masterLimiter.release.value = 0.15;
+    masterLimiter.connect(ctx.destination);
+  }
+  return masterLimiter;
+}
+
+// The reverb impulse response is identical every time, so build it once and
+// reuse it everywhere instead of regenerating a 2.5s noise buffer per trigger
+function getSharedImpulseResponse(ctx) {
+  if (!sharedImpulseResponse) {
+    sharedImpulseResponse = makeImpulseResponse(ctx);
+  }
+  return sharedImpulseResponse;
+}
+
+function makeImpulseResponse(ctx, duration = 2.5, decay = 3.0) {
+  const rate = ctx.sampleRate;
+  const length = rate * duration;
+  const impulse = ctx.createBuffer(2, length, rate);
+  for (let ch = 0; ch < 2; ch++) {
+    const data = impulse.getChannelData(ch);
+    for (let i = 0; i < length; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, decay);
+    }
+  }
+  return impulse;
+}
+
+function trimBuffer(ctx, buffer, trimStartSec, trimEndSec) {
+  const sampleRate = buffer.sampleRate;
+  const startOffset = Math.floor(trimStartSec * sampleRate);
+  const endOffset = Math.floor(trimEndSec * sampleRate);
+  const newLength = buffer.length - startOffset - endOffset;
+
+  if (newLength <= 0) return buffer; // recording too short to trim, leave as-is
+
+  const trimmed = ctx.createBuffer(buffer.numberOfChannels, newLength, sampleRate);
+  for (let ch = 0; ch < buffer.numberOfChannels; ch++) {
+    const sourceData = buffer.getChannelData(ch);
+    const destData = trimmed.getChannelData(ch);
+    destData.set(sourceData.subarray(startOffset, startOffset + newLength));
+  }
+  return trimmed;
+}
+
+function reverseBuffer(ctx, buffer) {
+  const reversed = ctx.createBuffer(buffer.numberOfChannels, buffer.length, buffer.sampleRate);
+  for (let ch = 0; ch < buffer.numberOfChannels; ch++) {
+    const sourceData = buffer.getChannelData(ch);
+    const destData = reversed.getChannelData(ch);
+    for (let i = 0; i < sourceData.length; i++) {
+      destData[i] = sourceData[sourceData.length - 1 - i];
+    }
+  }
+  return reversed;
+}
+
+function audioBufferToSerializable(buffer) {
+  const channels = [];
+  for (let c = 0; c < buffer.numberOfChannels; c++) {
+    const data = buffer.getChannelData(c);
+    const bytes = new Uint8Array(data.buffer, data.byteOffset, data.byteLength);
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+    }
+    channels.push(btoa(binary));
+  }
+  return {
+    sampleRate: buffer.sampleRate,
+    length: buffer.length,
+    numberOfChannels: buffer.numberOfChannels,
+    channels
+  };
+}
+
+// Raw form for IndexedDB: typed arrays survive structured clone directly,
+// so there's no base64/string detour at all (cheaper and quota is far higher
+// than localStorage). Each channel is copied with .slice() so the stored
+// data doesn't stay tied to the live AudioBuffer.
+function audioBufferToRaw(buffer) {
+  const channelData = [];
+  for (let c = 0; c < buffer.numberOfChannels; c++) {
+    channelData.push(buffer.getChannelData(c).slice());
+  }
+  return {
+    sampleRate: buffer.sampleRate,
+    length: buffer.length,
+    numberOfChannels: buffer.numberOfChannels,
+    channelData
+  };
+}
+
+function rawToAudioBuffer(ctx, obj) {
+  const buffer = ctx.createBuffer(obj.numberOfChannels, obj.length, obj.sampleRate);
+  for (let c = 0; c < obj.numberOfChannels; c++) {
+    buffer.getChannelData(c).set(obj.channelData[c]);
+  }
+  return buffer;
+}
+
+
+function serializableToAudioBuffer(ctx, obj) {
+  const buffer = ctx.createBuffer(obj.numberOfChannels, obj.length, obj.sampleRate);
+  for (let c = 0; c < obj.numberOfChannels; c++) {
+    const binary = atob(obj.channels[c]);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const floatArray = new Float32Array(bytes.buffer);
+    buffer.getChannelData(c).set(floatArray);
+  }
+  return buffer;
+}
+
+function drawStaticWaveform(canvas, buffer, startFrac, endFrac, playheadFrac) {
+  const ctx2d = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx2d.clearRect(0, 0, w, h);
+
+  if (!buffer) {
+    ctx2d.strokeStyle = '#444';
+    ctx2d.beginPath();
+    ctx2d.moveTo(0, h / 2);
+    ctx2d.lineTo(w, h / 2);
+    ctx2d.stroke();
+    return;
+  }
+
+  const data = buffer.getChannelData(0);
+  const step = Math.ceil(data.length / w);
+  const amp = h / 2;
+
+  const selX1 = startFrac * w;
+  const selX2 = endFrac * w;
+  ctx2d.fillStyle = 'rgba(255,90,60,0.15)';
+  ctx2d.fillRect(selX1, 0, selX2 - selX1, h);
+
+  for (let x = 0; x < w; x++) {
+    let min = 1.0, max = -1.0;
+    const start = x * step;
+    for (let j = 0; j < step; j++) {
+      const idx = start + j;
+      if (idx >= data.length) break;
+      const v = data[idx];
+      if (v < min) min = v;
+      if (v > max) max = v;
+    }
+    const inSel = x >= selX1 && x <= selX2;
+    ctx2d.strokeStyle = inSel ? '#ff5a3c' : '#555';
+    ctx2d.beginPath();
+    ctx2d.moveTo(x, amp + min * amp);
+    ctx2d.lineTo(x, amp + max * amp);
+    ctx2d.stroke();
+  }
+
+  ctx2d.strokeStyle = '#ff5a3c';
+  ctx2d.lineWidth = 2;
+  ctx2d.beginPath();
+  ctx2d.moveTo(selX1, 0); ctx2d.lineTo(selX1, h);
+  ctx2d.moveTo(selX2, 0); ctx2d.lineTo(selX2, h);
+  ctx2d.stroke();
+  ctx2d.lineWidth = 1;
+
+  if (playheadFrac !== undefined && playheadFrac !== null) {
+    const xPos = playheadFrac * w;
+    ctx2d.strokeStyle = '#ffffff';
+    ctx2d.lineWidth = 2;
+    ctx2d.beginPath();
+    ctx2d.moveTo(xPos, 0);
+    ctx2d.lineTo(xPos, h);
+    ctx2d.stroke();
+    ctx2d.lineWidth = 1;
+  }
+}
+
+CHANNEL_NAMES.forEach((name, i) => {
+  const el = document.createElement('div');
+  el.className = 'channel';
+  el.innerHTML = `
+    <div class="channel-header">
+      <span class="channel-name">${name}</span>
+      <span class="status" id="status-${i}">Ready</span>
+    </div>
+    <div class="buttons">
+      <button class="recordBtn" id="record-${i}">Record</button>
+      <button class="playBtn" id="play-${i}" disabled>Play</button>
+      <button class="loopBtn" id="loop-${i}">Loop: Off</button>
+      <button class="quantizeBtn" id="quantize-${i}">Quantize: Off</button>
+    </div>
+    <canvas id="wave-${i}"></canvas>
+    <div class="range-row">
+      <span class="resettable-label" id="startLabel-${i}" title="Click to reset to start">Start</span>
+      <input type="range" id="start-${i}" min="0" max="1000" value="0" disabled>
+    </div>
+    <div class="range-row">
+      <span class="resettable-label" id="endLabel-${i}" title="Click to reset to end">End</span>
+      <input type="range" id="end-${i}" min="0" max="1000" value="1000" disabled>
+    </div>
+    <div class="meta">
+      <span id="mode-${i}">No sample</span>
+      <span id="duration-${i}">Total: 0.0s</span>
+    </div>
+    <div class="crop-times">
+      <span id="startTime-${i}">Start: 0.0s</span>
+      <span id="endTime-${i}">Stop: 0.0s</span>
+      <span id="cropDuration-${i}">Dur: 0.0s</span>
+    </div>
+    <div class="snap-row">
+      <button class="snapBtn" id="snap-${i}" disabled title="Pad with silence so this sample spans a whole number of sequencer steps">Snap to Steps</button>
+      <span class="snap-info" id="snapInfo-${i}"></span>
+    </div>
+    <div class="fx">
+      <div class="fx-row">
+        <span class="resettable-label" id="levelLabel-${i}" title="Click to reset to 100%">Level</span>
+        <input type="range" id="level-${i}" min="0" max="150" value="100">
+        <span class="fx-val" id="levelVal-${i}">100%</span>
+      </div>
+      <div class="fx-row">
+        <span>Echo</span>
+        <input type="range" id="echo-${i}" min="0" max="100" value="0">
+        <span class="fx-val" id="echoVal-${i}">0%</span>
+      </div>
+      <div class="fx-row">
+        <span>Reverb</span>
+        <input type="range" id="reverb-${i}" min="0" max="100" value="0">
+        <span class="fx-val" id="reverbVal-${i}">0%</span>
+      </div>
+      <div class="fx-row">
+        <span class="resettable-label" id="pitchLabel-${i}" title="Click to reset to 100%">Pitch</span>
+        <input type="range" id="pitch-${i}" min="50" max="200" value="100">
+        <span class="fx-val" id="pitchVal-${i}">100%</span>
+      </div>
+      <div class="fx-row">
+        <span>Reverse</span>
+        <button class="reverseBtn" id="reverse-${i}">Off</button>
+        <span></span>
+      </div>
+    </div>
+  `;
+  channelsEl.appendChild(el);
+
+  const state = {
+    isRecording: false,
+    isLooping: false,
+    isPlaying: false,
+    isQuantized: false,
+    isReversed: false,
+    queuedForNextStep: false,
+    standaloneQueueTimeoutId: null,
+    mediaRecorder: null,
+    chunks: [],
+    audioBuffer: null,
+    reversedBuffer: null,
+    sourceNode: null,
+    analyser: null,
+    liveStream: null,
+    playheadRafId: null,
+    playbackStartCtxTime: 0,
+    playbackOffsetSec: 0,
+    playbackRateValue: 1,
+    rafId: null,
+    recordBtn: document.getElementById(`record-${i}`),
+    playBtn: document.getElementById(`play-${i}`),
+    loopBtn: document.getElementById(`loop-${i}`),
+    quantizeBtn: document.getElementById(`quantize-${i}`),
+    statusEl: document.getElementById(`status-${i}`),
+    durationEl: document.getElementById(`duration-${i}`),
+    startTimeEl: document.getElementById(`startTime-${i}`),
+    endTimeEl: document.getElementById(`endTime-${i}`),
+    cropDurationEl: document.getElementById(`cropDuration-${i}`),
+    snapBtn: document.getElementById(`snap-${i}`),
+    snapInfoEl: document.getElementById(`snapInfo-${i}`),
+    modeEl: document.getElementById(`mode-${i}`),
+    canvas: document.getElementById(`wave-${i}`),
+    startSlider: document.getElementById(`start-${i}`),
+    endSlider: document.getElementById(`end-${i}`),
+    startLabel: document.getElementById(`startLabel-${i}`),
+    endLabel: document.getElementById(`endLabel-${i}`),
+    echoSlider: document.getElementById(`echo-${i}`),
+    reverbSlider: document.getElementById(`reverb-${i}`),
+    levelSlider: document.getElementById(`level-${i}`),
+    levelVal: document.getElementById(`levelVal-${i}`),
+    levelLabel: document.getElementById(`levelLabel-${i}`),
+    pitchSlider: document.getElementById(`pitch-${i}`),
+    pitchVal: document.getElementById(`pitchVal-${i}`),
+    pitchLabel: document.getElementById(`pitchLabel-${i}`),
+    reverseBtn: document.getElementById(`reverse-${i}`),
+    echoVal: document.getElementById(`echoVal-${i}`),
+    reverbVal: document.getElementById(`reverbVal-${i}`)
+  };
+  recorderStates.push(state);
+
+  function setStatus(text, live = false) {
+    state.statusEl.textContent = text;
+    state.statusEl.classList.toggle('live', live);
+  }
+
+  function getActiveBuffer() {
+    return state.isReversed ? state.reversedBuffer : state.audioBuffer;
+  }
+
+  function redrawStatic(playheadFrac) {
+    const startFrac = state.startSlider.value / 1000;
+    const endFrac = state.endSlider.value / 1000;
+    const buf = getActiveBuffer();
+    drawStaticWaveform(state.canvas, buf, startFrac, endFrac, playheadFrac);
+    if (buf) {
+      const startSec = startFrac * buf.duration;
+      const endSec = endFrac * buf.duration;
+      const cropSec = endSec - startSec;
+      state.startTimeEl.textContent = 'Start: ' + startSec.toFixed(2) + 's';
+      state.endTimeEl.textContent = 'Stop: ' + endSec.toFixed(2) + 's';
+      state.cropDurationEl.textContent = 'Dur: ' + cropSec.toFixed(2) + 's';
+
+      // Preview what "Snap to Steps" would do at the current tempo
+      const stepDur = seqStepDuration();
+      const stepsNeeded = Math.max(1, Math.ceil((cropSec / stepDur) - 1e-9));
+      const targetDur = stepsNeeded * stepDur;
+      const padNeeded = targetDur - cropSec;
+      state.snapBtn.disabled = false;
+      if (padNeeded > 0.005) {
+        state.snapInfoEl.textContent = '→ ' + stepsNeeded + ' steps (+' + padNeeded.toFixed(2) + 's silence)';
+      } else {
+        state.snapInfoEl.textContent = 'already ' + stepsNeeded + ' steps';
+      }
+    } else {
+      state.startTimeEl.textContent = 'Start: 0.0s';
+      state.endTimeEl.textContent = 'Stop: 0.0s';
+      state.cropDurationEl.textContent = 'Dur: 0.0s';
+      state.snapBtn.disabled = true;
+      state.snapInfoEl.textContent = '';
+    }
+    if (typeof updateSeqSampleDurationLabels === 'function') {
+      updateSeqSampleDurationLabels();
+    }
+  }
+
+  function drawLiveFrame() {
+    if (!state.analyser) return;
+    const canvas = state.canvas;
+    const ctx2d = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const bufferLength = state.analyser.fftSize;
+    const dataArray = new Uint8Array(bufferLength);
+    state.analyser.getByteTimeDomainData(dataArray);
+
+    ctx2d.clearRect(0, 0, w, h);
+    ctx2d.strokeStyle = '#ff5a3c';
+    ctx2d.lineWidth = 1.5;
+    ctx2d.beginPath();
+    const sliceWidth = w / bufferLength;
+    let x = 0;
+    for (let j = 0; j < bufferLength; j++) {
+      const v = dataArray[j] / 128.0;
+      const y = (v * h) / 2;
+      if (j === 0) ctx2d.moveTo(x, y);
+      else ctx2d.lineTo(x, y);
+      x += sliceWidth;
+    }
+    ctx2d.stroke();
+    ctx2d.lineWidth = 1;
+
+    state.rafId = requestAnimationFrame(drawLiveFrame);
+  }
+
+  state.echoSlider.addEventListener('input', () => {
+    state.echoVal.textContent = state.echoSlider.value + '%';
+  });
+  state.reverbSlider.addEventListener('input', () => {
+    state.reverbVal.textContent = state.reverbSlider.value + '%';
+  });
+
+  state.levelSlider.addEventListener('input', () => {
+    state.levelVal.textContent = state.levelSlider.value + '%';
+  });
+
+  state.pitchSlider.addEventListener('input', () => {
+    state.pitchVal.textContent = state.pitchSlider.value + '%';
+  });
+
+  state.levelLabel.addEventListener('click', () => {
+    state.levelSlider.value = 100;
+    state.levelVal.textContent = '100%';
+  });
+
+  state.pitchLabel.addEventListener('click', () => {
+    state.pitchSlider.value = 100;
+    state.pitchVal.textContent = '100%';
+  });
+
+  state.startLabel.addEventListener('click', () => {
+    if (state.startSlider.disabled) return;
+    state.startSlider.value = 0;
+    redrawStatic();
+    if (state.isLooping && state.isPlaying) restartLoopWithNewRange();
+  });
+
+  state.endLabel.addEventListener('click', () => {
+    if (state.endSlider.disabled) return;
+    state.endSlider.value = 1000;
+    redrawStatic();
+    if (state.isLooping && state.isPlaying) restartLoopWithNewRange();
+  });
+
+  state.snapBtn.addEventListener('click', () => {
+    const buf = getActiveBuffer();
+    if (!buf) return;
+
+    const ctx = getCtx();
+    const startFrac = state.startSlider.value / 1000;
+    const endFrac = state.endSlider.value / 1000;
+    const startFrame = Math.floor(startFrac * buf.length);
+    const endFrame = Math.floor(endFrac * buf.length);
+    const cropFrames = endFrame - startFrame;
+    if (cropFrames <= 0) return;
+
+    const cropSec = cropFrames / buf.sampleRate;
+    const stepDur = seqStepDuration();
+    const stepsNeeded = Math.max(1, Math.ceil((cropSec / stepDur) - 1e-9));
+    const targetFrames = Math.round(stepsNeeded * stepDur * buf.sampleRate);
+    const padFrames = Math.max(0, targetFrames - cropFrames);
+
+    // Stop playback first since the underlying buffer is about to change
+    if (state.isPlaying) stopPlayback();
+
+    // Build a new buffer: the cropped region, unchanged, plus silence
+    // appended at the end — no stretching or pitch-shifting involved
+    const newBuffer = ctx.createBuffer(buf.numberOfChannels, cropFrames + padFrames, buf.sampleRate);
+    for (let ch = 0; ch < buf.numberOfChannels; ch++) {
+      const sourceData = buf.getChannelData(ch);
+      const destData = newBuffer.getChannelData(ch);
+      destData.set(sourceData.subarray(startFrame, endFrame), 0);
+      // remaining samples default to 0 (silence)
+    }
+
+    // Whatever orientation was active becomes the new committed "forward" sample
+    state.audioBuffer = newBuffer;
+    state.reversedBuffer = reverseBuffer(ctx, newBuffer);
+    state.isReversed = false;
+    state.reverseBtn.textContent = 'Off';
+    state.reverseBtn.classList.remove('active');
+
+    state.startSlider.value = 0;
+    state.endSlider.value = 1000;
+    state.durationEl.textContent = 'Total: ' + newBuffer.duration.toFixed(2) + 's';
+
+    redrawStatic();
+  });
+
+  state.reverseBtn.addEventListener('click', () => {
+    if (!state.reversedBuffer) return; // no sample yet
+    state.isReversed = !state.isReversed;
+    state.reverseBtn.textContent = state.isReversed ? 'On' : 'Off';
+    state.reverseBtn.classList.toggle('active', state.isReversed);
+
+    // Flip the crop selection too, so the same audio content stays selected
+    // (the part that was near the end is now near the start, and vice versa)
+    const oldStart = parseInt(state.startSlider.value);
+    const oldEnd = parseInt(state.endSlider.value);
+    state.startSlider.value = 1000 - oldEnd;
+    state.endSlider.value = 1000 - oldStart;
+
+    redrawStatic();
+    // If currently playing, restart with the new orientation so it's audible immediately
+    if (state.isPlaying) {
+      restartLoopWithNewRange();
+    }
+  });
+
+  // 'input' fires continuously while dragging a range slider. Restarting the
+  // loop (which tears down and rebuilds the whole FX graph) on every single
+  // one of those events causes audible stutter/clicking during a fast drag —
+  // so collapse any restarts that land in the same animation frame into one.
+  let cropRestartRafId = null;
+  function requestCropRestart() {
+    if (cropRestartRafId) return;
+    cropRestartRafId = requestAnimationFrame(() => {
+      cropRestartRafId = null;
+      if (state.isLooping && state.isPlaying) restartLoopWithNewRange();
+    });
+  }
+
+  state.startSlider.addEventListener('input', () => {
+    if (parseInt(state.startSlider.value) >= parseInt(state.endSlider.value)) {
+      state.startSlider.value = Math.max(0, parseInt(state.endSlider.value) - 1);
+    }
+    redrawStatic();
+    requestCropRestart();
+  });
+  state.endSlider.addEventListener('input', () => {
+    if (parseInt(state.endSlider.value) <= parseInt(state.startSlider.value)) {
+      state.endSlider.value = Math.min(1000, parseInt(state.startSlider.value) + 1);
+    }
+    redrawStatic();
+    requestCropRestart();
+  });
+
+  state.loopBtn.addEventListener('click', () => {
+    state.isLooping = !state.isLooping;
+    state.loopBtn.textContent = state.isLooping ? 'Loop: On' : 'Loop: Off';
+    state.loopBtn.classList.toggle('active', state.isLooping);
+    // If currently playing and loop mode changes, stop playback to avoid confusion
+    if (state.isPlaying) {
+      stopPlayback();
+    }
+  });
+
+  state.quantizeBtn.addEventListener('click', () => {
+    state.isQuantized = !state.isQuantized;
+    state.quantizeBtn.textContent = state.isQuantized ? 'Quantize: On' : 'Quantize: Off';
+    state.quantizeBtn.classList.toggle('active', state.isQuantized);
+  });
+
+  redrawStatic();
+  window.addEventListener('resize', () => {
+    if (!state.isRecording) redrawStatic();
+  });
+
+  function stopPlayback() {
+    if (state.sourceNode) {
+      try {
+        state.sourceNode.onended = null; // prevent the old onended from re-triggering
+        state.sourceNode.stop();
+      } catch (e) {}
+      state.sourceNode = null;
+    }
+    state.isPlaying = false;
+    state.playBtn.textContent = 'Play';
+    state.playBtn.classList.remove('playing');
+    setStatus('Ready to play');
+    if (state.playheadRafId) {
+      cancelAnimationFrame(state.playheadRafId);
+      state.playheadRafId = null;
+    }
+    redrawStatic(); // clear the playhead line
+  }
+  state.stopPlayback = stopPlayback; // exposed for the global Panic button
+
+  function restartLoopWithNewRange() {
+    if (state.sourceNode) {
+      try {
+        state.sourceNode.onended = null; // don't let the old node's onended fire
+        state.sourceNode.stop();
+      } catch (e) {}
+      state.sourceNode = null;
+    }
+    playFragment();
+  }
+
+  state.recordBtn.addEventListener('click', async () => {
+    if (!state.isRecording) {
+      // START recording
+      try {
+        const ctx = getCtx();
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        state.liveStream = stream;
+        state.chunks = [];
+        state.mediaRecorder = new MediaRecorder(stream);
+
+        // Live waveform via analyser on the input stream
+        const micSource = ctx.createMediaStreamSource(stream);
+        const analyser = ctx.createAnalyser();
+        analyser.fftSize = 1024;
+        micSource.connect(analyser);
+        state.analyser = analyser;
+        drawLiveFrame();
+
+        state.mediaRecorder.ondataavailable = e => state.chunks.push(e.data);
+
+        state.mediaRecorder.onstop = async () => {
+          if (state.rafId) cancelAnimationFrame(state.rafId);
+          state.analyser = null;
+          stream.getTracks().forEach(track => track.stop());
+
+          const blob = new Blob(state.chunks, { type: 'audio/webm' });
+          const arrayBuffer = await blob.arrayBuffer();
+          try {
+            const rawBuffer = await ctx.decodeAudioData(arrayBuffer);
+            // Trim a small slice off the end to remove the click
+            // transient from pressing Stop
+            state.audioBuffer = trimBuffer(ctx, rawBuffer, 0, 0.15);
+            state.reversedBuffer = reverseBuffer(ctx, state.audioBuffer);
+            state.durationEl.textContent = 'Total: ' + state.audioBuffer.duration.toFixed(1) + 's';
+          } catch (e) {
+            setStatus('Decode error');
+            return;
+          }
+
+          // A fresh recording resets crop and all FX/mode toggles to defaults,
+          // so leftover settings from a previous take don't carry over silently
+          state.startSlider.value = 0;
+          state.endSlider.value = 1000;
+          state.startSlider.disabled = false;
+          state.endSlider.disabled = false;
+
+          state.echoSlider.value = 0;
+          state.echoVal.textContent = '0%';
+          state.reverbSlider.value = 0;
+          state.reverbVal.textContent = '0%';
+          state.pitchSlider.value = 100;
+          state.pitchVal.textContent = '100%';
+          state.levelSlider.value = 100;
+          state.levelVal.textContent = '100%';
+
+          state.isReversed = false;
+          state.reverseBtn.textContent = 'Off';
+          state.reverseBtn.classList.remove('active');
+
+          state.isLooping = false;
+          state.loopBtn.textContent = 'Loop: Off';
+          state.loopBtn.classList.remove('active');
+
+          state.isQuantized = false;
+          state.quantizeBtn.textContent = 'Quantize: Off';
+          state.quantizeBtn.classList.remove('active');
+
+          redrawStatic();
+
+          state.playBtn.disabled = false;
+          state.modeEl.textContent = 'Sample ready';
+          setStatus('Ready to play');
+        };
+
+        state.isRecording = true;
+        state.recordBtn.textContent = 'Stop';
+        state.recordBtn.classList.add('recording');
+        state.playBtn.disabled = true;
+
+        // Small delay before actually starting capture so the button
+        // press/click transient isn't picked up by the mic
+        setStatus('Recording…', true);
+        state.mediaRecorder.start();
+        setStatus('Recording…', true);
+      } catch (err) {
+        setStatus('Mic denied');
+      }
+    } else {
+      // STOP recording
+      state.isRecording = false;
+      state.recordBtn.textContent = 'Record';
+      state.recordBtn.classList.remove('recording');
+      if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+        state.mediaRecorder.stop();
+      }
+    }
+  });
+
+  function playFragment(time) {
+    const ctx = getCtx();
+    if (time === undefined) time = ctx.currentTime;
+    const buffer = getActiveBuffer();
+    if (!buffer) {
+      // Shouldn't normally happen (Play is disabled with no sample), but
+      // guard anyway so isPlaying can't get stuck "on" with nothing sounding
+      stopPlayback();
+      return;
+    }
+    const startFrac = state.startSlider.value / 1000;
+    const endFrac = state.endSlider.value / 1000;
+    const offset = startFrac * buffer.duration;
+    const dur = (endFrac - startFrac) * buffer.duration;
+    if (dur <= 0) {
+      stopPlayback();
+      return;
+    }
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.playbackRate.value = state.pitchSlider.value / 100;
+    state.sourceNode = source;
+
+    const dryGain = ctx.createGain();
+    dryGain.gain.value = 1.0;
+
+    const echoAmount = state.echoSlider.value / 100;
+    const reverbAmount = state.reverbSlider.value / 100;
+
+    const delay = ctx.createDelay(2.0);
+    delay.delayTime.value = 0.3;
+    const feedback = ctx.createGain();
+    feedback.gain.value = Math.min(echoAmount * 0.6, 0.55);
+    const echoWet = ctx.createGain();
+    echoWet.gain.value = echoAmount;
+
+    delay.connect(feedback);
+    feedback.connect(delay);
+
+    const convolver = ctx.createConvolver();
+    convolver.buffer = getSharedImpulseResponse(ctx);
+    const reverbWet = ctx.createGain();
+    reverbWet.gain.value = reverbAmount;
+
+    const masterOut = ctx.createGain();
+    masterOut.gain.value = state.levelSlider.value / 100;
+
+    source.connect(dryGain);
+    dryGain.connect(masterOut);
+
+    source.connect(delay);
+    delay.connect(echoWet);
+    echoWet.connect(masterOut);
+
+    source.connect(convolver);
+    convolver.connect(reverbWet);
+    reverbWet.connect(masterOut);
+
+    masterOut.connect(getMasterLimiter());
+
+    // Track playback position for the moving playhead overlay
+    state.playbackStartCtxTime = time;
+    state.playbackOffsetSec = offset;
+    state.playbackRateValue = source.playbackRate.value;
+    if (!state.playheadRafId) {
+      state.playheadRafId = requestAnimationFrame(playheadTick);
+    }
+
+    const cleanupNodes = () => {
+      [dryGain, delay, feedback, echoWet, convolver, reverbWet, masterOut].forEach(node => {
+        try { node.disconnect(); } catch (e) {}
+      });
+    };
+
+    // Disconnecting the wet chain immediately would chop off any echo/reverb
+    // tail mid-decay. If either effect is engaged, hold the graph open long
+    // enough for the tail to actually finish before tearing it down.
+    const scheduleCleanup = () => {
+      const tailSec = Math.max(
+        echoAmount > 0 ? 3 : 0,
+        reverbAmount > 0 ? 3 : 0
+      );
+      if (tailSec > 0) setTimeout(cleanupNodes, tailSec * 1000);
+      else cleanupNodes();
+    };
+
+    source.onended = () => {
+      // Only re-trigger if we're still in looping mode and the user
+      // hasn't pressed Stop in the meantime
+      if (state.isLooping && state.isPlaying) {
+        scheduleCleanup();
+        playFragment();
+      } else {
+        scheduleCleanup();
+        state.isPlaying = false;
+        state.playBtn.textContent = 'Play';
+        state.playBtn.classList.remove('playing');
+        setStatus('Ready to play');
+      }
+    };
+
+    source.start(time, offset, dur);
+  }
+
+  function playheadTick() {
+    if (!state.isPlaying) {
+      state.playheadRafId = null;
+      redrawStatic(); // clear playhead line
+      return;
+    }
+    const ctx = getCtx();
+    const buffer = getActiveBuffer();
+    if (buffer) {
+      const elapsed = (ctx.currentTime - state.playbackStartCtxTime) * state.playbackRateValue;
+      const posSec = state.playbackOffsetSec + elapsed;
+      const frac = Math.min(1, Math.max(0, posSec / buffer.duration));
+      redrawStatic(frac);
+    }
+    state.playheadRafId = requestAnimationFrame(playheadTick);
+  }
+
+  state.playFragment = playFragment;
+  state.stopPlayback = stopPlayback;
+  state.redrawStatic = redrawStatic;
+
+  state.playBtn.addEventListener('click', () => {
+    if (!state.audioBuffer) return;
+
+    if (state.isPlaying) {
+      stopPlayback();
+      return;
+    }
+
+    if (state.queuedForNextStep) {
+      // Cancel a pending queued trigger (works whether it was queued against
+      // the running sequencer or against the standalone beat clock below)
+      state.queuedForNextStep = false;
+      if (state.standaloneQueueTimeoutId) {
+        clearTimeout(state.standaloneQueueTimeoutId);
+        state.standaloneQueueTimeoutId = null;
+      }
+      state.playBtn.textContent = 'Play';
+      state.playBtn.classList.remove('queued');
+      setStatus('Ready to play');
+      return;
+    }
+
+    if (state.isQuantized) {
+      const sequencerRunning = (typeof seqIsPlaying !== 'undefined' && seqIsPlaying);
+      state.queuedForNextStep = true;
+      state.playBtn.textContent = 'Queued…';
+      state.playBtn.classList.add('queued');
+      setStatus('Queued for next beat', true);
+
+      if (!sequencerRunning) {
+        // No running sequencer to sync against — quantize to our own
+        // steady beat clock instead, so this still does something even
+        // when the step sequencer transport is stopped
+        const ctx = getCtx();
+        const stepDur = seqStepDuration();
+        const targetTime = Math.ceil(ctx.currentTime / stepDur) * stepDur;
+        const delayMs = Math.max(0, (targetTime - ctx.currentTime) * 1000);
+
+        state.standaloneQueueTimeoutId = setTimeout(() => {
+          if (!state.queuedForNextStep) return; // cancelled in the meantime
+          state.queuedForNextStep = false;
+          state.standaloneQueueTimeoutId = null;
+          state.isPlaying = true;
+          state.playBtn.textContent = state.isLooping ? 'Stop' : 'Play';
+          state.playBtn.classList.remove('queued');
+          state.playBtn.classList.toggle('playing', state.isLooping);
+          setStatus(state.isLooping ? 'Looping…' : 'Playing…', true);
+          playFragment(targetTime);
+        }, delayMs);
+      }
+      // If the sequencer IS running, seqScheduleStep picks up
+      // state.queuedForNextStep on its own (see seqScheduleStep below)
+      return;
+    }
+
+    state.isPlaying = true;
+    state.playBtn.textContent = state.isLooping ? 'Stop' : 'Play';
+    state.playBtn.classList.toggle('playing', state.isLooping);
+    setStatus(state.isLooping ? 'Looping…' : 'Playing…', true);
+
+    playFragment();
+  });
+});
+
+function triggerChannelOneShot(state, time) {
+  if (!state.audioBuffer) return;
+  const ctx = getCtx();
+  if (time === undefined) time = ctx.currentTime;
+  const buffer = state.isReversed ? state.reversedBuffer : state.audioBuffer;
+
+  const startFrac = state.startSlider.value / 1000;
+  const endFrac = state.endSlider.value / 1000;
+  const offset = startFrac * buffer.duration;
+  const dur = (endFrac - startFrac) * buffer.duration;
+  if (dur <= 0) return;
+
+  const source = ctx.createBufferSource();
+  source.buffer = buffer;
+  source.playbackRate.value = state.pitchSlider.value / 100;
+
+  const dryGain = ctx.createGain();
+  dryGain.gain.value = 1.0;
+
+  const echoAmount = state.echoSlider.value / 100;
+  const reverbAmount = state.reverbSlider.value / 100;
+
+  const delay = ctx.createDelay(2.0);
+  delay.delayTime.value = 0.3;
+  const feedback = ctx.createGain();
+  feedback.gain.value = Math.min(echoAmount * 0.6, 0.55);
+  const echoWet = ctx.createGain();
+  echoWet.gain.value = echoAmount;
+
+  delay.connect(feedback);
+  feedback.connect(delay);
+
+  const convolver = ctx.createConvolver();
+  convolver.buffer = getSharedImpulseResponse(ctx);
+  const reverbWet = ctx.createGain();
+  reverbWet.gain.value = reverbAmount;
+
+  const masterOut = ctx.createGain();
+  masterOut.gain.value = state.levelSlider.value / 100;
+
+  source.connect(dryGain);
+  dryGain.connect(masterOut);
+
+  source.connect(delay);
+  delay.connect(echoWet);
+  echoWet.connect(masterOut);
+
+  source.connect(convolver);
+  convolver.connect(reverbWet);
+  reverbWet.connect(masterOut);
+
+  masterOut.connect(getMasterLimiter());
+
+  source.onended = () => {
+    const tailSec = Math.max(
+      echoAmount > 0 ? 3 : 0,
+      reverbAmount > 0 ? 3 : 0
+    );
+    const cleanup = () => {
+      [dryGain, delay, feedback, echoWet, convolver, reverbWet, masterOut].forEach(node => {
+        try { node.disconnect(); } catch (e) {}
+      });
+    };
+    if (tailSec > 0) setTimeout(cleanup, tailSec * 1000);
+    else cleanup();
+  };
+
+  // Always one-shot here, regardless of that channel's own Loop toggle
+  source.start(time, offset, dur);
+}
+
+// ===== Synth Step Sequencer =====
+const SEQ_NUM_STEPS = 16;
+const SEQ_SYNTH_TRACKS = [
+  { name: 'Kick',  baseFreq: 60,  type: 'sine',     decay: 0.18 },
+  { name: 'Snare', baseFreq: 200, type: 'triangle', decay: 0.12, noisy: true },
+  { name: 'Hat',   baseFreq: 800, type: 'square',   decay: 0.05, noisy: true },
+  { name: 'Bass',  baseFreq: 110, type: 'sawtooth', decay: 0.25 }
+];
+const SEQ_SAMPLE_TRACKS = [
+  { name: 'Sample 1', isSample: true, channelIndex: 0 },
+  { name: 'Sample 2', isSample: true, channelIndex: 1 },
+  { name: 'Sample 3', isSample: true, channelIndex: 2 }
+];
+const SEQ_TRACKS = [...SEQ_SAMPLE_TRACKS, ...SEQ_SYNTH_TRACKS];
+
+const seqTracksEl = document.getElementById('seqTracks');
+const seqPlayBtn = document.getElementById('seqPlayBtn');
+const seqClearBtn = document.getElementById('seqClearBtn');
+const seqTempoSlider = document.getElementById('seqTempoSlider');
+const seqTempoVal = document.getElementById('seqTempoVal');
+
+let seqIsPlaying = false;
+let seqCurrentStep = 0;       // next step to be SCHEDULED (runs ahead of what's audible)
+let seqNextStepTime = 0.0;    // audioCtx time the next step should fire at
+let seqSchedulerTimerId = null;
+let seqUiRafId = null;
+let seqUiQueue = [];          // [{ step, time }] queued for the visual playhead to pick up
+const SEQ_LOOKAHEAD_MS = 25;
+const SEQ_SCHEDULE_AHEAD_SEC = 0.1;
+
+const seqTrackStates = SEQ_TRACKS.map((t, ti) => {
+  const row = document.createElement('div');
+  row.className = 'seq-track';
+  row.innerHTML = `
+    <div class="seq-track-label-wrap">
+      <span class="seq-track-label">${t.name}</span>
+      ${t.isSample ? `<span class="seq-sample-dur" id="seq-sample-dur-${ti}"></span>` : ''}
+    </div>
+    <div class="seq-steps" id="seq-steps-${ti}"></div>
+    ${t.isSample
+      ? `<span></span>`
+      : `<select class="seq-wave-select" id="seq-wave-${ti}">
+          <option value="sine">sine</option>
+          <option value="triangle">triangle</option>
+          <option value="square">square</option>
+          <option value="sawtooth">sawtooth</option>
+        </select>`
+    }
+  `;
+  seqTracksEl.appendChild(row);
+
+  const stepsEl = document.getElementById(`seq-steps-${ti}`);
+  const stepEls = [];
+  const active = new Array(SEQ_NUM_STEPS).fill(false);
+
+  for (let s = 0; s < SEQ_NUM_STEPS; s++) {
+    const stepEl = document.createElement('div');
+    stepEl.className = 'seq-step';
+    stepEl.addEventListener('click', () => {
+      active[s] = !active[s];
+      stepEl.classList.toggle('on', active[s]);
+      if (typeof updateSeqSampleDurationLabels === 'function') {
+        updateSeqSampleDurationLabels();
+      }
+    });
+    stepsEl.appendChild(stepEl);
+    stepEls.push(stepEl);
+  }
+
+  let waveSelect = null;
+  if (!t.isSample) {
+    waveSelect = document.getElementById(`seq-wave-${ti}`);
+    waveSelect.value = t.type;
+  }
+
+  const durBadge = t.isSample ? document.getElementById(`seq-sample-dur-${ti}`) : null;
+
+  return { def: t, active, stepEls, waveSelect, durBadge };
+});
+
+sequencerReady = true; // safe now to reference seqTrackStates from updateSeqSampleDurationLabels
+
+// Shows each sample track's cropped duration and how many 16th-note steps
+// it spans at the current tempo — updates whenever crop or tempo changes
+function updateSeqSampleDurationLabels() {
+  if (!sequencerReady) return; // seqTrackStates doesn't exist yet during initial channel setup
+  const stepDur = seqStepDuration();
+  seqTrackStates.forEach(ts => {
+    if (!ts.def.isSample || !ts.durBadge) return;
+
+    // Always clear previous covered-cell highlighting before recomputing
+    ts.stepEls.forEach(el => el.classList.remove('covered'));
+
+    const rs = recorderStates[ts.def.channelIndex];
+    if (!rs || !rs.audioBuffer) {
+      ts.durBadge.textContent = '—';
+      return;
+    }
+    const buf = rs.isReversed ? rs.reversedBuffer : rs.audioBuffer;
+    const startFrac = parseInt(rs.startSlider.value) / 1000;
+    const endFrac = parseInt(rs.endSlider.value) / 1000;
+    const cropDur = (endFrac - startFrac) * buf.duration;
+    const steps = cropDur / stepDur;
+    ts.durBadge.textContent = cropDur.toFixed(1) + 's · ~' + steps.toFixed(1) + ' steps';
+
+    // Highlight the steps each active trigger will ring out across, so the
+    // sample's footprint on the grid is visible at a glance. Wraps around
+    // the 16-step row (rather than clipping) since a long sample triggered
+    // late in the bar keeps ringing into the next loop pass.
+    const spanSteps = Math.max(1, Math.round(steps));
+    ts.active.forEach((isActive, idx) => {
+      if (!isActive) return;
+      // Wrap around the 16-step row rather than clipping at the end, since
+      // a long sample triggered late in the bar will keep ringing into the
+      // next loop pass
+      for (let j = 1; j < spanSteps && j < SEQ_NUM_STEPS; j++) {
+        const targetIdx = (idx + j) % SEQ_NUM_STEPS;
+        if (!ts.active[targetIdx]) {
+          ts.stepEls[targetIdx].classList.add('covered');
+        }
+      }
+    });
+  });
+}
+
+function seqTriggerSound(track, ti, time) {
+  if (track.isSample) {
+    const channelState = recorderStates[track.channelIndex];
+    if (channelState) triggerChannelOneShot(channelState, time);
+    return;
+  }
+
+  const ctx = getCtx();
+  const now = time !== undefined ? time : ctx.currentTime;
+  const waveType = seqTrackStates[ti].waveSelect.value;
+
+  const osc = ctx.createOscillator();
+  osc.type = waveType;
+  osc.frequency.value = track.baseFreq;
+
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.6, now + 0.005);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + track.decay);
+
+  osc.connect(gain);
+
+  if (track.noisy) {
+    const bufferSize = ctx.sampleRate * track.decay;
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+
+    const noiseSource = ctx.createBufferSource();
+    noiseSource.buffer = noiseBuffer;
+
+    const noiseFilter = ctx.createBiquadFilter();
+    noiseFilter.type = 'highpass';
+    noiseFilter.frequency.value = track.baseFreq * 2;
+
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.setValueAtTime(0.3, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + track.decay);
+
+    noiseSource.connect(noiseFilter);
+    noiseFilter.connect(noiseGain);
+    noiseGain.connect(getMasterLimiter());
+    noiseSource.start(now);
+    noiseSource.stop(now + track.decay);
+    noiseSource.onended = () => {
+      [noiseFilter, noiseGain].forEach(n => { try { n.disconnect(); } catch (e) {} });
+    };
+  }
+
+  gain.connect(getMasterLimiter());
+  osc.start(now);
+  osc.stop(now + track.decay + 0.02);
+  osc.onended = () => {
+    try { gain.disconnect(); } catch (e) {}
+  };
+}
+
+function seqStepDuration() {
+  return (60 / seqBpm) / 4; // 16th notes, in seconds
+}
+
+// Schedules everything that should sound at a given step, at a precise
+// AudioContext time — this is what gives sample-accurate timing instead of
+// relying on when the JS timer happens to fire
+function seqScheduleStep(stepIndex, time) {
+  // Fire any manually-queued, quantized channel triggers right on this beat
+  recorderStates.forEach(rs => {
+    if (rs.queuedForNextStep) {
+      rs.queuedForNextStep = false;
+      rs.isPlaying = true;
+      rs.playBtn.textContent = rs.isLooping ? 'Stop' : 'Play';
+      rs.playBtn.classList.remove('queued');
+      rs.playBtn.classList.toggle('playing', rs.isLooping);
+      rs.statusEl.textContent = rs.isLooping ? 'Looping…' : 'Playing…';
+      rs.statusEl.classList.add('live');
+      rs.playFragment(time);
+    }
+  });
+
+  seqTrackStates.forEach((ts, ti) => {
+    if (ts.active[stepIndex]) {
+      seqTriggerSound(ts.def, ti, time);
+    }
+  });
+
+  seqUiQueue.push({ step: stepIndex, time });
+}
+
+// Runs frequently (every 25ms) and schedules any steps that fall within the
+// next 100ms window — the classic "lookahead" pattern for tight Web Audio timing
+function seqScheduler() {
+  const ctx = getCtx();
+  while (seqNextStepTime < ctx.currentTime + SEQ_SCHEDULE_AHEAD_SEC) {
+    seqScheduleStep(seqCurrentStep, seqNextStepTime);
+    seqNextStepTime += seqStepDuration();
+    seqCurrentStep = (seqCurrentStep + 1) % SEQ_NUM_STEPS;
+  }
+}
+
+// Separate, smooth visual loop — the playhead highlight should appear exactly
+// when each step becomes audible, not when it was scheduled (which is ~100ms early)
+function seqUiLoop() {
+  const ctx = getCtx();
+  let lastFiredStep = null;
+
+  while (seqUiQueue.length && seqUiQueue[0].time <= ctx.currentTime) {
+    const evt = seqUiQueue.shift();
+    lastFiredStep = evt.step;
+  }
+
+  if (lastFiredStep !== null) {
+    seqTrackStates.forEach(ts => ts.stepEls.forEach(el => el.classList.remove('current')));
+    seqTrackStates.forEach(ts => ts.stepEls[lastFiredStep].classList.add('current'));
+  }
+
+  seqUiRafId = requestAnimationFrame(seqUiLoop);
+}
+
+function seqStart() {
+  const ctx = getCtx();
+  seqCurrentStep = 0;
+  seqNextStepTime = ctx.currentTime + 0.05;
+  seqUiQueue = [];
+  seqScheduler();
+  seqSchedulerTimerId = setInterval(seqScheduler, SEQ_LOOKAHEAD_MS);
+  seqUiRafId = requestAnimationFrame(seqUiLoop);
+}
+
+function seqStop() {
+  clearInterval(seqSchedulerTimerId);
+  seqSchedulerTimerId = null;
+  if (seqUiRafId) cancelAnimationFrame(seqUiRafId);
+  seqUiRafId = null;
+  seqUiQueue = [];
+  seqTrackStates.forEach(ts => ts.stepEls.forEach(el => el.classList.remove('current')));
+
+  // Cancel any pending queued one-shot triggers since there's no more clock to fire them on
+  recorderStates.forEach(rs => {
+    if (rs.queuedForNextStep) {
+      rs.queuedForNextStep = false;
+      rs.playBtn.textContent = 'Play';
+      rs.playBtn.classList.remove('queued');
+      rs.statusEl.textContent = 'Ready to play';
+      rs.statusEl.classList.remove('live');
+    }
+  });
+}
+
+seqPlayBtn.addEventListener('click', () => {
+  seqIsPlaying = !seqIsPlaying;
+  seqPlayBtn.textContent = seqIsPlaying ? 'Stop' : 'Play';
+  seqPlayBtn.classList.toggle('playing', seqIsPlaying);
+  if (seqIsPlaying) seqStart();
+  else seqStop();
+});
+
+seqClearBtn.addEventListener('click', () => {
+  seqTrackStates.forEach(ts => {
+    ts.active.fill(false);
+    ts.stepEls.forEach(el => el.classList.remove('on'));
+  });
+});
+
+const panicBtn = document.getElementById('panicBtn');
+function panicStopAll() {
+  // Cut the shared output bus immediately — this silences anything already
+  // scheduled (one-shot sequencer hits, ringing FX tails) that we don't hold
+  // a direct reference to, without needing to track every node individually
+  try { getMasterLimiter().disconnect(); } catch (e) {}
+
+  // Stop each channel's loop/playback and cancel any queued (quantized) trigger
+  recorderStates.forEach(rs => {
+    if (rs.isPlaying && typeof rs.stopPlayback === 'function') rs.stopPlayback();
+    if (rs.queuedForNextStep) {
+      rs.queuedForNextStep = false;
+      if (rs.standaloneQueueTimeoutId) {
+        clearTimeout(rs.standaloneQueueTimeoutId);
+        rs.standaloneQueueTimeoutId = null;
+      }
+      rs.playBtn.textContent = 'Play';
+      rs.playBtn.classList.remove('queued');
+    }
+  });
+
+  // Stop the sequencer transport
+  if (seqIsPlaying) {
+    seqIsPlaying = false;
+    seqPlayBtn.textContent = 'Play';
+    seqPlayBtn.classList.remove('playing');
+    seqStop();
+  }
+
+  // Restore the output route shortly after, so the next trigger is audible
+  setTimeout(() => {
+    try { getMasterLimiter().connect(getCtx().destination); } catch (e) {}
+  }, 60);
+
+  setSessionStatus('Panic: all audio stopped');
+}
+panicBtn.addEventListener('click', panicStopAll);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') panicStopAll();
+});
+
+seqTempoSlider.addEventListener('input', () => {
+  seqBpm = parseInt(seqTempoSlider.value);
+  seqTempoVal.textContent = seqBpm + ' BPM';
+  updateSeqSampleDurationLabels();
+  if (seqIsPlaying) {
+    seqStop();
+    seqStart();
+  }
+});
+
+// Initial label state (no samples recorded yet)
+updateSeqSampleDurationLabels();
+
+// ===== Save / Load Session =====
+const saveSessionBtn = document.getElementById('saveSessionBtn');
+const loadSessionBtn = document.getElementById('loadSessionBtn');
+const loadSessionFile = document.getElementById('loadSessionFile');
+const clearLocalDataBtn = document.getElementById('clearLocalDataBtn');
+const sessionStatus = document.getElementById('sessionStatus');
+
+function setSessionStatus(text) {
+  sessionStatus.textContent = text;
+  if (text) {
+    clearTimeout(sessionStatus._t);
+    sessionStatus._t = setTimeout(() => { sessionStatus.textContent = ''; }, 3000);
+  }
+}
+
+// audioMode: 'base64' (file download / legacy localStorage), 'raw' (IndexedDB,
+// no string conversion), or 'none' (settings only, no audio at all)
+function gatherSessionData(audioMode = 'base64') {
+  const channels = recorderStates.map(rs => ({
+    sample: (audioMode === 'base64' && rs.audioBuffer) ? audioBufferToSerializable(rs.audioBuffer) : null,
+    sampleRaw: (audioMode === 'raw' && rs.audioBuffer) ? audioBufferToRaw(rs.audioBuffer) : null,
+    hasSample: !!rs.audioBuffer, // lets a settings-only autosave note a sample existed, without storing it
+    startFrac: parseInt(rs.startSlider.value) / 1000,
+    endFrac: parseInt(rs.endSlider.value) / 1000,
+    echo: parseInt(rs.echoSlider.value),
+    reverb: parseInt(rs.reverbSlider.value),
+    pitch: parseInt(rs.pitchSlider.value),
+    level: parseInt(rs.levelSlider.value),
+    isReversed: rs.isReversed,
+    isLooping: rs.isLooping,
+    isQuantized: rs.isQuantized
+  }));
+
+  const sequencer = {
+    bpm: seqBpm,
+    tracks: seqTrackStates.map(ts => ({
+      active: ts.active.slice(),
+      wave: ts.waveSelect ? ts.waveSelect.value : null
+    }))
+  };
+
+  return { version: 1, savedAt: Date.now(), channels, sequencer };
+}
+
+function applySessionData(data) {
+  const ctx = getCtx();
+
+  data.channels.forEach((chData, i) => {
+    const rs = recorderStates[i];
+    if (!rs) return;
+
+    // Stop anything currently playing on this channel before replacing it
+    if (rs.isPlaying) rs.stopPlayback();
+
+    if (chData.sample) {
+      rs.audioBuffer = serializableToAudioBuffer(ctx, chData.sample);
+      rs.reversedBuffer = reverseBuffer(ctx, rs.audioBuffer);
+      rs.durationEl.textContent = 'Total: ' + rs.audioBuffer.duration.toFixed(1) + 's';
+      rs.startSlider.disabled = false;
+      rs.endSlider.disabled = false;
+      rs.playBtn.disabled = false;
+      rs.modeEl.textContent = 'Sample ready';
+    } else if (chData.sampleRaw) {
+      rs.audioBuffer = rawToAudioBuffer(ctx, chData.sampleRaw);
+      rs.reversedBuffer = reverseBuffer(ctx, rs.audioBuffer);
+      rs.durationEl.textContent = 'Total: ' + rs.audioBuffer.duration.toFixed(1) + 's';
+      rs.startSlider.disabled = false;
+      rs.endSlider.disabled = false;
+      rs.playBtn.disabled = false;
+      rs.modeEl.textContent = 'Sample ready';
+    } else {
+      rs.audioBuffer = null;
+      rs.reversedBuffer = null;
+      rs.startSlider.disabled = true;
+      rs.endSlider.disabled = true;
+      rs.playBtn.disabled = true;
+      rs.modeEl.textContent = 'No sample';
+      rs.durationEl.textContent = 'Total: 0.0s';
+    }
+
+    rs.startSlider.value = Math.round(chData.startFrac * 1000);
+    rs.endSlider.value = Math.round(chData.endFrac * 1000);
+    rs.echoSlider.value = chData.echo;
+    rs.echoVal.textContent = chData.echo + '%';
+    rs.reverbSlider.value = chData.reverb;
+    rs.reverbVal.textContent = chData.reverb + '%';
+    rs.pitchSlider.value = chData.pitch;
+    rs.pitchVal.textContent = chData.pitch + '%';
+    rs.levelSlider.value = chData.level;
+    rs.levelVal.textContent = chData.level + '%';
+
+    rs.isReversed = chData.isReversed;
+    rs.reverseBtn.textContent = rs.isReversed ? 'On' : 'Off';
+    rs.reverseBtn.classList.toggle('active', rs.isReversed);
+
+    rs.isLooping = chData.isLooping;
+    rs.loopBtn.textContent = rs.isLooping ? 'Loop: On' : 'Loop: Off';
+    rs.loopBtn.classList.toggle('active', rs.isLooping);
+
+    rs.isQuantized = chData.isQuantized;
+    rs.quantizeBtn.textContent = rs.isQuantized ? 'Quantize: On' : 'Quantize: Off';
+    rs.quantizeBtn.classList.toggle('active', rs.isQuantized);
+
+    if (rs.audioBuffer && rs.redrawStatic) {
+      rs.redrawStatic();
+    }
+  });
+
+  if (data.sequencer) {
+    seqBpm = data.sequencer.bpm || 120;
+    seqTempoSlider.value = seqBpm;
+    seqTempoVal.textContent = seqBpm + ' BPM';
+
+    data.sequencer.tracks.forEach((trackData, ti) => {
+      const ts = seqTrackStates[ti];
+      if (!ts) return;
+      ts.active = trackData.active.slice();
+      ts.stepEls.forEach((el, s) => el.classList.toggle('on', ts.active[s]));
+      if (ts.waveSelect && trackData.wave) {
+        ts.waveSelect.value = trackData.wave;
+      }
+    });
+  }
+
+  updateSeqSampleDurationLabels();
+}
+
+function downloadJSON(data, filename) {
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+saveSessionBtn.addEventListener('click', () => {
+  const data = gatherSessionData('base64');
+  downloadJSON(data, 'looper-session.json');
+  setSessionStatus('Session saved (file downloaded)');
+});
+
+loadSessionBtn.addEventListener('click', () => {
+  loadSessionFile.click();
+});
+
+loadSessionFile.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      applySessionData(data);
+      setSessionStatus('Session loaded from file');
+    } catch (err) {
+      setSessionStatus('Could not read that file');
+    }
+  };
+  reader.readAsText(file);
+  loadSessionFile.value = ''; // allow re-selecting the same file later
+});
+
+clearLocalDataBtn.addEventListener('click', async () => {
+  const ok = confirm(
+    'This clears the autosaved session this app has stored in your browser ' +
+    '(including any autosaved samples). It does not affect any files you\'ve ' +
+    'downloaded with "Save Session". Continue?'
+  );
+  if (!ok) return;
+
+  let failed = false;
+  try {
+    localStorage.removeItem(AUTOSAVE_KEY);
+  } catch (e) {
+    failed = true;
+  }
+  try {
+    await idbDeleteSession();
+  } catch (e) {
+    failed = true;
+  }
+
+  if (autosaveBanner) autosaveBanner.style.display = 'none';
+  if (autosaveIndicator) autosaveIndicator.textContent = failed ? '' : 'Local data cleared';
+  setSessionStatus(failed ? 'Could not fully clear local data' : 'Cleared local autosave data');
+});
+
+// ===== Autosave =====
+// Two tiers, deliberately kept separate:
+//  - IndexedDB: full session INCLUDING audio, raw (no base64 string step),
+//    written every few minutes on a timer. This is the one that matters for
+//    "I closed the tab, get my samples back."
+//  - localStorage: settings only, tiny, written on beforeunload as a fast
+//    last-resort fallback (IndexedDB writes are async and aren't guaranteed
+//    to finish before the page actually unloads).
+const AUTOSAVE_KEY = 'looperSessionV1';           // legacy localStorage key (settings only)
+const IDB_DB_NAME = 'looperAutosaveDB';
+const IDB_STORE_NAME = 'sessions';
+const IDB_RECORD_ID = 'autosave';
+const AUTOSAVE_INTERVAL_MS = 3 * 60 * 1000;       // every 3 minutes — audio autosave doesn't need to be finer-grained than this
+const autosaveIndicator = document.getElementById('autosaveIndicator');
+const autosaveBanner = document.getElementById('autosaveBanner');
+const autosaveBannerTime = document.getElementById('autosaveBannerTime');
+const autosaveRestoreBtn = document.getElementById('autosaveRestoreBtn');
+const autosaveDismissBtn = document.getElementById('autosaveDismissBtn');
+
+let idbPromise = null;
+function openLooperDB() {
+  if (idbPromise) return idbPromise;
+  idbPromise = new Promise((resolve, reject) => {
+    if (!window.indexedDB) { reject(new Error('IndexedDB unavailable')); return; }
+    const req = indexedDB.open(IDB_DB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(IDB_STORE_NAME)) {
+        db.createObjectStore(IDB_STORE_NAME, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+  return idbPromise;
+}
+
+async function idbPutSession(data) {
+  const db = await openLooperDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE_NAME, 'readwrite');
+    tx.objectStore(IDB_STORE_NAME).put({ id: IDB_RECORD_ID, ...data });
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+async function idbGetSession() {
+  const db = await openLooperDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE_NAME, 'readonly');
+    const req = tx.objectStore(IDB_STORE_NAME).get(IDB_RECORD_ID);
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function idbDeleteSession() {
+  const db = await openLooperDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE_NAME, 'readwrite');
+    tx.objectStore(IDB_STORE_NAME).delete(IDB_RECORD_ID);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+let autosaveInFlight = false;
+async function autosaveNow() {
+  // Skip overlapping runs — if a save from the previous tick is still
+  // writing (e.g. a slow disk) we don't want to stack up duplicate work
+  if (autosaveInFlight) return;
+  autosaveInFlight = true;
+  try {
+    const data = gatherSessionData('raw'); // typed arrays, no base64 — cheap to build
+    await idbPutSession(data);
+    if (autosaveIndicator) {
+      autosaveIndicator.textContent = 'Autosaved ' + new Date(data.savedAt).toLocaleTimeString();
+    }
+  } catch (e) {
+    if (autosaveIndicator) {
+      autosaveIndicator.textContent = 'Autosave unavailable';
+    }
+  } finally {
+    autosaveInFlight = false;
+  }
+}
+
+// Cheap, synchronous-ish settings-only snapshot for the moment the tab is
+// actually closing — deliberately does NOT touch audio buffers
+function autosaveSettingsOnly() {
+  try {
+    const data = gatherSessionData('none');
+    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(data));
+  } catch (e) {
+    // best-effort; nothing to do if this fails
+  }
+}
+
+setInterval(autosaveNow, AUTOSAVE_INTERVAL_MS);
+window.addEventListener('beforeunload', autosaveSettingsOnly);
+
+// On load, check IndexedDB for a previous autosaved session (including audio)
+// and offer to restore it. Falls back to the legacy settings-only localStorage
+// snapshot if IndexedDB has nothing (e.g. first run after updating this app).
+(async function checkForAutosave() {
+  let data = null;
+  try {
+    data = await idbGetSession();
+  } catch (e) {
+    // IndexedDB unavailable (e.g. private browsing in some browsers) — fall
+    // through to the localStorage fallback below
+  }
+
+  let fromIDB = !!data;
+  if (!data) {
+    try {
+      const raw = localStorage.getItem(AUTOSAVE_KEY);
+      if (raw) data = JSON.parse(raw);
+    } catch (e) {
+      // Corrupted or inaccessible — nothing to restore
+    }
+  }
+
+  if (!data || !data.channels) return;
+
+  const when = data.savedAt ? new Date(data.savedAt).toLocaleString() : 'an earlier session';
+  autosaveBannerTime.textContent = when + (fromIDB ? '' : ' (settings only — no samples)');
+  autosaveBanner.style.display = 'flex';
+
+  autosaveRestoreBtn.addEventListener('click', () => {
+    applySessionData(data);
+    autosaveBanner.style.display = 'none';
+    setSessionStatus('Restored autosaved session');
+  });
+
+  autosaveDismissBtn.addEventListener('click', () => {
+    autosaveBanner.style.display = 'none';
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Storyteller & Interactive Rehearsal Workspace</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151f32;
+            --text-color: #f1f5f9;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --danger-color: #f43f5e;
+            --success-color: #10b981;
+            --frontier-color: #a855f7;
+            --border-color: #1e293b;
+            --waveform-bg: #020617;
+            --waveform-color: #00f0ff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        h1 { margin-top: 0; font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #0f172a;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .zoom-panel {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
+
+        .canvas-scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--waveform-bg);
+            border-radius: 8px;
+            border: 2px solid #475569;
+            margin-bottom: 15px;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            width: 100%;
+            height: 260px;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* New Performance Controls Grid */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+            background: #0f172a;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--frontier-color);
+        }
+
+        .performance-grid button {
+            padding: 16px;
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .performance-grid button.queued-active {
+            border-color: var(--success-color);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            background-color: #064e3b;
+            color: #fff;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover { background-color: var(--accent-hover); color: white; }
+        button.secondary { background-color: #475569; color: white; }
+        button.secondary:hover { background-color: #64748b; }
+        button.danger { background-color: var(--danger-color); color: white; }
+        button.danger:hover { background-color: #e11d48; }
+
+        button:disabled {
+            background-color: #1e293b;
+            color: #475569;
+            cursor: not-allowed;
+            border: 1px solid #334155;
+            box-shadow: none;
+        }
+
+        .status-panel {
+            background: #020617;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            font-family: monospace;
+            display: flex;
+            justify-content: space-between;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .workspace-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .list-container {
+            max-height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-right: 5px;
+        }
+
+        .item-card {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: #334155;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 4px solid transparent;
+            transition: background 0.15s;
+        }
+        
+        .item-card.active-loop-card {
+            border-left-color: var(--success-color);
+            background: #1e293b;
+            outline: 1px solid #475569;
+        }
+
+        .item-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .timestamp-badge {
+            background: var(--accent-color);
+            color: #0f172a;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .story-input {
+            flex-grow: 1;
+            background: #020617;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .story-input:focus {
+            outline: 2px solid var(--accent-color);
+        }
+
+        .time-adjuster {
+            width: 70px;
+            background: #020617;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        .file-btn {
+            background: #334155;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        button.freeze-active { background-color: #f59e0b; color: #0f172a; }
+        button.freeze-active:hover { background-color: #d97706; }
+        .shortcut-key {
+            display: inline-block;
+            background: #0f172a;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            padding: 1px 5px;
+            font-family: monospace;
+            margin-left: 4px;
+        }
+        .frontier-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: rgba(168,85,247,0.08);
+            border-radius: 6px;
+            border: 1px solid rgba(168,85,247,0.2);
+        }
+        .frontier-controls label {
+            font-size: 0.8rem;
+            color: var(--frontier-color);
+            font-weight: 600;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Audio Rehearsal & Narrative Sandbox</h1>
+    
+    <div class="toolbar">
+        <div>
+            <label class="file-btn" for="audio-file">📁 Select Audio File</label>
+            <input type="file" id="audio-file" accept="audio/*" style="display:none;">
+            <span id="loading-status" style="margin-left:10px; font-size:0.9rem; color:#f59e0b;">Please load a track...</span>
+        </div>
+        
+        <div class="zoom-panel">
+            <button id="btn-freeze-scroll" class="secondary" title="Freeze auto-scroll (useful when dragging markers while zoomed in)" disabled style="padding:6px 10px; font-size:0.8rem;">🔒 Freeze Scroll</button>
+            <label style="font-size:0.85rem; display:flex; align-items:center; gap:5px; color:#94a3b8; cursor:pointer; white-space:nowrap;">
+                <input type="checkbox" id="toggle-stereo"> Stereo view
+            </label>
+            <span>🔍 Zoom:</span>
+            <input type="range" id="zoom-slider" min="1" max="15" value="1" step="0.5" disabled>
+        </div>
+    </div>
+
+    <div class="canvas-scroll-container" id="scroll-container">
+        <div class="canvas-wrapper" id="canvas-wrapper">
+            <canvas id="visualizer"></canvas>
+        </div>
+    </div>
+
+    <div class="status-panel">
+        <div>Time: <span id="current-time">00:00.00</span> / <span id="total-time">00:00.00</span></div>
+        <div>Context: <span id="loop-status" style="color:#64748b">None</span></div>
+    </div>
+
+    <div class="controls-grid">
+        <button id="btn-play" disabled>▶ Play / Pause <span class="shortcut-key">Space</span></button>
+        <button id="btn-to-start" class="secondary" disabled>↩ To Start <span class="shortcut-key">R</span></button>
+        <button id="btn-start-loop" class="secondary" disabled>Set Loop Start <span class="shortcut-key">[</span></button>
+        <button id="btn-end-loop" class="secondary" disabled>Set Loop End <span class="shortcut-key">]</span></button>
+        <button id="btn-add-beat" class="secondary" disabled>＋ Add Marker <span class="shortcut-key">M</span></button>
+    </div>
+
+    <div class="frontier-controls">
+        <label>⬥ FRONTIER:</label>
+        <button id="btn-frontier-reset" class="secondary" disabled style="padding:6px 10px; font-size:0.82rem;">Reset Frontier to Start <span class="shortcut-key">E</span></button>
+        <button id="btn-frontier-to-marker" class="secondary" disabled style="padding:6px 10px; font-size:0.82rem;">Set to Nearest Marker <span class="shortcut-key">Shift+M</span></button>
+        <span style="font-size:0.78rem; color:#64748b;">Alt+Click on timeline to place frontier · Drag the ◆ handle</span>
+    </div>
+
+    <div class="panel-header" style="margin-top: 15px; margin-bottom: 5px;">
+        <h3 style="margin:0; font-size: 1.1rem; color: var(--frontier-color);">Live Performance Controls</h3>
+    </div>
+    <div class="performance-grid">
+        <button id="btn-perf-release-now" class="danger" disabled>Release Loop Now <span class="shortcut-key">\</span></button>
+        <button id="btn-perf-release-queued" class="secondary" disabled>Release at Loop End <span class="shortcut-key">Q</span></button>
+        <button id="btn-perf-frontier-now" class="danger" disabled>Jump to Frontier Now <span class="shortcut-key">F</span></button>
+        <button id="btn-perf-frontier-queued" class="secondary" disabled>Jump to Frontier at End <span class="shortcut-key">Shift+F</span></button>
+    </div>
+
+    <div class="workspace-split">
+        <div>
+            <div class="panel-header">
+                <h3>Saved Loop Rehearsal Blocks</h3>
+            </div>
+            <div id="loops-container" class="list-container"></div>
+        </div>
+
+        <div>
+            <div class="panel-header">
+                <h3>Story Beats & Markers</h3>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; color:#94a3b8; cursor:pointer;">
+                        <input type="checkbox" id="toggle-marker-labels" checked> Show labels
+                    </label>
+                </div>
+            </div>
+            <div id="beats-container" class="list-container"></div>
+        </div>
+    </div>
+    
+    <div class="toolbar" style="margin-top: 25px; justify-content: flex-end;">
+        <button id="btn-clear-workspace" class="danger" disabled>🗑 Clear Workspace</button>
+        <button id="btn-export" style="background-color: var(--success-color); color: white;" disabled>💾 Export Workspace Data</button>
+        <label class="file-btn" id="btn-import-lbl" style="background-color: #475569; display:none;">📂 Import Workspace Data
+            <input type="file" id="import-file" accept=".json" style="display:none;">
+        </label>
+    </div>
+</div>
+
+<div id="toast-banner" class="toast">Action Complete</div>
+
+<script>
+    let audioCtx = null;
+    let audioBuffer = null;
+    let audioSource = null;
+    
+    let startTime = 0;
+    let pauseOffset = 0;
+    let isPlaying = false;
+    
+    let loopStart = null;
+    let loopEnd = null;
+    let isLooping = false;
+    let selectedLoopId = null;
+    
+    // New Narrative Tracking State
+    let frontierTime = 0;
+    let pendingActionType = null; // null | 'release' | 'frontier'
+
+    let storyBeats = [];
+    let savedLoops = []; 
+    let rawPeaksData = []; // mono
+    let rawPeaksDataR = []; // right channel (stereo)
+
+    let dragState = null; 
+    let suppressNextClick = false;
+    let scrollFrozen = false;
+    const DRAG_HIT_TOLERANCE = 6; 
+    const MIN_LOOP_GAP = 0.1; 
+
+    const LOOP_TRACK_HEIGHT = 45; 
+
+    const fileInput = document.getElementById('audio-file');
+    const importInput = document.getElementById('import-file');
+    const loadingStatus = document.getElementById('loading-status');
+    const zoomSlider = document.getElementById('zoom-slider');
+    const scrollContainer = document.getElementById('scroll-container');
+    const canvasWrapper = document.getElementById('canvas-wrapper');
+    const canvas = document.getElementById('visualizer');
+    const ctx = canvas.getContext('2d');
+    
+    const btnPlay = document.getElementById('btn-play');
+    const btnToStart = document.getElementById('btn-to-start');
+    const btnStartLoop = document.getElementById('btn-start-loop');
+    const btnEndLoop = document.getElementById('btn-end-loop');
+    const btnAddBeat = document.getElementById('btn-add-beat');
+    const btnExport = document.getElementById('btn-export');
+    const btnClearWorkspace = document.getElementById('btn-clear-workspace');
+    const chkMarkerLabels = document.getElementById('toggle-marker-labels');
+    const btnImportLbl = document.getElementById('btn-import-lbl');
+    const btnFreezeScroll = document.getElementById('btn-freeze-scroll');
+    const chkStereo = document.getElementById('toggle-stereo');
+    const btnFrontierReset = document.getElementById('btn-frontier-reset');
+    const btnFrontierToMarker = document.getElementById('btn-frontier-to-marker');
+    
+    // Performance Grid Buttons
+    const btnPerfReleaseNow = document.getElementById('btn-perf-release-now');
+    const btnPerfReleaseQueued = document.getElementById('btn-perf-release-queued');
+    const btnPerfFrontierNow = document.getElementById('btn-perf-frontier-now');
+    const btnPerfFrontierQueued = document.getElementById('btn-perf-frontier-queued');
+
+    const txtCurrentTime = document.getElementById('current-time');
+    const txtTotalTime = document.getElementById('total-time');
+    const txtLoopStatus = document.getElementById('loop-status');
+    const loopsContainer = document.getElementById('loops-container');
+    const beatsContainer = document.getElementById('beats-container');
+    const toastBanner = document.getElementById('toast-banner');
+
+    function showNotification(message, isError = false) {
+        toastBanner.innerText = message;
+        toastBanner.style.background = isError ? "var(--danger-color)" : "var(--success-color)";
+        toastBanner.classList.add('show');
+        setTimeout(() => toastBanner.classList.remove('show'), 3000);
+    }
+
+    function resizeCanvas() {
+        const zoomFactor = parseFloat(zoomSlider.value);
+        const baseWidth = scrollContainer.clientWidth;
+        const targetWidth = baseWidth * zoomFactor;
+        
+        canvasWrapper.style.width = targetWidth + 'px';
+        
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = targetWidth * dpr;
+        canvas.height = canvasWrapper.clientHeight * dpr;
+        ctx.scale(dpr, dpr);
+    }
+    resizeCanvas();
+
+    zoomSlider.addEventListener('input', () => {
+        if (!audioBuffer) return;
+        const preScrollPct = scrollContainer.scrollLeft / (canvasWrapper.clientWidth - scrollContainer.clientWidth);
+        resizeCanvas();
+        if (!isNaN(preScrollPct)) {
+            scrollContainer.scrollLeft = preScrollPct * (canvasWrapper.clientWidth - scrollContainer.clientWidth);
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        loadingStatus.innerText = "Reading file...";
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            loadingStatus.innerText = "Decoding audio buffer...";
+            audioCtx.decodeAudioData(evt.target.result, (buffer) => {
+                audioBuffer = buffer;
+                resetWorkspace();
+                generateBasePeaks();
+                loadingStatus.innerText = "Ready: " + file.name;
+                
+                [btnPlay, btnToStart, btnStartLoop, btnEndLoop, btnAddBeat, btnExport, btnClearWorkspace, zoomSlider, btnFreezeScroll, btnFrontierReset, btnFrontierToMarker].forEach(el => el.disabled = false);
+                btnImportLbl.style.display = 'inline-block';
+                txtTotalTime.innerText = formatTime(audioBuffer.duration);
+                showNotification("Audio Loaded Successfully!");
+            });
+        };
+        reader.readAsArrayBuffer(file);
+    });
+
+    function resetWorkspace() {
+        pauseOffset = 0; loopStart = null; loopEnd = null; isLooping = false; selectedLoopId = null;
+        frontierTime = 0; pendingActionType = null;
+        storyBeats = []; savedLoops = []; zoomSlider.value = 1;
+        resizeCanvas(); renderLoops(); renderStoryBeats(); updateLoopStatusUI();
+    }
+
+    function clearWorkspaceData() {
+        if (!audioBuffer) return;
+        const hasContent = savedLoops.length > 0 || storyBeats.length > 0;
+        if (hasContent && !confirm("Clear all saved loops and story beats? This cannot be undone.")) return;
+
+        if (isPlaying) stopPlayback();
+        loopStart = null; loopEnd = null; isLooping = false; selectedLoopId = null;
+        frontierTime = 0; pendingActionType = null;
+        storyBeats = []; savedLoops = [];
+        renderLoops(); renderStoryBeats(); updateLoopStatusUI();
+        showNotification("Workspace cleared.");
+    }
+    btnClearWorkspace.addEventListener('click', clearWorkspaceData);
+
+    function generateBasePeaks() {
+        const step = 16;
+        rawPeaksData = [];
+        rawPeaksDataR = [];
+        const chL = audioBuffer.getChannelData(0);
+        const chR = audioBuffer.numberOfChannels > 1 ? audioBuffer.getChannelData(1) : null;
+        for (let i = 0; i < chL.length; i += step) {
+            rawPeaksData.push(chL[i]);
+            rawPeaksDataR.push(chR ? chR[i] : chL[i]);
+        }
+    }
+
+    function formatTime(seconds) {
+        if (isNaN(seconds)) return "00:00.00";
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        const ms = Math.floor((seconds % 1) * 100);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
+    }
+
+    function getCurrentPlaybackTime() {
+        if (!isPlaying) return pauseOffset;
+        let elapsed = audioCtx.currentTime - startTime + pauseOffset;
+        
+        if (isLooping && elapsed >= loopEnd) {
+            const loopDuration = loopEnd - loopStart;
+            while (elapsed >= loopEnd) {
+                startTime += loopDuration;
+                elapsed = audioCtx.currentTime - startTime + pauseOffset;
+            }
+        }
+        
+        // Push the frontier marker forward
+        frontierTime = Math.max(frontierTime, elapsed);
+        
+        if (elapsed > audioBuffer.duration) { elapsed = audioBuffer.duration; stopPlayback(); }
+        return elapsed;
+    }
+
+    function startPlayback(offset = 0) {
+        if (isPlaying) stopPlayback();
+        audioSource = audioCtx.createBufferSource();
+        audioSource.buffer = audioBuffer;
+        audioSource.connect(audioCtx.destination);
+        
+        if (isLooping && loopStart !== null && loopEnd !== null) {
+            audioSource.loop = true;
+            audioSource.loopStart = loopStart;
+            audioSource.loopEnd = loopEnd;
+        }
+        audioSource.onended = () => {
+            if (isPlaying && !audioSource.loop) {
+                if (getCurrentPlaybackTime() >= audioBuffer.duration - 0.05) { isPlaying = false; pauseOffset = 0; }
+            }
+        };
+        startTime = audioCtx.currentTime;
+        pauseOffset = offset;
+        audioSource.start(0, offset);
+        isPlaying = true;
+        updateLoopStatusUI();
+    }
+
+    function stopPlayback() {
+        if (!isPlaying) return;
+        pauseOffset = audioCtx.currentTime - startTime + pauseOffset;
+        if (pauseOffset > audioBuffer.duration) pauseOffset = audioBuffer.duration;
+        try { audioSource.stop(); } catch(e) {}
+        isPlaying = false;
+        updateLoopStatusUI();
+    }
+
+    btnPlay.addEventListener('click', () => {
+        if (isPlaying) stopPlayback(); else startPlayback(pauseOffset);
+    });
+
+    btnToStart.addEventListener('click', () => {
+        const wasPlaying = isPlaying;
+        if (isPlaying) stopPlayback();
+        pauseOffset = 0;
+        if (wasPlaying) startPlayback(0);
+        showNotification("Playhead reset to start");
+    });
+
+    btnFreezeScroll.addEventListener('click', () => {
+        scrollFrozen = !scrollFrozen;
+        btnFreezeScroll.classList.toggle('freeze-active', scrollFrozen);
+        btnFreezeScroll.textContent = scrollFrozen ? '🔒 Scroll Frozen' : '🔒 Freeze Scroll';
+    });
+
+    chkStereo.addEventListener('change', () => {
+        // Just triggers redraw via the draw loop
+    });
+
+    btnFrontierReset.addEventListener('click', () => {
+        frontierTime = 0;
+        showNotification("Frontier reset to start");
+    });
+
+    btnFrontierToMarker.addEventListener('click', () => {
+        if (!audioBuffer) return;
+        const current = getCurrentPlaybackTime();
+        // Find nearest marker or loop boundary to current playhead
+        const candidates = [];
+        storyBeats.forEach(b => candidates.push(b.time));
+        savedLoops.forEach(l => { candidates.push(l.start); candidates.push(l.end); });
+        candidates.push(0);
+        if (candidates.length === 0) return;
+        const nearest = candidates.reduce((a, b) => Math.abs(b - current) < Math.abs(a - current) ? b : a);
+        frontierTime = Math.max(0, nearest);
+        showNotification(`Frontier set to ${formatTime(frontierTime)}`);
+    });
+
+    btnStartLoop.addEventListener('click', () => {
+        loopStart = getCurrentPlaybackTime();
+        isLooping = false; 
+        updateLoopStatusUI();
+    });
+
+    btnEndLoop.addEventListener('click', () => {
+        if (loopStart === null) loopStart = 0;
+        loopEnd = getCurrentPlaybackTime();
+        if (loopEnd <= loopStart) return;
+        
+        isLooping = true;
+        
+        const id = Date.now();
+        savedLoops.push({ id, start: loopStart, end: loopEnd, name: `Loop Slot ${savedLoops.length + 1}` });
+        selectedLoopId = id;
+        
+        updateLoopStatusUI();
+        renderLoops();
+        startPlayback(loopStart);
+        showNotification("New Loop Block Saved!");
+    });
+
+    // --- Performance UI Logic ---
+    let queuedActionTimer = null; // setTimeout handle for scheduled loop-end actions
+
+    function clearQueues() {
+        pendingActionType = null;
+        if (queuedActionTimer !== null) { clearTimeout(queuedActionTimer); queuedActionTimer = null; }
+        btnPerfReleaseQueued.classList.remove('queued-active');
+        btnPerfFrontierQueued.classList.remove('queued-active');
+    }
+
+    // Schedule an action to fire at the next loop boundary using the Web Audio clock.
+    function scheduleAtLoopEnd(action) {
+        if (queuedActionTimer !== null) { clearTimeout(queuedActionTimer); queuedActionTimer = null; }
+
+        // How far into the current loop iteration are we right now?
+        const now = audioCtx.currentTime;
+        const rawElapsed = now - startTime + pauseOffset;
+        const loopDur = loopEnd - loopStart;
+        const posInLoop = ((rawElapsed - loopStart) % loopDur + loopDur) % loopDur;
+        const timeUntilBoundary = loopDur - posInLoop; // seconds until next loop end
+
+        // Add a small buffer so we fire just after the boundary, not just before
+        const msUntil = timeUntilBoundary * 1000 + 40;
+
+        queuedActionTimer = setTimeout(() => {
+            queuedActionTimer = null;
+            const act = action;
+            const boundaryTime = loopEnd;
+
+            clearQueues();
+            isLooping = false;
+            loopStart = null; loopEnd = null; selectedLoopId = null;
+            updateLoopStatusUI(); renderLoops();
+
+            if (act === 'release') {
+                // Continue linearly from the loop end point
+                startPlayback(boundaryTime);
+                showNotification("Loop ended — continuing from loop end");
+            } else if (act === 'frontier') {
+                startPlayback(frontierTime);
+                showNotification("Loop ended — jumped to Frontier");
+            }
+        }, msUntil);
+    }
+
+    function releaseLoopInstantly() {
+        if (!isLooping) return;
+        const boundaryTime = loopEnd;
+        clearQueues();
+        isLooping = false;
+        loopStart = null;
+        loopEnd = null;
+        selectedLoopId = null;
+        updateLoopStatusUI();
+        renderLoops();
+        // Continue linearly from the loop end point
+        startPlayback(boundaryTime);
+    }
+
+    btnPerfReleaseNow.addEventListener('click', () => {
+        releaseLoopInstantly();
+        showNotification("Loop released — continuing from loop end");
+    });
+
+    btnPerfReleaseQueued.addEventListener('click', () => {
+        if (!isLooping) return;
+        if (pendingActionType === 'release') {
+            clearQueues(); // toggle off
+        } else {
+            clearQueues();
+            pendingActionType = 'release';
+            btnPerfReleaseQueued.classList.add('queued-active');
+            scheduleAtLoopEnd('release');
+        }
+        updateLoopStatusUI();
+    });
+
+    btnPerfFrontierNow.addEventListener('click', () => {
+        clearQueues();
+        isLooping = false; loopStart = null; loopEnd = null; selectedLoopId = null;
+        updateLoopStatusUI(); renderLoops();
+        startPlayback(frontierTime);
+        showNotification("Jumped to Frontier");
+    });
+
+    btnPerfFrontierQueued.addEventListener('click', () => {
+        if (!isLooping) return;
+        if (pendingActionType === 'frontier') {
+            clearQueues();
+        } else {
+            clearQueues();
+            pendingActionType = 'frontier';
+            btnPerfFrontierQueued.classList.add('queued-active');
+            scheduleAtLoopEnd('frontier');
+        }
+        updateLoopStatusUI();
+    });
+
+    function updateLoopStatusUI() {
+        if (isLooping) {
+            let statusText = `Active Loop: ${formatTime(loopStart)} - ${formatTime(loopEnd)}`;
+            if (pendingActionType === 'release') statusText += " (Pending: Release at End)";
+            if (pendingActionType === 'frontier') statusText += " (Pending: Jump to Frontier)";
+            
+            txtLoopStatus.innerText = statusText;
+            txtLoopStatus.style.color = pendingActionType ? "var(--frontier-color)" : "var(--success-color)";
+        } else if (loopStart !== null) {
+            txtLoopStatus.innerText = `Start Reference Dropped: ${formatTime(loopStart)} (Awaiting End Points)`;
+            txtLoopStatus.style.color = "#f59e0b";
+        } else {
+            txtLoopStatus.innerText = "Linear Playback";
+            txtLoopStatus.style.color = "#64748b";
+        }
+
+        // Manage button states
+        btnPerfReleaseNow.disabled = !isLooping;
+        btnPerfReleaseQueued.disabled = !isLooping;
+        btnPerfFrontierNow.disabled = !isPlaying || frontierTime <= 0;
+        btnPerfFrontierQueued.disabled = !isLooping || frontierTime <= 0;
+    }
+
+    function getCanvasTimeX(clientX) {
+        const rect = canvas.getBoundingClientRect();
+        const totalW = canvasWrapper.clientWidth;
+        const x = clientX - rect.left;
+        const time = (x / totalW) * audioBuffer.duration;
+        return { x, time: Math.max(0, Math.min(audioBuffer.duration, time)) };
+    }
+
+    function findDragTargetAt(x, y) {
+        if (y <= LOOP_TRACK_HEIGHT) return null; 
+        const totalW = canvasWrapper.clientWidth;
+        const totalDuration = audioBuffer.duration;
+
+        // Frontier handle (diamond at bottom)
+        if (frontierTime > 0) {
+            const fx = (frontierTime / totalDuration) * totalW;
+            const h = canvasWrapper.clientHeight;
+            if (Math.abs(x - fx) <= DRAG_HIT_TOLERANCE + 2 && y >= h - 20) {
+                return { type: 'frontier' };
+            }
+        }
+
+        for (const item of savedLoops) {
+            const sx = (item.start / totalDuration) * totalW;
+            const ex = (item.end / totalDuration) * totalW;
+            if (Math.abs(x - sx) <= DRAG_HIT_TOLERANCE) return { type: 'loop-start', id: item.id };
+            if (Math.abs(x - ex) <= DRAG_HIT_TOLERANCE) return { type: 'loop-end', id: item.id };
+        }
+        for (const beat of storyBeats) {
+            const bx = (beat.time / totalDuration) * totalW;
+            if (Math.abs(x - bx) <= DRAG_HIT_TOLERANCE) return { type: 'marker', id: beat.id };
+        }
+        return null;
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+        if (!audioBuffer) return;
+        const target = findDragTargetAt(e.offsetX, e.offsetY);
+        if (target) {
+            dragState = target;
+            suppressNextClick = true;
+            canvas.style.cursor = 'ew-resize';
+        }
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        if (!audioBuffer || dragState) return;
+        const hit = findDragTargetAt(e.offsetX, e.offsetY);
+        canvas.style.cursor = hit ? (hit.type === 'frontier' ? 'col-resize' : 'ew-resize') : 'pointer';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!dragState || !audioBuffer) return;
+        const { time } = getCanvasTimeX(e.clientX);
+        const isActiveLoop = (id) => selectedLoopId === id && isLooping;
+
+        if (dragState.type === 'frontier') {
+            frontierTime = Math.max(0, Math.min(audioBuffer.duration, time));
+        } else if (dragState.type === 'loop-start') {
+            const item = savedLoops.find(l => l.id === dragState.id);
+            if (!item) return;
+            item.start = Math.min(time, item.end - MIN_LOOP_GAP);
+            if (isActiveLoop(item.id)) {
+                loopStart = item.start;
+                if (isPlaying && audioSource) audioSource.loopStart = loopStart;
+            }
+        } else if (dragState.type === 'loop-end') {
+            const item = savedLoops.find(l => l.id === dragState.id);
+            if (!item) return;
+            item.end = Math.max(time, item.start + MIN_LOOP_GAP);
+            if (isActiveLoop(item.id)) {
+                loopEnd = item.end;
+                if (isPlaying && audioSource) audioSource.loopEnd = loopEnd;
+            }
+        } else if (dragState.type === 'marker') {
+            const beat = storyBeats.find(b => b.id === dragState.id);
+            if (!beat) return;
+            beat.time = time;
+        }
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!dragState) return;
+        if (dragState.type === 'loop-start' || dragState.type === 'loop-end') {
+            renderLoops();
+        } else if (dragState.type === 'marker') {
+            storyBeats.sort((a, b) => a.time - b.time);
+            renderStoryBeats();
+        }
+        dragState = null;
+        canvas.style.cursor = 'pointer';
+    });
+
+    canvas.addEventListener('click', (e) => {
+        if (!audioBuffer) return;
+        if (suppressNextClick) { suppressNextClick = false; return; }
+        
+        const clickX = e.offsetX;
+        const clickY = e.offsetY;
+        const totalW = canvasWrapper.clientWidth;
+        
+        const percent = clickX / totalW;
+        const targetTime = percent * audioBuffer.duration;
+
+        // Alt+click places the frontier
+        if (e.altKey) {
+            frontierTime = Math.max(0, Math.min(audioBuffer.duration, targetTime));
+            showNotification(`Frontier set to ${formatTime(frontierTime)}`);
+            return;
+        }
+        
+        if (clickY <= LOOP_TRACK_HEIGHT) {
+            const hitLoop = savedLoops.find(l => targetTime >= l.start && targetTime <= l.end);
+            if (hitLoop) {
+                clearQueues();
+                loopStart = hitLoop.start;
+                loopEnd = hitLoop.end;
+                isLooping = true;
+                selectedLoopId = hitLoop.id;
+                updateLoopStatusUI();
+                renderLoops();
+                startPlayback(loopStart);
+                return;
+            }
+        }
+
+        clearQueues();
+        isLooping = false; loopStart = null; loopEnd = null; selectedLoopId = null;
+        updateLoopStatusUI();
+        renderLoops();
+        if (isPlaying) startPlayback(targetTime); else pauseOffset = targetTime;
+    });
+
+    function renderLoops() {
+        loopsContainer.innerHTML = "";
+        savedLoops.forEach(item => {
+            const card = document.createElement('div');
+            card.className = `item-card ${item.id === selectedLoopId && isLooping ? 'active-loop-card' : ''}`;
+            
+            const mainRow = document.createElement('div');
+            mainRow.className = "item-row";
+
+            const badge = document.createElement('span');
+            badge.className = "timestamp-badge";
+            badge.innerText = "🔁 Play Loop";
+            badge.onclick = () => {
+                clearQueues();
+                loopStart = item.start;
+                loopEnd = item.end;
+                isLooping = true;
+                selectedLoopId = item.id;
+                updateLoopStatusUI();
+                renderLoops();
+                startPlayback(loopStart);
+            };
+
+            const inputName = document.createElement('input');
+            inputName.className = "story-input";
+            inputName.type = "text";
+            inputName.value = item.name;
+            inputName.oninput = (e) => { item.name = e.target.value; };
+
+            const delBtn = document.createElement('button');
+            delBtn.className = "danger";
+            delBtn.style.padding = "4px 10px";
+            delBtn.innerText = "✕";
+            delBtn.onclick = () => {
+                if (selectedLoopId === item.id) releaseLoopInstantly();
+                savedLoops = savedLoops.filter(l => l.id !== item.id);
+                renderLoops();
+            };
+
+            mainRow.appendChild(badge);
+            mainRow.appendChild(inputName);
+            mainRow.appendChild(delBtn);
+
+            const adjustRow = document.createElement('div');
+            adjustRow.className = "item-row";
+            adjustRow.style.fontSize = "0.8rem";
+            adjustRow.style.color = "#94a3b8";
+            adjustRow.innerHTML = `
+                <span>Start (s):</span>
+                <input type="number" class="time-adjuster" value="${item.start.toFixed(2)}" step="0.1" min="0">
+                <span style="margin-left:10px;">End (s):</span>
+                <input type="number" class="time-adjuster" value="${item.end.toFixed(2)}" step="0.1" min="0">
+            `;
+
+            const inputs = adjustRow.querySelectorAll('input');
+            inputs[0].addEventListener('change', (e) => {
+                let val = parseFloat(e.target.value);
+                if (val >= item.end) val = item.end - 0.1;
+                item.start = val;
+                if(selectedLoopId === item.id && isLooping) { loopStart = val; startPlayback(loopStart); }
+            });
+            inputs[1].addEventListener('change', (e) => {
+                let val = parseFloat(e.target.value);
+                if (val <= item.start) val = item.start + 0.1;
+                if (val > audioBuffer.duration) val = audioBuffer.duration;
+                item.end = val;
+                if(selectedLoopId === item.id && isLooping) { loopEnd = val; startPlayback(loopStart); }
+            });
+
+            card.appendChild(mainRow);
+            card.appendChild(adjustRow);
+            loopsContainer.appendChild(card);
+        });
+    }
+
+    btnAddBeat.addEventListener('click', () => {
+        const time = getCurrentPlaybackTime();
+        storyBeats.push({ id: Date.now(), time, text: "" });
+        storyBeats.sort((a, b) => a.time - b.time);
+        renderStoryBeats();
+    });
+
+    function renderStoryBeats() {
+        beatsContainer.innerHTML = "";
+        storyBeats.forEach(beat => {
+            const row = document.createElement('div');
+            row.className = "story-beat";
+            
+            const badge = document.createElement('span');
+            badge.className = "timestamp-badge";
+            badge.innerText = formatTime(beat.time);
+            badge.onclick = () => {
+                clearQueues();
+                if (isLooping) {
+                    isLooping = false; loopStart = null; loopEnd = null; selectedLoopId = null;
+                    updateLoopStatusUI(); renderLoops();
+                }
+                if (isPlaying) startPlayback(beat.time); else pauseOffset = beat.time;
+            };
+            
+            const input = document.createElement('input');
+            input.className = "story-input";
+            input.type = "text";
+            input.value = beat.text;
+            input.placeholder = "Write narrative note details...";
+            input.oninput = (e) => { beat.text = e.target.value; };
+
+            const delBtn = document.createElement('button');
+            delBtn.className = "danger";
+            delBtn.style.padding = "6px 12px";
+            delBtn.innerText = "✕";
+            delBtn.onclick = () => {
+                storyBeats = storyBeats.filter(b => b.id !== beat.id);
+                renderStoryBeats();
+            };
+
+            row.appendChild(badge);
+            row.appendChild(input);
+            row.appendChild(delBtn);
+            beatsContainer.appendChild(row);
+        });
+    }
+
+    btnExport.addEventListener('click', () => {
+        const dataPayload = {
+            version: "1.1",
+            savedLoops: savedLoops,
+            storyBeats: storyBeats
+        };
+        const blob = new Blob([JSON.stringify(dataPayload, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'rehearsal_workspace_config.json';
+        a.click();
+        showNotification("Workspace Settings Saved!");
+    });
+
+    importInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            try {
+                const parsed = JSON.parse(evt.target.result);
+                savedLoops = parsed.savedLoops || [];
+                storyBeats = parsed.storyBeats || [];
+                clearQueues();
+                frontierTime = 0;
+                renderLoops();
+                renderStoryBeats();
+                showNotification("Workspace Imported Successfully!");
+            } catch(err) {
+                showNotification("Import failed. Check file structure.", true);
+            }
+        };
+        reader.readAsText(file);
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (!audioBuffer || e.target.tagName === 'INPUT') return;
+        if (e.key === '[') { e.preventDefault(); btnStartLoop.click(); }
+        if (e.key === ']') { e.preventDefault(); btnEndLoop.click(); }
+        if (e.key === '\\') { e.preventDefault(); btnPerfReleaseNow.click(); }
+        if (e.key === 'q' || e.key === 'Q') { e.preventDefault(); btnPerfReleaseQueued.click(); }
+        if (e.key === 'f' || e.key === 'F') {
+            e.preventDefault();
+            if (e.shiftKey) btnPerfFrontierQueued.click(); else btnPerfFrontierNow.click();
+        }
+        if (e.key === 'm' || e.key === 'M') {
+            e.preventDefault();
+            if (e.shiftKey) btnFrontierToMarker.click(); else btnAddBeat.click();
+        }
+        if (e.key === 'r' || e.key === 'R') { e.preventDefault(); btnToStart.click(); }
+        if (e.key === 'e' || e.key === 'E') { e.preventDefault(); btnFrontierReset.click(); }
+        if (e.key === ' ') { 
+            e.preventDefault(); 
+            if (isLooping) btnPerfReleaseNow.click(); else btnPlay.click();
+        }
+    });
+
+    function draw() {
+        requestAnimationFrame(draw);
+        const w = canvas.width / (window.devicePixelRatio || 1);
+        const h = canvas.height / (window.devicePixelRatio || 1);
+        const isStereo = chkStereo.checked && rawPeaksDataR.length > 0;
+        const waveformHeight = h - LOOP_TRACK_HEIGHT;
+        ctx.clearRect(0, 0, w, h);
+
+        ctx.fillStyle = '#111827';
+        ctx.fillRect(0, 0, w, LOOP_TRACK_HEIGHT);
+        ctx.fillStyle = '#1e293b';
+        ctx.fillRect(0, LOOP_TRACK_HEIGHT, w, 2);
+
+        if (!audioBuffer || rawPeaksData.length === 0) {
+            ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
+            const cy = LOOP_TRACK_HEIGHT + waveformHeight / 2;
+            ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+            return;
+        }
+
+        const totalDuration = audioBuffer.duration;
+        const current = getCurrentPlaybackTime();
+
+        // Pass 1: Loop track bars and waveform loop highlights
+        savedLoops.forEach((item, index) => {
+            const gxStart = (item.start / totalDuration) * w;
+            const gxEnd = (item.end / totalDuration) * w;
+            const isCurrentActive = (item.id === selectedLoopId && isLooping);
+
+            ctx.fillStyle = isCurrentActive ? 'rgba(16, 185, 129, 0.22)' : 'rgba(56, 189, 248, 0.14)';
+            ctx.fillRect(gxStart, LOOP_TRACK_HEIGHT, gxEnd - gxStart, waveformHeight);
+            
+            ctx.strokeStyle = isCurrentActive ? '#10b981' : 'rgba(56, 189, 248, 0.4)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(gxStart, LOOP_TRACK_HEIGHT); ctx.lineTo(gxStart, h);
+            ctx.moveTo(gxEnd, LOOP_TRACK_HEIGHT); ctx.lineTo(gxEnd, h);
+            ctx.stroke();
+
+            const gripW = 7, gripH = 16;
+            ctx.fillStyle = isCurrentActive ? '#10b981' : '#38bdf8';
+            ctx.fillRect(gxStart - gripW / 2, h - gripH, gripW, gripH);
+            ctx.fillRect(gxEnd - gripW / 2, h - gripH, gripW, gripH);
+
+            ctx.font = "bold 10px monospace";
+            ctx.textBaseline = "top";
+            ctx.fillStyle = isCurrentActive ? '#10b981' : '#38bdf8';
+            ctx.fillText(`⌗ ${item.name || `L${index + 1}`}`, gxStart + 6, LOOP_TRACK_HEIGHT + 10);
+
+            const barY = 5 + (index % 4) * 9; 
+            ctx.fillStyle = isCurrentActive ? '#10b981' : 'rgba(56, 189, 248, 0.7)';
+            ctx.fillRect(gxStart, barY, gxEnd - gxStart, 6);
+
+            ctx.font = "8px sans-serif";
+            ctx.textBaseline = "top";
+            ctx.fillStyle = isCurrentActive ? '#10b981' : '#f1f5f9';
+            ctx.fillText(item.name || `L${index + 1}`, gxStart + 4, barY - 1);
+        });
+
+        // Pass 2: Draw Waveform (mono or stereo)
+        const length = rawPeaksData.length;
+        const sliceWidth = w / length;
+
+        if (isStereo) {
+            // Left channel: top half of waveform area
+            const halfH = waveformHeight / 2;
+            const centerL = LOOP_TRACK_HEIGHT + halfH / 2;
+            const centerR = LOOP_TRACK_HEIGHT + halfH + halfH / 2;
+
+            // Divider line between channels
+            ctx.strokeStyle = '#1e3a5f';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, LOOP_TRACK_HEIGHT + halfH);
+            ctx.lineTo(w, LOOP_TRACK_HEIGHT + halfH);
+            ctx.stroke();
+
+            // Channel labels
+            ctx.font = "8px monospace";
+            ctx.textBaseline = "middle";
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText('L', 3, centerL);
+            ctx.fillText('R', 3, centerR);
+
+            ctx.fillStyle = '#00f0ff';
+            for (let i = 0; i < length; i++) {
+                const x = i * sliceWidth;
+                const valL = rawPeaksData[i] * (halfH / 2) * 0.95;
+                const valR = rawPeaksDataR[i] * (halfH / 2) * 0.95;
+                ctx.fillRect(x, centerL - Math.abs(valL), Math.max(sliceWidth, 1), Math.max(Math.abs(valL) * 2, 1));
+                ctx.fillStyle = '#00c8e8';
+                ctx.fillRect(x, centerR - Math.abs(valR), Math.max(sliceWidth, 1), Math.max(Math.abs(valR) * 2, 1));
+                ctx.fillStyle = '#00f0ff';
+            }
+        } else {
+            // Mono — original behaviour
+            const centerY = LOOP_TRACK_HEIGHT + (waveformHeight / 2);
+            ctx.fillStyle = '#00f0ff';
+            for (let i = 0; i < length; i++) {
+                const x = i * sliceWidth;
+                const val = rawPeaksData[i] * (waveformHeight / 2) * 0.95;
+                ctx.fillRect(x, centerY - Math.abs(val), Math.max(sliceWidth, 1), Math.max(Math.abs(val) * 2, 1));
+            }
+        }
+
+        // Pass 3: Active loop highlight
+        if (loopStart !== null && loopEnd !== null) {
+            const sx = (loopStart / totalDuration) * w;
+            const ex = (loopEnd / totalDuration) * w;
+            ctx.fillStyle = isLooping ? 'rgba(16, 185, 129, 0.25)' : 'rgba(245, 158, 11, 0.2)';
+            ctx.fillRect(sx, LOOP_TRACK_HEIGHT, ex - sx, waveformHeight);
+            ctx.strokeStyle = isLooping ? '#10b981' : '#f59e0b';
+            ctx.lineWidth = 2.5;
+            ctx.strokeRect(sx, LOOP_TRACK_HEIGHT, ex - sx, waveformHeight);
+        } else if (loopStart !== null) {
+            const sx = (loopStart / totalDuration) * w;
+            ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2.5;
+            ctx.beginPath(); ctx.moveTo(sx, LOOP_TRACK_HEIGHT); ctx.lineTo(sx, h); ctx.stroke();
+        }
+
+        // Pass 4: Frontier marker + draggable diamond handle
+        if (frontierTime > 0 || dragState?.type === 'frontier') {
+            const fx = (frontierTime / totalDuration) * w;
+            ctx.strokeStyle = 'var(--frontier-color)'; 
+            ctx.lineWidth = 2; 
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath(); ctx.moveTo(fx, LOOP_TRACK_HEIGHT); ctx.lineTo(fx, h - 16); ctx.stroke(); 
+            ctx.setLineDash([]);
+            
+            // Diamond drag handle at bottom
+            const dm = 8;
+            ctx.fillStyle = dragState?.type === 'frontier' ? '#fff' : 'var(--frontier-color)';
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(fx, h - dm * 2);
+            ctx.lineTo(fx + dm, h - dm);
+            ctx.lineTo(fx, h);
+            ctx.lineTo(fx - dm, h - dm);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = 'var(--frontier-color)';
+            ctx.font = "bold 10px monospace";
+            ctx.textBaseline = "top";
+            const textWidth = ctx.measureText("◆ FRONTIER").width;
+            ctx.fillStyle = 'rgba(2, 6, 23, 0.75)';
+            ctx.fillRect(fx + 3, LOOP_TRACK_HEIGHT + 27, textWidth + 6, 14);
+            ctx.fillStyle = 'var(--frontier-color)';
+            ctx.fillText("◆ FRONTIER", fx + 6, LOOP_TRACK_HEIGHT + 29);
+        }
+
+        // Pass 5: Marker flags
+        const showLabels = chkMarkerLabels.checked;
+        storyBeats.forEach((beat, idx) => {
+            const bx = (beat.time / totalDuration) * w;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.65)'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]);
+            ctx.beginPath(); ctx.moveTo(bx, LOOP_TRACK_HEIGHT); ctx.lineTo(bx, h); ctx.stroke(); ctx.setLineDash([]);
+
+            const gd = 5;
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+            ctx.beginPath();
+            ctx.moveTo(bx, h - gd * 2); ctx.lineTo(bx + gd, h - gd); ctx.lineTo(bx, h); ctx.lineTo(bx - gd, h - gd);
+            ctx.closePath(); ctx.fill();
+
+            if (showLabels) {
+                const trimmed = (beat.text || '').trim();
+                const maxChars = 16;
+                let label = trimmed ? trimmed : `M${idx + 1}`;
+                if (label.length > maxChars) label = label.slice(0, maxChars - 1) + '…';
+
+                ctx.font = "9px monospace";
+                ctx.textBaseline = "top";
+                
+                const textWidth = ctx.measureText(label).width;
+                ctx.fillStyle = 'rgba(2, 6, 23, 0.75)';
+                ctx.fillRect(bx + 3, LOOP_TRACK_HEIGHT + 13, textWidth + 6, 12);
+                ctx.fillStyle = '#f1f5f9';
+                ctx.fillText(label, bx + 6, LOOP_TRACK_HEIGHT + 14);
+            }
+        });
+
+        // Pass 6: Real-time playhead
+        txtCurrentTime.innerText = formatTime(current);
+        const playheadX = (current / totalDuration) * w;
+        
+        ctx.strokeStyle = '#ff3b30'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(playheadX, 0); ctx.lineTo(playheadX, h); ctx.stroke();
+        
+        // Auto-scroll: only when playing, zoomed in, and not frozen
+        if (isPlaying && parseFloat(zoomSlider.value) > 1 && !scrollFrozen && !dragState) {
+            const containerW = scrollContainer.clientWidth;
+            const scrollX = (current / totalDuration) * w - (containerW / 2);
+            scrollContainer.scrollLeft = scrollX;
+        }
+    }
+
+    draw();
+</script>
+
+</body>
+</html>
