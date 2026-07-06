@@ -20,5 +20,5 @@ social:
     icon: fa-brands fa-facebook
     link: https://facebook.com/hollymedlandstoryteller
 ---
-'Tis Tales (originally, *Three Island Storytellers*) is a storytelling troupe from the Isle of Wight featuring Sue Bailey, Tony "Monty" Hirst and Holly Medland.
+'Tis Tales (originally, *Three Island Storytellers*) is a storytelling troupe from the Isle of Wight featuring Sue Bailey, Tony "Monty" Hirst and Holly Medland (2022-).
 

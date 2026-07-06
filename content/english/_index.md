@@ -109,6 +109,17 @@ features:
         label: "Fiddle Me This"
         link: "https://montystroyteller.org"
         
+  - title: "Monty + Berlingo Flick"
+    image: "/images/berlingo_flick_logo.jpg"
+    content: "Accompanied stories, narrative songs."
+    bulletpoints:
+      - "Festival sets"
+      - "UPCOMING EVENT: Gosport Sunset Festival, Saturday July 11th, 11-11.45am, 2026, Introducing stage"
+    buttons:
+      - enable: false
+        label: "Monty + Berlingo Flick"
+        link: "https://montystroyteller.org"
+
   - title: "'Tis Tales"
     image: "/images/tis_tales_jan_2026.jpg"
     content: "The Isle of Wight's original storytelling troupe..."

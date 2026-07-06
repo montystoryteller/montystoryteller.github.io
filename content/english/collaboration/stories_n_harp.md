@@ -6,4 +6,4 @@ weight: 40
 
 ---
 
-A collaboration between Tony "Monty" Hirst, harpist Theresa Ellis, and singer Jenni Charity.
+A collaboration between Tony "Monty" Hirst, harpist Theresa Ellis, and singer Jenni Charity (2024).
