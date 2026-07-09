@@ -33,7 +33,7 @@ banner:
       label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
     - enable: true
-      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show with The AnyWhens — 23 & 24/07/26"
+      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show with Sue Cain & Sophie Kate (Thurs), Sue Cain (Fri), 23-24th July, 2026"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
@@ -72,30 +72,6 @@ features:
         label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
-  - title: "Monty + The AnyWhens"
-    image: "/images/monty_anywhens_vf25.jpg"
-    content: "A collaboration with folk song duo Glenn Koppany and Sue Cain (*The AnyWhens*)"
-    bulletpoints:
-      - "__Now booking:__ Faery Tale Blues: songs and stories__"
-      - "__Also booking:__ *Protest Days, Rebellion Nights: Stories and Songs of the Luddites*"
-      - "__Also appearing as:__ *The AnyWhens / Monty Storyteller*, turn taking 10-15 minute sets of folk songs and traditional folk tales (20-200mins)"
-      - "__NEXT FREE PUB SHOW (folk stories'n'songs): TBC__"
-      - "__LAST VENUE SHOW — St Lawrence Village Hall, April 2026__"
-      - "__LAST FESTIVAL SHOW — Three Rivers Music Festival, Isle of Wight, May 31st, 2026, Community Stage__"
-    buttons:
-      - enable: false
-        label: "Buy Tickets for St Lawrence, IW, 'Protest Tales' show — 22/11/25"
-        link: "https://www.stlawrencevillagehall.uk/events/protest-days-rebellion-nights"
-      - enable: false
-        label: "Buy Tickets for October Books, Southampton, 'Protest Tales' show — 04/12/25"
-        link: "https://octoberbooks.lemonbooking.com/events/116/details"
-      - enable: false
-        label: "Buy Tickets for Brading Roman Villa, 'Fairy Tale Blues' music + tapas — 14/03/26"
-        link: "https://bradingromanvilla.org.uk/whats-on/live-music-at-the-villa-the-anywhens-14-march/"
-      - enable: true
-        label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"
-        link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
-
   - title: "Fiddle Me This — Monty'n'Sophie"
     image: "/images/monty_sophie_solent_crop.png"
     content: "Stories and music, interwtined."
@@ -108,7 +84,20 @@ features:
       - enable: false
         label: "Fiddle Me This"
         link: "https://montystroyteller.org"
-        
+  
+  - title: "Monty + Sue Cain"
+    image: "/images/monty_sue_cain.png"
+    content: "Stories and songs, interwtined."
+    bulletpoints:
+      - "Short pop up sets"
+      - "Full storytelling shows"
+      - "Folk stories and songs, reimagined"
+      - "UPCOMING EVENT: Ventnor Fringe Festival"
+    buttons:
+      - enable: true
+        label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"
+        link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
+ 
   - title: "Monty + Berlingo Flick"
     image: "/images/berlingo_flick_logo.jpg"
     content: "Accompanied stories, narrative songs."

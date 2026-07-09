@@ -32,13 +32,13 @@ features:
       label: "Buy Tickets for Ventnor Fringe"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
-  - title: "Monty + The AnyWhens — Ventnor Fringe 2026, Isle of Wight"
-    image: "/images/manywhens-trio.jpg"
+  - title: "Monty + Sue Cain and Sophie Kate — Ventnor Fringe 2026, Isle of Wight"
+    image: "/images/vf_logo.png"
     content: ""
     bulletpoints:
       - "'Faery Tale Blues' show — 23 & 24/07/26"
       - "10 day fringe festival on the Isle of Wight"
-      - "Monty + The AnyWhens: mixed set of songs and stories"
+      - "Monty + Sue Cain & Sophie Kate (23rd), Monty + Sue Cain (24th): mixed sets of songs, tunes and stories"
     button:
       enable: true
       label: "Buy Tickets for Ventnor Fringe"
