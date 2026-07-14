@@ -33,7 +33,7 @@ banner:
       label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
     - enable: true
-      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show with Sue Cain & Sophie Kate (Thurs), Sue Cain (Fri), 23-24th July, 2026"
+      label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues, Take Two' show + Sue Cain (Thurs/Fri) + Sophie Kate (Thurs), 23-24th July, 2026"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
     - enable: false
       label: "Buy 'Island Tales' series booklets on Amazon.co.uk"
@@ -99,11 +99,11 @@ features:
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
  
   - title: "Monty + Berlingo Flick"
-    image: "/images/berlingo_flick_logo.jpg"
+    image: "/images/monty_berlingo_flick_solent.jpg"
     content: "Accompanied stories, narrative songs."
     bulletpoints:
       - "Festival sets"
-      - "UPCOMING EVENT: Gosport Sunset Festival, Saturday July 11th, 11-11.45am, 2026, Introducing stage"
+      - "LAST EVENT: Gosport Sunset Festival, Saturday July 11th, 2026, Introducing stage"
     buttons:
       - enable: false
         label: "Monty + Berlingo Flick"
