@@ -8,18 +8,6 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
-  - title: "Monty + Berlingo Flick — Gosport Sunset Festival 2026"
-    image: "/images/gosport_sunset_festival-logo.jpg"
-    content: ""
-    bulletpoints:
-      - "Short Festival set — Saturday 11th July, 2026"
-      - "Gosport Sunset Festival Introducing Stage: Saturday 11-11.45am"
-      - "Traditional songs and stories with a historical twist"
-    button:
-      enable: false
-      label: "Buy Tickets for Ventnor Fringe"
-      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
-
   - title: "Solo Show — Ventnor Fringe 2026, Isle of Wight"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
     content: ""
@@ -43,6 +31,30 @@ features:
       enable: true
       label: "Buy Tickets for Ventnor Fringe"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
+
+  - title: "Solo — Trowbridge Festival 2026"
+    image: "/images/trowbridge-2026-logo.png"
+    content: ""
+    bulletpoints:
+      - "Short Festival sets — Saturday / Sunday 25th/26th July, 2026"
+      - "Saturday: 3.45pm, Sunday: 6.30pm"
+      - "Traditional tales: appropriate all ages, aimed at adults"
+    button:
+      enable: true
+      label: "Buy Tickets for Trowbridge Festival"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
+
+  - title: "Solo — GIAF (Gig In A Field) 2026"
+    image: "/images/giaf-logo.png"
+    content: ""
+    bulletpoints:
+      - "Late night set — Friday 7th August, 2026"
+      - "After the main stage stops..."
+      - "Tales for after midnight..."
+    button:
+      enable: true
+      label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"
+      link: "https://www.wrootrocks.com/festivals"
 
 
 # save as draft

@@ -8,6 +8,19 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Monty + Berlingo Flick — Gosport Sunset Festival 2026"
+    image: "/images/gosport_sunset_festival-logo.jpg"
+    content: ""
+    bulletpoints:
+      - "Short Festival set — Saturday 11th July, 2026"
+      - "Gosport Sunset Festival Introducing Stage: Saturday 11-11.45am"
+      - "Traditional songs and stories with a historical twist"
+    button:
+      enable: false
+      label: "Buy Tickets for Ventnor Fringe"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
+
+
   - title: "Three Rivers Music Festival"
     image: "/images/threerivers26_times.png"
     content: ""
