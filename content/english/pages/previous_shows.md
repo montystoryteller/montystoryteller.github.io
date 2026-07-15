@@ -14,15 +14,20 @@ draft: false
 
 *Open mic/folk nights/storytelling circles incl: Island Storytellers (Isle of Wight), Porter Club, Lake; Waverley folk night, Newport; Arreton Barns folk night, Arreton; Ventnor folk night; Solent Inn, Ryde; Wheatsheaf, Newport; Figgy Gig, CHOYD, Yarmouth; Three Bishops, Brighstone; Union Inn folk night, Plympton; Forest Folk Club, Orepool Inn, Coleford; Crown & Sceptre, Ross-on-Wye; Scribal Gathering, The Crown, Stony Stratford; Tales Tattled & Told, Bletchley; Huddersfield Storytellers, Rat and Ratchet; Dartmoor Storytellers, Chagford Inn; Pennine Folk Club, Stocksmoor.*
 
-*Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025; Something Else Tea Tent: 2025); Wickham (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks, 2025).*
+*Indoor Festival sets: Kashmir Fringe, Isle of Wight, 2026 (solo + guests, Acoustic Stage).*
+
+*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle), Woodland Stage; + The AnyWhens, Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick, Mellow Yellow/Introducing stage).*
+
+*Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025, 2026; Something Else Tea Tent: 2025); Wickham (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks, 2025).*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Saturday, 11th June 2026 | Monty + Berlingo Flick | Gosport Sunset Festival | Mellow Yellow / Introducing Stage |
 | Sunday, 31st May 2026 | Monty + The AnyWhens | Three Rivers Music Festival, IW | Community Stage |
 | Sunday, 31st May 2026 | Monty + Sophie Kate (fiddle) | Three Rivers Music Festival, IW | Woodland Stage |
 | Tuesday, 19th May 2026 | Solo | Crown & Sceptre, Ross-on-Wye | Cunning Folk of the Forest & Other Traditional Tales |
 | Monday, 11th May 2026 | Solo | Wheatsheaf, Newport, IW | Tales of Old Newport |
-| Sat/Sun, 19-19th May 2026 | Open mic | Ey Up Mi Duck| Open mic |
+| Sat/Sun, 9+10th May 2026 | Open mic | 'Ey Up Mi Duck| Open mic |
 | Friday, 24th April 2026 | Solo | Sôlt, Almondbury (Huddersfield) | An Evening of Traditional Tales |
 | Saturday, 18th April 2026 | Monty + The AnyWhens | St Lawrence Village Hall | Faery Tale Blues |
 | Saturday, 14th March 2026 | Monty + The AnyWhens | Brading Roman Villa, Brading | Fairy Tale Blues |
