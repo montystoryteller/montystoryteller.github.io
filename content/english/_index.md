@@ -56,7 +56,7 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "LAST FESTIVAL SET: Three Rivers Festival, Sunday May 31st, 2026, Woodland stage (+ Sophie Kate, fiddle), Community Stage (+ The AnyWhens)"
+      - "UPCOMING FESTIVAL SETS: Trowbridge Festival, GIAF (Gig In A Field)"
       - "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: false
