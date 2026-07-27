@@ -29,10 +29,10 @@ banner:
     - enable: false
       label: "Buy Tickets for Three Rivers Music Festival — 29-31/05/26"
       link: "https://threeriversfest.uk/tickets/"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
-    - enable: true
+    - enable: false
       label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues, Take Two' show + Sue Cain (Thurs/Fri) + Sophie Kate (Thurs), 23-24th July, 2026"
       link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
     - enable: false
@@ -56,8 +56,9 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "UPCOMING FESTIVAL SETS: Trowbridge Festival, GIAF (Gig In A Field)"
-      - "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
+      - "UPCOMING FESTIVAL OUTINGS: GIAF (Gig in a Field) 2026"
+      - "RECENT FESTIVAL OUTINGS: Trowbridge Festival"
+      #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: false
         label: "Reserve Tickets for Winter Tales — 10/12/25"
@@ -68,7 +69,7 @@ features:
       - enable: false
         label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2145982"
-      - enable: true
+      - enable: false
         label: "Buy Tickets for Ventnor Fringe, 'Solent Tales, Macabre Stories' solo show — 22/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=48401"
 
@@ -92,7 +93,7 @@ features:
       - "Short pop up sets"
       - "Full storytelling shows"
       - "Folk stories and songs, reimagined"
-      - "UPCOMING EVENT: Ventnor Fringe Festival"
+      - "LAST EVENT: Ventnor Fringe Festival (+ Sophie Kate)"
     buttons:
       - enable: true
         label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"

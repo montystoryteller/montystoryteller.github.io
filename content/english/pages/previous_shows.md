@@ -16,12 +16,16 @@ draft: false
 
 *Indoor Festival sets: Kashmir Fringe, Isle of Wight, 2026 (solo + guests, Acoustic Stage).*
 
-*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle), Woodland Stage; + The AnyWhens, Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick, Mellow Yellow/Introducing stage).*
+*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle); Woodland Stage; + The AnyWhens; Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick; Mellow Yellow/Introducing stage); Trowbridge Festival, 2026.*
 
 *Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025, 2026; Something Else Tea Tent: 2025); Wickham (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks, 2025).*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Sat-Sun, 25-26th July, 2026 | Solo | Trowbridge Festival | Tales for All Ages, + Open Mic |
+| Friday, 24th July, 2026 | Monty + Sue Cain | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |
+| Thursday, 23rd July, 2026 | Monty + Sue Cain + Sophie Kate | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |
+| Wednedsay, 22nd July, 2026 | Solo | Bijou Tent, Ventnor Fringe | Solent Tales |
 | Saturday, 11th June 2026 | Monty + Berlingo Flick | Gosport Sunset Festival | Mellow Yellow / Introducing Stage |
 | Sunday, 31st May 2026 | Monty + The AnyWhens | Three Rivers Music Festival, IW | Community Stage |
 | Sunday, 31st May 2026 | Monty + Sophie Kate (fiddle) | Three Rivers Music Festival, IW | Woodland Stage |
