@@ -16,6 +16,11 @@ outings:
     avatar: "/images/vf_logo.png"
     content: ""
 
+  - name: "Gosport Sunset Festival"
+    designation: "Monty + Berlingo Flick, June 2026"
+    avatar: "/images/gosport_sunset_festival-logo.jpg"
+    content: ""
+
   - name: "Three Rivers Music Festival, Isle of Wight"
     designation: "Woodland Stage with Sophie Kate (fiddle), Community Stage with The AnyWhens, May 2026"
     avatar: "/images/three_rivers_2026_logo.jpg"

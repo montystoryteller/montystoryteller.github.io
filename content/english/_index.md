@@ -56,8 +56,8 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "UPCOMING FESTIVAL OUTINGS: GIAF (Gig in a Field) 2026"
       - "RECENT FESTIVAL OUTINGS: Trowbridge Festival"
+      - "UPCOMING FESTIVAL OUTINGS: GIAF (Gig in a Field) 2026"
       #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: false
@@ -95,7 +95,7 @@ features:
       - "Folk stories and songs, reimagined"
       - "LAST EVENT: Ventnor Fringe Festival (+ Sophie Kate)"
     buttons:
-      - enable: true
+      - enable: false
         label: "Buy Tickets for Ventnor Fringe, 'Faery Tale Blues' show — 23 & 24/07/26"
         link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
  
