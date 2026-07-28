@@ -9,7 +9,7 @@ draft: false
 
 banner:
   title: 'Booking shows'
-  content: "Now available for booking shows in reportoire (solo shows and shows with *The AnyWhens*) as well as customs sets, pop-up performances (*Tea Tales*).<br/><br/>*Paid performances, ticket splits, festival entry, beer'n'cider, cake, jam and biscuits, etc.*<br/><br/>"
+  content: "Now available for booking shows in reportoire, as well as customs sets, pop-up performances (*Tea Tales*).<br/><br/>*Paid performances, ticket splits, festival entry, beer'n'cider, cake, jam and biscuits, etc.*<br/><br/>"
   image: "/images/monty_downside_look_small.jpg"
   buttons:
     - enable: true
@@ -21,21 +21,12 @@ banner:
 # Features
 features:
 
-  - title: "Protest Days, Rebellion Nights [+ The Anywhens]"
-    image: "/images/setlists/setlist_protest_days.jpg"
-    content: "They were days of direct action: the Diggers and the Levellers, the Plug Drawer rioters and the Pentrich rebels; the followers of King Ludd, and of Captain Swing; of juries, and spies; of executions, and alibis.<br/><br/>The tales of their actions are many; the songs of their deeds are still sung.<br/><br/>And today? Today we will hear some of those stories; some of those songs; so sit back, and let the Protest tales begin."
+  - title: "Protest Days, Rebellion Nights"
+    image: "/images/luddites-smashing-textile-machines.png"
+    content: "They were days of direct action: the Diggers and the Levellers, the Plug Drawer rioters and the Pentrich rebels; the followers of King Ludd, and of Captain Swing; of juries, and spies; of executions, and alibis.<br/><br/>The tales of their actions are many; the stories still told.<br/><br/>Let the Protest tales begin."
     bulletpoints:
-     - "60 minute fringe show"
+     - "60-90 minute show"
      - "Tales: *Tony 'Monty' Hirst*"
-     - "Music & song: *The AnyWhens (Glenn Koppany & Sue Cain)*"
-
-  - title: "Monty / The AnyWhens (folk stories'n'songs)"
-    image: "/images/monty_anywhens_cider_fest.jpg"
-    content: ""
-    bulletpoints:
-      - "Turn taking show — folk songs'n'tradtional tales"
-      - "1-2.5 hours, 15-20 minutes each story or song set"
-      - "Ideal for beer / cider festivals, semi-formal pub nights, fetes"
 
   - title: "Tea Tales"
     image: "/images/teatales_logo_red_on_transparent.png"
