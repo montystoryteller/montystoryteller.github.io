@@ -21,7 +21,7 @@ url = "/upcoming"
 weight = 2
 name = "Shows"
 identifier = "shows-sub"
-parent = "shows"
+parent = "Shows"
 
 [[main]]
 name = "Protest Days, Rebellion Nights"
