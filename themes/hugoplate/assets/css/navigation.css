@@ -22,6 +22,11 @@
   @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
 }
 
+.nav-link:hover,
+.nav-link:focus-visible {
+  @apply bg-light dark:bg-darkmode-light text-text-dark dark:text-darkmode-text-dark rounded;
+}
+
 .nav-dropdown {
   @apply mr-0;
 }
@@ -97,7 +102,12 @@
 }
 
 .nav-dropdown-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
+  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block px-2 py-1 font-semibold transition;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link:focus-visible {
+  @apply bg-light dark:bg-darkmode-light text-text-dark dark:text-darkmode-text rounded;
 }
 
 /* theme-switcher */
