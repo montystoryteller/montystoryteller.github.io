@@ -24,6 +24,7 @@ identifier = "shows-sub"
 parent = "Shows"
 
 [[main]]
+weight = 1
 name = "Protest Days, Rebellion Nights"
 parent = "shows-sub"
 url = "/protest-days"

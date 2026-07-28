@@ -37,42 +37,82 @@
         {{ $active := eq $menuURL $pageURL }}
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative">
-            <span
+            <button
+              type="button"
               class="nav-link {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := eq $childURL $pageURL }}
                 {{ if $active }}active{{ end }}
-              {{ end }} inline-flex items-center">
+              {{ end }} inline-flex items-center nav-dropdown-toggle">
               {{ .Name }}
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path
                   d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
               </svg>
-            </span>
+            </button>
             <ul
               class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
               {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := eq $childURL $pageURL }}
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link {{ if $active }}
-                      active
-                    {{- end -}}"
-                    {{ if findRE `^http` .URL }}
-                      target="_blank" rel="noopener"
-                    {{ end }}
-                    href="{{- if findRE `^#` .URL -}}
-                      {{- if not $.IsHome -}}
-                        {{- site.Home.RelPermalink -}}
-                      {{- end }}
-                      {{- .URL -}}
-                    {{- else -}}
-                      {{- .URL | relLangURL -}}
-                    {{- end -}}">
-                    {{ .Name }}
-                  </a>
-                </li>
+                {{ if .HasChildren }}
+                  <li class="nav-dropdown-item nav-dropdown relative">
+                    <button
+                      type="button"
+                      class="nav-dropdown-link nav-dropdown-toggle inline-flex w-full items-center justify-between">
+                      {{ .Name }}
+                      <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                          d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </button>
+                    <ul class="nav-dropdown-list nav-dropdown-sublist">
+                      {{ range .Children }}
+                        {{ $grandchildURL := .URL | absLangURL }}
+                        {{ $grandchildActive := eq $grandchildURL $pageURL }}
+                        <li class="nav-dropdown-item">
+                          <a
+                            class="nav-dropdown-link {{ if $grandchildActive }}
+                              active
+                            {{- end -}}"
+                            {{ if findRE `^http` .URL }}
+                              target="_blank" rel="noopener"
+                            {{ end }}
+                            href="{{- if findRE `^#` .URL -}}
+                              {{- if not $.IsHome -}}
+                                {{- site.Home.RelPermalink -}}
+                              {{- end }}
+                              {{- .URL -}}
+                            {{- else -}}
+                              {{- .URL | relLangURL -}}
+                            {{- end -}}">
+                            {{ .Name }}
+                          </a>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  </li>
+                {{ else }}
+                  <li class="nav-dropdown-item">
+                    <a
+                      class="nav-dropdown-link {{ if $active }}
+                        active
+                      {{- end -}}"
+                      {{ if findRE `^http` .URL }}
+                        target="_blank" rel="noopener"
+                      {{ end }}
+                      href="{{- if findRE `^#` .URL -}}
+                        {{- if not $.IsHome -}}
+                          {{- site.Home.RelPermalink -}}
+                        {{- end }}
+                        {{- .URL -}}
+                      {{- else -}}
+                        {{- .URL | relLangURL -}}
+                      {{- end -}}">
+                      {{ .Name }}
+                    </a>
+                  </li>
+                {{ end }}
               {{ end }}
             </ul>
           </li>

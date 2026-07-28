@@ -18,7 +18,7 @@ features:
 
 ---
 
-### Protest Days, Rebellion Nights
+### Tales told as part of Protest Days, Rebellion Nights
 
 Tales retold from troubled times, when action was taken directly and the consequences could be considerable.
 
