@@ -19,24 +19,35 @@ url = "/upcoming"
 
 [[main]]
 weight = 2
+name = "Shows"
+identifier = "shows-sub"
+parent = "shows"
+
+[[main]]
+name = "Protest Days, Rebellion Nights"
+parent = "shows-sub"
+url = "/protest-days"
+
+[[main]]
+weight = 3
 parent = "Shows"
 name = "Booking"
 url = "/booking"
 
 [[main]]
-weight = 3
+weight = 4
 parent = "Shows"
 name = "Recent"
 url = "/recent_shows"
 
 [[main]]
-weight = 4
+weight = 5
 parent = "Shows"
 name = "Previous"
 url = "/previous_shows"
 
 [[main]]
-weight = 4
+weight = 6
 parent = "Shows"
 name = "Posters / flyers"
 url = "/flyers"

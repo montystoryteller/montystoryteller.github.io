@@ -3,7 +3,7 @@ title: "Booking"
 # meta title
 meta_title: ""
 # meta description
-description: "This is meta description"
+description: "How to book Monty Storyteller"
 # save as draft
 draft: false
 
@@ -23,7 +23,7 @@ features:
 
   - title: "Protest Days, Rebellion Nights"
     image: "/images/luddites-smashing-textile-machines.png"
-    content: "They were days of direct action: the Diggers and the Levellers, the Plug Drawer rioters and the Pentrich rebels; the followers of King Ludd, and of Captain Swing; of juries, and spies; of executions, and alibis.<br/><br/>The tales of their actions are many; the stories still told.<br/><br/>Let the Protest tales begin."
+    content: "They were days of direct action: the Diggers and the Levellers, the Plug Drawer rioters and the Pentrich rebels; the followers of King Ludd, and of Captain Swing; of juries, and spies; of executions, and alibis.<br/><br/>The tales of their actions are many; the stories should still be told.<br/><br/>Let the Protest tales begin."
     bulletpoints:
      - "60-90 minute show"
      - "Tales: *Tony 'Monty' Hirst*"
