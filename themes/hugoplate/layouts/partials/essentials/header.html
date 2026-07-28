@@ -49,13 +49,12 @@
           {{ $active := eq $childURL $pageURL }}
           {{ if .HasChildren }}
           <li class="nav-dropdown-item nav-dropdown relative">
-            <button type="button"
-              class="nav-dropdown-link nav-dropdown-toggle inline-flex w-full items-center justify-between">
+            <span class="nav-dropdown-link inline-flex w-full items-center justify-between">
               {{ .Name }}
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
               </svg>
-            </button>
+            </span>
             <ul class="nav-dropdown-list nav-dropdown-sublist">
               {{ range .Children }}
               {{ $grandchildURL := .URL | absLangURL }}
