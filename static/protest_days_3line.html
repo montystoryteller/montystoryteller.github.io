@@ -126,6 +126,11 @@ footer { padding:0 30px 20px; text-align:center; }
         <h3>&#128207; Layout</h3>
         <div class="size-row"><label>Side padding %</label><input type="range" id="sidePad" min="0" max="30" value="8"><span id="sidePadV">8</span></div>
         <div class="size-row"><label>Top/bottom pad</label><input type="range" id="vPad" min="0" max="60" value="18"><span id="vPadV">18</span></div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="lockSize" checked><span class="slider-tog"></span></label>
+          <label for="lockSize">Lock font size across lines</label>
+        </div>
+        <div class="hint">When on, all three lines use the same letter size (set by whichever line needs the smallest size to fit). When off, each line is scaled independently to fill the width, which can make short words balloon in size.</div>
       </div>
 
       <div class="group">
@@ -282,11 +287,15 @@ function buildSVG() {
   const lineTexts   = [t.l1, t.l2, t.l3];
   const bandColors  = [[c.c1bg, c.c1tx], [c.c2bg, c.c2tx], [c.c3bg, c.c3tx]];
 
-  const bands = lineTexts.map(txt => {
-    const fs   = armyFitMulti([txt], avail);
-    const capH = fs * CAP_RATIO;
+  let bands = lineTexts.map(txt => ({ fs: armyFitMulti([txt], avail) }));
+  if (t.lockSize) {
+    const minFs = Math.min(...bands.map(b => b.fs));
+    bands = bands.map(() => ({ fs: minFs }));
+  }
+  bands = bands.map(b => {
+    const capH = b.fs * CAP_RATIO;
     const need = 2 * vPad + capH;
-    return { fs, capH, need };
+    return { fs: b.fs, capH, need };
   });
   const blockH = Math.max(...bands.map(b => b.need));
   bands.forEach(b => { b.vp = (blockH - b.capH) / 2; });
@@ -348,6 +357,7 @@ function getText() {
     l3: id('l3').value || 'X',
     sidePad: +id('sidePad').value,
     vPad:    +id('vPad').value,
+    lockSize: id('lockSize').checked,
     urlOn:   id('urlOn').checked,
     urlText: id('urlText').value || '',
     urlFont: id('urlFont').value,
@@ -412,7 +422,8 @@ footer:
 
 layout:
   side_pad: ${t.sidePad}%
-  v_pad:    ${t.vPad}px`;
+  v_pad:    ${t.vPad}px
+  lock_size: ${t.lockSize ? 'yes' : 'no'}`;
   saveURL();
 }
 
@@ -427,6 +438,7 @@ function saveURL() {
   p.set('c2bg', c.c2bg); p.set('c2tx', c.c2tx);
   p.set('c3bg', c.c3bg); p.set('c3tx', c.c3tx);
   p.set('sp', t.sidePad); p.set('vp', t.vPad);
+  p.set('ls', t.lockSize ? '1' : '0');
   p.set('mc', id('marginCol_h').value);
   if (id('highlightOn').checked) p.set('hl', '1');
   p.set('hc', id('hlCol_h').value);
@@ -461,6 +473,8 @@ function loadURL() {
   const sp = p.get('sp'), vp = p.get('vp');
   if (sp) { id('sidePad').value = sp; id('sidePadV').textContent = sp; }
   if (vp) { id('vPad').value = vp; id('vPadV').textContent = vp; }
+  const ls = p.get('ls');
+  if (ls !== null) id('lockSize').checked = ls === '1';
 
   const mc = p.get('mc');
   if (mc && /^[0-9A-Fa-f]{6}$/.test(mc)) { id('marginCol').value = '#' + mc; id('marginCol_h').value = mc.toUpperCase(); }
@@ -526,6 +540,7 @@ function copyLink() {
   });
 });
 document.querySelectorAll('input[name="scheme"]').forEach(r => r.addEventListener('change', update));
+id('lockSize').addEventListener('change', update);
 
 syncColor('c1bg','c1bg_h'); syncColor('c1tx','c1tx_h');
 syncColor('c2bg','c2bg_h'); syncColor('c2tx','c2tx_h');
