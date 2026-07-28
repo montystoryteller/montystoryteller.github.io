@@ -59,7 +59,7 @@ select.font-sel:focus { outline:none; border-color:#111; }
 .radio-row { display:flex; gap:16px; margin-bottom:10px; }
 .radio-row label { display:flex; align-items:center; gap:6px; font-size:.9em; color:#495057; cursor:pointer; font-weight:500; }
 .preview { display:flex; flex-direction:column; gap:20px; }
-.svg-wrap { background:#000; border-radius:12px; padding:110px 70px; display:flex; justify-content:center; align-items:center; min-height:280px; border:1px solid #eaeaea; }
+.svg-wrap { background:#000; border-radius:12px; padding:20px; display:flex; justify-content:center; align-items:center; min-height:280px; border:1px solid #eaeaea; }
 .svg-wrap svg { max-width:100%; height:auto; }
 .cfg-section { background:#fafafa; border-radius:12px; padding:18px; border:1px solid #eaeaea; }
 .cfg-section h3 { margin-bottom:12px; color:#333; font-weight:600; }
@@ -77,22 +77,11 @@ footer a { color:#667eea; }
 <div class="container">
   <div class="header">
     <h1>Slogan Colour Customiser</h1>
-    <!-- <p><a href="https://octoberbooks.lemonbooking.com/events/116/details">Buy Tickets — October Books, Southampton 'Protest Tales' — 04/12/25</a></p> -->
+    <p><a href="https://octoberbooks.lemonbooking.com/events/116/details">Buy Tickets — October Books, Southampton 'Protest Tales' — 04/12/25</a></p>
   </div>
 
   <div class="content">
     <div class="controls">
-
-      <div class="group">
-        <h3>&#128737;&#65039; Preview Only</h3>
-        <div class="row"><label>Margin colour</label><div class="color-picker"><input type="color" id="marginCol" value="#000000"><input class="hex" id="marginCol_h" value="000000" maxlength="6"></div></div>
-        <div class="toggle-row">
-          <label class="toggle"><input type="checkbox" id="highlightOn" checked><span class="slider-tog"></span></label>
-          <label for="highlightOn">Highlight border round each block</label>
-        </div>
-        <div class="row"><label>Highlight colour</label><div class="color-picker"><input type="color" id="hlCol" value="#FF0000"><input class="hex" id="hlCol_h" value="FF0000" maxlength="6"></div></div>
-        <div class="hint">Preview-only guides &mdash; the margin colour and highlight border are never included in the downloaded SVG. Pick a highlight colour that stands out from your block colours.</div>
-      </div>
 
       <div class="group">
         <h3>&#9999;&#65039; Upper Block Text</h3>
@@ -123,21 +112,32 @@ footer a { color:#667eea; }
 
       <div class="group">
         <h3>&#127912; Upper Block Colours</h3>
-        <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="b1bg" value="#FFFF00"><input class="hex" id="b1bg_h" value="FFFF00" maxlength="6"></div></div>
-        <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b1tx" value="#000000"><input class="hex" id="b1tx_h" value="000000" maxlength="6"></div></div>
+        <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="b1bg" value="#FF0000"><input class="hex" id="b1bg_h" value="FF0000" maxlength="6"></div></div>
+        <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b1tx" value="#00FF00"><input class="hex" id="b1tx_h" value="00FF00" maxlength="6"></div></div>
       </div>
 
       <div class="group">
         <h3>&#127912; Lower Block Colours</h3>
         <div class="toggle-row">
-          <label class="toggle"><input type="checkbox" id="mirrorLower" checked><span class="slider-tog"></span></label>
+          <label class="toggle"><input type="checkbox" id="mirrorLower"><span class="slider-tog"></span></label>
           <label for="mirrorLower">Mirror upper block (reversed)</label>
         </div>
-        <div id="lowerColorInputs" class="inputs-disabled">
-          <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="b2bg" value="#000000"><input class="hex" id="b2bg_h" value="000000" maxlength="6"></div></div>
-          <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b2tx" value="#FFFF00"><input class="hex" id="b2tx_h" value="FFFF00" maxlength="6"></div></div>
+        <div id="lowerColorInputs">
+          <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="b2bg" value="#0000FF"><input class="hex" id="b2bg_h" value="0000FF" maxlength="6"></div></div>
+          <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b2tx" value="#FF00FF"><input class="hex" id="b2tx_h" value="FF00FF" maxlength="6"></div></div>
         </div>
         <div class="hint">When mirrored, the lower panel's colours follow the upper panel automatically (bg&harr;text swapped), like the reference image.</div>
+      </div>
+
+      <div class="group">
+        <h3>&#128737;&#65039; Preview Only</h3>
+        <div class="row"><label>Margin colour</label><div class="color-picker"><input type="color" id="marginCol" value="#000000"><input class="hex" id="marginCol_h" value="000000" maxlength="6"></div></div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="highlightOn"><span class="slider-tog"></span></label>
+          <label for="highlightOn">Highlight border round each block</label>
+        </div>
+        <div class="row"><label>Highlight colour</label><div class="color-picker"><input type="color" id="hlCol" value="#FF0000"><input class="hex" id="hlCol_h" value="FF0000" maxlength="6"></div></div>
+        <div class="hint">Preview-only guides &mdash; the margin colour and highlight border are never included in the downloaded SVG. Pick a highlight colour that stands out from your block colours.</div>
       </div>
 
       <!-- URL BLOCK -->
@@ -195,7 +195,7 @@ footer a { color:#667eea; }
   </div>
 
   <footer>
-    <!-- <p><a href="https://octoberbooks.lemonbooking.com/events/116/details">Buy Tickets — October Books, Southampton 'Protest Tales' — 04/12/25</a></p> -->
+    <p><a href="https://octoberbooks.lemonbooking.com/events/116/details">Buy Tickets — October Books, Southampton 'Protest Tales' — 04/12/25</a></p>
     <p><a href="protest_days_3line.html">Try the 3-line designer &rarr;</a></p>
   </footer>
 </div>
@@ -405,7 +405,6 @@ function applyPreviewDecorations() {
         rect.setAttribute('fill', 'none');
         rect.setAttribute('stroke', hc);
         rect.setAttribute('stroke-width', sw);
-        rect.setAttribute('stroke-dasharray', (sw * 4) + ',' + (sw * 3));
         svg.appendChild(rect);
       });
     }
