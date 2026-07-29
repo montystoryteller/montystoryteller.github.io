@@ -75,7 +75,7 @@ features:
 
   - title: "Fiddle Me This — Monty'n'Sophie"
     image: "/images/monty_sophie_solent_crop.png"
-    content: "Stories and music, interwtined."
+    content: "Stories and music, intertwined."
     bulletpoints:
       - "Short pop up sets"
       - "Full storytelling shows"
@@ -88,11 +88,11 @@ features:
   
   - title: "Monty + Sue Cain"
     image: "/images/monty_sue_cain.png"
-    content: "Stories and songs, interwtined."
+    content: "Stories and songs, intertwined."
     bulletpoints:
+      - "Folk stories and traditional English and Scottish folk songs, reimagined"
       - "Short pop up sets"
       - "Full storytelling shows"
-      - "Folk stories and songs, reimagined"
       - "LAST EVENT: Ventnor Fringe Festival (+ Sophie Kate)"
     buttons:
       - enable: false
@@ -101,7 +101,7 @@ features:
  
   - title: "Monty + Berlingo Flick"
     image: "/images/monty_berlingo_flick_solent.jpg"
-    content: "Accompanied stories, narrative songs."
+    content: "Accompanied stories, narrative songs [contemporary original and traditional folk]."
     bulletpoints:
       - "Festival sets"
       - "LAST EVENT: Gosport Sunset Festival, Saturday July 11th, 2026, Introducing stage"
