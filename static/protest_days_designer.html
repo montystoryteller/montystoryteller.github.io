@@ -24,7 +24,8 @@ body {
 .header p { color:#666; font-size:1em; }
 .header a { color:#111; text-decoration:underline; }
 .content { display:grid; grid-template-columns:1fr 2fr; gap:30px; padding:30px; align-items:start; }
-.controls { display:flex; flex-direction:row; align-items:flex-start; gap:18px; }
+.controls { display:flex; flex-direction:row; align-items:flex-start; gap:18px; min-width:0; }
+.preview { min-width:0; }
 .group { background:#fafafa; padding:18px; border-radius:12px; border:1px solid #eaeaea; }
 .group h3 { margin-bottom:14px; color:#333; font-size:1em; font-weight:600; }
 .group.disabled { opacity:.45; pointer-events:none; }
@@ -101,13 +102,11 @@ footer a { color:#667eea; }
 
       <div class="tab-nav">
         <button type="button" class="tab-btn active" data-tab="0" onclick="showTab(0)">Preview Only</button>
-        <button type="button" class="tab-btn" data-tab="1" onclick="showTab(1)">Upper Block Text</button>
-        <button type="button" class="tab-btn" data-tab="2" onclick="showTab(2)">Lower Block Text</button>
-        <button type="button" class="tab-btn" data-tab="3" onclick="showTab(3)">Layout</button>
-        <button type="button" class="tab-btn" data-tab="4" onclick="showTab(4)">CMYK Print Safety</button>
-        <button type="button" class="tab-btn" data-tab="5" onclick="showTab(5)">Upper Block Colours</button>
-        <button type="button" class="tab-btn" data-tab="6" onclick="showTab(6)">Lower Block Colours</button>
-        <button type="button" class="tab-btn" data-tab="7" onclick="showTab(7)">URL Block</button>
+        <button type="button" class="tab-btn" data-tab="1" onclick="showTab(1)">Block Text</button>
+        <button type="button" class="tab-btn" data-tab="2" onclick="showTab(2)">Layout</button>
+        <button type="button" class="tab-btn" data-tab="3" onclick="showTab(3)">Shape &amp; Frame</button>
+        <button type="button" class="tab-btn" data-tab="4" onclick="showTab(4)">Block Colours &amp; CMYK</button>
+        <button type="button" class="tab-btn" data-tab="5" onclick="showTab(5)">URL Block</button>
       </div>
       <div class="group tab-panel active" data-tab="0">
         <h3>&#128737;&#65039; Preview Only</h3>
@@ -128,10 +127,8 @@ footer a { color:#667eea; }
           <label for="l1TwoLines">Two lines</label>
         </div>
         <div id="l1bWrap" class="text-row"><label>Line 2</label><input class="slogan" id="l1b" value="DAYS" maxlength="20"></div>
-      </div>
 
-      <div class="group tab-panel" data-tab="2">
-        <h3>&#9999;&#65039; Lower Block Text</h3>
+        <h3 style="margin-top:22px;">&#9999;&#65039; Lower Block Text</h3>
         <div class="text-row"><label>Line 1</label><input class="slogan" id="l2a" value="REBELLION" maxlength="20"></div>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="l2TwoLines" checked><span class="slider-tog"></span></label>
@@ -140,7 +137,7 @@ footer a { color:#667eea; }
         <div id="l2bWrap" class="text-row"><label>Line 2</label><input class="slogan" id="l2b" value="NIGHTS" maxlength="20"></div>
       </div>
 
-      <div class="group tab-panel" data-tab="3">
+      <div class="group tab-panel" data-tab="2">
         <h3>&#127912; Layout</h3>
         <div class="size-row">
           <label>Side padding</label>
@@ -153,13 +150,30 @@ footer a { color:#667eea; }
           <span id="vPadV">20</span>px
         </div>
         <div class="hint">Both blocks always same height. Gap between lines = top/bottom padding.</div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="lockSize" checked><span class="slider-tog"></span></label>
+          <label for="lockSize">Lock font size across blocks</label>
+        </div>
+        <div class="hint">When on, both blocks use the same letter size (set by whichever needs the smallest size to fit). When off, each block is scaled independently to fill the width.</div>
+        <div class="size-row"><label>Text scale</label><input type="range" id="textScale" min="50" max="130" value="100" step="1"><span id="textScaleV">100</span>%</div>
+        <div class="hint">Shrinks or grows the lettering without changing the block sizes &mdash; handy for pulling text in off a rounded/circular edge instead of padding words with spaces.</div>
+      </div>
+
+      <div class="group tab-panel" data-tab="3">
+        <h3>&#128444;&#65039; Shape &amp; Frame</h3>
         <div class="size-row"><label>Corner radius</label><input type="range" id="cornerRadius" min="0" max="150" value="0"><span id="cornerRadiusV">0</span></div>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="circleBlocks"><span class="slider-tog"></span></label>
           <label for="circleBlocks">Oval / circle envelope</label>
         </div>
-        <div class="hint">Both of these shape the design as a single envelope &mdash; the top and bottom outer corners round together, or the whole stack is cropped to one oval &mdash; rather than rounding each colour band individually.</div>
-        <div class="row"><label>Page background</label><div class="color-picker"><input type="color" id="pageBg" value="#000000"><input class="hex" id="pageBg_h" value="000000" maxlength="6"></div></div>
+        <div class="hint">Both of these shape the design as a single envelope &mdash; the top and bottom outer corners round together, or the whole stack is cropped to one shape &mdash; rather than rounding each colour band individually.</div>
+        <div id="forceCircleWrap" class="toggle-row inputs-disabled">
+          <label class="toggle"><input type="checkbox" id="forceCircle"><span class="slider-tog"></span></label>
+          <label for="forceCircle">Force true circle (not oval)</label>
+        </div>
+        <div class="hint">By default the oval hugs the design exactly, which stretches it when the design is much taller than wide. This forces an equal-diameter circle instead, adding blank margin top/bottom or side-to-side to square it up. Increase Padding below to give text more breathing room inside the curve.</div>
+
+        <div class="row" style="margin-top:18px;"><label>Page background</label><div class="color-picker"><input type="color" id="pageBg" value="#000000"><input class="hex" id="pageBg_h" value="000000" maxlength="6"></div></div>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="pageBgTransparent"><span class="slider-tog"></span></label>
           <label for="pageBgTransparent">Transparent page background</label>
@@ -176,30 +190,23 @@ footer a { color:#667eea; }
           <div class="size-row"><label>Border width</label><input type="range" id="borderWidth" min="0" max="60" value="16"><span id="borderWidthV">16</span></div>
         </div>
         <div class="size-row"><label>Padding (border&#8594;blocks)</label><input type="range" id="framePad" min="0" max="80" value="0"><span id="framePadV">0</span></div>
-        <div class="hint">Padding is the gap between the border and the text blocks. Colour it in up to three vertical bands so, for example, the area behind the top and bottom blocks can differ from the middle.</div>
-        <div class="row"><label>Padding &mdash; top</label><div class="color-picker"><input type="color" id="padTopCol" value="#000000"><input class="hex" id="padTopCol_h" value="000000" maxlength="6"></div></div>
+        <div class="hint">Padding is the gap between the border and the text blocks &mdash; increasing it also enlarges a circle/oval envelope relative to the blocks, giving clipped corners more room. Colour it in up to three vertical bands so, for example, the area behind the top and bottom blocks can differ from the middle.</div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="bleedEdges"><span class="slider-tog"></span></label>
+          <label for="bleedEdges">Bleed top/bottom block colours into padding</label>
+        </div>
+        <div class="hint">Instead of picking separate top/bottom padding colours, the upper block's background flows up to the border and the lower block's (or footer's, if on) flows down &mdash; useful with the circle/oval envelope so the colour follows the curve right to the edge.</div>
+        <div class="row" id="padTopRow"><label>Padding &mdash; top</label><div class="color-picker"><input type="color" id="padTopCol" value="#000000"><input class="hex" id="padTopCol_h" value="000000" maxlength="6"></div></div>
         <div class="row"><label>Padding &mdash; middle</label><div class="color-picker"><input type="color" id="padMidCol" value="#000000"><input class="hex" id="padMidCol_h" value="000000" maxlength="6"></div></div>
-        <div class="row"><label>Padding &mdash; bottom</label><div class="color-picker"><input type="color" id="padBotCol" value="#000000"><input class="hex" id="padBotCol_h" value="000000" maxlength="6"></div></div>
+        <div class="row" id="padBotRow"><label>Padding &mdash; bottom</label><div class="color-picker"><input type="color" id="padBotCol" value="#000000"><input class="hex" id="padBotCol_h" value="000000" maxlength="6"></div></div>
       </div>
 
       <div class="group tab-panel" data-tab="4">
-        <h3>&#128424;&#65039; CMYK Print Safety</h3>
-        <div class="toggle-row">
-          <label class="toggle"><input type="checkbox" id="cmykSafe"><span class="slider-tog"></span></label>
-          <label for="cmykSafe">Snap colours to CMYK-safe</label>
-        </div>
-        <div class="size-row"><label>Vibrance</label><input type="range" id="cmykVibrance" min="-50" max="100" value="0"><span id="cmykVibranceV">0%</span></div>
-        <div class="hint">When on, every colour you pick (backgrounds &amp; text, not the preview-only margin/highlight) is nudged to an approximation of how it'll look printed in 4-colour process, using generic process-ink values &mdash; this is a heuristic sanity check, not a substitute for your printer's actual proof/profile. Bright neon greens and blues shift the most. Vibrance boosts (or reduces) saturation before the print simulation, to claw back some punch &mdash; it still runs through the same ink approximation, so it can't exceed what that model considers achievable. Turning the toggle off restores your original colours.</div>
-      </div>
-
-      <div class="group tab-panel" data-tab="5">
         <h3>&#127912; Upper Block Colours</h3>
         <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="b1bg" value="#FFFF00"><input class="hex" id="b1bg_h" value="FFFF00" maxlength="6"></div></div>
         <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b1tx" value="#000000"><input class="hex" id="b1tx_h" value="000000" maxlength="6"></div></div>
-      </div>
 
-      <div class="group tab-panel" data-tab="6">
-        <h3>&#127912; Lower Block Colours</h3>
+        <h3 style="margin-top:22px;">&#127912; Lower Block Colours</h3>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="mirrorLower" checked><span class="slider-tog"></span></label>
           <label for="mirrorLower">Mirror upper block (reversed)</label>
@@ -209,10 +216,18 @@ footer a { color:#667eea; }
           <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="b2tx" value="#FFFF00"><input class="hex" id="b2tx_h" value="FFFF00" maxlength="6"></div></div>
         </div>
         <div class="hint">When mirrored, the lower panel's colours follow the upper panel automatically (bg&harr;text swapped), like the reference image.</div>
+
+        <h3 style="margin-top:22px;">&#128424;&#65039; CMYK Print Safety</h3>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="cmykSafe"><span class="slider-tog"></span></label>
+          <label for="cmykSafe">Snap colours to CMYK-safe</label>
+        </div>
+        <div class="size-row"><label>Vibrance</label><input type="range" id="cmykVibrance" min="-50" max="100" value="0"><span id="cmykVibranceV">0%</span></div>
+        <div class="hint">When on, every colour you pick (backgrounds &amp; text, not the preview-only margin/highlight) is nudged to an approximation of how it'll look printed in 4-colour process, using generic process-ink values &mdash; this is a heuristic sanity check, not a substitute for your printer's actual proof/profile. Bright neon greens and blues shift the most. Vibrance boosts (or reduces) saturation before the print simulation, to claw back some punch &mdash; it still runs through the same ink approximation, so it can't exceed what that model considers achievable. Turning the toggle off restores your original colours.</div>
       </div>
 
       <!-- URL BLOCK -->
-      <div class="group tab-panel" data-tab="7">
+      <div class="group tab-panel" data-tab="5">
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="urlOn"><span class="slider-tog"></span></label>
           <label for="urlOn">&#127758; URL Block</label>
@@ -378,25 +393,33 @@ function buildSVG() {
   // Army Rust blocks — 1 or 2 lines each
   const lines1 = t.l1TwoLines ? [t.l1a, t.l1b] : [t.l1a];
   const lines2 = t.l2TwoLines ? [t.l2a, t.l2b] : [t.l2a];
-  const fs1   = armyFit(lines1, avail);
-  const fs2   = armyFit(lines2, avail);
+  let fs1 = armyFit(lines1, avail);
+  let fs2 = armyFit(lines2, avail);
+  if (t.lockSize) {
+    const minFs = Math.min(fs1, fs2);
+    fs1 = minFs; fs2 = minFs;
+  }
   const capH1 = fs1 * CAP_RATIO;
   const capH2 = fs2 * CAP_RATIO;
   const need1 = (lines1.length + 1) * vPad + lines1.length * capH1;
   const need2 = (lines2.length + 1) * vPad + lines2.length * capH2;
   const blockH = Math.max(need1, need2);
-  const vp1   = (blockH - lines1.length * capH1) / (lines1.length + 1);
-  const vp2   = (blockH - lines2.length * capH2) / (lines2.length + 1);
+
+  // Text scale shrinks/grows the drawn glyphs without changing blockH (layout stays put).
+  const drawFs1 = fs1 * t.textScale, drawFs2 = fs2 * t.textScale;
+  const drawCapH1 = drawFs1 * CAP_RATIO, drawCapH2 = drawFs2 * CAP_RATIO;
+  const vp1 = (blockH - lines1.length * drawCapH1) / (lines1.length + 1);
+  const vp2 = (blockH - lines2.length * drawCapH2) / (lines2.length + 1);
 
   let p1 = '';
   lines1.forEach((txt, i) => {
-    const baseline = (i + 1) * (vp1 + capH1);
-    p1 += armyPaths(txt, cx, baseline, fs1, '#' + c.b1tx) + '\n';
+    const baseline = (i + 1) * (vp1 + drawCapH1);
+    p1 += armyPaths(txt, cx, baseline, drawFs1, '#' + c.b1tx) + '\n';
   });
   let p2 = '';
   lines2.forEach((txt, i) => {
-    const baseline = blockH + (i + 1) * (vp2 + capH2);
-    p2 += armyPaths(txt, cx, baseline, fs2, '#' + c.b2tx) + '\n';
+    const baseline = blockH + (i + 1) * (vp2 + drawCapH2);
+    p2 += armyPaths(txt, cx, baseline, drawFs2, '#' + c.b2tx) + '\n';
   });
 
   // URL block
@@ -434,8 +457,15 @@ ${uPaths}`;
   const bw   = t.borderOn ? t.borderWidth : 0;
   const pad  = t.framePad;
   const inset = bw + pad;
-  const Wt = W + inset * 2;
-  const Ht = H + inset * 2;
+  let Wt = W + inset * 2;
+  let Ht = H + inset * 2;
+  let extraX = 0, extraY = 0;
+  if (t.circleBlocks && t.forceCircle) {
+    const D = Math.max(Wt, Ht);
+    extraX = (D - Wt) / 2;
+    extraY = (D - Ht) / 2;
+    Wt = D; Ht = D;
+  }
 
   let defs = '', clipAttr = '';
   if (t.circleBlocks) {
@@ -451,9 +481,12 @@ ${uPaths}`;
   const borderRect = (t.borderOn && bw > 0) ? `<rect x="0" y="0" width="${Wt.toFixed(2)}" height="${Ht.toFixed(2)}" fill="#${c.borderCol}"/>` : '';
 
   const ix = bw, iy = bw, iw = Wt - bw * 2, ih = Ht - bw * 2, third = ih / 3;
-  const paddingRects = `<rect x="${ix.toFixed(2)}" y="${iy.toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padTopCol}"/>
+  const bottomBg = t.urlOn ? c.b3bg : c.b2bg;
+  const padTopFill = t.bleedEdges ? c.b1bg : c.padTopCol;
+  const padBotFill = t.bleedEdges ? bottomBg : c.padBotCol;
+  const paddingRects = `<rect x="${ix.toFixed(2)}" y="${iy.toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${padTopFill}"/>
 <rect x="${ix.toFixed(2)}" y="${(iy+third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padMidCol}"/>
-<rect x="${ix.toFixed(2)}" y="${(iy+2*third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padBotCol}"/>`;
+<rect x="${ix.toFixed(2)}" y="${(iy+2*third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${padBotFill}"/>`;
 
   lastLayout = { W: Wt, H: Math.round(Ht), cornerRadius: t.cornerRadius, circle: t.circleBlocks };
 
@@ -463,7 +496,7 @@ ${pageBgRect}
 <g${clipAttr}>
 ${borderRect}
 ${paddingRects}
-<g transform="translate(${inset.toFixed(2)},${inset.toFixed(2)})">
+<g transform="translate(${(inset+extraX).toFixed(2)},${(inset+extraY).toFixed(2)})">
 ${block1}
 ${p1}
 ${block2}
@@ -493,13 +526,17 @@ function getText() {
     l1TwoLines: id('l1TwoLines').checked,
     l2TwoLines: id('l2TwoLines').checked,
     sidePad: +id('sidePad').value, vPad: +id('vPad').value,
+    lockSize: id('lockSize').checked,
+    textScale: +id('textScale').value / 100,
     cornerRadius: +id('cornerRadius').value,
     circleBlocks: id('circleBlocks').checked,
+    forceCircle: id('forceCircle').checked,
     pageBg: id('pageBg_h').value,
     pageBgTransparent: id('pageBgTransparent').checked,
     borderOn: id('borderOn').checked,
     borderWidth: +id('borderWidth').value,
     framePad: +id('framePad').value,
+    bleedEdges: id('bleedEdges').checked,
     urlOn:   id('urlOn').checked,
     urlText: id('urlText').value || 'montystoryteller.org',
     urlFont: id('urlFont').value,
@@ -578,18 +615,22 @@ text:
 layout:
   side_padding: ${t.sidePad}%
   vert_padding:  ${t.vPad}px
+  lock_size: ${t.lockSize ? 'yes' : 'no'}
+  text_scale: ${Math.round(t.textScale*100)}%
   cmyk_safe: ${id('cmykSafe').checked ? 'yes' : 'no'}
   cmyk_vibrance: ${id('cmykVibrance').value}%
   corner_radius: ${t.cornerRadius}px
   circle_blocks: ${t.circleBlocks ? 'yes' : 'no'}
+  force_circle: ${t.forceCircle ? 'yes' : 'no'}
   page_bg: ${t.pageBgTransparent ? 'transparent' : '#' + t.pageBg}
 
 frame:
   border: ${t.borderOn ? `yes, #${c.borderCol}, ${t.borderWidth}px` : 'no'}
   padding: ${t.framePad}px
-  padding_top:    #${c.padTopCol}
+  bleed_edges: ${t.bleedEdges ? 'yes' : 'no'}
+  padding_top:    ${t.bleedEdges ? '(bleeds from upper block)' : '#' + c.padTopCol}
   padding_middle: #${c.padMidCol}
-  padding_bottom: #${c.padBotCol}`;
+  padding_bottom: ${t.bleedEdges ? '(bleeds from lower block)' : '#' + c.padBotCol}`;
   saveURL(c, t);
 }
 
@@ -627,16 +668,20 @@ function saveURL(c, t) {
   if (!t.l1TwoLines) p.set('l1s','1');
   if (!t.l2TwoLines) p.set('l2s','1');
   p.set('sp',t.sidePad); p.set('vp',t.vPad);
+  if (t.lockSize) p.set('ls','1');
+  p.set('tsc', Math.round(t.textScale*100));
   if (id('mirrorLower').checked) p.set('mL','1');
   if (id('cmykSafe').checked) p.set('cs','1');
   p.set('vb', id('cmykVibrance').value);
   p.set('cr', t.cornerRadius);
   if (t.circleBlocks) p.set('cb','1');
+  if (t.forceCircle) p.set('fc','1');
   p.set('pbg', t.pageBg);
   if (t.pageBgTransparent) p.set('pbgT','1');
   if (t.borderOn) p.set('bdOn','1');
   p.set('bdW', t.borderWidth);
   p.set('fPad', t.framePad);
+  if (t.bleedEdges) p.set('bleed','1');
   p.set('mc', id('marginCol_h').value);
   if (id('highlightOn').checked) p.set('hl','1');
   p.set('hc', id('hlCol_h').value);
@@ -667,12 +712,18 @@ function loadURL() {
   if (bdW !== null) { id('borderWidth').value = bdW; id('borderWidthV').textContent = bdW; }
   const fPad = p.get('fPad');
   if (fPad !== null) { id('framePad').value = fPad; id('framePadV').textContent = fPad; }
+  if (p.get('bleed') === '1') id('bleedEdges').checked = true;
+  id('padTopRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  id('padBotRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
   ['l1a','l1b','l2a','l2b'].forEach(k => { const v=p.get(k); if(v) id(k).value=v; });
   if (p.get('l1s') === '1') { id('l1TwoLines').checked = false; id('l1bWrap').classList.add('inputs-disabled'); }
   if (p.get('l2s') === '1') { id('l2TwoLines').checked = false; id('l2bWrap').classList.add('inputs-disabled'); }
   const sp=p.get('sp'), vp=p.get('vp');
   if(sp){ id('sidePad').value=sp; id('sidePadV').textContent=sp; }
   if(vp){ id('vPad').value=vp;    id('vPadV').textContent=vp; }
+  if (p.get('ls') === '1') id('lockSize').checked = true;
+  const tsc = p.get('tsc');
+  if (tsc !== null) { id('textScale').value = tsc; id('textScaleV').textContent = tsc; }
   if(p.get('mL')==='1') {
     id('mirrorLower').checked = true;
     id('lowerColorInputs').classList.add('inputs-disabled');
@@ -683,6 +734,8 @@ function loadURL() {
   const cr = p.get('cr');
   if (cr !== null) { id('cornerRadius').value = cr; id('cornerRadiusV').textContent = cr; }
   if (p.get('cb') === '1') id('circleBlocks').checked = true;
+  if (p.get('fc') === '1') id('forceCircle').checked = true;
+  id('forceCircleWrap').classList.toggle('inputs-disabled', !id('circleBlocks').checked);
   const mc = p.get('mc');
   if (mc && /^[0-9A-Fa-f]{6}$/.test(mc)) {
     id('marginCol').value = '#' + mc;
@@ -885,10 +938,15 @@ id('l2TwoLines').addEventListener('change', () => {
   update();
 });
 id('urlFont').addEventListener('change', update);
-['sidePad','vPad','urlSize','urlVPad','cornerRadius'].forEach(x => {
+['sidePad','vPad','urlSize','urlVPad','cornerRadius','textScale'].forEach(x => {
   id(x).addEventListener('input', () => { id(x+'V').textContent=id(x).value; update(); });
 });
-id('circleBlocks').addEventListener('change', update);
+id('lockSize').addEventListener('change', update);
+id('circleBlocks').addEventListener('change', () => {
+  id('forceCircleWrap').classList.toggle('inputs-disabled', !id('circleBlocks').checked);
+  update();
+});
+id('forceCircle').addEventListener('change', update);
 syncColor('pageBg','pageBg_h',true);
 syncColor('borderCol','borderCol_h',true);
 syncColor('padTopCol','padTopCol_h',true);
@@ -908,6 +966,11 @@ id('borderOn').addEventListener('change', () => {
     id(elId + 'V').textContent = id(elId).value;
     update();
   });
+});
+id('bleedEdges').addEventListener('change', () => {
+  id('padTopRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  id('padBotRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  update();
 });
 
 loadURL();

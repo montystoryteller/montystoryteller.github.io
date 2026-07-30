@@ -24,7 +24,8 @@ body {
 .header p { color:#666; font-size:1em; }
 .header a { color:#111; text-decoration:underline; }
 .content { display:grid; grid-template-columns:1fr 2fr; gap:30px; padding:30px; align-items:start; }
-.controls { display:flex; flex-direction:row; align-items:flex-start; gap:18px; }
+.controls { display:flex; flex-direction:row; align-items:flex-start; gap:18px; min-width:0; }
+.preview { min-width:0; }
 .group { background:#fafafa; padding:18px; border-radius:12px; border:1px solid #eaeaea; }
 .group h3 { margin-bottom:14px; color:#333; font-size:1em; font-weight:600; }
 .group.disabled { opacity:.45; pointer-events:none; }
@@ -102,13 +103,11 @@ footer { padding:0 30px 20px; text-align:center; }
       <div class="tab-nav">
         <button type="button" class="tab-btn active" data-tab="0" onclick="showTab(0)">Preview Only</button>
         <button type="button" class="tab-btn" data-tab="1" onclick="showTab(1)">Slogan Text (3 Lines)</button>
-        <button type="button" class="tab-btn" data-tab="2" onclick="showTab(2)">Colour Scheme</button>
+        <button type="button" class="tab-btn" data-tab="2" onclick="showTab(2)">Colours</button>
         <button type="button" class="tab-btn" data-tab="3" onclick="showTab(3)">CMYK Print Safety</button>
-        <button type="button" class="tab-btn" data-tab="4" onclick="showTab(4)">Line 1 Colours</button>
-        <button type="button" class="tab-btn" data-tab="5" onclick="showTab(5)">Line 2 Colours</button>
-        <button type="button" class="tab-btn" data-tab="6" onclick="showTab(6)">Line 3 Colours</button>
-        <button type="button" class="tab-btn" data-tab="7" onclick="showTab(7)">Layout</button>
-        <button type="button" class="tab-btn" data-tab="8" onclick="showTab(8)">Optional URL / Footer Line</button>
+        <button type="button" class="tab-btn" data-tab="4" onclick="showTab(4)">Layout</button>
+        <button type="button" class="tab-btn" data-tab="5" onclick="showTab(5)">Shape &amp; Frame</button>
+        <button type="button" class="tab-btn" data-tab="6" onclick="showTab(6)">Optional URL / Footer Line</button>
       </div>
       <div class="group tab-panel active" data-tab="0">
         <h3>&#128737;&#65039; Preview Only</h3>
@@ -135,6 +134,28 @@ footer { padding:0 30px 20px; text-align:center; }
           <label><input type="radio" name="scheme" value="b"> Same 1 &amp; 3, mirrored 2 <small>Lines 1 &amp; 3 share colours; line 2 is the reverse</small></label>
           <label><input type="radio" name="scheme" value="c"> Mirrored 1 &amp; 3, different 2 <small>Line 3 is the reverse of line 1; line 2 is independent</small></label>
         </div>
+
+        <h3 style="margin-top:22px;">&#127912; Line 1 Colours</h3>
+        <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c1bg" value="#FF0000"><input class="hex" id="c1bg_h" value="FF0000" maxlength="6"></div></div>
+        <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c1tx" value="#00FF00"><input class="hex" id="c1tx_h" value="00FF00" maxlength="6"></div></div>
+
+        <h3 style="margin-top:22px;">&#127912; Line 2 Colours</h3>
+        <div id="slot2Group">
+          <div id="slot2Wrap">
+            <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c2bg" value="#0000FF"><input class="hex" id="c2bg_h" value="0000FF" maxlength="6"></div></div>
+            <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c2tx" value="#FF00FF"><input class="hex" id="c2tx_h" value="FF00FF" maxlength="6"></div></div>
+          </div>
+          <div class="hint" id="slot2Hint" style="display:none;">Locked &mdash; mirrored from Line 1 (bg&harr;text swapped).</div>
+        </div>
+
+        <h3 style="margin-top:22px;">&#127912; Line 3 Colours</h3>
+        <div id="slot3Group">
+          <div id="slot3Wrap">
+            <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c3bg" value="#FFFF00"><input class="hex" id="c3bg_h" value="FFFF00" maxlength="6"></div></div>
+            <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c3tx" value="#000000"><input class="hex" id="c3tx_h" value="000000" maxlength="6"></div></div>
+          </div>
+          <div class="hint" id="slot3Hint" style="display:none;"></div>
+        </div>
       </div>
 
       <div class="group tab-panel" data-tab="3">
@@ -148,30 +169,6 @@ footer { padding:0 30px 20px; text-align:center; }
       </div>
 
       <div class="group tab-panel" data-tab="4">
-        <h3>&#127912; Line 1 Colours</h3>
-        <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c1bg" value="#FF0000"><input class="hex" id="c1bg_h" value="FF0000" maxlength="6"></div></div>
-        <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c1tx" value="#00FF00"><input class="hex" id="c1tx_h" value="00FF00" maxlength="6"></div></div>
-      </div>
-
-      <div class="group tab-panel" data-tab="5" id="slot2Group">
-        <h3>&#127912; Line 2 Colours</h3>
-        <div id="slot2Wrap">
-          <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c2bg" value="#0000FF"><input class="hex" id="c2bg_h" value="0000FF" maxlength="6"></div></div>
-          <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c2tx" value="#FF00FF"><input class="hex" id="c2tx_h" value="FF00FF" maxlength="6"></div></div>
-        </div>
-        <div class="hint" id="slot2Hint" style="display:none;">Locked &mdash; mirrored from Line 1 (bg&harr;text swapped).</div>
-      </div>
-
-      <div class="group tab-panel" data-tab="6" id="slot3Group">
-        <h3>&#127912; Line 3 Colours</h3>
-        <div id="slot3Wrap">
-          <div class="row"><label>Background</label><div class="color-picker"><input type="color" id="c3bg" value="#FFFF00"><input class="hex" id="c3bg_h" value="FFFF00" maxlength="6"></div></div>
-          <div class="row"><label>Text</label><div class="color-picker"><input type="color" id="c3tx" value="#000000"><input class="hex" id="c3tx_h" value="000000" maxlength="6"></div></div>
-        </div>
-        <div class="hint" id="slot3Hint" style="display:none;"></div>
-      </div>
-
-      <div class="group tab-panel" data-tab="7">
         <h3>&#128207; Layout</h3>
         <div class="size-row"><label>Side padding %</label><input type="range" id="sidePad" min="0" max="30" value="8"><span id="sidePadV">8</span></div>
         <div class="size-row"><label>Top/bottom pad</label><input type="range" id="vPad" min="0" max="60" value="18"><span id="vPadV">18</span></div>
@@ -180,13 +177,25 @@ footer { padding:0 30px 20px; text-align:center; }
           <label for="lockSize">Lock font size across lines</label>
         </div>
         <div class="hint">When on, all three lines use the same letter size (set by whichever line needs the smallest size to fit). When off, each line is scaled independently to fill the width, which can make short words balloon in size.</div>
+        <div class="size-row"><label>Text scale</label><input type="range" id="textScale" min="50" max="130" value="100" step="1"><span id="textScaleV">100</span>%</div>
+        <div class="hint">Shrinks or grows the lettering without changing the block sizes &mdash; handy for pulling text in off a rounded/circular edge instead of padding words with spaces.</div>
+      </div>
+
+      <div class="group tab-panel" data-tab="5">
+        <h3>&#128444;&#65039; Shape &amp; Frame</h3>
         <div class="size-row"><label>Corner radius</label><input type="range" id="cornerRadius" min="0" max="150" value="0"><span id="cornerRadiusV">0</span></div>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="circleBlocks"><span class="slider-tog"></span></label>
           <label for="circleBlocks">Oval / circle envelope</label>
         </div>
-        <div class="hint">Both of these shape the design as a single envelope &mdash; the top and bottom outer corners round together, or the whole stack is cropped to one oval &mdash; rather than rounding each colour band individually.</div>
-        <div class="row"><label>Page background</label><div class="color-picker"><input type="color" id="pageBg" value="#000000"><input class="hex" id="pageBg_h" value="000000" maxlength="6"></div></div>
+        <div class="hint">Both of these shape the design as a single envelope &mdash; the top and bottom outer corners round together, or the whole stack is cropped to one shape &mdash; rather than rounding each colour band individually.</div>
+        <div id="forceCircleWrap" class="toggle-row inputs-disabled">
+          <label class="toggle"><input type="checkbox" id="forceCircle"><span class="slider-tog"></span></label>
+          <label for="forceCircle">Force true circle (not oval)</label>
+        </div>
+        <div class="hint">By default the oval hugs the design exactly, which stretches it when the design is much taller than wide. This forces an equal-diameter circle instead, adding blank margin top/bottom or side-to-side to square it up. Increase Padding below to give text more breathing room inside the curve.</div>
+
+        <div class="row" style="margin-top:18px;"><label>Page background</label><div class="color-picker"><input type="color" id="pageBg" value="#000000"><input class="hex" id="pageBg_h" value="000000" maxlength="6"></div></div>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="pageBgTransparent"><span class="slider-tog"></span></label>
           <label for="pageBgTransparent">Transparent page background</label>
@@ -203,14 +212,19 @@ footer { padding:0 30px 20px; text-align:center; }
           <div class="size-row"><label>Border width</label><input type="range" id="borderWidth" min="0" max="60" value="16"><span id="borderWidthV">16</span></div>
         </div>
         <div class="size-row"><label>Padding (border&#8594;blocks)</label><input type="range" id="framePad" min="0" max="80" value="0"><span id="framePadV">0</span></div>
-        <div class="hint">Padding is the gap between the border and the text blocks. Colour it in up to three vertical bands so, for example, the area behind the top and bottom blocks can differ from the middle.</div>
-        <div class="row"><label>Padding &mdash; top</label><div class="color-picker"><input type="color" id="padTopCol" value="#000000"><input class="hex" id="padTopCol_h" value="000000" maxlength="6"></div></div>
+        <div class="hint">Padding is the gap between the border and the text blocks &mdash; increasing it also enlarges a circle/oval envelope relative to the blocks, giving clipped corners more room. Colour it in up to three vertical bands so, for example, the area behind the top and bottom blocks can differ from the middle.</div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="bleedEdges"><span class="slider-tog"></span></label>
+          <label for="bleedEdges">Bleed top/bottom block colours into padding</label>
+        </div>
+        <div class="hint">Instead of picking separate top/bottom padding colours, the top band's background flows up to the border and the bottom band's (or footer's, if on) flows down &mdash; useful with the circle/oval envelope so the colour follows the curve right to the edge.</div>
+        <div class="row" id="padTopRow"><label>Padding &mdash; top</label><div class="color-picker"><input type="color" id="padTopCol" value="#000000"><input class="hex" id="padTopCol_h" value="000000" maxlength="6"></div></div>
         <div class="row"><label>Padding &mdash; middle</label><div class="color-picker"><input type="color" id="padMidCol" value="#000000"><input class="hex" id="padMidCol_h" value="000000" maxlength="6"></div></div>
-        <div class="row"><label>Padding &mdash; bottom</label><div class="color-picker"><input type="color" id="padBotCol" value="#000000"><input class="hex" id="padBotCol_h" value="000000" maxlength="6"></div></div>
+        <div class="row" id="padBotRow"><label>Padding &mdash; bottom</label><div class="color-picker"><input type="color" id="padBotCol" value="#000000"><input class="hex" id="padBotCol_h" value="000000" maxlength="6"></div></div>
       </div>
 
       <!-- URL BLOCK -->
-      <div class="group tab-panel" data-tab="8">
+      <div class="group tab-panel" data-tab="6">
         <h3>&#127760; Optional URL / Footer Line</h3>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="urlOn"><span class="slider-tog"></span></label>
@@ -386,7 +400,11 @@ function buildSVG() {
     return { fs: b.fs, capH, need };
   });
   const blockH = Math.max(...bands.map(b => b.need));
-  bands.forEach(b => { b.vp = (blockH - b.capH) / 2; });
+  bands.forEach(b => {
+    b.drawFs = b.fs * t.textScale;
+    b.drawCapH = b.drawFs * CAP_RATIO;
+    b.vp = (blockH - b.drawCapH) / 2;
+  });
 
   // URL block geometry (computed first so total height H is known before drawing)
   let urlBlock = '', urlH = 0;
@@ -415,9 +433,9 @@ function buildSVG() {
   let body = '';
   bands.forEach((b, i) => {
     const y0 = i * blockH;
-    const baseline = y0 + b.vp + b.capH;
+    const baseline = y0 + b.vp + b.drawCapH;
     const [bg, tx] = bandColors[i];
-    const paths = armyPaths(lineTexts[i], cx, baseline, b.fs, '#' + tx);
+    const paths = armyPaths(lineTexts[i], cx, baseline, b.drawFs, '#' + tx);
     body += `<rect x="0" y="${y0.toFixed(2)}" width="${W}" height="${blockH.toFixed(2)}" fill="#${bg}"/>\n${paths}\n`;
   });
 
@@ -425,8 +443,15 @@ function buildSVG() {
   const bw   = t.borderOn ? t.borderWidth : 0;
   const pad  = t.framePad;
   const inset = bw + pad;
-  const Wt = W + inset * 2;
-  const Ht = H + inset * 2;
+  let Wt = W + inset * 2;
+  let Ht = H + inset * 2;
+  let extraX = 0, extraY = 0;
+  if (t.circleBlocks && t.forceCircle) {
+    const D = Math.max(Wt, Ht);
+    extraX = (D - Wt) / 2;
+    extraY = (D - Ht) / 2;
+    Wt = D; Ht = D;
+  }
 
   let defs = '', clipAttr = '';
   if (t.circleBlocks) {
@@ -442,9 +467,12 @@ function buildSVG() {
   const borderRect = (t.borderOn && bw > 0) ? `<rect x="0" y="0" width="${Wt.toFixed(2)}" height="${Ht.toFixed(2)}" fill="#${c.borderCol}"/>` : '';
 
   const ix = bw, iy = bw, iw = Wt - bw * 2, ih = Ht - bw * 2, third = ih / 3;
-  const paddingRects = `<rect x="${ix.toFixed(2)}" y="${iy.toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padTopCol}"/>
+  const bottomBg = t.urlOn ? c.b3bg : c.c3bg;
+  const padTopFill = t.bleedEdges ? c.c1bg : c.padTopCol;
+  const padBotFill = t.bleedEdges ? bottomBg : c.padBotCol;
+  const paddingRects = `<rect x="${ix.toFixed(2)}" y="${iy.toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${padTopFill}"/>
 <rect x="${ix.toFixed(2)}" y="${(iy+third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padMidCol}"/>
-<rect x="${ix.toFixed(2)}" y="${(iy+2*third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${c.padBotCol}"/>`;
+<rect x="${ix.toFixed(2)}" y="${(iy+2*third).toFixed(2)}" width="${iw.toFixed(2)}" height="${third.toFixed(2)}" fill="#${padBotFill}"/>`;
 
   lastLayout = { W: Wt, H: Math.round(Ht), cornerRadius: t.cornerRadius, circle: t.circleBlocks };
 
@@ -454,7 +482,7 @@ ${pageBgRect}
 <g${clipAttr}>
 ${borderRect}
 ${paddingRects}
-<g transform="translate(${inset.toFixed(2)},${inset.toFixed(2)})">
+<g transform="translate(${(inset+extraX).toFixed(2)},${(inset+extraY).toFixed(2)})">
 ${body}${urlBlock}
 </g>
 </g>
@@ -482,15 +510,18 @@ function getText() {
     sidePad: +id('sidePad').value,
     vPad:    +id('vPad').value,
     lockSize: id('lockSize').checked,
+    textScale: +id('textScale').value / 100,
     cmykSafe: id('cmykSafe').checked,
     cmykVibrance: +id('cmykVibrance').value,
     cornerRadius: +id('cornerRadius').value,
     circleBlocks: id('circleBlocks').checked,
+    forceCircle: id('forceCircle').checked,
     pageBg: id('pageBg_h').value,
     pageBgTransparent: id('pageBgTransparent').checked,
     borderOn: id('borderOn').checked,
     borderWidth: +id('borderWidth').value,
     framePad: +id('framePad').value,
+    bleedEdges: id('bleedEdges').checked,
     urlOn:   id('urlOn').checked,
     urlText: id('urlText').value || '',
     urlFont: id('urlFont').value,
@@ -568,18 +599,21 @@ layout:
   side_pad: ${t.sidePad}%
   v_pad:    ${t.vPad}px
   lock_size: ${t.lockSize ? 'yes' : 'no'}
+  text_scale: ${Math.round(t.textScale*100)}%
   cmyk_safe: ${t.cmykSafe ? 'yes' : 'no'}
   cmyk_vibrance: ${t.cmykVibrance}%
   corner_radius: ${t.cornerRadius}px
   circle_blocks: ${t.circleBlocks ? 'yes' : 'no'}
+  force_circle: ${t.forceCircle ? 'yes' : 'no'}
   page_bg: ${t.pageBgTransparent ? 'transparent' : '#' + t.pageBg}
 
 frame:
   border: ${t.borderOn ? `yes, #${c.borderCol}, ${t.borderWidth}px` : 'no'}
   padding: ${t.framePad}px
-  padding_top:    #${c.padTopCol}
+  bleed_edges: ${t.bleedEdges ? 'yes' : 'no'}
+  padding_top:    ${t.bleedEdges ? '(bleeds from top block)' : '#' + c.padTopCol}
   padding_middle: #${c.padMidCol}
-  padding_bottom: #${c.padBotCol}`;
+  padding_bottom: ${t.bleedEdges ? '(bleeds from bottom block)' : '#' + c.padBotCol}`;
   saveURL();
 }
 
@@ -595,6 +629,8 @@ function saveURL() {
   p.set('c3bg', c.c3bg); p.set('c3tx', c.c3tx);
   p.set('sp', t.sidePad); p.set('vp', t.vPad);
   p.set('ls', t.lockSize ? '1' : '0');
+  p.set('tsc', Math.round(t.textScale*100));
+  p.set('fc', t.forceCircle ? '1' : '0');
   p.set('cs', t.cmykSafe ? '1' : '0');
   p.set('vb', t.cmykVibrance);
   p.set('cr', t.cornerRadius);
@@ -605,6 +641,7 @@ function saveURL() {
   p.set('bdW', t.borderWidth);
   p.set('bdC', c.borderCol);
   p.set('fPad', t.framePad);
+  p.set('bleed', t.bleedEdges ? '1' : '0');
   p.set('pTop', c.padTopCol);
   p.set('pMid', c.padMidCol);
   p.set('pBot', c.padBotCol);
@@ -644,10 +681,14 @@ function loadURL() {
   if (vp) { id('vPad').value = vp; id('vPadV').textContent = vp; }
   const ls = p.get('ls');
   if (ls !== null) id('lockSize').checked = ls === '1';
+  const tsc = p.get('tsc');
+  if (tsc !== null) { id('textScale').value = tsc; id('textScaleV').textContent = tsc; }
   const cr = p.get('cr');
   if (cr !== null) { id('cornerRadius').value = cr; id('cornerRadiusV').textContent = cr; }
   const cb = p.get('cb');
   if (cb !== null) id('circleBlocks').checked = cb === '1';
+  if (p.get('fc') === '1') id('forceCircle').checked = true;
+  id('forceCircleWrap').classList.toggle('inputs-disabled', !id('circleBlocks').checked);
   const pbg = p.get('pbg');
   if (pbg && /^[0-9A-Fa-f]{6}$/.test(pbg)) { id('pageBg').value = '#' + pbg; id('pageBg_h').value = pbg.toUpperCase(); }
   if (p.get('pbgT') === '1') { id('pageBgTransparent').checked = true; id('pageBg').closest('.row').classList.add('inputs-disabled'); }
@@ -657,7 +698,10 @@ function loadURL() {
   setCol('bdC', 'borderCol_h');
   const fPad = p.get('fPad');
   if (fPad !== null) { id('framePad').value = fPad; id('framePadV').textContent = fPad; }
+  if (p.get('bleed') === '1') id('bleedEdges').checked = true;
   setCol('pTop', 'padTopCol_h'); setCol('pMid', 'padMidCol_h'); setCol('pBot', 'padBotCol_h');
+  id('padTopRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  id('padBotRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
   const cs = p.get('cs');
   if (cs !== null) id('cmykSafe').checked = cs === '1';
   const vb = p.get('vb');
@@ -825,15 +869,20 @@ function copyLink() {
 }
 
 // ── Init ────────────────────────────────────────────────────────────────────────
-['l1','l2','l3','sidePad','vPad','cornerRadius'].forEach(elId => {
+['l1','l2','l3','sidePad','vPad','cornerRadius','textScale'].forEach(elId => {
   id(elId).addEventListener('input', () => {
     if (elId === 'sidePad') id('sidePadV').textContent = id('sidePad').value;
     if (elId === 'vPad') id('vPadV').textContent = id('vPad').value;
     if (elId === 'cornerRadius') id('cornerRadiusV').textContent = id('cornerRadius').value;
+    if (elId === 'textScale') id('textScaleV').textContent = id('textScale').value;
     update();
   });
 });
-id('circleBlocks').addEventListener('change', update);
+id('circleBlocks').addEventListener('change', () => {
+  id('forceCircleWrap').classList.toggle('inputs-disabled', !id('circleBlocks').checked);
+  update();
+});
+id('forceCircle').addEventListener('change', update);
 document.querySelectorAll('input[name="scheme"]').forEach(r => r.addEventListener('change', update));
 id('lockSize').addEventListener('change', update);
 
@@ -862,6 +911,11 @@ id('borderOn').addEventListener('change', () => {
     id(elId + 'V').textContent = id(elId).value;
     update();
   });
+});
+id('bleedEdges').addEventListener('change', () => {
+  id('padTopRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  id('padBotRow').classList.toggle('inputs-disabled', id('bleedEdges').checked);
+  update();
 });
 id('cmykSafe').addEventListener('change', () => {
   if (id('cmykSafe').checked) {
