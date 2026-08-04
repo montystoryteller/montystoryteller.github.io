@@ -1,0 +1,182 @@
+{
+  "suite": "rehearsal-regression-core",
+  "version": 1,
+  "cases": [
+    {
+      "id": "RH-001",
+      "title": "Audio load enables loop controls",
+      "area": "loading",
+      "type": "manual",
+      "preconditions": [
+        "Page is open",
+        "No audio is loaded"
+      ],
+      "steps": [
+        "Select a valid audio file",
+        "Wait for waveform/timeline render"
+      ],
+      "expected": [
+        "Mark Loop Start button becomes enabled",
+        "Exit mode buttons become enabled"
+      ]
+    },
+    {
+      "id": "RH-002",
+      "title": "No active exit-mode highlight before audio load",
+      "area": "mode-ui",
+      "type": "manual",
+      "preconditions": [
+        "Page is freshly loaded",
+        "No audio is loaded"
+      ],
+      "steps": [
+        "Inspect the three exit-mode buttons"
+      ],
+      "expected": [
+        "No mode appears selected while buttons are disabled"
+      ]
+    },
+    {
+      "id": "RH-003",
+      "title": "Frontier save does not restart playback",
+      "area": "loop-save",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded and playing",
+        "Exit mode is set to Frontier at End"
+      ],
+      "steps": [
+        "Mark loop start",
+        "Mark loop end to save loop"
+      ],
+      "expected": [
+        "Playback continues from current position",
+        "Playback does not jump back to loop start on save"
+      ]
+    },
+    {
+      "id": "RH-004",
+      "title": "Repeat mode loops at boundary",
+      "area": "loop-playback",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded",
+        "A loop is selected",
+        "Exit mode is Keep Looping"
+      ],
+      "steps": [
+        "Play through loop end"
+      ],
+      "expected": [
+        "Playback jumps back to loop start",
+        "Loop continues repeating"
+      ]
+    },
+    {
+      "id": "RH-005",
+      "title": "Release mode exits loop at boundary",
+      "area": "loop-playback",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded",
+        "A loop is selected",
+        "Exit mode is Release at End"
+      ],
+      "steps": [
+        "Play through loop end"
+      ],
+      "expected": [
+        "Playback continues forward after loop end",
+        "No immediate jump back to loop start"
+      ]
+    },
+    {
+      "id": "RH-006",
+      "title": "Saved loop reflects selected exit mode",
+      "area": "loop-card",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded"
+      ],
+      "steps": [
+        "Create a loop with one exit mode",
+        "Switch to another loop",
+        "Return to the saved loop"
+      ],
+      "expected": [
+        "Loop card shows the loop's saved mode",
+        "Mode can be changed and remains visible"
+      ]
+    },
+    {
+      "id": "RH-007",
+      "title": "Dragging loop boundaries updates range",
+      "area": "editing",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded",
+        "At least one loop exists"
+      ],
+      "steps": [
+        "Drag loop start marker",
+        "Drag loop end marker"
+      ],
+      "expected": [
+        "Loop range updates visually",
+        "Playback behavior uses new boundaries"
+      ]
+    },
+    {
+      "id": "RH-008",
+      "title": "Delete loop updates selection safely",
+      "area": "loop-management",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded",
+        "Multiple loops exist"
+      ],
+      "steps": [
+        "Delete the currently selected loop"
+      ],
+      "expected": [
+        "No script errors occur",
+        "Another valid loop (or none) becomes selected"
+      ]
+    },
+    {
+      "id": "RH-009",
+      "title": "Selected loop card state is visible",
+      "area": "loop-card",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded",
+        "At least two loops exist"
+      ],
+      "steps": [
+        "Click different loop cards"
+      ],
+      "expected": [
+        "Selected card style updates immediately",
+        "Only one loop card appears selected"
+      ]
+    },
+    {
+      "id": "RH-010",
+      "title": "Play pause toggle is stable",
+      "area": "transport",
+      "type": "manual",
+      "preconditions": [
+        "Audio is loaded"
+      ],
+      "steps": [
+        "Press play",
+        "Press pause",
+        "Press play again"
+      ],
+      "expected": [
+        "Playback resumes without errors",
+        "No unexpected reset to start unless intended"
+      ]
+    }
+  ]
+}

@@ -20,6 +20,9 @@
     "project-setup": "node ./scripts/projectSetup.js",
     "theme-setup": "node ./scripts/themeSetup.js",
     "update-theme": "node ./scripts/themeUpdate.js",
+    "test:rehearsal:smoke": "node ./scripts/rehearsalSmokeChecks.js",
+    "test:rehearsal:list": "node ./scripts/rehearsalRegressionRunner.js --list",
+    "test:rehearsal:run": "node ./scripts/rehearsalRegressionRunner.js --run",
     "format": "prettier -w ."
   },
   "devDependencies": {
