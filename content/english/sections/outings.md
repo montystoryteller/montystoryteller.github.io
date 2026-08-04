@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Wickham Festival"
+    designation: "Tales for all ages; Tales After Dark, July-August 2026"
+    avatar: "/images/wickham-festival-logo.png"
+    content: ""
+
   - name: "Trowbridge Festival"
     designation: "Tales for all ages, July 2026"
     avatar: "/images/trowbridge-2026-logo.png"

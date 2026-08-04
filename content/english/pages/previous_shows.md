@@ -22,6 +22,7 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Fri-Sun, 31st July-2nd August, 2026 | Solo | Wickham Festival | Tales for All Ages; Tales After Dark |
 | Sat-Sun, 25-26th July, 2026 | Solo | Trowbridge Festival | Tales for All Ages, + Open Mic |
 | Friday, 24th July, 2026 | Monty + Sue Cain | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |
 | Thursday, 23rd July, 2026 | Monty + Sue Cain + Sophie Kate | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |

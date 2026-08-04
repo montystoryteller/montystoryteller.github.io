@@ -56,7 +56,7 @@ features:
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
       - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "RECENT FESTIVAL OUTINGS: Trowbridge Festival"
+      - "RECENT FESTIVAL OUTINGS: Trowbridge Festival 2026, Wickham Festival 2026"
       - "UPCOMING FESTIVAL OUTINGS: GIAF (Gig in a Field) 2026"
       #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:

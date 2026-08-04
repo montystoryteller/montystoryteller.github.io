@@ -8,6 +8,18 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Solo — Wickham Festival 2026"
+    image: "/images/wickham-festival-logo.png"
+    content: ""
+    bulletpoints:
+      - "Tales for All Ages, + Tales After Dark, Fri 31st July - Sunday 2nd August 2026"
+      - "Daily shows Fri/Sat/Sun 3.30pm, 11.15pm; extra shows: all ages, Sun 1.30pm; A Solent Tale, 7.15pm"
+      - "Traditional tales: appropriate all ages, aimed at adults; + Tales After Dark"
+    button:
+      enable: false
+      label: "Buy Tickets for Wickham Festival"
+      link: "https://purchase.vfringe.co.uk/EventAvailability?EventId=45001"
+
   - title: "Solo — Trowbridge Festival 2026"
     image: "/images/trowbridge-2026-logo.png"
     content: ""
