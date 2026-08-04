@@ -1090,6 +1090,7 @@
                 loadingStatus.style.color = '#f59e0b';
                 // Disable playback controls until correct file loaded
                 [btnPlay, btnToStart, btnLoopToggle, modeBtnRepeat, modeBtnRelease, modeBtnFrontier, btnAddBeat, btnFreezeScroll, btnFrontierReset, btnFrontierToMarker].forEach(el => el.disabled = true);
+                updateExitModeUI();
                 rawPeaksData = []; rawPeaksDataR = []; audioBuffer = null;
                 txtTotalTime.innerText = '00:00.00'; txtCurrentTime.innerText = '00:00.00';
             } else if (ctx_.audioFileName && ctx_.audioFileName === loadedAudioFileName) {
@@ -1104,6 +1105,8 @@
                 loadingStatus.innerText = 'Please load a track...';
                 loadingStatus.style.color = '#f59e0b';
             }
+
+            updateExitModeUI();
 
             showNotification(`Switched to: ${ctx_.name}`);
         }
@@ -1260,6 +1263,7 @@
                     loadingStatus.style.color = '#10b981';
 
                     [btnPlay, btnToStart, btnLoopToggle, modeBtnRepeat, modeBtnRelease, modeBtnFrontier, btnAddBeat, btnExport, btnClearWorkspace, zoomSlider, btnFreezeScroll, btnFrontierReset, btnFrontierToMarker].forEach(el => el.disabled = false);
+                    updateExitModeUI();
                     btnImportLbl.style.display = 'inline-block';
                     txtTotalTime.innerText = formatTime(audioBuffer.duration);
                     renderContextTabs();
@@ -1663,6 +1667,8 @@
 
         function updateExitModeUI() {
             [modeBtnRepeat, modeBtnRelease, modeBtnFrontier].forEach(b => b.classList.remove('mode-selected'));
+            const controlsEnabled = !modeBtnRepeat.disabled && !modeBtnRelease.disabled && !modeBtnFrontier.disabled;
+            if (!controlsEnabled) return;
             if (pendingExitMode === 'repeat') modeBtnRepeat.classList.add('mode-selected');
             if (pendingExitMode === 'release') modeBtnRelease.classList.add('mode-selected');
             if (pendingExitMode === 'frontier') modeBtnFrontier.classList.add('mode-selected');
