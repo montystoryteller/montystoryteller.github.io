@@ -16,13 +16,13 @@ draft: false
 
 *Indoor Festival sets: Kashmir Fringe, Isle of Wight, 2026 (solo + guests, Acoustic Stage).*
 
-*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle); Woodland Stage; + The AnyWhens; Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick; Mellow Yellow/Introducing stage); Trowbridge Festival, 2026.*
+*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle); Woodland Stage; + The AnyWhens; Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick; Mellow Yellow/Introducing stage); Trowbridge Festival, 2026; Wickham Festival 2026  (Little Teapot).*
 
 *Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025, 2026; Something Else Tea Tent: 2025); Wickham (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks, 2025).*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
-| Fri-Sun, 31st July-2nd August, 2026 | Solo | Wickham Festival | Tales for All Ages; Tales After Dark |
+| Fri-Sun, 31st July-2nd August, 2026 | Solo | Wickham Festival | Little Teapot: Tales for All Ages, Tales After Dark |
 | Sat-Sun, 25-26th July, 2026 | Solo | Trowbridge Festival | Tales for All Ages, + Open Mic |
 | Friday, 24th July, 2026 | Monty + Sue Cain | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |
 | Thursday, 23rd July, 2026 | Monty + Sue Cain + Sophie Kate | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |

@@ -13,7 +13,7 @@ features:
     content: ""
     bulletpoints:
       - "Tales for All Ages, + Tales After Dark, Fri 31st July - Sunday 2nd August 2026"
-      - "Daily shows Fri/Sat/Sun 3.30pm, 11.15pm; extra shows: all ages, Sun 1.30pm; A Solent Tale, 7.15pm"
+      - "Daily shows in the Little Teapot, Fri/Sat/Sun 3.30pm, 11.15pm; extra shows: all ages, Sun 1.30pm; A Solent Tale, 7.15pm"
       - "Traditional tales: appropriate all ages, aimed at adults; + Tales After Dark"
     button:
       enable: false
