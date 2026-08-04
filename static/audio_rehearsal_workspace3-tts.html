@@ -1522,22 +1522,27 @@
             sampleStartTime = null;
             renderLoops();
 
-            // "Keep Looping" mode behaves like the old always-enter default;
-            // Release/Frontier modes also enter the loop, but immediately
-            // carry their exit intent so the loop plays once and then exits
-            // on its own, matching what was selected when it was marked.
-            loopStart = newLoop.start;
-            loopEnd = newLoop.end;
-            isLooping = true;
-            selectedLoopId = id;
-            applyExitModeAsLivePending(newLoop.exitMode);
-            updateLoopStatusUI();
-            startPlayback(loopStart);
+            // Keep Looping / Release preserve the previous "enter loop now"
+            // behavior. Frontier-at-End only saves the slot and leaves the
+            // transport untouched so marking loop end never restarts audio.
+            if (newLoop.exitMode === 'frontier') {
+                selectedLoopId = id;
+                updateLoopStatusUI();
+                showNotification("Loop saved — frontier-at-end slot ready (playback unchanged)");
+            } else {
+                loopStart = newLoop.start;
+                loopEnd = newLoop.end;
+                isLooping = true;
+                selectedLoopId = id;
+                applyExitModeAsLivePending(newLoop.exitMode);
+                updateLoopStatusUI();
+                startPlayback(loopStart);
 
-            const modeLabel = newLoop.exitMode === 'repeat' ? 'looping'
-                             : newLoop.exitMode === 'release' ? 'will release at end'
-                             : 'will jump to frontier at end';
-            showNotification(`Loop saved — ${modeLabel}`);
+                const modeLabel = newLoop.exitMode === 'repeat'
+                    ? 'looping'
+                    : 'will release at end';
+                showNotification(`Loop saved — ${modeLabel}`);
+            }
         }
     });
 
