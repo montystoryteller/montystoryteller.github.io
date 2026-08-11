@@ -22,6 +22,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Sat, 8th August, 2026 | Solo | Gig In A Field (GIAF8) | A couple of tales, opened main stage |
+| Fri, 7th August, 2026 | Solo | Trowbridge Festival | Tales After Dark (Chill Out Tent) |
 | Fri-Sun, 31st July-2nd August, 2026 | Solo | Wickham Festival | Little Teapot: Tales for All Ages, Tales After Dark |
 | Sat-Sun, 25-26th July, 2026 | Solo | Trowbridge Festival | Tales for All Ages, + Open Mic |
 | Friday, 24th July, 2026 | Monty + Sue Cain | Bijou Tent, Ventnor Fringe | Faery Tale Blues, Take Two |

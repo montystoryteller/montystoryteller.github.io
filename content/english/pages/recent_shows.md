@@ -8,6 +8,19 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 # Features
 features:
 
+  - title: "Solo — GIAF (Gig In A Field) 2026"
+    image: "/images/flyers/2026_08_07_monty_giaf.png"
+    content: ""
+    bulletpoints:
+      - "Late night set — Friday 7th August, 2026"
+      - "After the main stage stops..."
+      - "Tales for after midnight..."
+      - "Opened main stage, Saturday"
+    button:
+      enable: false
+      label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"
+      link: "https://www.wrootrocks.com/festivals"
+
   - title: "Solo — Wickham Festival 2026"
     image: "/images/wickham-festival-logo.png"
     content: ""

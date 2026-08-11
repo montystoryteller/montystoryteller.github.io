@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Gig In a Field (GIAF8)"
+    designation: "Tales After Dark, main stage opener, August 2026"
+    avatar: "/images/giaf_the_nook_logo.png"
+    content: ""
+
   - name: "Wickham Festival"
     designation: "Tales for all ages; Tales After Dark, July-August 2026"
     avatar: "/images/wickham-festival-logo.png"
