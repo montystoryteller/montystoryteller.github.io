@@ -17,13 +17,15 @@ Teaming up with fellow members of the *Island Storytellers*, Sue Bailey and Holl
 
 In February 2023, Monty started performing his own solo shows, telling primarily out of Babushka Books in Shanklin, Isle of Wight, with a first solo fringe show at Ventnor Fringe in 2023, and with his first trips telling at fringe festivals off the Island in 2025.
 
-2023 was also the year in which Monty was involved in bidding for and co-leading the Arts Council and National Lottery funded *Somewhen Storytelling project*, which promoted the *Somewhen Storytelling Festival* and a range of training and storytelling development opportunities across the Isle of Wight. Although *Somewhen Storytelling* as an initiative is currnetly on hold, its legacy and inspiration continues to grow to this day.
+2023 was also the year in which Monty was involved in bidding for and co-leading the Arts Council and National Lottery funded *Somewhen Storytelling project*, which promoted the *Somewhen Storytelling Festival* and a range of training and storytelling development opportunities across the Isle of Wight. Although *Somewhen Storytelling* as an initiative is currently on hold, its legacy and inspiration continues to grow to this day.
 
 In 2024, Monty teamed up with harpist Theresa Ellis to form *Stories'n'Harp*, later also accompanied by singer Jenni Charity. The performances concentrated mediaeval on old British and Irish tales with harp and song accompaniment, and included shows at Monkton Arts, Ryde, and Ventnor Fringe.
 
-In 2025, he joined forces with folk duo Glenn Koppany and Sue Cain, aka *The AnyWhens*, initially taking 15 mins song'n'story turns at *The Star Cider'n'Sausage festival* in Ryde, before putting together their first show, *"Protest Days, Rebellion Nights"*, which quickly sold out at Ventnor Fringe 2025.
+In 2025, he joined forces with folk duo Glenn Koppany and Sue Cain, aka *The AnyWhens*, initially taking 15 mins song'n'story turns at *The Star Cider'n'Sausage festival* in Ryde, before putting together their first show, *"Protest Days, Rebellion Nights"*, which quickly sold out at Ventnor Fringe 2025, the collaboration coming to an end at the end of Spring, 2026.
 
-Building on his origins telling at folk nights and open mic nights, Monty has also been taken chances whenever he can telling pop-up tales in tea tents (*The Magic Teapot*, *The Tiny Tea Tent*, *The Somthing Else Tea Tent*) at various music festivals (Beautiful Days, Bearded Theory, Wickham Festival) since 2023, extending the "Tea Tales" pop-up telling to include the Two Cooks cafe as part of Ventnor Fringe, 2025.
+"Festival break out year": 2026 saw Monty starting to pick up festival slots, starting with the Kashmir Fringe at Quay Arts, Newport, IW followed by the Three Rivers Music Festival (playing two stages: Woodland Stage with Sophie Kate (fiddle), and the Community Stage with the AnyWhens). Then followed: Gosport Sunset Festival (a new collaboration with folk duo, *Berlingo Flick*); Trowbridge Festival ("Tales for All Ages"); Wickham Festival ("Tales for All Ages"; "Tales After Dark"); Wroot Rocks "Gig In A Field" (GIAF8) ("Tales After Dark"; main stage opener (Saturday)). Ventnor Fringe also featured in the calendar, with a solo show and shows with musical collaborators Sue Cain and Sophie Kate.
+
+Building on his origins telling at folk nights and open mic nights, Monty has taken every chance he can telling pop-up tales in tea tents (*The Magic Teapot*, *The Tiny Tea Tent*, *The Something Else Tea Tent*) at various music festivals (Beautiful Days, Bearded Theory, Wickham Festival) since 2023, extending the "Tea Tales" pop-up telling to include the Two Cooks cafe as part of Ventnor Fringe since 2025.
 
 In between shows, Monty continues to tell tales at open mic nights, folk nights and story clubs whenever the chance arises, and wherever in the country he may be...
 
@@ -35,7 +37,7 @@ But that's all a myth, of course, a lie we tell to ourselves, for a couple of re
 
 The stories that speak most to me are stories that have origins a hundred years or more ago: which is to say, that were first collected a hundred years or more ago. Rather like entering an old Church that still echoes today with the rituals of times past, I like the idea that a tale I tell could have been told several generations ago. That, and the fact that the tales are out of copyright!
 
-The stories I tell typically come to me in the following ways: stories I've heard, stories I've found in old collections (often, *old* collections), and stories I've encountered as reports of historical events that I've then worked up into tales. Of the stories found in collections, it's important to me that they are of a folk tradition: I don't get on with many of Hans Christian Andersen's tales becuase they're his. It's important to me that in a certain sense we don't know the author, although it helps if we do know something of the oral history from which the tale was collected. What's most important to me, though, is that the story works *for me*. If it doesn't, I can't remember it and I can't tell it. If it does, it only takes one hearing or one reading and it's there...
+The stories I tell typically come to me in the following ways: stories I've heard, stories I've found in old collections (often, *old* collections), and stories I've encountered as reports of historical events that I've then worked up into tales. Of the stories found in collections, it's important to me that they are of a folk tradition: I don't get on with many of Hans Christian Andersen's tales because they're his. It's important to me that in a certain sense we don't know the author, although it helps if we do know something of the oral history from which the tale was collected. What's most important to me, though, is that the story works *for me*. If it doesn't, I can't remember it and I can't tell it. If it does, it only takes one hearing or one reading and it's there...
 
 #### Contact
 
@@ -48,6 +50,8 @@ Facebook / <a target="_blank" aria-label="facebook" rel="nofollow noopener" href
 Instagram / <a target="_blank" aria-label="instagram" rel="nofollow noopener" href="https://www.instagram.com/montystoryteller/">
                 <i class="fab fa-instagram"> &nbsp;&nbsp;<strong><code>montystoryteller</code></strong></i>
               </a>
+
+Equity name / number: *Monty Storyteller / 00523931*
 
 #### Support
 
