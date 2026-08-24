@@ -52,9 +52,9 @@ input.url-input:focus { outline:none; border-color:#111; }
 .toggle-row label { font-weight:600; color:#495057; font-size:.95em; }
 .toggle { position:relative; display:inline-block; width:44px; height:24px; }
 .toggle input { opacity:0; width:0; height:0; }
-.slider-tog { position:absolute; cursor:pointer; inset:0; background:#ccc; border-radius:24px; transition:.3s; }
-.slider-tog:before { position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.3s; }
-input:checked + .slider-tog { background:#111; }
+.slider-tog { position:absolute; cursor:pointer; inset:0; background:#ccc; border-radius:24px; transition:.3s; box-sizing:border-box; border:1px solid rgba(0,0,0,.08); }
+.slider-tog:before { position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.3s; box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.3); }
+input:checked + .slider-tog { background:#111; border-color:#111; }
 input:checked + .slider-tog:before { transform:translateX(20px); }
 select.font-sel { width:100%; padding:8px 10px; border:1px solid #dcdcdc; border-radius:8px; font-size:.95em; background:#fff; margin-bottom:10px; }
 select.font-sel:focus { outline:none; border-color:#111; }
@@ -71,8 +71,8 @@ select.font-sel:focus { outline:none; border-color:#111; }
 .cfg-out { background:#1e1e1e; color:#d4d4d4; padding:16px; border-radius:8px; font-family:'Courier New',monospace; font-size:13px; white-space:pre; overflow-x:auto; line-height:1.6; }
 .btn-group { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
 button { flex:1; padding:11px 20px; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s; }
-.btn { background:#111; color:#fff; }
-.btn:hover { background:#333; }
+.btn { background:#6b7280; color:#fff; box-shadow:0 1px 2px rgba(0,0,0,.12); }
+.btn:hover { background:#525862; }
 footer { padding:0 30px 20px; text-align:center; }
 
 .tab-nav { display:flex; flex-direction:column; gap:6px; flex:0 0 168px; position:sticky; top:20px; }
@@ -83,13 +83,24 @@ footer { padding:0 30px 20px; text-align:center; }
   transition:background .15s, color .15s, border-color .15s;
 }
 .tab-btn:hover { background:#f0f0f0; }
-.tab-btn.active { background:#111; color:#fff; border-color:#111; }
+.tab-btn.active { background:#6b7280; color:#fff; border-color:#6b7280; }
 .tab-panel { display:none; }
 .tab-panel.active { display:block; flex:1 1 auto; min-width:0; }
 @media (max-width: 720px) {
   .controls { flex-direction:column; }
   .tab-nav { flex-direction:row; flex-wrap:wrap; position:static; flex-basis:auto; }
 }
+
+.vtab-nav { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+.vtab-btn {
+  padding:9px 16px; border-radius:8px; border:1px solid #eaeaea; background:#fafafa;
+  cursor:pointer; font-size:.85em; font-weight:600; color:#495057;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.vtab-btn:hover { background:#f0f0f0; }
+.vtab-btn.active { background:#6b7280; color:#fff; border-color:#6b7280; }
+.vtab-panel { display:none; }
+.vtab-panel.active { display:block; }
 </style>
 </head>
 <body>
@@ -248,14 +259,45 @@ footer { padding:0 30px 20px; text-align:center; }
     </div>
 
     <div class="preview">
-      <div class="svg-wrap" id="preview"></div>
       <div class="cfg-section">
-        <h3>Config</h3>
-        <div class="cfg-out" id="cfgOut"></div>
-        <div class="btn-group">
-          <button class="btn" onclick="downloadSVG()">Download SVG</button>
-          <button class="btn" onclick="copyConfig()">Copy Config</button>
-          <button class="btn" onclick="copyLink()">Copy Shareable Link</button>
+        <div class="vtab-nav">
+          <button type="button" class="vtab-btn active" data-vtab="0" onclick="showViewTab(0)">&#128065;&#65039; Preview</button>
+          <button type="button" class="vtab-btn" data-vtab="1" onclick="showViewTab(1)">&#128190; SVG Source</button>
+          <button type="button" class="vtab-btn" data-vtab="2" onclick="showViewTab(2)">&#9881;&#65039; Config</button>
+        </div>
+
+        <div class="vtab-panel active" data-vtab="0">
+          <div class="btn-group" style="margin-bottom:14px;">
+            <button class="btn" onclick="downloadSVG()">SVG</button>
+            <button class="btn" onclick="downloadRaster('png')">PNG</button>
+            <button class="btn" onclick="downloadRaster('jpg')">JPG</button>
+          </div>
+          <div class="row" style="margin-bottom:14px;">
+            <label>Export resolution</label>
+            <select class="font-sel" id="rasterScale" style="margin-bottom:0;">
+              <option value="1">1&times; (600px wide)</option>
+              <option value="2" selected>2&times; (1200px wide)</option>
+              <option value="3">3&times; (1800px wide)</option>
+              <option value="4">4&times; (2400px wide)</option>
+            </select>
+          </div>
+          <div class="svg-wrap" id="preview"></div>
+        </div>
+
+        <div class="vtab-panel" data-vtab="1">
+          <div class="btn-group" style="margin-bottom:14px;">
+            <button class="btn" onclick="copySVGSource()">Copy SVG Source</button>
+            <button class="btn" onclick="downloadSVG()">Download SVG</button>
+          </div>
+          <div class="cfg-out" id="svgSource" style="max-height:520px; overflow-y:auto;"></div>
+        </div>
+
+        <div class="vtab-panel" data-vtab="2">
+          <div class="btn-group" style="margin-bottom:14px;">
+            <button class="btn" onclick="copyLink()">Copy Shareable Link</button>
+            <button class="btn" onclick="copyConfig()">Copy Config</button>
+          </div>
+          <div class="cfg-out" id="cfgOut"></div>
         </div>
       </div>
     </div>
@@ -270,6 +312,15 @@ function showTab(n) {
   });
   document.querySelectorAll('.tab-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.tab === String(n));
+  });
+}
+
+function showViewTab(n) {
+  document.querySelectorAll('.vtab-panel').forEach(function(p) {
+    p.classList.toggle('active', p.dataset.vtab === String(n));
+  });
+  document.querySelectorAll('.vtab-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.vtab === String(n));
   });
 }
 
@@ -572,7 +623,9 @@ function applyPreviewDecorations() {
 
 function update() {
   applySchemeLocks();
-  id('preview').innerHTML = buildSVG();
+  const svgText = buildSVG();
+  id('preview').innerHTML = svgText;
+  id('svgSource').textContent = svgText;
   applyPreviewDecorations();
   const c = getColors(), t = getText();
   const scheme = document.querySelector('input[name="scheme"]:checked').value;
@@ -867,6 +920,59 @@ function copyConfig() {
 }
 function copyLink() {
   navigator.clipboard.writeText(location.href);
+}
+function copySVGSource() {
+  navigator.clipboard.writeText(id('svgSource').textContent);
+}
+
+// ── Download: raster (PNG/JPG) via canvas, same trick as ────────────────────
+// tools.simonwillison.net/markdown-svg-renderer — draw the SVG into an <img>,
+// then draw that <img> onto a <canvas> at N× the source size, then
+// canvas.toBlob(). Works cleanly here because buildSVG() always sets explicit
+// width/height (not just viewBox) on the root <svg>, so the <img> knows its
+// natural pixel size without any guesswork.
+function svgToCanvas(svgString, scale) {
+  return new Promise((resolve, reject) => {
+    const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const svgUrl = URL.createObjectURL(svgBlob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(img.naturalWidth  * scale);
+      canvas.height = Math.round(img.naturalHeight * scale);
+      URL.revokeObjectURL(svgUrl);
+      resolve({ canvas, img });
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(svgUrl);
+      reject(new Error('Could not rasterise this SVG.'));
+    };
+    img.src = svgUrl;
+  });
+}
+function downloadRaster(format) {
+  const svg = buildSVG();
+  const scale = +id('rasterScale').value;
+  svgToCanvas(svg, scale).then(({ canvas, img }) => {
+    const ctx = canvas.getContext('2d');
+    if (format === 'jpg') {
+      // JPEG has no alpha channel, so flatten onto the configured page
+      // background colour first (or white, if the page bg is transparent).
+      const t = getText();
+      ctx.fillStyle = t.pageBgTransparent ? '#ffffff' : ('#' + t.pageBg);
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvas.toBlob(blob => {
+      if (!blob) { alert('Could not create ' + format.toUpperCase() + ' image.'); return; }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = buildFilename().replace(/\.svg$/, '') + '.' + format;
+      a.click();
+      URL.revokeObjectURL(url);
+    }, format === 'jpg' ? 'image/jpeg' : 'image/png', format === 'jpg' ? 0.92 : undefined);
+  }).catch(err => alert(err.message));
 }
 
 // ── Init ────────────────────────────────────────────────────────────────────────
