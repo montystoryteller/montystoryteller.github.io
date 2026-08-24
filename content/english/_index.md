@@ -55,9 +55,9 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "LAST POP-UP: Ey Up Mi Duck festival, open mic tent (Sat, Sun)"
-      - "RECENT FESTIVAL OUTINGS: Trowbridge Festival 2026, Wickham Festival 2026, GIAF8 2026"
-      - "UPCOMING FESTIVAL OUTINGS: Beautiful Days (Rebel Tent) 2026"
+      - "LAST POP-UP: Tiny Tea Tent (Beautiful Days 2026; Fri, Sat)"
+      - "RECENT FESTIVAL OUTINGS: Trowbridge Festival 2026; Wickham Festival 2026; GIAF8 2026; Beautiful Days (Rebel Tent) 2026"
+      - "UPCOMING FESTIVAL OUTINGS: TBC"
       #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: false
@@ -84,7 +84,7 @@ features:
     buttons:
       - enable: false
         label: "Fiddle Me This"
-        link: "https://montystroyteller.org"
+        link: "https://montystoryteller.org"
   
   - title: "Monty + Sue Cain"
     image: "/images/monty_sue_cain.png"
