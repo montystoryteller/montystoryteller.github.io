@@ -16,12 +16,14 @@ draft: false
 
 *Indoor Festival sets: Kashmir Fringe, Isle of Wight, 2026 (solo + guests, Acoustic Stage).*
 
-*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle); Woodland Stage; + The AnyWhens; Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick; Mellow Yellow/Introducing stage); Trowbridge Festival, 2026; Wickham Festival 2026  (Little Teapot); Wroot Rocks "Gig In A Field" (GIAG8) 2026.*
+*Outdoor Festival sets: Three Rivers Music Festival Isle of Wight, 2026 (+ Sophie Kate (fiddle); Woodland Stage; + The AnyWhens; Community Stage); Gosport Sunset Festival, 2026 (+ Berlingo Flick; Mellow Yellow/Introducing stage); Trowbridge Festival, 2026; Wickham Festival 2026  (Little Teapot); Wroot Rocks "Gig In A Field" (GIAF8) 2026; Beautiful Days (Rebel Tent) 2026.*
 
-*Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025); Bearded Theory (campfire: 2024, 2025, 2026; Something Else Tea Tent: 2025); Wickham Festival (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks: 2025, 2026).*
+*Festival cafe, tea tent and campfire pop-ups [TEA TALES]: Beautiful Days (Magic Teapot: 2023, 2024, 2025; Tiny Tea Tent: 2024, 2025, 2026); Bearded Theory (campfire: 2024, 2025, 2026; Something Else Tea Tent: 2025); Wickham Festival (guesting with Cliff Eastabrook: 2025); Ventnor Fringe (Two Cooks: 2025, 2026).*
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Sunday, 23rd August, 2026 | Solo | Beautiful Days 2026 | Luddite tales, et al., Majikal Youth Tent |
+| Friday, 21st August, 2026 | Solo | Beautiful Days 2026 | Luddite tales, Rebel Tent |
 | Saturday, 8th August, 2026 | Solo | Gig In A Field (GIAF8) | A couple of tales, opened main stage |
 | Friday, 7th August, 2026 | Solo | Trowbridge Festival | Tales After Dark (Chill Out Tent) |
 | Fri-Sun, 31st July-2nd August, 2026 | Solo | Wickham Festival | Little Teapot: Tales for All Ages, Tales After Dark |

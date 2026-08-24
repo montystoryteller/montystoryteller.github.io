@@ -9,13 +9,14 @@ description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of
 #image: "/images/giaf-logo.png"
 features:
 
-  - title: "Solo — Rebel Tent, Beautiful Days 2026"
-    image: "/images/rebel_bdays_listing_fri_2026.jpg"
+  - title: "Air Ambulance Fund Raiser"
+    image: "/images/2026_09_12_air_ambulance_fund_raiser_ryde"
     content: ""
     bulletpoints:
-      - "Rebel Tent set — Friday 21st August, 2026"
-      - "Protest Days, Rebellion Nights: Tales of the Luddite Times"
-      - "Historical tales, traditionally told"
+      - "Saturday 12th September, 2026, 12-5pm"
+      - "Free event (donations)"
+      - "St Thomas' Church, Ryde, IW"
+      - "Tellin' tales from 1.35 to 2pm"
     button:
       enable: false
       label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"

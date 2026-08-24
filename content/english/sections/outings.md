@@ -6,6 +6,11 @@ description: ""
 # Outings
 outings:
 
+  - name: "Beautiful Days 2026"
+    designation: "Beautiful Days Rebel Tent, August 2026"
+    avatar: "/images/BEAUTIFUL_DAYS_SUN_LOGO.webp"
+    content: ""
+
   - name: "Gig In a Field (GIAF8)"
     designation: "Tales After Dark, main stage opener, August 2026"
     avatar: "/images/giaf_the_nook_logo.png"
