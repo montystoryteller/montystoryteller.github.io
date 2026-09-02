@@ -7,7 +7,7 @@ banner:
   buttons:
     - enable: true
       label: "LOOKING FOR THE UK STORYTELLING EVENTS CALENDAR / MAP? CLICK HERE"
-      link: "https://montystoryteller.org/new_troubadours_event_guide.html"
+      link: "https://new_troubadours.org"
     - enable: false
       label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
       link: "https://www.facebook.com/profile.php?id=61583286699008"
