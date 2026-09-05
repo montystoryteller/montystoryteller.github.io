@@ -57,19 +57,18 @@ features:
       label: "Dark Tales series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FW286JLD"
 
-
   - title: "Online series"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
     content: "Online collections of raw storynotes / work-in-progress"
     bulletpoints:
-      - "[*General storytelling notes*](https://psychemedia.github.io/storytelling-notes/preface.html)"
-      - "[*Isle of Wight Storynotes*](https://psychemedia.github.io/island-storynotes/preface.html)"
-      - "[*In Search of Fionn MacCumhaill and the Fianna*](https://psychemedia.github.io/finn-resources/preface.html)"
-      - "[*Middle English Romances*](https://psychemedia.github.io/middle-english-romances/preface.html)"
-      - "[*Winter Tales*](https://psychemedia.github.io/winter-tales/intro.html)"
-      - "[*Classical Greek and Roman Myths*](https://psychemedia.github.io/classical-roman-and-greek-myths/)"
-      - "[*On the Trail of the Sin-Eater*](https://psychemedia.github.io/sin-eater-resources/)"
-      - "[*On the Loss of the Eurydice*](https://psychemedia.github.io/eurydice-resources/)"
+      - "[*General storytelling notes*](https://storytelling-notes.montystoryteller.org)"
+      - "[*Isle of Wight Storynotes*](https://island-storynotes.montystoryteller.org)"
+      - "[*In Search of Fionn MacCumhaill and the Fianna*](https://fionnmaccumhail.montystoryteller.org)"
+      - "[*Middle English Romances*](https://middle-english-romances.montystoryteller.org)"
+      - "[*Winter Tales*](https://winter-tales.montystoryteller.org)"
+      - "[*Classical Greek and Roman Myths*](https://classics.montystoryteller.org)"
+      - "[*On the Trail of the Sin-Eater*](https://sineater.montystoryteller.org)"
+      - "[*On the Loss of the Eurydice*](https://eurydice.montystoryteller.org)"
       - "[*Chasing the Ace of Spades*](https://psychemedia.github.io/ace-of-spades-devilish-tales/preface.html)"
       - "[*Story Notes – Technical Recipes*](https://psychemedia.github.io/storynotes/)"
 ---
