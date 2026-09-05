@@ -69,7 +69,8 @@ features:
       - "[*Classical Greek and Roman Myths*](https://classics.montystoryteller.org)"
       - "[*On the Trail of the Sin-Eater*](https://sineater.montystoryteller.org)"
       - "[*On the Loss of the Eurydice*](https://eurydice.montystoryteller.org)"
-      - "[*Chasing the Ace of Spades*](https://psychemedia.github.io/ace-of-spades-devilish-tales/preface.html)"
+      - "[*Chasing the Ace of Spades*](https://ace-of-spades.montystoryteller.org)"
+      - "[*Protest Days — Tales from the Luddite Times*](https://protest-days-luddites.montystoryteller.org/)"
       - "[*Story Notes – Technical Recipes*](https://psychemedia.github.io/storynotes/)"
 ---
 
