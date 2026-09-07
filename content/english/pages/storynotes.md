@@ -63,6 +63,7 @@ features:
     bulletpoints:
       - "[*General storytelling notes*](https://storytelling-notes.montystoryteller.org)"
       - "[*Isle of Wight Storynotes*](https://island-storynotes.montystoryteller.org)"
+      - "[*Newport, Nursery of Vice*](https://nursery-of-vice.montystoryteller.org/preface.html")
       - "[*In Search of Fionn MacCumhaill and the Fianna*](https://fionnmaccumhail.montystoryteller.org)"
       - "[*Middle English Romances*](https://middle-english-romances.montystoryteller.org)"
       - "[*Winter Tales*](https://winter-tales.montystoryteller.org)"
