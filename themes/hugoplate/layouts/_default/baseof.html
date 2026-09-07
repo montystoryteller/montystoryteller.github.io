@@ -8,7 +8,8 @@
   itemtype="http://schema.org/WebPage">
   <head>
     <meta name="build_time" content="{{ now.Unix }}">
-
+    <link rel="canonical" href="{{ .Permalink }}">
+    
     <!-- head (don't cache it) -->
     {{ partial "essentials/head.html" . }}
 
