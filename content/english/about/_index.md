@@ -56,3 +56,5 @@ Equity name / number: *Monty Storyteller / 00523931*
 #### Support
 
 <a href='https://ko-fi.com/P5P7AWDR' target='_blank'><img height='36' style='border:0px;height:36px;' src='/images/support_me_on_kofi_beige.png' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href='https://newtroubadours.org/performer/tony-monty-hirst' target='_blank'><img height='36' style='border:0px;height:36px;' src='/images/findmeon.svg' border='0' alt='Find me on newtroubadours.org' /></a>
