@@ -1,4 +1,26 @@
 ---
+title: "Monty Storyteller — Traditional Tales, Historical Stories"
+description: "Traditional performance storyteller telling a wide variety of traditional and historical tales, folk tales, pop-ups in festival tea tents, chill out tales after dark, solo and accompanied (acoustic folk music) sets."
+keywords:
+  - Monty Storyteller
+  - Isle of Wight
+  - Traditional storyteller
+  - Performance storyteller
+  - Traditional tales
+  - Folk tales
+  - Traditional stories
+  - Historical Tales
+  - Troubadour
+  - New Troubadour
+  - Tis Tales
+  - Island Storytellers
+  - Protest Tales, Rebellion Nights
+date: 2026-09-12
+draft: false
+keywords:
+  - Hugo
+  - static site
+  - web development
 # Banner
 banner:
   title: 'Tony "Monty" Hirst'
