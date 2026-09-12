@@ -17,10 +17,6 @@ keywords:
   - Protest Tales, Rebellion Nights
 date: 2026-09-12
 draft: false
-keywords:
-  - Hugo
-  - static site
-  - web development
 # Banner
 banner:
   title: 'Tony "Monty" Hirst'
