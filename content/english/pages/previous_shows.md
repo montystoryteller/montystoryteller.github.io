@@ -22,6 +22,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Saturday, 12th September, 2026 | Solo | Air Ambulance Benefit, Ryde | (Ivasik Telesik) |
+| Thursday, 10th September, 2026 | Solo | Private booking | Island Tales |
 | Sunday, 23rd August, 2026 | Solo | Beautiful Days 2026 | Luddite tales, et al., Majikal Youth Tent |
 | Friday, 21st August, 2026 | Solo | Beautiful Days 2026 | Luddite tales, Rebel Tent |
 | Saturday, 8th August, 2026 | Solo | Gig In A Field (GIAF8) | A couple of tales, opened main stage |
