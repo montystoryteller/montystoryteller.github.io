@@ -4,6 +4,8 @@ description: "Traditional performance storyteller telling a wide variety of trad
 keywords:
   - Monty Storyteller
   - Isle of Wight
+  - Tony Hirst
+  - Tony Monty Hirst
   - Traditional storyteller
   - Performance storyteller
   - Traditional tales
@@ -12,9 +14,12 @@ keywords:
   - Historical Tales
   - Troubadour
   - New Troubadour
+  - Story Folk
+  - Story Punk
   - Tis Tales
   - Island Storytellers
-  - Protest Tales, Rebellion Nights
+  - Protest Tales
+  - Protest Days, Rebellion Nights
 date: 2026-09-12
 draft: false
 # Banner
