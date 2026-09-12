@@ -1,7 +1,16 @@
 ---
-title: 'Tony "Monty" Hirst'
-meta_title: "About"
-description: "this is meta description"
+title: 'Tony "Monty" Hirst — Monty Storyteller'
+meta_title: "About Tony Monty Hirst, aka Monty Storyteller"
+description: "Monty Storyteller, Isle of Wight based traditional storyteller / performance storyteller."
+keywords:
+  - Monty Storyteller
+  - Tony Hirst
+  - Tony Monty Hirst
+  - Traditional Storyteller
+  - Performance Storyteller
+  - Isle of Wight
+  - Ross-on-Wye
+  - Ross on Wye
 image: "/images/monty_drawing_jeremy_gully.jpg"
 image_caption: "*Charcoal sketch by Jeremy Gully, 2025*"
 draft: false
