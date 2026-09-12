@@ -1,9 +1,19 @@
 ---
-title: "Protest Days, Rebellion Nights"
+title: "Protest Days, Rebellion Nights — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "About 'Protest Days, Rebellion Nights'"
+description: "'Protest Days, Rebellion Nights' — stories and tales associated with the Luddite times, as told by traditional storyteller, Tony Monty Hirst, aka Monty Storyteller."
+keywords:
+  - Monty Storyteller
+  - Protest Tales
+  - storytelling
+  - historical tales
+  - Protest Days, Rebellion Nights
+  - Luddite times
+  - Luddite martyrs
+  - Pentrich rebels
+  - Rebel Tent
 # save as draft
 draft: false
 

@@ -1,9 +1,16 @@
 ---
-title: "Previous shows"
+title: "Previous Shows — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "This is meta description"
+description: "Previous shows performed by traditional storyteller Tony Hirst, aka Monty Storyteller"
+keywords:
+  - Monty Storyteller
+  - previous shows
+  - Trowbridge Festival
+  - Wickham Festival
+  - Beautiful Days Festival
+  - Rebel Tent
 # save as draft
 draft: false
 ---

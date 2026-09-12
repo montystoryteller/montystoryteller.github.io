@@ -1,9 +1,20 @@
 ---
-title: "Booking"
+title: "Booking — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "How to book Monty Storyteller"
+description: "How to book traditional performance storyteller Monty Storyteller for events (ticketed show, story clubs, folk clubs, festivals, music festivals, benefits, benefit gigs, private parties, private meetings, public meetings)."
+keywords:
+  - Monty Storyteller
+  - booking
+  - events
+  - festivals
+  - music festivals
+  - story clubs
+  - storytelling clubs
+  - folk clubs
+  - acoustic nights
+  - private events
 # save as draft
 draft: false
 

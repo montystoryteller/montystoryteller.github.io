@@ -1,9 +1,12 @@
 ---
-title: "Flyers & Posters"
+title: "Flyers & Posters — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "This is meta description"
+description: "Flyers and posters gallery for events performed by Tony Monty Hirst, aka Monty Storyteller."
+keywords:
+  - Monty Storyteller
+  - flyers
 # save as draft
 draft: false
 ---

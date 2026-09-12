@@ -1,9 +1,12 @@
 ---
-title: "Upcoming"
+title: "Upcoming shows — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
 description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of Wight based storyteller, Monty and Sue Cain, Monty + Berlingo Flick (collaboration with folk duo Jess and Al), 'Tis Tales (collaboration with storytellers Sue Bailey. Holly Medland and Merl Fluin)."
+keywords:
+  - Monty Storyteller
+  - upcoming shows
 
 # Features
 #image: "/images/giaf-logo.png"

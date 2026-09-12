@@ -1,10 +1,13 @@
 ---
-title: "Upcoming"
+title: "Upcoming shows — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of Wight based storyteller, Monty and the AnyWhens (collaboration with folk duo Glenn Koppany and Sue Cain), 'Tis Tales (collaboration with storytellers Sue Bailey and Holly Medland)."
-
+description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of Wight based storyteller, as solo performances, or in collaboration (folk duo Berlingo Flick; fiddle Sophie Kate; uke / folk singer Sue Caim)."
+keywords:
+  - Monty Storyteller
+  - Upcoming shows
+  
 # Features
 features:
 

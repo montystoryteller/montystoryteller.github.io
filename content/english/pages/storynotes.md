@@ -1,9 +1,20 @@
 ---
-title: "Storynotes"
+title: "Storynotes — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "This is meta description"
+description: "Storynotes research notes publications and online collections from traditional storyteller Tony Monty Hirst, aka Monty Storyteller. Covering a wide range of traditional tales and historical events, particularly associated with the tale of protest (Luddites, 19th century protests), as well as the Isle of Wight, Solent and Wyedean (Forest of Dean, Ross-on_Wye) geographical areas."
+keywords:
+  - Monty Storyteller
+  - Story notes
+  - Storynotes
+  - Island Tales
+  - Protest Tales
+  - Solent Tales
+  - Wyedean Tales
+  - Dark Tales
+  - Faery Tales
+
 # save as draft
 draft: false
 
