@@ -60,7 +60,7 @@ And then time for a break, a quick run through of one of the tales I was doing w
 
 ...and the first and last time to have our names as a troupe on a t-shirt or hoodie...
 
-![](/image/three_rivers_2026_hoodie.jpg)
+![](/images/three_rivers_2026_hoodie.jpg)
 
 
 <hr/>
