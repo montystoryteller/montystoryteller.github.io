@@ -1,7 +1,6 @@
 ---
 title: "Tales of Old Newport, Wheatsheaf, 11/05/26"
 meta_title: "Tales of Old Newport, Isle of Wight, with Monty Storyteller"
-meta_title: ""
 description: "Tales of Newport on the Isle of Wight from the nineteenth century, with Tony 'Minty' Hirst, aka Montystoryteller"
 date: 2026-05-05T19:12:36
 image: "/images/flyers_gallery/2026_05_11_old_newport.png"

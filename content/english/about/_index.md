@@ -1,7 +1,7 @@
 ---
 title: 'Tony "Monty" Hirst — Monty Storyteller'
 meta_title: "About Tony Monty Hirst, aka Monty Storyteller"
-description: "Monty Storyteller, Isle of Wight based traditional storyteller / performance storyteller."
+description: "Monty Storyteller, (Tony Hirst) Isle of Wight based traditional storyteller / performance storyteller."
 keywords:
   - Monty Storyteller
   - Tony Hirst
