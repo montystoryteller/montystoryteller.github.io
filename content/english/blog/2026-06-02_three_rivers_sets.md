@@ -3,7 +3,7 @@ title: "Taking the Stage at Three Rivers"
 meta_title: "Review of Monty Storyteller at Three Rivers Music Festival, Isle of Wight, Sunday, 31/05/26"
 description: "Review of Monty Storyteller at Three Rivers Music Festival, Isle of Wight, 2026, with Sophie Kate (Feck; fiddle) on the Woodland Stage, and folk duo The AnyWhens on the Community Stage."
 date: 2026-06-02T12:15:43
-image: "/images/three_rivers26_woodland_highlight.png"
+image: "/images/three_rivers_2026_w_sophie.jpg"
 categories: ["events"]
 collaborator: ["The AnyWhens", "Sophie Kate (Fiddle)"]
 tags: [ "Three Rivers Music Festival"]
