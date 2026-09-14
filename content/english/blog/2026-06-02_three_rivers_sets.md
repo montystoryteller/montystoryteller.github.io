@@ -10,7 +10,7 @@ tags: [ "Three Rivers Music Festival"]
 draft: false
 ---
 
-My first (outdoor) festival as a billed performer, and a great way to start the summer...
+The Island's own [Three Rivers Music Festival](https://threeriversfest.uk/) first (outdoor) festival as a billed performer, and a great way to start the summer...
 
 We were just back from a set of tales at the Crown & Sceptre in Ross, and five days at Bearded Theory, where I have a hazy recollection of telling around the fire, and in the Magic Teapot, but it was all a bit alco-pops and I won't do that again...
 
@@ -62,6 +62,11 @@ And then time for a break, a quick run through of one of the tales I was doing w
 
 ![](/images/three_rivers_2026_hoodie.jpg)
 
+All in all, a fabulous little festival, still very much in its early days but with hopeful attitude of growing into something like Rhythm Tree had grown to be, maybe.
+
+The Woodland served as a dance space for the yoots in the evening, the Community Stage provided a great opportunity for a host of Island bands (and storytellers...) get access to a festival stage, and the self-contained kids area, along with re-enactment camp, provided a safe, enclosed space — one way in and one way out — for kids to go feral in: perfect for kids on their first festival to have their own space and place to go.
+
+Bands wise, it was great to see [Undercover Hippy](https://undercoverhippy.com/) on the Island. And if the music policy continues in a similar vein next year, I think [Samantics](https://www.samantics.co.uk/) might be a good fit...
 
 <hr/>
 *Authored Sept. 2026, then retro-posted...*
