@@ -41,3 +41,7 @@ The stage layout itself was compact: Jess and Al took to cocktail seats at the b
 All in all, a great day out:-)
 
 ![](/images/with_berlingo_flick_gosport_sunset_apres.jpg)
+
+
+<hr/>
+*Authored Sept. 2026, then retro-posted...*
