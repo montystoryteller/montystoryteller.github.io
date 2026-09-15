@@ -3,13 +3,15 @@ title: "An Eventful Trip to Gig In A Field"
 meta_title: "Review of Monty Storyteller at Wroot Rocks' Gig In A Field (GIAF8), August 7th/8th, 2026"
 description: "Review of Monty Storyteller at Wroot Rocks' Gig In A Field (GIAF8), August 7th/8th, 2026, car crash en route, Tales After Dark in the chill out date, and a chance to open the main stage."
 date: 2026-08-09T14:30:22
-image: "/images/"
+image: "/images/giaf_2026_monty_on_stage.jpg"
 categories: ["events"]
 collaborator: []
 tags: [ "Gig In A Field (GIAF)", "Wroot Rocks"]
 draft: false
 ---
 The plan was simple. Trek up to Huddersfield on the Wednesday, pop in to the Irish session in the Grove on the Thursday, then down to Wroot for Gig In A Field on the Friday, and *Tales After Dark* session that I'd late pitched to Neil (Sanderson) and backed up with a ["did an open mic at Ey Up"](/blog/2026-05-11_open_mic_eyupmiduck/).
+
+![](/images/giaf_2026_tales_after_dark.jpg)
 
 Only it didn't quite go like that...
 
@@ -30,7 +32,6 @@ Once again, I got to avail myself of production parking, this time behind the ma
 The set-up was a single stage, with a small chill-out tent where I;d be doing my *Tales After Dark*.
 
 ![](/images/giaf_2026_the_stage_billing.jpg)
-
 
 As this was just a try out thing, my payment was a handful of beer tokens...
 
@@ -54,7 +55,11 @@ Neil, Amber, Julie and the whole Wroot Rocks team certainly know how to make a f
 
 The *Tales After Dark* set went well — we'd agreed a shortish slot so th eten could be freed up for musicians, but I kept asking, and no musicians seemed to to appear, so I just carried on tellin' tales...
 
-Next morning, having a keep of hospitality tea, I overhead Julie wondering if Joe Solo, who was due to open, could move up a slot to fill a no-show. A no-show? So an empty stage, early doors? Maybe I could help???
+Next morning, having a keep of hospitality tea...
+
+![](/images/giaf_2026_backstage_kettle.jpg)
+
+... I overhead Julie wondering if Joe Solo, who was due to open, could move up a slot to fill a no-show. A no-show? So an empty stage, early doors? Maybe I could help???
 
 Erm....
 
