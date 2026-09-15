@@ -49,7 +49,7 @@ As the session went on, it started to over-run more and more. Rather than cut an
 
 My (short) slot was cut short, and I geva. cut down version of the cut-down version of the *Wish Ring*. But it brought story to a few more people and I had some good comments after, as well as being recognised from that tent a couple of festivals later. So well worth it...
 
-The storytelling slot that day was quieter than the day before — it was later in the day, and folk were back to their tents for tea or to pack away for an early exit — which meant a couple of separate small, but appreciative, adult audiences. In a way, I missed the opportunity of telling to a family audience but that would re-present itself a few days later at Wickham.
+The storytelling slot that day was quieter than the day before — it was later in the day, and folk were back to their tents for tea or to pack away for an early exit — which meant a couple of separate small, but appreciative, adult audiences. (I'd "borrowed" a sanwich board to try to advertise the session, but put it out too late. I really need to get one for myself...) In a way, I missed the opportunity of telling to a family audience but that would re-present itself a few days later at Wickham.
 
 In all, a fabulous festival, all in one compact field, family friendly, good beer (with performers' discount:-) and we'd be really keen to back there... and maybe do a set in the bar?;-) 
 
