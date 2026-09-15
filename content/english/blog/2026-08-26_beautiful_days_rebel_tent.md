@@ -10,7 +10,7 @@ tags: [ "Beautiful Days"]
 draft: false
 ---
 
-A couple of years ago, I casually wondered whether there'd be any chance of tellin' some tales in the Rebel Tent at Beautiful Days. When the call came out this year, I popped my head up again, and this time, Glenn said yes...:-)
+A couple of years ago, I casually wondered whether there'd be any chance of tellin' some tales in the [Rebel Tent](https://www.facebook.com/groups/1292725850910066) at [Beautiful Days](https://www.beautifuldays.org/). When the call came out this year, I popped my head up again, and this time, Glenn said yes...:-)
 
 ![](/images/bdays_2026_rebel_tent_lineup.jpg)
 
