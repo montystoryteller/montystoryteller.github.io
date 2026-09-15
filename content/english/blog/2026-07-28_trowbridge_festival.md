@@ -9,7 +9,7 @@ collaborator: []
 tags: [ "Trowbridge Festival"]
 draft: false
 ---
-By chance, whilst poking around looking for small summer festivals, I came across [Trowbridge Festival](https://www.trowbridgefestival.co.uk/), over Bath way, which happened to have *Otway*, *Three Daft Monkeys*. *Merry Hell*, and a host of other interesting looking things on the bill.
+By chance, whilst poking around looking for small summer festivals, I came across [Trowbridge Festival](https://www.trowbridgefestival.co.uk/), over Bath way, which happened to have *Otway*, *Three Daft Monkeys*, *Merry Hell*, and a host of other interesting looking things on the bill.
 
 ![](/images/trowbridge_2026_lineup.jpg)
 
