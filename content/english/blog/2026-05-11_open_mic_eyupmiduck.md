@@ -13,7 +13,7 @@ Ever since I came across the Wroot Rocks crew, and the homegrown events they pro
 
 ![](/images/eyupmiduck_2026.jpg)
 
-I'd booked a room in a nearby pub, so wasn't doing the camping thing (too early in the year for that!). The site was all in a single field, with the two main stages at either end of a single large tent. As soon as one band went off, there was a five minute sound check at the other end, and the next band started up. There was also a second, open mic, tent that ran all weekend, a local brewery beer tent, and some excellent food vans.
+I'd booked a room in a nearby pub, so wasn't doing the camping thing (too early in the year for that!). The site was all in a single field, with the two main stages at either end of a single large tent. As soon as one band went off, there was a five minute sound check at the other end, and the next band started up. There was also a second, open mic, tent that ran all weekend, a local brewery beer tent, and some excellent food vans. And an Sunday evening tea time finish which meant I could get a boat back home the same night.
 
 ![](eyupmiduck_2026_tents.jpg)
 
