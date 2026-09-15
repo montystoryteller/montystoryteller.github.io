@@ -42,7 +42,7 @@ It was pretty obvious what drink tokens were for...
 
 ![](/images/three_rivers_2026_wristband.jpg)
 
-My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage.
+My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage, as taken over for a curated slot by Tim Martin, *aka* King Stammers.
 
 ![](/images/three_rivers_2026_woodland_takeover.jpg)
 
