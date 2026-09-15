@@ -41,7 +41,31 @@ Sue and I were still keen to do something, and Sophie was also available for one
 
 ![](/images/flyers_gallery/2026_07_23_faery_tale_blues_monty_sue_vfringe_26.png)
 
-For the Thursday, we had *Twa Sisters*, *True Thomas*, *Fairy Washerwoman*, *Raggle Taggle* and *Fairy Ointment*. There was a lovely bounce of dialogue planned between myself and Sue for the end of *True Thomas*, which I completely messed up, missed my cue, and spoke Sue's part, so on the second day (where we dropped *Washerwoman* and *Raggle Taggle*, and brought in *Fisherman's Wife*, and a song I forget the name of into *Fairy Ointment*), Sue pranked me back, casting doubt into my telling of *Twa Sisters* — "are you sure it was...?" — and making the set even more playful than it already was.
+Getting there in good time on the Thursday (I was there last...), Sophie realised she'd left her bluetooth bug at home, and set off on a last minute dash home to GGosdhill to pick it, and her music, up...
+
+Meanwhile, I prepped my part of the stage, gaffer taping the chair so I didn't "do a Donna" and fall off the back of the stage...
+
+![](/images/vfringe_2026_chair.jpg)
+
+Meanwhile, Sue sound-checked...
+
+![](![](/images/vfringe_2026_sue_soundcheck.jpg)
+
+For the Thursday, we had *Twa Sisters*, *True Thomas*, *Fairy Washerwoman*, *Raggle Taggle* and *Fairy Ointment*.
+
+![](/images/vfringe_2026_sophie_monty_sue.jpg)
+
+Even though we'd only had one run through, Sophie was comfortable enough to join in and improvise which really added to the feeling of the performance being created "in the room".
+
+And even from the best laid plans of rehearsal — a lovely bounce of dialogue planned between myself and Sue for the end of *True Thomas* — I got a bit lost, missed my cue...
+
+![](/images/vfringe_2026_ftb_monty.jpg)
+
+... and spoke Sue's part...
+
+![](/images/vfringe_2026_sue_wtf.jpg)
+
+... so on the second day (where we dropped *Washerwoman* and *Raggle Taggle*, and brought in *Fisherman's Wife*, and a song I forget the name of into *Fairy Ointment*), Sue pranked me back, casting doubt into my telling of *Twa Sisters* — "are you sure it was...?" — and making the set even more playful than it already was.
 
 <hr/>
 *Authored Sept. 2026, then retro-posted...*
