@@ -3,7 +3,7 @@ title: "At Ventnor Fringe"
 meta_title: "Review of Monty Storyteller / Sue Cain / Sophie Kate at Ventnor Fringe, 2026"
 description: "Review of Monty Storyteller (solo) and alongside Sue Cain and Sophie Kate at Ventnor Fringe, 2026."
 date: 2026-07-27T19:01:27
-image: "/images/"
+image: "/images/vfringe_2026_sophie_monty_sue.jpg"
 categories: ["events"]
 collaborator: ["Sue Cain", "Sophie Kate (Fiddle)"]
 tags: [ "Ventnor Fringe"]
