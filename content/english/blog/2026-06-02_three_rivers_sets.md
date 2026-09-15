@@ -42,7 +42,7 @@ It was pretty obvious what drink tokens were for...
 
 ![](/images/three_rivers_2026_wristband.jpg)
 
-My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage, as taken over for a curated slot by Tim Martin, *aka* King Stammers. We had a half hour slot (11.45-12.15). which was enough for three, opting for *Raggle Taggle Gipsy (story of)*, then into *Macpherson* and finishing off with *Washerwoman/pooka* (partly because that is stretchy with respect to the number of tunes, so could be used to fill as required).
+My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage, as taken over for a curated slot by Tim Martin, *aka* King Stammers. We had a half hour slot (11.45-12.15). which was enough for three, opting for *Raggle Taggle Gipsy (story of)*, then into *Macpherson* and finishing off with *Washerwoman/pooka* (partly because that is stretchy with respect to the number of tunes, so could be used to fill as required). It was also my debut performance with a tambourine!
 
 ![](/images/three_rivers_2026_woodland_takeover.jpg)
 
