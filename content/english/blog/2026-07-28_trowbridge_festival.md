@@ -2,7 +2,7 @@
 title: "First Time at Trowbridge Festival"
 meta_title: "Review of Monty Storyteller at Trowbridge Folk Festival, July 25-26th, 2026"
 description: "Review of Monty Storyteller at Trowbridge Folk Festival, July 25-26th, 2026, in the breakfast tent/session tent."
-date: 2026-06-02T12:15:43
+date: 2026-07-28T17:32:19
 image: "/images/trowbridge_2026_wristband.jpg"
 categories: ["events"]
 collaborator: []
