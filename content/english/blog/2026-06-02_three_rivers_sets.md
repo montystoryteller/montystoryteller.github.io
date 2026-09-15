@@ -42,7 +42,7 @@ It was pretty obvious what drink tokens were for...
 
 ![](/images/three_rivers_2026_wristband.jpg)
 
-My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage, as taken over for a curated slot by Tim Martin, *aka* King Stammers.
+My first set, with Sophie, was lunchtime Sunday, on the Woodland Stage, as taken over for a curated slot by Tim Martin, *aka* King Stammers. We had a half hour slot (11.45-12.15). which was enough for three, opting for *Raggle Taggle Gipsy (story of)*, then into *Macpherson* and finishing off with *Washerwoman/pooka* (partly because that is stretchy with respect to the number of tunes, so could be used to fill as required).
 
 ![](/images/three_rivers_2026_woodland_takeover.jpg)
 
@@ -52,7 +52,7 @@ And then we were on... and had a blast...
 
 ![](/images/three_rivers_2026_w_sophie.jpg)
 
-And then time for a break, a quick run through of one of the tales I was doing with Sue, (in retrospect, for me, we should have gone through both, just to help me rehearse the possible paths I could take, and spot the bits I might forget...) before taking to the Community Stage...
+And then time for a break, a quick run through of one of the tales I was doing with Sue (*Twa Sisters*), (in retrospect, for me, we should have gone through the other too (*Fisherman/Wife + Reluctant/Candlelight Fisherman*), just to help me rehearse the possible paths I could take, and spot the bits I might forget...) before taking to the Community Stage...
 
 ![](/images/community_stage_w_anywhens_three_rivers_2026.jpg)
 
