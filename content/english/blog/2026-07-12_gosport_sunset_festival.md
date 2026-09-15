@@ -38,6 +38,8 @@ The stage layout itself was compact: Jess and Al took to cocktail seats at the b
 
 ![](/images/with_berlingo_flick_gosport_the_duel.jpg)
 
+![](/images/berlingo_flick_gosport_sunset.jpg)
+
 All in all, a great day out:-)
 
 ![](/images/with_berlingo_flick_gosport_sunset_apres.jpg)
