@@ -13,7 +13,7 @@ keywords:
 features:
 
   - title: "Waverley Holiday Park Beer & Cider Festival, East Cowes"
-    image: "/images/flyers_gallery/2026_10_03_waverley_holiday_park_beerfest.jpg"
+    image: "/images/2026_10_03_waverley_holiday_park_beerfest.jpg"
     content: ""
     bulletpoints:
       - "Friday 2/10/2026 — 4.15-4.30pm"
