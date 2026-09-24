@@ -13,7 +13,7 @@ keywords:
 features:
 
   - title: "Waverley Holiday Park Beer & Cider Festival, East Cowes"
-    image: "/images/flyers/2026_10_03_waverley_holiday_park_beerfest.jpg"
+    image: "/images/flyers_gallery/2026_10_03_waverley_holiday_park_beerfest.jpg"
     content: ""
     bulletpoints:
       - "Friday 2/10/2026 — 4.15-4.30pm"
@@ -25,7 +25,7 @@ features:
       link: "https://www.wrootrocks.com/festivals"
 
   - title: "Macabre Tales, Sinister Stories — Carvel Lane Coffee House, Cowes"
-    image: "/images/flyers/2026_10_30_solo_macabre_carvel.png"
+    image: "/images/flyers_gallery/2026_10_30_solo_macabre_carvel.png"
     content: ""
     bulletpoints:
       - "Friday, October 30th, 2026"
@@ -39,7 +39,7 @@ features:
       link: "https://www.wrootrocks.com/festivals"
 
   - title: "Macabre Tales, Sinister Stories — Crown & Sceptre, Ross-on-Wye"
-    image: "/images/flyers/2026_11_03_solo_macabre_ross.png"
+    image: "/images/flyers_gallery/2026_11_03_solo_macabre_ross.png"
     content: ""
     bulletpoints:
       - "Tuesday, November 3rd, 2026"
