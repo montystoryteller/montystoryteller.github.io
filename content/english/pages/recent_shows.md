@@ -3,13 +3,25 @@ title: "Upcoming shows — Monty Storyteller"
 # meta title
 meta_title: ""
 # meta description
-description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of Wight based storyteller, as solo performances, or in collaboration (folk duo Berlingo Flick; fiddle Sophie Kate; uke / folk singer Sue Caim)."
+description: "Upcoming shows and live performances for Tony Monty Hirst, Isle of Wight based storyteller, as solo performances, or in collaboration (folk duo Berlingo Flick; fiddle Sophie Kate; uke / folk singer Sue Cain)."
 keywords:
   - Monty Storyteller
   - Upcoming shows
   
 # Features
 features:
+
+  - title: "Air Ambulance Fund Raiser"
+    image: "/images/air_ambulance_fundraiser_ryde_2026.jpg"
+    content: ""
+    bulletpoints:
+      - "Saturday 12th September, 2026, 12-5pm"
+      - "St Thomas' Church, Ryde, IW"
+      - "Tellin' tales from 1.35 to 2pm"
+    button:
+      enable: false
+      label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"
+      link: "https://www.wrootrocks.com/festivals"
 
   - title: "Solo — Rebel Tent, Beautiful Days 2026"
     image: "/images/rebel_bdays_listing_fri_2026.jpg"

@@ -78,6 +78,8 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
+      - "NEXT BEER FESTIVAL: Waverley Holiday Park, Cowes 2/3/4 Oct, 2026"
+      - "NEXT SHOW(S): Carvel Lane Coffee House, Cowes, 30/10/2026; Crown & Sceptre, Ross-on-Wye, 3/11/2026"
       - "LAST POP-UP: Tiny Tea Tent (Beautiful Days 2026; Fri, Sat)"
       - "RECENT FESTIVAL OUTINGS: Trowbridge Festival 2026; Wickham Festival 2026; GIAF8 2026; Beautiful Days (Rebel Tent) 2026"
       - "UPCOMING FESTIVAL OUTINGS: TBC"
