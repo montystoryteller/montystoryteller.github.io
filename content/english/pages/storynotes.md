@@ -81,7 +81,7 @@ features:
       link: "https://www.amazon.co.uk/dp/B0FW286JLD"
 
   - title: "*Faery Lore* series"
-    image: "/images/flyers_gallery/faery_lore_cover.png"
+    image: "/images/storynotes/faery_lore_cover.png"
     content: ""
     bulletpoints:
       - "Tales of the Other World, the Fair Folk, the Fae, the lore surrounding them, and their incursions into 'the real world...'"
