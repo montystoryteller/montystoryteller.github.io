@@ -25,12 +25,24 @@ features:
     bulletpoints:
       - "Originally inspired by Abraham Elder's *Tales and legends of the Isle of Wight*"
       - "Original versions + my own retelling + historical and contextual notes"
-      -  "Other storynotes include Island based historical tales"
-      - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*, *The Story of the Pepperpot*"
+      - "Other storynotes include Island based historical tales"
+      - "__Series includes:__ *A Legend of Godshill*, *A Legend of Puckaster Cove*, *The Story of the Pepperpot*, *Two Isle of Wight Duels*"
     button:
       enable: true
       label: "Island Tales series booklets on Amazon.co.uk"
-      link: "https://www.amazon.co.uk/dp/B0FVYBY4V8"
+      link: "https://www.amazon.co.uk/dp/B0H2RHPLKQ"
+
+  - title: "*Solent Tales* series"
+    image: "/images/storynotes/solent_tales_cover.png"
+    content: ""
+    bulletpoints:
+      - "Historical tales set on and around the Solent (incl. Lymington, Gosport, Portsmouth)"
+      - "Retelling of events through  of original newspaper reports"
+      - "__Series includes:__ *Mutiny at Spithead*, *Hanged at the Hard: The Tale of JOhn the Painter*"
+    button:
+      enable: true
+      label: "Solent Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0GX2ZRHZV"
 
   - title: "*Protest Tales* series"
     image: "/images/storynotes/storynotes_protest_initial3.jpg"
@@ -51,7 +63,7 @@ features:
     bulletpoints:
       - "Local tales from Ross-on-Wye, Forest of Dean, and surrounding areas."
       - "Historical tales and events as recorded in the Ross Gazette, et al., from the 19th century."
-      - "__Series includes:__ *The Sin-Eater of Ross-on-Wye and Other Local Tales*"
+      - "__Series includes:__ *The Sin-Eater of Ross-on-Wye and Other Local Tales*, *Cunning Folk of the Forest*"
     button:
       enable: true
       label: "Wyedean Tales series booklets on Amazon.co.uk"
@@ -62,11 +74,22 @@ features:
     content: ""
     bulletpoints:
       - "Dark tales for dark nights..."
-      - "__Series includes:__ *The Tale of Mr Fox*"
+      - "__Series includes:__ *The Tale of Mr Fox*, *The Hand of Glory*"
     button:
       enable: true
       label: "Dark Tales series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0FW286JLD"
+
+  - title: "*Faery Lore* series"
+    image: "/images/flyers_gallery/Faery_Lore_cover.png"
+    content: ""
+    bulletpoints:
+      - "Tales of the Other World, the Fair Folk, the Fae, the lore surrounding them, and their incursions into 'the real world...'"
+      - "__Series includes:__ *The Fairy Midwife*"
+    button:
+      enable: true
+      label: "Dark Tales series booklets on Amazon.co.uk"
+      link: "https://www.amazon.co.uk/dp/B0GZ33KRJD"
 
   - title: "Online series"
     image: "/images/TH_GrahamBrown_face-1200x800.jpg"
