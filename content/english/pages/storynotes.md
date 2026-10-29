@@ -58,7 +58,7 @@ features:
       link: "https://www.amazon.co.uk/dp/B0FY3TZW81"
 
   - title: "*Wyedean Tales* series"
-    image: "/images/flyers_gallery/2026_03_10_sineater_crown.png"
+    image: "/images/storynotes/wyedean_tales_cover.png"
     content: ""
     bulletpoints:
       - "Local tales from Ross-on-Wye, Forest of Dean, and surrounding areas."
@@ -70,7 +70,7 @@ features:
       link: "https://www.amazon.co.uk/dp/B0GQCS5P87"
 
   - title: "*Dark Tales* series"
-    image: "/images/flyers_gallery/2026_03_10_sineater_crown.png"
+    image: "/images/storynotes/dark_tales_cover.png"
     content: ""
     bulletpoints:
       - "Dark tales for dark nights..."
@@ -81,14 +81,14 @@ features:
       link: "https://www.amazon.co.uk/dp/B0FW286JLD"
 
   - title: "*Faery Lore* series"
-    image: "/images/flyers_gallery/Faery_Lore_cover.png"
+    image: "/images/flyers_gallery/faery_lore_cover.png"
     content: ""
     bulletpoints:
       - "Tales of the Other World, the Fair Folk, the Fae, the lore surrounding them, and their incursions into 'the real world...'"
       - "__Series includes:__ *The Fairy Midwife*"
     button:
       enable: true
-      label: "Dark Tales series booklets on Amazon.co.uk"
+      label: "Faery Lore series booklets on Amazon.co.uk"
       link: "https://www.amazon.co.uk/dp/B0GZ33KRJD"
 
   - title: "Online series"
