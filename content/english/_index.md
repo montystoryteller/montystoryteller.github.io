@@ -86,10 +86,10 @@ features:
       #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
       - enable: true
-        label: "Reserve Tickets for Winter Tales — 10/12/25"
+        label: "Reserve Tickets for Tales for Winter Nights, Carvel Lane Coffee House, Cowes — 17/12/26"
         link: "https://www.instagram.com/carvellanecoffee/"
       - enable: true
-        label: "Buy Tickets for 'The Winter Cherries & Other Tales', Crown & Sceptre, Ross-on-Wye — 07/12/26"
+        label: "Buy Tickets for 'The Winter Cherries & Other Tales', Crown & Sceptre, Ross-on-Wye — 08/12/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2023546"
       - enable: false
         label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"
