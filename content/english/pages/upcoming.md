@@ -12,23 +12,25 @@ keywords:
 #image: "/images/giaf-logo.png"
 features:
 
-  - title: "Waverley Holiday Park Beer & Cider Festival, East Cowes"
-    image: "/images/2026_10_03_waverley_holiday_park_beerfest.jpg"
+  - title: "The Winter Cherries & Other Seasonal Tales — Crown & Sceptre, Ross-on-Wye"
+    image: "/images/flyers_gallery/2026_12_08_crown_sceptre_winter_cherries.png"
     content: ""
     bulletpoints:
-      - "Friday 2/10/2026 — 4.15-4.30pm"
-      - "Saturday 3/10/2026 — 4.45-5pm"
-      - "Sunday 4/10/2026 — 2.45-3pm"
+      - "Tuesday, December 8th, 2026"
+      - "Doors at 7, first story 7.30pm"
+      - "Set includes 'Sir Gawain & the Green Knight'"
+      - "Tickets £5 in advance, or on the door"
+      - "There may be merch..."
     button:
-      enable: false
-      label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"
-      link: "https://www.wrootrocks.com/festivals"
+      enable: true
+      label: "Buy Tickets for 'Winter Cherries' — Crown & Sceptre — Ross-on-Wye"
+      link: "https://www.tickettailor.com/events/montystoryteller/2504311"
 
-  - title: "Macabre Tales, Sinister Stories — Carvel Lane Coffee House, Cowes"
-    image: "/images/flyers_gallery/2026_10_30_solo_macabre_carvel.png"
+  - title: "Tales for Winter Nights — Carvel Lane Coffee House, Cowes"
+    image: "/images/flyers_gallery/2026_12_17_carvel_winter.png"
     content: ""
     bulletpoints:
-      - "Friday, October 30th, 2026"
+      - "Thursday, December 17th, 2026"
       - "Doors at 7, first story 7.30pm"
       - "Tickets: £7 on the door (but reservations required in advance)"
       - "Reservations: at the Coffee House, or carvellanecoffee on Instagram"
@@ -38,18 +40,6 @@ features:
       label: "Buy Tickets for GIAF 2026 (Sold out, BUT official resales)"
       link: "https://www.wrootrocks.com/festivals"
 
-  - title: "Macabre Tales, Sinister Stories — Crown & Sceptre, Ross-on-Wye"
-    image: "/images/flyers_gallery/2026_11_03_solo_macabre_ross.png"
-    content: ""
-    bulletpoints:
-      - "Tuesday, November 3rd, 2026"
-      - "Doors at 7, first story 7.30pm"
-      - "Tickets £5 in advance, or on the door"
-      - "There will be merch..."
-    button:
-      enable: true
-      label: "Buy Tickets for 'Macabre Tales, Sinister Stories' — Crown & Sceptre — Ross-on-Wye"
-      link: "https://www.tickettailor.com/events/montystoryteller/2433204"
 
 # save as draft
 draft: false

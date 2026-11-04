@@ -34,9 +34,9 @@ banner:
     - enable: false
       label: "Reserve Tickets for 'Winter Cherries' show direct at Carvel Lane Coffee House, Cowes — 10/12/25"
       link: "https://www.facebook.com/profile.php?id=61583286699008"
-    - enable: false
-      label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
-      link: "https://www.tickettailor.com/events/montystoryteller/2023546"
+    - enable: true
+      label: "Buy Tickets for 'The Winter Cherries', Crown & Sceptre, Ross-on-Wye — 08/12/26"
+      link: "https://www.tickettailor.com/events/montystoryteller/2504311"
     - enable: false
       label: "Buy Tickets for the Department, Ryde, (Events -> Spoken Word) 'Tis Tales — Tall Tales and Tiny Truths — 23/01/26"
       link: "https://department.byretail.net/menu/Events/Spoken-Word"
@@ -78,18 +78,18 @@ features:
       - "5/10/15/20/40 min standalone stories"
       - "Open to collaboration with musicians"
       - "Open to collaboration with other tellers"
-      - "NEXT BEER FESTIVAL: Waverley Holiday Park, Cowes 2/3/4 Oct, 2026"
-      - "NEXT SHOW(S): Carvel Lane Coffee House, Cowes, 30/10/2026; Crown & Sceptre, Ross-on-Wye, 3/11/2026"
+      - "NEXT SHOW(S): Crown & Sceptre, Ross-on-Wye, 8/12/2026; Carvel Lane Coffee House, Cowes, 17/12/2026"
+      - "LAST BEER FESTIVAL: Waverley Holiday Park, Cowes 2/3/4 Oct, 2026"
       - "LAST POP-UP: Tiny Tea Tent (Beautiful Days 2026; Fri, Sat)"
       - "RECENT FESTIVAL OUTINGS: Trowbridge Festival 2026; Wickham Festival 2026; GIAF8 2026; Beautiful Days (Rebel Tent) 2026"
       - "UPCOMING FESTIVAL OUTINGS: TBC"
       #- "NEXT SOLO SHOW: 'Solent Tales, Macabre Stories', Bijou, Ventnor Fringe, 22/07/26"
     buttons:
-      - enable: false
+      - enable: true
         label: "Reserve Tickets for Winter Tales — 10/12/25"
         link: "https://www.instagram.com/carvellanecoffee/"
-      - enable: false
-        label: "Buy Tickets for 'The Sin Eater of Ross & Other Tales', Crown & Sceptre, Ross-on-Wye — 10/03/26"
+      - enable: true
+        label: "Buy Tickets for 'The Winter Cherries & Other Tales', Crown & Sceptre, Ross-on-Wye — 07/12/26"
         link: "https://www.tickettailor.com/events/montystoryteller/2023546"
       - enable: false
         label: "Buy Tickets for 'Cunning Folk of the Forest & Other Traditional Tales', Crown & Sceptre, Ross-on-Wye — 19/05/26"

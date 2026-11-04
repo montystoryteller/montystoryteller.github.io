@@ -29,6 +29,8 @@ draft: false
 
 | Date |  Billing | Venue    |     Show       |
 | -----|:--------:| :-----------: | ----: |
+| Tuesday, 3rd Nov 2026 | Solo | Crown & Sceptre, Ross-on-Wye | Macabre Tales & Sinister Stories |
+| Friday, 30th October 2025 | Solo | Carvel Lane Coffee House, Cowes | Macabre Tales & Sinister Stories |
 | Saturday, 12th September, 2026 | Solo | Air Ambulance Benefit, Ryde | (Ivasik Telesik) |
 | Thursday, 10th September, 2026 | Solo | Private booking | Island Tales |
 | Sunday, 23rd August, 2026 | Solo | Beautiful Days 2026 | Luddite tales, et al., Majikal Youth Tent |
