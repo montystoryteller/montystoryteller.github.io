@@ -25,7 +25,7 @@ draft: false
 # Banner
 banner:
   title: 'Tony "Monty" Hirst'
-  content: "Traditional storyteller, based on the Isle of Wight."
+  content: "An Antidote to comedy. Traditional storyteller, based on the Isle of Wight."
   image: "/images/TH_GrahamBrown_2-1200x800.jpg"
   buttons:
     - enable: true
